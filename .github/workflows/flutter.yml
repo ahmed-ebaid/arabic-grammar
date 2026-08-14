@@ -33,5 +33,12 @@ jobs:
       - name: Test
         run: flutter test
 
+      - name: Validate lesson drafts
+        run: dart run tool/validate_content.dart
+
+      - name: Enforce teacher approval for release tags
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: dart run tool/validate_content.dart --release
+
       - name: Build Android debug APK
         run: flutter build apk --debug --dart-define=APP_ENV=production

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "1.0.0-draft.1",
+  "lessons": [
+    {
+      "id": "lesson_01",
+      "order": 1,
+      "title": {
+        "en": "Why endings change",
+        "ar": "لماذا تتغيَّر أواخر الكلمات؟"
+      },
+      "objectives": [
+        {
+          "en": "Notice that a word's final vowel can communicate its job in a sentence.",
+          "ar": "أن تلاحظ أن حركة آخر الكلمة قد تدل على وظيفتها في الجملة."
+        },
+        {
+          "en": "Recognize raf, nasb, jarr, and jazm as four grammatical states.",
+          "ar": "أن تتعرَّف الرفع والنصب والجر والجزم بوصفها حالات إعرابية."
+        }
+      ],
+      "prerequisites": [],
+      "estimatedMinutes": 12,
+      "sections": [
+        {
+          "id": "endings-have-meaning",
+          "type": "introduction",
+          "title": {
+            "en": "Endings carry meaning",
+            "ar": "لأواخر الكلمات معنى"
+          },
+          "body": {
+            "en": "Arabic word endings are not decorative. In many sentences, the final vowel helps show whether a noun is the topic, the subject, the object, or follows a preposition. We will learn these patterns gradually.",
+            "ar": "حركات أواخر الكلمات ليست للزينة. ففي جمل كثيرة تساعد الحركة الأخيرة على بيان وظيفة الاسم: أهو مبتدأ، أم فاعل، أم مفعول به، أم اسم بعد حرف جر؟ وسنتعلَّم هذه الأنماط بالتدرُّج."
+          },
+          "examples": []
+        },
+        {
+          "id": "first-nominal-sentence",
+          "type": "workedExample",
+          "title": {
+            "en": "A first example",
+            "ar": "مثال أول"
+          },
+          "body": {
+            "en": "In this simple nominal sentence, الطالب is the topic and مجتهد tells us something about it. Both are in raf, shown here by damma.",
+            "ar": "في هذه الجملة الاسمية البسيطة، «الطالب» مبتدأ و«مجتهد» خبر عنه. وكلاهما مرفوع، وعلامة الرفع هنا الضمة."
+          },
+          "examples": [
+            {
+              "id": "student-is-diligent",
+              "vocalized": "الطَّالِبُ مُجْتَهِدٌ",
+              "unvocalized": "الطالب مجتهد",
+              "tokens": [
+                {
+                  "text": "الطالب",
+                  "start": 0,
+                  "end": 6,
+                  "role": {
+                    "en": "Topic (mubtada)",
+                    "ar": "مبتدأ"
+                  },
+                  "grammarState": "raf",
+                  "grammaticalSign": {
+                    "en": "Visible damma",
+                    "ar": "الضمة الظاهرة"
+                  },
+                  "ending": "ُ",
+                  "reason": {
+                    "en": "The topic of a basic nominal sentence is normally in raf.",
+                    "ar": "المبتدأ في الجملة الاسمية البسيطة مرفوع."
+                  }
+                },
+                {
+                  "text": "مجتهد",
+                  "start": 7,
+                  "end": 12,
+                  "role": {
+                    "en": "Predicate (khabar)",
+                    "ar": "خبر"
+                  },
+                  "grammarState": "raf",
+                  "grammaticalSign": {
+                    "en": "Visible damma with tanwin",
+                    "ar": "الضمة الظاهرة مع التنوين"
+                  },
+                  "ending": "ٌ",
+                  "reason": {
+                    "en": "The predicate of a basic nominal sentence is normally in raf.",
+                    "ar": "الخبر في الجملة الاسمية البسيطة مرفوع."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-01-ending-01",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Which ending completes الطَّالِب_ in الطَّالِبُ مُجْتَهِدٌ?",
+            "ar": "أيُّ حركة تكمل كلمة «الطَّالِبـ» في جملة «الطَّالِبُ مُجْتَهِدٌ»؟"
+          },
+          "options": [
+            {
+              "id": "damma",
+              "label": {
+                "en": "Damma: ُ",
+                "ar": "الضمة: ُ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. الطالب is the topic, so it is in raf with damma.",
+                "ar": "صحيح. «الطالب» مبتدأ، فهو مرفوع بالضمة."
+              }
+            },
+            {
+              "id": "fatha",
+              "label": {
+                "en": "Fatha: َ",
+                "ar": "الفتحة: َ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Not here. Fatha often marks nasb, but الطالب is the topic in this sentence.",
+                "ar": "ليست هنا. الفتحة كثيرًا ما تكون علامة للنصب، لكن «الطالب» مبتدأ في هذه الجملة."
+              }
+            },
+            {
+              "id": "kasra",
+              "label": {
+                "en": "Kasra: ِ",
+                "ar": "الكسرة: ِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Not here. Kasra often marks jarr, and no preposition or genitive construction governs الطالب.",
+                "ar": "ليست هنا. الكسرة كثيرًا ما تكون علامة للجر، ولا يسبق «الطالب» حرف جر ولا يقع مضافًا إليه."
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ajurrumiyya-original",
+          "title": "Al-Ajurrumiyya",
+          "author": "Ibn Ajurrum",
+          "url": "https://archive.org/details/al_ajurrumiyyah",
+          "licenseStatus": "publicDomain",
+          "citation": "The public-domain classical Arabic text was consulted for the foundational categories of grammatical states."
+        },
+        {
+          "id": "madinah-book-1-concepts",
+          "title": "Madinah Arabic Book 1",
+          "author": "V. Abdur Rahim",
+          "url": null,
+          "licenseStatus": "conceptualReference",
+          "citation": "Only the general beginner progression was consulted. No prose, translation, exercise, or lesson arrangement was copied."
+        },
+        {
+          "id": "arabic-grammar-original-content",
+          "title": "Arabic Grammar original lesson content",
+          "author": "Arabic Grammar project",
+          "url": null,
+          "licenseStatus": "original",
+          "citation": "All explanations, examples, translations, feedback, and exercise wording in this lesson were written for this application."
+        }
+      ],
+      "review": {
+        "status": "pendingReview",
+        "contentVersion": "1.0.0-draft.1",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": "Draft awaiting review by a qualified Arabic grammar teacher. It must not be copied into the release catalog before approval."
+      }
+    }
+  ]
+}

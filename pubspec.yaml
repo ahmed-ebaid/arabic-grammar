@@ -25,6 +25,7 @@ flutter:
   generate: true
   uses-material-design: true
   assets:
+    - assets/content/catalog.json
     - assets/fonts/OFL-Amiri.txt
   fonts:
     - family: AmiriQuran

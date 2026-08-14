@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ahmed-ebaid/arabic-grammar/content/schema/catalog.schema.json",
+  "title": "Arabic Grammar lesson catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "contentVersion", "lessons"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "contentVersion": {"type": "string", "minLength": 1},
+    "lessons": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/lesson"}
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["en", "ar"],
+      "properties": {
+        "en": {"type": "string", "minLength": 1},
+        "ar": {"type": "string", "minLength": 1}
+      }
+    },
+    "lesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "title",
+        "objectives",
+        "prerequisites",
+        "estimatedMinutes",
+        "sections",
+        "exercises",
+        "sources",
+        "review"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^lesson_[0-9]{2}$"},
+        "order": {"type": "integer", "minimum": 1},
+        "title": {"$ref": "#/$defs/localizedText"},
+        "objectives": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/localizedText"}
+        },
+        "prerequisites": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        },
+        "estimatedMinutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60
+        },
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/section"}
+        },
+        "exercises": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/exercise"}
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/source"}
+        },
+        "review": {"$ref": "#/$defs/review"}
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "title", "body", "examples"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": [
+            "introduction",
+            "workedExample",
+            "ruleSummary",
+            "checkpoint"
+          ]
+        },
+        "title": {"$ref": "#/$defs/localizedText"},
+        "body": {"$ref": "#/$defs/localizedText"},
+        "examples": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/example"}
+        }
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "vocalized", "unvocalized", "tokens"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "vocalized": {"type": "string", "minLength": 1},
+        "unvocalized": {"type": "string", "minLength": 1},
+        "tokens": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/token"}
+        }
+      }
+    },
+    "token": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "start",
+        "end",
+        "role",
+        "grammarState",
+        "grammaticalSign",
+        "ending",
+        "reason"
+      ],
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
+        "start": {"type": "integer", "minimum": 0},
+        "end": {"type": "integer", "minimum": 1},
+        "role": {"$ref": "#/$defs/localizedText"},
+        "grammarState": {
+          "enum": ["raf", "nasb", "jarr", "jazm", "indeclinable"]
+        },
+        "grammaticalSign": {"$ref": "#/$defs/localizedText"},
+        "ending": {"type": "string", "minLength": 1},
+        "reason": {"$ref": "#/$defs/localizedText"}
+      }
+    },
+    "exercise": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "prompt", "options"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "type": {
+          "enum": [
+            "chooseEnding",
+            "identifyRole",
+            "identifyState",
+            "matchRule",
+            "addTashkeel"
+          ]
+        },
+        "prompt": {"$ref": "#/$defs/localizedText"},
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/option"}
+        }
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "isCorrect", "feedback"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "label": {"$ref": "#/$defs/localizedText"},
+        "isCorrect": {"type": "boolean"},
+        "feedback": {"$ref": "#/$defs/localizedText"}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "author",
+        "url",
+        "licenseStatus",
+        "citation"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "author": {"type": "string", "minLength": 1},
+        "url": {
+          "oneOf": [
+            {"type": "string", "format": "uri"},
+            {"type": "null"}
+          ]
+        },
+        "licenseStatus": {
+          "enum": [
+            "publicDomain",
+            "licensed",
+            "conceptualReference",
+            "original"
+          ]
+        },
+        "citation": {"type": "string", "minLength": 1}
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "contentVersion",
+        "reviewer",
+        "reviewedAt",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["draft", "pendingReview", "approved", "rejected"]
+        },
+        "contentVersion": {"type": "string", "minLength": 1},
+        "reviewer": {
+          "oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]
+        },
+        "reviewedAt": {
+          "oneOf": [
+            {"type": "string", "format": "date-time"},
+            {"type": "null"}
+          ]
+        },
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
