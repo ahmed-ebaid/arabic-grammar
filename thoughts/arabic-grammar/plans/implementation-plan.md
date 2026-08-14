@@ -164,6 +164,15 @@ objectives and must link every technical term to a plain-language explanation.
 
 ## Phase 0: Repository and Product Foundation
 
+### Implementation Progress
+
+- [x] Flutter repository and iOS/Android targets scaffolded
+- [x] Feature-first bilingual application shell implemented
+- [x] Local settings storage, themes, environment handling, and CI added
+- [x] Analyzer, tests, and iOS simulator build completed
+- [ ] Android build confirmed in CI or an environment with the Android SDK
+- [ ] Manual application-shell verification
+
 ### Changes Required
 
 - Initialize `arabic-grammar` as a standalone Git repository on `main`.
@@ -447,4 +456,3 @@ explanation style, and canonical grammar model.
   https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization
 - Unicode Arabic character guidance:
   https://www.unicode.org/versions/latest/
-
