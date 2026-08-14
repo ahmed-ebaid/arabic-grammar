@@ -14,7 +14,8 @@ knowledge of grammatical terminology.
 
 ## Confirmed Product Decisions
 
-- Repository and app working name: `arabic-grammar`
+- Repository name: `arabic-grammar`
+- Public app name: `إعراب` in both interface languages
 - Platforms: iOS and Android
 - Client stack: Flutter, following the useful patterns in `tajweed_app`
 - MVP audience: beginners who can read Arabic letters
@@ -199,6 +200,17 @@ objectives and must link every technical term to a plain-language explanation.
 shell before curriculum work.
 
 ## Phase 1: Content System and Review Workflow
+
+### Implementation Progress
+
+- [x] Typed bilingual content models and versioned JSON schema added
+- [x] Strict structural, cross-reference, token-span, answer, and provenance
+      validation added
+- [x] Release gate rejects unapproved lessons and incomplete reviewer metadata
+- [x] Authoring guide and teacher review checklist added
+- [x] Original bilingual lesson 1 draft prepared and structurally validated
+- [ ] Qualified Arabic grammar teacher reviews and approves lesson 1
+- [ ] Approved lesson 1 is promoted into the bundled release catalog
 
 ### Changes Required
 

@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:
-  /// **'Arabic Grammar'**
+  /// **'إعراب'**
   String get appName;
 
   /// No description provided for @homeTab.

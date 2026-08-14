@@ -1,4 +1,4 @@
-# Arabic Grammar
+# إعراب
 
 A bilingual Flutter application that teaches beginners why Arabic word endings
 change and how to read unvocalized Arabic more accurately.
@@ -30,8 +30,15 @@ Supported `APP_ENV` values are `development`, `staging`, and `production`.
 dart format --output=none --set-exit-if-changed lib test
 flutter analyze
 flutter test
+dart run tool/validate_content.dart
 flutter build apk --debug --dart-define=APP_ENV=production
 flutter build ios --debug --simulator --dart-define=APP_ENV=production
+```
+
+Before a tagged release, teacher approval is enforced with:
+
+```bash
+dart run tool/validate_content.dart --release
 ```
 
 ## Project Structure
@@ -46,6 +53,9 @@ lib/
 
 The implementation plan is at
 `thoughts/arabic-grammar/plans/implementation-plan.md`.
+
+Lesson authors should follow `docs/content-authoring.md`. Qualified Arabic
+grammar reviewers should use `docs/teacher-review-checklist.md`.
 
 ## Font License
 
