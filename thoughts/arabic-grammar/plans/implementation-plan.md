@@ -171,7 +171,7 @@ objectives and must link every technical term to a plain-language explanation.
 - [x] Local settings storage, themes, environment handling, and CI added
 - [x] Analyzer, tests, and iOS simulator build completed
 - [x] Android build confirmed in CI or an environment with the Android SDK
-- [ ] Manual application-shell verification
+- [x] Manual application-shell verification
 
 ### Changes Required
 
