@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/arabic_text.dart';
 
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
+    final learningColors = Theme.of(context).extension<LearningColors>()!;
 
     return SafeArea(
       child: ListView(
@@ -22,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           Text(l10n.welcomeBody, style: textTheme.bodyLarge),
           const SizedBox(height: 24),
           Card(
+            color: learningColors.sunshineContainer,
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -30,7 +33,8 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     l10n.exampleLabel,
                     style: textTheme.labelLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: learningColors.onSunshineContainer,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   const SizedBox(height: 12),

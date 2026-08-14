@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 
 class ProgressScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class ProgressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final learningColors = Theme.of(context).extension<LearningColors>()!;
 
     return Center(
       child: Padding(
@@ -15,7 +17,11 @@ class ProgressScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.insights_outlined, size: 48),
+            Icon(
+              Icons.insights_outlined,
+              size: 48,
+              color: learningColors.onSunshineContainer,
+            ),
             const SizedBox(height: 16),
             Text(
               l10n.progressTitle,
