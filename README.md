@@ -41,6 +41,17 @@ Before a tagged release, teacher approval is enforced with:
 dart run tool/validate_content.dart --release
 ```
 
+Create an App Store archive with:
+
+```bash
+flutter build ipa --release \
+  --dart-define=APP_ENV=production \
+  --export-options-plist=ios/ExportOptions.plist
+```
+
+The current beta version is `0.1.0+1`. App Store Connect metadata and the
+external-beta release gate are documented in `docs/app-store-connect.md`.
+
 ## Project Structure
 
 ```text
