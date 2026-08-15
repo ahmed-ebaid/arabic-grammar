@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `1`
+- Build: `2`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -94,8 +94,8 @@ feature.
 ## TestFlight information
 
 - Beta app description: Learn Arabic grammar and word endings through a
-  bilingual, offline-first curriculum. This early beta focuses on the
-  application foundation and reviewed learning experience.
+  bilingual, offline-first curriculum. This beta includes the first lesson,
+  worked examples, word-level grammar analysis, and a practice question.
 - Feedback email: `ahmed@ebaidllc.com`
 - Review contact:
   - First name: Ahmed
@@ -104,8 +104,7 @@ feature.
   - Email: `ahmed@ebaidllc.com`
 - Sign-in required: No
 - Review notes: No account is required. All current functionality is available
-  offline. The external beta must remain on hold until lesson 1 has qualified
-  Arabic grammar teacher approval and is promoted into the release catalog.
+  offline. Open Lessons and select "Why endings change" to review lesson 1.
 
 ## Release gate
 

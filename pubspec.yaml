@@ -1,7 +1,7 @@
 name: arabic_grammar
 description: A bilingual Arabic grammar learning app.
 publish_to: none
-version: 0.1.0+1
+version: 0.1.0+2
 
 environment:
   sdk: ^3.12.2
@@ -27,6 +27,7 @@ flutter:
   assets:
     - assets/content/catalog.json
     - assets/fonts/OFL-Amiri.txt
+    - content/drafts/lesson_01.json
   fonts:
     - family: AmiriQuran
       fonts:

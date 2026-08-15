@@ -53,6 +53,49 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comingSoon => 'Curriculum content is coming in the next phase.';
 
   @override
+  String lessonNumber(int number) {
+    return 'Lesson $number';
+  }
+
+  @override
+  String estimatedMinutes(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String get objectivesTitle => 'What you will learn';
+
+  @override
+  String get vocalizedLabel => 'With vowel marks';
+
+  @override
+  String get unvocalizedLabel => 'Without vowel marks';
+
+  @override
+  String get wordAnalysisTitle => 'Word analysis';
+
+  @override
+  String get roleLabel => 'Role';
+
+  @override
+  String get stateLabel => 'State';
+
+  @override
+  String get signLabel => 'Sign';
+
+  @override
+  String get endingLabel => 'Ending';
+
+  @override
+  String get reasonLabel => 'Why';
+
+  @override
+  String get lessonPracticeTitle => 'Try it';
+
+  @override
+  String get contentLoadError => 'The lesson could not be loaded.';
+
+  @override
   String get practiceTitle => 'Practice';
 
   @override

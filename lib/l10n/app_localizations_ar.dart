@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'النحو العربي';
+  String get appName => 'إعراب';
 
   @override
   String get homeTab => 'الرئيسية';
@@ -51,6 +51,49 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get comingSoon => 'سيُضاف محتوى المنهج في المرحلة التالية.';
+
+  @override
+  String lessonNumber(int number) {
+    return 'الدرس $number';
+  }
+
+  @override
+  String estimatedMinutes(int minutes) {
+    return '$minutes دقيقة';
+  }
+
+  @override
+  String get objectivesTitle => 'ماذا ستتعلَّم؟';
+
+  @override
+  String get vocalizedLabel => 'بالحركات';
+
+  @override
+  String get unvocalizedLabel => 'دون حركات';
+
+  @override
+  String get wordAnalysisTitle => 'تحليل الكلمات';
+
+  @override
+  String get roleLabel => 'الوظيفة';
+
+  @override
+  String get stateLabel => 'الحالة';
+
+  @override
+  String get signLabel => 'العلامة';
+
+  @override
+  String get endingLabel => 'حركة الآخر';
+
+  @override
+  String get reasonLabel => 'السبب';
+
+  @override
+  String get lessonPracticeTitle => 'جرِّب';
+
+  @override
+  String get contentLoadError => 'تعذَّر تحميل الدرس.';
 
   @override
   String get practiceTitle => 'التدريب';
