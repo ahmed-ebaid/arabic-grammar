@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:arabic_grammar/app.dart';
 import 'package:arabic_grammar/core/config/app_environment.dart';
 import 'package:arabic_grammar/core/localization/locale_controller.dart';
+import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -41,11 +45,12 @@ void main() {
     );
   });
 
-  testWidgets('opens the lesson placeholder from home', (tester) async {
+  testWidgets('opens lesson 1 from home', (tester) async {
     await tester.pumpWidget(
       ArabicGrammarApp(
         environment: const AppEnvironment(AppFlavor.production),
         localeController: LocaleController.inMemory(),
+        contentCatalog: _draftCatalog(),
       ),
     );
 
@@ -53,6 +58,17 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Beginner foundations'), findsOneWidget);
-    expect(find.textContaining('Curriculum content'), findsOneWidget);
+    expect(find.text('Why endings change'), findsOneWidget);
+
+    await tester.tap(find.text('Why endings change'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('What you will learn'), findsOneWidget);
+    expect(find.text('Endings carry meaning'), findsOneWidget);
   });
+}
+
+ContentCatalog _draftCatalog() {
+  final source = File('content/drafts/lesson_01.json').readAsStringSync();
+  return ContentCatalog.fromJson(jsonDecode(source));
 }

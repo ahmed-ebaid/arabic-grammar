@@ -1,6 +1,6 @@
 {
   "@@locale": "ar",
-  "appName": "النحو العربي",
+  "appName": "إعراب",
   "homeTab": "الرئيسية",
   "lessonsTab": "الدروس",
   "practiceTab": "التدريب",
@@ -14,6 +14,33 @@
   "moduleTitle": "أساسيات المبتدئين",
   "moduleSubtitle": "١٠ دروس إرشادية",
   "comingSoon": "سيُضاف محتوى المنهج في المرحلة التالية.",
+  "lessonNumber": "الدرس {number}",
+  "@lessonNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "estimatedMinutes": "{minutes} دقيقة",
+  "@estimatedMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "objectivesTitle": "ماذا ستتعلَّم؟",
+  "vocalizedLabel": "بالحركات",
+  "unvocalizedLabel": "دون حركات",
+  "wordAnalysisTitle": "تحليل الكلمات",
+  "roleLabel": "الوظيفة",
+  "stateLabel": "الحالة",
+  "signLabel": "العلامة",
+  "endingLabel": "حركة الآخر",
+  "reasonLabel": "السبب",
+  "lessonPracticeTitle": "جرِّب",
+  "contentLoadError": "تعذَّر تحميل الدرس.",
   "practiceTitle": "التدريب",
   "practiceSubtitle": "ستُفتح التدريبات مع كل درس.",
   "progressTitle": "تقدُّمك",

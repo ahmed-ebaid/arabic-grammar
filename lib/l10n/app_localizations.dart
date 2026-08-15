@@ -182,6 +182,84 @@ abstract class AppLocalizations {
   /// **'Curriculum content is coming in the next phase.'**
   String get comingSoon;
 
+  /// No description provided for @lessonNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson {number}'**
+  String lessonNumber(int number);
+
+  /// No description provided for @estimatedMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String estimatedMinutes(int minutes);
+
+  /// No description provided for @objectivesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What you will learn'**
+  String get objectivesTitle;
+
+  /// No description provided for @vocalizedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'With vowel marks'**
+  String get vocalizedLabel;
+
+  /// No description provided for @unvocalizedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Without vowel marks'**
+  String get unvocalizedLabel;
+
+  /// No description provided for @wordAnalysisTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Word analysis'**
+  String get wordAnalysisTitle;
+
+  /// No description provided for @roleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get roleLabel;
+
+  /// No description provided for @stateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get stateLabel;
+
+  /// No description provided for @signLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign'**
+  String get signLabel;
+
+  /// No description provided for @endingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Ending'**
+  String get endingLabel;
+
+  /// No description provided for @reasonLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Why'**
+  String get reasonLabel;
+
+  /// No description provided for @lessonPracticeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Try it'**
+  String get lessonPracticeTitle;
+
+  /// No description provided for @contentLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'The lesson could not be loaded.'**
+  String get contentLoadError;
+
   /// No description provided for @practiceTitle.
   ///
   /// In en, this message translates to:

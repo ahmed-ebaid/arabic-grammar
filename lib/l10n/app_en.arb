@@ -14,6 +14,33 @@
   "moduleTitle": "Beginner foundations",
   "moduleSubtitle": "10 guided lessons",
   "comingSoon": "Curriculum content is coming in the next phase.",
+  "lessonNumber": "Lesson {number}",
+  "@lessonNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "estimatedMinutes": "{minutes} min",
+  "@estimatedMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "objectivesTitle": "What you will learn",
+  "vocalizedLabel": "With vowel marks",
+  "unvocalizedLabel": "Without vowel marks",
+  "wordAnalysisTitle": "Word analysis",
+  "roleLabel": "Role",
+  "stateLabel": "State",
+  "signLabel": "Sign",
+  "endingLabel": "Ending",
+  "reasonLabel": "Why",
+  "lessonPracticeTitle": "Try it",
+  "contentLoadError": "The lesson could not be loaded.",
   "practiceTitle": "Practice",
   "practiceSubtitle": "Exercises will unlock with each lesson.",
   "progressTitle": "Your progress",
