@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ebaid.arabicgrammar"
+    namespace = "com.ebaidllc.arabicgrammar"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.ebaid.arabicgrammar"
+        applicationId = "com.ebaidllc.arabicgrammar"
         minSdk = 24
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

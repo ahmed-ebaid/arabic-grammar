@@ -3,8 +3,8 @@
 ## App record
 
 - Name: `إعراب`
-- Bundle ID: `com.ebaid.arabicgrammar`
-- SKU: `i3rab-ios`
+- Bundle ID: `com.ebaidllc.arabicgrammar`
+- SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
 - Build: `1`
