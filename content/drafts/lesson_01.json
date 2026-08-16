@@ -141,6 +141,62 @@
               }
             }
           ]
+        },
+        {
+          "id": "lesson-01-state-02",
+          "type": "identifyState",
+          "prompt": {
+            "en": "What is the grammatical state of الطالبُ in this sentence?",
+            "ar": "ما الحالة الإعرابية لكلمة «الطالبُ» في هذه الجملة؟"
+          },
+          "options": [
+            {
+              "id": "raf",
+              "label": {"en": "Raf (رفع)", "ar": "الرفع"},
+              "isCorrect": true,
+              "feedback": {"en": "Correct. The topic is normally in raf.", "ar": "صحيح. المبتدأ مرفوع في الأصل."}
+            },
+            {
+              "id": "nasb",
+              "label": {"en": "Nasb (نصب)", "ar": "النصب"},
+              "isCorrect": false,
+              "feedback": {"en": "Not here. الطالب is the topic, not an object.", "ar": "ليس هنا. «الطالب» مبتدأ وليس مفعولًا به."}
+            },
+            {
+              "id": "jarr",
+              "label": {"en": "Jarr (جر)", "ar": "الجر"},
+              "isCorrect": false,
+              "feedback": {"en": "Not here. No preposition governs الطالب.", "ar": "ليس هنا. لا يسبق «الطالب» حرف جر."}
+            }
+          ]
+        },
+        {
+          "id": "lesson-01-role-03",
+          "type": "identifyRole",
+          "prompt": {
+            "en": "What job does مجتهدٌ have in الطالبُ مجتهدٌ?",
+            "ar": "ما وظيفة «مجتهدٌ» في جملة «الطالبُ مجتهدٌ»؟"
+          },
+          "options": [
+            {
+              "id": "predicate",
+              "label": {"en": "Predicate (khabar)", "ar": "خبر"},
+              "isCorrect": true,
+              "feedback": {"en": "Correct. It tells us something about the topic.", "ar": "صحيح. فهو يخبرنا عن المبتدأ."}
+            },
+            {
+              "id": "object",
+              "label": {"en": "Object", "ar": "مفعول به"},
+              "isCorrect": false,
+              "feedback": {"en": "No. This sentence has no action receiving an object.", "ar": "لا. لا يوجد في هذه الجملة فعل يقع على مفعول به."}
+            },
+            {
+              "id": "preposition",
+              "label": {"en": "Preposition", "ar": "حرف جر"},
+              "isCorrect": false,
+              "feedback": {"en": "No. مجتهد is a noun describing the topic.", "ar": "لا. «مجتهد» اسم يخبر عن المبتدأ."}
+            }
+          ]
         }
       ],
       "sources": [
@@ -176,6 +232,224 @@
         "reviewedAt": null,
         "notes": "Draft awaiting review by a qualified Arabic grammar teacher. It must not be copied into the release catalog before approval."
       }
+    },
+    {
+      "id": "lesson_02",
+      "order": 2,
+      "title": {"en": "Noun, verb, or particle?", "ar": "اسم أم فعل أم حرف؟"},
+      "objectives": [
+        {"en": "Sort common Arabic words into nouns, verbs, and particles.", "ar": "أن تميّز الاسم والفعل والحرف في كلمات عربية شائعة."},
+        {"en": "Use a word's kind to begin predicting its role and ending.", "ar": "أن تستعين بنوع الكلمة لتبدأ توقّع وظيفتها وحركة آخرها."}
+      ],
+      "prerequisites": ["lesson_01"],
+      "estimatedMinutes": 8,
+      "sections": [
+        {
+          "id": "three-word-kinds",
+          "type": "introduction",
+          "title": {"en": "Three kinds of words", "ar": "أقسام الكلمة ثلاثة"},
+          "body": {
+            "en": "A noun names a person, place, thing, or idea. A verb carries an action with time. A particle connects meanings, such as في (in). Recognizing the kind narrows the possible reading.",
+            "ar": "الاسم يدل على إنسان أو مكان أو شيء أو معنى، والفعل يدل على حدث وزمن، والحرف يربط المعاني مثل «في». ومعرفة نوع الكلمة تضيق احتمالات قراءتها."
+          },
+          "examples": []
+        },
+        {
+          "id": "sentence-word-kinds",
+          "type": "workedExample",
+          "title": {"en": "Find each kind", "ar": "ابحث عن كل قسم"},
+          "body": {
+            "en": "In كَتَبَ الطَّالِبُ الدَّرْسَ, كتب is a past-tense verb. الطالب and الدرس are nouns. The noun after the verb performs the action, while the final noun receives it.",
+            "ar": "في «كَتَبَ الطَّالِبُ الدَّرْسَ»، «كتب» فعل ماضٍ، و«الطالب» و«الدرس» اسمان. الاسم بعد الفعل قام بالحدث، والاسم الأخير وقع عليه الحدث."
+          },
+          "examples": [
+            {
+              "id": "student-wrote-lesson",
+              "vocalized": "كَتَبَ الطَّالِبُ الدَّرْسَ",
+              "unvocalized": "كتب الطالب الدرس",
+              "tokens": [
+                {
+                  "text": "كتب", "start": 0, "end": 3,
+                  "role": {"en": "Past-tense verb", "ar": "فعل ماضٍ"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Built on fatha", "ar": "مبني على الفتح"},
+                  "ending": "َ",
+                  "reason": {"en": "A regular past-tense verb is built on fatha here.", "ar": "الفعل الماضي هنا مبني على الفتح."}
+                },
+                {
+                  "text": "الطالب", "start": 4, "end": 10,
+                  "role": {"en": "Subject noun", "ar": "فاعل"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The subject is in raf.", "ar": "الفاعل مرفوع."}
+                },
+                {
+                  "text": "الدرس", "start": 11, "end": 16,
+                  "role": {"en": "Object noun", "ar": "مفعول به"},
+                  "grammarState": "nasb",
+                  "grammaticalSign": {"en": "Visible fatha", "ar": "الفتحة الظاهرة"},
+                  "ending": "َ",
+                  "reason": {"en": "The object is in nasb.", "ar": "المفعول به منصوب."}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "particle-clue",
+          "type": "ruleSummary",
+          "title": {"en": "A useful clue", "ar": "علامة نافعة"},
+          "body": {
+            "en": "A preposition such as في is a particle. The noun after it is in jarr: في البيتِ. This pattern will help you choose kasra even when it is not written.",
+            "ar": "حرف الجر مثل «في» حرف، والاسم بعده مجرور: «في البيتِ». سيساعدك هذا النمط على اختيار الكسرة ولو لم تكن مكتوبة."
+          },
+          "examples": []
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-02-kind-01", "type": "matchRule",
+          "prompt": {"en": "What kind of word is كتب in كتب الطالب الدرس?", "ar": "ما نوع كلمة «كتب» في «كتب الطالب الدرس»؟"},
+          "options": [
+            {"id": "verb", "label": {"en": "Verb", "ar": "فعل"}, "isCorrect": true, "feedback": {"en": "Correct. It expresses the action of writing in past time.", "ar": "صحيح. فهي تدل على حدث الكتابة في الزمن الماضي."}},
+            {"id": "noun", "label": {"en": "Noun", "ar": "اسم"}, "isCorrect": false, "feedback": {"en": "Try again. كتب carries an action and time.", "ar": "حاول مرة أخرى. «كتب» تدل على حدث وزمن."}},
+            {"id": "particle", "label": {"en": "Particle", "ar": "حرف"}, "isCorrect": false, "feedback": {"en": "Try again. It does more than connect meanings; it states an action.", "ar": "حاول مرة أخرى. فهي لا تربط المعاني فقط، بل تدل على حدث."}}
+          ]
+        },
+        {
+          "id": "lesson-02-kind-02", "type": "matchRule",
+          "prompt": {"en": "Which word is a particle?", "ar": "أي كلمة حرف؟"},
+          "options": [
+            {"id": "fi", "label": {"en": "في (in)", "ar": "في"}, "isCorrect": true, "feedback": {"en": "Correct. في is a preposition.", "ar": "صحيح. «في» حرف جر."}},
+            {"id": "bayt", "label": {"en": "بيت (house)", "ar": "بيت"}, "isCorrect": false, "feedback": {"en": "بيت names a thing, so it is a noun.", "ar": "«بيت» يدل على شيء، فهو اسم."}},
+            {"id": "qaraa", "label": {"en": "قرأ (read)", "ar": "قرأ"}, "isCorrect": false, "feedback": {"en": "قرأ expresses a past action, so it is a verb.", "ar": "«قرأ» يدل على حدث ماضٍ، فهو فعل."}}
+          ]
+        },
+        {
+          "id": "lesson-02-role-03", "type": "identifyRole",
+          "prompt": {"en": "In كتب الطالب الدرس, which word performs the action?", "ar": "في «كتب الطالب الدرس»، أي كلمة قامت بالفعل؟"},
+          "options": [
+            {"id": "student", "label": {"en": "الطالب", "ar": "الطالب"}, "isCorrect": true, "feedback": {"en": "Correct. الطالب is the subject.", "ar": "صحيح. «الطالب» هو الفاعل."}},
+            {"id": "wrote", "label": {"en": "كتب", "ar": "كتب"}, "isCorrect": false, "feedback": {"en": "كتب is the action, not the person doing it.", "ar": "«كتب» هو الحدث وليس من قام به."}},
+            {"id": "lesson", "label": {"en": "الدرس", "ar": "الدرس"}, "isCorrect": false, "feedback": {"en": "الدرس receives the action; it is the object.", "ar": "وقع الفعل على «الدرس»، فهو المفعول به."}}
+          ]
+        },
+        {
+          "id": "lesson-02-ending-04", "type": "chooseEnding",
+          "prompt": {"en": "Choose the ending for البيت_ after في.", "ar": "اختر حركة آخر «البيتـ» بعد «في»."},
+          "options": [
+            {"id": "kasra", "label": {"en": "Kasra: ِ", "ar": "الكسرة: ِ"}, "isCorrect": true, "feedback": {"en": "Correct. A noun after a preposition is in jarr.", "ar": "صحيح. الاسم بعد حرف الجر مجرور."}},
+            {"id": "damma", "label": {"en": "Damma: ُ", "ar": "الضمة: ُ"}, "isCorrect": false, "feedback": {"en": "Not here. في makes the noun after it jarr.", "ar": "ليست هنا. «في» تجر الاسم بعدها."}},
+            {"id": "fatha", "label": {"en": "Fatha: َ", "ar": "الفتحة: َ"}, "isCorrect": false, "feedback": {"en": "Not here. Look for the preposition clue.", "ar": "ليست هنا. انتبه إلى حرف الجر."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for the traditional categories of noun, verb, and particle."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.0.0-draft.2", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_03",
+      "order": 3,
+      "title": {"en": "The nominal sentence", "ar": "الجملة الاسمية"},
+      "objectives": [
+        {"en": "Identify the topic (mubtada) and predicate (khabar).", "ar": "أن تميّز المبتدأ والخبر."},
+        {"en": "Read both with raf in a basic nominal sentence.", "ar": "أن تقرأ المبتدأ والخبر مرفوعين في الجملة الاسمية البسيطة."}
+      ],
+      "prerequisites": ["lesson_02"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "sentence-starts-with-noun",
+          "type": "introduction",
+          "title": {"en": "Start with a noun", "ar": "ابدأ باسم"},
+          "body": {
+            "en": "A basic nominal sentence begins with a noun: the topic (mubtada). The predicate (khabar) completes the meaning. Both are normally in raf.",
+            "ar": "تبدأ الجملة الاسمية البسيطة باسم هو المبتدأ، ويأتي الخبر ليتم المعنى. والأصل أن يكونا مرفوعين."
+          },
+          "examples": []
+        },
+        {
+          "id": "knowledge-is-light",
+          "type": "workedExample",
+          "title": {"en": "Read by structure", "ar": "اقرأ بالتركيب"},
+          "body": {
+            "en": "In العِلْمُ نُورٌ, العلم is what we are talking about and نور tells us about it. The structure predicts damma on both words. Now try seeing the same sentence without tashkeel: العلم نور.",
+            "ar": "في «العِلْمُ نُورٌ»، «العلم» هو المتحدَّث عنه، و«نور» يخبر عنه. يدل التركيب على الضمة في آخر الكلمتين. والآن انظر إلى الجملة نفسها بلا تشكيل: «العلم نور»."
+          },
+          "examples": [
+            {
+              "id": "knowledge-is-light-example",
+              "vocalized": "العِلْمُ نُورٌ",
+              "unvocalized": "العلم نور",
+              "tokens": [
+                {
+                  "text": "العلم", "start": 0, "end": 5,
+                  "role": {"en": "Topic (mubtada)", "ar": "مبتدأ"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The topic is normally in raf.", "ar": "المبتدأ مرفوع في الأصل."}
+                },
+                {
+                  "text": "نور", "start": 6, "end": 9,
+                  "role": {"en": "Predicate (khabar)", "ar": "خبر"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma with tanwin", "ar": "الضمة الظاهرة مع التنوين"},
+                  "ending": "ٌ",
+                  "reason": {"en": "The predicate is normally in raf.", "ar": "الخبر مرفوع في الأصل."}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-03-role-01", "type": "identifyRole",
+          "prompt": {"en": "What is the topic in العلم نور?", "ar": "ما المبتدأ في «العلم نور»؟"},
+          "options": [
+            {"id": "knowledge", "label": {"en": "العلم", "ar": "العلم"}, "isCorrect": true, "feedback": {"en": "Correct. It begins the sentence and is what we discuss.", "ar": "صحيح. بدأت به الجملة وهو المتحدَّث عنه."}},
+            {"id": "light", "label": {"en": "نور", "ar": "نور"}, "isCorrect": false, "feedback": {"en": "نور tells us about the topic, so it is the predicate.", "ar": "«نور» يخبر عن المبتدأ، فهو الخبر."}},
+            {"id": "none", "label": {"en": "There is no topic", "ar": "لا يوجد مبتدأ"}, "isCorrect": false, "feedback": {"en": "This is a nominal sentence, so look at its first noun.", "ar": "هذه جملة اسمية؛ فانظر إلى اسمها الأول."}}
+          ]
+        },
+        {
+          "id": "lesson-03-role-02", "type": "identifyRole",
+          "prompt": {"en": "What is the predicate in البيت واسع?", "ar": "ما الخبر في «البيت واسع»؟"},
+          "options": [
+            {"id": "spacious", "label": {"en": "واسع", "ar": "واسع"}, "isCorrect": true, "feedback": {"en": "Correct. واسع tells us about البيت.", "ar": "صحيح. «واسع» يخبر عن «البيت»."}},
+            {"id": "house", "label": {"en": "البيت", "ar": "البيت"}, "isCorrect": false, "feedback": {"en": "البيت is the topic at the start.", "ar": "«البيت» هو المبتدأ في أول الجملة."}},
+            {"id": "both", "label": {"en": "Both words", "ar": "الكلمتان معًا"}, "isCorrect": false, "feedback": {"en": "Each word has a different job: topic, then predicate.", "ar": "لكل كلمة وظيفة مختلفة: مبتدأ ثم خبر."}}
+          ]
+        },
+        {
+          "id": "lesson-03-state-03", "type": "identifyState",
+          "prompt": {"en": "What state do the topic and predicate normally share?", "ar": "ما الحالة التي يشترك فيها المبتدأ والخبر في الأصل؟"},
+          "options": [
+            {"id": "raf", "label": {"en": "Raf (رفع)", "ar": "الرفع"}, "isCorrect": true, "feedback": {"en": "Correct. Both are normally in raf.", "ar": "صحيح. كلاهما مرفوع في الأصل."}},
+            {"id": "nasb", "label": {"en": "Nasb (نصب)", "ar": "النصب"}, "isCorrect": false, "feedback": {"en": "Not in the basic pattern. Both begin in raf.", "ar": "ليس في الأصل البسيط؛ فكلاهما مرفوع."}},
+            {"id": "jarr", "label": {"en": "Jarr (جر)", "ar": "الجر"}, "isCorrect": false, "feedback": {"en": "Jarr needs a governing cause such as a preposition.", "ar": "الجر يحتاج إلى سبب مثل حرف الجر."}}
+          ]
+        },
+        {
+          "id": "lesson-03-ending-04", "type": "chooseEnding",
+          "prompt": {"en": "Read without tashkeel: العلم نور. Which ending belongs on نور_?", "ar": "اقرأ بلا تشكيل: «العلم نور». ما حركة آخر «نور»؟"},
+          "options": [
+            {"id": "damma", "label": {"en": "Damma/tanwin damm: ٌ", "ar": "الضمة مع التنوين: ٌ"}, "isCorrect": true, "feedback": {"en": "Correct. نور is the predicate and is in raf.", "ar": "صحيح. «نور» خبر مرفوع."}},
+            {"id": "fatha", "label": {"en": "Fatha: َ", "ar": "الفتحة: َ"}, "isCorrect": false, "feedback": {"en": "Look at the sentence structure: نور is a predicate, not an object.", "ar": "انظر إلى تركيب الجملة: «نور» خبر وليس مفعولًا به."}},
+            {"id": "kasra", "label": {"en": "Kasra: ِ", "ar": "الكسرة: ِ"}, "isCorrect": false, "feedback": {"en": "No preposition or genitive construction governs نور.", "ar": "لا يسبق «نور» حرف جر ولا يقع مضافًا إليه."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for the foundational nominal-sentence rule."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.0.0-draft.2", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
     }
   ]
 }
