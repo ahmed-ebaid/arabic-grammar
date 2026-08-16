@@ -260,6 +260,90 @@ abstract class AppLocalizations {
   /// **'The lesson could not be loaded.'**
   String get contentLoadError;
 
+  /// No description provided for @continueLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueLabel;
+
+  /// No description provided for @checkAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Check answer'**
+  String get checkAnswer;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get tryAgain;
+
+  /// No description provided for @quickCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick check'**
+  String get quickCheckTitle;
+
+  /// No description provided for @chooseTopicPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Which word is the topic (mubtada)?'**
+  String get chooseTopicPrompt;
+
+  /// No description provided for @correctAnswerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct!'**
+  String get correctAnswerTitle;
+
+  /// No description provided for @incorrectAnswerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Not quite yet'**
+  String get incorrectAnswerTitle;
+
+  /// No description provided for @exploreWordsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore the sentence'**
+  String get exploreWordsTitle;
+
+  /// No description provided for @exploreWordsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap each word to see its role, state, sign, ending, and reason.'**
+  String get exploreWordsBody;
+
+  /// No description provided for @lessonCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lesson complete!'**
+  String get lessonCompleteTitle;
+
+  /// No description provided for @lessonCompleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You noticed how word endings can reveal a word\'s job in a sentence.'**
+  String get lessonCompleteBody;
+
+  /// No description provided for @restartLesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice again'**
+  String get restartLesson;
+
+  /// No description provided for @returnToLessons.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to lessons'**
+  String get returnToLessons;
+
+  /// No description provided for @stepProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {current} of {total}'**
+  String stepProgress(int current, int total);
+
   /// No description provided for @practiceTitle.
   ///
   /// In en, this message translates to:

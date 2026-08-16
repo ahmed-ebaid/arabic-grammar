@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/models/content_models.dart';
+import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import 'lesson_detail_screen.dart';
 
 class LessonsScreen extends StatefulWidget {
-  const LessonsScreen({this.contentCatalog, super.key});
+  const LessonsScreen({
+    required this.progressController,
+    this.contentCatalog,
+    super.key,
+  });
 
   final ContentCatalog? contentCatalog;
+  final LessonProgressController progressController;
 
   @override
   State<LessonsScreen> createState() => _LessonsScreenState();
@@ -44,55 +50,63 @@ class _LessonsScreenState extends State<LessonsScreen> {
         }
 
         final lessons = snapshot.data!.lessons;
-        return ListView(
-          padding: const EdgeInsets.all(20),
-          children: [
-            Card(
-              color: learningColors.coralContainer,
-              child: ListTile(
-                contentPadding: const EdgeInsets.all(20),
-                leading: Icon(
-                  Icons.school_outlined,
-                  size: 36,
-                  color: learningColors.onCoralContainer,
-                ),
-                title: Text(l10n.moduleTitle),
-                subtitle: Text(l10n.moduleSubtitle),
-              ),
-            ),
-            const SizedBox(height: 16),
-            for (final lesson in lessons)
+        return AnimatedBuilder(
+          animation: widget.progressController,
+          builder: (context, _) => ListView(
+            padding: const EdgeInsets.all(20),
+            children: [
               Card(
-                clipBehavior: Clip.antiAlias,
+                color: learningColors.coralContainer,
                 child: ListTile(
                   contentPadding: const EdgeInsets.all(20),
-                  leading: CircleAvatar(
-                    backgroundColor: learningColors.sunshineContainer,
-                    foregroundColor: learningColors.onSunshineContainer,
-                    child: Text('${lesson.order}'),
+                  leading: Icon(
+                    Icons.school_outlined,
+                    size: 36,
+                    color: learningColors.onCoralContainer,
                   ),
-                  title: Text(
-                    lesson.title.forLanguage(languageCode),
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.only(top: 6),
-                    child: Text(
-                      '${l10n.lessonNumber(lesson.order)} · '
-                      '${l10n.estimatedMinutes(lesson.estimatedMinutes)}',
-                    ),
-                  ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute<void>(
-                        builder: (_) => LessonDetailScreen(lesson: lesson),
-                      ),
-                    );
-                  },
+                  title: Text(l10n.moduleTitle),
+                  subtitle: Text(l10n.moduleSubtitle),
                 ),
               ),
-          ],
+              const SizedBox(height: 16),
+              for (final lesson in lessons)
+                Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.all(20),
+                    leading: CircleAvatar(
+                      backgroundColor: learningColors.sunshineContainer,
+                      foregroundColor: learningColors.onSunshineContainer,
+                      child: Text('${lesson.order}'),
+                    ),
+                    title: Text(
+                      lesson.title.forLanguage(languageCode),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Text(
+                        '${l10n.lessonNumber(lesson.order)} · '
+                        '${l10n.estimatedMinutes(lesson.estimatedMinutes)}',
+                      ),
+                    ),
+                    trailing: widget.progressController.isCompleted(lesson.id)
+                        ? const Icon(Icons.check_circle, color: Colors.green)
+                        : const Icon(Icons.chevron_right),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => LessonDetailScreen(
+                            lesson: lesson,
+                            progressController: widget.progressController,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+            ],
+          ),
         );
       },
     );

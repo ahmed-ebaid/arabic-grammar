@@ -41,6 +41,30 @@
   "reasonLabel": "Why",
   "lessonPracticeTitle": "Try it",
   "contentLoadError": "The lesson could not be loaded.",
+  "continueLabel": "Continue",
+  "checkAnswer": "Check answer",
+  "tryAgain": "Try again",
+  "quickCheckTitle": "Quick check",
+  "chooseTopicPrompt": "Which word is the topic (mubtada)?",
+  "correctAnswerTitle": "Correct!",
+  "incorrectAnswerTitle": "Not quite yet",
+  "exploreWordsTitle": "Explore the sentence",
+  "exploreWordsBody": "Tap each word to see its role, state, sign, ending, and reason.",
+  "lessonCompleteTitle": "Lesson complete!",
+  "lessonCompleteBody": "You noticed how word endings can reveal a word's job in a sentence.",
+  "restartLesson": "Practice again",
+  "returnToLessons": "Back to lessons",
+  "stepProgress": "Step {current} of {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "practiceTitle": "Practice",
   "practiceSubtitle": "Exercises will unlock with each lesson.",
   "progressTitle": "Your progress",

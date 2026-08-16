@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/models/content_models.dart';
+import 'core/progress/lesson_progress_controller.dart';
 import 'features/home/home_screen.dart';
 import 'features/lessons/lessons_screen.dart';
 import 'features/practice/practice_screen.dart';
@@ -9,9 +10,14 @@ import 'features/settings/language_button.dart';
 import 'l10n/app_localizations.dart';
 
 class RootScaffold extends StatefulWidget {
-  const RootScaffold({this.contentCatalog, super.key});
+  const RootScaffold({
+    required this.lessonProgressController,
+    this.contentCatalog,
+    super.key,
+  });
 
   final ContentCatalog? contentCatalog;
+  final LessonProgressController lessonProgressController;
 
   @override
   State<RootScaffold> createState() => _RootScaffoldState();
@@ -55,7 +61,10 @@ class _RootScaffoldState extends State<RootScaffold> {
         index: _currentIndex,
         children: [
           HomeScreen(onStartLearning: () => _selectTab(1)),
-          LessonsScreen(contentCatalog: widget.contentCatalog),
+          LessonsScreen(
+            contentCatalog: widget.contentCatalog,
+            progressController: widget.lessonProgressController,
+          ),
           const PracticeScreen(),
           const ProgressScreen(),
         ],

@@ -96,6 +96,52 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contentLoadError => 'تعذَّر تحميل الدرس.';
 
   @override
+  String get continueLabel => 'تابع';
+
+  @override
+  String get checkAnswer => 'تحقَّق من الإجابة';
+
+  @override
+  String get tryAgain => 'حاول مرة أخرى';
+
+  @override
+  String get quickCheckTitle => 'تحقُّق سريع';
+
+  @override
+  String get chooseTopicPrompt => 'أيُّ كلمة هي المبتدأ؟';
+
+  @override
+  String get correctAnswerTitle => 'أحسنت!';
+
+  @override
+  String get incorrectAnswerTitle => 'ليس بعد';
+
+  @override
+  String get exploreWordsTitle => 'استكشف الجملة';
+
+  @override
+  String get exploreWordsBody =>
+      'اضغط على كل كلمة لترى وظيفتها وحالتها وعلامتها وحركة آخرها وسبب إعرابها.';
+
+  @override
+  String get lessonCompleteTitle => 'أتممت الدرس!';
+
+  @override
+  String get lessonCompleteBody =>
+      'لاحظتَ كيف يمكن لحركة آخر الكلمة أن تدل على وظيفتها في الجملة.';
+
+  @override
+  String get restartLesson => 'تدرَّب مرة أخرى';
+
+  @override
+  String get returnToLessons => 'العودة إلى الدروس';
+
+  @override
+  String stepProgress(int current, int total) {
+    return 'الخطوة $current من $total';
+  }
+
+  @override
   String get practiceTitle => 'التدريب';
 
   @override

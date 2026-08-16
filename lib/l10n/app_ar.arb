@@ -41,6 +41,30 @@
   "reasonLabel": "السبب",
   "lessonPracticeTitle": "جرِّب",
   "contentLoadError": "تعذَّر تحميل الدرس.",
+  "continueLabel": "تابع",
+  "checkAnswer": "تحقَّق من الإجابة",
+  "tryAgain": "حاول مرة أخرى",
+  "quickCheckTitle": "تحقُّق سريع",
+  "chooseTopicPrompt": "أيُّ كلمة هي المبتدأ؟",
+  "correctAnswerTitle": "أحسنت!",
+  "incorrectAnswerTitle": "ليس بعد",
+  "exploreWordsTitle": "استكشف الجملة",
+  "exploreWordsBody": "اضغط على كل كلمة لترى وظيفتها وحالتها وعلامتها وحركة آخرها وسبب إعرابها.",
+  "lessonCompleteTitle": "أتممت الدرس!",
+  "lessonCompleteBody": "لاحظتَ كيف يمكن لحركة آخر الكلمة أن تدل على وظيفتها في الجملة.",
+  "restartLesson": "تدرَّب مرة أخرى",
+  "returnToLessons": "العودة إلى الدروس",
+  "stepProgress": "الخطوة {current} من {total}",
+  "@stepProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "practiceTitle": "التدريب",
   "practiceSubtitle": "ستُفتح التدريبات مع كل درس.",
   "progressTitle": "تقدُّمك",

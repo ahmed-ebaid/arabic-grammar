@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'core/config/app_environment.dart';
 import 'core/localization/locale_controller.dart';
 import 'core/models/content_models.dart';
+import 'core/progress/lesson_progress_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'l10n/app_localizations.dart';
 import 'root_scaffold.dart';
@@ -13,12 +14,14 @@ class ArabicGrammarApp extends StatelessWidget {
   const ArabicGrammarApp({
     required this.environment,
     required this.localeController,
+    required this.lessonProgressController,
     this.contentCatalog,
     super.key,
   });
 
   final AppEnvironment environment;
   final LocaleController localeController;
+  final LessonProgressController lessonProgressController;
   final ContentCatalog? contentCatalog;
 
   @override
@@ -41,7 +44,10 @@ class ArabicGrammarApp extends StatelessWidget {
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode: ThemeMode.system,
-            home: RootScaffold(contentCatalog: contentCatalog),
+            home: RootScaffold(
+              contentCatalog: contentCatalog,
+              lessonProgressController: lessonProgressController,
+            ),
           );
         },
       ),
