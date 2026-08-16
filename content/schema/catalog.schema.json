@@ -67,6 +67,11 @@
           "minItems": 1,
           "items": {"$ref": "#/$defs/exercise"}
         },
+        "repeatExercises": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/exercise"}
+        },
         "sources": {
           "type": "array",
           "minItems": 1,

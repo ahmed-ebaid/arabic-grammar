@@ -182,6 +182,11 @@ abstract final class ContentValidator {
       issues,
     );
     _validateUniqueIds(
+      lesson.repeatExercises.map((exercise) => exercise.id),
+      '$path.repeatExercises',
+      issues,
+    );
+    _validateUniqueIds(
       lesson.sources.map((source) => source.id),
       '$path.sources',
       issues,
@@ -205,6 +210,22 @@ abstract final class ContentValidator {
 
     for (final (exerciseIndex, exercise) in lesson.exercises.indexed) {
       _validateExercise(exercise, '$path.exercises[$exerciseIndex]', issues);
+    }
+    for (final (exerciseIndex, exercise) in lesson.repeatExercises.indexed) {
+      _validateExercise(
+        exercise,
+        '$path.repeatExercises[$exerciseIndex]',
+        issues,
+      );
+    }
+    if (lesson.repeatExercises.isNotEmpty &&
+        lesson.repeatExercises.length != lesson.exercises.length) {
+      issues.add(
+        ContentValidationIssue(
+          path: '$path.repeatExercises',
+          message: 'must contain the same number of exercises as exercises',
+        ),
+      );
     }
 
     final review = lesson.review;

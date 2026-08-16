@@ -20,7 +20,7 @@ void main() {
         lessonProgressController: LessonProgressController.inMemory(),
       ),
     );
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.text('Learn why Arabic endings change'), findsOneWidget);
     expect(find.text('الطَّالِبُ مُجْتَهِدٌ'), findsOneWidget);
@@ -36,7 +36,7 @@ void main() {
     expect(arabicTextDirection.textDirection, TextDirection.rtl);
 
     await localeController.setLocale(const Locale('ar'));
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.text('تعلَّم لماذا تتغيَّر أواخر الكلمات'), findsOneWidget);
     expect(
