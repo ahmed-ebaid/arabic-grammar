@@ -15,7 +15,7 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.lessons, hasLength(3));
+      expect(catalog.lessons, hasLength(5));
       expect(catalog.lessons.first.title.en, 'Why endings change');
       expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
