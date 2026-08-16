@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "1.0.0-draft.1",
+  "contentVersion": "1.1.0-draft.1",
   "lessons": [
     {
       "id": "lesson_01",
@@ -450,6 +450,242 @@
         {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
       ],
       "review": {"status": "pendingReview", "contentVersion": "1.0.0-draft.2", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_04",
+      "order": 4,
+      "title": {"en": "The verb and its subject", "ar": "الفعل والفاعل"},
+      "objectives": [
+        {"en": "Find the verb and the person or thing that performed it.", "ar": "أن تحدد الفعل ومن قام به."},
+        {"en": "Read the subject in raf in a basic verbal sentence.", "ar": "أن تقرأ الفاعل مرفوعًا في الجملة الفعلية البسيطة."}
+      ],
+      "prerequisites": ["lesson_03"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "action-and-doer",
+          "type": "introduction",
+          "title": {"en": "An action and its doer", "ar": "حدث ومن قام به"},
+          "body": {
+            "en": "A verbal sentence often begins with a verb. Ask: who or what performed this action? That noun is the subject (فاعل), and it is normally in raf.",
+            "ar": "تبدأ الجملة الفعلية غالبًا بفعل. اسأل: من الذي قام بهذا الفعل؟ الاسم الذي قام به هو الفاعل، والفاعل مرفوع في الأصل."
+          },
+          "examples": []
+        },
+        {
+          "id": "child-read-book",
+          "type": "workedExample",
+          "title": {"en": "Follow the action", "ar": "تتبّع الحدث"},
+          "body": {
+            "en": "In قَرَأَ الطِّفْلُ الكِتَابَ, قرأ is the action. الطفل performed it, so الطفل is the subject and takes damma. الكتاب did not read; it received the action.",
+            "ar": "في «قَرَأَ الطِّفْلُ الكِتَابَ»، «قرأ» هو الفعل، و«الطفل» قام بالقراءة، فهو الفاعل المرفوع بالضمة. أمّا «الكتاب» فلم يقرأ، بل وقع عليه الفعل."
+          },
+          "examples": [
+            {
+              "id": "child-read-book-example",
+              "vocalized": "قَرَأَ الطِّفْلُ الكِتَابَ",
+              "unvocalized": "قرأ الطفل الكتاب",
+              "tokens": [
+                {
+                  "text": "قرأ", "start": 0, "end": 3,
+                  "role": {"en": "Past-tense verb", "ar": "فعل ماضٍ"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Built on fatha", "ar": "مبني على الفتح"},
+                  "ending": "َ",
+                  "reason": {"en": "This regular past-tense verb is built on fatha.", "ar": "هذا الفعل الماضي مبني على الفتح."}
+                },
+                {
+                  "text": "الطفل", "start": 4, "end": 9,
+                  "role": {"en": "Subject (fa'il)", "ar": "فاعل"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The child performed the action, so the subject is in raf.", "ar": "قام الطفل بالفعل، والفاعل مرفوع."}
+                },
+                {
+                  "text": "الكتاب", "start": 10, "end": 16,
+                  "role": {"en": "Direct object", "ar": "مفعول به"},
+                  "grammarState": "nasb",
+                  "grammaticalSign": {"en": "Visible fatha", "ar": "الفتحة الظاهرة"},
+                  "ending": "َ",
+                  "reason": {"en": "The action of reading happened to the book.", "ar": "وقع فعل القراءة على الكتاب."}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "subject-reading-clue",
+          "type": "ruleSummary",
+          "title": {"en": "A reading clue", "ar": "قرينة للقراءة"},
+          "body": {
+            "en": "When an unvocalized sentence starts with a known verb, find its doer. In كتب المعلم, المعلم is the one who wrote, so read it المُعَلِّمُ.",
+            "ar": "إذا بدأت الجملة غير المشكولة بفعل معروف، فابحث عمّن قام به. في «كتب المعلم»، المعلّم هو الذي كتب، فنقرأها «المُعَلِّمُ»."
+          },
+          "examples": []
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-04-verb-01", "type": "identifyRole",
+          "prompt": {"en": "Which word is the verb in قرأ الطفل الكتاب?", "ar": "أي كلمة هي الفعل في «قرأ الطفل الكتاب»؟"},
+          "options": [
+            {"id": "read", "label": {"en": "قرأ", "ar": "قرأ"}, "isCorrect": true, "feedback": {"en": "Correct. قرأ expresses the action in past time.", "ar": "صحيح. «قرأ» يدل على حدث في الزمن الماضي."}},
+            {"id": "child", "label": {"en": "الطفل", "ar": "الطفل"}, "isCorrect": false, "feedback": {"en": "الطفل names the person who acted, so it is a noun.", "ar": "«الطفل» يدل على من قام بالفعل، فهو اسم."}},
+            {"id": "book", "label": {"en": "الكتاب", "ar": "الكتاب"}, "isCorrect": false, "feedback": {"en": "الكتاب names the thing that was read.", "ar": "«الكتاب» يدل على الشيء الذي قُرئ."}}
+          ]
+        },
+        {
+          "id": "lesson-04-subject-02", "type": "identifyRole",
+          "prompt": {"en": "Who performed the action in قرأ الطفل الكتاب?", "ar": "من قام بالفعل في «قرأ الطفل الكتاب»؟"},
+          "options": [
+            {"id": "child", "label": {"en": "الطفل", "ar": "الطفل"}, "isCorrect": true, "feedback": {"en": "Correct. الطفل is the subject (فاعل).", "ar": "صحيح. «الطفل» هو الفاعل."}},
+            {"id": "book", "label": {"en": "الكتاب", "ar": "الكتاب"}, "isCorrect": false, "feedback": {"en": "The book received the reading; it did not perform it.", "ar": "وقع فعل القراءة على الكتاب، ولم يقم به."}},
+            {"id": "read", "label": {"en": "قرأ", "ar": "قرأ"}, "isCorrect": false, "feedback": {"en": "قرأ names the action. Look for who did it.", "ar": "«قرأ» هو الفعل؛ ابحث عمّن قام به."}}
+          ]
+        },
+        {
+          "id": "lesson-04-ending-03", "type": "chooseEnding",
+          "prompt": {"en": "Choose the ending for الطِّفْل_ when it is the subject.", "ar": "اختر حركة آخر «الطِّفْلـ» عندما يكون فاعلًا."},
+          "options": [
+            {"id": "damma", "label": {"en": "Damma: ُ", "ar": "الضمة: ُ"}, "isCorrect": true, "feedback": {"en": "Correct. The subject is in raf with damma here.", "ar": "صحيح. الفاعل هنا مرفوع بالضمة."}},
+            {"id": "fatha", "label": {"en": "Fatha: َ", "ar": "الفتحة: َ"}, "isCorrect": false, "feedback": {"en": "Fatha often marks an object, but the child performed the action.", "ar": "الفتحة كثيرًا ما تكون للمفعول به، لكن الطفل قام بالفعل."}},
+            {"id": "kasra", "label": {"en": "Kasra: ِ", "ar": "الكسرة: ِ"}, "isCorrect": false, "feedback": {"en": "No preposition governs الطفل here.", "ar": "لا يسبق «الطفل» حرف جر هنا."}}
+          ]
+        },
+        {
+          "id": "lesson-04-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read كتب المعلم. Which ending belongs on المعلم_?", "ar": "اقرأ «كتب المعلم». ما حركة آخر «المعلم»؟"},
+          "options": [
+            {"id": "teacher-raf", "label": {"en": "المُعَلِّمُ", "ar": "المُعَلِّمُ"}, "isCorrect": true, "feedback": {"en": "Correct. The teacher wrote, so المعلم is the subject in raf.", "ar": "صحيح. المعلّم هو الذي كتب، فهو فاعل مرفوع."}},
+            {"id": "teacher-nasb", "label": {"en": "المُعَلِّمَ", "ar": "المُعَلِّمَ"}, "isCorrect": false, "feedback": {"en": "That would suggest an object. Here the teacher performed the action.", "ar": "هذه قراءة المفعول به، لكن المعلّم هنا قام بالفعل."}},
+            {"id": "teacher-jarr", "label": {"en": "المُعَلِّمِ", "ar": "المُعَلِّمِ"}, "isCorrect": false, "feedback": {"en": "There is no cause of jarr before المعلم.", "ar": "لا يوجد سبب للجر قبل «المعلم»."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for the foundational rule that the subject is in raf."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.1.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_05",
+      "order": 5,
+      "title": {"en": "The direct object", "ar": "المفعول به"},
+      "objectives": [
+        {"en": "Find the noun that receives the action.", "ar": "أن تحدد الاسم الذي وقع عليه الفعل."},
+        {"en": "Read a basic direct object in nasb.", "ar": "أن تقرأ المفعول به منصوبًا في الجملة البسيطة."}
+      ],
+      "prerequisites": ["lesson_04"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "receives-action",
+          "type": "introduction",
+          "title": {"en": "What received the action?", "ar": "على ماذا وقع الفعل؟"},
+          "body": {
+            "en": "Some actions pass from a subject to another noun. Ask: what did the subject open, read, drink, or see? That noun is the direct object (مفعول به), and it is normally in nasb.",
+            "ar": "تنتقل بعض الأفعال من الفاعل إلى اسم آخر. اسأل: ماذا فتح الفاعل أو قرأ أو شرب أو رأى؟ هذا الاسم هو المفعول به، وهو منصوب في الأصل."
+          },
+          "examples": []
+        },
+        {
+          "id": "boy-opened-door",
+          "type": "workedExample",
+          "title": {"en": "Doer versus receiver", "ar": "الفاعل والمفعول به"},
+          "body": {
+            "en": "In فَتَحَ الوَلَدُ البَابَ, الولد performed the opening, so it is the subject in raf. الباب received the action, so it is the direct object in nasb with fatha.",
+            "ar": "في «فَتَحَ الوَلَدُ البَابَ»، «الولد» قام بالفتح، فهو فاعل مرفوع. ووقع الفتح على «الباب»، فهو مفعول به منصوب بالفتحة."
+          },
+          "examples": [
+            {
+              "id": "boy-opened-door-example",
+              "vocalized": "فَتَحَ الوَلَدُ البَابَ",
+              "unvocalized": "فتح الولد الباب",
+              "tokens": [
+                {
+                  "text": "فتح", "start": 0, "end": 3,
+                  "role": {"en": "Past-tense verb", "ar": "فعل ماضٍ"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Built on fatha", "ar": "مبني على الفتح"},
+                  "ending": "َ",
+                  "reason": {"en": "This regular past-tense verb is built on fatha.", "ar": "هذا الفعل الماضي مبني على الفتح."}
+                },
+                {
+                  "text": "الولد", "start": 4, "end": 9,
+                  "role": {"en": "Subject (fa'il)", "ar": "فاعل"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The boy performed the opening.", "ar": "الولد هو الذي قام بالفتح."}
+                },
+                {
+                  "text": "الباب", "start": 10, "end": 15,
+                  "role": {"en": "Direct object", "ar": "مفعول به"},
+                  "grammarState": "nasb",
+                  "grammaticalSign": {"en": "Visible fatha", "ar": "الفتحة الظاهرة"},
+                  "ending": "َ",
+                  "reason": {"en": "The door received the action, so the object is in nasb.", "ar": "وقع الفعل على الباب، والمفعول به منصوب."}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "object-reading-clue",
+          "type": "ruleSummary",
+          "title": {"en": "Use meaning and structure", "ar": "استعن بالمعنى والتركيب"},
+          "body": {
+            "en": "In شرب الطفل الماء, the child performs the drinking and the water receives it. Structure and meaning together predict: الطِّفْلُ المَاءَ.",
+            "ar": "في «شرب الطفل الماء»، الطفل هو الذي شرب، والماء هو الذي وقع عليه الشرب. يدل التركيب والمعنى معًا على القراءة: «الطِّفْلُ المَاءَ»."
+          },
+          "examples": []
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-05-object-01", "type": "identifyRole",
+          "prompt": {"en": "What received the action in فتح الولد الباب?", "ar": "على ماذا وقع الفعل في «فتح الولد الباب»؟"},
+          "options": [
+            {"id": "door", "label": {"en": "الباب", "ar": "الباب"}, "isCorrect": true, "feedback": {"en": "Correct. The door was opened, so it is the direct object.", "ar": "صحيح. وقع الفتح على الباب، فهو المفعول به."}},
+            {"id": "boy", "label": {"en": "الولد", "ar": "الولد"}, "isCorrect": false, "feedback": {"en": "The boy performed the action, so he is the subject.", "ar": "الولد قام بالفعل، فهو الفاعل."}},
+            {"id": "opened", "label": {"en": "فتح", "ar": "فتح"}, "isCorrect": false, "feedback": {"en": "فتح is the action itself. Look for what was opened.", "ar": "«فتح» هو الفعل نفسه؛ ابحث عمّا فُتح."}}
+          ]
+        },
+        {
+          "id": "lesson-05-state-02", "type": "identifyState",
+          "prompt": {"en": "What is the normal state of a direct object?", "ar": "ما الحالة الإعرابية الأصلية للمفعول به؟"},
+          "options": [
+            {"id": "nasb", "label": {"en": "Nasb (نصب)", "ar": "النصب"}, "isCorrect": true, "feedback": {"en": "Correct. A direct object is in nasb.", "ar": "صحيح. المفعول به منصوب."}},
+            {"id": "raf", "label": {"en": "Raf (رفع)", "ar": "الرفع"}, "isCorrect": false, "feedback": {"en": "Raf belongs to the subject in this basic pattern.", "ar": "الرفع للفاعل في هذا النمط البسيط."}},
+            {"id": "jarr", "label": {"en": "Jarr (جر)", "ar": "الجر"}, "isCorrect": false, "feedback": {"en": "A direct object is not made jarr merely by receiving an action.", "ar": "لا يُجر الاسم لمجرد وقوع الفعل عليه."}}
+          ]
+        },
+        {
+          "id": "lesson-05-ending-03", "type": "chooseEnding",
+          "prompt": {"en": "Choose the ending for البَاب_ when it is the direct object.", "ar": "اختر حركة آخر «البَابـ» عندما يكون مفعولًا به."},
+          "options": [
+            {"id": "fatha", "label": {"en": "Fatha: َ", "ar": "الفتحة: َ"}, "isCorrect": true, "feedback": {"en": "Correct. This singular object is in nasb with fatha.", "ar": "صحيح. هذا المفعول به المفرد منصوب بالفتحة."}},
+            {"id": "damma", "label": {"en": "Damma: ُ", "ar": "الضمة: ُ"}, "isCorrect": false, "feedback": {"en": "Damma would suggest raf, but الباب received the action.", "ar": "الضمة تدل على الرفع، لكن الفعل وقع على الباب."}},
+            {"id": "kasra", "label": {"en": "Kasra: ِ", "ar": "الكسرة: ِ"}, "isCorrect": false, "feedback": {"en": "There is no preposition or other cause of jarr.", "ar": "لا يوجد حرف جر ولا سبب آخر للجر."}}
+          ]
+        },
+        {
+          "id": "lesson-05-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read شرب الطفل الماء. Which ending belongs on الماء_?", "ar": "اقرأ «شرب الطفل الماء». ما حركة آخر «الماء»؟"},
+          "options": [
+            {"id": "water-nasb", "label": {"en": "المَاءَ", "ar": "المَاءَ"}, "isCorrect": true, "feedback": {"en": "Correct. The water received the action of drinking.", "ar": "صحيح. وقع فعل الشرب على الماء، فهو مفعول به منصوب."}},
+            {"id": "water-raf", "label": {"en": "المَاءُ", "ar": "المَاءُ"}, "isCorrect": false, "feedback": {"en": "The water did not perform the drinking; the child did.", "ar": "الماء لم يقم بالشرب؛ الطفل هو الذي شرب."}},
+            {"id": "water-jarr", "label": {"en": "المَاءِ", "ar": "المَاءِ"}, "isCorrect": false, "feedback": {"en": "No preposition governs الماء in this sentence.", "ar": "لا يسبق «الماء» حرف جر في هذه الجملة."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for the foundational rule that the direct object is in nasb."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.1.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
     }
   ]
 }

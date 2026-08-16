@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `5`
+- Build: `6`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
