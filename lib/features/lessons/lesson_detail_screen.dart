@@ -21,12 +21,21 @@ class LessonDetailScreen extends StatefulWidget {
 }
 
 class _LessonDetailScreenState extends State<LessonDetailScreen> {
-  late final List<_LessonStep> _steps = _buildSteps(widget.lesson);
-  late int _currentStep = widget.progressController
-      .stepFor(widget.lesson.id)
-      .clamp(0, _steps.length - 1);
+  late List<Exercise> _activeExercises;
+  late List<_LessonStep> _steps;
+  late int _currentStep;
   String? _selectedOptionId;
   bool _answerChecked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _activeExercises = _exercisesForAttempt();
+    _steps = _buildSteps(widget.lesson, _activeExercises);
+    _currentStep = widget.progressController
+        .stepFor(widget.lesson.id)
+        .clamp(0, _steps.length - 1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,15 +190,14 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     }
     final nextStep = _currentStep + 1;
     if (nextStep == _steps.length - 1) {
-      final correctAnswers = widget.lesson.exercises.where((exercise) {
+      final correctAnswers = _activeExercises.where((exercise) {
         return widget.progressController.firstAttemptResult(
               widget.lesson.id,
               exercise.id,
             ) ==
             true;
       }).length;
-      final mastery = (correctAnswers * 100 / widget.lesson.exercises.length)
-          .round();
+      final mastery = (correctAnswers * 100 / _activeExercises.length).round();
       await widget.progressController.complete(
         widget.lesson.id,
         nextStep,
@@ -215,20 +223,34 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       return;
     }
     setState(() {
+      _activeExercises = _exercisesForAttempt();
+      _steps = _buildSteps(widget.lesson, _activeExercises);
       _currentStep = 0;
       _selectedOptionId = null;
       _answerChecked = false;
     });
   }
 
-  static List<_LessonStep> _buildSteps(Lesson lesson) {
+  List<Exercise> _exercisesForAttempt() {
+    final repeatExercises = widget.lesson.repeatExercises;
+    final attempt = widget.progressController.attemptsFor(widget.lesson.id);
+    if (repeatExercises.isNotEmpty && attempt.isOdd) {
+      return repeatExercises;
+    }
+    return widget.lesson.exercises;
+  }
+
+  static List<_LessonStep> _buildSteps(
+    Lesson lesson,
+    List<Exercise> exercises,
+  ) {
     return [
       const _LessonStep.objectives(),
       for (final section in lesson.sections) ...[
         _LessonStep.teaching(section),
         for (final example in section.examples) _LessonStep.analysis(example),
       ],
-      for (final exercise in lesson.exercises) _LessonStep.exercise(exercise),
+      for (final exercise in exercises) _LessonStep.exercise(exercise),
       const _LessonStep.completion(),
     ];
   }

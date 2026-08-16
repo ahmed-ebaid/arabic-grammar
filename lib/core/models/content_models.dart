@@ -82,6 +82,7 @@ class Lesson {
     required this.estimatedMinutes,
     required this.sections,
     required this.exercises,
+    required this.repeatExercises,
     required this.sources,
     required this.review,
   });
@@ -96,6 +97,7 @@ class Lesson {
       'estimatedMinutes',
       'sections',
       'exercises',
+      'repeatExercises',
       'sources',
       'review',
     }, path);
@@ -125,6 +127,16 @@ class Lesson {
                 Exercise.fromJson(entry.$2, '$path.exercises[${entry.$1}]'),
           )
           .toList(growable: false),
+      repeatExercises: json.containsKey('repeatExercises')
+          ? JsonValue.objectList(json, 'repeatExercises', path).indexed
+                .map(
+                  (entry) => Exercise.fromJson(
+                    entry.$2,
+                    '$path.repeatExercises[${entry.$1}]',
+                  ),
+                )
+                .toList(growable: false)
+          : const [],
       sources: JsonValue.objectList(json, 'sources', path).indexed
           .map(
             (entry) =>
@@ -146,6 +158,7 @@ class Lesson {
   final int estimatedMinutes;
   final List<LessonSection> sections;
   final List<Exercise> exercises;
+  final List<Exercise> repeatExercises;
   final List<ContentSource> sources;
   final ContentReview review;
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "1.1.0-draft.1",
+  "contentVersion": "1.2.0-draft.1",
   "lessons": [
     {
       "id": "lesson_01",
@@ -196,6 +196,35 @@
               "isCorrect": false,
               "feedback": {"en": "No. مجتهد is a noun describing the topic.", "ar": "لا. «مجتهد» اسم يخبر عن المبتدأ."}
             }
+          ]
+        }
+      ],
+      "repeatExercises": [
+        {
+          "id": "lesson-01-repeat-ending-01", "type": "chooseEnding",
+          "prompt": {"en": "New sentence: البيت واسع. Which ending belongs on البيت_?", "ar": "جملة جديدة: «البيت واسع». ما حركة آخر «البيت»؟"},
+          "options": [
+            {"id": "damma", "label": {"en": "Damma: ُ", "ar": "الضمة: ُ"}, "isCorrect": true, "feedback": {"en": "Correct. البيت is the topic and is in raf.", "ar": "صحيح. «البيت» مبتدأ مرفوع."}},
+            {"id": "fatha", "label": {"en": "Fatha: َ", "ar": "الفتحة: َ"}, "isCorrect": false, "feedback": {"en": "البيت is not an object in this nominal sentence.", "ar": "«البيت» ليس مفعولًا به في هذه الجملة الاسمية."}},
+            {"id": "kasra", "label": {"en": "Kasra: ِ", "ar": "الكسرة: ِ"}, "isCorrect": false, "feedback": {"en": "No preposition governs البيت.", "ar": "لا يسبق «البيت» حرف جر."}}
+          ]
+        },
+        {
+          "id": "lesson-01-repeat-state-02", "type": "identifyState",
+          "prompt": {"en": "What is the grammatical state of البيتُ in البيتُ واسعٌ?", "ar": "ما الحالة الإعرابية لكلمة «البيتُ» في «البيتُ واسعٌ»؟"},
+          "options": [
+            {"id": "raf", "label": {"en": "Raf (رفع)", "ar": "الرفع"}, "isCorrect": true, "feedback": {"en": "Correct. A basic topic is in raf.", "ar": "صحيح. المبتدأ مرفوع في الأصل."}},
+            {"id": "nasb", "label": {"en": "Nasb (نصب)", "ar": "النصب"}, "isCorrect": false, "feedback": {"en": "The topic is not in nasb in this basic pattern.", "ar": "المبتدأ ليس منصوبًا في هذا النمط البسيط."}},
+            {"id": "jarr", "label": {"en": "Jarr (جر)", "ar": "الجر"}, "isCorrect": false, "feedback": {"en": "Nothing governs البيت into jarr.", "ar": "لا يوجد ما يجر «البيت»."}}
+          ]
+        },
+        {
+          "id": "lesson-01-repeat-role-03", "type": "identifyRole",
+          "prompt": {"en": "What job does واسعٌ have in البيتُ واسعٌ?", "ar": "ما وظيفة «واسعٌ» في «البيتُ واسعٌ»؟"},
+          "options": [
+            {"id": "predicate", "label": {"en": "Predicate (khabar)", "ar": "خبر"}, "isCorrect": true, "feedback": {"en": "Correct. واسع tells us something about البيت.", "ar": "صحيح. «واسع» يخبر عن «البيت»."}},
+            {"id": "object", "label": {"en": "Direct object", "ar": "مفعول به"}, "isCorrect": false, "feedback": {"en": "There is no action receiving an object.", "ar": "لا يوجد فعل يقع على مفعول به."}},
+            {"id": "preposition", "label": {"en": "Preposition", "ar": "حرف جر"}, "isCorrect": false, "feedback": {"en": "واسع is a noun describing the topic.", "ar": "«واسع» اسم يخبر عن المبتدأ."}}
           ]
         }
       ],
@@ -686,6 +715,312 @@
         {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
       ],
       "review": {"status": "pendingReview", "contentVersion": "1.1.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_06",
+      "order": 6,
+      "title": {"en": "Prepositions and jarr", "ar": "حروف الجر"},
+      "objectives": [
+        {"en": "Recognize common prepositions as reading clues.", "ar": "أن تتعرف حروف الجر الشائعة بوصفها قرائن للقراءة."},
+        {"en": "Read the noun after a preposition in jarr.", "ar": "أن تقرأ الاسم بعد حرف الجر مجرورًا."}
+      ],
+      "prerequisites": ["lesson_05"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "preposition-governs-noun",
+          "type": "introduction",
+          "title": {"en": "A strong clue before a noun", "ar": "قرينة قوية قبل الاسم"},
+          "body": {
+            "en": "Prepositions such as في (in), من (from), إلى (to), على (on), and بـ (with/by) govern the noun after them. That noun is in jarr, usually heard with kasra.",
+            "ar": "حروف الجر مثل «في، ومن، وإلى، وعلى، والباء» تؤثر في الاسم بعدها. يكون هذا الاسم مجرورًا، وعلامته الأصلية الكسرة."
+          },
+          "examples": []
+        },
+        {
+          "id": "student-went-to-school",
+          "type": "workedExample",
+          "title": {"en": "Look immediately after the particle", "ar": "انظر بعد الحرف مباشرة"},
+          "body": {
+            "en": "In ذَهَبَ الطَّالِبُ إِلَى المَدْرَسَةِ, إلى is a preposition. المدرسة comes after it, so read المدرسةِ with kasra even when the ending is not written.",
+            "ar": "في «ذَهَبَ الطَّالِبُ إِلَى المَدْرَسَةِ»، «إلى» حرف جر، و«المدرسة» اسم بعده، فنقرأ آخره بالكسرة ولو لم تكن مكتوبة."
+          },
+          "examples": [
+            {
+              "id": "student-went-to-school-example",
+              "vocalized": "ذَهَبَ الطَّالِبُ إِلَى المَدْرَسَةِ",
+              "unvocalized": "ذهب الطالب إلى المدرسة",
+              "tokens": [
+                {
+                  "text": "ذهب", "start": 0, "end": 3,
+                  "role": {"en": "Past-tense verb", "ar": "فعل ماضٍ"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Built on fatha", "ar": "مبني على الفتح"},
+                  "ending": "َ",
+                  "reason": {"en": "This regular past-tense verb is built on fatha.", "ar": "هذا الفعل الماضي مبني على الفتح."}
+                },
+                {
+                  "text": "الطالب", "start": 4, "end": 10,
+                  "role": {"en": "Subject (fa'il)", "ar": "فاعل"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The student performed the action, so the subject is in raf.", "ar": "الطالب هو الذي ذهب، فهو فاعل مرفوع."}
+                },
+                {
+                  "text": "إلى", "start": 11, "end": 14,
+                  "role": {"en": "Preposition", "ar": "حرف جر"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Indeclinable particle", "ar": "حرف مبني"},
+                  "ending": "ى",
+                  "reason": {"en": "إلى connects the movement to its destination.", "ar": "«إلى» تربط فعل الذهاب بوجهته."}
+                },
+                {
+                  "text": "المدرسة", "start": 15, "end": 22,
+                  "role": {"en": "Noun governed by a preposition", "ar": "اسم مجرور"},
+                  "grammarState": "jarr",
+                  "grammaticalSign": {"en": "Visible kasra", "ar": "الكسرة الظاهرة"},
+                  "ending": "ِ",
+                  "reason": {"en": "The noun after إلى is in jarr.", "ar": "الاسم بعد «إلى» مجرور."}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "jarr-reading-clue",
+          "type": "ruleSummary",
+          "title": {"en": "Predict the hidden kasra", "ar": "توقّع الكسرة المحذوفة"},
+          "body": {
+            "en": "When you see في البيت without tashkeel, في tells you how to read the next ending: فِي البَيْتِ. The written structure replaces the missing vowel clue.",
+            "ar": "عندما ترى «في البيت» بلا تشكيل، يخبرك حرف «في» بكيفية قراءة آخر الاسم بعده: «فِي البَيْتِ». فالتركيب المكتوب يعوض الحركة المحذوفة."
+          },
+          "examples": []
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-06-particle-01", "type": "identifyRole",
+          "prompt": {"en": "Which word is the preposition in ذهب الطالب إلى المدرسة?", "ar": "أي كلمة هي حرف الجر في «ذهب الطالب إلى المدرسة»؟"},
+          "options": [
+            {"id": "to", "label": {"en": "إلى", "ar": "إلى"}, "isCorrect": true, "feedback": {"en": "Correct. إلى means “to” and governs the noun after it.", "ar": "صحيح. «إلى» حرف جر يجر الاسم بعده."}},
+            {"id": "student", "label": {"en": "الطالب", "ar": "الطالب"}, "isCorrect": false, "feedback": {"en": "الطالب is a noun and the subject of ذهب.", "ar": "«الطالب» اسم وهو فاعل «ذهب»."}},
+            {"id": "went", "label": {"en": "ذهب", "ar": "ذهب"}, "isCorrect": false, "feedback": {"en": "ذهب is the past-tense verb.", "ar": "«ذهب» فعل ماضٍ."}}
+          ]
+        },
+        {
+          "id": "lesson-06-governed-02", "type": "identifyRole",
+          "prompt": {"en": "Which noun is governed by the preposition in في البيت?", "ar": "أي اسم جرّه حرف الجر في «في البيت»؟"},
+          "options": [
+            {"id": "house", "label": {"en": "البيت", "ar": "البيت"}, "isCorrect": true, "feedback": {"en": "Correct. البيت follows في, so it is in jarr.", "ar": "صحيح. «البيت» بعد «في»، فهو مجرور."}},
+            {"id": "in", "label": {"en": "في", "ar": "في"}, "isCorrect": false, "feedback": {"en": "في is the preposition itself, not the governed noun.", "ar": "«في» هو حرف الجر نفسه، وليس الاسم المجرور."}},
+            {"id": "none", "label": {"en": "There is no noun", "ar": "لا يوجد اسم"}, "isCorrect": false, "feedback": {"en": "البيت names a place, so it is a noun.", "ar": "«البيت» يدل على مكان، فهو اسم."}}
+          ]
+        },
+        {
+          "id": "lesson-06-state-03", "type": "identifyState",
+          "prompt": {"en": "What state does a preposition normally give the noun after it?", "ar": "ما الحالة التي يحدثها حرف الجر في الاسم بعده؟"},
+          "options": [
+            {"id": "jarr", "label": {"en": "Jarr (جر)", "ar": "الجر"}, "isCorrect": true, "feedback": {"en": "Correct. Prepositions govern nouns into jarr.", "ar": "صحيح. حروف الجر تجر الأسماء بعدها."}},
+            {"id": "raf", "label": {"en": "Raf (رفع)", "ar": "الرفع"}, "isCorrect": false, "feedback": {"en": "Raf marks roles such as the subject, not a noun governed by a preposition.", "ar": "الرفع لأدوار مثل الفاعل، وليس للاسم بعد حرف الجر."}},
+            {"id": "nasb", "label": {"en": "Nasb (نصب)", "ar": "النصب"}, "isCorrect": false, "feedback": {"en": "Nasb marks roles such as a direct object; a preposition causes jarr.", "ar": "النصب لأدوار مثل المفعول به؛ أما حرف الجر فيسبب الجر."}}
+          ]
+        },
+        {
+          "id": "lesson-06-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read جلست على الكرسي. Which ending belongs on الكرسي_?", "ar": "اقرأ «جلست على الكرسي». ما حركة آخر «الكرسي»؟"},
+          "options": [
+            {"id": "chair-jarr", "label": {"en": "الكُرْسِيِّ", "ar": "الكُرْسِيِّ"}, "isCorrect": true, "feedback": {"en": "Correct. الكرسي follows على and is in jarr.", "ar": "صحيح. «الكرسي» بعد «على»، فهو مجرور."}},
+            {"id": "chair-raf", "label": {"en": "الكُرْسِيُّ", "ar": "الكُرْسِيُّ"}, "isCorrect": false, "feedback": {"en": "على governs the noun after it, so raf does not fit here.", "ar": "«على» تجر الاسم بعدها، فلا يناسب الرفع هنا."}},
+            {"id": "chair-nasb", "label": {"en": "الكُرْسِيَّ", "ar": "الكُرْسِيَّ"}, "isCorrect": false, "feedback": {"en": "The chair follows a preposition; it is not a direct object here.", "ar": "«الكرسي» بعد حرف جر، وليس مفعولًا به هنا."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for common prepositions and the foundational rule of jarr."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.2.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_07",
+      "order": 7,
+      "title": {"en": "Level 1 reading challenge", "ar": "تحدّي القراءة للمستوى الأول"},
+      "objectives": [
+        {"en": "Combine sentence structure and meaning to infer unwritten endings.", "ar": "أن تجمع بين تركيب الجملة ومعناها لتستنتج الحركات غير المكتوبة."},
+        {"en": "Distinguish raf, nasb, and jarr in new sentences.", "ar": "أن تميّز الرفع والنصب والجر في جمل جديدة."}
+      ],
+      "prerequisites": ["lesson_06"],
+      "estimatedMinutes": 10,
+      "sections": [
+        {
+          "id": "combine-your-clues",
+          "type": "introduction",
+          "title": {"en": "Use every clue", "ar": "استخدم كل القرائن"},
+          "body": {
+            "en": "You can now ask three powerful questions: Who performed the action? What received it? Is there a preposition before the noun? In a nominal sentence, ask what the topic is and what tells us about it.",
+            "ar": "يمكنك الآن أن تسأل: من قام بالفعل؟ وعلى ماذا وقع؟ وهل يسبق الاسم حرف جر؟ وفي الجملة الاسمية اسأل: ما المبتدأ؟ وما الذي يخبر عنه؟"
+          },
+          "examples": []
+        },
+        {
+          "id": "child-saw-moon",
+          "type": "workedExample",
+          "title": {"en": "Read a new sentence", "ar": "اقرأ جملة جديدة"},
+          "body": {
+            "en": "In شاهد الطفل القمر في السماء, الطفل performed the seeing (raf), القمر received it (nasb), and السماء follows في (jarr). These roles predict the endings even though none are written.",
+            "ar": "في «شاهد الطفل القمر في السماء»، «الطفل» قام بالرؤية فهو مرفوع، ووقع الفعل على «القمر» فهو منصوب، و«السماء» بعد «في» فهي مجرورة. تدل هذه الأدوار على الحركات وإن لم تُكتب."
+          },
+          "examples": [
+            {
+              "id": "child-saw-moon-example",
+              "vocalized": "شَاهَدَ الطِّفْلُ القَمَرَ فِي السَّمَاءِ",
+              "unvocalized": "شاهد الطفل القمر في السماء",
+              "tokens": [
+                {
+                  "text": "شاهد", "start": 0, "end": 4,
+                  "role": {"en": "Past-tense verb", "ar": "فعل ماضٍ"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Built on fatha", "ar": "مبني على الفتح"},
+                  "ending": "َ",
+                  "reason": {"en": "This past-tense verb is built on fatha.", "ar": "هذا الفعل الماضي مبني على الفتح."}
+                },
+                {
+                  "text": "الطفل", "start": 5, "end": 10,
+                  "role": {"en": "Subject (fa'il)", "ar": "فاعل"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "The child performed the seeing.", "ar": "الطفل هو الذي قام بالرؤية."}
+                },
+                {
+                  "text": "القمر", "start": 11, "end": 16,
+                  "role": {"en": "Direct object", "ar": "مفعول به"},
+                  "grammarState": "nasb",
+                  "grammaticalSign": {"en": "Visible fatha", "ar": "الفتحة الظاهرة"},
+                  "ending": "َ",
+                  "reason": {"en": "The moon received the action of seeing.", "ar": "وقع فعل الرؤية على القمر."}
+                },
+                {
+                  "text": "في", "start": 17, "end": 19,
+                  "role": {"en": "Preposition", "ar": "حرف جر"},
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {"en": "Indeclinable particle", "ar": "حرف مبني"},
+                  "ending": "ي",
+                  "reason": {"en": "في connects the sight to its location.", "ar": "«في» تربط الرؤية بمكانها."}
+                },
+                {
+                  "text": "السماء", "start": 20, "end": 26,
+                  "role": {"en": "Noun governed by a preposition", "ar": "اسم مجرور"},
+                  "grammarState": "jarr",
+                  "grammaticalSign": {"en": "Visible kasra", "ar": "الكسرة الظاهرة"},
+                  "ending": "ِ",
+                  "reason": {"en": "The noun after في is in jarr.", "ar": "الاسم بعد «في» مجرور."}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-07-nominal-01", "type": "addTashkeel",
+          "prompt": {"en": "Read الطريق طويل. Which ending belongs on طويل_?", "ar": "اقرأ «الطريق طويل». ما حركة آخر «طويل»؟"},
+          "options": [
+            {"id": "long-raf", "label": {"en": "طَوِيلٌ", "ar": "طَوِيلٌ"}, "isCorrect": true, "feedback": {"en": "Correct. طويل is the predicate and is in raf.", "ar": "صحيح. «طويل» خبر مرفوع."}},
+            {"id": "long-nasb", "label": {"en": "طَوِيلًا", "ar": "طَوِيلًا"}, "isCorrect": false, "feedback": {"en": "This is a basic nominal sentence, not a verb with an object.", "ar": "هذه جملة اسمية بسيطة، وليست فعلًا مع مفعول به."}},
+            {"id": "long-jarr", "label": {"en": "طَوِيلٍ", "ar": "طَوِيلٍ"}, "isCorrect": false, "feedback": {"en": "No preposition or genitive construction governs طويل.", "ar": "لا يوجد حرف جر ولا إضافة تجر «طويل»."}}
+          ]
+        },
+        {
+          "id": "lesson-07-subject-02", "type": "addTashkeel",
+          "prompt": {"en": "Read أكل الولد التفاحة. Which ending belongs on الولد_?", "ar": "اقرأ «أكل الولد التفاحة». ما حركة آخر «الولد»؟"},
+          "options": [
+            {"id": "boy-raf", "label": {"en": "الوَلَدُ", "ar": "الوَلَدُ"}, "isCorrect": true, "feedback": {"en": "Correct. The boy performed the eating, so he is the subject in raf.", "ar": "صحيح. الولد قام بالأكل، فهو فاعل مرفوع."}},
+            {"id": "boy-nasb", "label": {"en": "الوَلَدَ", "ar": "الوَلَدَ"}, "isCorrect": false, "feedback": {"en": "The boy did not receive the action; he performed it.", "ar": "لم يقع الفعل على الولد، بل قام به."}},
+            {"id": "boy-jarr", "label": {"en": "الوَلَدِ", "ar": "الوَلَدِ"}, "isCorrect": false, "feedback": {"en": "No preposition appears before الولد.", "ar": "لا يسبق «الولد» حرف جر."}}
+          ]
+        },
+        {
+          "id": "lesson-07-object-03", "type": "addTashkeel",
+          "prompt": {"en": "In the same sentence, which ending belongs on التفاحة_?", "ar": "في الجملة نفسها، ما حركة آخر «التفاحة»؟"},
+          "options": [
+            {"id": "apple-nasb", "label": {"en": "التُّفَّاحَةَ", "ar": "التُّفَّاحَةَ"}, "isCorrect": true, "feedback": {"en": "Correct. The apple received the action, so it is the direct object in nasb.", "ar": "صحيح. وقع الأكل على التفاحة، فهي مفعول به منصوب."}},
+            {"id": "apple-raf", "label": {"en": "التُّفَّاحَةُ", "ar": "التُّفَّاحَةُ"}, "isCorrect": false, "feedback": {"en": "The apple did not perform the eating.", "ar": "التفاحة لم تقم بالأكل."}},
+            {"id": "apple-jarr", "label": {"en": "التُّفَّاحَةِ", "ar": "التُّفَّاحَةِ"}, "isCorrect": false, "feedback": {"en": "No preposition governs التفاحة.", "ar": "لا يسبق «التفاحة» حرف جر."}}
+          ]
+        },
+        {
+          "id": "lesson-07-jarr-04", "type": "addTashkeel",
+          "prompt": {"en": "Read عاد الأب من العمل. Which ending belongs on العمل_?", "ar": "اقرأ «عاد الأب من العمل». ما حركة آخر «العمل»؟"},
+          "options": [
+            {"id": "work-jarr", "label": {"en": "العَمَلِ", "ar": "العَمَلِ"}, "isCorrect": true, "feedback": {"en": "Correct. العمل follows the preposition من and is in jarr.", "ar": "صحيح. «العمل» بعد حرف الجر «من»، فهو مجرور."}},
+            {"id": "work-raf", "label": {"en": "العَمَلُ", "ar": "العَمَلُ"}, "isCorrect": false, "feedback": {"en": "The preposition من governs العمل into jarr.", "ar": "حرف الجر «من» يجر «العمل»."}},
+            {"id": "work-nasb", "label": {"en": "العَمَلَ", "ar": "العَمَلَ"}, "isCorrect": false, "feedback": {"en": "العمل is not a direct object; it follows من.", "ar": "«العمل» ليس مفعولًا به؛ بل جاء بعد «من»."}}
+          ]
+        },
+        {
+          "id": "lesson-07-analysis-05", "type": "identifyRole",
+          "prompt": {"en": "In شاهد الطفل القمر في السماء, which sequence is correct?", "ar": "في «شاهد الطفل القمر في السماء»، أي ترتيب صحيح؟"},
+          "options": [
+            {"id": "correct-sequence", "label": {"en": "الطفل: subject · القمر: object · السماء: after a preposition", "ar": "الطفل: فاعل · القمر: مفعول به · السماء: اسم مجرور"}, "isCorrect": true, "feedback": {"en": "Excellent. You combined action, meaning, and the preposition clue.", "ar": "ممتاز. جمعت بين الفعل والمعنى وقرينة حرف الجر."}},
+            {"id": "reversed-sequence", "label": {"en": "الطفل: object · القمر: subject · السماء: predicate", "ar": "الطفل: مفعول به · القمر: فاعل · السماء: خبر"}, "isCorrect": false, "feedback": {"en": "Ask who saw what, then notice the preposition في.", "ar": "اسأل: من رأى ماذا؟ ثم انتبه إلى حرف الجر «في»."}},
+            {"id": "all-subjects", "label": {"en": "All three nouns are subjects", "ar": "الأسماء الثلاثة كلها فاعل"}, "isCorrect": false, "feedback": {"en": "Each noun has a different relationship to the action.", "ar": "لكل اسم علاقة مختلفة بالفعل."}}
+          ]
+        }
+      ],
+      "repeatExercises": [
+        {
+          "id": "lesson-07-repeat-nominal-01", "type": "addTashkeel",
+          "prompt": {"en": "New sentence: الجو جميل. Which ending belongs on جميل_?", "ar": "جملة جديدة: «الجو جميل». ما حركة آخر «جميل»؟"},
+          "options": [
+            {"id": "beautiful-raf", "label": {"en": "جَمِيلٌ", "ar": "جَمِيلٌ"}, "isCorrect": true, "feedback": {"en": "Correct. جميل is the predicate and is in raf.", "ar": "صحيح. «جميل» خبر مرفوع."}},
+            {"id": "beautiful-nasb", "label": {"en": "جَمِيلًا", "ar": "جَمِيلًا"}, "isCorrect": false, "feedback": {"en": "This is a nominal sentence; جميل is not a direct object.", "ar": "هذه جملة اسمية؛ و«جميل» ليس مفعولًا به."}},
+            {"id": "beautiful-jarr", "label": {"en": "جَمِيلٍ", "ar": "جَمِيلٍ"}, "isCorrect": false, "feedback": {"en": "Nothing governs جميل into jarr.", "ar": "لا يوجد ما يجر «جميل»."}}
+          ]
+        },
+        {
+          "id": "lesson-07-repeat-subject-02", "type": "addTashkeel",
+          "prompt": {"en": "New sentence: وصل القطار. Which ending belongs on القطار_?", "ar": "جملة جديدة: «وصل القطار». ما حركة آخر «القطار»؟"},
+          "options": [
+            {"id": "train-raf", "label": {"en": "القِطَارُ", "ar": "القِطَارُ"}, "isCorrect": true, "feedback": {"en": "Correct. The train performed the arriving, so it is the subject in raf.", "ar": "صحيح. القطار هو الذي وصل، فهو فاعل مرفوع."}},
+            {"id": "train-nasb", "label": {"en": "القِطَارَ", "ar": "القِطَارَ"}, "isCorrect": false, "feedback": {"en": "The train performed the action; it did not receive it.", "ar": "القطار قام بالفعل، ولم يقع الفعل عليه."}},
+            {"id": "train-jarr", "label": {"en": "القِطَارِ", "ar": "القِطَارِ"}, "isCorrect": false, "feedback": {"en": "No preposition appears before القطار.", "ar": "لا يسبق «القطار» حرف جر."}}
+          ]
+        },
+        {
+          "id": "lesson-07-repeat-object-03", "type": "addTashkeel",
+          "prompt": {"en": "New sentence: حمل الرجل الحقيبة. Which ending belongs on الحقيبة_?", "ar": "جملة جديدة: «حمل الرجل الحقيبة». ما حركة آخر «الحقيبة»؟"},
+          "options": [
+            {"id": "bag-nasb", "label": {"en": "الحَقِيبَةَ", "ar": "الحَقِيبَةَ"}, "isCorrect": true, "feedback": {"en": "Correct. The bag received the action of carrying, so it is in nasb.", "ar": "صحيح. وقع الحمل على الحقيبة، فهي مفعول به منصوب."}},
+            {"id": "bag-raf", "label": {"en": "الحَقِيبَةُ", "ar": "الحَقِيبَةُ"}, "isCorrect": false, "feedback": {"en": "The man, not the bag, performed the carrying.", "ar": "الرجل هو الذي حمل، وليس الحقيبة."}},
+            {"id": "bag-jarr", "label": {"en": "الحَقِيبَةِ", "ar": "الحَقِيبَةِ"}, "isCorrect": false, "feedback": {"en": "No preposition governs الحقيبة.", "ar": "لا يسبق «الحقيبة» حرف جر."}}
+          ]
+        },
+        {
+          "id": "lesson-07-repeat-jarr-04", "type": "addTashkeel",
+          "prompt": {"en": "New sentence: سافر خالد إلى المدينة. Which ending belongs on المدينة_?", "ar": "جملة جديدة: «سافر خالد إلى المدينة». ما حركة آخر «المدينة»؟"},
+          "options": [
+            {"id": "city-jarr", "label": {"en": "المَدِينَةِ", "ar": "المَدِينَةِ"}, "isCorrect": true, "feedback": {"en": "Correct. المدينة follows إلى and is in jarr.", "ar": "صحيح. «المدينة» بعد «إلى»، فهي مجرورة."}},
+            {"id": "city-raf", "label": {"en": "المَدِينَةُ", "ar": "المَدِينَةُ"}, "isCorrect": false, "feedback": {"en": "خالد is the subject; المدينة follows a preposition.", "ar": "«خالد» هو الفاعل؛ و«المدينة» بعد حرف جر."}},
+            {"id": "city-nasb", "label": {"en": "المَدِينَةَ", "ar": "المَدِينَةَ"}, "isCorrect": false, "feedback": {"en": "المدينة is a destination after إلى, not a direct object.", "ar": "«المدينة» وجهة بعد «إلى»، وليست مفعولًا به."}}
+          ]
+        },
+        {
+          "id": "lesson-07-repeat-analysis-05", "type": "identifyRole",
+          "prompt": {"en": "In وضع المعلم الكتاب على المكتب, which sequence is correct?", "ar": "في «وضع المعلم الكتاب على المكتب»، أي ترتيب صحيح؟"},
+          "options": [
+            {"id": "correct-sequence", "label": {"en": "المعلم: subject · الكتاب: object · المكتب: after a preposition", "ar": "المعلم: فاعل · الكتاب: مفعول به · المكتب: اسم مجرور"}, "isCorrect": true, "feedback": {"en": "Excellent. You found the doer, receiver, and preposition clue in a new sentence.", "ar": "ممتاز. حددت الفاعل والمفعول به وقرينة حرف الجر في جملة جديدة."}},
+            {"id": "reversed-sequence", "label": {"en": "المعلم: object · الكتاب: subject · المكتب: predicate", "ar": "المعلم: مفعول به · الكتاب: فاعل · المكتب: خبر"}, "isCorrect": false, "feedback": {"en": "Ask who placed what, then notice على.", "ar": "اسأل: من وضع ماذا؟ ثم انتبه إلى «على»."}},
+            {"id": "all-objects", "label": {"en": "All three nouns are objects", "ar": "الأسماء الثلاثة كلها مفعول به"}, "isCorrect": false, "feedback": {"en": "The nouns have different relationships to the action.", "ar": "للأسماء علاقات مختلفة بالفعل."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "ajurrumiyya-original", "title": "Al-Ajurrumiyya", "author": "Ibn Ajurrum", "url": "https://archive.org/details/al_ajurrumiyyah", "licenseStatus": "publicDomain", "citation": "The public-domain text was consulted for the foundational roles and grammatical states assessed in this checkpoint."},
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "1.2.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
     }
   ]
 }

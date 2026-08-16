@@ -15,13 +15,15 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.lessons, hasLength(5));
+      expect(catalog.lessons, hasLength(7));
       expect(catalog.lessons.first.title.en, 'Why endings change');
       expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
         catalog.lessons.first.sections.last.examples.single.tokens,
         hasLength(2),
       );
+      expect(catalog.lessons.first.repeatExercises, hasLength(3));
+      expect(catalog.lessons.last.repeatExercises, hasLength(5));
     });
 
     test('rejects the draft from a release catalog', () {
