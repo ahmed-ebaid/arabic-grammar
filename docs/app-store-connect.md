@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `3`
+- Build: `4`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -94,9 +94,9 @@ feature.
 ## TestFlight information
 
 - Beta app description: Learn Arabic grammar and word endings through a
-  bilingual, offline-first curriculum. Lesson 1 now uses a guided, bite-sized
-  path with instant feedback, saved progress, word-level analysis, and a
-  completion celebration.
+  bilingual, offline-first curriculum. Level 1 now has a Duolingo-style path
+  with three interactive lessons, instant explanations, saved progress,
+  mastery scoring, and 70% lesson unlocking.
 - Feedback email: `ahmed@ebaidllc.com`
 - Review contact:
   - First name: Ahmed
@@ -105,13 +105,15 @@ feature.
   - Email: `ahmed@ebaidllc.com`
 - Sign-in required: No
 - Review notes: No account is required. All current functionality is available
-  offline. Open Lessons and select "Why endings change" to review lesson 1.
+  offline. Open Lessons to review the Level 1 path. Complete "Why endings
+  change" with at least 70% mastery to unlock "Noun, verb, or particle?", then
+  continue to "The nominal sentence."
 
-## Release gate
+## Production release gate
 
-Do not submit a build for external Beta App Review until:
+Do not submit the app for production App Review until:
 
-1. Lesson 1 is approved by a qualified Arabic grammar teacher.
-2. The approved lesson is promoted into `assets/content/catalog.json`.
+1. The beta curriculum is approved by a qualified Arabic grammar teacher.
+2. The approved lessons are promoted into `assets/content/catalog.json`.
 3. `dart run tool/validate_content.dart --release` passes.
 4. The privacy, support, and terms URLs are publicly reachable.

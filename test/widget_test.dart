@@ -60,7 +60,7 @@ void main() {
     await tester.tap(find.text('Start learning'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Beginner foundations'), findsOneWidget);
+    expect(find.text('Level 1: Reading foundations'), findsOneWidget);
     expect(find.text('Why endings change'), findsOneWidget);
 
     await tester.tap(find.text('Why endings change'));
@@ -90,6 +90,13 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الطالبُ'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Continue'));
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
 
     await tester.ensureVisible(find.text('Fatha: َ'));
     await tester.tap(find.text('Fatha: َ'));
@@ -113,6 +120,36 @@ void main() {
 
     expect(find.text('Correct!'), findsOneWidget);
     expect(find.text('Continue'), findsOneWidget);
+  });
+
+  testWidgets('locks lesson 2 until lesson 1 reaches 70 percent', (
+    tester,
+  ) async {
+    final progress = LessonProgressController.inMemory();
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: progress,
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.text('Lessons'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('Locked until the previous lesson is mastered'),
+      findsOneWidget,
+    );
+
+    await progress.complete('lesson_01', 0, mastery: 75);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Mastery: 75%'), findsOneWidget);
+    expect(
+      find.text('Locked until the previous lesson is mastered'),
+      findsNothing,
+    );
   });
 }
 

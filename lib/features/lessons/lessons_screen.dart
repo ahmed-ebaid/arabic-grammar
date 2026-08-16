@@ -64,47 +64,45 @@ class _LessonsScreenState extends State<LessonsScreen> {
                     size: 36,
                     color: learningColors.onCoralContainer,
                   ),
-                  title: Text(l10n.moduleTitle),
-                  subtitle: Text(l10n.moduleSubtitle),
-                ),
-              ),
-              const SizedBox(height: 16),
-              for (final lesson in lessons)
-                Card(
-                  clipBehavior: Clip.antiAlias,
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.all(20),
-                    leading: CircleAvatar(
-                      backgroundColor: learningColors.sunshineContainer,
-                      foregroundColor: learningColors.onSunshineContainer,
-                      child: Text('${lesson.order}'),
-                    ),
-                    title: Text(
-                      lesson.title.forLanguage(languageCode),
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        '${l10n.lessonNumber(lesson.order)} · '
-                        '${l10n.estimatedMinutes(lesson.estimatedMinutes)}',
-                      ),
-                    ),
-                    trailing: widget.progressController.isCompleted(lesson.id)
-                        ? const Icon(Icons.check_circle, color: Colors.green)
-                        : const Icon(Icons.chevron_right),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute<void>(
-                          builder: (_) => LessonDetailScreen(
-                            lesson: lesson,
-                            progressController: widget.progressController,
-                          ),
-                        ),
-                      );
-                    },
+                  title: Text(
+                    languageCode == 'ar'
+                        ? 'المستوى الأول: أساس القراءة'
+                        : 'Level 1: Reading foundations',
+                  ),
+                  subtitle: Text(
+                    languageCode == 'ar'
+                        ? 'أتقن 70% من كل درس لفتح الدرس التالي.'
+                        : 'Reach 70% mastery in each lesson to unlock the next.',
                   ),
                 ),
+              ),
+              const SizedBox(height: 28),
+              for (final entry in lessons.indexed) ...[
+                _PathNode(
+                  lesson: entry.$2,
+                  languageCode: languageCode,
+                  mastery: widget.progressController.masteryFor(entry.$2.id),
+                  unlocked: entry.$2.prerequisites.every(
+                    widget.progressController.isMastered,
+                  ),
+                  onTap: () => _openLesson(entry.$2),
+                ),
+                if (entry.$1 < lessons.length - 1)
+                  Center(
+                    child: Container(
+                      width: 6,
+                      height: 38,
+                      decoration: BoxDecoration(
+                        color: widget.progressController.isMastered(entry.$2.id)
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(
+                                context,
+                              ).colorScheme.surfaceContainerHighest,
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                    ),
+                  ),
+              ],
             ],
           ),
         );
@@ -115,5 +113,120 @@ class _LessonsScreenState extends State<LessonsScreen> {
   static Future<ContentCatalog> _loadCatalog() async {
     final source = await rootBundle.loadString('content/drafts/lesson_01.json');
     return ContentCatalog.fromJson(jsonDecode(source));
+  }
+
+  Future<void> _openLesson(Lesson lesson) async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => LessonDetailScreen(
+          lesson: lesson,
+          progressController: widget.progressController,
+        ),
+      ),
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+}
+
+class _PathNode extends StatelessWidget {
+  const _PathNode({
+    required this.lesson,
+    required this.languageCode,
+    required this.mastery,
+    required this.unlocked,
+    required this.onTap,
+  });
+
+  final Lesson lesson;
+  final String languageCode;
+  final int mastery;
+  final bool unlocked;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final mastered = mastery >= 70;
+    final colors = Theme.of(context).extension<LearningColors>()!;
+    final nodeColor = !unlocked
+        ? Theme.of(context).colorScheme.surfaceContainerHighest
+        : mastered
+        ? Colors.green
+        : Theme.of(context).colorScheme.primary;
+    return Semantics(
+      button: unlocked,
+      enabled: unlocked,
+      label: '${lesson.title.forLanguage(languageCode)}, $mastery%',
+      child: InkWell(
+        onTap: unlocked ? onTap : null,
+        borderRadius: BorderRadius.circular(24),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            children: [
+              Container(
+                width: 92,
+                height: 92,
+                decoration: BoxDecoration(
+                  color: nodeColor,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: unlocked
+                        ? colors.sunshineContainer
+                        : Theme.of(context).colorScheme.outlineVariant,
+                    width: 7,
+                  ),
+                  boxShadow: unlocked
+                      ? [
+                          BoxShadow(
+                            color: nodeColor.withValues(alpha: 0.25),
+                            blurRadius: 12,
+                            offset: const Offset(0, 5),
+                          ),
+                        ]
+                      : null,
+                ),
+                child: Icon(
+                  !unlocked
+                      ? Icons.lock_rounded
+                      : mastered
+                      ? Icons.star_rounded
+                      : Icons.play_arrow_rounded,
+                  color: unlocked
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.onSurfaceVariant,
+                  size: 44,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                lesson.title.forLanguage(languageCode),
+                textAlign: TextAlign.center,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                !unlocked
+                    ? (languageCode == 'ar'
+                          ? 'مغلق حتى إتقان الدرس السابق'
+                          : 'Locked until the previous lesson is mastered')
+                    : mastery > 0
+                    ? (languageCode == 'ar'
+                          ? 'الإتقان: $mastery%'
+                          : 'Mastery: $mastery%')
+                    : (languageCode == 'ar'
+                          ? '${lesson.estimatedMinutes} دقائق'
+                          : '${lesson.estimatedMinutes} min'),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

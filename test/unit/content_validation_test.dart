@@ -15,10 +15,11 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.lessons.single.title.en, 'Why endings change');
-      expect(catalog.lessons.single.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
+      expect(catalog.lessons, hasLength(3));
+      expect(catalog.lessons.first.title.en, 'Why endings change');
+      expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
-        catalog.lessons.single.sections.last.examples.single.tokens,
+        catalog.lessons.first.sections.last.examples.single.tokens,
         hasLength(2),
       );
     });
@@ -84,7 +85,7 @@ void main() {
       firstToken['end'] = 5;
 
       final exercise =
-          (lesson['exercises'] as List<Object?>).single as Map<String, Object?>;
+          (lesson['exercises'] as List<Object?>).first as Map<String, Object?>;
       for (final option in exercise['options'] as List<Object?>) {
         (option as Map<String, Object?>)['isCorrect'] = false;
       }
@@ -134,5 +135,5 @@ Map<String, Object?> _sampleJson() {
 }
 
 Map<String, Object?> _lesson(Map<String, Object?> catalog) {
-  return (catalog['lessons'] as List<Object?>).single as Map<String, Object?>;
+  return (catalog['lessons'] as List<Object?>).first as Map<String, Object?>;
 }

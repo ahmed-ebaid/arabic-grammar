@@ -126,22 +126,13 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         onRetry: _retry,
         onContinue: _advance,
       ),
-      _StepKind.roleQuestion => _RoleQuestionStep(
-        example: step.example!,
-        languageCode: _languageCode,
-        selectedOptionId: _selectedOptionId,
-        answerChecked: _answerChecked,
-        onSelect: _selectOption,
-        onCheck: _checkRoleAnswer,
-        onRetry: _retry,
-        onContinue: _advance,
-      ),
       _StepKind.analysis => _AnalysisStep(
         example: step.example!,
         languageCode: _languageCode,
         onContinue: _advance,
       ),
       _StepKind.completion => _CompletionStep(
+        mastery: widget.progressController.masteryFor(widget.lesson.id),
         onRestart: _restart,
         onClose: () => Navigator.of(context).pop(),
       ),
@@ -156,22 +147,21 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     HapticFeedback.selectionClick();
   }
 
-  void _checkAnswer() {
+  Future<void> _checkAnswer() async {
     final exercise = _steps[_currentStep].exercise!;
     final option = exercise.options.firstWhere(
       (candidate) => candidate.id == _selectedOptionId,
     );
+    await widget.progressController.recordFirstAttempt(
+      widget.lesson.id,
+      exercise.id,
+      correct: option.isCorrect,
+    );
+    if (!mounted) {
+      return;
+    }
     setState(() => _answerChecked = true);
     if (option.isCorrect) {
-      HapticFeedback.mediumImpact();
-    } else {
-      HapticFeedback.heavyImpact();
-    }
-  }
-
-  void _checkRoleAnswer() {
-    setState(() => _answerChecked = true);
-    if (_selectedOptionId == '0') {
       HapticFeedback.mediumImpact();
     } else {
       HapticFeedback.heavyImpact();
@@ -191,7 +181,20 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     }
     final nextStep = _currentStep + 1;
     if (nextStep == _steps.length - 1) {
-      await widget.progressController.complete(widget.lesson.id, nextStep);
+      final correctAnswers = widget.lesson.exercises.where((exercise) {
+        return widget.progressController.firstAttemptResult(
+              widget.lesson.id,
+              exercise.id,
+            ) ==
+            true;
+      }).length;
+      final mastery = (correctAnswers * 100 / widget.lesson.exercises.length)
+          .round();
+      await widget.progressController.complete(
+        widget.lesson.id,
+        nextStep,
+        mastery: mastery,
+      );
       HapticFeedback.mediumImpact();
     } else {
       await widget.progressController.saveStep(widget.lesson.id, nextStep);
@@ -219,31 +222,19 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   }
 
   static List<_LessonStep> _buildSteps(Lesson lesson) {
-    final introduction = lesson.sections.first;
-    final workedExample = lesson.sections.firstWhere(
-      (section) => section.examples.isNotEmpty,
-    );
-    final example = workedExample.examples.first;
     return [
       const _LessonStep.objectives(),
-      _LessonStep.teaching(introduction),
-      _LessonStep.exercise(lesson.exercises.first),
-      _LessonStep.teaching(workedExample),
-      _LessonStep.roleQuestion(example),
-      _LessonStep.analysis(example),
+      for (final section in lesson.sections) ...[
+        _LessonStep.teaching(section),
+        for (final example in section.examples) _LessonStep.analysis(example),
+      ],
+      for (final exercise in lesson.exercises) _LessonStep.exercise(exercise),
       const _LessonStep.completion(),
     ];
   }
 }
 
-enum _StepKind {
-  objectives,
-  teaching,
-  exercise,
-  roleQuestion,
-  analysis,
-  completion,
-}
+enum _StepKind { objectives, teaching, exercise, analysis, completion }
 
 class _LessonStep {
   const _LessonStep.objectives()
@@ -261,11 +252,6 @@ class _LessonStep {
     : kind = _StepKind.exercise,
       section = null,
       example = null;
-
-  const _LessonStep.roleQuestion(this.example)
-    : kind = _StepKind.roleQuestion,
-      section = null,
-      exercise = null;
 
   const _LessonStep.analysis(this.example)
     : kind = _StepKind.analysis,
@@ -431,61 +417,6 @@ class _ExerciseStep extends StatelessWidget {
   }
 }
 
-class _RoleQuestionStep extends StatelessWidget {
-  const _RoleQuestionStep({
-    required this.example,
-    required this.languageCode,
-    required this.selectedOptionId,
-    required this.answerChecked,
-    required this.onSelect,
-    required this.onCheck,
-    required this.onRetry,
-    required this.onContinue,
-  });
-
-  final GrammarExample example;
-  final String languageCode;
-  final String? selectedOptionId;
-  final bool answerChecked;
-  final ValueChanged<String> onSelect;
-  final VoidCallback onCheck;
-  final VoidCallback onRetry;
-  final VoidCallback onContinue;
-
-  @override
-  Widget build(BuildContext context) {
-    final selectedIndex = selectedOptionId == null
-        ? null
-        : int.parse(selectedOptionId!);
-    final selected = selectedIndex == null
-        ? null
-        : example.tokens[selectedIndex];
-    final correct = selectedIndex == 0;
-    final feedback = selected == null
-        ? null
-        : correct
-        ? selected.reason.forLanguage(languageCode)
-        : example.tokens.first.reason.forLanguage(languageCode);
-
-    return _QuestionLayout(
-      prompt: AppLocalizations.of(context).chooseTopicPrompt,
-      supportingContent: _SentenceCard(example: example),
-      options: [
-        for (final entry in example.tokens.indexed)
-          _AnswerOption(id: '${entry.$1}', label: entry.$2.text),
-      ],
-      selectedOptionId: selectedOptionId,
-      answerChecked: answerChecked,
-      isCorrect: correct,
-      feedback: feedback,
-      onSelect: onSelect,
-      onCheck: onCheck,
-      onRetry: onRetry,
-      onContinue: onContinue,
-    );
-  }
-}
-
 class _QuestionLayout extends StatelessWidget {
   const _QuestionLayout({
     required this.prompt,
@@ -498,7 +429,6 @@ class _QuestionLayout extends StatelessWidget {
     required this.onCheck,
     required this.onRetry,
     required this.onContinue,
-    this.supportingContent,
   });
 
   final String prompt;
@@ -511,7 +441,6 @@ class _QuestionLayout extends StatelessWidget {
   final VoidCallback onCheck;
   final VoidCallback onRetry;
   final VoidCallback onContinue;
-  final Widget? supportingContent;
 
   @override
   Widget build(BuildContext context) {
@@ -523,10 +452,6 @@ class _QuestionLayout extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(prompt, style: Theme.of(context).textTheme.titleLarge),
-          if (supportingContent != null) ...[
-            const SizedBox(height: 18),
-            supportingContent!,
-          ],
           const SizedBox(height: 20),
           for (final option in options)
             Padding(
@@ -798,8 +723,13 @@ class _AnalysisRow extends StatelessWidget {
 }
 
 class _CompletionStep extends StatefulWidget {
-  const _CompletionStep({required this.onRestart, required this.onClose});
+  const _CompletionStep({
+    required this.mastery,
+    required this.onRestart,
+    required this.onClose,
+  });
 
+  final int mastery;
   final VoidCallback onRestart;
   final VoidCallback onClose;
 
@@ -824,9 +754,14 @@ class _CompletionStepState extends State<_CompletionStep>
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final colors = Theme.of(context).extension<LearningColors>()!;
+    final passed = widget.mastery >= 70;
     return _StepLayout(
-      icon: Icons.celebration,
-      title: l10n.lessonCompleteTitle,
+      icon: passed ? Icons.celebration : Icons.refresh_rounded,
+      title: passed
+          ? l10n.lessonCompleteTitle
+          : (_languageCode(context) == 'ar'
+                ? 'تدرَّب مرة أخرى'
+                : 'Practice again'),
       body: Column(
         children: [
           ScaleTransition(
@@ -842,7 +777,7 @@ class _CompletionStepState extends State<_CompletionStep>
                 shape: BoxShape.circle,
               ),
               child: Icon(
-                Icons.star_rounded,
+                passed ? Icons.star_rounded : Icons.school_rounded,
                 size: 96,
                 color: colors.onSunshineContainer,
               ),
@@ -850,7 +785,18 @@ class _CompletionStepState extends State<_CompletionStep>
           ),
           const SizedBox(height: 24),
           Text(
-            l10n.lessonCompleteBody,
+            _languageCode(context) == 'ar'
+                ? 'الإتقان: ${widget.mastery}%'
+                : 'Mastery: ${widget.mastery}%',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            passed
+                ? l10n.lessonCompleteBody
+                : (_languageCode(context) == 'ar'
+                      ? 'تحتاج إلى 70% لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.'
+                      : 'You need 70% to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.'),
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium,
           ),
@@ -859,10 +805,11 @@ class _CompletionStepState extends State<_CompletionStep>
       action: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          FilledButton(
-            onPressed: widget.onClose,
-            child: Text(l10n.returnToLessons),
-          ),
+          if (passed)
+            FilledButton(
+              onPressed: widget.onClose,
+              child: Text(l10n.returnToLessons),
+            ),
           const SizedBox(height: 10),
           TextButton(
             onPressed: widget.onRestart,
@@ -872,6 +819,9 @@ class _CompletionStepState extends State<_CompletionStep>
       ),
     );
   }
+
+  String _languageCode(BuildContext context) =>
+      Localizations.localeOf(context).languageCode;
 }
 
 class _SentenceCard extends StatelessWidget {
