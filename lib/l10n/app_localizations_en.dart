@@ -96,6 +96,52 @@ class AppLocalizationsEn extends AppLocalizations {
   String get contentLoadError => 'The lesson could not be loaded.';
 
   @override
+  String get continueLabel => 'Continue';
+
+  @override
+  String get checkAnswer => 'Check answer';
+
+  @override
+  String get tryAgain => 'Try again';
+
+  @override
+  String get quickCheckTitle => 'Quick check';
+
+  @override
+  String get chooseTopicPrompt => 'Which word is the topic (mubtada)?';
+
+  @override
+  String get correctAnswerTitle => 'Correct!';
+
+  @override
+  String get incorrectAnswerTitle => 'Not quite yet';
+
+  @override
+  String get exploreWordsTitle => 'Explore the sentence';
+
+  @override
+  String get exploreWordsBody =>
+      'Tap each word to see its role, state, sign, ending, and reason.';
+
+  @override
+  String get lessonCompleteTitle => 'Lesson complete!';
+
+  @override
+  String get lessonCompleteBody =>
+      'You noticed how word endings can reveal a word\'s job in a sentence.';
+
+  @override
+  String get restartLesson => 'Practice again';
+
+  @override
+  String get returnToLessons => 'Back to lessons';
+
+  @override
+  String stepProgress(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
   String get practiceTitle => 'Practice';
 
   @override

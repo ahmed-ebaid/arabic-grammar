@@ -49,7 +49,7 @@ flutter build ipa --release \
   --export-options-plist=ios/ExportOptions.plist
 ```
 
-The current beta version is `0.1.0+2`. App Store Connect metadata and the
+The current beta version is `0.1.0+3`. App Store Connect metadata and the
 external-beta release gate are documented in `docs/app-store-connect.md`.
 
 ## Project Structure

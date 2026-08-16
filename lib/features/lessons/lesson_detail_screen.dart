@@ -1,210 +1,718 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/models/content_models.dart';
+import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 
-class LessonDetailScreen extends StatelessWidget {
-  const LessonDetailScreen({required this.lesson, super.key});
+class LessonDetailScreen extends StatefulWidget {
+  const LessonDetailScreen({
+    required this.lesson,
+    required this.progressController,
+    super.key,
+  });
 
   final Lesson lesson;
+  final LessonProgressController progressController;
+
+  @override
+  State<LessonDetailScreen> createState() => _LessonDetailScreenState();
+}
+
+class _LessonDetailScreenState extends State<LessonDetailScreen> {
+  late final List<_LessonStep> _steps = _buildSteps(widget.lesson);
+  late int _currentStep = widget.progressController
+      .stepFor(widget.lesson.id)
+      .clamp(0, _steps.length - 1);
+  String? _selectedOptionId;
+  bool _answerChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    final languageCode = Localizations.localeOf(context).languageCode;
     final l10n = AppLocalizations.of(context);
+    final step = _steps[_currentStep];
+    final progress = (_currentStep + 1) / _steps.length;
 
     return Scaffold(
-      appBar: AppBar(title: Text(lesson.title.forLanguage(languageCode))),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+      appBar: AppBar(
+        title: Text(widget.lesson.title.forLanguage(_languageCode)),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(999),
+                          child: LinearProgressIndicator(
+                            minHeight: 12,
+                            value: progress,
+                            backgroundColor: Theme.of(
+                              context,
+                            ).colorScheme.surfaceContainerHighest,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Text(
+                        l10n.stepProgress(_currentStep + 1, _steps.length),
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 260),
+                transitionBuilder: (child, animation) => FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(
+                    position:
+                        Tween<Offset>(
+                          begin: const Offset(0.08, 0),
+                          end: Offset.zero,
+                        ).animate(
+                          CurvedAnimation(
+                            parent: animation,
+                            curve: Curves.easeOutCubic,
+                          ),
+                        ),
+                    child: child,
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  key: ValueKey(_currentStep),
+                  padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
+                  child: _buildStep(step),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String get _languageCode => Localizations.localeOf(context).languageCode;
+
+  Widget _buildStep(_LessonStep step) {
+    return switch (step.kind) {
+      _StepKind.objectives => _ObjectivesStep(
+        lesson: widget.lesson,
+        languageCode: _languageCode,
+        onContinue: _advance,
+      ),
+      _StepKind.teaching => _TeachingStep(
+        section: step.section!,
+        languageCode: _languageCode,
+        onContinue: _advance,
+      ),
+      _StepKind.exercise => _ExerciseStep(
+        exercise: step.exercise!,
+        languageCode: _languageCode,
+        selectedOptionId: _selectedOptionId,
+        answerChecked: _answerChecked,
+        onSelect: _selectOption,
+        onCheck: _checkAnswer,
+        onRetry: _retry,
+        onContinue: _advance,
+      ),
+      _StepKind.roleQuestion => _RoleQuestionStep(
+        example: step.example!,
+        languageCode: _languageCode,
+        selectedOptionId: _selectedOptionId,
+        answerChecked: _answerChecked,
+        onSelect: _selectOption,
+        onCheck: _checkRoleAnswer,
+        onRetry: _retry,
+        onContinue: _advance,
+      ),
+      _StepKind.analysis => _AnalysisStep(
+        example: step.example!,
+        languageCode: _languageCode,
+        onContinue: _advance,
+      ),
+      _StepKind.completion => _CompletionStep(
+        onRestart: _restart,
+        onClose: () => Navigator.of(context).pop(),
+      ),
+    };
+  }
+
+  void _selectOption(String id) {
+    if (_answerChecked) {
+      return;
+    }
+    setState(() => _selectedOptionId = id);
+    HapticFeedback.selectionClick();
+  }
+
+  void _checkAnswer() {
+    final exercise = _steps[_currentStep].exercise!;
+    final option = exercise.options.firstWhere(
+      (candidate) => candidate.id == _selectedOptionId,
+    );
+    setState(() => _answerChecked = true);
+    if (option.isCorrect) {
+      HapticFeedback.mediumImpact();
+    } else {
+      HapticFeedback.heavyImpact();
+    }
+  }
+
+  void _checkRoleAnswer() {
+    setState(() => _answerChecked = true);
+    if (_selectedOptionId == '0') {
+      HapticFeedback.mediumImpact();
+    } else {
+      HapticFeedback.heavyImpact();
+    }
+  }
+
+  void _retry() {
+    setState(() {
+      _selectedOptionId = null;
+      _answerChecked = false;
+    });
+  }
+
+  Future<void> _advance() async {
+    if (_currentStep >= _steps.length - 1) {
+      return;
+    }
+    final nextStep = _currentStep + 1;
+    if (nextStep == _steps.length - 1) {
+      await widget.progressController.complete(widget.lesson.id, nextStep);
+      HapticFeedback.mediumImpact();
+    } else {
+      await widget.progressController.saveStep(widget.lesson.id, nextStep);
+    }
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _currentStep = nextStep;
+      _selectedOptionId = null;
+      _answerChecked = false;
+    });
+  }
+
+  Future<void> _restart() async {
+    await widget.progressController.restart(widget.lesson.id);
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _currentStep = 0;
+      _selectedOptionId = null;
+      _answerChecked = false;
+    });
+  }
+
+  static List<_LessonStep> _buildSteps(Lesson lesson) {
+    final introduction = lesson.sections.first;
+    final workedExample = lesson.sections.firstWhere(
+      (section) => section.examples.isNotEmpty,
+    );
+    final example = workedExample.examples.first;
+    return [
+      const _LessonStep.objectives(),
+      _LessonStep.teaching(introduction),
+      _LessonStep.exercise(lesson.exercises.first),
+      _LessonStep.teaching(workedExample),
+      _LessonStep.roleQuestion(example),
+      _LessonStep.analysis(example),
+      const _LessonStep.completion(),
+    ];
+  }
+}
+
+enum _StepKind {
+  objectives,
+  teaching,
+  exercise,
+  roleQuestion,
+  analysis,
+  completion,
+}
+
+class _LessonStep {
+  const _LessonStep.objectives()
+    : kind = _StepKind.objectives,
+      section = null,
+      exercise = null,
+      example = null;
+
+  const _LessonStep.teaching(this.section)
+    : kind = _StepKind.teaching,
+      exercise = null,
+      example = null;
+
+  const _LessonStep.exercise(this.exercise)
+    : kind = _StepKind.exercise,
+      section = null,
+      example = null;
+
+  const _LessonStep.roleQuestion(this.example)
+    : kind = _StepKind.roleQuestion,
+      section = null,
+      exercise = null;
+
+  const _LessonStep.analysis(this.example)
+    : kind = _StepKind.analysis,
+      section = null,
+      exercise = null;
+
+  const _LessonStep.completion()
+    : kind = _StepKind.completion,
+      section = null,
+      exercise = null,
+      example = null;
+
+  final _StepKind kind;
+  final LessonSection? section;
+  final Exercise? exercise;
+  final GrammarExample? example;
+}
+
+class _ObjectivesStep extends StatelessWidget {
+  const _ObjectivesStep({
+    required this.lesson,
+    required this.languageCode,
+    required this.onContinue,
+  });
+
+  final Lesson lesson;
+  final String languageCode;
+  final VoidCallback onContinue;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final colors = Theme.of(context).extension<LearningColors>()!;
+    return _StepLayout(
+      icon: Icons.flag_outlined,
+      title: l10n.objectivesTitle,
+      body: Card(
+        color: colors.blueContainer,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              for (final objective in lesson.objectives)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.check_circle_outline,
+                        color: colors.onBlueContainer,
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          objective.forLanguage(languageCode),
+                          style: TextStyle(
+                            color: colors.onBlueContainer,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+      action: FilledButton(
+        onPressed: onContinue,
+        child: Text(l10n.continueLabel),
+      ),
+    );
+  }
+}
+
+class _TeachingStep extends StatelessWidget {
+  const _TeachingStep({
+    required this.section,
+    required this.languageCode,
+    required this.onContinue,
+  });
+
+  final LessonSection section;
+  final String languageCode;
+  final VoidCallback onContinue;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final example = section.examples.firstOrNull;
+    return _StepLayout(
+      icon: Icons.lightbulb_outline,
+      title: section.title.forLanguage(languageCode),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            l10n.lessonNumber(lesson.order),
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            section.body.forLanguage(languageCode),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
-          const SizedBox(height: 6),
-          Text(
-            lesson.title.forLanguage(languageCode),
-            style: Theme.of(context).textTheme.headlineMedium,
+          if (example != null) ...[
+            const SizedBox(height: 24),
+            _SentenceCard(example: example),
+          ],
+        ],
+      ),
+      action: FilledButton(
+        onPressed: onContinue,
+        child: Text(l10n.continueLabel),
+      ),
+    );
+  }
+}
+
+class _ExerciseStep extends StatelessWidget {
+  const _ExerciseStep({
+    required this.exercise,
+    required this.languageCode,
+    required this.selectedOptionId,
+    required this.answerChecked,
+    required this.onSelect,
+    required this.onCheck,
+    required this.onRetry,
+    required this.onContinue,
+  });
+
+  final Exercise exercise;
+  final String languageCode;
+  final String? selectedOptionId;
+  final bool answerChecked;
+  final ValueChanged<String> onSelect;
+  final VoidCallback onCheck;
+  final VoidCallback onRetry;
+  final VoidCallback onContinue;
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = selectedOptionId == null
+        ? null
+        : exercise.options.firstWhere(
+            (option) => option.id == selectedOptionId,
+          );
+    return _QuestionLayout(
+      prompt: exercise.prompt.forLanguage(languageCode),
+      options: [
+        for (final option in exercise.options)
+          _AnswerOption(
+            id: option.id,
+            label: option.label.forLanguage(languageCode),
           ),
-          const SizedBox(height: 6),
-          Text(l10n.estimatedMinutes(lesson.estimatedMinutes)),
+      ],
+      selectedOptionId: selectedOptionId,
+      answerChecked: answerChecked,
+      isCorrect: selected?.isCorrect ?? false,
+      feedback: selected?.feedback.forLanguage(languageCode),
+      onSelect: onSelect,
+      onCheck: onCheck,
+      onRetry: onRetry,
+      onContinue: onContinue,
+    );
+  }
+}
+
+class _RoleQuestionStep extends StatelessWidget {
+  const _RoleQuestionStep({
+    required this.example,
+    required this.languageCode,
+    required this.selectedOptionId,
+    required this.answerChecked,
+    required this.onSelect,
+    required this.onCheck,
+    required this.onRetry,
+    required this.onContinue,
+  });
+
+  final GrammarExample example;
+  final String languageCode;
+  final String? selectedOptionId;
+  final bool answerChecked;
+  final ValueChanged<String> onSelect;
+  final VoidCallback onCheck;
+  final VoidCallback onRetry;
+  final VoidCallback onContinue;
+
+  @override
+  Widget build(BuildContext context) {
+    final selectedIndex = selectedOptionId == null
+        ? null
+        : int.parse(selectedOptionId!);
+    final selected = selectedIndex == null
+        ? null
+        : example.tokens[selectedIndex];
+    final correct = selectedIndex == 0;
+    final feedback = selected == null
+        ? null
+        : correct
+        ? selected.reason.forLanguage(languageCode)
+        : example.tokens.first.reason.forLanguage(languageCode);
+
+    return _QuestionLayout(
+      prompt: AppLocalizations.of(context).chooseTopicPrompt,
+      supportingContent: _SentenceCard(example: example),
+      options: [
+        for (final entry in example.tokens.indexed)
+          _AnswerOption(id: '${entry.$1}', label: entry.$2.text),
+      ],
+      selectedOptionId: selectedOptionId,
+      answerChecked: answerChecked,
+      isCorrect: correct,
+      feedback: feedback,
+      onSelect: onSelect,
+      onCheck: onCheck,
+      onRetry: onRetry,
+      onContinue: onContinue,
+    );
+  }
+}
+
+class _QuestionLayout extends StatelessWidget {
+  const _QuestionLayout({
+    required this.prompt,
+    required this.options,
+    required this.selectedOptionId,
+    required this.answerChecked,
+    required this.isCorrect,
+    required this.feedback,
+    required this.onSelect,
+    required this.onCheck,
+    required this.onRetry,
+    required this.onContinue,
+    this.supportingContent,
+  });
+
+  final String prompt;
+  final List<_AnswerOption> options;
+  final String? selectedOptionId;
+  final bool answerChecked;
+  final bool isCorrect;
+  final String? feedback;
+  final ValueChanged<String> onSelect;
+  final VoidCallback onCheck;
+  final VoidCallback onRetry;
+  final VoidCallback onContinue;
+  final Widget? supportingContent;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return _StepLayout(
+      icon: Icons.quiz_outlined,
+      title: l10n.quickCheckTitle,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(prompt, style: Theme.of(context).textTheme.titleLarge),
+          if (supportingContent != null) ...[
+            const SizedBox(height: 18),
+            supportingContent!,
+          ],
           const SizedBox(height: 20),
-          _ObjectivesCard(
-            objectives: lesson.objectives,
-            languageCode: languageCode,
-          ),
-          const SizedBox(height: 12),
-          for (final section in lesson.sections) ...[
-            _LessonSectionCard(section: section, languageCode: languageCode),
-            const SizedBox(height: 12),
-          ],
-          if (lesson.exercises.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(
-              l10n.lessonPracticeTitle,
-              style: Theme.of(context).textTheme.headlineSmall,
+          for (final option in options)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: _OptionButton(
+                option: option,
+                selected: selectedOptionId == option.id,
+                disabled: answerChecked,
+                onPressed: () => onSelect(option.id),
+              ),
             ),
-            const SizedBox(height: 12),
-            for (final exercise in lesson.exercises) ...[
-              _ExerciseCard(exercise: exercise, languageCode: languageCode),
-              const SizedBox(height: 12),
+          if (answerChecked && feedback != null)
+            _FeedbackCard(isCorrect: isCorrect, feedback: feedback!),
+        ],
+      ),
+      action: answerChecked
+          ? FilledButton(
+              onPressed: isCorrect ? onContinue : onRetry,
+              child: Text(isCorrect ? l10n.continueLabel : l10n.tryAgain),
+            )
+          : FilledButton(
+              onPressed: selectedOptionId == null ? null : onCheck,
+              child: Text(l10n.checkAnswer),
+            ),
+    );
+  }
+}
+
+class _AnswerOption {
+  const _AnswerOption({required this.id, required this.label});
+
+  final String id;
+  final String label;
+}
+
+class _OptionButton extends StatelessWidget {
+  const _OptionButton({
+    required this.option,
+    required this.selected,
+    required this.disabled,
+    required this.onPressed,
+  });
+
+  final _AnswerOption option;
+  final bool selected;
+  final bool disabled;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: disabled ? null : onPressed,
+      style: OutlinedButton.styleFrom(
+        alignment: AlignmentDirectional.centerStart,
+        backgroundColor: selected
+            ? Theme.of(context).colorScheme.primaryContainer
+            : null,
+        side: BorderSide(
+          width: selected ? 2 : 1,
+          color: selected
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.outline,
+        ),
+        padding: const EdgeInsets.all(18),
+      ),
+      child: Text(
+        option.label,
+        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+}
+
+class _FeedbackCard extends StatelessWidget {
+  const _FeedbackCard({required this.isCorrect, required this.feedback});
+
+  final bool isCorrect;
+  final String feedback;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final color = isCorrect
+        ? Colors.green.withValues(alpha: 0.14)
+        : Theme.of(context).colorScheme.errorContainer;
+    return Container(
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(isCorrect ? Icons.check_circle : Icons.refresh),
+              const SizedBox(width: 8),
+              Text(
+                isCorrect ? l10n.correctAnswerTitle : l10n.incorrectAnswerTitle,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              ),
             ],
-          ],
+          ),
+          const SizedBox(height: 8),
+          Text(feedback),
         ],
       ),
     );
   }
 }
 
-class _ObjectivesCard extends StatelessWidget {
-  const _ObjectivesCard({required this.objectives, required this.languageCode});
-
-  final List<LocalizedText> objectives;
-  final String languageCode;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = Theme.of(context).extension<LearningColors>()!;
-    return Card(
-      color: colors.blueContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              AppLocalizations.of(context).objectivesTitle,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: colors.onBlueContainer,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            for (final objective in objectives)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('• ', style: TextStyle(color: colors.onBlueContainer)),
-                    Expanded(
-                      child: Text(
-                        objective.forLanguage(languageCode),
-                        style: TextStyle(color: colors.onBlueContainer),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _LessonSectionCard extends StatelessWidget {
-  const _LessonSectionCard({required this.section, required this.languageCode});
-
-  final LessonSection section;
-  final String languageCode;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              section.title.forLanguage(languageCode),
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 10),
-            Text(section.body.forLanguage(languageCode)),
-            for (final example in section.examples) ...[
-              const SizedBox(height: 20),
-              _GrammarExampleCard(example: example, languageCode: languageCode),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _GrammarExampleCard extends StatelessWidget {
-  const _GrammarExampleCard({
+class _AnalysisStep extends StatefulWidget {
+  const _AnalysisStep({
     required this.example,
     required this.languageCode,
+    required this.onContinue,
   });
 
   final GrammarExample example;
   final String languageCode;
+  final VoidCallback onContinue;
+
+  @override
+  State<_AnalysisStep> createState() => _AnalysisStepState();
+}
+
+class _AnalysisStepState extends State<_AnalysisStep> {
+  int? _selectedToken;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final colors = Theme.of(context).extension<LearningColors>()!;
-
-    return Material(
-      color: colors.sunshineContainer,
-      borderRadius: BorderRadius.circular(16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(l10n.vocalizedLabel),
-            const SizedBox(height: 4),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Text(
-                example.vocalized,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontFamily: 'AmiriQuran',
-                  color: colors.onSunshineContainer,
+    final selected = _selectedToken == null
+        ? null
+        : widget.example.tokens[_selectedToken!];
+    return _StepLayout(
+      icon: Icons.touch_app_outlined,
+      title: l10n.exploreWordsTitle,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(l10n.exploreWordsBody),
+          const SizedBox(height: 20),
+          Wrap(
+            alignment: WrapAlignment.center,
+            textDirection: TextDirection.rtl,
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              for (final entry in widget.example.tokens.indexed)
+                ChoiceChip(
+                  selected: _selectedToken == entry.$1,
+                  label: Text(
+                    '${entry.$2.text}${entry.$2.ending}',
+                    style: const TextStyle(
+                      fontFamily: 'AmiriQuran',
+                      fontSize: 24,
+                    ),
+                  ),
+                  onSelected: (_) {
+                    setState(() => _selectedToken = entry.$1);
+                    HapticFeedback.selectionClick();
+                  },
                 ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Text(l10n.unvocalizedLabel),
-            const SizedBox(height: 4),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Text(
-                example.unvocalized,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontFamily: 'AmiriQuran',
-                  color: colors.onSunshineContainer,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              l10n.wordAnalysisTitle,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: colors.onSunshineContainer,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 4),
-            for (final token in example.tokens)
-              _TokenAnalysisTile(token: token, languageCode: languageCode),
+            ],
+          ),
+          if (selected != null) ...[
+            const SizedBox(height: 20),
+            _TokenCard(token: selected, languageCode: widget.languageCode),
           ],
-        ),
+        ],
+      ),
+      action: FilledButton(
+        onPressed: selected == null ? null : widget.onContinue,
+        child: Text(l10n.continueLabel),
       ),
     );
   }
 }
 
-class _TokenAnalysisTile extends StatelessWidget {
-  const _TokenAnalysisTile({required this.token, required this.languageCode});
+class _TokenCard extends StatelessWidget {
+  const _TokenCard({required this.token, required this.languageCode});
 
   final GrammarToken token;
   final String languageCode;
@@ -212,37 +720,33 @@ class _TokenAnalysisTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return ExpansionTile(
-      tilePadding: EdgeInsets.zero,
-      childrenPadding: const EdgeInsets.only(bottom: 12),
-      title: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Text(
-          '${token.text}${token.ending}',
-          style: Theme.of(
-            context,
-          ).textTheme.titleLarge?.copyWith(fontFamily: 'AmiriQuran'),
+    final colors = Theme.of(context).extension<LearningColors>()!;
+    return Card(
+      color: colors.sunshineContainer,
+      child: Padding(
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          children: [
+            _AnalysisRow(
+              label: l10n.roleLabel,
+              value: token.role.forLanguage(languageCode),
+            ),
+            _AnalysisRow(
+              label: l10n.stateLabel,
+              value: _grammarState(token.grammarState, languageCode),
+            ),
+            _AnalysisRow(
+              label: l10n.signLabel,
+              value: token.grammaticalSign.forLanguage(languageCode),
+            ),
+            _AnalysisRow(label: l10n.endingLabel, value: token.ending),
+            _AnalysisRow(
+              label: l10n.reasonLabel,
+              value: token.reason.forLanguage(languageCode),
+            ),
+          ],
         ),
       ),
-      children: [
-        _AnalysisRow(
-          label: l10n.roleLabel,
-          value: token.role.forLanguage(languageCode),
-        ),
-        _AnalysisRow(
-          label: l10n.stateLabel,
-          value: _grammarState(token.grammarState, languageCode),
-        ),
-        _AnalysisRow(
-          label: l10n.signLabel,
-          value: token.grammaticalSign.forLanguage(languageCode),
-        ),
-        _AnalysisRow(label: l10n.endingLabel, value: token.ending),
-        _AnalysisRow(
-          label: l10n.reasonLabel,
-          value: token.reason.forLanguage(languageCode),
-        ),
-      ],
     );
   }
 
@@ -275,12 +779,12 @@ class _AnalysisRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 80,
+            width: 84,
             child: Text(
               label,
               style: const TextStyle(fontWeight: FontWeight.bold),
@@ -293,62 +797,145 @@ class _AnalysisRow extends StatelessWidget {
   }
 }
 
-class _ExerciseCard extends StatefulWidget {
-  const _ExerciseCard({required this.exercise, required this.languageCode});
+class _CompletionStep extends StatefulWidget {
+  const _CompletionStep({required this.onRestart, required this.onClose});
 
-  final Exercise exercise;
-  final String languageCode;
+  final VoidCallback onRestart;
+  final VoidCallback onClose;
 
   @override
-  State<_ExerciseCard> createState() => _ExerciseCardState();
+  State<_CompletionStep> createState() => _CompletionStepState();
 }
 
-class _ExerciseCardState extends State<_ExerciseCard> {
-  ExerciseOption? _selectedOption;
+class _CompletionStepState extends State<_CompletionStep>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 700),
+  )..forward();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final selected = _selectedOption;
+    final l10n = AppLocalizations.of(context);
+    final colors = Theme.of(context).extension<LearningColors>()!;
+    return _StepLayout(
+      icon: Icons.celebration,
+      title: l10n.lessonCompleteTitle,
+      body: Column(
+        children: [
+          ScaleTransition(
+            scale: CurvedAnimation(
+              parent: _controller,
+              curve: Curves.elasticOut,
+            ),
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                color: colors.sunshineContainer,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.star_rounded,
+                size: 96,
+                color: colors.onSunshineContainer,
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            l10n.lessonCompleteBody,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ],
+      ),
+      action: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          FilledButton(
+            onPressed: widget.onClose,
+            child: Text(l10n.returnToLessons),
+          ),
+          const SizedBox(height: 10),
+          TextButton(
+            onPressed: widget.onRestart,
+            child: Text(l10n.restartLesson),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SentenceCard extends StatelessWidget {
+  const _SentenceCard({required this.example});
+
+  final GrammarExample example;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<LearningColors>()!;
     return Card(
+      color: colors.sunshineContainer,
       child: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              widget.exercise.prompt.forLanguage(widget.languageCode),
-              style: Theme.of(context).textTheme.titleMedium,
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text(
+            example.vocalized,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              fontFamily: 'AmiriQuran',
+              color: colors.onSunshineContainer,
             ),
-            const SizedBox(height: 14),
-            for (final option in widget.exercise.options)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: OutlinedButton(
-                  onPressed: () => setState(() => _selectedOption = option),
-                  style: OutlinedButton.styleFrom(
-                    alignment: AlignmentDirectional.centerStart,
-                    padding: const EdgeInsets.all(16),
-                  ),
-                  child: Text(option.label.forLanguage(widget.languageCode)),
-                ),
-              ),
-            if (selected != null)
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: selected.isCorrect
-                      ? Colors.green.withValues(alpha: 0.12)
-                      : Theme.of(context).colorScheme.errorContainer,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(14),
-                  child: Text(
-                    selected.feedback.forLanguage(widget.languageCode),
-                  ),
-                ),
-              ),
-          ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class _StepLayout extends StatelessWidget {
+  const _StepLayout({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.action,
+  });
+
+  final IconData icon;
+  final String title;
+  final Widget body;
+  final Widget action;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 520),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Icon(icon, size: 48, color: Theme.of(context).colorScheme.primary),
+          const SizedBox(height: 12),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 24),
+          body,
+          const SizedBox(height: 28),
+          action,
+        ],
       ),
     );
   }
