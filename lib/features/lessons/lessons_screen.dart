@@ -49,65 +49,82 @@ class _LessonsScreenState extends State<LessonsScreen> {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final lessons = snapshot.data!.lessons;
+        final catalog = snapshot.data!;
         return AnimatedBuilder(
           animation: widget.progressController,
           builder: (context, _) => ListView(
             padding: const EdgeInsets.all(20),
             children: [
-              Card(
-                color: learningColors.coralContainer,
-                child: ListTile(
-                  contentPadding: const EdgeInsets.all(20),
-                  leading: Icon(
-                    Icons.school_outlined,
-                    size: 36,
-                    color: learningColors.onCoralContainer,
-                  ),
-                  title: Text(
-                    languageCode == 'ar'
-                        ? 'المستوى الأول: أساس القراءة'
-                        : 'Level 1: Reading foundations',
-                  ),
-                  subtitle: Text(
-                    languageCode == 'ar'
-                        ? 'أتقن 70% من كل درس لفتح الدرس التالي.'
-                        : 'Reach 70% mastery in each lesson to unlock the next.',
-                  ),
+              for (final level in catalog.levels)
+                ..._buildLevel(
+                  context,
+                  level,
+                  catalog.lessons,
+                  languageCode,
+                  learningColors,
                 ),
-              ),
-              const SizedBox(height: 28),
-              for (final entry in lessons.indexed) ...[
-                _PathNode(
-                  lesson: entry.$2,
-                  languageCode: languageCode,
-                  mastery: widget.progressController.masteryFor(entry.$2.id),
-                  unlocked: entry.$2.prerequisites.every(
-                    widget.progressController.isMastered,
-                  ),
-                  onTap: () => _openLesson(entry.$2),
-                ),
-                if (entry.$1 < lessons.length - 1)
-                  Center(
-                    child: Container(
-                      width: 6,
-                      height: 38,
-                      decoration: BoxDecoration(
-                        color: widget.progressController.isMastered(entry.$2.id)
-                            ? Theme.of(context).colorScheme.primary
-                            : Theme.of(
-                                context,
-                              ).colorScheme.surfaceContainerHighest,
-                        borderRadius: BorderRadius.circular(999),
-                      ),
-                    ),
-                  ),
-              ],
             ],
           ),
         );
       },
     );
+  }
+
+  List<Widget> _buildLevel(
+    BuildContext context,
+    CurriculumLevel level,
+    List<Lesson> allLessons,
+    String languageCode,
+    LearningColors learningColors,
+  ) {
+    final lessonsById = {for (final lesson in allLessons) lesson.id: lesson};
+    final lessons = level.lessonIds
+        .map((lessonId) => lessonsById[lessonId]!)
+        .toList(growable: false);
+    return [
+      Card(
+        color: learningColors.coralContainer,
+        child: ListTile(
+          contentPadding: const EdgeInsets.all(20),
+          leading: Icon(
+            Icons.school_outlined,
+            size: 36,
+            color: learningColors.onCoralContainer,
+          ),
+          title: Text(level.title.forLanguage(languageCode)),
+          subtitle: Text(
+            '${level.description.forLanguage(languageCode)}\n'
+            '${languageCode == 'ar' ? 'أتقن 70% من كل درس لفتح الدرس التالي.' : 'Reach 70% mastery in each lesson to unlock the next.'}',
+          ),
+        ),
+      ),
+      const SizedBox(height: 28),
+      for (final entry in lessons.indexed) ...[
+        _PathNode(
+          lesson: entry.$2,
+          languageCode: languageCode,
+          mastery: widget.progressController.masteryFor(entry.$2.id),
+          unlocked: entry.$2.prerequisites.every(
+            widget.progressController.isMastered,
+          ),
+          onTap: () => _openLesson(entry.$2),
+        ),
+        if (entry.$1 < lessons.length - 1)
+          Center(
+            child: Container(
+              width: 6,
+              height: 38,
+              decoration: BoxDecoration(
+                color: widget.progressController.isMastered(entry.$2.id)
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(999),
+              ),
+            ),
+          ),
+      ],
+      const SizedBox(height: 36),
+    ];
   }
 
   static Future<ContentCatalog> _loadCatalog() async {
