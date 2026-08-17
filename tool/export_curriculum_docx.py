@@ -355,17 +355,11 @@ def add_front_matter(
     document.add_page_break()
 
 
-def add_headers_and_footers(document: Document, content_version: str) -> None:
-    # Sections inherit a linked header/footer by default. Set the shared content
-    # once; appending in a loop would repeat the text for every linked section.
+def add_header(document: Document, content_version: str) -> None:
     section = document.sections[0]
     header = section.header.paragraphs[0]
     header.text = f"I'rab curriculum review — {content_version}"
     header.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer = section.footer.paragraphs[0]
-    footer.text = "Ebaid LLC — Teacher review draft"
-    footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    footer.runs[0].font.size = Pt(8)
 
 
 def export(source_path: Path, output_path: Path) -> None:
@@ -386,7 +380,7 @@ def export(source_path: Path, output_path: Path) -> None:
         add_lesson(document, lesson, levels_by_lesson[lesson["id"]])
         if index < len(catalog["lessons"]) - 1:
             document.add_section(WD_SECTION.NEW_PAGE)
-    add_headers_and_footers(document, catalog["contentVersion"])
+    add_header(document, catalog["contentVersion"])
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     document.save(output_path)
