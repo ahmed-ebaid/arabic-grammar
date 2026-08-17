@@ -173,7 +173,7 @@ abstract class AppLocalizations {
   /// No description provided for @moduleSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'10 guided lessons'**
+  /// **'59 guided lessons'**
   String get moduleSubtitle;
 
   /// No description provided for @comingSoon.
@@ -356,6 +356,102 @@ abstract class AppLocalizations {
   /// **'Exercises will unlock with each lesson.'**
   String get practiceSubtitle;
 
+  /// No description provided for @practiceFamilySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build your grammar strength, earn stars, and unlock badges—one question at a time.'**
+  String get practiceFamilySubtitle;
+
+  /// No description provided for @practiceDailyGoalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s goal'**
+  String get practiceDailyGoalTitle;
+
+  /// No description provided for @practiceDailyGoalProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} of {goal} questions'**
+  String practiceDailyGoalProgress(int current, int goal);
+
+  /// No description provided for @practiceMixedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed review'**
+  String get practiceMixedTitle;
+
+  /// No description provided for @practiceMixedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Review varied questions from lessons you have unlocked or attempted.'**
+  String get practiceMixedBody;
+
+  /// No description provided for @practiceWeakAreasTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Strengthen weak areas'**
+  String get practiceWeakAreasTitle;
+
+  /// No description provided for @practiceWeakAreasBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Review items due today first, then lessons below 70% mastery and question types you previously missed.'**
+  String get practiceWeakAreasBody;
+
+  /// No description provided for @practiceRewardsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your badges'**
+  String get practiceRewardsTitle;
+
+  /// No description provided for @practiceBadgeFirstSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'First Steps'**
+  String get practiceBadgeFirstSteps;
+
+  /// No description provided for @practiceBadgePerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect Ten'**
+  String get practiceBadgePerfect;
+
+  /// No description provided for @practiceBadgeHabit.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice Habit'**
+  String get practiceBadgeHabit;
+
+  /// No description provided for @practiceBadgeGrammarStar.
+  ///
+  /// In en, this message translates to:
+  /// **'Grammar Star'**
+  String get practiceBadgeGrammarStar;
+
+  /// No description provided for @practiceCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice complete!'**
+  String get practiceCompleteTitle;
+
+  /// No description provided for @practiceScore.
+  ///
+  /// In en, this message translates to:
+  /// **'{correct} of {total} correct'**
+  String practiceScore(int correct, int total);
+
+  /// No description provided for @practiceStarsEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'You earned {stars} stars'**
+  String practiceStarsEarned(int stars);
+
+  /// No description provided for @practiceAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice again'**
+  String get practiceAgain;
+
   /// No description provided for @progressTitle.
   ///
   /// In en, this message translates to:
@@ -367,6 +463,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your learning progress will stay on this device.'**
   String get progressSubtitle;
+
+  /// No description provided for @progressCurriculumSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{mastered} of {total} lessons mastered'**
+  String progressCurriculumSummary(int mastered, int total);
+
+  /// No description provided for @progressLessonsStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Lessons started'**
+  String get progressLessonsStarted;
+
+  /// No description provided for @progressPracticeStars.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice stars'**
+  String get progressPracticeStars;
+
+  /// No description provided for @progressDailyGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily goal'**
+  String get progressDailyGoal;
+
+  /// No description provided for @progressPracticeAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice accuracy'**
+  String get progressPracticeAccuracy;
+
+  /// No description provided for @progressLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress by level'**
+  String get progressLevelsTitle;
+
+  /// No description provided for @progressAverageMastery.
+  ///
+  /// In en, this message translates to:
+  /// **'Average mastery: {percent}%'**
+  String progressAverageMastery(int percent);
+
+  /// No description provided for @progressNextLesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {lesson}'**
+  String progressNextLesson(String lesson);
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About & credits'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutPurposeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our purpose'**
+  String get aboutPurposeTitle;
+
+  /// No description provided for @aboutPurposeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from vocalized examples to independent reading without vowel marks.'**
+  String get aboutPurposeBody;
+
+  /// No description provided for @aboutCompanyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Developed by Ebaid LLC'**
+  String get aboutCompanyTitle;
+
+  /// No description provided for @aboutCompanyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Ebaid LLC develops practical educational technology that makes structured learning more accessible. It created and publishes إعراب, including the app\'s original software, lesson explanations, examples, translations, feedback, and exercises.'**
+  String get aboutCompanyBody;
+
+  /// No description provided for @aboutResourcesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Resources and attribution'**
+  String get aboutResourcesTitle;
+
+  /// No description provided for @aboutReviewersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher reviewers'**
+  String get aboutReviewersTitle;
+
+  /// No description provided for @aboutReviewersPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Qualified teachers who approve curriculum content will be credited here with their permission. Current beta lessons are still pending review.'**
+  String get aboutReviewersPending;
+
+  /// No description provided for @aboutContentStatusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Content status'**
+  String get aboutContentStatusTitle;
+
+  /// No description provided for @aboutContentVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Curriculum version'**
+  String get aboutContentVersion;
+
+  /// No description provided for @aboutDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.'**
+  String get aboutDisclaimer;
+
+  /// No description provided for @aboutContactTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Support and legal information'**
+  String get aboutContactTitle;
 
   /// No description provided for @language.
   ///
@@ -391,6 +607,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @glossaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Grammar glossary'**
+  String get glossaryTitle;
+
+  /// No description provided for @glossarySearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Arabic, English, or transliteration'**
+  String get glossarySearchHint;
+
+  /// No description provided for @glossaryNoResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching grammar terms.'**
+  String get glossaryNoResults;
+
+  /// No description provided for @glossaryLessonLinks.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected to {count} lessons'**
+  String glossaryLessonLinks(int count);
+
+  /// No description provided for @clearSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear search'**
+  String get clearSearch;
+
+  /// No description provided for @bookmarksTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved items'**
+  String get bookmarksTitle;
+
+  /// No description provided for @bookmarksEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookmark a lesson, worked example, or glossary term to find it here.'**
+  String get bookmarksEmpty;
+
+  /// No description provided for @bookmarkedLessons.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved lessons'**
+  String get bookmarkedLessons;
+
+  /// No description provided for @bookmarkedExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved examples'**
+  String get bookmarkedExamples;
+
+  /// No description provided for @bookmarkedTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved glossary terms'**
+  String get bookmarkedTerms;
+
+  /// No description provided for @addBookmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get addBookmark;
+
+  /// No description provided for @removeBookmark.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from saved items'**
+  String get removeBookmark;
+
+  /// No description provided for @listen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get listen;
+
+  /// No description provided for @textSizeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Text size'**
+  String get textSizeTitle;
+
+  /// No description provided for @textSizeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a comfortable reading size. This setting applies throughout the app.'**
+  String get textSizeBody;
+
+  /// No description provided for @textSizeSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'Small'**
+  String get textSizeSmall;
+
+  /// No description provided for @textSizeDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Default'**
+  String get textSizeDefault;
+
+  /// No description provided for @textSizeLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Large'**
+  String get textSizeLarge;
+
+  /// No description provided for @textSizeLargest.
+  ///
+  /// In en, this message translates to:
+  /// **'Largest'**
+  String get textSizeLargest;
+
+  /// No description provided for @learningIllustrationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'A cheerful Arabic learning card'**
+  String get learningIllustrationLabel;
+
+  /// No description provided for @celebrationIllustrationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'A colorful Arabic grammar celebration'**
+  String get celebrationIllustrationLabel;
 }
 
 class _AppLocalizationsDelegate

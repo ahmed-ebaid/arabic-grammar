@@ -57,6 +57,11 @@ void main() {
       ),
     );
 
+    await tester.scrollUntilVisible(
+      find.text('Start learning'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.tap(find.text('Start learning'));
     await tester.pumpAndSettle();
 
@@ -68,6 +73,138 @@ void main() {
 
     expect(find.text('What you will learn'), findsOneWidget);
     expect(find.text('Continue'), findsOneWidget);
+  });
+
+  testWidgets('shows curriculum sources and review status in About', (
+    tester,
+  ) async {
+    final localeController = LocaleController.inMemory();
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: localeController,
+        lessonProgressController: LessonProgressController.inMemory(),
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('About & credits'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('About & credits'), findsOneWidget);
+    expect(find.text('Developed by Ebaid LLC'), findsOneWidget);
+    expect(find.text('Al-Ajurrumiyya'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Teacher reviewers'),
+      300,
+      scrollable: find.byType(Scrollable),
+    );
+    expect(find.text('Teacher reviewers'), findsOneWidget);
+    expect(
+      find.textContaining('Current beta lessons are still pending review'),
+      findsOneWidget,
+    );
+
+    await localeController.setLocale(const Locale('ar'));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('الآجرومية'),
+      -300,
+      scrollable: find.byType(Scrollable).last,
+    );
+
+    expect(find.text('الآجرومية'), findsOneWidget);
+    expect(find.textContaining('ابن آجروم'), findsOneWidget);
+  });
+
+  testWidgets('searches and bookmarks bilingual glossary terms', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: LessonProgressController.inMemory(),
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Grammar glossary'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Grammar glossary'), findsOneWidget);
+    await tester.enterText(find.byType(SearchBar), 'mubtada');
+    await tester.pumpAndSettle();
+    expect(find.text("Mubtada' (topic)"), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Save').first);
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Remove from saved items'), findsOneWidget);
+  });
+
+  testWidgets('starts a ten-question mixed practice session', (tester) async {
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: LessonProgressController.inMemory(),
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.text('Practice'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Mixed review'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Strengthen weak areas'),
+      250,
+      scrollable: find.byType(Scrollable).last,
+    );
+    expect(find.text('Strengthen weak areas'), findsOneWidget);
+    expect(find.text('0 of 10 questions'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('Mixed review'));
+    await tester.tap(find.text('Mixed review'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('1/10'), findsOneWidget);
+    expect(find.text('Why endings change'), findsOneWidget);
+  });
+
+  testWidgets('shows curriculum and practice metrics in Progress', (
+    tester,
+  ) async {
+    final progress = LessonProgressController.inMemory();
+    await progress.complete('lesson_01', 6, mastery: 80);
+    await progress.recordPracticeSession(answered: 10, correct: 8);
+
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: progress,
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.text('Progress'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('1 of 59 lessons mastered'), findsOneWidget);
+    expect(find.text('Practice stars'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Progress by level'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Progress by level'), findsOneWidget);
+    expect(find.text('Level 1: Reading foundations'), findsOneWidget);
+    expect(find.text('1/7'), findsOneWidget);
   });
 
   testWidgets('explains an incorrect answer and allows a retry', (

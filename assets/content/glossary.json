@@ -1,0 +1,803 @@
+{
+  "schemaVersion": 1,
+  "terms": [
+    {
+      "id": "irab",
+      "term": { "en": "I'rab (case inflection)", "ar": "الإعراب" },
+      "transliteration": "i'rāb",
+      "definition": {
+        "en": "The change in a word's ending caused by its grammatical role in the sentence, shown by raf', nasb, jarr, or jazm.",
+        "ar": "تغيّر آخر الكلمة بحسب موقعها في الجملة، ويكون بالرفع أو النصب أو الجر أو الجزم."
+      },
+      "example": {
+        "en": "'The student read' vs 'I saw the student': the same word takes different endings for subject and object.",
+        "ar": "قرأ الطالبُ / رأيتُ الطالبَ: الكلمة نفسها تغيّر آخرها بين الرفع والنصب."
+      },
+      "lessonIds": ["lesson_01", "lesson_40", "lesson_53", "lesson_58"]
+    },
+    {
+      "id": "mabni",
+      "term": { "en": "Mabni (indeclinable)", "ar": "المبني" },
+      "transliteration": "mabnī",
+      "definition": {
+        "en": "A word whose ending stays fixed no matter its role in the sentence, such as most particles and some pronouns.",
+        "ar": "كلمة يبقى آخرها ثابتًا مهما تغيّر موقعها في الجملة، كأكثر الحروف وبعض الضمائر."
+      },
+      "example": {
+        "en": "'Hadha' (this) keeps the same ending whether it is a subject or an object.",
+        "ar": "\"هذا\" يبقى على حاله سواء كان مبتدأ أو مفعولًا به."
+      },
+      "lessonIds": ["lesson_01", "lesson_55", "lesson_58"]
+    },
+    {
+      "id": "murab",
+      "term": { "en": "Mu'rab (declinable)", "ar": "المعرب" },
+      "transliteration": "mu'rab",
+      "definition": {
+        "en": "A word whose ending changes with its grammatical position, unlike a mabni word.",
+        "ar": "كلمة يتغيّر آخرها بحسب موقعها الإعرابي، على عكس المبني."
+      },
+      "example": {
+        "en": "Most nouns and present-tense verbs are mu'rab and take raf', nasb, or jarr/jazm.",
+        "ar": "أكثر الأسماء والفعل المضارع معربة، فتُرفع أو تُنصب أو تُجر أو تُجزم."
+      },
+      "lessonIds": ["lesson_01", "lesson_53", "lesson_54"]
+    },
+    {
+      "id": "raf",
+      "term": { "en": "Raf' (nominative)", "ar": "الرفع" },
+      "transliteration": "raf'",
+      "definition": {
+        "en": "The case ending, usually a damma, marking a word as a subject, topic, or predicate.",
+        "ar": "علامة إعرابية، غالبًا الضمة، تدل على أن الكلمة فاعل أو مبتدأ أو خبر."
+      },
+      "example": {
+        "en": "In 'al-waladu qa'imun' (the boy is standing), both words are marked with raf'.",
+        "ar": "في \"الولدُ قائمٌ\" كلتا الكلمتين مرفوعة بالضمة."
+      },
+      "lessonIds": ["lesson_04", "lesson_25", "lesson_53"]
+    },
+    {
+      "id": "nasb",
+      "term": { "en": "Nasb (accusative)", "ar": "النصب" },
+      "transliteration": "naṣb",
+      "definition": {
+        "en": "The case ending, usually a fatha, marking a word as a direct object or certain other dependent roles.",
+        "ar": "علامة إعرابية، غالبًا الفتحة، تدل على أن الكلمة مفعول به أو من التوابع المنصوبة."
+      },
+      "example": {
+        "en": "In 'akaltu at-tuffahata' (I ate the apple), 'at-tuffahata' is in nasb.",
+        "ar": "في \"أكلتُ التفاحةَ\" كلمة \"التفاحةَ\" منصوبة لأنها مفعول به."
+      },
+      "lessonIds": ["lesson_05", "lesson_21", "lesson_26"]
+    },
+    {
+      "id": "jarr",
+      "term": { "en": "Jarr (genitive)", "ar": "الجر" },
+      "transliteration": "jarr",
+      "definition": {
+        "en": "The case ending, usually a kasra, marking a noun after a preposition or as the second part of an idafa.",
+        "ar": "علامة إعرابية، غالبًا الكسرة، تلحق الاسم بعد حرف الجر أو إذا كان مضافًا إليه."
+      },
+      "example": {
+        "en": "In 'fi al-baiti' (in the house), 'al-baiti' is in jarr after the preposition.",
+        "ar": "في \"في البيتِ\" كلمة \"البيتِ\" مجرورة لأنها مسبوقة بحرف جر."
+      },
+      "lessonIds": ["lesson_06", "lesson_12"]
+    },
+    {
+      "id": "jazm",
+      "term": { "en": "Jazm (jussive)", "ar": "الجزم" },
+      "transliteration": "jazm",
+      "definition": {
+        "en": "A special ending for the present-tense verb, usually dropping the final vowel or letter, triggered by certain particles.",
+        "ar": "حالة إعرابية خاصة بالفعل المضارع تُسقط حركته الأخيرة أو حرف علته بسبب أداة جازمة."
+      },
+      "example": {
+        "en": "'Lam yaktub' (he did not write): 'lam' puts the verb in jazm, dropping the final vowel.",
+        "ar": "\"لم يكتبْ\": \"لم\" جزمت الفعل المضارع فسكن آخره."
+      },
+      "lessonIds": ["lesson_21", "lesson_22"]
+    },
+    {
+      "id": "ism",
+      "term": { "en": "Ism (noun)", "ar": "الاسم" },
+      "transliteration": "ism",
+      "definition": {
+        "en": "A word that names a person, thing, place, or idea, and can generally take tanwin, definiteness, or jarr.",
+        "ar": "كلمة تدل على شخص أو شيء أو مكان أو معنى، ويصح دخول التنوين أو أل التعريف أو حرف الجر عليها."
+      },
+      "example": {
+        "en": "'Kitab' (book) and 'Muhammad' are both asma'.",
+        "ar": "\"كتاب\" و\"محمد\" كلاهما اسم."
+      },
+      "lessonIds": ["lesson_02", "lesson_52", "lesson_53"]
+    },
+    {
+      "id": "fil",
+      "term": { "en": "Fi'l (verb)", "ar": "الفعل" },
+      "transliteration": "fi'l",
+      "definition": {
+        "en": "A word that expresses an action or state tied to a particular time: past, present, or command.",
+        "ar": "كلمة تدل على حدث مقترن بزمن معيّن: الماضي أو المضارع أو الأمر."
+      },
+      "example": {
+        "en": "'Kataba' (he wrote), 'yaktubu' (he writes), and 'uktub' (write!) are all fi'l.",
+        "ar": "\"كتبَ\" و\"يكتبُ\" و\"اكتبْ\" كلها أفعال."
+      },
+      "lessonIds": ["lesson_02", "lesson_52", "lesson_54"]
+    },
+    {
+      "id": "harf",
+      "term": { "en": "Harf (particle)", "ar": "الحرف" },
+      "transliteration": "ḥarf",
+      "definition": {
+        "en": "A word with no independent meaning by itself; it only makes sense when linking other words, and it is always mabni.",
+        "ar": "كلمة لا معنى مستقلًا لها بذاتها، وإنما تُفهم من خلال ربطها بغيرها، وهي دائمًا مبنية."
+      },
+      "example": {
+        "en": "'Fi', 'ila', and 'wa' are ḥuruf; none of them makes sense alone.",
+        "ar": "\"في\" و\"إلى\" و\"و\" حروف لا تدل على معنى تام وحدها."
+      },
+      "lessonIds": ["lesson_02", "lesson_52", "lesson_55"]
+    },
+    {
+      "id": "mubtada",
+      "term": { "en": "Mubtada' (topic)", "ar": "المبتدأ" },
+      "transliteration": "mubtada'",
+      "definition": {
+        "en": "The noun that a nominal sentence starts with; it is what the sentence is about, and it is marked with raf'.",
+        "ar": "الاسم الذي تبدأ به الجملة الاسمية، وهو الذي يُتحدَّث عنه، ويكون مرفوعًا."
+      },
+      "example": {
+        "en": "In 'al-baytu kabirun' (the house is big), 'al-baytu' is the mubtada'.",
+        "ar": "في \"البيتُ كبيرٌ\" كلمة \"البيتُ\" هي المبتدأ."
+      },
+      "lessonIds": ["lesson_03", "lesson_44", "lesson_57"]
+    },
+    {
+      "id": "khabar",
+      "term": { "en": "Khabar (predicate)", "ar": "الخبر" },
+      "transliteration": "khabar",
+      "definition": {
+        "en": "The part of a nominal sentence that tells us something about the mubtada'; it is marked with raf'.",
+        "ar": "الجزء من الجملة الاسمية الذي يخبرنا شيئًا عن المبتدأ، ويكون مرفوعًا."
+      },
+      "example": {
+        "en": "In 'al-baytu kabirun' (the house is big), 'kabirun' is the khabar.",
+        "ar": "في \"البيتُ كبيرٌ\" كلمة \"كبيرٌ\" هي الخبر."
+      },
+      "lessonIds": ["lesson_03", "lesson_44", "lesson_57"]
+    },
+    {
+      "id": "jumla-ismiyya",
+      "term": { "en": "Nominal sentence", "ar": "الجملة الاسمية" },
+      "transliteration": "jumla ismiyya",
+      "definition": {
+        "en": "A sentence that begins with a noun, built from a mubtada' and a khabar.",
+        "ar": "جملة تبدأ باسم، وتتكوّن من مبتدأ وخبر."
+      },
+      "example": {
+        "en": "'Al-jawwu jamilun' (the weather is nice) is a nominal sentence.",
+        "ar": "\"الجوُّ جميلٌ\" جملة اسمية."
+      },
+      "lessonIds": ["lesson_03", "lesson_34"]
+    },
+    {
+      "id": "jumla-filiyya",
+      "term": { "en": "Verbal sentence", "ar": "الجملة الفعلية" },
+      "transliteration": "jumla fi'liyya",
+      "definition": {
+        "en": "A sentence that begins with a verb, typically followed by its subject.",
+        "ar": "جملة تبدأ بفعل، ويليه غالبًا فاعله."
+      },
+      "example": {
+        "en": "'Laiba al-waladu' (the boy played) is a verbal sentence.",
+        "ar": "\"لعِبَ الولدُ\" جملة فعلية."
+      },
+      "lessonIds": ["lesson_04", "lesson_34"]
+    },
+    {
+      "id": "fail",
+      "term": { "en": "Fa'il (subject/doer)", "ar": "الفاعل" },
+      "transliteration": "fā'il",
+      "definition": {
+        "en": "The noun that performs the action of the verb; it comes after the verb and is marked with raf'.",
+        "ar": "الاسم الذي يقوم بالفعل، ويأتي بعد الفعل، ويكون مرفوعًا."
+      },
+      "example": {
+        "en": "In 'dahaka at-tiflu' (the child laughed), 'at-tiflu' is the fa'il.",
+        "ar": "في \"ضحك الطفلُ\" كلمة \"الطفلُ\" هي الفاعل."
+      },
+      "lessonIds": ["lesson_04", "lesson_17"]
+    },
+    {
+      "id": "naib-al-fail",
+      "term": { "en": "Na'ib al-fa'il (substitute subject)", "ar": "نائب الفاعل" },
+      "transliteration": "nā'ib al-fā'il",
+      "definition": {
+        "en": "The noun that takes the subject's place and its raf' ending when the verb is made passive and the doer is not mentioned.",
+        "ar": "الاسم الذي يحل محل الفاعل ويأخذ حكمه في الرفع حين يُبنى الفعل للمجهول ولا يُذكر الفاعل."
+      },
+      "example": {
+        "en": "'Kutiba ad-darsu' (the lesson was written): 'ad-darsu' is the na'ib al-fa'il.",
+        "ar": "\"كُتِبَ الدرسُ\": \"الدرسُ\" نائب فاعل."
+      },
+      "lessonIds": ["lesson_36"]
+    },
+    {
+      "id": "maful-bihi",
+      "term": { "en": "Maf'ul bihi (direct object)", "ar": "المفعول به" },
+      "transliteration": "maf'ūl bihi",
+      "definition": {
+        "en": "The noun that receives the action of the verb; it is marked with nasb.",
+        "ar": "الاسم الذي يقع عليه فعل الفاعل، ويكون منصوبًا."
+      },
+      "example": {
+        "en": "In 'fataha al-waladu al-baba' (the boy opened the door), 'al-baba' is the maf'ul bihi.",
+        "ar": "في \"فتح الولدُ البابَ\" كلمة \"البابَ\" هي المفعول به."
+      },
+      "lessonIds": ["lesson_05", "lesson_19"]
+    },
+    {
+      "id": "mudaf",
+      "term": { "en": "Mudaf (possessed noun)", "ar": "المضاف" },
+      "transliteration": "muḍāf",
+      "definition": {
+        "en": "The first noun in an idafa construction; it never takes tanwin or the definite article, and its meaning depends on the noun after it.",
+        "ar": "الاسم الأول في تركيب الإضافة، ولا يقبل التنوين ولا أل، ويكتسب تعريفه أو تخصيصه مما بعده."
+      },
+      "example": {
+        "en": "In 'kitabu at-talibi' (the student's book), 'kitabu' is the mudaf.",
+        "ar": "في \"كتابُ الطالبِ\" كلمة \"كتابُ\" هي المضاف."
+      },
+      "lessonIds": ["lesson_12", "lesson_38"]
+    },
+    {
+      "id": "mudaf-ilayh",
+      "term": { "en": "Mudaf ilayh (possessor)", "ar": "المضاف إليه" },
+      "transliteration": "muḍāf ilayhi",
+      "definition": {
+        "en": "The second noun in an idafa construction, which defines or restricts the mudaf and is always marked with jarr.",
+        "ar": "الاسم الثاني في الإضافة، وهو الذي يُعرِّف المضاف أو يخصّصه، ويكون دائمًا مجرورًا."
+      },
+      "example": {
+        "en": "In 'kitabu at-talibi' (the student's book), 'at-talibi' is the mudaf ilayh.",
+        "ar": "في \"كتابُ الطالبِ\" كلمة \"الطالبِ\" هي المضاف إليه."
+      },
+      "lessonIds": ["lesson_12", "lesson_38"]
+    },
+    {
+      "id": "nat",
+      "term": { "en": "Na't (adjective/descriptive)", "ar": "النعت" },
+      "transliteration": "na't",
+      "definition": {
+        "en": "A word that describes a noun and agrees with it in gender, number, definiteness, and case.",
+        "ar": "كلمة تصف اسمًا قبلها وتطابقه في التذكير والتأنيث والإفراد والجمع والتعريف والتنكير والإعراب."
+      },
+      "example": {
+        "en": "In 'at-talibu al-mujtahidu' (the diligent student), 'al-mujtahidu' is the na't.",
+        "ar": "في \"الطالبُ المجتهدُ\" كلمة \"المجتهدُ\" نعت."
+      },
+      "lessonIds": ["lesson_11"]
+    },
+    {
+      "id": "hal",
+      "term": { "en": "Hal (circumstantial accusative)", "ar": "الحال" },
+      "transliteration": "ḥāl",
+      "definition": {
+        "en": "A word, usually marked with nasb, that describes the state or condition of the doer or object at the time of the action.",
+        "ar": "كلمة منصوبة غالبًا تبيّن هيئة صاحبها وقت وقوع الفعل."
+      },
+      "example": {
+        "en": "In 'ja'a al-waladu bakiyan' (the boy came crying), 'bakiyan' is the hal.",
+        "ar": "في \"جاء الولدُ باكيًا\" كلمة \"باكيًا\" حال."
+      },
+      "lessonIds": ["lesson_30"]
+    },
+    {
+      "id": "zarf",
+      "term": { "en": "Zarf (adverb of time/place)", "ar": "الظرف" },
+      "transliteration": "ẓarf",
+      "definition": {
+        "en": "A noun in nasb that expresses when or where an action takes place, implicitly meaning 'in' or 'during'.",
+        "ar": "اسم منصوب يدل على زمان وقوع الفعل أو مكانه، ويتضمّن معنى \"في\"."
+      },
+      "example": {
+        "en": "In 'jalastu amama al-babi' (I sat in front of the door), 'amama' is a zarf makan.",
+        "ar": "في \"جلستُ أمامَ البابِ\" كلمة \"أمامَ\" ظرف مكان."
+      },
+      "lessonIds": ["lesson_29"]
+    },
+    {
+      "id": "tamyiz",
+      "term": { "en": "Tamyiz (specifier)", "ar": "التمييز" },
+      "transliteration": "tamyīz",
+      "definition": {
+        "en": "A singular indefinite noun in nasb that removes ambiguity about what a preceding number, weight, or comparison refers to.",
+        "ar": "اسم نكرة مفرد منصوب يزيل الغموض عمّا قبله من عدد أو وزن أو مقدار أو مقارنة."
+      },
+      "example": {
+        "en": "In 'ishruna kitaban' (twenty books), 'kitaban' is the tamyiz.",
+        "ar": "في \"عشرون كتابًا\" كلمة \"كتابًا\" تمييز."
+      },
+      "lessonIds": ["lesson_32"]
+    },
+    {
+      "id": "kana-wa-akhawatuha",
+      "term": { "en": "Kana and its sisters", "ar": "كان وأخواتها" },
+      "transliteration": "kāna wa akhawātuhā",
+      "definition": {
+        "en": "A group of verbs, headed by 'kana', that enter a nominal sentence, keep the topic in raf' as their ism, and put the predicate in nasb as their khabar.",
+        "ar": "مجموعة أفعال ناسخة على رأسها \"كان\" تدخل على الجملة الاسمية فتُبقي المبتدأ مرفوعًا وتسمّيه اسمها، وتنصب الخبر وتسمّيه خبرها."
+      },
+      "example": {
+        "en": "'Kana al-jawwu baridan' (the weather was cold): 'al-jawwu' is ism kana, 'baridan' is its khabar.",
+        "ar": "\"كان الجوُّ باردًا\": \"الجوُّ\" اسم كان، و\"باردًا\" خبرها."
+      },
+      "lessonIds": ["lesson_25"]
+    },
+    {
+      "id": "inna-wa-akhawatuha",
+      "term": { "en": "Inna and its sisters", "ar": "إن وأخواتها" },
+      "transliteration": "inna wa akhawātuhā",
+      "definition": {
+        "en": "A group of particles, headed by 'inna', that enter a nominal sentence and put the topic in nasb as their ism while the predicate stays in raf' as their khabar.",
+        "ar": "مجموعة حروف ناسخة على رأسها \"إنّ\" تدخل على الجملة الاسمية فتنصب المبتدأ وتسمّيه اسمها، ويبقى الخبر مرفوعًا وتسمّيه خبرها."
+      },
+      "example": {
+        "en": "'Inna al-'ilma nurun' (indeed knowledge is light): 'al-'ilma' is ism inna, 'nurun' is its khabar.",
+        "ar": "\"إنَّ العلمَ نورٌ\": \"العلمَ\" اسم إنّ، و\"نورٌ\" خبرها."
+      },
+      "lessonIds": ["lesson_26"]
+    },
+    {
+      "id": "muthanna",
+      "term": { "en": "Dual (muthanna)", "ar": "المثنى" },
+      "transliteration": "muthannā",
+      "definition": {
+        "en": "A noun form referring to exactly two, usually made by adding '-ani' in raf' or '-ayni' in nasb and jarr.",
+        "ar": "صيغة تدل على اثنين، وتُصاغ غالبًا بزيادة \"ان\" في حالة الرفع أو \"ين\" في حالتي النصب والجر."
+      },
+      "example": {
+        "en": "'Talibani' (two students, subject) becomes 'talibayni' when in nasb or jarr.",
+        "ar": "\"طالبان\" في حالة الرفع تصبح \"طالبَين\" في النصب والجر."
+      },
+      "lessonIds": ["lesson_10"]
+    },
+    {
+      "id": "jam-salim",
+      "term": { "en": "Sound plural", "ar": "الجمع السالم" },
+      "transliteration": "jam' sālim",
+      "definition": {
+        "en": "A regular plural formed by adding a suffix to the singular without changing its internal letters: '-un/-ina' for masculine, '-atun/-atin' for feminine.",
+        "ar": "جمع يُصاغ بزيادة لاحقة على المفرد دون تغيير حروفه: الواو والنون أو الياء والنون للمذكر، والألف والتاء للمؤنث."
+      },
+      "example": {
+        "en": "'Mu'allim' becomes 'mu'allimun', and 'mu'allima' becomes 'mu'allimatun'.",
+        "ar": "\"معلِّم\" تُجمع \"معلِّمون\"، و\"معلِّمة\" تُجمع \"معلِّماتٌ\"."
+      },
+      "lessonIds": ["lesson_09", "lesson_10"]
+    },
+    {
+      "id": "al-asma-al-khamsa",
+      "term": { "en": "The five nouns", "ar": "الأسماء الخمسة" },
+      "transliteration": "al-asmā' al-khamsa",
+      "definition": {
+        "en": "Five special nouns ('ab', 'akh', 'hamu', 'fu', 'dhu') that take long vowels instead of short-vowel endings when they are the mudaf.",
+        "ar": "خمسة أسماء (أب، أخ، حم، فو، ذو) تُرفع بالواو وتُنصب بالألف وتُجر بالياء بدل الحركات إذا كانت مضافة."
+      },
+      "example": {
+        "en": "'Abu Ahmada' (Ahmad's father): 'abu' takes waw because it is mudaf.",
+        "ar": "\"أبو أحمدَ\": كلمة \"أبو\" رُفعت بالواو لأنها مضافة."
+      },
+      "lessonIds": ["lesson_12", "lesson_53"]
+    },
+    {
+      "id": "afal-mutalla",
+      "term": { "en": "Weak verbs", "ar": "الأفعال المعتلة" },
+      "transliteration": "af'āl mu'talla",
+      "definition": {
+        "en": "Verbs that contain a weak letter (waw, ya', or alif) in their root, which may change or drop in certain conjugations.",
+        "ar": "أفعال يوجد في جذرها حرف علة (واو أو ياء أو ألف)، وقد يتغيّر هذا الحرف أو يُحذف في بعض التصريفات."
+      },
+      "example": {
+        "en": "'Qala' (he said) comes from the root q-w-l; the waw shifts to alif in the past tense.",
+        "ar": "\"قال\" أصلها من الجذر \"ق و ل\"، وقُلبت الواو ألفًا في الماضي."
+      },
+      "lessonIds": ["lesson_47"]
+    },
+    {
+      "id": "awzan-mazid",
+      "term": { "en": "Augmented verb forms", "ar": "أوزان الفعل المزيد" },
+      "transliteration": "awzān al-fi'l al-mazīd",
+      "definition": {
+        "en": "Patterns of the Arabic verb built by adding letters to the basic three-letter root, which shift or intensify its meaning.",
+        "ar": "أنماط للفعل تُبنى بزيادة حروف على الجذر الثلاثي، فتُغيّر معناه أو تزيده قوةً أو تعديةً."
+      },
+      "example": {
+        "en": "From the root '-l-m, 'allama' (he taught) is an augmented form of 'alima' (he knew).",
+        "ar": "من الجذر (ع ل م): \"علَّم\" وزن مزيد من \"عَلِمَ\"."
+      },
+      "lessonIds": ["lesson_23"]
+    },
+    {
+      "id": "mabni-lil-majhul",
+      "term": { "en": "Passive voice", "ar": "المبني للمجهول" },
+      "transliteration": "al-mabnī lil-majhūl",
+      "definition": {
+        "en": "A verb form used when the doer of the action is unknown or unmentioned, changing its vowel pattern and promoting the object to na'ib al-fa'il.",
+        "ar": "صيغة للفعل تُستعمل حين يكون فاعله مجهولًا أو غير مذكور، فتتغيّر حركاته ويحل المفعول محل الفاعل."
+      },
+      "example": {
+        "en": "'Kutiba al-khabaru' (the news was written), instead of 'kataba ... al-khabara'.",
+        "ar": "\"كُتِبَ الخبرُ\" بدلًا من \"كتب فلانٌ الخبرَ\"."
+      },
+      "lessonIds": ["lesson_36"]
+    },
+    {
+      "id": "masdar",
+      "term": { "en": "Masdar (verbal noun)", "ar": "المصدر" },
+      "transliteration": "maṣdar",
+      "definition": {
+        "en": "A noun that names the action of a verb in the abstract, without reference to time or a specific doer.",
+        "ar": "اسم يدل على الحدث المجرد الذي يقوم به الفعل، من غير دلالة على زمن أو فاعل معيّن."
+      },
+      "example": {
+        "en": "'Kitaba' (writing) is the masdar of the verb 'kataba' (he wrote).",
+        "ar": "\"كتابة\" مصدر الفعل \"كتب\"."
+      },
+      "lessonIds": ["lesson_37"]
+    },
+    {
+      "id": "ism-al-fail",
+      "term": { "en": "Active participle", "ar": "اسم الفاعل" },
+      "transliteration": "ism al-fā'il",
+      "definition": {
+        "en": "A derived noun describing the one who performs the action of the verb.",
+        "ar": "اسم مشتق يدل على من قام بالفعل واتصف به."
+      },
+      "example": {
+        "en": "'Katib' (writer/one who writes) is the ism al-fa'il from 'kataba'.",
+        "ar": "\"كاتب\" اسم فاعل من \"كتب\"."
+      },
+      "lessonIds": ["lesson_37"]
+    },
+    {
+      "id": "ism-al-maful",
+      "term": { "en": "Passive participle", "ar": "اسم المفعول" },
+      "transliteration": "ism al-maf'ūl",
+      "definition": {
+        "en": "A derived noun describing the one or thing that the action of the verb was done to.",
+        "ar": "اسم مشتق يدل على من وقع عليه الفعل واتصف به."
+      },
+      "example": {
+        "en": "'Maktub' (written/letter) is the ism al-maf'ul from 'kataba'.",
+        "ar": "\"مكتوب\" اسم مفعول من \"كتب\"."
+      },
+      "lessonIds": ["lesson_37"]
+    },
+    {
+      "id": "uslub-al-shart",
+      "term": { "en": "Conditional sentence", "ar": "أسلوب الشرط" },
+      "transliteration": "uslūb ash-shart",
+      "definition": {
+        "en": "A sentence pattern with a condition clause and a result clause, joined by a conditional particle such as 'in' (if) or 'man' (whoever).",
+        "ar": "أسلوب يتكوّن من فعل الشرط وجوابه، وتربط بينهما أداة شرط مثل \"إن\" أو \"مَن\"."
+      },
+      "example": {
+        "en": "'In tajtahid tanjah' (if you strive, you will succeed).",
+        "ar": "\"إن تجتهدْ تنجحْ\"."
+      },
+      "lessonIds": ["lesson_45"]
+    },
+    {
+      "id": "istithna",
+      "term": { "en": "Exception (istithna')", "ar": "الاستثناء" },
+      "transliteration": "istithnā'",
+      "definition": {
+        "en": "A construction that excludes a noun from a general statement, most commonly using the particle 'illa' (except).",
+        "ar": "أسلوب يخرج فيه اسم من حكم عام، وأشهر أدواته \"إلّا\"."
+      },
+      "example": {
+        "en": "'Haddara at-tullabu illa waahidan' (all students attended except one).",
+        "ar": "\"حضر الطلابُ إلا واحدًا\"."
+      },
+      "lessonIds": ["lesson_31"]
+    },
+    {
+      "id": "harf-al-atf",
+      "term": { "en": "Coordinating particle", "ar": "حرف العطف" },
+      "transliteration": "ḥarf al-'aṭf",
+      "definition": {
+        "en": "A particle such as 'wa' (and) or 'aw' (or) that joins two words or sentences and shares the same grammatical role between them.",
+        "ar": "حرف مثل \"و\" أو \"أو\" يربط بين كلمتين أو جملتين ويشرك التابع مع متبوعه في الحكم الإعرابي."
+      },
+      "example": {
+        "en": "'Ja'a Khalidun wa Saliman' (Khalid and Salim came): 'wa' links the two names in the same case.",
+        "ar": "\"جاء خالدٌ وسالمٌ\": \"الواو\" عطفت \"سالمٌ\" على \"خالدٌ\"."
+      },
+      "lessonIds": ["lesson_28"]
+    },
+    {
+      "id": "ism-mawsul",
+      "term": { "en": "Relative pronoun", "ar": "الاسم الموصول" },
+      "transliteration": "al-ism al-mawṣūl",
+      "definition": {
+        "en": "A pronoun such as 'alladhi' (who/which) that introduces a descriptive clause and only completes its meaning through that clause.",
+        "ar": "اسم مبني مثل \"الذي\" يحتاج إلى جملة بعده تسمى صلة الموصول ليتم معناه."
+      },
+      "example": {
+        "en": "'Ja'a alladhi najaha' (the one who succeeded came): 'alladhi' introduces the relative clause 'najaha'.",
+        "ar": "\"جاء الذي نجح\": \"الذي\" اسم موصول وصلته \"نجح\"."
+      },
+      "lessonIds": ["lesson_27"]
+    },
+    {
+      "id": "waqf-wa-wasl",
+      "term": { "en": "Pausal and continuous reading", "ar": "الوقف والوصل" },
+      "transliteration": "waqf wa waṣl",
+      "definition": {
+        "en": "Waqf is stopping on a word, which drops its case-ending vowel and tanwin; wasl is continuing reading into the next word, which keeps them.",
+        "ar": "الوقف هو التوقف على الكلمة فتسقط حركة إعرابها وتنوينها، والوصل هو الاستمرار في القراءة فتبقى الحركة والتنوين."
+      },
+      "example": {
+        "en": "'Al-kitabu' is read 'al-kitab' in waqf but keeps its damma in wasl.",
+        "ar": "\"الكتابُ\" تُقرأ \"الكتابْ\" وقفًا، وتبقى الضمة وصلًا."
+      },
+      "lessonIds": ["lesson_49"]
+    },
+    {
+      "id": "alfiyya",
+      "term": { "en": "The Alfiyya", "ar": "الألفية" },
+      "transliteration": "al-Alfiyya",
+      "definition": {
+        "en": "A famous thousand-verse poem by Ibn Malik that summarizes Arabic grammar and morphology in rhymed verse for memorization.",
+        "ar": "منظومة شعرية مشهورة لابن مالك تقارب الألف بيت، تُلخّص أبواب النحو والصرف بأسلوب موزون مقفّى يسهّل حفظها."
+      },
+      "example": {
+        "en": "The Alfiyya opens by defining kalam, kalim, qawl, and their differences.",
+        "ar": "تبدأ الألفية بتعريف الكلام والكلِم والقول والفرق بينها."
+      },
+      "lessonIds": ["lesson_52", "lesson_56", "lesson_57", "lesson_58", "lesson_59"]
+    },
+    {
+      "id": "marifa",
+      "term": { "en": "Ma'rifa (definite)", "ar": "المعرفة" },
+      "transliteration": "ma'rifa",
+      "definition": {
+        "en": "A noun that refers to a specific, identifiable thing, such as a proper name, pronoun, or a noun with the definite article.",
+        "ar": "اسم يدل على شيء معيّن معروف، كالعلَم والضمير والاسم المقترن بأل التعريف."
+      },
+      "example": {
+        "en": "'Khalidun', 'huwa', and 'al-waladu' are all ma'rifa.",
+        "ar": "\"خالدٌ\" و\"هو\" و\"الولدُ\" كلها معارف."
+      },
+      "lessonIds": ["lesson_08", "lesson_56"]
+    },
+    {
+      "id": "nakira",
+      "term": { "en": "Nakira (indefinite)", "ar": "النكرة" },
+      "transliteration": "nakira",
+      "definition": {
+        "en": "A noun that refers to something unspecified or general, usually recognizable because it accepts 'al' or tanwin.",
+        "ar": "اسم يدل على شيء غير معيّن، ويُعرف غالبًا بقبوله دخول \"أل\" عليه أو التنوين."
+      },
+      "example": {
+        "en": "'Waladun' (a boy) is nakira, while 'al-waladu' (the boy) is ma'rifa.",
+        "ar": "\"ولدٌ\" نكرة، أما \"الولدُ\" فمعرفة."
+      },
+      "lessonIds": ["lesson_08", "lesson_56"]
+    },
+    {
+      "id": "dhamir",
+      "term": { "en": "Dhamir (pronoun)", "ar": "الضمير" },
+      "transliteration": "ḍamīr",
+      "definition": {
+        "en": "A word that stands in for a noun already known from context, such as 'ana' (I), 'huwa' (he), or 'ha' (her, attached).",
+        "ar": "كلمة تنوب عن اسم معلوم من السياق، مثل \"أنا\" و\"هو\" والهاء في \"كتابها\"."
+      },
+      "example": {
+        "en": "'Kitabuha' (her book): the 'ha' is an attached possessive pronoun.",
+        "ar": "\"كتابها\": الهاء ضمير متصل يدل على الملكية."
+      },
+      "lessonIds": ["lesson_14"]
+    },
+    {
+      "id": "dhamir-mustatir",
+      "term": { "en": "Hidden pronoun", "ar": "الضمير المستتر" },
+      "transliteration": "ḍamīr mustatir",
+      "definition": {
+        "en": "A subject pronoun understood from the verb's form but not written or pronounced as a separate word.",
+        "ar": "ضمير يدل عليه صيغة الفعل من غير أن يُكتب أو يُنطق كلمة مستقلة."
+      },
+      "example": {
+        "en": "In 'yaktubu' (he writes), a hidden 'huwa' is the fa'il.",
+        "ar": "في \"يكتبُ\" الفاعل ضمير مستتر تقديره \"هو\"."
+      },
+      "lessonIds": ["lesson_17"]
+    },
+    {
+      "id": "fil-madi",
+      "term": { "en": "Past-tense verb", "ar": "الفعل الماضي" },
+      "transliteration": "al-fi'l al-māḍī",
+      "definition": {
+        "en": "A verb form describing an action that was completed before the moment of speaking; it is always mabni.",
+        "ar": "صيغة تدل على حدث تمّ قبل زمن التكلم، وهي دائمًا مبنية."
+      },
+      "example": {
+        "en": "'Kataba' (he wrote) is a fi'l madi.",
+        "ar": "\"كتبَ\" فعل ماضٍ."
+      },
+      "lessonIds": ["lesson_16"]
+    },
+    {
+      "id": "fil-mudari",
+      "term": { "en": "Present-tense verb", "ar": "الفعل المضارع" },
+      "transliteration": "al-fi'l al-muḍāri'",
+      "definition": {
+        "en": "A verb form describing an ongoing or future action, recognized by its four prefix letters and, unlike the past tense, mu'rab by default.",
+        "ar": "صيغة تدل على حدث مستمر أو مستقبل، وتُعرف بأحرف المضارعة الأربعة، وهي معربة على خلاف الماضي."
+      },
+      "example": {
+        "en": "'Yaktubu' (he writes/will write) is a fi'l mudari' in raf'.",
+        "ar": "\"يكتبُ\" فعل مضارع مرفوع."
+      },
+      "lessonIds": ["lesson_16", "lesson_18", "lesson_21"]
+    },
+    {
+      "id": "amr-wa-nahy",
+      "term": { "en": "Commands and prohibitions", "ar": "الأمر والنهي" },
+      "transliteration": "al-amr wan-nahy",
+      "definition": {
+        "en": "The imperative verb form used to request an action, and the negated present-tense form with 'la' used to forbid one.",
+        "ar": "صيغة فعل الأمر تُطلب بها القيام بالفعل، وصيغة النهي هي المضارع المقترن بـ\"لا\" الناهية لمنعه."
+      },
+      "example": {
+        "en": "'Uktub' (write!) is a command; 'la taktub' (do not write) is a prohibition.",
+        "ar": "\"اكتبْ\" أمر، و\"لا تكتبْ\" نهي."
+      },
+      "lessonIds": ["lesson_22"]
+    },
+    {
+      "id": "adawat-nafy",
+      "term": { "en": "Negation particles", "ar": "أدوات النفي" },
+      "transliteration": "adawāt an-nafy",
+      "definition": {
+        "en": "Particles such as 'la', 'ma', 'lam', and 'lan' used to deny that an action or state occurred.",
+        "ar": "أدوات مثل \"لا\" و\"ما\" و\"لم\" و\"لن\" تُستعمل لنفي وقوع الفعل أو الحال."
+      },
+      "example": {
+        "en": "'Lan usafira ghadan' (I will not travel tomorrow) negates the future.",
+        "ar": "\"لن أسافرَ غدًا\" تنفي المستقبل."
+      },
+      "lessonIds": ["lesson_20"]
+    },
+    {
+      "id": "harf-jarr",
+      "term": { "en": "Preposition (harf jarr)", "ar": "حرف الجر" },
+      "transliteration": "ḥarf al-jarr",
+      "definition": {
+        "en": "A particle such as 'fi', 'ila', or 'min' that puts the noun following it into jarr and links it to the rest of the sentence.",
+        "ar": "حرف مثل \"في\" و\"إلى\" و\"من\" يجر الاسم الذي بعده ويربطه بما قبله في الجملة."
+      },
+      "example": {
+        "en": "'Dhahabtu ila al-maktabati' (I went to the library): 'ila' governs jarr on 'al-maktabati'.",
+        "ar": "\"ذهبتُ إلى المكتبةِ\": \"إلى\" جرَّت \"المكتبةِ\"."
+      },
+      "lessonIds": ["lesson_06"]
+    },
+    {
+      "id": "ism-ishara",
+      "term": { "en": "Demonstrative pronoun", "ar": "اسم الإشارة" },
+      "transliteration": "ism al-ishāra",
+      "definition": {
+        "en": "A mabni word used to point to something nearby or far, such as 'hadha' (this) or 'dhalika' (that).",
+        "ar": "اسم مبني يُشار به إلى شيء قريب أو بعيد، مثل \"هذا\" و\"ذلك\"."
+      },
+      "example": {
+        "en": "'Hadha kitabun' (this is a book): 'hadha' points to something near.",
+        "ar": "\"هذا كتابٌ\": \"هذا\" اسم إشارة للقريب."
+      },
+      "lessonIds": ["lesson_13"]
+    },
+    {
+      "id": "adad-wa-madud",
+      "term": { "en": "Number and counted noun", "ar": "العدد والمعدود" },
+      "transliteration": "al-'adad wal-ma'dūd",
+      "definition": {
+        "en": "The number word and the noun it counts, which follow special agreement rules for gender and case depending on the number's value.",
+        "ar": "لفظ العدد والاسم المعدود بعده، وبينهما قواعد خاصة في التذكير والتأنيث والإعراب تختلف باختلاف قيمة العدد."
+      },
+      "example": {
+        "en": "'Thalathatu awladin' (three boys): the number takes the opposite gender marking from the counted noun.",
+        "ar": "\"ثلاثةُ أولادٍ\": خالف العددُ المعدودَ في التذكير والتأنيث."
+      },
+      "lessonIds": ["lesson_32"]
+    },
+    {
+      "id": "hadhf",
+      "term": { "en": "Ellipsis (omission)", "ar": "الحذف" },
+      "transliteration": "ḥadhf",
+      "definition": {
+        "en": "Leaving out a word or phrase that is understood from context, common in headlines, proverbs, and terse expressions.",
+        "ar": "إسقاط كلمة أو عبارة يُفهم معناها من السياق، وشائع في العناوين والأمثال والعبارات الموجزة."
+      },
+      "example": {
+        "en": "'Sa'atun mubakkiratun' (an early hour) implies an omitted khabar such as 'this is'.",
+        "ar": "\"ساعةٌ مبكرة\" يُقدَّر خبرها المحذوف \"هذه\"."
+      },
+      "lessonIds": ["lesson_35", "lesson_44"]
+    },
+    {
+      "id": "taqdim-wa-takhir",
+      "term": { "en": "Fronting and delaying", "ar": "التقديم والتأخير" },
+      "transliteration": "at-taqdīm wat-ta'khīr",
+      "definition": {
+        "en": "Moving a sentence part before its usual position, often for emphasis, while the case ending still shows its true grammatical role.",
+        "ar": "تقديم جزء من الجملة على موضعه المعتاد، غالبًا للاهتمام به، مع بقاء علامة الإعراب دالة على وظيفته الحقيقية."
+      },
+      "example": {
+        "en": "'Al-haqqa aqulu' (the truth I speak) fronts the object 'al-haqqa' for emphasis.",
+        "ar": "\"الحقَّ أقولُ\": قُدِّم المفعول به \"الحقَّ\" للاهتمام به."
+      },
+      "lessonIds": ["lesson_43", "lesson_46"]
+    },
+    {
+      "id": "tawkid-wal-qasr",
+      "term": { "en": "Emphasis and restriction", "ar": "التوكيد والقصر" },
+      "transliteration": "at-tawkīd wal-qaṣr",
+      "definition": {
+        "en": "Emphasis strengthens a statement, often with words like 'nafsuhu' or 'inna'; restriction limits a meaning to one thing alone, often with 'illa' or 'innama'.",
+        "ar": "التوكيد يُقوّي الكلام بألفاظ مثل \"نفسه\" أو \"إنّ\"، والقصر يخصّص المعنى بشيء واحد بألفاظ مثل \"إلا\" أو \"إنما\"."
+      },
+      "example": {
+        "en": "'Innama al-'ilmu nurun' (knowledge is only light) restricts the meaning to knowledge alone.",
+        "ar": "\"إنما العلمُ نورٌ\" قصرت الحكم على العلم وحده."
+      },
+      "lessonIds": ["lesson_46"]
+    },
+    {
+      "id": "alamat-al-ism",
+      "term": { "en": "Signs of the noun", "ar": "علامات الاسم" },
+      "transliteration": "'alāmāt al-ism",
+      "definition": {
+        "en": "Tests that identify a word as a noun, such as accepting tanwin, the definite article, jarr, or being preceded by a preposition.",
+        "ar": "علامات تدل على أن الكلمة اسم، كقبول التنوين أو أل التعريف أو الجر أو دخول حرف الجر عليها."
+      },
+      "example": {
+        "en": "Because 'kitabun' accepts tanwin and 'al', we know it is an ism.",
+        "ar": "لأن \"كتابٌ\" يقبل التنوين وأل، عرفنا أنه اسم."
+      },
+      "lessonIds": ["lesson_53"]
+    },
+    {
+      "id": "alamat-al-fil",
+      "term": { "en": "Signs of the verb", "ar": "علامات الفعل" },
+      "transliteration": "'alāmāt al-fi'l",
+      "definition": {
+        "en": "Tests that identify a word as a verb, such as accepting the ta' of the subject, the ta' of the feminine, or the command form.",
+        "ar": "علامات تدل على أن الكلمة فعل، كقبول تاء الفاعل أو تاء التأنيث الساكنة أو صيغة الأمر."
+      },
+      "example": {
+        "en": "Because we can say 'katabtu', 'kataba' accepts the ta' of the subject and is thus a verb.",
+        "ar": "لأننا نقول \"كتبتُ\"، فإن \"كتب\" يقبل تاء الفاعل فهو فعل."
+      },
+      "lessonIds": ["lesson_54"]
+    },
+    {
+      "id": "al-kalam",
+      "term": { "en": "Al-kalam (a complete utterance)", "ar": "الكلام" },
+      "transliteration": "al-kalām",
+      "definition": {
+        "en": "A composed, meaningful, and self-sufficient utterance built of words, forming the basic unit that Arabic grammar studies.",
+        "ar": "اللفظ المركّب المفيد فائدةً تامة يحسن السكوت عليها، وهو الوحدة الأساسية التي يدرسها النحو."
+      },
+      "example": {
+        "en": "'Qama Zaydun' (Zayd stood up) is kalam because it gives a complete meaning.",
+        "ar": "\"قام زيدٌ\" كلامٌ لأنه أفاد فائدة تامة."
+      },
+      "lessonIds": ["lesson_52"]
+    }
+  ]
+}

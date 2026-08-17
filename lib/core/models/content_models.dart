@@ -417,8 +417,8 @@ class ContentSource {
     }, path);
     return ContentSource(
       id: JsonValue.requiredString(json, 'id', path),
-      title: JsonValue.requiredString(json, 'title', path),
-      author: JsonValue.requiredString(json, 'author', path),
+      title: LocalizedText.fromJson(json['title'], '$path.title'),
+      author: LocalizedText.fromJson(json['author'], '$path.author'),
       url: JsonValue.optionalString(json, 'url', path),
       licenseStatus: JsonValue.enumValue(
         json,
@@ -426,16 +426,16 @@ class ContentSource {
         path,
         SourceLicenseStatus.values,
       ),
-      citation: JsonValue.requiredString(json, 'citation', path),
+      citation: LocalizedText.fromJson(json['citation'], '$path.citation'),
     );
   }
 
   final String id;
-  final String title;
-  final String author;
+  final LocalizedText title;
+  final LocalizedText author;
   final String? url;
   final SourceLicenseStatus licenseStatus;
-  final String citation;
+  final LocalizedText citation;
 }
 
 class ContentReview {

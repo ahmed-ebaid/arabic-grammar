@@ -12,7 +12,7 @@
   "exampleExplanation": "انتهت الكلمتان بالضمة لأن هذه جملة اسمية بسيطة.",
   "startLearning": "ابدأ التعلُّم",
   "moduleTitle": "أساسيات المبتدئين",
-  "moduleSubtitle": "١٠ دروس إرشادية",
+  "moduleSubtitle": "٥٩ درسًا إرشاديًّا",
   "comingSoon": "سيُضاف محتوى المنهج في المرحلة التالية.",
   "lessonNumber": "الدرس {number}",
   "@lessonNumber": {
@@ -67,10 +67,106 @@
   },
   "practiceTitle": "التدريب",
   "practiceSubtitle": "ستُفتح التدريبات مع كل درس.",
+  "practiceFamilySubtitle": "قوِّ مهارتك النحوية، واجمع النجوم، وافتح الشارات سؤالًا بعد سؤال.",
+  "practiceDailyGoalTitle": "هدف اليوم",
+  "practiceDailyGoalProgress": "{current} من {goal} أسئلة",
+  "@practiceDailyGoalProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "goal": {"type": "int"}
+    }
+  },
+  "practiceMixedTitle": "مراجعة متنوعة",
+  "practiceMixedBody": "راجع أسئلة متنوعة من الدروس التي فتحتها أو بدأت بها.",
+  "practiceWeakAreasTitle": "تقوية مواطن الضعف",
+  "practiceWeakAreasBody": "ابدأ بمراجعات اليوم، ثم بالدروس التي يقل إتقانها عن ٧٠٪ وبأنواع الأسئلة التي أخطأت فيها سابقًا.",
+  "practiceRewardsTitle": "شاراتك",
+  "practiceBadgeFirstSteps": "الخطوات الأولى",
+  "practiceBadgePerfect": "عشرة كاملة",
+  "practiceBadgeHabit": "عادة التدريب",
+  "practiceBadgeGrammarStar": "نجم النحو",
+  "practiceCompleteTitle": "أتممت التدريب!",
+  "practiceScore": "{correct} إجابات صحيحة من {total}",
+  "@practiceScore": {
+    "placeholders": {
+      "correct": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "practiceStarsEarned": "حصلت على {stars} نجوم",
+  "@practiceStarsEarned": {
+    "placeholders": {
+      "stars": {"type": "int"}
+    }
+  },
+  "practiceAgain": "تدرّب مرة أخرى",
   "progressTitle": "تقدُّمك",
   "progressSubtitle": "سيبقى تقدُّمك التعليمي على هذا الجهاز.",
+  "progressCurriculumSummary": "أتقنت {mastered} درسًا من أصل {total}",
+  "@progressCurriculumSummary": {
+    "placeholders": {
+      "mastered": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "progressLessonsStarted": "الدروس التي بدأتها",
+  "progressPracticeStars": "نجوم التدريب",
+  "progressDailyGoal": "هدف اليوم",
+  "progressPracticeAccuracy": "دقة التدريب",
+  "progressLevelsTitle": "التقدّم حسب المستوى",
+  "progressAverageMastery": "متوسط الإتقان: {percent}٪",
+  "@progressAverageMastery": {
+    "placeholders": {
+      "percent": {"type": "int"}
+    }
+  },
+  "progressNextLesson": "التالي: {lesson}",
+  "@progressNextLesson": {
+    "placeholders": {
+      "lesson": {"type": "String"}
+    }
+  },
+  "aboutTitle": "عن التطبيق وشكر المساهمين",
+  "aboutPurposeTitle": "هدفنا",
+  "aboutPurposeBody": "يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة المشكولة إلى القراءة المستقلة دون حركات.",
+  "aboutCompanyTitle": "تطوير ونشر شركة Ebaid LLC",
+  "aboutCompanyBody": "تطوّر شركة Ebaid LLC تقنيات تعليمية عملية تجعل التعلّم المنظّم أيسر وصولًا. وقد أنشأت الشركة تطبيق «إعراب» وتنشره، بما في ذلك برمجياته الأصلية وشروح دروسه وأمثلته وترجماته وتعليقاته وتمارينه.",
+  "aboutResourcesTitle": "المصادر ونسب الفضل",
+  "aboutReviewersTitle": "المعلّمون المراجعون",
+  "aboutReviewersPending": "ستُذكر هنا أسماء المعلّمين المؤهلين الذين يعتمدون محتوى المنهج، بعد الحصول على إذنهم. وما زالت دروس النسخة التجريبية قيد المراجعة.",
+  "aboutContentStatusTitle": "حالة المحتوى",
+  "aboutContentVersion": "إصدار المنهج",
+  "aboutDisclaimer": "هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل. وقد تتغيّر التحليلات الأولية أثناء المراجعة.",
+  "aboutContactTitle": "الدعم والمعلومات القانونية",
   "language": "اللغة",
   "english": "English",
   "arabic": "العربية",
   "close": "إغلاق"
+  ,"more": "المزيد",
+  "glossaryTitle": "معجم النحو",
+  "glossarySearchHint": "ابحث بالعربية أو الإنجليزية أو النقل الصوتي",
+  "glossaryNoResults": "لا توجد مصطلحات نحوية مطابقة.",
+  "glossaryLessonLinks": "مرتبط بـ {count} دروس",
+  "@glossaryLessonLinks": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "clearSearch": "مسح البحث",
+  "bookmarksTitle": "العناصر المحفوظة",
+  "bookmarksEmpty": "احفظ درسًا أو مثالًا محللًا أو مصطلحًا لتجده هنا.",
+  "bookmarkedLessons": "الدروس المحفوظة",
+  "bookmarkedExamples": "الأمثلة المحفوظة",
+  "bookmarkedTerms": "مصطلحات المعجم المحفوظة",
+  "addBookmark": "حفظ",
+  "removeBookmark": "إزالة من المحفوظات",
+  "listen": "استمع",
+  "textSizeTitle": "حجم النص",
+  "textSizeBody": "اختر حجمًا مريحًا للقراءة. يسري هذا الإعداد على التطبيق كله.",
+  "textSizeSmall": "صغير",
+  "textSizeDefault": "افتراضي",
+  "textSizeLarge": "كبير",
+  "textSizeLargest": "الأكبر"
+  ,"learningIllustrationLabel": "بطاقة مبهجة لتعلّم العربية",
+  "celebrationIllustrationLabel": "احتفال ملوّن بإنجاز نحوي"
 }

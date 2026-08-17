@@ -59,4 +59,24 @@ void main() {
 
     expect(controller.firstAttemptResult('lesson_01', 'exercise_01'), isFalse);
   });
+
+  test('keeps practice rewards separate from lesson mastery', () async {
+    final controller = LessonProgressController.inMemory();
+
+    await controller.recordPracticeSession(answered: 10, correct: 8);
+
+    expect(controller.practiceTotalAnswered, 10);
+    expect(controller.practiceTotalCorrect, 8);
+    expect(controller.practiceSessionsCompleted, 1);
+    expect(controller.practiceBestScore, 80);
+    expect(controller.practiceTotalStars, 2);
+    expect(controller.practiceDailyAnswered, 10);
+    expect(controller.masteryFor('lesson_01'), 0);
+
+    await controller.recordPracticeSession(answered: 10, correct: 10);
+
+    expect(controller.practiceBestScore, 100);
+    expect(controller.practiceTotalStars, 5);
+    expect(controller.practiceDailyAnswered, 20);
+  });
 }

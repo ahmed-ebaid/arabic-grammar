@@ -4,23 +4,28 @@ import 'package:flutter/services.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/user/user_data_controller.dart';
+import '../../core/accessibility/speech_service.dart';
 import '../../l10n/app_localizations.dart';
 
 class LessonDetailScreen extends StatefulWidget {
   const LessonDetailScreen({
     required this.lesson,
     required this.progressController,
+    required this.userDataController,
     super.key,
   });
 
   final Lesson lesson;
   final LessonProgressController progressController;
+  final UserDataController userDataController;
 
   @override
   State<LessonDetailScreen> createState() => _LessonDetailScreenState();
 }
 
 class _LessonDetailScreenState extends State<LessonDetailScreen> {
+  final SpeechService _speech = SpeechService();
   late List<Exercise> _activeExercises;
   late List<_LessonStep> _steps;
   late int _currentStep;
@@ -46,6 +51,31 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.lesson.title.forLanguage(_languageCode)),
+        actions: [
+          IconButton(
+            tooltip: l10n.listen,
+            onPressed: () =>
+                _speech.speak(_speechTextForStep(step), _languageCode),
+            icon: const Icon(Icons.volume_up_outlined),
+          ),
+          AnimatedBuilder(
+            animation: widget.userDataController,
+            builder: (context, _) {
+              final bookmarked = widget.userDataController.isBookmarked(
+                BookmarkType.lesson,
+                widget.lesson.id,
+              );
+              return IconButton(
+                tooltip: bookmarked ? l10n.removeBookmark : l10n.addBookmark,
+                onPressed: () => widget.userDataController.toggleBookmark(
+                  BookmarkType.lesson,
+                  widget.lesson.id,
+                ),
+                icon: Icon(bookmarked ? Icons.bookmark : Icons.bookmark_border),
+              );
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -113,6 +143,25 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
 
   String get _languageCode => Localizations.localeOf(context).languageCode;
 
+  String _speechTextForStep(_LessonStep step) {
+    return switch (step.kind) {
+      _StepKind.objectives => [
+        widget.lesson.title.forLanguage(_languageCode),
+        ...widget.lesson.objectives.map(
+          (objective) => objective.forLanguage(_languageCode),
+        ),
+      ].join('. '),
+      _StepKind.teaching =>
+        '${step.section!.title.forLanguage(_languageCode)}. '
+            '${step.section!.body.forLanguage(_languageCode)}',
+      _StepKind.exercise =>
+        '${step.exercise!.prompt.forLanguage(_languageCode)}. '
+            '${step.exercise!.options.map((option) => option.label.forLanguage(_languageCode)).join('. ')}',
+      _StepKind.analysis => step.example!.vocalized,
+      _StepKind.completion => AppLocalizations.of(context).lessonCompleteBody,
+    };
+  }
+
   Widget _buildStep(_LessonStep step) {
     return switch (step.kind) {
       _StepKind.objectives => _ObjectivesStep(
@@ -123,6 +172,11 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _StepKind.teaching => _TeachingStep(
         section: step.section!,
         languageCode: _languageCode,
+        onSpeak: () => _speech.speak(
+          '${step.section!.title.forLanguage(_languageCode)}. '
+          '${step.section!.body.forLanguage(_languageCode)}',
+          _languageCode,
+        ),
         onContinue: _advance,
       ),
       _StepKind.exercise => _ExerciseStep(
@@ -138,6 +192,8 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _StepKind.analysis => _AnalysisStep(
         example: step.example!,
         languageCode: _languageCode,
+        userDataController: widget.userDataController,
+        onSpeak: () => _speech.speak(step.example!.vocalized, _languageCode),
         onContinue: _advance,
       ),
       _StepKind.completion => _CompletionStep(
@@ -146,6 +202,12 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         onClose: () => Navigator.of(context).pop(),
       ),
     };
+  }
+
+  @override
+  void dispose() {
+    _speech.stop();
+    super.dispose();
   }
 
   void _selectOption(String id) {
@@ -355,11 +417,13 @@ class _TeachingStep extends StatelessWidget {
   const _TeachingStep({
     required this.section,
     required this.languageCode,
+    required this.onSpeak,
     required this.onContinue,
   });
 
   final LessonSection section;
   final String languageCode;
+  final VoidCallback onSpeak;
   final VoidCallback onContinue;
 
   @override
@@ -382,9 +446,21 @@ class _TeachingStep extends StatelessWidget {
           ],
         ],
       ),
-      action: FilledButton(
-        onPressed: onContinue,
-        child: Text(l10n.continueLabel),
+      action: Row(
+        children: [
+          IconButton.filledTonal(
+            tooltip: l10n.listen,
+            onPressed: onSpeak,
+            icon: const Icon(Icons.volume_up_outlined),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: FilledButton(
+              onPressed: onContinue,
+              child: Text(l10n.continueLabel),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -593,11 +669,15 @@ class _AnalysisStep extends StatefulWidget {
   const _AnalysisStep({
     required this.example,
     required this.languageCode,
+    required this.userDataController,
+    required this.onSpeak,
     required this.onContinue,
   });
 
   final GrammarExample example;
   final String languageCode;
+  final UserDataController userDataController;
+  final VoidCallback onSpeak;
   final VoidCallback onContinue;
 
   @override
@@ -650,9 +730,39 @@ class _AnalysisStepState extends State<_AnalysisStep> {
           ],
         ],
       ),
-      action: FilledButton(
-        onPressed: selected == null ? null : widget.onContinue,
-        child: Text(l10n.continueLabel),
+      action: AnimatedBuilder(
+        animation: widget.userDataController,
+        builder: (context, _) {
+          final bookmarked = widget.userDataController.isBookmarked(
+            BookmarkType.example,
+            widget.example.id,
+          );
+          return Row(
+            children: [
+              IconButton.filledTonal(
+                tooltip: l10n.listen,
+                onPressed: widget.onSpeak,
+                icon: const Icon(Icons.volume_up_outlined),
+              ),
+              const SizedBox(width: 8),
+              IconButton.filledTonal(
+                tooltip: bookmarked ? l10n.removeBookmark : l10n.addBookmark,
+                onPressed: () => widget.userDataController.toggleBookmark(
+                  BookmarkType.example,
+                  widget.example.id,
+                ),
+                icon: Icon(bookmarked ? Icons.bookmark : Icons.bookmark_border),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: FilledButton(
+                  onPressed: selected == null ? null : widget.onContinue,
+                  child: Text(l10n.continueLabel),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

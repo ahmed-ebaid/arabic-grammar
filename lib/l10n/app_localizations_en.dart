@@ -47,7 +47,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moduleTitle => 'Beginner foundations';
 
   @override
-  String get moduleSubtitle => '10 guided lessons';
+  String get moduleSubtitle => '59 guided lessons';
 
   @override
   String get comingSoon => 'Curriculum content is coming in the next phase.';
@@ -148,11 +148,138 @@ class AppLocalizationsEn extends AppLocalizations {
   String get practiceSubtitle => 'Exercises will unlock with each lesson.';
 
   @override
+  String get practiceFamilySubtitle =>
+      'Build your grammar strength, earn stars, and unlock badges—one question at a time.';
+
+  @override
+  String get practiceDailyGoalTitle => 'Today\'s goal';
+
+  @override
+  String practiceDailyGoalProgress(int current, int goal) {
+    return '$current of $goal questions';
+  }
+
+  @override
+  String get practiceMixedTitle => 'Mixed review';
+
+  @override
+  String get practiceMixedBody =>
+      'Review varied questions from lessons you have unlocked or attempted.';
+
+  @override
+  String get practiceWeakAreasTitle => 'Strengthen weak areas';
+
+  @override
+  String get practiceWeakAreasBody =>
+      'Review items due today first, then lessons below 70% mastery and question types you previously missed.';
+
+  @override
+  String get practiceRewardsTitle => 'Your badges';
+
+  @override
+  String get practiceBadgeFirstSteps => 'First Steps';
+
+  @override
+  String get practiceBadgePerfect => 'Perfect Ten';
+
+  @override
+  String get practiceBadgeHabit => 'Practice Habit';
+
+  @override
+  String get practiceBadgeGrammarStar => 'Grammar Star';
+
+  @override
+  String get practiceCompleteTitle => 'Practice complete!';
+
+  @override
+  String practiceScore(int correct, int total) {
+    return '$correct of $total correct';
+  }
+
+  @override
+  String practiceStarsEarned(int stars) {
+    return 'You earned $stars stars';
+  }
+
+  @override
+  String get practiceAgain => 'Practice again';
+
+  @override
   String get progressTitle => 'Your progress';
 
   @override
   String get progressSubtitle =>
       'Your learning progress will stay on this device.';
+
+  @override
+  String progressCurriculumSummary(int mastered, int total) {
+    return '$mastered of $total lessons mastered';
+  }
+
+  @override
+  String get progressLessonsStarted => 'Lessons started';
+
+  @override
+  String get progressPracticeStars => 'Practice stars';
+
+  @override
+  String get progressDailyGoal => 'Daily goal';
+
+  @override
+  String get progressPracticeAccuracy => 'Practice accuracy';
+
+  @override
+  String get progressLevelsTitle => 'Progress by level';
+
+  @override
+  String progressAverageMastery(int percent) {
+    return 'Average mastery: $percent%';
+  }
+
+  @override
+  String progressNextLesson(String lesson) {
+    return 'Next: $lesson';
+  }
+
+  @override
+  String get aboutTitle => 'About & credits';
+
+  @override
+  String get aboutPurposeTitle => 'Our purpose';
+
+  @override
+  String get aboutPurposeBody =>
+      'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from vocalized examples to independent reading without vowel marks.';
+
+  @override
+  String get aboutCompanyTitle => 'Developed by Ebaid LLC';
+
+  @override
+  String get aboutCompanyBody =>
+      'Ebaid LLC develops practical educational technology that makes structured learning more accessible. It created and publishes إعراب, including the app\'s original software, lesson explanations, examples, translations, feedback, and exercises.';
+
+  @override
+  String get aboutResourcesTitle => 'Resources and attribution';
+
+  @override
+  String get aboutReviewersTitle => 'Teacher reviewers';
+
+  @override
+  String get aboutReviewersPending =>
+      'Qualified teachers who approve curriculum content will be credited here with their permission. Current beta lessons are still pending review.';
+
+  @override
+  String get aboutContentStatusTitle => 'Content status';
+
+  @override
+  String get aboutContentVersion => 'Curriculum version';
+
+  @override
+  String get aboutDisclaimer =>
+      'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.';
+
+  @override
+  String get aboutContactTitle => 'Support and legal information';
 
   @override
   String get language => 'Language';
@@ -165,4 +292,75 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get glossaryTitle => 'Grammar glossary';
+
+  @override
+  String get glossarySearchHint => 'Search Arabic, English, or transliteration';
+
+  @override
+  String get glossaryNoResults => 'No matching grammar terms.';
+
+  @override
+  String glossaryLessonLinks(int count) {
+    return 'Connected to $count lessons';
+  }
+
+  @override
+  String get clearSearch => 'Clear search';
+
+  @override
+  String get bookmarksTitle => 'Saved items';
+
+  @override
+  String get bookmarksEmpty =>
+      'Bookmark a lesson, worked example, or glossary term to find it here.';
+
+  @override
+  String get bookmarkedLessons => 'Saved lessons';
+
+  @override
+  String get bookmarkedExamples => 'Saved examples';
+
+  @override
+  String get bookmarkedTerms => 'Saved glossary terms';
+
+  @override
+  String get addBookmark => 'Save';
+
+  @override
+  String get removeBookmark => 'Remove from saved items';
+
+  @override
+  String get listen => 'Listen';
+
+  @override
+  String get textSizeTitle => 'Text size';
+
+  @override
+  String get textSizeBody =>
+      'Choose a comfortable reading size. This setting applies throughout the app.';
+
+  @override
+  String get textSizeSmall => 'Small';
+
+  @override
+  String get textSizeDefault => 'Default';
+
+  @override
+  String get textSizeLarge => 'Large';
+
+  @override
+  String get textSizeLargest => 'Largest';
+
+  @override
+  String get learningIllustrationLabel => 'A cheerful Arabic learning card';
+
+  @override
+  String get celebrationIllustrationLabel =>
+      'A colorful Arabic grammar celebration';
 }

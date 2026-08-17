@@ -6,18 +6,21 @@ import 'package:flutter/services.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import 'lesson_detail_screen.dart';
 
 class LessonsScreen extends StatefulWidget {
   const LessonsScreen({
     required this.progressController,
+    required this.userDataController,
     this.contentCatalog,
     super.key,
   });
 
   final ContentCatalog? contentCatalog;
   final LessonProgressController progressController;
+  final UserDataController userDataController;
 
   @override
   State<LessonsScreen> createState() => _LessonsScreenState();
@@ -138,6 +141,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
         builder: (_) => LessonDetailScreen(
           lesson: lesson,
           progressController: widget.progressController,
+          userDataController: widget.userDataController,
         ),
       ),
     );

@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:arabic_grammar/core/content/content_decoder.dart';
 import 'package:arabic_grammar/core/content/content_repository.dart';
 import 'package:arabic_grammar/core/content/content_validator.dart';
+import 'package:arabic_grammar/core/models/content_models.dart';
+import 'package:arabic_grammar/core/models/glossary_models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -15,17 +17,56 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.levels, hasLength(2));
-      expect(catalog.lessons, hasLength(9));
+      expect(catalog.contentVersion, '7.0.0-draft.1');
+      expect(catalog.levels, hasLength(7));
+      expect(catalog.lessons, hasLength(59));
       expect(catalog.lessons.first.title.en, 'Why endings change');
       expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
         catalog.lessons.first.sections.last.examples.single.tokens,
         hasLength(2),
       );
-      expect(catalog.lessons.first.repeatExercises, hasLength(3));
+      expect(catalog.lessons.first.exercises, hasLength(4));
+      expect(catalog.lessons.first.repeatExercises, hasLength(4));
+      expect(
+        catalog.lessons,
+        everyElement(
+          isA<Lesson>()
+              .having(
+                (lesson) => lesson.exercises.length,
+                'primary exercise count',
+                greaterThanOrEqualTo(4),
+              )
+              .having(
+                (lesson) => lesson.repeatExercises.length,
+                'repeat exercise count',
+                greaterThanOrEqualTo(4),
+              )
+              .having(
+                (lesson) => lesson.review.status,
+                'review status',
+                ReviewStatus.pendingReview,
+              ),
+        ),
+      );
+      for (final lesson in catalog.lessons) {
+        expect(
+          lesson.repeatExercises,
+          hasLength(lesson.exercises.length),
+          reason: '${lesson.id} must rotate to a complete alternate bank',
+        );
+      }
       expect(catalog.lessons[6].repeatExercises, hasLength(5));
       expect(catalog.lessons.last.repeatExercises, hasLength(4));
+      expect(catalog.levels.map((level) => level.lessonIds.last), [
+        'lesson_07',
+        'lesson_15',
+        'lesson_24',
+        'lesson_33',
+        'lesson_42',
+        'lesson_51',
+        'lesson_59',
+      ]);
     });
 
     test('rejects the draft from a release catalog', () {
@@ -127,6 +168,35 @@ void main() {
 
     expect(catalog.schemaVersion, 1);
     expect(catalog.lessons, isEmpty);
+  });
+
+  test('loads the bilingual grammar glossary', () {
+    final source = File('assets/content/glossary.json').readAsStringSync();
+    final glossary = GlossaryCatalog.fromJson(jsonDecode(source));
+    final lessonIds = ContentDecoder.decode(
+      _sampleSource(),
+    ).lessons.map((lesson) => lesson.id).toSet();
+
+    expect(glossary.schemaVersion, 1);
+    expect(glossary.terms, hasLength(57));
+    expect(
+      glossary.terms.map((term) => term.id).toSet(),
+      hasLength(glossary.terms.length),
+    );
+    expect(
+      glossary.terms.every(
+        (term) =>
+            term.term.en.isNotEmpty &&
+            term.term.ar.isNotEmpty &&
+            term.definition.en.isNotEmpty &&
+            term.definition.ar.isNotEmpty,
+      ),
+      isTrue,
+    );
+    expect(
+      glossary.terms.expand((term) => term.lessonIds).every(lessonIds.contains),
+      isTrue,
+    );
   });
 }
 

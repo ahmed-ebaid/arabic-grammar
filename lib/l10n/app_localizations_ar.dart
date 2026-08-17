@@ -47,7 +47,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get moduleTitle => 'أساسيات المبتدئين';
 
   @override
-  String get moduleSubtitle => '١٠ دروس إرشادية';
+  String get moduleSubtitle => '٥٩ درسًا إرشاديًّا';
 
   @override
   String get comingSoon => 'سيُضاف محتوى المنهج في المرحلة التالية.';
@@ -148,10 +148,137 @@ class AppLocalizationsAr extends AppLocalizations {
   String get practiceSubtitle => 'ستُفتح التدريبات مع كل درس.';
 
   @override
+  String get practiceFamilySubtitle =>
+      'قوِّ مهارتك النحوية، واجمع النجوم، وافتح الشارات سؤالًا بعد سؤال.';
+
+  @override
+  String get practiceDailyGoalTitle => 'هدف اليوم';
+
+  @override
+  String practiceDailyGoalProgress(int current, int goal) {
+    return '$current من $goal أسئلة';
+  }
+
+  @override
+  String get practiceMixedTitle => 'مراجعة متنوعة';
+
+  @override
+  String get practiceMixedBody =>
+      'راجع أسئلة متنوعة من الدروس التي فتحتها أو بدأت بها.';
+
+  @override
+  String get practiceWeakAreasTitle => 'تقوية مواطن الضعف';
+
+  @override
+  String get practiceWeakAreasBody =>
+      'ابدأ بمراجعات اليوم، ثم بالدروس التي يقل إتقانها عن ٧٠٪ وبأنواع الأسئلة التي أخطأت فيها سابقًا.';
+
+  @override
+  String get practiceRewardsTitle => 'شاراتك';
+
+  @override
+  String get practiceBadgeFirstSteps => 'الخطوات الأولى';
+
+  @override
+  String get practiceBadgePerfect => 'عشرة كاملة';
+
+  @override
+  String get practiceBadgeHabit => 'عادة التدريب';
+
+  @override
+  String get practiceBadgeGrammarStar => 'نجم النحو';
+
+  @override
+  String get practiceCompleteTitle => 'أتممت التدريب!';
+
+  @override
+  String practiceScore(int correct, int total) {
+    return '$correct إجابات صحيحة من $total';
+  }
+
+  @override
+  String practiceStarsEarned(int stars) {
+    return 'حصلت على $stars نجوم';
+  }
+
+  @override
+  String get practiceAgain => 'تدرّب مرة أخرى';
+
+  @override
   String get progressTitle => 'تقدُّمك';
 
   @override
   String get progressSubtitle => 'سيبقى تقدُّمك التعليمي على هذا الجهاز.';
+
+  @override
+  String progressCurriculumSummary(int mastered, int total) {
+    return 'أتقنت $mastered درسًا من أصل $total';
+  }
+
+  @override
+  String get progressLessonsStarted => 'الدروس التي بدأتها';
+
+  @override
+  String get progressPracticeStars => 'نجوم التدريب';
+
+  @override
+  String get progressDailyGoal => 'هدف اليوم';
+
+  @override
+  String get progressPracticeAccuracy => 'دقة التدريب';
+
+  @override
+  String get progressLevelsTitle => 'التقدّم حسب المستوى';
+
+  @override
+  String progressAverageMastery(int percent) {
+    return 'متوسط الإتقان: $percent٪';
+  }
+
+  @override
+  String progressNextLesson(String lesson) {
+    return 'التالي: $lesson';
+  }
+
+  @override
+  String get aboutTitle => 'عن التطبيق وشكر المساهمين';
+
+  @override
+  String get aboutPurposeTitle => 'هدفنا';
+
+  @override
+  String get aboutPurposeBody =>
+      'يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة المشكولة إلى القراءة المستقلة دون حركات.';
+
+  @override
+  String get aboutCompanyTitle => 'تطوير ونشر شركة Ebaid LLC';
+
+  @override
+  String get aboutCompanyBody =>
+      'تطوّر شركة Ebaid LLC تقنيات تعليمية عملية تجعل التعلّم المنظّم أيسر وصولًا. وقد أنشأت الشركة تطبيق «إعراب» وتنشره، بما في ذلك برمجياته الأصلية وشروح دروسه وأمثلته وترجماته وتعليقاته وتمارينه.';
+
+  @override
+  String get aboutResourcesTitle => 'المصادر ونسب الفضل';
+
+  @override
+  String get aboutReviewersTitle => 'المعلّمون المراجعون';
+
+  @override
+  String get aboutReviewersPending =>
+      'ستُذكر هنا أسماء المعلّمين المؤهلين الذين يعتمدون محتوى المنهج، بعد الحصول على إذنهم. وما زالت دروس النسخة التجريبية قيد المراجعة.';
+
+  @override
+  String get aboutContentStatusTitle => 'حالة المحتوى';
+
+  @override
+  String get aboutContentVersion => 'إصدار المنهج';
+
+  @override
+  String get aboutDisclaimer =>
+      'هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل. وقد تتغيّر التحليلات الأولية أثناء المراجعة.';
+
+  @override
+  String get aboutContactTitle => 'الدعم والمعلومات القانونية';
 
   @override
   String get language => 'اللغة';
@@ -164,4 +291,75 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get close => 'إغلاق';
+
+  @override
+  String get more => 'المزيد';
+
+  @override
+  String get glossaryTitle => 'معجم النحو';
+
+  @override
+  String get glossarySearchHint =>
+      'ابحث بالعربية أو الإنجليزية أو النقل الصوتي';
+
+  @override
+  String get glossaryNoResults => 'لا توجد مصطلحات نحوية مطابقة.';
+
+  @override
+  String glossaryLessonLinks(int count) {
+    return 'مرتبط بـ $count دروس';
+  }
+
+  @override
+  String get clearSearch => 'مسح البحث';
+
+  @override
+  String get bookmarksTitle => 'العناصر المحفوظة';
+
+  @override
+  String get bookmarksEmpty =>
+      'احفظ درسًا أو مثالًا محللًا أو مصطلحًا لتجده هنا.';
+
+  @override
+  String get bookmarkedLessons => 'الدروس المحفوظة';
+
+  @override
+  String get bookmarkedExamples => 'الأمثلة المحفوظة';
+
+  @override
+  String get bookmarkedTerms => 'مصطلحات المعجم المحفوظة';
+
+  @override
+  String get addBookmark => 'حفظ';
+
+  @override
+  String get removeBookmark => 'إزالة من المحفوظات';
+
+  @override
+  String get listen => 'استمع';
+
+  @override
+  String get textSizeTitle => 'حجم النص';
+
+  @override
+  String get textSizeBody =>
+      'اختر حجمًا مريحًا للقراءة. يسري هذا الإعداد على التطبيق كله.';
+
+  @override
+  String get textSizeSmall => 'صغير';
+
+  @override
+  String get textSizeDefault => 'افتراضي';
+
+  @override
+  String get textSizeLarge => 'كبير';
+
+  @override
+  String get textSizeLargest => 'الأكبر';
+
+  @override
+  String get learningIllustrationLabel => 'بطاقة مبهجة لتعلّم العربية';
+
+  @override
+  String get celebrationIllustrationLabel => 'احتفال ملوّن بإنجاز نحوي';
 }
