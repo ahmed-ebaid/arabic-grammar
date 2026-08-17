@@ -356,14 +356,16 @@ def add_front_matter(
 
 
 def add_headers_and_footers(document: Document, content_version: str) -> None:
-    for section in document.sections:
-        header = section.header.paragraphs[0]
-        header.text = f"I'rab curriculum review — {content_version}"
-        header.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        footer = section.footer.paragraphs[0]
-        footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        run = footer.add_run("Ebaid LLC — Teacher review draft")
-        run.font.size = Pt(8)
+    # Sections inherit a linked header/footer by default. Set the shared content
+    # once; appending in a loop would repeat the text for every linked section.
+    section = document.sections[0]
+    header = section.header.paragraphs[0]
+    header.text = f"I'rab curriculum review — {content_version}"
+    header.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    footer = section.footer.paragraphs[0]
+    footer.text = "Ebaid LLC — Teacher review draft"
+    footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    footer.runs[0].font.size = Pt(8)
 
 
 def export(source_path: Path, output_path: Path) -> None:
