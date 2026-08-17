@@ -41,6 +41,7 @@ class ContentCatalog {
   const ContentCatalog({
     required this.schemaVersion,
     required this.contentVersion,
+    required this.levels,
     required this.lessons,
   });
 
@@ -50,11 +51,21 @@ class ContentCatalog {
     JsonValue.expectKeys(json, const {
       'schemaVersion',
       'contentVersion',
+      'levels',
       'lessons',
     }, path);
     return ContentCatalog(
       schemaVersion: JsonValue.requiredInt(json, 'schemaVersion', path),
       contentVersion: JsonValue.requiredString(json, 'contentVersion', path),
+      levels: JsonValue.objectList(json, 'levels', path).indexed
+          .map(
+            (entry) => CurriculumLevel.fromJson(
+              entry.$2,
+              r'$.levels['
+              '${entry.$1}]',
+            ),
+          )
+          .toList(growable: false),
       lessons: JsonValue.objectList(json, 'lessons', path).indexed
           .map(
             (entry) => Lesson.fromJson(
@@ -69,7 +80,44 @@ class ContentCatalog {
 
   final int schemaVersion;
   final String contentVersion;
+  final List<CurriculumLevel> levels;
   final List<Lesson> lessons;
+}
+
+class CurriculumLevel {
+  const CurriculumLevel({
+    required this.id,
+    required this.order,
+    required this.title,
+    required this.description,
+    required this.lessonIds,
+  });
+
+  factory CurriculumLevel.fromJson(Map<String, Object?> json, String path) {
+    JsonValue.expectKeys(json, const {
+      'id',
+      'order',
+      'title',
+      'description',
+      'lessonIds',
+    }, path);
+    return CurriculumLevel(
+      id: JsonValue.requiredString(json, 'id', path),
+      order: JsonValue.requiredInt(json, 'order', path),
+      title: LocalizedText.fromJson(json['title'], '$path.title'),
+      description: LocalizedText.fromJson(
+        json['description'],
+        '$path.description',
+      ),
+      lessonIds: JsonValue.stringList(json, 'lessonIds', path),
+    );
+  }
+
+  final String id;
+  final int order;
+  final LocalizedText title;
+  final LocalizedText description;
+  final List<String> lessonIds;
 }
 
 class Lesson {

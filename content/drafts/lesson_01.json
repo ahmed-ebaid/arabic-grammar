@@ -1,6 +1,22 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "1.2.0-draft.1",
+  "contentVersion": "2.0.0-draft.1",
+  "levels": [
+    {
+      "id": "level_01",
+      "order": 1,
+      "title": {"en": "Level 1: Reading foundations", "ar": "المستوى الأول: أساس القراءة"},
+      "description": {"en": "Use sentence roles to predict raf, nasb, and jarr.", "ar": "استخدم وظائف الكلمات لتوقّع الرفع والنصب والجر."},
+      "lessonIds": ["lesson_01", "lesson_02", "lesson_03", "lesson_04", "lesson_05", "lesson_06", "lesson_07"]
+    },
+    {
+      "id": "level_02",
+      "order": 2,
+      "title": {"en": "Level 2: Nouns and agreement", "ar": "المستوى الثاني: الأسماء والمطابقة"},
+      "description": {"en": "Read noun phrases through definiteness, gender, and agreement.", "ar": "اقرأ التراكيب الاسمية من خلال التعريف والتنكير والجنس والمطابقة."},
+      "lessonIds": ["lesson_08", "lesson_09"]
+    }
+  ],
   "lessons": [
     {
       "id": "lesson_01",
@@ -1021,6 +1037,290 @@
         {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
       ],
       "review": {"status": "pendingReview", "contentVersion": "1.2.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_08",
+      "order": 8,
+      "title": {"en": "Definite or indefinite?", "ar": "المعرفة والنكرة"},
+      "objectives": [
+        {"en": "Recognize ال as a common marker of a definite noun.", "ar": "أن تتعرف «الـ» بوصفها علامة شائعة للاسم المعرفة."},
+        {"en": "Recognize tanwin as a common marker of an indefinite noun.", "ar": "أن تتعرف التنوين بوصفه علامة شائعة للاسم النكرة."}
+      ],
+      "prerequisites": ["lesson_07"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "known-or-general",
+          "type": "introduction",
+          "title": {"en": "Known or general?", "ar": "معيّن أم غير معيّن؟"},
+          "body": {
+            "en": "A definite noun points to something known or specific. ال is a common clue: الكتاب means “the book.” An indefinite noun is not yet specified: كتابٌ means “a book,” and often carries tanwin.",
+            "ar": "الاسم المعرفة يدل على شيء معيّن أو معروف، ومن علاماته الشائعة «الـ»: «الكتاب». أمّا النكرة فتدل على شيء غير معيّن: «كتابٌ»، ومن علاماتها الشائعة التنوين."
+          },
+          "examples": []
+        },
+        {
+          "id": "book-is-new",
+          "type": "workedExample",
+          "title": {"en": "Two clues in one sentence", "ar": "علامتان في جملة واحدة"},
+          "body": {
+            "en": "In الكِتَابُ جَدِيدٌ, الكتاب is definite because it begins with ال. جديد is indefinite and carries tanwin. Both are in raf because they are the topic and predicate.",
+            "ar": "في «الكِتَابُ جَدِيدٌ»، «الكتاب» معرفة لدخول «الـ» عليه، و«جديدٌ» نكرة منوّنة. وكلاهما مرفوع لأنه مبتدأ وخبر."
+          },
+          "examples": [
+            {
+              "id": "book-is-new-example",
+              "vocalized": "الكِتَابُ جَدِيدٌ",
+              "unvocalized": "الكتاب جديد",
+              "tokens": [
+                {
+                  "text": "الكتاب", "start": 0, "end": 6,
+                  "role": {"en": "Definite topic", "ar": "مبتدأ معرفة"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "ال makes the noun definite; its topic role puts it in raf.", "ar": "دخلت «الـ» على الاسم فعرّفته، وهو مرفوع لأنه مبتدأ."}
+                },
+                {
+                  "text": "جديد", "start": 7, "end": 11,
+                  "role": {"en": "Indefinite predicate", "ar": "خبر نكرة"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Damma with tanwin", "ar": "الضمة مع التنوين"},
+                  "ending": "ٌ",
+                  "reason": {"en": "Tanwin commonly marks an indefinite noun; the predicate is in raf.", "ar": "التنوين من علامات النكرة، والخبر مرفوع."}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "definiteness-caution",
+          "type": "ruleSummary",
+          "title": {"en": "Useful clues, not the whole story", "ar": "علامات نافعة وليست القصة كلها"},
+          "body": {
+            "en": "ال and tanwin are excellent beginner clues, but names, pronouns, and other constructions can also be definite. For now, use the visible clue and keep reading the sentence structure.",
+            "ar": "«الـ» والتنوين علامتان نافعتان للمبتدئ، لكن الأعلام والضمائر وتراكيب أخرى قد تكون معارف أيضًا. استخدم الآن العلامة الظاهرة مع تركيب الجملة."
+          },
+          "examples": []
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-08-definite-01", "type": "matchRule",
+          "prompt": {"en": "Which noun is definite?", "ar": "أي اسم معرفة؟"},
+          "options": [
+            {"id": "the-house", "label": {"en": "البَيْتُ", "ar": "البَيْتُ"}, "isCorrect": true, "feedback": {"en": "Correct. ال is the visible definiteness clue.", "ar": "صحيح. «الـ» علامة ظاهرة للتعريف."}},
+            {"id": "a-house", "label": {"en": "بَيْتٌ", "ar": "بَيْتٌ"}, "isCorrect": false, "feedback": {"en": "Tanwin commonly marks بيتٌ as indefinite.", "ar": "التنوين يدل هنا على أن «بيتٌ» نكرة."}},
+            {"id": "a-book", "label": {"en": "كِتَابٌ", "ar": "كِتَابٌ"}, "isCorrect": false, "feedback": {"en": "كتابٌ has tanwin and is indefinite here.", "ar": "«كتابٌ» منوّن، فهو نكرة هنا."}}
+          ]
+        },
+        {
+          "id": "lesson-08-indefinite-02", "type": "matchRule",
+          "prompt": {"en": "Which noun is indefinite?", "ar": "أي اسم نكرة؟"},
+          "options": [
+            {"id": "a-pen", "label": {"en": "قَلَمٌ", "ar": "قَلَمٌ"}, "isCorrect": true, "feedback": {"en": "Correct. The tanwin is a common indefiniteness clue.", "ar": "صحيح. التنوين علامة شائعة للتنكير."}},
+            {"id": "the-pen", "label": {"en": "القَلَمُ", "ar": "القَلَمُ"}, "isCorrect": false, "feedback": {"en": "ال makes القلم definite.", "ar": "دخول «الـ» جعل «القلم» معرفة."}},
+            {"id": "the-door", "label": {"en": "البَابُ", "ar": "البَابُ"}, "isCorrect": false, "feedback": {"en": "ال makes الباب definite.", "ar": "دخول «الـ» جعل «الباب» معرفة."}}
+          ]
+        },
+        {
+          "id": "lesson-08-clue-03", "type": "identifyRole",
+          "prompt": {"en": "What makes الكتاب definite in الكتاب جديد?", "ar": "ما الذي جعل «الكتاب» معرفة في «الكتاب جديد»؟"},
+          "options": [
+            {"id": "al", "label": {"en": "The prefix ال", "ar": "دخول «الـ»"}, "isCorrect": true, "feedback": {"en": "Correct. ال points to the specific book.", "ar": "صحيح. «الـ» تدل على كتاب معيّن."}},
+            {"id": "tanwin", "label": {"en": "Tanwin", "ar": "التنوين"}, "isCorrect": false, "feedback": {"en": "الكتاب has no tanwin; tanwin commonly signals indefiniteness.", "ar": "«الكتاب» غير منوّن؛ والتنوين يدل غالبًا على التنكير."}},
+            {"id": "verb", "label": {"en": "A preceding verb", "ar": "فعل قبله"}, "isCorrect": false, "feedback": {"en": "This sentence begins with a noun, not a verb.", "ar": "هذه الجملة تبدأ باسم، لا بفعل."}}
+          ]
+        },
+        {
+          "id": "lesson-08-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read الباب مفتوح. Which reading marks مفتوح as an indefinite predicate?", "ar": "اقرأ «الباب مفتوح». أي قراءة تجعل «مفتوح» خبرًا نكرة؟"},
+          "options": [
+            {"id": "open-tanwin", "label": {"en": "مَفْتُوحٌ", "ar": "مَفْتُوحٌ"}, "isCorrect": true, "feedback": {"en": "Correct. The indefinite predicate is in raf with tanwin.", "ar": "صحيح. الخبر النكرة مرفوع مع التنوين."}},
+            {"id": "the-open", "label": {"en": "المَفْتُوحُ", "ar": "المَفْتُوحُ"}, "isCorrect": false, "feedback": {"en": "Adding ال would make the word definite and change the intended pattern.", "ar": "إضافة «الـ» تجعل الكلمة معرفة وتغيّر النمط المقصود."}},
+            {"id": "open-nasb", "label": {"en": "مَفْتُوحًا", "ar": "مَفْتُوحًا"}, "isCorrect": false, "feedback": {"en": "The predicate is in raf here, not nasb.", "ar": "الخبر هنا مرفوع، وليس منصوبًا."}}
+          ]
+        }
+      ],
+      "repeatExercises": [
+        {
+          "id": "lesson-08-repeat-definite-01", "type": "matchRule",
+          "prompt": {"en": "New words: which noun is definite?", "ar": "كلمات جديدة: أي اسم معرفة؟"},
+          "options": [
+            {"id": "the-school", "label": {"en": "المَدْرَسَةُ", "ar": "المَدْرَسَةُ"}, "isCorrect": true, "feedback": {"en": "Correct. ال marks the specific school.", "ar": "صحيح. «الـ» عرّفت المدرسة."}},
+            {"id": "a-school", "label": {"en": "مَدْرَسَةٌ", "ar": "مَدْرَسَةٌ"}, "isCorrect": false, "feedback": {"en": "Tanwin marks مدرسةٌ as indefinite here.", "ar": "التنوين جعل «مدرسةٌ» نكرة هنا."}},
+            {"id": "a-room", "label": {"en": "غُرْفَةٌ", "ar": "غُرْفَةٌ"}, "isCorrect": false, "feedback": {"en": "غرفةٌ is indefinite here.", "ar": "«غرفةٌ» نكرة هنا."}}
+          ]
+        },
+        {
+          "id": "lesson-08-repeat-indefinite-02", "type": "matchRule",
+          "prompt": {"en": "New words: which noun is indefinite?", "ar": "كلمات جديدة: أي اسم نكرة؟"},
+          "options": [
+            {"id": "a-teacher", "label": {"en": "مُعَلِّمٌ", "ar": "مُعَلِّمٌ"}, "isCorrect": true, "feedback": {"en": "Correct. Tanwin is the visible clue.", "ar": "صحيح. التنوين هو العلامة الظاهرة."}},
+            {"id": "the-teacher", "label": {"en": "المُعَلِّمُ", "ar": "المُعَلِّمُ"}, "isCorrect": false, "feedback": {"en": "ال makes المعلم definite.", "ar": "«الـ» جعلت «المعلم» معرفة."}},
+            {"id": "the-student", "label": {"en": "الطَّالِبُ", "ar": "الطَّالِبُ"}, "isCorrect": false, "feedback": {"en": "ال makes الطالب definite.", "ar": "«الـ» جعلت «الطالب» معرفة."}}
+          ]
+        },
+        {
+          "id": "lesson-08-repeat-clue-03", "type": "identifyRole",
+          "prompt": {"en": "What is the visible indefiniteness clue in قلمٌ?", "ar": "ما علامة التنكير الظاهرة في «قلمٌ»؟"},
+          "options": [
+            {"id": "tanwin", "label": {"en": "Tanwin", "ar": "التنوين"}, "isCorrect": true, "feedback": {"en": "Correct. The doubled ending is tanwin.", "ar": "صحيح. الحركة المكررة هي التنوين."}},
+            {"id": "al", "label": {"en": "The prefix ال", "ar": "دخول «الـ»"}, "isCorrect": false, "feedback": {"en": "قلمٌ does not begin with ال.", "ar": "«قلمٌ» لا تبدأ بـ«الـ»."}},
+            {"id": "preposition", "label": {"en": "A preposition", "ar": "حرف جر"}, "isCorrect": false, "feedback": {"en": "No preposition is shown here.", "ar": "لا يظهر حرف جر هنا."}}
+          ]
+        },
+        {
+          "id": "lesson-08-repeat-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read القلم مفيد. Which reading marks مفيد as an indefinite predicate?", "ar": "اقرأ «القلم مفيد». أي قراءة تجعل «مفيد» خبرًا نكرة؟"},
+          "options": [
+            {"id": "useful-tanwin", "label": {"en": "مُفِيدٌ", "ar": "مُفِيدٌ"}, "isCorrect": true, "feedback": {"en": "Correct. It is an indefinite predicate in raf.", "ar": "صحيح. هو خبر نكرة مرفوع."}},
+            {"id": "the-useful", "label": {"en": "المُفِيدُ", "ar": "المُفِيدُ"}, "isCorrect": false, "feedback": {"en": "ال would make the word definite.", "ar": "«الـ» تجعل الكلمة معرفة."}},
+            {"id": "useful-jarr", "label": {"en": "مُفِيدٍ", "ar": "مُفِيدٍ"}, "isCorrect": false, "feedback": {"en": "The predicate is in raf, not jarr.", "ar": "الخبر مرفوع، وليس مجرورًا."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "2.0.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
+    },
+    {
+      "id": "lesson_09",
+      "order": 9,
+      "title": {"en": "Masculine and feminine", "ar": "المذكر والمؤنث"},
+      "objectives": [
+        {"en": "Recognize ta marbuta as a common feminine marker.", "ar": "أن تتعرف التاء المربوطة بوصفها علامة شائعة للتأنيث."},
+        {"en": "Match a simple predicate to a masculine or feminine noun.", "ar": "أن تطابق خبرًا بسيطًا مع اسم مذكر أو مؤنث."}
+      ],
+      "prerequisites": ["lesson_08"],
+      "estimatedMinutes": 9,
+      "sections": [
+        {
+          "id": "gender-clues",
+          "type": "introduction",
+          "title": {"en": "A common feminine clue", "ar": "علامة شائعة للتأنيث"},
+          "body": {
+            "en": "Many feminine nouns end in ة (ta marbuta), such as معلمة and سيارة. This is a strong clue, not an absolute rule: some feminine words lack ة, and a few words ending in ة are not feminine.",
+            "ar": "ينتهي كثير من الأسماء المؤنثة بالتاء المربوطة «ة»، مثل «معلمة» و«سيارة». وهي علامة قوية وليست قاعدة مطلقة؛ فقد يأتي المؤنث بلا تاء، وقد تنتهي بها كلمات غير مؤنثة."
+          },
+          "examples": []
+        },
+        {
+          "id": "teacher-is-diligent-feminine",
+          "type": "workedExample",
+          "title": {"en": "Make the description agree", "ar": "طابق الوصف"},
+          "body": {
+            "en": "In المُعَلِّمَةُ مُجْتَهِدَةٌ, معلمة is feminine and the predicate مجتهدة uses the matching feminine form. Compare: المُعَلِّمُ مُجْتَهِدٌ.",
+            "ar": "في «المُعَلِّمَةُ مُجْتَهِدَةٌ»، «المعلمة» مؤنث، فجاء الخبر «مجتهدة» مؤنثًا مثلها. وقارن: «المُعَلِّمُ مُجْتَهِدٌ»."
+          },
+          "examples": [
+            {
+              "id": "female-teacher-diligent-example",
+              "vocalized": "المُعَلِّمَةُ مُجْتَهِدَةٌ",
+              "unvocalized": "المعلمة مجتهدة",
+              "tokens": [
+                {
+                  "text": "المعلمة", "start": 0, "end": 7,
+                  "role": {"en": "Feminine topic", "ar": "مبتدأ مؤنث"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Visible damma", "ar": "الضمة الظاهرة"},
+                  "ending": "ُ",
+                  "reason": {"en": "Ta marbuta is the visible feminine clue; the topic is in raf.", "ar": "التاء المربوطة علامة التأنيث الظاهرة، والمبتدأ مرفوع."}
+                },
+                {
+                  "text": "مجتهدة", "start": 8, "end": 14,
+                  "role": {"en": "Feminine predicate", "ar": "خبر مؤنث"},
+                  "grammarState": "raf",
+                  "grammaticalSign": {"en": "Damma with tanwin", "ar": "الضمة مع التنوين"},
+                  "ending": "ٌ",
+                  "reason": {"en": "The predicate uses the feminine form to agree with its topic.", "ar": "جاء الخبر مؤنثًا ليطابق المبتدأ."}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "id": "lesson-09-feminine-01", "type": "matchRule",
+          "prompt": {"en": "Which word has the common feminine marker ة?", "ar": "أي كلمة فيها علامة التأنيث الشائعة «ة»؟"},
+          "options": [
+            {"id": "student-f", "label": {"en": "طَالِبَة", "ar": "طَالِبَة"}, "isCorrect": true, "feedback": {"en": "Correct. The ta marbuta is the visible clue.", "ar": "صحيح. التاء المربوطة هي العلامة الظاهرة."}},
+            {"id": "student-m", "label": {"en": "طَالِب", "ar": "طَالِب"}, "isCorrect": false, "feedback": {"en": "طالب has no ta marbuta and is masculine here.", "ar": "«طالب» بلا تاء مربوطة، وهو مذكر هنا."}},
+            {"id": "book", "label": {"en": "كِتَاب", "ar": "كِتَاب"}, "isCorrect": false, "feedback": {"en": "كتاب is masculine.", "ar": "«كتاب» مذكر."}}
+          ]
+        },
+        {
+          "id": "lesson-09-masculine-02", "type": "matchRule",
+          "prompt": {"en": "Which noun is masculine?", "ar": "أي اسم مذكر؟"},
+          "options": [
+            {"id": "teacher-m", "label": {"en": "مُعَلِّم", "ar": "مُعَلِّم"}, "isCorrect": true, "feedback": {"en": "Correct. معلم is masculine here.", "ar": "صحيح. «معلم» مذكر هنا."}},
+            {"id": "teacher-f", "label": {"en": "مُعَلِّمَة", "ar": "مُعَلِّمَة"}, "isCorrect": false, "feedback": {"en": "The ta marbuta marks معلمة as feminine.", "ar": "التاء المربوطة تدل على تأنيث «معلمة»."}},
+            {"id": "car", "label": {"en": "سَيَّارَة", "ar": "سَيَّارَة"}, "isCorrect": false, "feedback": {"en": "سيارة is treated as feminine.", "ar": "«سيارة» اسم مؤنث."}}
+          ]
+        },
+        {
+          "id": "lesson-09-agreement-03", "type": "matchRule",
+          "prompt": {"en": "Complete: الطالبةُ ...", "ar": "أكمل: «الطالبةُ ...»"},
+          "options": [
+            {"id": "diligent-f", "label": {"en": "مُجْتَهِدَةٌ", "ar": "مُجْتَهِدَةٌ"}, "isCorrect": true, "feedback": {"en": "Correct. The feminine predicate agrees with الطالبة.", "ar": "صحيح. الخبر المؤنث يطابق «الطالبة»."}},
+            {"id": "diligent-m", "label": {"en": "مُجْتَهِدٌ", "ar": "مُجْتَهِدٌ"}, "isCorrect": false, "feedback": {"en": "Use the feminine form to agree with الطالبة.", "ar": "استخدم صيغة المؤنث لتطابق «الطالبة»."}},
+            {"id": "students", "label": {"en": "طُلَّابٌ", "ar": "طُلَّابٌ"}, "isCorrect": false, "feedback": {"en": "طلاب does not describe the singular feminine topic.", "ar": "«طلاب» لا يصف المبتدأ المفرد المؤنث."}}
+          ]
+        },
+        {
+          "id": "lesson-09-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read السيارة سريعة. Which predicate form agrees with السيارة?", "ar": "اقرأ «السيارة سريعة». أي صيغة خبر تطابق «السيارة»؟"},
+          "options": [
+            {"id": "fast-f", "label": {"en": "سَرِيعَةٌ", "ar": "سَرِيعَةٌ"}, "isCorrect": true, "feedback": {"en": "Correct. The feminine predicate agrees with السيارة.", "ar": "صحيح. الخبر المؤنث يطابق «السيارة»."}},
+            {"id": "fast-m", "label": {"en": "سَرِيعٌ", "ar": "سَرِيعٌ"}, "isCorrect": false, "feedback": {"en": "سريع is masculine; use the feminine form.", "ar": "«سريع» مذكر؛ استخدم صيغة المؤنث."}},
+            {"id": "fast-nasb", "label": {"en": "سَرِيعَةً", "ar": "سَرِيعَةً"}, "isCorrect": false, "feedback": {"en": "The predicate is in raf here, not nasb.", "ar": "الخبر هنا مرفوع، وليس منصوبًا."}}
+          ]
+        }
+      ],
+      "repeatExercises": [
+        {
+          "id": "lesson-09-repeat-feminine-01", "type": "matchRule",
+          "prompt": {"en": "New words: which one has ta marbuta?", "ar": "كلمات جديدة: أي كلمة تنتهي بتاء مربوطة؟"},
+          "options": [
+            {"id": "engineer-f", "label": {"en": "مُهَنْدِسَة", "ar": "مُهَنْدِسَة"}, "isCorrect": true, "feedback": {"en": "Correct. مهندسة ends in ta marbuta.", "ar": "صحيح. تنتهي «مهندسة» بتاء مربوطة."}},
+            {"id": "engineer-m", "label": {"en": "مُهَنْدِس", "ar": "مُهَنْدِس"}, "isCorrect": false, "feedback": {"en": "مهندس has no ta marbuta.", "ar": "«مهندس» لا ينتهي بتاء مربوطة."}},
+            {"id": "door", "label": {"en": "بَاب", "ar": "بَاب"}, "isCorrect": false, "feedback": {"en": "باب has no feminine marker.", "ar": "«باب» لا يحمل علامة التأنيث هذه."}}
+          ]
+        },
+        {
+          "id": "lesson-09-repeat-masculine-02", "type": "matchRule",
+          "prompt": {"en": "New words: which noun is masculine?", "ar": "كلمات جديدة: أي اسم مذكر؟"},
+          "options": [
+            {"id": "doctor-m", "label": {"en": "طَبِيب", "ar": "طَبِيب"}, "isCorrect": true, "feedback": {"en": "Correct. طبيب is masculine here.", "ar": "صحيح. «طبيب» مذكر هنا."}},
+            {"id": "doctor-f", "label": {"en": "طَبِيبَة", "ar": "طَبِيبَة"}, "isCorrect": false, "feedback": {"en": "طبيبة is the feminine form.", "ar": "«طبيبة» صيغة المؤنث."}},
+            {"id": "tree", "label": {"en": "شَجَرَة", "ar": "شَجَرَة"}, "isCorrect": false, "feedback": {"en": "شجرة is treated as feminine.", "ar": "«شجرة» اسم مؤنث."}}
+          ]
+        },
+        {
+          "id": "lesson-09-repeat-agreement-03", "type": "matchRule",
+          "prompt": {"en": "Complete: المعلمةُ ...", "ar": "أكمل: «المعلمةُ ...»"},
+          "options": [
+            {"id": "present-f", "label": {"en": "حَاضِرَةٌ", "ar": "حَاضِرَةٌ"}, "isCorrect": true, "feedback": {"en": "Correct. حاضرة is feminine and agrees with المعلمة.", "ar": "صحيح. «حاضرة» مؤنث يطابق «المعلمة»."}},
+            {"id": "present-m", "label": {"en": "حَاضِرٌ", "ar": "حَاضِرٌ"}, "isCorrect": false, "feedback": {"en": "Use the feminine form with المعلمة.", "ar": "استخدم صيغة المؤنث مع «المعلمة»."}},
+            {"id": "absent-m", "label": {"en": "غَائِبٌ", "ar": "غَائِبٌ"}, "isCorrect": false, "feedback": {"en": "This masculine form does not agree with المعلمة.", "ar": "هذه الصيغة المذكرة لا تطابق «المعلمة»."}}
+          ]
+        },
+        {
+          "id": "lesson-09-repeat-read-04", "type": "addTashkeel",
+          "prompt": {"en": "Read الشجرة طويلة. Which predicate form agrees with الشجرة?", "ar": "اقرأ «الشجرة طويلة». أي صيغة خبر تطابق «الشجرة»؟"},
+          "options": [
+            {"id": "tall-f", "label": {"en": "طَوِيلَةٌ", "ar": "طَوِيلَةٌ"}, "isCorrect": true, "feedback": {"en": "Correct. The feminine form agrees with الشجرة.", "ar": "صحيح. صيغة المؤنث تطابق «الشجرة»."}},
+            {"id": "tall-m", "label": {"en": "طَوِيلٌ", "ar": "طَوِيلٌ"}, "isCorrect": false, "feedback": {"en": "طويل is masculine.", "ar": "«طويل» صيغة مذكرة."}},
+            {"id": "tall-jarr", "label": {"en": "طَوِيلَةٍ", "ar": "طَوِيلَةٍ"}, "isCorrect": false, "feedback": {"en": "The predicate is in raf here.", "ar": "الخبر هنا مرفوع."}}
+          ]
+        }
+      ],
+      "sources": [
+        {"id": "arabic-grammar-original-content", "title": "Arabic Grammar original lesson content", "author": "Arabic Grammar project", "url": null, "licenseStatus": "original", "citation": "All explanations, examples, translations, feedback, and exercise wording were written for this application."}
+      ],
+      "review": {"status": "pendingReview", "contentVersion": "2.0.0-draft.1", "reviewer": null, "reviewedAt": null, "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."}
     }
   ]
 }

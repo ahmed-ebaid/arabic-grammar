@@ -66,6 +66,86 @@ abstract final class ContentValidator {
       );
     }
 
+    final levelIds = <String>{};
+    final levelOrders = <int>{};
+    final assignedLessonIds = <String>{};
+    for (final (index, level) in catalog.levels.indexed) {
+      final path =
+          r'$.levels['
+          '$index]';
+      if (!RegExp(r'^level_[0-9]{2}$').hasMatch(level.id)) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.id',
+            message: 'must match level_ followed by two digits',
+          ),
+        );
+      }
+      if (!levelIds.add(level.id)) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.id',
+            message: 'duplicate level id ${level.id}',
+          ),
+        );
+      }
+      if (level.order < 1 || !levelOrders.add(level.order)) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.order',
+            message: 'must be a unique positive integer',
+          ),
+        );
+      }
+      if (level.lessonIds.isEmpty) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.lessonIds',
+            message: 'must contain at least one lesson id',
+          ),
+        );
+      }
+      for (final lessonId in level.lessonIds) {
+        if (!lessonIds.contains(lessonId)) {
+          issues.add(
+            ContentValidationIssue(
+              path: '$path.lessonIds',
+              message: 'unknown lesson id $lessonId',
+            ),
+          );
+        } else if (!assignedLessonIds.add(lessonId)) {
+          issues.add(
+            ContentValidationIssue(
+              path: '$path.lessonIds',
+              message: 'lesson $lessonId is assigned to more than one level',
+            ),
+          );
+        }
+      }
+    }
+    if (catalog.levels.isNotEmpty &&
+        assignedLessonIds.length != lessonIds.length) {
+      issues.add(
+        const ContentValidationIssue(
+          path: r'$.levels',
+          message: 'every lesson must be assigned to exactly one level',
+        ),
+      );
+    }
+    final expectedLevelOrders = List<int>.generate(
+      catalog.levels.length,
+      (index) => index + 1,
+    );
+    final actualLevelOrders = levelOrders.toList()..sort();
+    if (!_sameValues(expectedLevelOrders, actualLevelOrders)) {
+      issues.add(
+        const ContentValidationIssue(
+          path: r'$.levels',
+          message: 'level order values must be contiguous starting at 1',
+        ),
+      );
+    }
+
     final expectedOrders = List<int>.generate(
       catalog.lessons.length,
       (index) => index + 1,

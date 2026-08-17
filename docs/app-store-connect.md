@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `8`
+- Build: `9`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -94,9 +94,9 @@ feature.
 ## TestFlight information
 
 - Beta app description: Learn Arabic grammar and word endings through a
-  bilingual, offline-first curriculum. Level 1 now has a Duolingo-style path
-  with seven interactive lessons, instant explanations, saved progress,
-  mastery scoring, varied repeat practice, and 70% lesson unlocking.
+  bilingual, offline-first curriculum. The app now has separate Level 1 and
+  Level 2 paths with nine interactive lessons, instant explanations, saved
+  progress, mastery scoring, varied repeat practice, and 70% lesson unlocking.
 - Feedback email: `ahmed@ebaidllc.com`
 - Review contact:
   - First name: Ahmed

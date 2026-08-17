@@ -4,16 +4,37 @@
   "title": "Arabic Grammar lesson catalog",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "contentVersion", "lessons"],
+  "required": ["schemaVersion", "contentVersion", "levels", "lessons"],
   "properties": {
     "schemaVersion": {"const": 1},
     "contentVersion": {"type": "string", "minLength": 1},
+    "levels": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/level"}
+    },
     "lessons": {
       "type": "array",
       "items": {"$ref": "#/$defs/lesson"}
     }
   },
   "$defs": {
+    "level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "title", "description", "lessonIds"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^level_[0-9]{2}$"},
+        "order": {"type": "integer", "minimum": 1},
+        "title": {"$ref": "#/$defs/localizedText"},
+        "description": {"$ref": "#/$defs/localizedText"},
+        "lessonIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string"}
+        }
+      }
+    },
     "localizedText": {
       "type": "object",
       "additionalProperties": false,
