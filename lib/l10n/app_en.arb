@@ -12,7 +12,7 @@
   "exampleExplanation": "Both words end with damma because this is a basic nominal sentence.",
   "startLearning": "Start learning",
   "moduleTitle": "Beginner foundations",
-  "moduleSubtitle": "10 guided lessons",
+  "moduleSubtitle": "59 guided lessons",
   "comingSoon": "Curriculum content is coming in the next phase.",
   "lessonNumber": "Lesson {number}",
   "@lessonNumber": {
@@ -67,10 +67,106 @@
   },
   "practiceTitle": "Practice",
   "practiceSubtitle": "Exercises will unlock with each lesson.",
+  "practiceFamilySubtitle": "Build your grammar strength, earn stars, and unlock badges—one question at a time.",
+  "practiceDailyGoalTitle": "Today's goal",
+  "practiceDailyGoalProgress": "{current} of {goal} questions",
+  "@practiceDailyGoalProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "goal": {"type": "int"}
+    }
+  },
+  "practiceMixedTitle": "Mixed review",
+  "practiceMixedBody": "Review varied questions from lessons you have unlocked or attempted.",
+  "practiceWeakAreasTitle": "Strengthen weak areas",
+  "practiceWeakAreasBody": "Review items due today first, then lessons below 70% mastery and question types you previously missed.",
+  "practiceRewardsTitle": "Your badges",
+  "practiceBadgeFirstSteps": "First Steps",
+  "practiceBadgePerfect": "Perfect Ten",
+  "practiceBadgeHabit": "Practice Habit",
+  "practiceBadgeGrammarStar": "Grammar Star",
+  "practiceCompleteTitle": "Practice complete!",
+  "practiceScore": "{correct} of {total} correct",
+  "@practiceScore": {
+    "placeholders": {
+      "correct": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "practiceStarsEarned": "You earned {stars} stars",
+  "@practiceStarsEarned": {
+    "placeholders": {
+      "stars": {"type": "int"}
+    }
+  },
+  "practiceAgain": "Practice again",
   "progressTitle": "Your progress",
   "progressSubtitle": "Your learning progress will stay on this device.",
+  "progressCurriculumSummary": "{mastered} of {total} lessons mastered",
+  "@progressCurriculumSummary": {
+    "placeholders": {
+      "mastered": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "progressLessonsStarted": "Lessons started",
+  "progressPracticeStars": "Practice stars",
+  "progressDailyGoal": "Daily goal",
+  "progressPracticeAccuracy": "Practice accuracy",
+  "progressLevelsTitle": "Progress by level",
+  "progressAverageMastery": "Average mastery: {percent}%",
+  "@progressAverageMastery": {
+    "placeholders": {
+      "percent": {"type": "int"}
+    }
+  },
+  "progressNextLesson": "Next: {lesson}",
+  "@progressNextLesson": {
+    "placeholders": {
+      "lesson": {"type": "String"}
+    }
+  },
+  "aboutTitle": "About & credits",
+  "aboutPurposeTitle": "Our purpose",
+  "aboutPurposeBody": "إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from vocalized examples to independent reading without vowel marks.",
+  "aboutCompanyTitle": "Developed by Ebaid LLC",
+  "aboutCompanyBody": "Ebaid LLC develops practical educational technology that makes structured learning more accessible. It created and publishes إعراب, including the app's original software, lesson explanations, examples, translations, feedback, and exercises.",
+  "aboutResourcesTitle": "Resources and attribution",
+  "aboutReviewersTitle": "Teacher reviewers",
+  "aboutReviewersPending": "Qualified teachers who approve curriculum content will be credited here with their permission. Current beta lessons are still pending review.",
+  "aboutContentStatusTitle": "Content status",
+  "aboutContentVersion": "Curriculum version",
+  "aboutDisclaimer": "This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.",
+  "aboutContactTitle": "Support and legal information",
   "language": "Language",
   "english": "English",
   "arabic": "العربية",
   "close": "Close"
+  ,"more": "More",
+  "glossaryTitle": "Grammar glossary",
+  "glossarySearchHint": "Search Arabic, English, or transliteration",
+  "glossaryNoResults": "No matching grammar terms.",
+  "glossaryLessonLinks": "Connected to {count} lessons",
+  "@glossaryLessonLinks": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "clearSearch": "Clear search",
+  "bookmarksTitle": "Saved items",
+  "bookmarksEmpty": "Bookmark a lesson, worked example, or glossary term to find it here.",
+  "bookmarkedLessons": "Saved lessons",
+  "bookmarkedExamples": "Saved examples",
+  "bookmarkedTerms": "Saved glossary terms",
+  "addBookmark": "Save",
+  "removeBookmark": "Remove from saved items",
+  "listen": "Listen",
+  "textSizeTitle": "Text size",
+  "textSizeBody": "Choose a comfortable reading size. This setting applies throughout the app.",
+  "textSizeSmall": "Small",
+  "textSizeDefault": "Default",
+  "textSizeLarge": "Large",
+  "textSizeLargest": "Largest"
+  ,"learningIllustrationLabel": "A cheerful Arabic learning card",
+  "celebrationIllustrationLabel": "A colorful Arabic grammar celebration"
 }

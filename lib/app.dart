@@ -7,29 +7,35 @@ import 'core/localization/locale_controller.dart';
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/theme/app_theme.dart';
+import 'core/user/user_data_controller.dart';
 import 'l10n/app_localizations.dart';
 import 'root_scaffold.dart';
 
 class ArabicGrammarApp extends StatelessWidget {
-  const ArabicGrammarApp({
+  ArabicGrammarApp({
     required this.environment,
     required this.localeController,
     required this.lessonProgressController,
+    UserDataController? userDataController,
     this.contentCatalog,
     super.key,
-  });
+  }) : userDataController = userDataController ?? UserDataController.inMemory();
 
   final AppEnvironment environment;
   final LocaleController localeController;
   final LessonProgressController lessonProgressController;
+  final UserDataController userDataController;
   final ContentCatalog? contentCatalog;
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: localeController,
-      child: Consumer<LocaleController>(
-        builder: (context, locale, child) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: localeController),
+        ChangeNotifierProvider.value(value: userDataController),
+      ],
+      child: Consumer2<LocaleController, UserDataController>(
+        builder: (context, locale, userData, child) {
           return MaterialApp(
             onGenerateTitle: (context) => AppLocalizations.of(context).appName,
             debugShowCheckedModeBanner: !environment.isProduction,
@@ -44,9 +50,19 @@ class ArabicGrammarApp extends StatelessWidget {
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode: ThemeMode.system,
+            builder: (context, child) {
+              final mediaQuery = MediaQuery.of(context);
+              return MediaQuery(
+                data: mediaQuery.copyWith(
+                  textScaler: TextScaler.linear(userData.textScale),
+                ),
+                child: child!,
+              );
+            },
             home: RootScaffold(
               contentCatalog: contentCatalog,
               lessonProgressController: lessonProgressController,
+              userDataController: userDataController,
             ),
           );
         },

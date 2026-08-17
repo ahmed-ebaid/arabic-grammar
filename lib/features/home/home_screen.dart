@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/arabic_text.dart';
+import '../../shared/widgets/learning_illustration.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({required this.onStartLearning, super.key});
@@ -19,6 +20,8 @@ class HomeScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
         children: [
+          LearningIllustration(semanticLabel: l10n.learningIllustrationLabel),
+          const SizedBox(height: 12),
           Text(l10n.welcomeTitle, style: textTheme.headlineMedium),
           const SizedBox(height: 12),
           Text(l10n.welcomeBody, style: textTheme.bodyLarge),

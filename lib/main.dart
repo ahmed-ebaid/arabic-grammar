@@ -6,6 +6,7 @@ import 'core/config/app_environment.dart';
 import 'core/localization/locale_controller.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/storage/storage_keys.dart';
+import 'core/user/user_data_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,7 @@ Future<void> main() async {
       environment: AppEnvironment.fromDefines(),
       localeController: LocaleController(settingsBox),
       lessonProgressController: LessonProgressController(progressBox),
+      userDataController: UserDataController(settingsBox),
     ),
   );
 }

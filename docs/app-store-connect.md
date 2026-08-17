@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `9`
+- Build: `13`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -91,12 +91,23 @@ settings and learning progress only on the device.
 Review this answer before enabling any future AI analysis or other network
 feature.
 
+Device text-to-speech uses the operating system's installed voices. The app
+does not record speech or send lesson text to an Ebaid LLC service.
+
 ## TestFlight information
 
 - Beta app description: Learn Arabic grammar and word endings through a
-  bilingual, offline-first curriculum. The app now has separate Level 1 and
-  Level 2 paths with nine interactive lessons, instant explanations, saved
-  progress, mastery scoring, varied repeat practice, and 70% lesson unlocking.
+  bilingual, offline-first curriculum. The app has seven progressive levels
+  with 59 interactive lessons, instant explanations, saved progress, mastery
+  scoring, varied repeat practice, unvocalized reading checkpoints, and 70%
+  lesson unlocking. Ten-question mixed and weak-area practice sessions add
+  local daily goals, stars, and collectible milestone badges. The advanced
+  track introduces selected, attributed verses from Alfiyyat Ibn Malik with
+  original explanations pending teacher review. The Progress dashboard shows
+  overall and per-level mastery, lessons started, practice accuracy, daily-goal
+  completion, stars, and earned badges. Learners can search a 57-term bilingual
+  grammar glossary, save lessons/examples/terms, adjust text size, listen with
+  device text-to-speech, and receive spaced review after 1, 3, 7, and 14 days.
 - Feedback email: `ahmed@ebaidllc.com`
 - Review contact:
   - First name: Ahmed
@@ -105,9 +116,10 @@ feature.
   - Email: `ahmed@ebaidllc.com`
 - Sign-in required: No
 - Review notes: No account is required. All current functionality is available
-  offline. Open Lessons to review the Level 1 path. Complete "Why endings
-  change" with at least 70% mastery to unlock "Noun, verb, or particle?", then
-  continue to "The nominal sentence."
+  offline. Open Lessons to follow the seven-level curriculum. Complete each
+  lesson with at least 70% mastery to unlock the next lesson. The About &
+  Credits screen identifies curriculum resources and clearly marks teacher
+  review as pending.
 
 ## Production release gate
 

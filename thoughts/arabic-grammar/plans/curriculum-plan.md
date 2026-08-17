@@ -82,7 +82,7 @@ Teach a learner to infer the correct reading of unvocalized Arabic by combining 
 
 ## Level 6 — Classical Arabic reading
 
-**Outcome:** Approach selected classical prose and Qur'anic-style structures with appropriate caution and deeper analysis.
+**Outcome:** Approach selected classical prose with appropriate caution and deeper analysis.
 
 1. Classical word order and flexible placement.
 2. Omitted subjects and understood predicates.
@@ -91,8 +91,23 @@ Teach a learner to infer the correct reading of unvocalized Arabic by combining 
 5. Weak verbs and irregular morphology needed for recognition.
 6. Common classical particles and constructions.
 7. وقف and وصل: how pausing affects audible endings.
-8. Guided classical passages with sourced commentary.
+8. Guided original classical-style passages with grammatical commentary.
 9. Mastery project: read a short passage, propose its endings, and explain the evidence.
+
+## Level 7 — Introduction to Alfiyyat Ibn Malik
+
+**Outcome:** Connect advanced grammatical analysis to selected verses from the
+public-domain Alfiyya while distinguishing the original poem from this app's
+modern teaching explanations.
+
+1. How to study a concise grammatical poem.
+2. Speech, words, and the signs of nouns, verbs, and particles.
+3. Mu'rab and mabni words.
+4. Primary and secondary signs of i'rab.
+5. Duals, sound plurals, and the five nouns.
+6. Nominal governors in selected verses.
+7. Verbal governors in selected verses.
+8. Reading checkpoint: explain a selected verse and transfer its rule to new prose.
 
 ## Assessment model
 
@@ -107,7 +122,11 @@ Teach a learner to infer the correct reading of unvocalized Arabic by combining 
 - All teaching copy and exercises are original or based on public-domain grammatical rules.
 - Beta lessons may be tested before formal review but remain marked `pendingReview`.
 - Production promotion requires review by a qualified Arabic grammar teacher.
-- Qur'anic and classical examples require exact source citation and must not imply a single analysis where recognized analyses differ.
+- Beta Level 6 uses original classical-style examples rather than Qur'anic quotations.
+- Level 7 attributes every quoted Alfiyya verse to Ibn Malik and uses only
+  original explanations, translations, feedback, and exercises.
+- Modern copyrighted commentaries are not copied.
+- Future sourced classical or Qur'anic examples require exact citation and must not imply a single analysis where recognized analyses differ.
 
 ## Deferred scope
 

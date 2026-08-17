@@ -218,11 +218,19 @@ abstract final class ContentValidator {
         ),
       );
     }
-    if (lesson.exercises.isEmpty) {
+    if (lesson.exercises.length < 4) {
       issues.add(
         ContentValidationIssue(
           path: '$path.exercises',
-          message: 'must contain at least one exercise',
+          message: 'must contain at least four exercises',
+        ),
+      );
+    }
+    if (lesson.repeatExercises.length < 4) {
+      issues.add(
+        ContentValidationIssue(
+          path: '$path.repeatExercises',
+          message: 'must contain at least four alternate exercises',
         ),
       );
     }

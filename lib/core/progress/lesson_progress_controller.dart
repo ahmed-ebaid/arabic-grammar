@@ -14,6 +14,8 @@ class LessonProgressController extends ChangeNotifier {
   final Map<String, int> _mastery = {};
   final Map<String, int> _attempts = {};
   final Map<String, bool> _answers = {};
+  final Map<String, int> _practiceStats = {};
+  String? _practiceDate;
 
   int stepFor(String lessonId) {
     return _steps[lessonId] ??
@@ -41,6 +43,29 @@ class LessonProgressController extends ChangeNotifier {
   }
 
   bool isMastered(String lessonId) => masteryFor(lessonId) >= 70;
+
+  int get practiceTotalAnswered =>
+      _practiceInt(StorageKeys.practiceTotalAnswered);
+
+  int get practiceTotalCorrect =>
+      _practiceInt(StorageKeys.practiceTotalCorrect);
+
+  int get practiceSessionsCompleted =>
+      _practiceInt(StorageKeys.practiceSessionsCompleted);
+
+  int get practiceBestScore => _practiceInt(StorageKeys.practiceBestScore);
+
+  int get practiceTotalStars => _practiceInt(StorageKeys.practiceTotalStars);
+
+  int get practiceDailyAnswered {
+    final today = _dateKey(DateTime.now());
+    final storedDate =
+        _practiceDate ?? _box?.get(StorageKeys.practiceDailyDate) as String?;
+    if (storedDate != today) {
+      return 0;
+    }
+    return _practiceInt(StorageKeys.practiceDailyAnswered);
+  }
 
   bool? firstAttemptResult(String lessonId, String exerciseId) {
     final key = StorageKeys.lessonAnswer(lessonId, exerciseId);
@@ -101,4 +126,56 @@ class LessonProgressController extends ChangeNotifier {
     await _box?.put(StorageKeys.lessonStep(lessonId), 0);
     notifyListeners();
   }
+
+  Future<void> recordPracticeSession({
+    required int answered,
+    required int correct,
+  }) async {
+    if (answered < 1 || correct < 0 || correct > answered) {
+      throw ArgumentError('Invalid practice result: $correct/$answered');
+    }
+
+    final score = ((correct / answered) * 100).round();
+    final stars = score >= 90
+        ? 3
+        : score >= 70
+        ? 2
+        : 1;
+    final today = _dateKey(DateTime.now());
+    final dailyAnswered = practiceDailyAnswered + answered;
+    final bestScore = score > practiceBestScore ? score : practiceBestScore;
+
+    _practiceDate = today;
+    _practiceStats.addAll({
+      StorageKeys.practiceTotalAnswered: practiceTotalAnswered + answered,
+      StorageKeys.practiceTotalCorrect: practiceTotalCorrect + correct,
+      StorageKeys.practiceSessionsCompleted: practiceSessionsCompleted + 1,
+      StorageKeys.practiceBestScore: bestScore,
+      StorageKeys.practiceTotalStars: practiceTotalStars + stars,
+      StorageKeys.practiceDailyAnswered: dailyAnswered,
+    });
+    await _box?.putAll({
+      StorageKeys.practiceTotalAnswered:
+          _practiceStats[StorageKeys.practiceTotalAnswered],
+      StorageKeys.practiceTotalCorrect:
+          _practiceStats[StorageKeys.practiceTotalCorrect],
+      StorageKeys.practiceSessionsCompleted:
+          _practiceStats[StorageKeys.practiceSessionsCompleted],
+      StorageKeys.practiceBestScore:
+          _practiceStats[StorageKeys.practiceBestScore],
+      StorageKeys.practiceTotalStars:
+          _practiceStats[StorageKeys.practiceTotalStars],
+      StorageKeys.practiceDailyDate: today,
+      StorageKeys.practiceDailyAnswered: dailyAnswered,
+    });
+    notifyListeners();
+  }
+
+  int _practiceInt(String key) =>
+      _practiceStats[key] ?? (_box?.get(key) as int? ?? 0);
+
+  static String _dateKey(DateTime value) =>
+      '${value.year.toString().padLeft(4, '0')}-'
+      '${value.month.toString().padLeft(2, '0')}-'
+      '${value.day.toString().padLeft(2, '0')}';
 }
