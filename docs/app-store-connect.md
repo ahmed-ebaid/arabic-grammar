@@ -7,7 +7,7 @@
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
 - Version: `0.1.0`
-- Build: `13`
+- Build: `14`
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -93,6 +93,12 @@ feature.
 
 Device text-to-speech uses the operating system's installed voices. The app
 does not record speech or send lesson text to an Ebaid LLC service.
+
+## Export compliance
+
+The app does not use non-exempt encryption. Build 14 declares
+`ITSAppUsesNonExemptEncryption = false` in the iOS app metadata so App Store
+Connect does not repeatedly request export-compliance answers for each build.
 
 ## TestFlight information
 
