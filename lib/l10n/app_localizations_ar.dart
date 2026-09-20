@@ -53,12 +53,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get comingSoon => 'سيُضاف محتوى المنهج في المرحلة التالية.';
 
   @override
-  String lessonNumber(int number) {
+  String lessonNumber(String number) {
     return 'الدرس $number';
   }
 
   @override
-  String estimatedMinutes(int minutes) {
+  String estimatedMinutes(String minutes) {
     return '$minutes دقيقة';
   }
 
@@ -137,7 +137,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get returnToLessons => 'العودة إلى الدروس';
 
   @override
-  String stepProgress(int current, int total) {
+  String get previousStep => 'السابق';
+
+  @override
+  String get nextStep => 'التالي';
+
+  @override
+  String get nextStepLocked => 'أجب عن هذا السؤال للمتابعة';
+
+  @override
+  String stepProgress(String current, String total) {
     return 'الخطوة $current من $total';
   }
 
@@ -155,7 +164,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get practiceDailyGoalTitle => 'هدف اليوم';
 
   @override
-  String practiceDailyGoalProgress(int current, int goal) {
+  String practiceDailyGoalProgress(String current, String goal) {
     return '$current من $goal أسئلة';
   }
 
@@ -192,12 +201,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get practiceCompleteTitle => 'أتممت التدريب!';
 
   @override
-  String practiceScore(int correct, int total) {
+  String practiceScore(String correct, String total) {
     return '$correct إجابات صحيحة من $total';
   }
 
   @override
-  String practiceStarsEarned(int stars) {
+  String practiceStarsEarned(String stars) {
     return 'حصلت على $stars نجوم';
   }
 
@@ -211,7 +220,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get progressSubtitle => 'سيبقى تقدُّمك التعليمي على هذا الجهاز.';
 
   @override
-  String progressCurriculumSummary(int mastered, int total) {
+  String progressCurriculumSummary(String mastered, String total) {
     return 'أتقنت $mastered درسًا من أصل $total';
   }
 
@@ -231,7 +240,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get progressLevelsTitle => 'التقدّم حسب المستوى';
 
   @override
-  String progressAverageMastery(int percent) {
+  String progressAverageMastery(String percent) {
     return 'متوسط الإتقان: $percent٪';
   }
 
@@ -306,7 +315,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get glossaryNoResults => 'لا توجد مصطلحات نحوية مطابقة.';
 
   @override
-  String glossaryLessonLinks(int count) {
+  String glossaryLessonLinks(String count) {
     return 'مرتبط بـ $count دروس';
   }
 

@@ -18,7 +18,7 @@
   "@lessonNumber": {
     "placeholders": {
       "number": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -26,7 +26,7 @@
   "@estimatedMinutes": {
     "placeholders": {
       "minutes": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -54,14 +54,17 @@
   "lessonCompleteBody": "لاحظتَ كيف يمكن لحركة آخر الكلمة أن تدل على وظيفتها في الجملة.",
   "restartLesson": "تدرَّب مرة أخرى",
   "returnToLessons": "العودة إلى الدروس",
+  "previousStep": "السابق",
+  "nextStep": "التالي",
+  "nextStepLocked": "أجب عن هذا السؤال للمتابعة",
   "stepProgress": "الخطوة {current} من {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
-        "type": "int"
+        "type": "String"
       },
       "total": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -72,8 +75,8 @@
   "practiceDailyGoalProgress": "{current} من {goal} أسئلة",
   "@practiceDailyGoalProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "goal": {"type": "int"}
+      "current": {"type": "String"},
+      "goal": {"type": "String"}
     }
   },
   "practiceMixedTitle": "مراجعة متنوعة",
@@ -89,14 +92,14 @@
   "practiceScore": "{correct} إجابات صحيحة من {total}",
   "@practiceScore": {
     "placeholders": {
-      "correct": {"type": "int"},
-      "total": {"type": "int"}
+      "correct": {"type": "String"},
+      "total": {"type": "String"}
     }
   },
   "practiceStarsEarned": "حصلت على {stars} نجوم",
   "@practiceStarsEarned": {
     "placeholders": {
-      "stars": {"type": "int"}
+      "stars": {"type": "String"}
     }
   },
   "practiceAgain": "تدرّب مرة أخرى",
@@ -105,8 +108,8 @@
   "progressCurriculumSummary": "أتقنت {mastered} درسًا من أصل {total}",
   "@progressCurriculumSummary": {
     "placeholders": {
-      "mastered": {"type": "int"},
-      "total": {"type": "int"}
+      "mastered": {"type": "String"},
+      "total": {"type": "String"}
     }
   },
   "progressLessonsStarted": "الدروس التي بدأتها",
@@ -117,7 +120,7 @@
   "progressAverageMastery": "متوسط الإتقان: {percent}٪",
   "@progressAverageMastery": {
     "placeholders": {
-      "percent": {"type": "int"}
+      "percent": {"type": "String"}
     }
   },
   "progressNextLesson": "التالي: {lesson}",
@@ -149,7 +152,7 @@
   "glossaryLessonLinks": "مرتبط بـ {count} دروس",
   "@glossaryLessonLinks": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {"type": "String"}
     }
   },
   "clearSearch": "مسح البحث",

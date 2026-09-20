@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -114,8 +115,8 @@ class _Dashboard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   l10n.progressCurriculumSummary(
-                    mastered,
-                    catalog.lessons.length,
+                    localizedNumber(context, mastered),
+                    localizedNumber(context, catalog.lessons.length),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -140,22 +141,27 @@ class _Dashboard extends StatelessWidget {
           children: [
             _MetricCard(
               icon: Icons.play_lesson_outlined,
-              value: '$started',
+              value: localizedNumber(context, started),
               label: l10n.progressLessonsStarted,
             ),
             _MetricCard(
               icon: Icons.star,
-              value: '${progressController.practiceTotalStars}',
+              value: localizedNumber(
+                context,
+                progressController.practiceTotalStars,
+              ),
               label: l10n.progressPracticeStars,
             ),
             _MetricCard(
               icon: Icons.track_changes,
-              value: '$dailyAnswered/10',
+              value:
+                  '${localizedNumber(context, dailyAnswered)}/'
+                  '${localizedNumber(context, 10)}',
               label: l10n.progressDailyGoal,
             ),
             _MetricCard(
               icon: Icons.check_circle_outline,
-              value: '$practiceAccuracy%',
+              value: localizedPercent(context, practiceAccuracy),
               label: l10n.progressPracticeAccuracy,
             ),
           ],
@@ -273,7 +279,11 @@ class _LevelProgressCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(999),
             ),
             const SizedBox(height: 8),
-            Text(l10n.progressAverageMastery(averageMastery.round())),
+            Text(
+              l10n.progressAverageMastery(
+                localizedNumber(context, averageMastery.round()),
+              ),
+            ),
             if (nextLesson != null) ...[
               const SizedBox(height: 4),
               Text(

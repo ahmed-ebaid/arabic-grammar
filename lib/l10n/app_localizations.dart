@@ -186,13 +186,13 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Lesson {number}'**
-  String lessonNumber(int number);
+  String lessonNumber(String number);
 
   /// No description provided for @estimatedMinutes.
   ///
   /// In en, this message translates to:
   /// **'{minutes} min'**
-  String estimatedMinutes(int minutes);
+  String estimatedMinutes(String minutes);
 
   /// No description provided for @objectivesTitle.
   ///
@@ -338,11 +338,29 @@ abstract class AppLocalizations {
   /// **'Back to lessons'**
   String get returnToLessons;
 
+  /// No description provided for @previousStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previousStep;
+
+  /// No description provided for @nextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextStep;
+
+  /// No description provided for @nextStepLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer this question to continue'**
+  String get nextStepLocked;
+
   /// No description provided for @stepProgress.
   ///
   /// In en, this message translates to:
   /// **'Step {current} of {total}'**
-  String stepProgress(int current, int total);
+  String stepProgress(String current, String total);
 
   /// No description provided for @practiceTitle.
   ///
@@ -372,7 +390,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{current} of {goal} questions'**
-  String practiceDailyGoalProgress(int current, int goal);
+  String practiceDailyGoalProgress(String current, String goal);
 
   /// No description provided for @practiceMixedTitle.
   ///
@@ -438,13 +456,13 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{correct} of {total} correct'**
-  String practiceScore(int correct, int total);
+  String practiceScore(String correct, String total);
 
   /// No description provided for @practiceStarsEarned.
   ///
   /// In en, this message translates to:
   /// **'You earned {stars} stars'**
-  String practiceStarsEarned(int stars);
+  String practiceStarsEarned(String stars);
 
   /// No description provided for @practiceAgain.
   ///
@@ -468,7 +486,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{mastered} of {total} lessons mastered'**
-  String progressCurriculumSummary(int mastered, int total);
+  String progressCurriculumSummary(String mastered, String total);
 
   /// No description provided for @progressLessonsStarted.
   ///
@@ -504,7 +522,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Average mastery: {percent}%'**
-  String progressAverageMastery(int percent);
+  String progressAverageMastery(String percent);
 
   /// No description provided for @progressNextLesson.
   ///
@@ -636,7 +654,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Connected to {count} lessons'**
-  String glossaryLessonLinks(int count);
+  String glossaryLessonLinks(String count);
 
   /// No description provided for @clearSearch.
   ///

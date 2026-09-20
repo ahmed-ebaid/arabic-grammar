@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -103,7 +104,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
               ),
             ),
             const SizedBox(width: 12),
-            Text('${_questionIndex + 1}/${_questions!.length}'),
+            Text(
+              '${localizedNumber(context, _questionIndex + 1)}/'
+              '${localizedNumber(context, _questions!.length)}',
+            ),
           ],
         ),
         const SizedBox(height: 20),
@@ -396,8 +400,11 @@ class _PracticeLanding extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     l10n.practiceDailyGoalProgress(
-                      min(progressController.practiceDailyAnswered, 10),
-                      10,
+                      localizedNumber(
+                        context,
+                        min(progressController.practiceDailyAnswered, 10),
+                      ),
+                      localizedNumber(context, 10),
                     ),
                   ),
                 ],
@@ -502,7 +509,10 @@ class _PracticeComplete extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  l10n.practiceScore(correct, total),
+                  l10n.practiceScore(
+                    localizedNumber(context, correct),
+                    localizedNumber(context, total),
+                  ),
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 12),
@@ -518,7 +528,9 @@ class _PracticeComplete extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(l10n.practiceStarsEarned(stars)),
+                Text(
+                  l10n.practiceStarsEarned(localizedNumber(context, stars)),
+                ),
                 const SizedBox(height: 20),
                 FilledButton.icon(
                   onPressed: onPracticeAgain,

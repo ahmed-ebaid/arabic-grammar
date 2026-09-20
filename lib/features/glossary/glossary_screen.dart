@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/number_format.dart';
 import '../../core/content/glossary_repository.dart';
 import '../../core/models/glossary_models.dart';
 import '../../core/user/user_data_controller.dart';
@@ -136,7 +137,11 @@ class _TermCard extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
               const SizedBox(height: 8),
-              Text(l10n.glossaryLessonLinks(term.lessonIds.length)),
+              Text(
+                l10n.glossaryLessonLinks(
+                  localizedNumber(context, term.lessonIds.length),
+                ),
+              ),
             ],
           ),
         );

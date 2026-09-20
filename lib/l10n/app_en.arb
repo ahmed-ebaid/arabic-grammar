@@ -18,7 +18,7 @@
   "@lessonNumber": {
     "placeholders": {
       "number": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -26,7 +26,7 @@
   "@estimatedMinutes": {
     "placeholders": {
       "minutes": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -54,14 +54,17 @@
   "lessonCompleteBody": "You noticed how word endings can reveal a word's job in a sentence.",
   "restartLesson": "Practice again",
   "returnToLessons": "Back to lessons",
+  "previousStep": "Previous",
+  "nextStep": "Next",
+  "nextStepLocked": "Answer this question to continue",
   "stepProgress": "Step {current} of {total}",
   "@stepProgress": {
     "placeholders": {
       "current": {
-        "type": "int"
+        "type": "String"
       },
       "total": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
@@ -72,8 +75,8 @@
   "practiceDailyGoalProgress": "{current} of {goal} questions",
   "@practiceDailyGoalProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "goal": {"type": "int"}
+      "current": {"type": "String"},
+      "goal": {"type": "String"}
     }
   },
   "practiceMixedTitle": "Mixed review",
@@ -89,14 +92,14 @@
   "practiceScore": "{correct} of {total} correct",
   "@practiceScore": {
     "placeholders": {
-      "correct": {"type": "int"},
-      "total": {"type": "int"}
+      "correct": {"type": "String"},
+      "total": {"type": "String"}
     }
   },
   "practiceStarsEarned": "You earned {stars} stars",
   "@practiceStarsEarned": {
     "placeholders": {
-      "stars": {"type": "int"}
+      "stars": {"type": "String"}
     }
   },
   "practiceAgain": "Practice again",
@@ -105,8 +108,8 @@
   "progressCurriculumSummary": "{mastered} of {total} lessons mastered",
   "@progressCurriculumSummary": {
     "placeholders": {
-      "mastered": {"type": "int"},
-      "total": {"type": "int"}
+      "mastered": {"type": "String"},
+      "total": {"type": "String"}
     }
   },
   "progressLessonsStarted": "Lessons started",
@@ -117,7 +120,7 @@
   "progressAverageMastery": "Average mastery: {percent}%",
   "@progressAverageMastery": {
     "placeholders": {
-      "percent": {"type": "int"}
+      "percent": {"type": "String"}
     }
   },
   "progressNextLesson": "Next: {lesson}",
@@ -149,7 +152,7 @@
   "glossaryLessonLinks": "Connected to {count} lessons",
   "@glossaryLessonLinks": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {"type": "String"}
     }
   },
   "clearSearch": "Clear search",

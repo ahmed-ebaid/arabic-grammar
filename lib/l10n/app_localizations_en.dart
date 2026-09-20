@@ -53,12 +53,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comingSoon => 'Curriculum content is coming in the next phase.';
 
   @override
-  String lessonNumber(int number) {
+  String lessonNumber(String number) {
     return 'Lesson $number';
   }
 
   @override
-  String estimatedMinutes(int minutes) {
+  String estimatedMinutes(String minutes) {
     return '$minutes min';
   }
 
@@ -137,7 +137,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get returnToLessons => 'Back to lessons';
 
   @override
-  String stepProgress(int current, int total) {
+  String get previousStep => 'Previous';
+
+  @override
+  String get nextStep => 'Next';
+
+  @override
+  String get nextStepLocked => 'Answer this question to continue';
+
+  @override
+  String stepProgress(String current, String total) {
     return 'Step $current of $total';
   }
 
@@ -155,7 +164,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get practiceDailyGoalTitle => 'Today\'s goal';
 
   @override
-  String practiceDailyGoalProgress(int current, int goal) {
+  String practiceDailyGoalProgress(String current, String goal) {
     return '$current of $goal questions';
   }
 
@@ -192,12 +201,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get practiceCompleteTitle => 'Practice complete!';
 
   @override
-  String practiceScore(int correct, int total) {
+  String practiceScore(String correct, String total) {
     return '$correct of $total correct';
   }
 
   @override
-  String practiceStarsEarned(int stars) {
+  String practiceStarsEarned(String stars) {
     return 'You earned $stars stars';
   }
 
@@ -212,7 +221,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Your learning progress will stay on this device.';
 
   @override
-  String progressCurriculumSummary(int mastered, int total) {
+  String progressCurriculumSummary(String mastered, String total) {
     return '$mastered of $total lessons mastered';
   }
 
@@ -232,7 +241,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get progressLevelsTitle => 'Progress by level';
 
   @override
-  String progressAverageMastery(int percent) {
+  String progressAverageMastery(String percent) {
     return 'Average mastery: $percent%';
   }
 
@@ -306,7 +315,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get glossaryNoResults => 'No matching grammar terms.';
 
   @override
-  String glossaryLessonLinks(int count) {
+  String glossaryLessonLinks(String count) {
     return 'Connected to $count lessons';
   }
 

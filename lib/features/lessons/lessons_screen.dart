@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -178,7 +179,9 @@ class _PathNode extends StatelessWidget {
     return Semantics(
       button: unlocked,
       enabled: unlocked,
-      label: '${lesson.title.forLanguage(languageCode)}, $mastery%',
+      label:
+          '${lesson.title.forLanguage(languageCode)}, '
+          '${localizedPercent(context, mastery)}',
       child: InkWell(
         onTap: unlocked ? onTap : null,
         borderRadius: BorderRadius.circular(24),
@@ -236,11 +239,11 @@ class _PathNode extends StatelessWidget {
                           : 'Locked until the previous lesson is mastered')
                     : mastery > 0
                     ? (languageCode == 'ar'
-                          ? 'الإتقان: $mastery%'
-                          : 'Mastery: $mastery%')
+                          ? 'الإتقان: ${localizedPercent(context, mastery)}'
+                          : 'Mastery: ${localizedPercent(context, mastery)}')
                     : (languageCode == 'ar'
-                          ? '${lesson.estimatedMinutes} دقائق'
-                          : '${lesson.estimatedMinutes} min'),
+                          ? '${localizedNumber(context, lesson.estimatedMinutes)} دقائق'
+                          : '${localizedNumber(context, lesson.estimatedMinutes)} min'),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall,
               ),

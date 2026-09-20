@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -26,6 +27,7 @@ class LessonDetailScreen extends StatefulWidget {
 
 class _LessonDetailScreenState extends State<LessonDetailScreen> {
   final SpeechService _speech = SpeechService();
+  final Set<String> _solvedExerciseIds = {};
   late List<Exercise> _activeExercises;
   late List<_LessonStep> _steps;
   late int _currentStep;
@@ -40,6 +42,8 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     _currentStep = widget.progressController
         .stepFor(widget.lesson.id)
         .clamp(0, _steps.length - 1);
+    _restoreSolvedExercises();
+    _syncAnswerState(_currentStep);
   }
 
   @override
@@ -101,8 +105,34 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                       ),
                       const SizedBox(width: 12),
                       Text(
-                        l10n.stepProgress(_currentStep + 1, _steps.length),
+                        l10n.stepProgress(
+                          localizedNumber(context, _currentStep + 1),
+                          localizedNumber(context, _steps.length),
+                        ),
                         style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextButton(
+                          key: const ValueKey('lessonPreviousStep'),
+                          onPressed: _canGoBack ? _goToPrevious : null,
+                          child: Text(l10n.previousStep),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Tooltip(
+                          message: _canGoForward ? '' : l10n.nextStepLocked,
+                          child: TextButton(
+                            key: const ValueKey('lessonNextStep'),
+                            onPressed: _canGoForward ? _advance : null,
+                            child: Text(l10n.nextStep),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -231,7 +261,12 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     if (!mounted) {
       return;
     }
-    setState(() => _answerChecked = true);
+    setState(() {
+      _answerChecked = true;
+      if (option.isCorrect) {
+        _solvedExerciseIds.add(exercise.id);
+      }
+    });
     if (option.isCorrect) {
       HapticFeedback.mediumImpact();
     } else {
@@ -247,7 +282,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   }
 
   Future<void> _advance() async {
-    if (_currentStep >= _steps.length - 1) {
+    if (!_canGoForward) {
       return;
     }
     final nextStep = _currentStep + 1;
@@ -274,9 +309,65 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     }
     setState(() {
       _currentStep = nextStep;
-      _selectedOptionId = null;
-      _answerChecked = false;
+      _syncAnswerState(nextStep);
     });
+  }
+
+  bool get _canGoBack => _currentStep > 0;
+
+  bool get _canGoForward {
+    if (_currentStep >= _steps.length - 1) {
+      return false;
+    }
+    final step = _steps[_currentStep];
+    if (step.kind != _StepKind.exercise) {
+      return true;
+    }
+    return _solvedExerciseIds.contains(step.exercise!.id);
+  }
+
+  Future<void> _goToPrevious() async {
+    if (!_canGoBack) {
+      return;
+    }
+    final previousStep = _currentStep - 1;
+    await widget.progressController.saveStep(widget.lesson.id, previousStep);
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _currentStep = previousStep;
+      _syncAnswerState(previousStep);
+    });
+  }
+
+  void _restoreSolvedExercises() {
+    for (final exercise in _activeExercises) {
+      final result = widget.progressController.firstAttemptResult(
+        widget.lesson.id,
+        exercise.id,
+      );
+      if (result == true) {
+        _solvedExerciseIds.add(exercise.id);
+      }
+    }
+  }
+
+  void _syncAnswerState(int index) {
+    final step = _steps[index];
+    final exercise = step.exercise;
+    if (step.kind == _StepKind.exercise &&
+        exercise != null &&
+        _solvedExerciseIds.contains(exercise.id)) {
+      _selectedOptionId = exercise.options
+          .where((option) => option.isCorrect)
+          .firstOrNull
+          ?.id;
+      _answerChecked = _selectedOptionId != null;
+      return;
+    }
+    _selectedOptionId = null;
+    _answerChecked = false;
   }
 
   Future<void> _restart() async {
@@ -288,6 +379,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _activeExercises = _exercisesForAttempt();
       _steps = _buildSteps(widget.lesson, _activeExercises);
       _currentStep = 0;
+      _solvedExerciseIds.clear();
       _selectedOptionId = null;
       _answerChecked = false;
     });
@@ -918,8 +1010,8 @@ class _CompletionStepState extends State<_CompletionStep>
           const SizedBox(height: 24),
           Text(
             _languageCode(context) == 'ar'
-                ? 'الإتقان: ${widget.mastery}%'
-                : 'Mastery: ${widget.mastery}%',
+                ? 'الإتقان: ${localizedPercent(context, widget.mastery)}'
+                : 'Mastery: ${localizedPercent(context, widget.mastery)}',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 12),
@@ -927,7 +1019,7 @@ class _CompletionStepState extends State<_CompletionStep>
             passed
                 ? l10n.lessonCompleteBody
                 : (_languageCode(context) == 'ar'
-                      ? 'تحتاج إلى 70% لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.'
+                      ? 'تحتاج إلى ${localizedPercent(context, 70)} لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.'
                       : 'You need 70% to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.'),
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium,

@@ -259,6 +259,66 @@ void main() {
     expect(find.text('Continue'), findsOneWidget);
   });
 
+  testWidgets('navigates lesson steps and gates next on a solved question', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: LessonProgressController.inMemory(),
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.tap(find.text('Lessons'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Why endings change'));
+    await tester.pumpAndSettle();
+
+    expect(_navEnabled(tester, 'lessonPreviousStep'), isFalse);
+    expect(_navEnabled(tester, 'lessonNextStep'), isTrue);
+
+    await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
+    await tester.pumpAndSettle();
+    expect(find.text('Step 2 of 9'), findsOneWidget);
+
+    await tester.tap(find.byKey(const ValueKey('lessonPreviousStep')));
+    await tester.pumpAndSettle();
+    expect(find.text('Step 1 of 9'), findsOneWidget);
+    expect(find.text('What you will learn'), findsOneWidget);
+
+    for (var i = 0; i < 3; i++) {
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+    }
+    await tester.tap(find.text('الطالبُ'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Continue'));
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Quick check'), findsOneWidget);
+    expect(_navEnabled(tester, 'lessonNextStep'), isFalse);
+
+    await tester.ensureVisible(find.text('Damma: ُ'));
+    await tester.tap(find.text('Damma: ُ'));
+    await tester.pump();
+    await tester.ensureVisible(find.text('Check answer'));
+    await tester.tap(find.text('Check answer'));
+    await tester.pumpAndSettle();
+
+    expect(_navEnabled(tester, 'lessonNextStep'), isTrue);
+
+    await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('lessonPreviousStep')));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Correct!'), findsOneWidget);
+    expect(_navEnabled(tester, 'lessonNextStep'), isTrue);
+  });
+
   testWidgets('locks lesson 2 until lesson 1 reaches 70 percent', (
     tester,
   ) async {
@@ -293,4 +353,9 @@ void main() {
 ContentCatalog _draftCatalog() {
   final source = File('content/drafts/lesson_01.json').readAsStringSync();
   return ContentCatalog.fromJson(jsonDecode(source));
+}
+
+bool _navEnabled(WidgetTester tester, String key) {
+  final button = tester.widget<TextButton>(find.byKey(ValueKey(key)));
+  return button.onPressed != null;
 }
