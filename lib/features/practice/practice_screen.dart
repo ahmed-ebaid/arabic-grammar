@@ -528,9 +528,7 @@ class _PracticeComplete extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  l10n.practiceStarsEarned(localizedNumber(context, stars)),
-                ),
+                Text(l10n.practiceStarsEarned(localizedNumber(context, stars))),
                 const SizedBox(height: 20),
                 FilledButton.icon(
                   onPressed: onPracticeAgain,
