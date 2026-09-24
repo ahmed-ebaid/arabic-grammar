@@ -1,9 +1,13 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app.dart';
 import 'core/config/app_environment.dart';
 import 'core/localization/locale_controller.dart';
+import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/storage/storage_keys.dart';
 import 'core/user/user_data_controller.dart';
@@ -13,6 +17,10 @@ Future<void> main() async {
   await Hive.initFlutter();
   final settingsBox = await Hive.openBox<dynamic>(StorageKeys.settingsBox);
   final progressBox = await Hive.openBox<dynamic>(StorageKeys.progressBox);
+  final contentSource = await rootBundle.loadString(
+    'content/drafts/lesson_01.json',
+  );
+  final contentCatalog = ContentCatalog.fromJson(jsonDecode(contentSource));
 
   runApp(
     ArabicGrammarApp(
@@ -20,6 +28,7 @@ Future<void> main() async {
       localeController: LocaleController(settingsBox),
       lessonProgressController: LessonProgressController(progressBox),
       userDataController: UserDataController(settingsBox),
+      contentCatalog: contentCatalog,
     ),
   );
 }

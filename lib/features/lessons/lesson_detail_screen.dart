@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,6 +10,8 @@ import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../core/accessibility/speech_service.dart';
 import '../../l10n/app_localizations.dart';
+import '../../shared/widgets/correct_answer_celebration.dart';
+import '../../shared/widgets/milestone_celebration_banner.dart';
 
 class LessonDetailScreen extends StatefulWidget {
   const LessonDetailScreen({
@@ -140,28 +144,33 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
               ),
             ),
             Expanded(
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 260),
-                transitionBuilder: (child, animation) => FadeTransition(
-                  opacity: animation,
-                  child: SlideTransition(
-                    position:
-                        Tween<Offset>(
-                          begin: const Offset(0.08, 0),
-                          end: Offset.zero,
-                        ).animate(
-                          CurvedAnimation(
-                            parent: animation,
-                            curve: Curves.easeOutCubic,
+              child: AnimatedBuilder(
+                animation: widget.userDataController,
+                builder: (context, _) => AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 260),
+                  transitionBuilder: (child, animation) => FadeTransition(
+                    opacity: animation,
+                    child: SlideTransition(
+                      position:
+                          Tween<Offset>(
+                            begin: const Offset(0.08, 0),
+                            end: Offset.zero,
+                          ).animate(
+                            CurvedAnimation(
+                              parent: animation,
+                              curve: Curves.easeOutCubic,
+                            ),
                           ),
-                        ),
-                    child: child,
+                      child: child,
+                    ),
                   ),
-                ),
-                child: SingleChildScrollView(
-                  key: ValueKey(_currentStep),
-                  padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
-                  child: _buildStep(step),
+                  child: SingleChildScrollView(
+                    key: ValueKey(
+                      '$_currentStep-${widget.userDataController.learningMode}',
+                    ),
+                    padding: const EdgeInsets.fromLTRB(20, 24, 20, 32),
+                    child: _buildStep(step),
+                  ),
                 ),
               ),
             ),
@@ -212,6 +221,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _StepKind.exercise => _ExerciseStep(
         exercise: step.exercise!,
         languageCode: _languageCode,
+        learningMode: widget.userDataController.learningMode,
         selectedOptionId: _selectedOptionId,
         answerChecked: _answerChecked,
         onSelect: _selectOption,
@@ -222,12 +232,14 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _StepKind.analysis => _AnalysisStep(
         example: step.example!,
         languageCode: _languageCode,
+        learningMode: widget.userDataController.learningMode,
         userDataController: widget.userDataController,
         onSpeak: () => _speech.speak(step.example!.vocalized, _languageCode),
         onContinue: _advance,
       ),
       _StepKind.completion => _CompletionStep(
         mastery: widget.progressController.masteryFor(widget.lesson.id),
+        progressController: widget.progressController,
         onRestart: _restart,
         onClose: () => Navigator.of(context).pop(),
       ),
@@ -389,9 +401,38 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     final repeatExercises = widget.lesson.repeatExercises;
     final attempt = widget.progressController.attemptsFor(widget.lesson.id);
     if (repeatExercises.isNotEmpty && attempt.isOdd) {
-      return repeatExercises;
+      return _randomizeOptions(repeatExercises);
     }
-    return widget.lesson.exercises;
+    return _randomizeOptions(widget.lesson.exercises);
+  }
+
+  List<Exercise> _randomizeOptions(List<Exercise> exercises) {
+    final random = Random();
+    return [
+      for (final exercise in exercises)
+        Exercise(
+          id: exercise.id,
+          type: exercise.type,
+          prompt: exercise.prompt,
+          options: _randomizeExerciseOptions(exercise.options, random),
+        ),
+    ];
+  }
+
+  List<ExerciseOption> _randomizeExerciseOptions(
+    List<ExerciseOption> options,
+    Random random,
+  ) {
+    final shuffled = [...options]..shuffle(random);
+    if (shuffled.length > 1 && shuffled.first.isCorrect) {
+      final incorrectIndex = shuffled.indexWhere((option) => !option.isCorrect);
+      if (incorrectIndex > 0) {
+        final first = shuffled.first;
+        shuffled[0] = shuffled[incorrectIndex];
+        shuffled[incorrectIndex] = first;
+      }
+    }
+    return shuffled;
   }
 
   static List<_LessonStep> _buildSteps(
@@ -562,6 +603,7 @@ class _ExerciseStep extends StatelessWidget {
   const _ExerciseStep({
     required this.exercise,
     required this.languageCode,
+    required this.learningMode,
     required this.selectedOptionId,
     required this.answerChecked,
     required this.onSelect,
@@ -572,6 +614,7 @@ class _ExerciseStep extends StatelessWidget {
 
   final Exercise exercise;
   final String languageCode;
+  final LearningMode learningMode;
   final String? selectedOptionId;
   final bool answerChecked;
   final ValueChanged<String> onSelect;
@@ -588,6 +631,7 @@ class _ExerciseStep extends StatelessWidget {
           );
     return _QuestionLayout(
       prompt: exercise.prompt.forLanguage(languageCode),
+      learningMode: learningMode,
       options: [
         for (final option in exercise.options)
           _AnswerOption(
@@ -610,6 +654,7 @@ class _ExerciseStep extends StatelessWidget {
 class _QuestionLayout extends StatelessWidget {
   const _QuestionLayout({
     required this.prompt,
+    required this.learningMode,
     required this.options,
     required this.selectedOptionId,
     required this.answerChecked,
@@ -622,6 +667,7 @@ class _QuestionLayout extends StatelessWidget {
   });
 
   final String prompt;
+  final LearningMode learningMode;
   final List<_AnswerOption> options;
   final String? selectedOptionId;
   final bool answerChecked;
@@ -635,13 +681,27 @@ class _QuestionLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final questionTitle = switch (learningMode) {
+      LearningMode.simple => l10n.quickCheckTitle,
+      LearningMode.detailed => l10n.learningModeDetailedQuestionTitle,
+      LearningMode.adult => l10n.learningModeAdultQuestionTitle,
+    };
+    final questionHint = switch (learningMode) {
+      LearningMode.simple => null,
+      LearningMode.detailed => l10n.learningModeDetailedQuestionHint,
+      LearningMode.adult => l10n.learningModeAdultQuestionHint,
+    };
     return _StepLayout(
       icon: Icons.quiz_outlined,
-      title: l10n.quickCheckTitle,
+      title: questionTitle,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(prompt, style: Theme.of(context).textTheme.titleLarge),
+          if (questionHint != null) ...[
+            const SizedBox(height: 10),
+            Text(questionHint, style: Theme.of(context).textTheme.bodyMedium),
+          ],
           const SizedBox(height: 20),
           for (final option in options)
             Padding(
@@ -737,20 +797,27 @@ class _FeedbackCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(isCorrect ? Icons.check_circle : Icons.refresh),
-              const SizedBox(width: 8),
-              Text(
-                isCorrect ? l10n.correctAnswerTitle : l10n.incorrectAnswerTitle,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(feedback),
+          if (isCorrect)
+            CorrectAnswerCelebration(
+              title: l10n.correctAnswerTitle,
+              body: l10n.correctAnswerCelebration,
+            )
+          else ...[
+            Row(
+              children: [
+                const Icon(Icons.refresh),
+                const SizedBox(width: 8),
+                Text(
+                  l10n.incorrectAnswerTitle,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(feedback),
+          ],
         ],
       ),
     );
@@ -761,6 +828,7 @@ class _AnalysisStep extends StatefulWidget {
   const _AnalysisStep({
     required this.example,
     required this.languageCode,
+    required this.learningMode,
     required this.userDataController,
     required this.onSpeak,
     required this.onContinue,
@@ -768,6 +836,7 @@ class _AnalysisStep extends StatefulWidget {
 
   final GrammarExample example;
   final String languageCode;
+  final LearningMode learningMode;
   final UserDataController userDataController;
   final VoidCallback onSpeak;
   final VoidCallback onContinue;
@@ -818,7 +887,11 @@ class _AnalysisStepState extends State<_AnalysisStep> {
           ),
           if (selected != null) ...[
             const SizedBox(height: 20),
-            _TokenCard(token: selected, languageCode: widget.languageCode),
+            _TokenCard(
+              token: selected,
+              languageCode: widget.languageCode,
+              learningMode: widget.learningMode,
+            ),
           ],
         ],
       ),
@@ -861,10 +934,15 @@ class _AnalysisStepState extends State<_AnalysisStep> {
 }
 
 class _TokenCard extends StatelessWidget {
-  const _TokenCard({required this.token, required this.languageCode});
+  const _TokenCard({
+    required this.token,
+    required this.languageCode,
+    required this.learningMode,
+  });
 
   final GrammarToken token;
   final String languageCode;
+  final LearningMode learningMode;
 
   @override
   Widget build(BuildContext context) {
@@ -880,19 +958,25 @@ class _TokenCard extends StatelessWidget {
               label: l10n.roleLabel,
               value: token.role.forLanguage(languageCode),
             ),
-            _AnalysisRow(
-              label: l10n.stateLabel,
-              value: _grammarState(token.grammarState, languageCode),
-            ),
-            _AnalysisRow(
-              label: l10n.signLabel,
-              value: token.grammaticalSign.forLanguage(languageCode),
-            ),
-            _AnalysisRow(label: l10n.endingLabel, value: token.ending),
-            _AnalysisRow(
-              label: l10n.reasonLabel,
-              value: token.reason.forLanguage(languageCode),
-            ),
+            if (learningMode != LearningMode.simple) ...[
+              _AnalysisRow(
+                label: l10n.stateLabel,
+                value: _grammarState(token.grammarState, languageCode),
+              ),
+              _AnalysisRow(
+                label: l10n.signLabel,
+                value: token.grammaticalSign.forLanguage(languageCode),
+              ),
+              _AnalysisRow(label: l10n.endingLabel, value: token.ending),
+              _AnalysisRow(
+                label: l10n.reasonLabel,
+                value: token.reason.forLanguage(languageCode),
+              ),
+            ] else
+              _AnalysisRow(
+                label: l10n.reasonLabel,
+                value: token.reason.forLanguage(languageCode),
+              ),
           ],
         ),
       ),
@@ -949,11 +1033,13 @@ class _AnalysisRow extends StatelessWidget {
 class _CompletionStep extends StatefulWidget {
   const _CompletionStep({
     required this.mastery,
+    required this.progressController,
     required this.onRestart,
     required this.onClose,
   });
 
   final int mastery;
+  final LessonProgressController progressController;
   final VoidCallback onRestart;
   final VoidCallback onClose;
 
@@ -988,6 +1074,19 @@ class _CompletionStepState extends State<_CompletionStep>
                 : 'Practice again'),
       body: Column(
         children: [
+          if (passed && widget.mastery == 100)
+            MilestoneCelebrationBanner(
+              icon: Icons.emoji_events,
+              title: l10n.perfectScoreMilestoneTitle,
+              body: l10n.perfectScoreMilestoneBody,
+            )
+          else if (passed && widget.progressController.isStreakMilestone)
+            MilestoneCelebrationBanner(
+              title: l10n.streakMilestoneTitle(
+                localizedNumber(context, widget.progressController.streakCount),
+              ),
+              body: l10n.streakMilestoneBody,
+            ),
           ScaleTransition(
             scale: CurvedAnimation(
               parent: _controller,

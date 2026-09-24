@@ -8,6 +8,9 @@ class LessonProgressController extends ChangeNotifier {
 
   LessonProgressController.inMemory() : _box = null;
 
+  static const xpPerCorrectAnswer = 10;
+  static const streakMilestones = {3, 7, 14, 30, 60, 100};
+
   final Box<dynamic>? _box;
   final Map<String, int> _steps = {};
   final Set<String> _completedLessons = {};
@@ -67,6 +70,12 @@ class LessonProgressController extends ChangeNotifier {
     return _practiceInt(StorageKeys.practiceDailyAnswered);
   }
 
+  int get streakCount => _practiceInt(StorageKeys.streakCount);
+
+  int get totalXp => _practiceInt(StorageKeys.totalXp);
+
+  bool get isStreakMilestone => streakMilestones.contains(streakCount);
+
   bool? firstAttemptResult(String lessonId, String exerciseId) {
     final key = StorageKeys.lessonAnswer(lessonId, exerciseId);
     return _answers[key] ?? _box?.get(key) as bool?;
@@ -83,6 +92,10 @@ class LessonProgressController extends ChangeNotifier {
     }
     _answers[key] = correct;
     await _box?.put(key, correct);
+    if (correct) {
+      await _awardXp(xpPerCorrectAnswer);
+      notifyListeners();
+    }
   }
 
   Future<void> saveStep(String lessonId, int step) async {
@@ -111,6 +124,7 @@ class LessonProgressController extends ChangeNotifier {
       StorageKeys.lessonAttempts(lessonId): _attempts[lessonId],
       StorageKeys.lessonCompleted(lessonId): bestMastery >= 70,
     });
+    await _bumpStreakForToday();
     notifyListeners();
   }
 
@@ -168,7 +182,35 @@ class LessonProgressController extends ChangeNotifier {
       StorageKeys.practiceDailyDate: today,
       StorageKeys.practiceDailyAnswered: dailyAnswered,
     });
+    await _awardXp(correct * xpPerCorrectAnswer);
+    await _bumpStreakForToday();
     notifyListeners();
+  }
+
+  Future<void> _awardXp(int amount) async {
+    if (amount <= 0) {
+      return;
+    }
+    final updated = totalXp + amount;
+    _practiceStats[StorageKeys.totalXp] = updated;
+    await _box?.put(StorageKeys.totalXp, updated);
+  }
+
+  Future<void> _bumpStreakForToday() async {
+    final today = _dateKey(DateTime.now());
+    final storedDate = _box?.get(StorageKeys.streakDate) as String?;
+    if (storedDate == today) {
+      return;
+    }
+    final yesterday = _dateKey(
+      DateTime.now().subtract(const Duration(days: 1)),
+    );
+    final updated = storedDate == yesterday ? streakCount + 1 : 1;
+    _practiceStats[StorageKeys.streakCount] = updated;
+    await _box?.putAll({
+      StorageKeys.streakDate: today,
+      StorageKeys.streakCount: updated,
+    });
   }
 
   int _practiceInt(String key) =>

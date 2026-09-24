@@ -44,6 +44,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get startLearning => 'ابدأ التعلُّم';
 
   @override
+  String get pathContinueTitle => 'تابع مسارك';
+
+  @override
+  String get pathCompleteTitle => 'أتممت محطة من المسار';
+
+  @override
+  String pathMastery(String percent) {
+    return 'إتقان بنسبة $percent٪';
+  }
+
+  @override
+  String get pathContinueAction => 'تابع الدرس';
+
+  @override
   String get moduleTitle => 'أساسيات المبتدئين';
 
   @override
@@ -108,10 +122,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get quickCheckTitle => 'تحقُّق سريع';
 
   @override
+  String get learningModeSimpleQuestionTitle => 'اختر إجابة';
+
+  @override
+  String get learningModeDetailedQuestionTitle => 'تحقَّق من القاعدة';
+
+  @override
+  String get learningModeAdultQuestionTitle => 'طبِّق القاعدة';
+
+  @override
+  String get learningModeDetailedQuestionHint =>
+      'حدِّد وظيفة الكلمة وحركتها قبل أن تختار.';
+
+  @override
+  String get learningModeAdultQuestionHint =>
+      'استخدم النحو وبنية الكلمة والسياق لتبرير القراءة الأرجح.';
+
+  @override
   String get chooseTopicPrompt => 'أيُّ كلمة هي المبتدأ؟';
 
   @override
   String get correctAnswerTitle => 'أحسنت!';
+
+  @override
+  String get correctAnswerCelebration => 'أصبت! واصل التقدّم.';
 
   @override
   String get incorrectAnswerTitle => 'ليس بعد';
@@ -235,6 +269,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get progressPracticeAccuracy => 'دقة التدريب';
+
+  @override
+  String get progressStreak => 'سلسلة الأيام';
+
+  @override
+  String get progressTotalXp => 'مجموع نقاط الخبرة';
 
   @override
   String get progressLevelsTitle => 'التقدّم حسب المستوى';
@@ -367,8 +407,68 @@ class AppLocalizationsAr extends AppLocalizations {
   String get textSizeLargest => 'الأكبر';
 
   @override
+  String get learningModeTitle => 'أسلوب التعلّم';
+
+  @override
+  String get learningModeBody => 'اختر مقدار الشرح الذي تريده في الدروس.';
+
+  @override
+  String get learningModeSimple => 'مبسّط';
+
+  @override
+  String get learningModeDetailed => 'مفصّل';
+
+  @override
+  String get learningModeAdult => 'للكبار';
+
+  @override
+  String get learnerProfileTitle => 'ملف المتعلّم';
+
+  @override
+  String get learnerProfileBody =>
+      'يساعدنا ذلك على تهيئة سرعة المسار وطريقة التشجيع المناسبة لتعلّمك.';
+
+  @override
+  String get learnerProfileYoung => 'متعلّم صغير';
+
+  @override
+  String get learnerProfileGeneral => 'متعلّم عام';
+
+  @override
+  String get learnerProfileChange => 'تغيير الملف';
+
+  @override
   String get learningIllustrationLabel => 'بطاقة مبهجة لتعلّم العربية';
 
   @override
   String get celebrationIllustrationLabel => 'احتفال ملوّن بإنجاز نحوي';
+
+  @override
+  String homeStreakDays(String days) {
+    return 'سلسلة $days يوم';
+  }
+
+  @override
+  String homeTotalXp(String xp) {
+    return '$xp نقطة خبرة';
+  }
+
+  @override
+  String streakMilestoneTitle(String days) {
+    return 'سلسلة $days يوم!';
+  }
+
+  @override
+  String get streakMilestoneBody => 'واصل التقدّم. عُد غدًا لتطيل السلسلة.';
+
+  @override
+  String get perfectScoreMilestoneTitle => 'نتيجة كاملة!';
+
+  @override
+  String get perfectScoreMilestoneBody => 'أجبت عن كل الأسئلة إجابة صحيحة.';
+
+  @override
+  String practiceXpEarned(String xp) {
+    return '+$xp نقطة خبرة';
+  }
 }

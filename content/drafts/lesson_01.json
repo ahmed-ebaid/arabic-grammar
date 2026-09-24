@@ -189,8 +189,8 @@
             "ar": "لأواخر الكلمات معنى"
           },
           "body": {
-            "en": "Arabic word endings are not decorative. In many sentences, the final vowel helps show whether a noun is the topic, the subject, the object, or follows a preposition. We will learn these patterns gradually.",
-            "ar": "حركات أواخر الكلمات ليست للزينة. ففي جمل كثيرة تساعد الحركة الأخيرة على بيان وظيفة الاسم: أهو مبتدأ، أم فاعل، أم مفعول به، أم اسم بعد حرف جر؟ وسنتعلَّم هذه الأنماط بالتدرُّج."
+            "en": "Arabic word endings are not decorative. In many sentences, the final vowel helps show whether a noun is the topic, the subject, the object, or follows a preposition. Endings also mark verbs: a present-tense verb (الفعل المضارع, the action-word form for now or habitual actions) can end in jazm after certain particles, while jarr only ever marks a noun. We will learn these patterns gradually.",
+            "ar": "حركات أواخر الكلمات ليست للزينة. ففي جمل كثيرة تساعد الحركة الأخيرة على بيان وظيفة الاسم: أهو مبتدأ، أم فاعل، أم مفعول به، أم اسم بعد حرف جر؟ وتُستخدم الحركات لتمييز الأفعال أيضًا: فالفعل المضارع (صيغة الفعل الدالة على الحاضر أو المعتاد) قد ينتهي بحركة الجزم بعد أدوات معيّنة، أما الجر فلا يلحق إلا الأسماء. وسنتعلَّم هذه الأنماط بالتدرُّج."
           },
           "examples": []
         },
@@ -681,10 +681,10 @@
       ],
       "review": {
         "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
+        "contentVersion": "7.0.1-draft.1",
         "reviewer": null,
         "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a fourth primary and fourth repeat exercise covering jazm and jarr as state markers exclusive to verbs and nouns respectively."
+        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a fourth primary and fourth repeat exercise covering jazm and jarr as state markers exclusive to verbs and nouns respectively. Extended the opening section body to introduce the present-tense verb (الفعل المضارع) term before it is used in those exercises."
       }
     },
     {

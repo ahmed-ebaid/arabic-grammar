@@ -3,6 +3,8 @@ abstract final class StorageKeys {
   static const progressBox = 'progress';
   static const locale = 'locale';
   static const textScale = 'accessibility.textScale';
+  static const learningMode = 'learning.mode';
+  static const learnerProfile = 'learner.profile';
   static const bookmarkPrefix = 'bookmark.';
   static const reviewPrefix = 'review.';
 
@@ -24,6 +26,9 @@ abstract final class StorageKeys {
   static const practiceTotalStars = 'practice.totalStars';
   static const practiceDailyDate = 'practice.dailyDate';
   static const practiceDailyAnswered = 'practice.dailyAnswered';
+  static const streakCount = 'streak.count';
+  static const streakDate = 'streak.date';
+  static const totalXp = 'xp.total';
 
   static String bookmark(String type, String id) => '$bookmarkPrefix$type.$id';
 

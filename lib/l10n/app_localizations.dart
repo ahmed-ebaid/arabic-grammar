@@ -164,6 +164,30 @@ abstract class AppLocalizations {
   /// **'Start learning'**
   String get startLearning;
 
+  /// No description provided for @pathContinueTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue your path'**
+  String get pathContinueTitle;
+
+  /// No description provided for @pathCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Path checkpoint complete'**
+  String get pathCompleteTitle;
+
+  /// No description provided for @pathMastery.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% mastery'**
+  String pathMastery(String percent);
+
+  /// No description provided for @pathContinueAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue lesson'**
+  String get pathContinueAction;
+
   /// No description provided for @moduleTitle.
   ///
   /// In en, this message translates to:
@@ -284,6 +308,36 @@ abstract class AppLocalizations {
   /// **'Quick check'**
   String get quickCheckTitle;
 
+  /// No description provided for @learningModeSimpleQuestionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an answer'**
+  String get learningModeSimpleQuestionTitle;
+
+  /// No description provided for @learningModeDetailedQuestionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check the rule'**
+  String get learningModeDetailedQuestionTitle;
+
+  /// No description provided for @learningModeAdultQuestionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply the rule'**
+  String get learningModeAdultQuestionTitle;
+
+  /// No description provided for @learningModeDetailedQuestionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Identify the word\'s role and ending before you choose.'**
+  String get learningModeDetailedQuestionHint;
+
+  /// No description provided for @learningModeAdultQuestionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Use syntax, morphology, and context to justify the best reading.'**
+  String get learningModeAdultQuestionHint;
+
   /// No description provided for @chooseTopicPrompt.
   ///
   /// In en, this message translates to:
@@ -295,6 +349,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Correct!'**
   String get correctAnswerTitle;
+
+  /// No description provided for @correctAnswerCelebration.
+  ///
+  /// In en, this message translates to:
+  /// **'You got it! Keep going.'**
+  String get correctAnswerCelebration;
 
   /// No description provided for @incorrectAnswerTitle.
   ///
@@ -511,6 +571,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Practice accuracy'**
   String get progressPracticeAccuracy;
+
+  /// No description provided for @progressStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Day streak'**
+  String get progressStreak;
+
+  /// No description provided for @progressTotalXp.
+  ///
+  /// In en, this message translates to:
+  /// **'Total XP'**
+  String get progressTotalXp;
 
   /// No description provided for @progressLevelsTitle.
   ///
@@ -746,6 +818,66 @@ abstract class AppLocalizations {
   /// **'Largest'**
   String get textSizeLargest;
 
+  /// No description provided for @learningModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning style'**
+  String get learningModeTitle;
+
+  /// No description provided for @learningModeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose how much explanation you want to see in lessons.'**
+  String get learningModeBody;
+
+  /// No description provided for @learningModeSimple.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple'**
+  String get learningModeSimple;
+
+  /// No description provided for @learningModeDetailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed'**
+  String get learningModeDetailed;
+
+  /// No description provided for @learningModeAdult.
+  ///
+  /// In en, this message translates to:
+  /// **'Adult'**
+  String get learningModeAdult;
+
+  /// No description provided for @learnerProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Learner profile'**
+  String get learnerProfileTitle;
+
+  /// No description provided for @learnerProfileBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This helps us shape the pace and encouragement for your learning path.'**
+  String get learnerProfileBody;
+
+  /// No description provided for @learnerProfileYoung.
+  ///
+  /// In en, this message translates to:
+  /// **'Young learner'**
+  String get learnerProfileYoung;
+
+  /// No description provided for @learnerProfileGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'General learner'**
+  String get learnerProfileGeneral;
+
+  /// No description provided for @learnerProfileChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change profile'**
+  String get learnerProfileChange;
+
   /// No description provided for @learningIllustrationLabel.
   ///
   /// In en, this message translates to:
@@ -757,6 +889,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A colorful Arabic grammar celebration'**
   String get celebrationIllustrationLabel;
+
+  /// No description provided for @homeStreakDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{days}-day streak'**
+  String homeStreakDays(String days);
+
+  /// No description provided for @homeTotalXp.
+  ///
+  /// In en, this message translates to:
+  /// **'{xp} XP'**
+  String homeTotalXp(String xp);
+
+  /// No description provided for @streakMilestoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{days}-day streak!'**
+  String streakMilestoneTitle(String days);
+
+  /// No description provided for @streakMilestoneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep it up. Come back tomorrow to extend it.'**
+  String get streakMilestoneBody;
+
+  /// No description provided for @perfectScoreMilestoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect score!'**
+  String get perfectScoreMilestoneTitle;
+
+  /// No description provided for @perfectScoreMilestoneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You answered every question correctly.'**
+  String get perfectScoreMilestoneBody;
+
+  /// No description provided for @practiceXpEarned.
+  ///
+  /// In en, this message translates to:
+  /// **'+{xp} XP'**
+  String practiceXpEarned(String xp);
 }
 
 class _AppLocalizationsDelegate

@@ -11,6 +11,15 @@
   "exampleSentence": "الطَّالِبُ مُجْتَهِدٌ",
   "exampleExplanation": "انتهت الكلمتان بالضمة لأن هذه جملة اسمية بسيطة.",
   "startLearning": "ابدأ التعلُّم",
+  "pathContinueTitle": "تابع مسارك",
+  "pathCompleteTitle": "أتممت محطة من المسار",
+  "pathMastery": "إتقان بنسبة {percent}٪",
+  "pathContinueAction": "تابع الدرس",
+  "@pathMastery": {
+    "placeholders": {
+      "percent": {"type": "String"}
+    }
+  },
   "moduleTitle": "أساسيات المبتدئين",
   "moduleSubtitle": "٥٩ درسًا إرشاديًّا",
   "comingSoon": "سيُضاف محتوى المنهج في المرحلة التالية.",
@@ -45,8 +54,14 @@
   "checkAnswer": "تحقَّق من الإجابة",
   "tryAgain": "حاول مرة أخرى",
   "quickCheckTitle": "تحقُّق سريع",
+  "learningModeSimpleQuestionTitle": "اختر إجابة",
+  "learningModeDetailedQuestionTitle": "تحقَّق من القاعدة",
+  "learningModeAdultQuestionTitle": "طبِّق القاعدة",
+  "learningModeDetailedQuestionHint": "حدِّد وظيفة الكلمة وحركتها قبل أن تختار.",
+  "learningModeAdultQuestionHint": "استخدم النحو وبنية الكلمة والسياق لتبرير القراءة الأرجح.",
   "chooseTopicPrompt": "أيُّ كلمة هي المبتدأ؟",
   "correctAnswerTitle": "أحسنت!",
+  "correctAnswerCelebration": "أصبت! واصل التقدّم.",
   "incorrectAnswerTitle": "ليس بعد",
   "exploreWordsTitle": "استكشف الجملة",
   "exploreWordsBody": "اضغط على كل كلمة لترى وظيفتها وحالتها وعلامتها وحركة آخرها وسبب إعرابها.",
@@ -116,6 +131,8 @@
   "progressPracticeStars": "نجوم التدريب",
   "progressDailyGoal": "هدف اليوم",
   "progressPracticeAccuracy": "دقة التدريب",
+  "progressStreak": "سلسلة الأيام",
+  "progressTotalXp": "مجموع نقاط الخبرة",
   "progressLevelsTitle": "التقدّم حسب المستوى",
   "progressAverageMastery": "متوسط الإتقان: {percent}٪",
   "@progressAverageMastery": {
@@ -170,6 +187,43 @@
   "textSizeDefault": "افتراضي",
   "textSizeLarge": "كبير",
   "textSizeLargest": "الأكبر"
+  ,"learningModeTitle": "أسلوب التعلّم"
+  ,"learningModeBody": "اختر مقدار الشرح الذي تريده في الدروس."
+  ,"learningModeSimple": "مبسّط"
+  ,"learningModeDetailed": "مفصّل"
+  ,"learningModeAdult": "للكبار"
+  ,"learnerProfileTitle": "ملف المتعلّم"
+  ,"learnerProfileBody": "يساعدنا ذلك على تهيئة سرعة المسار وطريقة التشجيع المناسبة لتعلّمك."
+  ,"learnerProfileYoung": "متعلّم صغير"
+  ,"learnerProfileGeneral": "متعلّم عام"
+  ,"learnerProfileChange": "تغيير الملف"
   ,"learningIllustrationLabel": "بطاقة مبهجة لتعلّم العربية",
-  "celebrationIllustrationLabel": "احتفال ملوّن بإنجاز نحوي"
+  "celebrationIllustrationLabel": "احتفال ملوّن بإنجاز نحوي",
+  "homeStreakDays": "سلسلة {days} يوم",
+  "@homeStreakDays": {
+    "placeholders": {
+      "days": {"type": "String"}
+    }
+  },
+  "homeTotalXp": "{xp} نقطة خبرة",
+  "@homeTotalXp": {
+    "placeholders": {
+      "xp": {"type": "String"}
+    }
+  },
+  "streakMilestoneTitle": "سلسلة {days} يوم!",
+  "@streakMilestoneTitle": {
+    "placeholders": {
+      "days": {"type": "String"}
+    }
+  },
+  "streakMilestoneBody": "واصل التقدّم. عُد غدًا لتطيل السلسلة.",
+  "perfectScoreMilestoneTitle": "نتيجة كاملة!",
+  "perfectScoreMilestoneBody": "أجبت عن كل الأسئلة إجابة صحيحة.",
+  "practiceXpEarned": "+{xp} نقطة خبرة",
+  "@practiceXpEarned": {
+    "placeholders": {
+      "xp": {"type": "String"}
+    }
+  }
 }

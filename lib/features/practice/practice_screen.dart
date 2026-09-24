@@ -10,7 +10,9 @@ import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
+import '../../shared/widgets/correct_answer_celebration.dart';
 import '../../shared/widgets/learning_illustration.dart';
+import '../../shared/widgets/milestone_celebration_banner.dart';
 import 'practice_rewards.dart';
 
 enum PracticeMode { mixed, weakAreas }
@@ -78,7 +80,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
             }),
           );
         }
-        return _buildQuestion(context);
+        return AnimatedBuilder(
+          animation: widget.userDataController,
+          builder: (context, _) => _buildQuestion(context),
+        );
       },
     );
   }
@@ -90,6 +95,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
     final selected = question.options
         .where((option) => option.id == _selectedOptionId)
         .firstOrNull;
+    final learningMode = widget.userDataController.learningMode;
+    final modeHint = switch (learningMode) {
+      LearningMode.simple => null,
+      LearningMode.detailed => l10n.learningModeDetailedQuestionHint,
+      LearningMode.adult => l10n.learningModeAdultQuestionHint,
+    };
 
     return ListView(
       padding: const EdgeInsets.all(20),
@@ -123,6 +134,11 @@ class _PracticeScreenState extends State<PracticeScreen> {
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 24),
+        if (modeHint != null) ...[
+          const SizedBox(height: 8),
+          Text(modeHint, style: Theme.of(context).textTheme.bodyMedium),
+        ],
+        const SizedBox(height: 12),
         Text(
           question.exercise.prompt.forLanguage(languageCode),
           style: Theme.of(context).textTheme.headlineSmall,
@@ -159,14 +175,19 @@ class _PracticeScreenState extends State<PracticeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    selected.isCorrect
-                        ? l10n.correctAnswerTitle
-                        : l10n.incorrectAnswerTitle,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(selected.feedback.forLanguage(languageCode)),
+                  if (selected.isCorrect)
+                    CorrectAnswerCelebration(
+                      title: l10n.correctAnswerTitle,
+                      body: l10n.correctAnswerCelebration,
+                    )
+                  else ...[
+                    Text(
+                      l10n.incorrectAnswerTitle,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(selected.feedback.forLanguage(languageCode)),
+                  ],
                 ],
               ),
             ),
@@ -488,6 +509,7 @@ class _PracticeComplete extends StatelessWidget {
         : score >= 70
         ? 2
         : 1;
+    final xpEarned = correct * LessonProgressController.xpPerCorrectAnswer;
 
     return Center(
       child: SingleChildScrollView(
@@ -498,6 +520,19 @@ class _PracticeComplete extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (score == 100)
+                  MilestoneCelebrationBanner(
+                    icon: Icons.emoji_events,
+                    title: l10n.perfectScoreMilestoneTitle,
+                    body: l10n.perfectScoreMilestoneBody,
+                  )
+                else if (progressController.isStreakMilestone)
+                  MilestoneCelebrationBanner(
+                    title: l10n.streakMilestoneTitle(
+                      localizedNumber(context, progressController.streakCount),
+                    ),
+                    body: l10n.streakMilestoneBody,
+                  ),
                 LearningIllustration(
                   semanticLabel: l10n.celebrationIllustrationLabel,
                   celebrating: true,
@@ -529,6 +564,11 @@ class _PracticeComplete extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(l10n.practiceStarsEarned(localizedNumber(context, stars))),
+                const SizedBox(height: 4),
+                Text(
+                  l10n.practiceXpEarned(localizedNumber(context, xpEarned)),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 const SizedBox(height: 20),
                 FilledButton.icon(
                   onPressed: onPracticeAgain,

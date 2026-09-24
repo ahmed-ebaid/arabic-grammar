@@ -11,6 +11,15 @@
   "exampleSentence": "الطَّالِبُ مُجْتَهِدٌ",
   "exampleExplanation": "Both words end with damma because this is a basic nominal sentence.",
   "startLearning": "Start learning",
+  "pathContinueTitle": "Continue your path",
+  "pathCompleteTitle": "Path checkpoint complete",
+  "pathMastery": "{percent}% mastery",
+  "pathContinueAction": "Continue lesson",
+  "@pathMastery": {
+    "placeholders": {
+      "percent": {"type": "String"}
+    }
+  },
   "moduleTitle": "Beginner foundations",
   "moduleSubtitle": "59 guided lessons",
   "comingSoon": "Curriculum content is coming in the next phase.",
@@ -45,8 +54,14 @@
   "checkAnswer": "Check answer",
   "tryAgain": "Try again",
   "quickCheckTitle": "Quick check",
+  "learningModeSimpleQuestionTitle": "Choose an answer",
+  "learningModeDetailedQuestionTitle": "Check the rule",
+  "learningModeAdultQuestionTitle": "Apply the rule",
+  "learningModeDetailedQuestionHint": "Identify the word's role and ending before you choose.",
+  "learningModeAdultQuestionHint": "Use syntax, morphology, and context to justify the best reading.",
   "chooseTopicPrompt": "Which word is the topic (mubtada)?",
   "correctAnswerTitle": "Correct!",
+  "correctAnswerCelebration": "You got it! Keep going.",
   "incorrectAnswerTitle": "Not quite yet",
   "exploreWordsTitle": "Explore the sentence",
   "exploreWordsBody": "Tap each word to see its role, state, sign, ending, and reason.",
@@ -116,6 +131,8 @@
   "progressPracticeStars": "Practice stars",
   "progressDailyGoal": "Daily goal",
   "progressPracticeAccuracy": "Practice accuracy",
+  "progressStreak": "Day streak",
+  "progressTotalXp": "Total XP",
   "progressLevelsTitle": "Progress by level",
   "progressAverageMastery": "Average mastery: {percent}%",
   "@progressAverageMastery": {
@@ -170,6 +187,43 @@
   "textSizeDefault": "Default",
   "textSizeLarge": "Large",
   "textSizeLargest": "Largest"
+  ,"learningModeTitle": "Learning style"
+  ,"learningModeBody": "Choose how much explanation you want to see in lessons."
+  ,"learningModeSimple": "Simple"
+  ,"learningModeDetailed": "Detailed"
+  ,"learningModeAdult": "Adult"
+  ,"learnerProfileTitle": "Learner profile"
+  ,"learnerProfileBody": "This helps us shape the pace and encouragement for your learning path."
+  ,"learnerProfileYoung": "Young learner"
+  ,"learnerProfileGeneral": "General learner"
+  ,"learnerProfileChange": "Change profile"
   ,"learningIllustrationLabel": "A cheerful Arabic learning card",
-  "celebrationIllustrationLabel": "A colorful Arabic grammar celebration"
+  "celebrationIllustrationLabel": "A colorful Arabic grammar celebration",
+  "homeStreakDays": "{days}-day streak",
+  "@homeStreakDays": {
+    "placeholders": {
+      "days": {"type": "String"}
+    }
+  },
+  "homeTotalXp": "{xp} XP",
+  "@homeTotalXp": {
+    "placeholders": {
+      "xp": {"type": "String"}
+    }
+  },
+  "streakMilestoneTitle": "{days}-day streak!",
+  "@streakMilestoneTitle": {
+    "placeholders": {
+      "days": {"type": "String"}
+    }
+  },
+  "streakMilestoneBody": "Keep it up. Come back tomorrow to extend it.",
+  "perfectScoreMilestoneTitle": "Perfect score!",
+  "perfectScoreMilestoneBody": "You answered every question correctly.",
+  "practiceXpEarned": "+{xp} XP",
+  "@practiceXpEarned": {
+    "placeholders": {
+      "xp": {"type": "String"}
+    }
+  }
 }

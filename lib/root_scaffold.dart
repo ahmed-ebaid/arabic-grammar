@@ -33,6 +33,16 @@ class _RootScaffoldState extends State<RootScaffold> {
   int _currentIndex = 0;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && !widget.userDataController.hasLearnerProfile) {
+        _showLearnerProfileDialog(required: true);
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final destinations = [
@@ -88,6 +98,13 @@ class _RootScaffoldState extends State<RootScaffold> {
                 ),
               ),
               PopupMenuItem(
+                value: _AppMenuAction.learnerProfile,
+                child: ListTile(
+                  leading: const Icon(Icons.person_outline),
+                  title: Text(l10n.learnerProfileChange),
+                ),
+              ),
+              PopupMenuItem(
                 value: _AppMenuAction.about,
                 child: ListTile(
                   leading: const Icon(Icons.info_outline),
@@ -102,7 +119,11 @@ class _RootScaffoldState extends State<RootScaffold> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          HomeScreen(onStartLearning: () => _selectTab(1)),
+          HomeScreen(
+            contentCatalog: widget.contentCatalog,
+            progressController: widget.lessonProgressController,
+            onStartLearning: () => _selectTab(1),
+          ),
           LessonsScreen(
             contentCatalog: widget.contentCatalog,
             progressController: widget.lessonProgressController,
@@ -155,6 +176,9 @@ class _RootScaffoldState extends State<RootScaffold> {
       case _AppMenuAction.textSize:
         _showTextSizeDialog();
         return;
+      case _AppMenuAction.learnerProfile:
+        _showLearnerProfileDialog();
+        return;
       case _AppMenuAction.about:
         Navigator.of(context).push(
           MaterialPageRoute<void>(
@@ -202,6 +226,36 @@ class _RootScaffoldState extends State<RootScaffold> {
       ),
     );
   }
+
+  Future<void> _showLearnerProfileDialog({bool required = false}) async {
+    final l10n = AppLocalizations.of(context);
+    final profile = await showDialog<LearnerProfile>(
+      context: context,
+      barrierDismissible: !required,
+      builder: (context) => SimpleDialog(
+        title: Text(l10n.learnerProfileTitle),
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 24, 12),
+            child: Text(l10n.learnerProfileBody),
+          ),
+          SimpleDialogOption(
+            onPressed: () =>
+                Navigator.pop(context, LearnerProfile.youngLearner),
+            child: Text(l10n.learnerProfileYoung),
+          ),
+          SimpleDialogOption(
+            onPressed: () =>
+                Navigator.pop(context, LearnerProfile.generalLearner),
+            child: Text(l10n.learnerProfileGeneral),
+          ),
+        ],
+      ),
+    );
+    if (profile != null) {
+      await widget.userDataController.setLearnerProfile(profile);
+    }
+  }
 }
 
-enum _AppMenuAction { glossary, bookmarks, textSize, about }
+enum _AppMenuAction { glossary, bookmarks, textSize, learnerProfile, about }

@@ -44,6 +44,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get startLearning => 'Start learning';
 
   @override
+  String get pathContinueTitle => 'Continue your path';
+
+  @override
+  String get pathCompleteTitle => 'Path checkpoint complete';
+
+  @override
+  String pathMastery(String percent) {
+    return '$percent% mastery';
+  }
+
+  @override
+  String get pathContinueAction => 'Continue lesson';
+
+  @override
   String get moduleTitle => 'Beginner foundations';
 
   @override
@@ -108,10 +122,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quickCheckTitle => 'Quick check';
 
   @override
+  String get learningModeSimpleQuestionTitle => 'Choose an answer';
+
+  @override
+  String get learningModeDetailedQuestionTitle => 'Check the rule';
+
+  @override
+  String get learningModeAdultQuestionTitle => 'Apply the rule';
+
+  @override
+  String get learningModeDetailedQuestionHint =>
+      'Identify the word\'s role and ending before you choose.';
+
+  @override
+  String get learningModeAdultQuestionHint =>
+      'Use syntax, morphology, and context to justify the best reading.';
+
+  @override
   String get chooseTopicPrompt => 'Which word is the topic (mubtada)?';
 
   @override
   String get correctAnswerTitle => 'Correct!';
+
+  @override
+  String get correctAnswerCelebration => 'You got it! Keep going.';
 
   @override
   String get incorrectAnswerTitle => 'Not quite yet';
@@ -236,6 +270,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get progressPracticeAccuracy => 'Practice accuracy';
+
+  @override
+  String get progressStreak => 'Day streak';
+
+  @override
+  String get progressTotalXp => 'Total XP';
 
   @override
   String get progressLevelsTitle => 'Progress by level';
@@ -367,9 +407,72 @@ class AppLocalizationsEn extends AppLocalizations {
   String get textSizeLargest => 'Largest';
 
   @override
+  String get learningModeTitle => 'Learning style';
+
+  @override
+  String get learningModeBody =>
+      'Choose how much explanation you want to see in lessons.';
+
+  @override
+  String get learningModeSimple => 'Simple';
+
+  @override
+  String get learningModeDetailed => 'Detailed';
+
+  @override
+  String get learningModeAdult => 'Adult';
+
+  @override
+  String get learnerProfileTitle => 'Learner profile';
+
+  @override
+  String get learnerProfileBody =>
+      'This helps us shape the pace and encouragement for your learning path.';
+
+  @override
+  String get learnerProfileYoung => 'Young learner';
+
+  @override
+  String get learnerProfileGeneral => 'General learner';
+
+  @override
+  String get learnerProfileChange => 'Change profile';
+
+  @override
   String get learningIllustrationLabel => 'A cheerful Arabic learning card';
 
   @override
   String get celebrationIllustrationLabel =>
       'A colorful Arabic grammar celebration';
+
+  @override
+  String homeStreakDays(String days) {
+    return '$days-day streak';
+  }
+
+  @override
+  String homeTotalXp(String xp) {
+    return '$xp XP';
+  }
+
+  @override
+  String streakMilestoneTitle(String days) {
+    return '$days-day streak!';
+  }
+
+  @override
+  String get streakMilestoneBody =>
+      'Keep it up. Come back tomorrow to extend it.';
+
+  @override
+  String get perfectScoreMilestoneTitle => 'Perfect score!';
+
+  @override
+  String get perfectScoreMilestoneBody =>
+      'You answered every question correctly.';
+
+  @override
+  String practiceXpEarned(String xp) {
+    return '+$xp XP';
+  }
 }

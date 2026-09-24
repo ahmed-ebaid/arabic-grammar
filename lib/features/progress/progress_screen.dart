@@ -164,6 +164,16 @@ class _Dashboard extends StatelessWidget {
               value: localizedPercent(context, practiceAccuracy),
               label: l10n.progressPracticeAccuracy,
             ),
+            _MetricCard(
+              icon: Icons.local_fire_department,
+              value: localizedNumber(context, progressController.streakCount),
+              label: l10n.progressStreak,
+            ),
+            _MetricCard(
+              icon: Icons.bolt,
+              value: localizedNumber(context, progressController.totalXp),
+              label: l10n.progressTotalXp,
+            ),
           ],
         ),
         const SizedBox(height: 24),
