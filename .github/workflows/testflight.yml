@@ -1,0 +1,109 @@
+name: Upload iOS build to TestFlight
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testflight-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-15
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Restore dependencies
+        run: flutter pub get
+
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      - name: Validate lesson drafts
+        run: dart run tool/validate_content.dart
+
+      - name: Import signing certificate
+        uses: apple-actions/import-codesign-certs@v7.0.0
+        with:
+          p12-file-base64: ${{ secrets.APPSTORE_CERTIFICATES_FILE_BASE64 }}
+          p12-password: ${{ secrets.APPSTORE_CERTIFICATES_PASSWORD }}
+
+      - name: Download App Store provisioning profile
+        uses: apple-actions/download-provisioning-profiles@v6.1.0
+        with:
+          bundle-id: com.ebaidllc.arabicgrammar
+          profile-type: IOS_APP_STORE
+          issuer-id: ${{ vars.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ vars.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+
+      - name: Calculate build number
+        id: version
+        shell: bash
+        run: |
+          version="$(awk '$1 == "version:" { print $2; exit }' pubspec.yaml)"
+          if [[ "$version" != *+* ]]; then
+            echo "pubspec.yaml version must include a build number (for example, 0.1.0+17)." >&2
+            exit 1
+          fi
+
+          build_name="${version%%+*}"
+          base_build_number="${version##*+}"
+          if [[ ! "$base_build_number" =~ ^[0-9]+$ ]]; then
+            echo "The pubspec.yaml build number must be numeric." >&2
+            exit 1
+          fi
+
+          build_number=$((base_build_number + GITHUB_RUN_NUMBER + GITHUB_RUN_ATTEMPT - 1))
+          echo "name=$build_name" >> "$GITHUB_OUTPUT"
+          echo "number=$build_number" >> "$GITHUB_OUTPUT"
+          echo "Building version $build_name ($build_number)"
+
+      - name: Build signed IPA
+        run: >-
+          flutter build ipa --release
+          --dart-define=APP_ENV=production
+          --build-name=${{ steps.version.outputs.name }}
+          --build-number=${{ steps.version.outputs.number }}
+          --export-options-plist=ios/ExportOptions.plist
+
+      - name: Locate IPA
+        id: ipa
+        shell: bash
+        run: |
+          ipa_path="$(find build/ios/ipa -maxdepth 1 -type f -name '*.ipa' -print -quit)"
+          if [[ -z "$ipa_path" ]]; then
+            echo "No IPA was produced." >&2
+            exit 1
+          fi
+          echo "path=$ipa_path" >> "$GITHUB_OUTPUT"
+
+      - name: Upload to TestFlight
+        uses: apple-actions/upload-testflight-build@v5.4.0
+        with:
+          app-path: ${{ steps.ipa.outputs.path }}
+          app-type: ios
+          issuer-id: ${{ vars.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ vars.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          uses-non-exempt-encryption: 'false'
+          wait-for-processing: 'true'

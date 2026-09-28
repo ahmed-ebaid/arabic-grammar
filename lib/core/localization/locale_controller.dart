@@ -8,7 +8,7 @@ class LocaleController extends ChangeNotifier {
     : _settingsBox = settingsBox,
       _locale = const Locale('ar');
 
-  LocaleController.inMemory([this._locale = const Locale('en')])
+  LocaleController.inMemory([this._locale = const Locale('ar')])
     : _settingsBox = null;
 
   final Box<dynamic>? _settingsBox;

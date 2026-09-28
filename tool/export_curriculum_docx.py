@@ -11,7 +11,6 @@ omitted so reviewers assess exactly what ships.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -68,6 +67,10 @@ _ARABIC_DIGITS = str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩")
 def ar_num(value: Any) -> str:
     """Render a number with Arabic-Indic digits, matching the app."""
     return str(value).translate(_ARABIC_DIGITS)
+
+
+def ar_content_version(value: str) -> str:
+    return ar_num(value.replace("-draft.", " — مسودة "))
 
 
 def ar(value: dict[str, str]) -> str:
@@ -151,7 +154,7 @@ def add_rtl_table(document: Document, headers: list[str], fill: str) -> Any:
 
 
 def add_example(document: Document, example: dict[str, Any]) -> None:
-    add_heading_ar(document, f"مثال ({example['id']})", level=4)
+    add_heading_ar(document, "مثال", level=4)
     add_paragraph_ar(document, example["vocalized"], size=Pt(16))
 
     add_heading_ar(document, "تحليل الكلمات", level=5)
@@ -182,8 +185,7 @@ def add_exercise(
 ) -> None:
     add_heading_ar(
         document,
-        f"{ar_num(number)}. {EXERCISE_TYPE_AR[exercise['type']]} "
-        f"({exercise['id']})",
+        f"{ar_num(number)}. {EXERCISE_TYPE_AR[exercise['type']]}",
         level=4,
     )
     add_paragraph_ar(document, ar(exercise["prompt"]))
@@ -231,7 +233,7 @@ def add_review_worksheet(document: Document, lesson: dict[str, Any]) -> None:
     add_paragraph_ar(
         document,
         f"الحالة الحالية في التطبيق: {status} | "
-        f"إصدار المحتوى: {review['contentVersion']}",
+        f"إصدار المحتوى: {ar_content_version(review['contentVersion'])}",
     )
     table = document.add_table(rows=0, cols=2)
     table.style = "Table Grid"
@@ -255,16 +257,23 @@ def add_lesson(
     document: Document,
     lesson: dict[str, Any],
     level: dict[str, Any],
+    lessons_by_id: dict[str, dict[str, Any]],
 ) -> None:
     add_heading_ar(
         document,
         f"الدرس {ar_num(lesson['order'])}: {ar(lesson['title'])}",
         level=1,
     )
-    prerequisites = "، ".join(lesson["prerequisites"]) or "لا يوجد"
+    prerequisites = (
+        "، ".join(
+            ar(lessons_by_id[lesson_id]["title"])
+            for lesson_id in lesson["prerequisites"]
+        )
+        or "لا يوجد"
+    )
     add_paragraph_ar(
         document,
-        f"معرّف الدرس: {lesson['id']} | المستوى: {ar(level['title'])} | "
+        f"المستوى: {ar(level['title'])} | "
         f"الزمن التقديري: {ar_num(lesson['estimatedMinutes'])} دقيقة | "
         f"المتطلبات السابقة: {prerequisites}",
     )
@@ -321,7 +330,6 @@ def configure_document(document: Document) -> None:
 def add_front_matter(
     document: Document,
     catalog: dict[str, Any],
-    source_hash: str,
     generated_at: datetime,
 ) -> None:
     add_heading_ar(document, "وثيقة مراجعة منهج إعراب", level=0)
@@ -332,12 +340,15 @@ def add_front_matter(
         "داخل التطبيق.",
     )
     metadata = [
-        ("إصدار المنهج", catalog["contentVersion"]),
+        ("إصدار المنهج", ar_content_version(catalog["contentVersion"])),
         ("إصدار المخطط", ar_num(catalog["schemaVersion"])),
         ("عدد المستويات", ar_num(len(catalog["levels"]))),
         ("عدد الدروس", ar_num(len(catalog["lessons"]))),
-        ("تاريخ التوليد", generated_at.strftime("%Y-%m-%d %H:%M UTC")),
-        ("بصمة المصدر SHA-256", source_hash),
+        (
+            "تاريخ التوليد",
+            ar_num(generated_at.strftime("%Y-%m-%d %H:%M"))
+            + " بالتوقيت العالمي المنسق",
+        ),
     ]
     table = document.add_table(rows=0, cols=2)
     table.style = "Table Grid"
@@ -349,7 +360,7 @@ def add_front_matter(
 
     add_heading_ar(document, "إرشادات المراجعة", level=1)
     for instruction in [
-        "استخدم تعليقات Word لإبداء الملاحظات المرتبطة بصياغة بعينها.",
+        "استخدم تعليقات مايكروسوفت وورد لإبداء الملاحظات المرتبطة بصياغة بعينها.",
         "استخدم خاصية تتبّع التغييرات لاقتراح النص البديل.",
         "راجع التمارين الأساسية وتمارين المراجعة معًا؛ فكلاهما يظهر في التطبيق.",
         "تحقّق من كل إجابة مُعلَّمة بأنها صحيحة، ومن جميع رسائل التغذية الراجعة "
@@ -378,7 +389,11 @@ def add_header(document: Document, content_version: str) -> None:
     header.text = ""
     set_rtl(header)
     header.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    style_run(header.add_run(f"مراجعة منهج إعراب — {content_version}"))
+    style_run(
+        header.add_run(
+            f"مراجعة منهج إعراب — {ar_content_version(content_version)}"
+        )
+    )
 
 
 def apply_section_rtl(document: Document) -> None:
@@ -390,19 +405,24 @@ def apply_section_rtl(document: Document) -> None:
 def export(source_path: Path, output_path: Path) -> None:
     source_bytes = source_path.read_bytes()
     catalog = json.loads(source_bytes)
-    source_hash = hashlib.sha256(source_bytes).hexdigest()
     generated_at = datetime.now(timezone.utc)
     levels_by_lesson = {
         lesson_id: level
         for level in catalog["levels"]
         for lesson_id in level["lessonIds"]
     }
+    lessons_by_id = {lesson["id"]: lesson for lesson in catalog["lessons"]}
 
     document = Document()
     configure_document(document)
-    add_front_matter(document, catalog, source_hash, generated_at)
+    add_front_matter(document, catalog, generated_at)
     for index, lesson in enumerate(catalog["lessons"]):
-        add_lesson(document, lesson, levels_by_lesson[lesson["id"]])
+        add_lesson(
+            document,
+            lesson,
+            levels_by_lesson[lesson["id"]],
+            lessons_by_id,
+        )
         if index < len(catalog["lessons"]) - 1:
             document.add_section(WD_SECTION.NEW_PAGE)
     add_header(document, catalog["contentVersion"])

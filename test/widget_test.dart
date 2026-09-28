@@ -51,57 +51,54 @@ void main() {
     );
 
     await tester.scrollUntilVisible(
-      find.text('Start learning'),
+      find.text('ابدأ التعلُّم'),
       250,
       scrollable: find.byType(Scrollable).first,
     );
-    await tester.tap(find.text('Start learning'));
+    await tester.tap(find.text('ابدأ التعلُّم'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Level 1: Reading foundations'), findsOneWidget);
-    expect(find.text('Why endings change'), findsOneWidget);
+    expect(find.text('المستوى الأول: أساس القراءة'), findsOneWidget);
+    expect(find.text('لماذا تتغيَّر أواخر الكلمات؟'), findsOneWidget);
 
-    await tester.tap(find.text('Why endings change'));
+    await tester.tap(find.text('لماذا تتغيَّر أواخر الكلمات؟'));
     await tester.pumpAndSettle();
 
-    expect(find.text('What you will learn'), findsOneWidget);
-    expect(find.text('Continue'), findsOneWidget);
+    expect(find.text('ماذا ستتعلَّم؟'), findsOneWidget);
+    expect(find.text('تابع'), findsOneWidget);
   });
 
   testWidgets('shows curriculum sources and review status in About', (
     tester,
   ) async {
-    final localeController = LocaleController.inMemory();
     await tester.pumpWidget(
       ArabicGrammarApp(
         environment: const AppEnvironment(AppFlavor.production),
-        localeController: localeController,
+        localeController: LocaleController.inMemory(),
         lessonProgressController: LessonProgressController.inMemory(),
         contentCatalog: _draftCatalog(),
       ),
     );
 
-    await tester.tap(find.byTooltip('More'));
+    await tester.tap(find.byTooltip('المزيد'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('About & credits'));
+    await tester.tap(find.text('عن التطبيق وشكر المساهمين'));
     await tester.pumpAndSettle();
 
-    expect(find.text('About & credits'), findsOneWidget);
-    expect(find.text('Developed by Ebaid LLC'), findsOneWidget);
-    expect(find.text('Al-Ajurrumiyya'), findsOneWidget);
+    expect(find.text('عن التطبيق وشكر المساهمين'), findsOneWidget);
+    expect(find.text('تطوير ونشر شركة إبيد ذ.م.م.'), findsOneWidget);
+    expect(find.text('الآجرومية'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text('Teacher reviewers'),
+      find.text('المعلّمون المراجعون'),
       300,
       scrollable: find.byType(Scrollable),
     );
-    expect(find.text('Teacher reviewers'), findsOneWidget);
+    expect(find.text('المعلّمون المراجعون'), findsOneWidget);
     expect(
-      find.textContaining('Current beta lessons are still pending review'),
+      find.textContaining('وما زالت دروس النسخة التجريبية قيد المراجعة'),
       findsOneWidget,
     );
 
-    await localeController.setLocale(const Locale('ar'));
-    await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('الآجرومية'),
       -300,
@@ -124,19 +121,19 @@ void main() {
       ),
     );
 
-    await tester.tap(find.byTooltip('More'));
+    await tester.tap(find.byTooltip('المزيد'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Grammar glossary'));
+    await tester.tap(find.text('معجم النحو'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Grammar glossary'), findsOneWidget);
+    expect(find.text('معجم النحو'), findsOneWidget);
     await tester.enterText(find.byType(SearchBar), 'mubtada');
     await tester.pumpAndSettle();
-    expect(find.text("Mubtada' (topic)"), findsOneWidget);
+    expect(find.text('المبتدأ'), findsOneWidget);
 
-    await tester.tap(find.byTooltip('Save').first);
+    await tester.tap(find.byTooltip('حفظ').first);
     await tester.pumpAndSettle();
-    expect(find.byTooltip('Remove from saved items'), findsOneWidget);
+    expect(find.byTooltip('إزالة من المحفوظات'), findsOneWidget);
   });
 
   testWidgets('starts a ten-question mixed practice session', (tester) async {
@@ -149,24 +146,24 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Practice'));
+    await tester.tap(find.text('التدريب'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Mixed review'), findsOneWidget);
+    expect(find.text('مراجعة متنوعة'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text('Strengthen weak areas'),
+      find.text('تقوية مواطن الضعف'),
       250,
       scrollable: find.byType(Scrollable).last,
     );
-    expect(find.text('Strengthen weak areas'), findsOneWidget);
-    expect(find.text('0 of 10 questions'), findsOneWidget);
+    expect(find.text('تقوية مواطن الضعف'), findsOneWidget);
+    expect(find.text('٠ من ١٠ أسئلة'), findsOneWidget);
 
-    await tester.ensureVisible(find.text('Mixed review'));
-    await tester.tap(find.text('Mixed review'));
+    await tester.ensureVisible(find.text('مراجعة متنوعة'));
+    await tester.tap(find.text('مراجعة متنوعة'));
     await tester.pumpAndSettle();
 
-    expect(find.text('1/10'), findsOneWidget);
-    expect(find.text('Why endings change'), findsOneWidget);
+    expect(find.text('١/١٠'), findsOneWidget);
+    expect(find.text('لماذا تتغيَّر أواخر الكلمات؟'), findsOneWidget);
   });
 
   testWidgets('shows curriculum and practice metrics in Progress', (
@@ -185,19 +182,19 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Progress'));
+    await tester.tap(find.text('التقدم'));
     await tester.pumpAndSettle();
 
-    expect(find.text('1 of 59 lessons mastered'), findsOneWidget);
-    expect(find.text('Practice stars'), findsOneWidget);
+    expect(find.text('أتقنت ١ درسًا من أصل ٥٩'), findsOneWidget);
+    expect(find.text('نجوم التدريب'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.text('Progress by level'),
+      find.text('التقدّم حسب المستوى'),
       250,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Progress by level'), findsOneWidget);
-    expect(find.text('Level 1: Reading foundations'), findsOneWidget);
-    expect(find.text('1/7'), findsOneWidget);
+    expect(find.text('التقدّم حسب المستوى'), findsOneWidget);
+    expect(find.text('المستوى الأول: أساس القراءة'), findsOneWidget);
+    expect(find.text('١/٧'), findsOneWidget);
   });
 
   testWidgets('explains an incorrect answer and allows a retry', (
@@ -212,43 +209,43 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Lessons'));
+    await tester.tap(find.text('الدروس'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Why endings change'));
+    await tester.tap(find.text('لماذا تتغيَّر أواخر الكلمات؟'));
     await tester.pumpAndSettle();
     for (var i = 0; i < 3; i++) {
-      await tester.ensureVisible(find.text('Continue'));
-      await tester.tap(find.text('Continue'));
+      await tester.ensureVisible(find.text('تابع'));
+      await tester.tap(find.text('تابع'));
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('الطالبُ'));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Continue'));
-    await tester.tap(find.text('Continue'));
+    await tester.ensureVisible(find.text('تابع'));
+    await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
 
-    await tester.ensureVisible(find.text('Fatha: َ'));
-    await tester.tap(find.text('Fatha: َ'));
+    await tester.ensureVisible(find.text('الفتحة: َ'));
+    await tester.tap(find.text('الفتحة: َ'));
     await tester.pump();
-    await tester.ensureVisible(find.text('Check answer'));
-    await tester.tap(find.text('Check answer'));
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Not quite yet'), findsOneWidget);
-    expect(find.text('Try again'), findsOneWidget);
+    expect(find.text('ليس بعد'), findsOneWidget);
+    expect(find.text('حاول مرة أخرى'), findsOneWidget);
 
-    await tester.ensureVisible(find.text('Try again'));
-    await tester.tap(find.text('Try again'));
+    await tester.ensureVisible(find.text('حاول مرة أخرى'));
+    await tester.tap(find.text('حاول مرة أخرى'));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Damma: ُ'));
-    await tester.tap(find.text('Damma: ُ'));
+    await tester.ensureVisible(find.text('الضمة: ُ'));
+    await tester.tap(find.text('الضمة: ُ'));
     await tester.pump();
-    await tester.ensureVisible(find.text('Check answer'));
-    await tester.tap(find.text('Check answer'));
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Correct!'), findsOneWidget);
-    expect(find.text('Continue'), findsOneWidget);
+    expect(find.text('أحسنت!'), findsOneWidget);
+    expect(find.text('تابع'), findsOneWidget);
   });
 
   testWidgets('navigates lesson steps and gates next on a solved question', (
@@ -263,9 +260,9 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Lessons'));
+    await tester.tap(find.text('الدروس'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Why endings change'));
+    await tester.tap(find.text('لماذا تتغيَّر أواخر الكلمات؟'));
     await tester.pumpAndSettle();
 
     expect(_navEnabled(tester, 'lessonPreviousStep'), isFalse);
@@ -273,32 +270,32 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
     await tester.pumpAndSettle();
-    expect(find.text('Step 2 of 9'), findsOneWidget);
+    expect(find.text('الخطوة ٢ من ٩'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('lessonPreviousStep')));
     await tester.pumpAndSettle();
-    expect(find.text('Step 1 of 9'), findsOneWidget);
-    expect(find.text('What you will learn'), findsOneWidget);
+    expect(find.text('الخطوة ١ من ٩'), findsOneWidget);
+    expect(find.text('ماذا ستتعلَّم؟'), findsOneWidget);
 
     for (var i = 0; i < 3; i++) {
-      await tester.ensureVisible(find.text('Continue'));
-      await tester.tap(find.text('Continue'));
+      await tester.ensureVisible(find.text('تابع'));
+      await tester.tap(find.text('تابع'));
       await tester.pumpAndSettle();
     }
     await tester.tap(find.text('الطالبُ'));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Continue'));
-    await tester.tap(find.text('Continue'));
+    await tester.ensureVisible(find.text('تابع'));
+    await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Quick check'), findsOneWidget);
+    expect(find.text('تحقُّق سريع'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isFalse);
 
-    await tester.ensureVisible(find.text('Damma: ُ'));
-    await tester.tap(find.text('Damma: ُ'));
+    await tester.ensureVisible(find.text('الضمة: ُ'));
+    await tester.tap(find.text('الضمة: ُ'));
     await tester.pump();
-    await tester.ensureVisible(find.text('Check answer'));
-    await tester.tap(find.text('Check answer'));
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
     await tester.pumpAndSettle();
 
     expect(_navEnabled(tester, 'lessonNextStep'), isTrue);
@@ -308,7 +305,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('lessonPreviousStep')));
     await tester.pumpAndSettle();
 
-    expect(find.text('Correct!'), findsOneWidget);
+    expect(find.text('أحسنت!'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isTrue);
   });
 
@@ -325,21 +322,15 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Lessons'));
+    await tester.tap(find.text('الدروس'));
     await tester.pumpAndSettle();
-    expect(
-      find.text('Locked until the previous lesson is mastered'),
-      findsOneWidget,
-    );
+    expect(find.text('مغلق حتى إتقان الدرس السابق'), findsOneWidget);
 
     await progress.complete('lesson_01', 0, mastery: 75);
     await tester.pumpAndSettle();
 
-    expect(find.text('Mastery: 75%'), findsOneWidget);
-    expect(
-      find.text('Locked until the previous lesson is mastered'),
-      findsNothing,
-    );
+    expect(find.text('الإتقان: ٧٥%'), findsOneWidget);
+    expect(find.text('مغلق حتى إتقان الدرس السابق'), findsNothing);
   });
 }
 

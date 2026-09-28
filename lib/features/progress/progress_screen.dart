@@ -279,7 +279,10 @@ class _LevelProgressCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
-                Text('$mastered/${level.lessonIds.length}'),
+                Text(
+                  '${localizedNumber(context, mastered)}/'
+                  '${localizedNumber(context, level.lessonIds.length)}',
+                ),
               ],
             ),
             const SizedBox(height: 12),

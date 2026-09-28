@@ -127,6 +127,34 @@ Connect does not repeatedly request export-compliance answers for each build.
   Credits screen identifies curriculum resources and clearly marks teacher
   review as pending.
 
+## Automated internal TestFlight uploads
+
+The `Upload iOS build to TestFlight` GitHub Actions workflow can be started
+manually from the Actions tab. It runs validation, builds a signed iOS IPA,
+and uploads it for internal testing. It only runs from `main`; it does not
+submit the app for production review. The build number is generated from the
+version in `pubspec.yaml` and the GitHub Actions run number.
+
+Before the first run:
+
+1. In App Store Connect, create an API key with the **App Manager** role.
+  Store its issuer ID and key ID as Actions variables named
+  `APPSTORE_ISSUER_ID` and `APPSTORE_API_KEY_ID`. Store the contents of its
+  `.p8` file as the Actions secret `APPSTORE_API_PRIVATE_KEY`.
+2. Export the Apple Distribution certificate and private key from Keychain
+  Access as a password-protected `.p12`. Store its base64 contents as
+  `APPSTORE_CERTIFICATES_FILE_BASE64` and its password as
+  `APPSTORE_CERTIFICATES_PASSWORD` Actions secrets.
+3. Ensure an App Store provisioning profile exists for
+  `com.ebaidllc.arabicgrammar` and the distribution certificate. The workflow
+  downloads and installs that profile using the API key.
+
+Add variables and secrets under the repository's **Settings → Secrets and
+variables → Actions**. Then start the workflow from **Actions → Upload iOS
+build to TestFlight → Run workflow**, selecting `main`. Internal testers must
+already have App Store Connect access and be added to an internal TestFlight
+group.
+
 ## Production release gate
 
 Do not submit the app for production App Review until:
