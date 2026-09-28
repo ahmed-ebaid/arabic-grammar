@@ -1,9 +1,17 @@
 import AppKit
 import CoreText
 
-let outputPath = CommandLine.arguments.count > 1
-  ? CommandLine.arguments[1]
-  : "assets/app_icon/app_icon_1024.png"
+let arguments = Array(CommandLine.arguments.dropFirst())
+let isForeground = arguments.contains("--foreground")
+let isBackground = arguments.contains("--background")
+let isMonochrome = arguments.contains("--monochrome")
+let layerCount = [isForeground, isBackground, isMonochrome].filter { $0 }.count
+guard layerCount <= 1 else {
+  fputs("Choose only one adaptive icon layer\n", stderr)
+  exit(1)
+}
+let outputPath = arguments.first(where: { !$0.hasPrefix("--") })
+  ?? "assets/app_icon/app_icon_1024.png"
 
 let size = NSSize(width: 1024, height: 1024)
 let greenTop = NSColor(calibratedRed: 0.22, green: 0.78, blue: 0.48, alpha: 1)
@@ -17,7 +25,9 @@ guard let context = CGContext(
   bitsPerComponent: 8,
   bytesPerRow: Int(size.width) * 4,
   space: CGColorSpaceCreateDeviceRGB(),
-  bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue
+  bitmapInfo: isForeground || isMonochrome
+    ? CGImageAlphaInfo.premultipliedLast.rawValue
+    : CGImageAlphaInfo.noneSkipLast.rawValue
 ) else {
   fputs("Failed to create icon drawing context\n", stderr)
   exit(1)
@@ -25,12 +35,14 @@ guard let context = CGContext(
 NSGraphicsContext.saveGraphicsState()
 NSGraphicsContext.current = NSGraphicsContext(cgContext: context, flipped: false)
 
-NSGradient(starting: greenTop, ending: greenBottom)?
-  .draw(in: NSRect(origin: .zero, size: size), angle: 90)
+if !isForeground && !isMonochrome {
+  NSGradient(starting: greenTop, ending: greenBottom)?
+    .draw(in: NSRect(origin: .zero, size: size), angle: 90)
+}
 
 let fontURL = URL(fileURLWithPath: "assets/fonts/AmiriQuran.ttf")
 guard CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, nil),
-  let font = NSFont(name: "AmiriQuran-Regular", size: 390)
+  let font = NSFont(name: "AmiriQuran-Regular", size: isForeground ? 320 : 390)
 else {
   fputs("Failed to load the bundled Amiri calligraphy font\n", stderr)
   exit(1)
@@ -43,7 +55,7 @@ titleParagraph.alignment = .center
 titleParagraph.baseWritingDirection = .rightToLeft
 let titleAttributes: [NSAttributedString.Key: Any] = [
   .font: font,
-  .foregroundColor: ivory,
+  .foregroundColor: isMonochrome ? NSColor.white : ivory,
   .paragraphStyle: titleParagraph,
 ]
 let titleBounds = title.boundingRect(
@@ -57,7 +69,9 @@ let centeredTitleRect = NSRect(
   width: titleRect.width,
   height: titleBounds.height
 )
-title.draw(in: centeredTitleRect, withAttributes: titleAttributes)
+if !isBackground {
+  title.draw(in: centeredTitleRect, withAttributes: titleAttributes)
+}
 
 NSGraphicsContext.restoreGraphicsState()
 
