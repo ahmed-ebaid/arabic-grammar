@@ -8,7 +8,6 @@ import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
-import '../../core/accessibility/speech_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
@@ -30,7 +29,6 @@ class LessonDetailScreen extends StatefulWidget {
 }
 
 class _LessonDetailScreenState extends State<LessonDetailScreen> {
-  final SpeechService _speech = SpeechService();
   final Set<String> _solvedExerciseIds = {};
   late List<Exercise> _activeExercises;
   late List<_LessonStep> _steps;
@@ -60,12 +58,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       appBar: AppBar(
         title: Text(widget.lesson.title.forLanguage(_languageCode)),
         actions: [
-          IconButton(
-            tooltip: l10n.listen,
-            onPressed: () =>
-                _speech.speak(_speechTextForStep(step), _languageCode),
-            icon: const Icon(Icons.volume_up_outlined),
-          ),
           AnimatedBuilder(
             animation: widget.userDataController,
             builder: (context, _) {
@@ -182,25 +174,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
 
   String get _languageCode => Localizations.localeOf(context).languageCode;
 
-  String _speechTextForStep(_LessonStep step) {
-    return switch (step.kind) {
-      _StepKind.objectives => [
-        widget.lesson.title.forLanguage(_languageCode),
-        ...widget.lesson.objectives.map(
-          (objective) => objective.forLanguage(_languageCode),
-        ),
-      ].join('. '),
-      _StepKind.teaching =>
-        '${step.section!.title.forLanguage(_languageCode)}. '
-            '${step.section!.body.forLanguage(_languageCode)}',
-      _StepKind.exercise =>
-        '${step.exercise!.prompt.forLanguage(_languageCode)}. '
-            '${step.exercise!.options.map((option) => option.label.forLanguage(_languageCode)).join('. ')}',
-      _StepKind.analysis => step.example!.vocalized,
-      _StepKind.completion => AppLocalizations.of(context).lessonCompleteBody,
-    };
-  }
-
   Widget _buildStep(_LessonStep step) {
     return switch (step.kind) {
       _StepKind.objectives => _ObjectivesStep(
@@ -211,11 +184,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       _StepKind.teaching => _TeachingStep(
         section: step.section!,
         languageCode: _languageCode,
-        onSpeak: () => _speech.speak(
-          '${step.section!.title.forLanguage(_languageCode)}. '
-          '${step.section!.body.forLanguage(_languageCode)}',
-          _languageCode,
-        ),
         onContinue: _advance,
       ),
       _StepKind.exercise => _ExerciseStep(
@@ -234,7 +202,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         languageCode: _languageCode,
         learningMode: widget.userDataController.learningMode,
         userDataController: widget.userDataController,
-        onSpeak: () => _speech.speak(step.example!.vocalized, _languageCode),
         onContinue: _advance,
       ),
       _StepKind.completion => _CompletionStep(
@@ -244,12 +211,6 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         onClose: () => Navigator.of(context).pop(),
       ),
     };
-  }
-
-  @override
-  void dispose() {
-    _speech.stop();
-    super.dispose();
   }
 
   void _selectOption(String id) {
@@ -550,13 +511,11 @@ class _TeachingStep extends StatelessWidget {
   const _TeachingStep({
     required this.section,
     required this.languageCode,
-    required this.onSpeak,
     required this.onContinue,
   });
 
   final LessonSection section;
   final String languageCode;
-  final VoidCallback onSpeak;
   final VoidCallback onContinue;
 
   @override
@@ -579,21 +538,9 @@ class _TeachingStep extends StatelessWidget {
           ],
         ],
       ),
-      action: Row(
-        children: [
-          IconButton.filledTonal(
-            tooltip: l10n.listen,
-            onPressed: onSpeak,
-            icon: const Icon(Icons.volume_up_outlined),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: FilledButton(
-              onPressed: onContinue,
-              child: Text(l10n.continueLabel),
-            ),
-          ),
-        ],
+      action: FilledButton(
+        onPressed: onContinue,
+        child: Text(l10n.continueLabel),
       ),
     );
   }
@@ -830,7 +777,6 @@ class _AnalysisStep extends StatefulWidget {
     required this.languageCode,
     required this.learningMode,
     required this.userDataController,
-    required this.onSpeak,
     required this.onContinue,
   });
 
@@ -838,7 +784,6 @@ class _AnalysisStep extends StatefulWidget {
   final String languageCode;
   final LearningMode learningMode;
   final UserDataController userDataController;
-  final VoidCallback onSpeak;
   final VoidCallback onContinue;
 
   @override
@@ -905,12 +850,6 @@ class _AnalysisStepState extends State<_AnalysisStep> {
           return Row(
             children: [
               IconButton.filledTonal(
-                tooltip: l10n.listen,
-                onPressed: widget.onSpeak,
-                icon: const Icon(Icons.volume_up_outlined),
-              ),
-              const SizedBox(width: 8),
-              IconButton.filledTonal(
                 tooltip: bookmarked ? l10n.removeBookmark : l10n.addBookmark,
                 onPressed: () => widget.userDataController.toggleBookmark(
                   BookmarkType.example,
@@ -948,6 +887,10 @@ class _TokenCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final colors = Theme.of(context).extension<LearningColors>()!;
+    final isIndeclinable = token.grammarState == GrammarState.indeclinable;
+    final state = isIndeclinable
+        ? token.grammaticalSign.forLanguage(languageCode)
+        : _grammarState(token.grammarState, languageCode);
     return Card(
       color: colors.sunshineContainer,
       child: Padding(
@@ -959,15 +902,13 @@ class _TokenCard extends StatelessWidget {
               value: token.role.forLanguage(languageCode),
             ),
             if (learningMode != LearningMode.simple) ...[
-              _AnalysisRow(
-                label: l10n.stateLabel,
-                value: _grammarState(token.grammarState, languageCode),
-              ),
-              _AnalysisRow(
-                label: l10n.signLabel,
-                value: token.grammaticalSign.forLanguage(languageCode),
-              ),
-              _AnalysisRow(label: l10n.endingLabel, value: token.ending),
+              _AnalysisRow(label: l10n.stateLabel, value: state),
+              if (!isIndeclinable)
+                _AnalysisRow(
+                  label: l10n.signLabel,
+                  value:
+                      '${token.grammaticalSign.forLanguage(languageCode)} (${token.ending})',
+                ),
               _AnalysisRow(
                 label: l10n.reasonLabel,
                 value: token.reason.forLanguage(languageCode),

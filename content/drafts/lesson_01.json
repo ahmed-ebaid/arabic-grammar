@@ -174,8 +174,16 @@
           "ar": "أن تلاحظ أن حركة آخر الكلمة قد تدل على وظيفتها في الجملة."
         },
         {
+          "en": "Identify which vowel ending applies to the word الطالب in context.",
+          "ar": "أن تتعرَّف أيَّ حركةٍ تلحق كلمةَ الطالب."
+        },
+        {
           "en": "Recognize raf, nasb, jarr, and jazm as four grammatical states.",
           "ar": "أن تتعرَّف الرفع والنصب والجر والجزم بوصفها حالات إعرابية."
+        },
+        {
+          "en": "Use grammar, morphology, and context to choose the correct reading.",
+          "ar": "أن تستعين بالقواعد النحوية والصرفية والسياق لاختيار القراءة الصحيحة."
         }
       ],
       "prerequisites": [],
@@ -189,8 +197,8 @@
             "ar": "لأواخر الكلمات معنى"
           },
           "body": {
-            "en": "Arabic word endings are not decorative. In many sentences, the final vowel helps show whether a noun is the topic, the subject, the object, or follows a preposition. Endings also mark verbs: a present-tense verb (الفعل المضارع, the action-word form for now or habitual actions) can end in jazm after certain particles, while jarr only ever marks a noun. We will learn these patterns gradually.",
-            "ar": "حركات أواخر الكلمات ليست للزينة. ففي جمل كثيرة تساعد الحركة الأخيرة على بيان وظيفة الاسم: أهو مبتدأ، أم فاعل، أم مفعول به، أم اسم بعد حرف جر؟ وتُستخدم الحركات لتمييز الأفعال أيضًا: فالفعل المضارع (صيغة الفعل الدالة على الحاضر أو المعتاد) قد ينتهي بحركة الجزم بعد أدوات معيّنة، أما الجر فلا يلحق إلا الأسماء. وسنتعلَّم هذه الأنماط بالتدرُّج."
+            "en": "Word endings can change with a word's grammatical role and the meaning of the sentence. In many sentences, the final vowel helps identify a noun's role: topic, subject, object, or a noun governed by a preposition. Use grammar, morphology, and context together to choose the correct reading. Endings also mark verbs: a present-tense verb (الفعل المضارع, the action-word form for now or habitual actions) can take jazm after certain particles, while jarr marks nouns only. We will learn these patterns gradually.",
+            "ar": "قد تتغير أواخر الكلمات تبعًا لوظيفتها الإعرابية واختلاف معنى الكلام. ففي كثير من الجمل تساعدنا الحركة الأخيرة على معرفة وظيفة الاسم: أهو مبتدأ، أم فاعل، أم مفعول به، أم اسم مجرور؟ ونستعين بالقواعد النحوية والصرفية والسياق لاختيار القراءة الصحيحة. وتُستخدم الحركات لتمييز الأفعال أيضًا: فالفعل المضارع (صيغة الفعل الدالة على الحاضر أو المعتاد) قد يُجزم بعد أدوات معيّنة، أما الجر فيلحق الأسماء وحدها. وسنتعلَّم هذه الأنماط بالتدرُّج."
           },
           "examples": []
         },
@@ -717,8 +725,8 @@
             "ar": "أقسام الكلمة ثلاثة"
           },
           "body": {
-            "en": "A noun names a person, place, thing, or idea. A verb carries an action with time. A particle connects meanings, such as في (in). Recognizing the kind narrows the possible reading.",
-            "ar": "الاسم يدل على إنسان أو مكان أو شيء أو معنى، والفعل يدل على حدث وزمن، والحرف يربط المعاني مثل «في». ومعرفة نوع الكلمة تضيق احتمالات قراءتها."
+            "en": "A noun expresses a meaning on its own without being tied to a time, such as محمد (Muhammad), مكة (Mecca), or شجرة (tree). A verb expresses a meaning on its own and is tied to a time, such as أكل (ate), يكتب (writes), or اجلس (sit down). A particle has meaning through its relation to other words. Identifying a word's kind is an important first step in determining the sentence type and how to parse it.",
+            "ar": "الاسم: ما دلَّ على معنى في نفسه ولم يقترن بزمن، مثل: محمد، ومكة، وشجرة. والفعل: ما دلَّ على معنى في نفسه واقترن بزمن، مثل: أكل، ويكتب، واجلس. والحرف: ما دلَّ على معنى في غيره. ومعرفة نوع الكلمة مدخل مهم لتحديد نوع الجملة وكيفية إعرابها."
           },
           "examples": []
         },
@@ -730,8 +738,8 @@
             "ar": "ابحث عن كل قسم"
           },
           "body": {
-            "en": "In كَتَبَ الطَّالِبُ الدَّرْسَ, كتب is a past-tense verb. الطالب and الدرس are nouns. The noun after the verb performs the action, while the final noun receives it.",
-            "ar": "في «كَتَبَ الطَّالِبُ الدَّرْسَ»، «كتب» فعل ماضٍ، و«الطالب» و«الدرس» اسمان. الاسم بعد الفعل قام بالحدث، والاسم الأخير وقع عليه الحدث."
+            "en": "In كَتَبَ الطَّالِبُ الدَّرْسَ, كتب is a past-tense verb. الطالب performed the action of writing, while الدرس is what the action was done to. The student is the writer, and the lesson is what was written.",
+            "ar": "في جملة «كَتَبَ الطَّالِبُ الدَّرْسَ»، «كتب» فعل ماضٍ، و«الطالب» هو من قام بفعل الكتابة، أما «الدرس» فهو ما وقع عليه فعل الكتابة. فالطالب كاتبٌ، والدرس مكتوبٌ."
           },
           "examples": [
             {
@@ -788,7 +796,7 @@
                   "grammarState": "nasb",
                   "grammaticalSign": {
                     "en": "Visible fatha",
-                    "ar": "الفتحة الظاهرة"
+                    "ar": "الفتحة الظاهرة على آخره"
                   },
                   "ending": "َ",
                   "reason": {
@@ -808,8 +816,8 @@
             "ar": "علامة نافعة"
           },
           "body": {
-            "en": "A preposition such as في is a particle. The noun after it is in jarr: في البيتِ. This pattern will help you choose kasra even when it is not written.",
-            "ar": "حرف الجر مثل «في» حرف، والاسم بعده مجرور: «في البيتِ». سيساعدك هذا النمط على اختيار الكسرة ولو لم تكن مكتوبة."
+            "en": "A preposition such as في is a particle. The noun after it is in jarr, as in جلست في البيت (I sat in the house). This pattern will help you choose kasra even when it is not written.",
+            "ar": "حرف الجر مثل «في» حرف، والاسم بعده مجرور، مثل: «جلست في البيت». سيساعدك هذا النمط على اختيار الكسرة ولو لم تكن مكتوبة."
           },
           "examples": []
         }
@@ -1094,8 +1102,8 @@
           "id": "lesson-02-repeat-kind-02",
           "type": "matchRule",
           "prompt": {
-            "en": "Which word is a particle in لعب الولد في الحديقة؟",
-            "ar": "أي كلمة حرف في «لعب الولد في الحديقة»؟"
+            "en": "Identify the particle in the sentence لعب الولد في الحديقة.",
+            "ar": "عيّن الحرف في جملة «لعب الولد في الحديقة»."
           },
           "options": [
             {
@@ -1140,8 +1148,8 @@
           "id": "lesson-02-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "In لعب الولد في الحديقة, which word performed the action؟",
-            "ar": "في «لعب الولد في الحديقة»، أي كلمة قامت بالفعل؟"
+            "en": "In لعب الولد في الحديقة, which word identifies who performed the action (playing)?",
+            "ar": "في جملة «لعب الولد في الحديقة»، ما الكلمة التي تدل على من قام بالفعل (اللعب)؟"
           },
           "options": [
             {
@@ -1186,8 +1194,8 @@
           "id": "lesson-02-repeat-ending-04",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for الحديقة_ after في.",
-            "ar": "اختر حركة آخر «الحديقةـ» بعد «في»."
+            "en": "In the sentence لعب الولد في الحديقة, which vowel belongs at the end of الحديقة?",
+            "ar": "في جملة «لعب الولد في الحديقة»، ما الحركة التي تكون على آخر كلمة «الحديقة»؟"
           },
           "options": [
             {

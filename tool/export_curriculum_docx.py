@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Export the app curriculum to an editable Microsoft Word review document."""
+"""Export the app curriculum to an editable Arabic teacher-review document.
+
+The export mirrors the learner experience: every label is Arabic, and tables
+carry only the fields the app actually renders. Fields that exist in the
+curriculum JSON but are never shown to a learner (token spans, unvocalized
+forms, option and source identifiers, license metadata) are deliberately
+omitted so reviewers assess exactly what ships.
+"""
 
 from __future__ import annotations
 
@@ -8,7 +15,7 @@ import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from docx import Document
 from docx.enum.section import WD_SECTION
@@ -25,40 +32,93 @@ DEFAULT_OUTPUT = (
     REPO_ROOT / "docs" / "review" / "arabic-grammar-curriculum-review.docx"
 )
 
+ARABIC_FONT = "Arial"
 
-def localized(value: dict[str, str]) -> str:
-    return f"English: {value['en']}\nArabic: {value['ar']}"
+# Mirrors _TokenCard._grammarState in lesson_detail_screen.dart.
+GRAMMAR_STATE_AR = {
+    "raf": "رفع",
+    "nasb": "نصب",
+    "jarr": "جر",
+    "jazm": "جزم",
+    "indeclinable": "مبني",
+}
+
+EXERCISE_TYPE_AR = {
+    "addTashkeel": "إضافة التشكيل",
+    "chooseEnding": "اختيار العلامة",
+    "identifyRole": "تحديد الوظيفة",
+    "identifyState": "تحديد الحالة",
+    "matchRule": "مطابقة القاعدة",
+}
+
+SECTION_TYPE_AR = {
+    "introduction": "تمهيد",
+    "ruleSummary": "ملخّص القاعدة",
+    "workedExample": "مثال محلول",
+}
+
+REVIEW_STATUS_AR = {
+    "pendingReview": "بانتظار المراجعة",
+    "approved": "معتمد",
+}
+
+_ARABIC_DIGITS = str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩")
+
+
+def ar_num(value: Any) -> str:
+    """Render a number with Arabic-Indic digits, matching the app."""
+    return str(value).translate(_ARABIC_DIGITS)
+
+
+def ar(value: dict[str, str]) -> str:
+    return value["ar"]
+
+
+def _append_once(properties: Any, tag: str) -> None:
+    if properties.find(qn(tag)) is None:
+        properties.append(OxmlElement(tag))
 
 
 def set_rtl(paragraph: Any) -> None:
     paragraph.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    properties = paragraph._p.get_or_add_pPr()
-    bidi = properties.find(qn("w:bidi"))
-    if bidi is None:
-        properties.append(OxmlElement("w:bidi"))
+    _append_once(paragraph._p.get_or_add_pPr(), "w:bidi")
 
 
-def add_arabic_paragraph(
+def style_run(run: Any, *, bold: bool = False, size: Any = None) -> None:
+    run.bold = bold
+    run.font.name = ARABIC_FONT
+    if size is not None:
+        run.font.size = size
+    properties = run._element.get_or_add_rPr()
+    properties.rFonts.set(qn("w:cs"), ARABIC_FONT)
+    _append_once(properties, "w:rtl")
+
+
+def add_paragraph_ar(
     container: Any,
     text: str,
     *,
     style: str | None = None,
     bold: bool = False,
+    size: Any = None,
 ) -> Any:
     paragraph = container.add_paragraph(style=style)
     set_rtl(paragraph)
-    run = paragraph.add_run(text)
-    run.bold = bold
-    run.font.name = "Arial"
-    run._element.rPr.rFonts.set(qn("w:cs"), "Arial")
+    style_run(paragraph.add_run(text), bold=bold, size=size)
     return paragraph
 
 
+def add_heading_ar(document: Document, text: str, level: int) -> Any:
+    heading = document.add_heading("", level=level)
+    set_rtl(heading)
+    style_run(heading.add_run(text))
+    return heading
+
+
 def shade_cell(cell: Any, fill: str) -> None:
-    properties = cell._tc.get_or_add_tcPr()
     shading = OxmlElement("w:shd")
     shading.set(qn("w:fill"), fill)
-    properties.append(shading)
+    cell._tc.get_or_add_tcPr().append(shading)
 
 
 def set_cell_text(
@@ -66,92 +126,53 @@ def set_cell_text(
     text: str,
     *,
     bold: bool = False,
-    rtl: bool = False,
+    size: Any = Pt(9),
 ) -> None:
     cell.text = ""
     paragraph = cell.paragraphs[0]
-    if rtl:
-        set_rtl(paragraph)
-    run = paragraph.add_run(text)
-    run.bold = bold
-    run.font.size = Pt(9)
+    set_rtl(paragraph)
+    style_run(paragraph.add_run(text), bold=bold, size=size)
     cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
 
 
-def add_bilingual_block(
-    document: Document,
-    label: str,
-    value: dict[str, str],
-    *,
-    heading_level: int | None = None,
-) -> None:
-    if heading_level is not None:
-        document.add_heading(label, level=heading_level)
-    elif label:
-        document.add_paragraph(label, style="Heading 4")
-    document.add_paragraph(value["en"])
-    add_arabic_paragraph(document, value["ar"])
+def set_table_rtl(table: Any) -> None:
+    """Make columns flow right-to-left so column 0 renders rightmost."""
+    _append_once(table._tbl.tblPr, "w:bidiVisual")
 
 
-def add_bilingual_table(
-    document: Document,
-    rows: Iterable[tuple[str, str]],
-    *,
-    headers: tuple[str, str] = ("English", "Arabic"),
-) -> None:
-    values = list(rows)
-    table = document.add_table(rows=1, cols=2)
+def add_rtl_table(document: Document, headers: list[str], fill: str) -> Any:
+    table = document.add_table(rows=1, cols=len(headers))
     table.style = "Table Grid"
-    set_cell_text(table.rows[0].cells[0], headers[0], bold=True)
-    set_cell_text(table.rows[0].cells[1], headers[1], bold=True, rtl=True)
-    shade_cell(table.rows[0].cells[0], "D9EAF7")
-    shade_cell(table.rows[0].cells[1], "D9EAF7")
-    for english, arabic in values:
-        cells = table.add_row().cells
-        set_cell_text(cells[0], english)
-        set_cell_text(cells[1], arabic, rtl=True)
+    set_table_rtl(table)
+    for index, header in enumerate(headers):
+        set_cell_text(table.rows[0].cells[index], header, bold=True)
+        shade_cell(table.rows[0].cells[index], fill)
+    return table
 
 
 def add_example(document: Document, example: dict[str, Any]) -> None:
-    document.add_heading(
-        f"Example: {example['id']}",
-        level=4,
-    )
-    table = document.add_table(rows=2, cols=2)
-    table.style = "Table Grid"
-    set_cell_text(table.cell(0, 0), "With vowel marks", bold=True)
-    set_cell_text(
-        table.cell(0, 1),
-        example["vocalized"],
-        rtl=True,
-    )
-    set_cell_text(table.cell(1, 0), "Without vowel marks", bold=True)
-    set_cell_text(
-        table.cell(1, 1),
-        example["unvocalized"],
-        rtl=True,
-    )
+    add_heading_ar(document, f"مثال ({example['id']})", level=4)
+    add_paragraph_ar(document, example["vocalized"], size=Pt(16))
 
-    document.add_paragraph("Token-level analysis", style="Heading 5")
-    token_table = document.add_table(rows=1, cols=7)
-    token_table.style = "Table Grid"
-    headers = ["Token", "Span", "Role", "State", "Sign", "Ending", "Reason"]
-    for index, header in enumerate(headers):
-        set_cell_text(token_table.rows[0].cells[index], header, bold=True)
-        shade_cell(token_table.rows[0].cells[index], "FFF2CC")
+    add_heading_ar(document, "تحليل الكلمات", level=5)
+    table = add_rtl_table(
+        document,
+        ["الكلمة", "الوظيفة", "الحالة", "العلامة", "السبب"],
+        fill="FFF2CC",
+    )
     for token in example["tokens"]:
-        cells = token_table.add_row().cells
+        indeclinable = token["grammarState"] == "indeclinable"
+        sign = ar(token["grammaticalSign"])
+        cells = table.add_row().cells
         values = [
-            token["text"],
-            f"{token['start']}–{token['end']}",
-            localized(token["role"]),
-            token["grammarState"],
-            localized(token["grammaticalSign"]),
-            token["ending"],
-            localized(token["reason"]),
+            f"{token['text']}{token['ending']}",
+            ar(token["role"]),
+            sign if indeclinable else GRAMMAR_STATE_AR[token["grammarState"]],
+            "—" if indeclinable else f"{sign} ({token['ending']})",
+            ar(token["reason"]),
         ]
         for index, value in enumerate(values):
-            set_cell_text(cells[index], value, rtl=index in {0, 5})
+            set_cell_text(cells[index], value)
 
 
 def add_exercise(
@@ -159,75 +180,75 @@ def add_exercise(
     exercise: dict[str, Any],
     number: int,
 ) -> None:
-    document.add_heading(
-        f"{number}. {exercise['id']} — {exercise['type']}",
+    add_heading_ar(
+        document,
+        f"{ar_num(number)}. {EXERCISE_TYPE_AR[exercise['type']]} "
+        f"({exercise['id']})",
         level=4,
     )
-    add_bilingual_block(document, "Prompt", exercise["prompt"])
-    table = document.add_table(rows=1, cols=5)
-    table.style = "Table Grid"
-    headers = ["Correct", "Option ID", "English label", "Arabic label", "Feedback"]
-    for index, header in enumerate(headers):
-        set_cell_text(table.rows[0].cells[index], header, bold=True)
-        shade_cell(table.rows[0].cells[index], "E2F0D9")
+    add_paragraph_ar(document, ar(exercise["prompt"]))
+    table = add_rtl_table(
+        document,
+        ["الإجابة الصحيحة", "الخيار", "التغذية الراجعة"],
+        fill="E2F0D9",
+    )
     for option in exercise["options"]:
         cells = table.add_row().cells
         values = [
-            "YES" if option["isCorrect"] else "",
-            option["id"],
-            option["label"]["en"],
-            option["label"]["ar"],
-            localized(option["feedback"]),
+            "✔" if option["isCorrect"] else "",
+            ar(option["label"]),
+            ar(option["feedback"]),
         ]
         for index, value in enumerate(values):
-            set_cell_text(cells[index], value, rtl=index == 3)
+            set_cell_text(cells[index], value)
         if option["isCorrect"]:
             for cell in cells:
                 shade_cell(cell, "E2F0D9")
 
 
 def add_sources(document: Document, sources: list[dict[str, Any]]) -> None:
-    document.add_heading("Sources and provenance", level=3)
-    table = document.add_table(rows=1, cols=5)
-    table.style = "Table Grid"
-    headers = ["ID", "Title / Author", "License", "URL", "Citation"]
-    for index, header in enumerate(headers):
-        set_cell_text(table.rows[0].cells[index], header, bold=True)
-        shade_cell(table.rows[0].cells[index], "D9EAF7")
+    add_heading_ar(document, "المصادر", level=3)
+    table = add_rtl_table(
+        document,
+        ["العنوان", "المؤلف", "الاقتباس"],
+        fill="D9EAF7",
+    )
     for source in sources:
         cells = table.add_row().cells
         values = [
-            source["id"],
-            f"{localized(source['title'])}\n{localized(source['author'])}",
-            source["licenseStatus"],
-            source["url"] or "N/A",
-            localized(source["citation"]),
+            ar(source["title"]),
+            ar(source["author"]),
+            ar(source["citation"]),
         ]
         for index, value in enumerate(values):
             set_cell_text(cells[index], value)
 
 
 def add_review_worksheet(document: Document, lesson: dict[str, Any]) -> None:
-    document.add_heading("Teacher review worksheet", level=3)
+    add_heading_ar(document, "استمارة مراجعة المعلّم", level=3)
     review = lesson["review"]
-    document.add_paragraph(
-        f"Current app status: {review['status']} | "
-        f"Content version: {review['contentVersion']}"
+    status = REVIEW_STATUS_AR.get(review["status"], review["status"])
+    add_paragraph_ar(
+        document,
+        f"الحالة الحالية في التطبيق: {status} | "
+        f"إصدار المحتوى: {review['contentVersion']}",
     )
-    table = document.add_table(rows=6, cols=2)
+    table = document.add_table(rows=0, cols=2)
     table.style = "Table Grid"
+    set_table_rtl(table)
     fields = [
-        ("Decision", "Approve / Approve with changes / Return for revision"),
-        ("Reviewer name and qualifications", ""),
-        ("Review date", ""),
-        ("Required corrections", ""),
-        ("Optional recommendations", ""),
-        ("Final approval signature or initials", ""),
+        ("القرار", "اعتماد / اعتماد مع تعديلات / إعادة للمراجعة"),
+        ("اسم المراجع ومؤهلاته", ""),
+        ("تاريخ المراجعة", ""),
+        ("التصويبات المطلوبة", ""),
+        ("التوصيات الاختيارية", ""),
+        ("التوقيع أو الأحرف الأولى للاعتماد", ""),
     ]
-    for row, (label, value) in zip(table.rows, fields):
+    for label, value in fields:
+        row = table.add_row()
         set_cell_text(row.cells[0], label, bold=True)
         set_cell_text(row.cells[1], value)
-        row.height = Inches(0.45 if label != "Required corrections" else 1.0)
+        row.height = Inches(1.0 if label == "التصويبات المطلوبة" else 0.45)
 
 
 def add_lesson(
@@ -235,45 +256,39 @@ def add_lesson(
     lesson: dict[str, Any],
     level: dict[str, Any],
 ) -> None:
-    document.add_heading(
-        f"Lesson {lesson['order']}: {lesson['title']['en']}",
+    add_heading_ar(
+        document,
+        f"الدرس {ar_num(lesson['order'])}: {ar(lesson['title'])}",
         level=1,
     )
-    add_arabic_paragraph(
+    prerequisites = "، ".join(lesson["prerequisites"]) or "لا يوجد"
+    add_paragraph_ar(
         document,
-        lesson["title"]["ar"],
-        style="Title",
-        bold=True,
-    )
-    document.add_paragraph(
-        f"Lesson ID: {lesson['id']} | Level: {level['id']} | "
-        f"Estimated time: {lesson['estimatedMinutes']} minutes | "
-        f"Prerequisites: {', '.join(lesson['prerequisites']) or 'None'}"
+        f"معرّف الدرس: {lesson['id']} | المستوى: {ar(level['title'])} | "
+        f"الزمن التقديري: {ar_num(lesson['estimatedMinutes'])} دقيقة | "
+        f"المتطلبات السابقة: {prerequisites}",
     )
 
-    document.add_heading("Objectives", level=3)
-    add_bilingual_table(
-        document,
-        ((item["en"], item["ar"]) for item in lesson["objectives"]),
-    )
+    add_heading_ar(document, "الأهداف", level=3)
+    for objective in lesson["objectives"]:
+        add_paragraph_ar(document, ar(objective), style="List Bullet")
 
-    document.add_heading("Teaching sections and examples", level=2)
+    add_heading_ar(document, "الشرح والأمثلة", level=2)
     for section in lesson["sections"]:
-        document.add_heading(
-            f"{section['title']['en']} ({section['id']} — {section['type']})",
+        add_heading_ar(
+            document,
+            f"{ar(section['title'])} ({SECTION_TYPE_AR[section['type']]})",
             level=3,
         )
-        document.add_paragraph(section["body"]["en"])
-        add_arabic_paragraph(document, section["title"]["ar"], bold=True)
-        add_arabic_paragraph(document, section["body"]["ar"])
+        add_paragraph_ar(document, ar(section["body"]))
         for example in section["examples"]:
             add_example(document, example)
 
-    document.add_heading("Primary exercises", level=2)
+    add_heading_ar(document, "التمارين الأساسية", level=2)
     for number, exercise in enumerate(lesson["exercises"], start=1):
         add_exercise(document, exercise, number)
 
-    document.add_heading("Alternate repeat exercises", level=2)
+    add_heading_ar(document, "تمارين المراجعة البديلة", level=2)
     for number, exercise in enumerate(lesson["repeatExercises"], start=1):
         add_exercise(document, exercise, number)
 
@@ -283,13 +298,17 @@ def add_lesson(
 
 def configure_document(document: Document) -> None:
     styles = document.styles
-    styles["Normal"].font.name = "Arial"
+    headings = ["Heading 1", "Heading 2", "Heading 3", "Heading 4", "Heading 5"]
+    for name in ["Normal", "Title", *headings]:
+        style = styles[name]
+        style.font.name = ARABIC_FONT
+        style.element.get_or_add_rPr().get_or_add_rFonts().set(
+            qn("w:cs"), ARABIC_FONT
+        )
     styles["Normal"].font.size = Pt(10)
-    styles["Title"].font.name = "Arial"
     styles["Title"].font.size = Pt(26)
     styles["Title"].font.color.rgb = RGBColor(20, 75, 110)
-    for name in ["Heading 1", "Heading 2", "Heading 3", "Heading 4", "Heading 5"]:
-        styles[name].font.name = "Arial"
+    for name in headings:
         styles[name].font.color.rgb = RGBColor(20, 75, 110)
 
     for section in document.sections:
@@ -305,61 +324,67 @@ def add_front_matter(
     source_hash: str,
     generated_at: datetime,
 ) -> None:
-    document.add_heading("I'rab Curriculum Review Document", level=0)
-    add_arabic_paragraph(document, "وثيقة مراجعة منهج إعراب", style="Title")
-    document.add_paragraph(
-        "Editable teacher-review export generated directly from the same "
-        "curriculum JSON bundled in the app."
+    add_heading_ar(document, "وثيقة مراجعة منهج إعراب", level=0)
+    add_paragraph_ar(
+        document,
+        "نسخة قابلة للتحرير لمراجعة المعلّمين، مُولّدة مباشرة من ملف المنهج "
+        "نفسه المضمَّن في التطبيق. تقتصر هذه الوثيقة على ما يظهر للمتعلّم "
+        "داخل التطبيق.",
     )
     metadata = [
-        ("Curriculum version", catalog["contentVersion"]),
-        ("Schema version", str(catalog["schemaVersion"])),
-        ("Levels", str(len(catalog["levels"]))),
-        ("Lessons", str(len(catalog["lessons"]))),
-        ("Generated", generated_at.isoformat()),
-        ("Source SHA-256", source_hash),
+        ("إصدار المنهج", catalog["contentVersion"]),
+        ("إصدار المخطط", ar_num(catalog["schemaVersion"])),
+        ("عدد المستويات", ar_num(len(catalog["levels"]))),
+        ("عدد الدروس", ar_num(len(catalog["lessons"]))),
+        ("تاريخ التوليد", generated_at.strftime("%Y-%m-%d %H:%M UTC")),
+        ("بصمة المصدر SHA-256", source_hash),
     ]
     table = document.add_table(rows=0, cols=2)
     table.style = "Table Grid"
+    set_table_rtl(table)
     for label, value in metadata:
         cells = table.add_row().cells
         set_cell_text(cells[0], label, bold=True)
         set_cell_text(cells[1], value)
 
-    document.add_heading("Reviewer instructions", level=1)
+    add_heading_ar(document, "إرشادات المراجعة", level=1)
     for instruction in [
-        "Use Word comments for observations tied to exact wording.",
-        "Use Track Changes for proposed replacement text.",
-        "Review both primary and alternate exercises; both appear in the app.",
-        "Verify each marked correct answer and all feedback, including incorrect-answer feedback.",
-        "Record required corrections and approval in each lesson's worksheet.",
-        "The app content must not be promoted to production until qualified review is complete.",
+        "استخدم تعليقات Word لإبداء الملاحظات المرتبطة بصياغة بعينها.",
+        "استخدم خاصية تتبّع التغييرات لاقتراح النص البديل.",
+        "راجع التمارين الأساسية وتمارين المراجعة معًا؛ فكلاهما يظهر في التطبيق.",
+        "تحقّق من كل إجابة مُعلَّمة بأنها صحيحة، ومن جميع رسائل التغذية الراجعة "
+        "بما فيها رسائل الإجابات الخاطئة.",
+        "سجّل التصويبات المطلوبة وقرار الاعتماد في استمارة المراجعة لكل درس.",
+        "لا يجوز اعتماد محتوى التطبيق للنشر قبل اكتمال مراجعة مختص.",
     ]:
-        document.add_paragraph(instruction, style="List Bullet")
+        add_paragraph_ar(document, instruction, style="List Bullet")
 
-    document.add_heading("Curriculum index", level=1)
+    add_heading_ar(document, "فهرس المنهج", level=1)
     lessons_by_id = {lesson["id"]: lesson for lesson in catalog["lessons"]}
     for level in catalog["levels"]:
-        document.add_heading(
-            f"{level['title']['en']} / {level['title']['ar']}",
-            level=2,
-        )
-        document.add_paragraph(localized(level["description"]))
+        add_heading_ar(document, ar(level["title"]), level=2)
+        add_paragraph_ar(document, ar(level["description"]))
         for lesson_id in level["lessonIds"]:
             lesson = lessons_by_id[lesson_id]
-            document.add_paragraph(
-                f"{lesson['order']}. {lesson['title']['en']} / "
-                f"{lesson['title']['ar']} ({lesson_id})",
-                style="List Number",
+            add_paragraph_ar(
+                document,
+                f"{ar_num(lesson['order'])}. {ar(lesson['title'])}",
             )
     document.add_page_break()
 
 
 def add_header(document: Document, content_version: str) -> None:
-    section = document.sections[0]
-    header = section.header.paragraphs[0]
-    header.text = f"I'rab curriculum review — {content_version}"
+    header = document.sections[0].header.paragraphs[0]
+    header.text = ""
+    set_rtl(header)
     header.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    style_run(header.add_run(f"مراجعة منهج إعراب — {content_version}"))
+
+
+def apply_section_rtl(document: Document) -> None:
+    """Every lesson starts a new section; all of them must be RTL."""
+    for section in document.sections:
+        _append_once(section._sectPr, "w:bidi")
 
 
 def export(source_path: Path, output_path: Path) -> None:
@@ -381,6 +406,7 @@ def export(source_path: Path, output_path: Path) -> None:
         if index < len(catalog["lessons"]) - 1:
             document.add_section(WD_SECTION.NEW_PAGE)
     add_header(document, catalog["contentVersion"])
+    apply_section_rtl(document)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     document.save(output_path)

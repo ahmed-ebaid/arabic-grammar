@@ -10,7 +10,6 @@ import 'features/home/home_screen.dart';
 import 'features/lessons/lessons_screen.dart';
 import 'features/practice/practice_screen.dart';
 import 'features/progress/progress_screen.dart';
-import 'features/settings/language_button.dart';
 import 'l10n/app_localizations.dart';
 
 class RootScaffold extends StatefulWidget {
@@ -113,7 +112,6 @@ class _RootScaffoldState extends State<RootScaffold> {
               ),
             ],
           ),
-          const LanguageButton(),
         ],
       ),
       body: IndexedStack(

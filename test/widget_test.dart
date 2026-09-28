@@ -10,42 +10,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('renders the bilingual application shell', (tester) async {
-    final localeController = LocaleController.inMemory();
+  testWidgets(
+    'renders the Arabic-only shell without language or speaker controls',
+    (tester) async {
+      final localeController = LocaleController.inMemory(const Locale('ar'));
 
-    await tester.pumpWidget(
-      ArabicGrammarApp(
-        environment: const AppEnvironment(AppFlavor.production),
-        localeController: localeController,
-        lessonProgressController: LessonProgressController.inMemory(),
-      ),
-    );
-    await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: localeController,
+          lessonProgressController: LessonProgressController.inMemory(),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
 
-    expect(find.text('Learn why Arabic endings change'), findsOneWidget);
-    expect(find.text('الطَّالِبُ مُجْتَهِدٌ'), findsOneWidget);
-    expect(find.text('Lessons'), findsOneWidget);
-    final arabicTextDirection = tester.widget<Directionality>(
-      find
-          .ancestor(
-            of: find.text('الطَّالِبُ مُجْتَهِدٌ'),
-            matching: find.byType(Directionality),
-          )
-          .first,
-    );
-    expect(arabicTextDirection.textDirection, TextDirection.rtl);
+      expect(find.text('تعلَّم لماذا تتغيَّر أواخر الكلمات'), findsOneWidget);
+      expect(find.text('الطَّالِبُ مُجْتَهِدٌ'), findsOneWidget);
+      expect(find.text('الدروس'), findsOneWidget);
+      expect(find.text('Learn why Arabic endings change'), findsNothing);
+      expect(find.byTooltip('اللغة'), findsNothing);
+      expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
 
-    await localeController.setLocale(const Locale('ar'));
-    await tester.pump(const Duration(milliseconds: 500));
-
-    expect(find.text('تعلَّم لماذا تتغيَّر أواخر الكلمات'), findsOneWidget);
-    expect(
-      tester
-          .widget<Directionality>(find.byType(Directionality).first)
-          .textDirection,
-      TextDirection.rtl,
-    );
-  });
+      expect(
+        tester
+            .widget<Directionality>(find.byType(Directionality).first)
+            .textDirection,
+        TextDirection.rtl,
+      );
+    },
+  );
 
   testWidgets('opens lesson 1 from home', (tester) async {
     await tester.pumpWidget(
@@ -223,12 +216,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Why endings change'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
+    for (var i = 0; i < 3; i++) {
+      await tester.ensureVisible(find.text('Continue'));
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+    }
     await tester.tap(find.text('الطالبُ'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Continue'));
@@ -289,6 +281,7 @@ void main() {
     expect(find.text('What you will learn'), findsOneWidget);
 
     for (var i = 0; i < 3; i++) {
+      await tester.ensureVisible(find.text('Continue'));
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
     }
