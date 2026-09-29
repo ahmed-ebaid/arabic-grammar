@@ -14,17 +14,19 @@ let outputPath = arguments.first(where: { !$0.hasPrefix("--") })
   ?? "assets/app_icon/app_icon_1024.png"
 
 let size = NSSize(width: 1024, height: 1024)
-let greenTop = NSColor(calibratedRed: 0.22, green: 0.78, blue: 0.48, alpha: 1)
-let greenBottom = NSColor(calibratedRed: 0.03, green: 0.47, blue: 0.39, alpha: 1)
-let ivory = NSColor(calibratedRed: 0.98, green: 0.95, blue: 0.85, alpha: 1)
+let gradientTop = NSColor(calibratedRed: 0.25, green: 0.56, blue: 0.77, alpha: 1)
+let gradientBottom = NSColor(calibratedRed: 0.08, green: 0.32, blue: 0.59, alpha: 1)
+let titleColor = NSColor.white
+let titleCenter = CGPoint(x: size.width / 2, y: 494)
+let maxTitleWidth: CGFloat = 836
+let maxTitleHeight: CGFloat = 560
+let shadow = NSShadow()
+shadow.shadowBlurRadius = 18
+shadow.shadowOffset = NSSize(width: 0, height: -10)
+shadow.shadowColor = NSColor(calibratedWhite: 0, alpha: 0.16)
 
-// Adaptive launcher layers are masked and the generated adaptive-icon XML
-// already insets them by 16% (drawable -> 68% of the canvas). Budget the
-// word against that: 820/1024 of the drawable lands at ~82% of the visible
-// 72dp viewport, inside the 66dp keyline circle on every mask shape.
-let isAdaptiveLayer = isForeground || isMonochrome
-let maxTitleWidth: CGFloat = isAdaptiveLayer ? 820 : 800
-let maxTitleHeight: CGFloat = isAdaptiveLayer ? 390 : 340
+// Match the Tajweed app's Farah lettering, gradient background, and soft shadow.
+// The Android adaptive-icon XML applies its existing 16% inset to the layers.
 
 guard let context = CGContext(
   data: nil,
@@ -44,27 +46,21 @@ NSGraphicsContext.saveGraphicsState()
 NSGraphicsContext.current = NSGraphicsContext(cgContext: context, flipped: false)
 
 if !isForeground && !isMonochrome {
-  NSGradient(starting: greenTop, ending: greenBottom)?
+  NSGradient(starting: gradientTop, ending: gradientBottom)?
     .draw(in: NSRect(origin: .zero, size: size), angle: 90)
 }
 
-let fontURL = URL(fileURLWithPath: "assets/fonts/AmiriQuran.ttf")
-guard CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, nil) else {
-  fputs("Failed to load the bundled Amiri calligraphy font\n", stderr)
-  exit(1)
-}
-
-let titleColor = isMonochrome ? NSColor.white : ivory
+let renderedTitleColor = isMonochrome ? NSColor.white : titleColor
 
 func makeTitleLine(pointSize: CGFloat) -> CTLine? {
-  guard let font = NSFont(name: "AmiriQuran-Regular", size: pointSize) else { return nil }
+  guard let font = NSFont(name: "Farah", size: pointSize) else { return nil }
   let paragraph = NSMutableParagraphStyle()
   paragraph.alignment = .center
   paragraph.baseWritingDirection = .rightToLeft
   let attributes: [NSAttributedString.Key: Any] = [
     .font: font,
-    .foregroundColor: titleColor,
-    NSAttributedString.Key(kCTForegroundColorAttributeName as String): titleColor.cgColor,
+    .foregroundColor: renderedTitleColor,
+    NSAttributedString.Key(kCTForegroundColorAttributeName as String): renderedTitleColor.cgColor,
     .paragraphStyle: paragraph,
   ]
   return CTLineCreateWithAttributedString(
@@ -72,11 +68,11 @@ func makeTitleLine(pointSize: CGFloat) -> CTLine? {
   )
 }
 
-// Measure the real glyph outlines. Line-fragment metrics bundle in leading
-// that pushes the word off-centre and lets it overflow the adaptive mask.
+// Measure glyph outlines rather than font leading so the calligraphy stays
+// visually centered and inside the adaptive icon's safe area.
 let probeSize: CGFloat = 512
 guard let probeLine = makeTitleLine(pointSize: probeSize) else {
-  fputs("Failed to load the bundled Amiri calligraphy font\n", stderr)
+  fputs("The Farah font is not available on this Mac\n", stderr)
   exit(1)
 }
 let probeBounds = CTLineGetBoundsWithOptions(probeLine, [.useGlyphPathBounds])
@@ -87,15 +83,22 @@ let titleScale = min(
 
 if !isBackground {
   guard let titleLine = makeTitleLine(pointSize: probeSize * titleScale) else {
-    fputs("Failed to load the bundled Amiri calligraphy font\n", stderr)
+    fputs("The Farah font is not available on this Mac\n", stderr)
     exit(1)
   }
   let titleBounds = CTLineGetBoundsWithOptions(titleLine, [.useGlyphPathBounds])
   context.textMatrix = .identity
   context.textPosition = CGPoint(
-    x: (size.width / 2) - titleBounds.midX,
-    y: (size.height / 2) - titleBounds.midY
+    x: titleCenter.x - titleBounds.midX,
+    y: titleCenter.y - titleBounds.midY
   )
+  if !isMonochrome {
+    context.setShadow(
+      offset: shadow.shadowOffset,
+      blur: shadow.shadowBlurRadius,
+      color: shadow.shadowColor?.cgColor
+    )
+  }
   CTLineDraw(titleLine, context)
 }
 
