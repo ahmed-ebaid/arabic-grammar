@@ -1,7 +1,7 @@
 name: arabic_grammar
 description: A bilingual Arabic grammar learning app.
 publish_to: none
-version: 0.1.0+20
+version: 0.1.0+23
 
 environment:
   sdk: ^3.12.2
@@ -16,6 +16,8 @@ dependencies:
   intl: ^0.20.2
   provider: ^6.1.5+1
   flutter_tts: ^4.2.5
+  purchases_flutter: ^10.10.0
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:

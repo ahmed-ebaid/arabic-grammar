@@ -10,6 +10,7 @@ import 'core/localization/locale_controller.dart';
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/storage/storage_keys.dart';
+import 'core/subscriptions/subscription_controller.dart';
 import 'core/user/user_data_controller.dart';
 
 Future<void> main() async {
@@ -21,6 +22,8 @@ Future<void> main() async {
     'content/drafts/lesson_01.json',
   );
   final contentCatalog = ContentCatalog.fromJson(jsonDecode(contentSource));
+  final subscriptionController =
+      await SubscriptionController.configureFromEnvironment();
 
   runApp(
     ArabicGrammarApp(
@@ -28,6 +31,7 @@ Future<void> main() async {
       localeController: LocaleController(settingsBox),
       lessonProgressController: LessonProgressController(progressBox),
       userDataController: UserDataController(settingsBox),
+      subscriptionController: subscriptionController,
       contentCatalog: contentCatalog,
     ),
   );

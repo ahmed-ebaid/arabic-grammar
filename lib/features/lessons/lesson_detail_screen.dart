@@ -890,7 +890,7 @@ class _TokenCard extends StatelessWidget {
     final isIndeclinable = token.grammarState == GrammarState.indeclinable;
     final state = isIndeclinable
         ? token.grammaticalSign.forLanguage(languageCode)
-        : _grammarState(token.grammarState, languageCode);
+        : _grammarState(token.grammarState, l10n);
     return Card(
       color: colors.sunshineContainer,
       child: Padding(
@@ -924,22 +924,13 @@ class _TokenCard extends StatelessWidget {
     );
   }
 
-  String _grammarState(GrammarState state, String languageCode) {
-    if (languageCode == 'ar') {
-      return switch (state) {
-        GrammarState.raf => 'رفع',
-        GrammarState.nasb => 'نصب',
-        GrammarState.jarr => 'جر',
-        GrammarState.jazm => 'جزم',
-        GrammarState.indeclinable => 'مبني',
-      };
-    }
+  String _grammarState(GrammarState state, AppLocalizations l10n) {
     return switch (state) {
-      GrammarState.raf => 'Raf',
-      GrammarState.nasb => 'Nasb',
-      GrammarState.jarr => 'Jarr',
-      GrammarState.jazm => 'Jazm',
-      GrammarState.indeclinable => 'Indeclinable',
+      GrammarState.raf => l10n.grammarStateRaf,
+      GrammarState.nasb => l10n.grammarStateNasb,
+      GrammarState.jarr => l10n.grammarStateJarr,
+      GrammarState.jazm => l10n.grammarStateJazm,
+      GrammarState.indeclinable => l10n.grammarStateIndeclinable,
     };
   }
 }

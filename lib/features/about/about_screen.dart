@@ -81,33 +81,31 @@ class _AboutScreenState extends State<AboutScreen> {
               ),
               _AboutSection(
                 title: l10n.aboutReviewersTitle,
-                child: reviewers.isEmpty
-                    ? Text(l10n.aboutReviewersPending)
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          for (final reviewer in reviewers)
-                            ListTile(
-                              contentPadding: EdgeInsets.zero,
-                              leading: const Icon(Icons.verified_outlined),
-                              title: Text(reviewer),
-                            ),
-                        ],
-                      ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.school_outlined),
+                      title: Text(l10n.aboutReviewerName),
+                      subtitle: Text(l10n.aboutReviewerCredentials),
+                    ),
+                    if (reviewers.isEmpty) Text(l10n.aboutReviewersPending),
+                    for (final reviewer in reviewers)
+                      if (reviewer != l10n.aboutReviewerName)
+                        ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          leading: const Icon(Icons.verified_outlined),
+                          title: Text(reviewer),
+                        ),
+                  ],
+                ),
               ),
               _AboutSection(
                 title: l10n.aboutContentStatusTitle,
                 child: Text(
                   '${l10n.aboutContentVersion}: ${catalog.contentVersion}\n\n'
                   '${l10n.aboutDisclaimer}',
-                ),
-              ),
-              _AboutSection(
-                title: l10n.aboutContactTitle,
-                child: const SelectableText(
-                  'Ebaid LLC\n'
-                  'ahmed@ebaidllc.com\n'
-                  'ahmed-ebaid.github.io/arabic-grammar',
                 ),
               ),
             ],

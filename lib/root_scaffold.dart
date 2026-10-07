@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
+import 'core/subscriptions/subscription_controller.dart';
 import 'core/user/user_data_controller.dart';
 import 'features/about/about_screen.dart';
 import 'features/bookmarks/bookmarks_screen.dart';
@@ -15,6 +16,7 @@ import 'l10n/app_localizations.dart';
 class RootScaffold extends StatefulWidget {
   const RootScaffold({
     required this.lessonProgressController,
+    required this.subscriptionController,
     required this.userDataController,
     this.contentCatalog,
     super.key,
@@ -22,6 +24,7 @@ class RootScaffold extends StatefulWidget {
 
   final ContentCatalog? contentCatalog;
   final LessonProgressController lessonProgressController;
+  final SubscriptionController subscriptionController;
   final UserDataController userDataController;
 
   @override
@@ -104,6 +107,13 @@ class _RootScaffoldState extends State<RootScaffold> {
                 ),
               ),
               PopupMenuItem(
+                value: _AppMenuAction.restorePurchases,
+                child: ListTile(
+                  leading: const Icon(Icons.restore),
+                  title: Text(l10n.restorePurchases),
+                ),
+              ),
+              PopupMenuItem(
                 value: _AppMenuAction.about,
                 child: ListTile(
                   leading: const Icon(Icons.info_outline),
@@ -125,6 +135,7 @@ class _RootScaffoldState extends State<RootScaffold> {
           LessonsScreen(
             contentCatalog: widget.contentCatalog,
             progressController: widget.lessonProgressController,
+            subscriptionController: widget.subscriptionController,
             userDataController: widget.userDataController,
           ),
           PracticeScreen(
@@ -184,7 +195,37 @@ class _RootScaffoldState extends State<RootScaffold> {
           ),
         );
         return;
+      case _AppMenuAction.restorePurchases:
+        _restorePurchases();
+        return;
     }
+  }
+
+  Future<void> _restorePurchases() async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(l10n.restorePurchasesChecking)));
+
+    final result = await widget.subscriptionController.restorePurchases();
+    if (!mounted) return;
+
+    final message = switch (result) {
+      SubscriptionActionResult.success => l10n.restorePurchasesSuccess,
+      SubscriptionActionResult.noActiveSubscription =>
+        l10n.restorePurchasesNoneFound,
+      SubscriptionActionResult.notConfigured =>
+        widget.subscriptionController.configurationFailed
+            ? l10n.restorePurchasesError
+            : l10n.restorePurchasesUnavailable,
+      SubscriptionActionResult.alreadyRunning => l10n.restorePurchasesChecking,
+      SubscriptionActionResult.cancelled ||
+      SubscriptionActionResult.failed => l10n.restorePurchasesError,
+    };
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
   }
 
   Future<void> _showTextSizeDialog() async {
@@ -256,4 +297,11 @@ class _RootScaffoldState extends State<RootScaffold> {
   }
 }
 
-enum _AppMenuAction { glossary, bookmarks, textSize, learnerProfile, about }
+enum _AppMenuAction {
+  glossary,
+  bookmarks,
+  textSize,
+  learnerProfile,
+  restorePurchases,
+  about,
+}

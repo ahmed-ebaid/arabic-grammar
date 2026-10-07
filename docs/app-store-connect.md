@@ -84,12 +84,10 @@ Arabic,grammar,i3rab,nahw,language,learn,case,endings,vowels,education
 
 ## App Privacy
 
-Select **Data Not Collected** for the curriculum beta. The current App has no
-accounts, analytics, advertising, tracking, or network service and stores
-settings and learning progress only on the device.
-
-Review this answer before enabling any future AI analysis or other network
-feature.
+The subscription beta uses RevenueCat to process app-user identifiers and
+purchase/subscription data. Review and update the App Store privacy answers
+for this configuration; **Data Not Collected** no longer describes the
+subscription-enabled build. Settings and learning progress remain on-device.
 
 Device text-to-speech uses the operating system's installed voices. The app
 does not record speech or send lesson text to an Ebaid LLC service.
@@ -135,8 +133,11 @@ and uploads it for internal testing. It only runs from `main`; it does not
 submit the app for production review. The build number is generated from the
 version in `pubspec.yaml` and the GitHub Actions run number.
 
-Before the first run:
+Store the RevenueCat Apple public SDK key as the Actions secret
+`REVENUECAT_IOS_API_KEY`. Configure the Apple products, the `plus` entitlement,
+and the current offering's monthly/annual packages in RevenueCat.
 
+Before the first run:
 1. In App Store Connect, create an API key with the **App Manager** role.
   Store its issuer ID and key ID as Actions variables named
   `APPSTORE_ISSUER_ID` and `APPSTORE_API_KEY_ID`. Store the contents of its

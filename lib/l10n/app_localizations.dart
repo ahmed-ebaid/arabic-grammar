@@ -104,6 +104,36 @@ abstract class AppLocalizations {
   /// **'إعراب'**
   String get appName;
 
+  /// No description provided for @grammarStateRaf.
+  ///
+  /// In en, this message translates to:
+  /// **'Raf'**
+  String get grammarStateRaf;
+
+  /// No description provided for @grammarStateNasb.
+  ///
+  /// In en, this message translates to:
+  /// **'Nasb'**
+  String get grammarStateNasb;
+
+  /// No description provided for @grammarStateJarr.
+  ///
+  /// In en, this message translates to:
+  /// **'Jarr'**
+  String get grammarStateJarr;
+
+  /// No description provided for @grammarStateJazm.
+  ///
+  /// In en, this message translates to:
+  /// **'Jazm'**
+  String get grammarStateJazm;
+
+  /// No description provided for @grammarStateIndeclinable.
+  ///
+  /// In en, this message translates to:
+  /// **'Indeclinable'**
+  String get grammarStateIndeclinable;
+
   /// No description provided for @homeTab.
   ///
   /// In en, this message translates to:
@@ -617,7 +647,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutPurposeBody.
   ///
   /// In en, this message translates to:
-  /// **'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from vocalized examples to independent reading without vowel marks.'**
+  /// **'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from examples to independent reading without vowel marks.'**
   String get aboutPurposeBody;
 
   /// No description provided for @aboutCompanyTitle.
@@ -644,10 +674,22 @@ abstract class AppLocalizations {
   /// **'Teacher reviewers'**
   String get aboutReviewersTitle;
 
+  /// No description provided for @aboutReviewerName.
+  ///
+  /// In en, this message translates to:
+  /// **'د. شريف محمد الصادق'**
+  String get aboutReviewerName;
+
+  /// No description provided for @aboutReviewerCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University'**
+  String get aboutReviewerCredentials;
+
   /// No description provided for @aboutReviewersPending.
   ///
   /// In en, this message translates to:
-  /// **'Qualified teachers who approve curriculum content will be credited here with their permission. Current beta lessons are still pending review.'**
+  /// **'Current beta lessons are still under review and have not yet been approved.'**
   String get aboutReviewersPending;
 
   /// No description provided for @aboutContentStatusTitle.
@@ -667,12 +709,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.'**
   String get aboutDisclaimer;
-
-  /// No description provided for @aboutContactTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Support and legal information'**
-  String get aboutContactTitle;
 
   /// No description provided for @language.
   ///
@@ -697,6 +733,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @restorePurchasesChecking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking for previous purchases…'**
+  String get restorePurchasesChecking;
+
+  /// No description provided for @restorePurchasesSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Your subscription has been restored.'**
+  String get restorePurchasesSuccess;
+
+  /// No description provided for @restorePurchasesNoneFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No active subscription was found for this store account.'**
+  String get restorePurchasesNoneFound;
+
+  /// No description provided for @restorePurchasesUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase restoration is not configured yet.'**
+  String get restorePurchasesUnavailable;
+
+  /// No description provided for @restorePurchasesError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not restore your subscription. Check your connection and try again.'**
+  String get restorePurchasesError;
+
+  /// No description provided for @plusTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'إعراب Plus'**
+  String get plusTitle;
+
+  /// No description provided for @plusDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue your grammar journey with advanced study.'**
+  String get plusDescription;
+
+  /// No description provided for @plusBenefitLessons.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Level 2 and all following levels.'**
+  String get plusBenefitLessons;
+
+  /// No description provided for @plusBenefitPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice across a wider range of grammar topics.'**
+  String get plusBenefitPractice;
+
+  /// No description provided for @plusBenefitExplanations.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore extended explanations and examples.'**
+  String get plusBenefitExplanations;
+
+  /// No description provided for @plusLevelNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'إعراب Plus subscription required for this level.'**
+  String get plusLevelNotice;
+
+  /// No description provided for @plusRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to إعراب Plus to unlock this level.'**
+  String get plusRequired;
+
+  /// No description provided for @plusMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly subscription'**
+  String get plusMonthly;
+
+  /// No description provided for @plusAnnual.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual subscription'**
+  String get plusAnnual;
+
+  /// No description provided for @plusPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Renews every month'**
+  String get plusPerMonth;
+
+  /// No description provided for @plusPerYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Renews every year'**
+  String get plusPerYear;
+
+  /// No description provided for @plusPurchaseAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe'**
+  String get plusPurchaseAction;
+
+  /// No description provided for @plusPurchaseSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'إعراب Plus is now active.'**
+  String get plusPurchaseSuccess;
+
+  /// No description provided for @plusPurchaseCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase cancelled.'**
+  String get plusPurchaseCancelled;
+
+  /// No description provided for @plusPurchaseChecking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking subscription…'**
+  String get plusPurchaseChecking;
+
+  /// No description provided for @plusPurchaseError.
+  ///
+  /// In en, this message translates to:
+  /// **'The subscription could not be completed. Please try again.'**
+  String get plusPurchaseError;
+
+  /// No description provided for @plusNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscriptions are not available right now. Please try again later.'**
+  String get plusNotConfigured;
+
+  /// No description provided for @plusOfferingUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No subscription packages are currently available.'**
+  String get plusOfferingUnavailable;
+
+  /// No description provided for @plusOfferingError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load subscription packages.'**
+  String get plusOfferingError;
+
+  /// No description provided for @plusRenewalDisclosure.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment is charged through your app store and renews automatically unless cancelled in the store subscription settings before renewal.'**
+  String get plusRenewalDisclosure;
+
+  /// No description provided for @plusPrivacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get plusPrivacyPolicy;
+
+  /// No description provided for @plusTermsOfUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use'**
+  String get plusTermsOfUse;
+
+  /// No description provided for @plusConfigurationError.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscriptions could not be configured. Please try again later.'**
+  String get plusConfigurationError;
+
+  /// No description provided for @plusExternalLinkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open this page. Please try again.'**
+  String get plusExternalLinkError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
 
   /// No description provided for @more.
   ///

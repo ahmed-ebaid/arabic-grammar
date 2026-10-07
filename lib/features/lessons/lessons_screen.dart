@@ -6,14 +6,17 @@ import 'package:flutter/services.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
+import '../../core/subscriptions/subscription_controller.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
+import '../subscriptions/plus_paywall_screen.dart';
 import 'lesson_detail_screen.dart';
 
 class LessonsScreen extends StatefulWidget {
   const LessonsScreen({
     required this.progressController,
+    required this.subscriptionController,
     required this.userDataController,
     this.contentCatalog,
     super.key,
@@ -21,6 +24,7 @@ class LessonsScreen extends StatefulWidget {
 
   final ContentCatalog? contentCatalog;
   final LessonProgressController progressController;
+  final SubscriptionController subscriptionController;
   final UserDataController userDataController;
 
   @override
@@ -55,7 +59,10 @@ class _LessonsScreenState extends State<LessonsScreen> {
 
         final catalog = snapshot.data!;
         return AnimatedBuilder(
-          animation: widget.progressController,
+          animation: Listenable.merge([
+            widget.progressController,
+            widget.subscriptionController,
+          ]),
           builder: (context, _) => ListView(
             padding: const EdgeInsets.all(20),
             children: [
@@ -85,20 +92,42 @@ class _LessonsScreenState extends State<LessonsScreen> {
     final lessons = level.lessonIds
         .map((lessonId) => lessonsById[lessonId]!)
         .toList(growable: false);
+    final isPlusLevel = level.order > 1;
+    final hasPlus = widget.subscriptionController.isPlusActive;
     return [
       Card(
-        color: learningColors.coralContainer,
+        color: isPlusLevel
+            ? learningColors.blueContainer
+            : learningColors.coralContainer,
         child: ListTile(
           contentPadding: const EdgeInsets.all(20),
           leading: Icon(
             Icons.school_outlined,
             size: 36,
-            color: learningColors.onCoralContainer,
+            color: isPlusLevel
+                ? learningColors.onBlueContainer
+                : learningColors.onCoralContainer,
           ),
-          title: Text(level.title.forLanguage(languageCode)),
+          title: Text(
+            level.title.forLanguage(languageCode),
+            style: TextStyle(
+              color: isPlusLevel
+                  ? learningColors.onBlueContainer
+                  : learningColors.onCoralContainer,
+            ),
+          ),
           subtitle: Text(
             '${level.description.forLanguage(languageCode)}\n'
-            '${languageCode == 'ar' ? 'أتقن 70% من كل درس لفتح الدرس التالي.' : 'Reach 70% mastery in each lesson to unlock the next.'}',
+            '${isPlusLevel && !hasPlus
+                ? AppLocalizations.of(context).plusLevelNotice
+                : languageCode == 'ar'
+                ? 'أتقن 70% من كل درس لفتح الدرس التالي.'
+                : 'Reach 70% mastery in each lesson to unlock the next.'}',
+            style: TextStyle(
+              color: isPlusLevel
+                  ? learningColors.onBlueContainer
+                  : learningColors.onCoralContainer,
+            ),
           ),
         ),
       ),
@@ -111,7 +140,10 @@ class _LessonsScreenState extends State<LessonsScreen> {
           unlocked: entry.$2.prerequisites.every(
             widget.progressController.isMastered,
           ),
-          onTap: () => _openLesson(entry.$2),
+          premiumLocked: isPlusLevel && !hasPlus,
+          onTap: () => isPlusLevel && !hasPlus
+              ? _openPlusPaywall()
+              : _openLesson(entry.$2),
         ),
         if (entry.$1 < lessons.length - 1)
           Center(
@@ -150,6 +182,16 @@ class _LessonsScreenState extends State<LessonsScreen> {
       setState(() {});
     }
   }
+
+  Future<void> _openPlusPaywall() async {
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(
+        builder: (_) => PlusPaywallScreen(
+          subscriptionController: widget.subscriptionController,
+        ),
+      ),
+    );
+  }
 }
 
 class _PathNode extends StatelessWidget {
@@ -158,6 +200,7 @@ class _PathNode extends StatelessWidget {
     required this.languageCode,
     required this.mastery,
     required this.unlocked,
+    required this.premiumLocked,
     required this.onTap,
   });
 
@@ -165,25 +208,30 @@ class _PathNode extends StatelessWidget {
   final String languageCode;
   final int mastery;
   final bool unlocked;
+  final bool premiumLocked;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final mastered = mastery >= 70;
+    final canTap = premiumLocked || unlocked;
+    final accessible = !premiumLocked && unlocked;
     final colors = Theme.of(context).extension<LearningColors>()!;
     final nodeColor = !unlocked
+        ? Theme.of(context).colorScheme.surfaceContainerHighest
+        : premiumLocked
         ? Theme.of(context).colorScheme.surfaceContainerHighest
         : mastered
         ? Colors.green
         : Theme.of(context).colorScheme.primary;
     return Semantics(
-      button: unlocked,
-      enabled: unlocked,
+      button: canTap,
+      enabled: canTap,
       label:
           '${lesson.title.forLanguage(languageCode)}, '
           '${localizedPercent(context, mastery)}',
       child: InkWell(
-        onTap: unlocked ? onTap : null,
+        onTap: canTap ? onTap : null,
         borderRadius: BorderRadius.circular(24),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -196,12 +244,12 @@ class _PathNode extends StatelessWidget {
                   color: nodeColor,
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: unlocked
+                    color: accessible
                         ? colors.sunshineContainer
                         : Theme.of(context).colorScheme.outlineVariant,
                     width: 7,
                   ),
-                  boxShadow: unlocked
+                  boxShadow: accessible
                       ? [
                           BoxShadow(
                             color: nodeColor.withValues(alpha: 0.25),
@@ -212,12 +260,12 @@ class _PathNode extends StatelessWidget {
                       : null,
                 ),
                 child: Icon(
-                  !unlocked
+                  !accessible
                       ? Icons.lock_rounded
                       : mastered
                       ? Icons.star_rounded
                       : Icons.play_arrow_rounded,
-                  color: unlocked
+                  color: accessible
                       ? Colors.white
                       : Theme.of(context).colorScheme.onSurfaceVariant,
                   size: 44,
@@ -233,7 +281,9 @@ class _PathNode extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Text(
-                !unlocked
+                premiumLocked
+                    ? AppLocalizations.of(context).plusRequired
+                    : !unlocked
                     ? (languageCode == 'ar'
                           ? 'مغلق حتى إتقان الدرس السابق'
                           : 'Locked until the previous lesson is mastered')

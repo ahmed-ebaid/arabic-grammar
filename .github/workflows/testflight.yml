@@ -41,6 +41,16 @@ jobs:
       - name: Validate lesson drafts
         run: dart run tool/validate_content.dart
 
+      - name: Verify RevenueCat App Store key
+        env:
+          REVENUECAT_IOS_API_KEY: ${{ secrets.REVENUECAT_IOS_API_KEY }}
+        shell: bash
+        run: |
+          if [[ "$REVENUECAT_IOS_API_KEY" != appl_* ]]; then
+            echo "Set REVENUECAT_IOS_API_KEY to the public App Store SDK key." >&2
+            exit 1
+          fi
+
       - name: Import signing certificate
         uses: apple-actions/import-codesign-certs@v7.0.0
         with:
@@ -79,9 +89,12 @@ jobs:
           echo "Building version $build_name ($build_number)"
 
       - name: Build signed IPA
+        env:
+          REVENUECAT_IOS_API_KEY: ${{ secrets.REVENUECAT_IOS_API_KEY }}
         run: >-
           flutter build ipa --release
           --dart-define=APP_ENV=production
+          --dart-define="REVENUECAT_IOS_API_KEY=$REVENUECAT_IOS_API_KEY"
           --build-name=${{ steps.version.outputs.name }}
           --build-number=${{ steps.version.outputs.number }}
           --export-options-plist=ios/ExportOptions.plist

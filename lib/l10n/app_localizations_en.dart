@@ -12,6 +12,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'إعراب';
 
   @override
+  String get grammarStateRaf => 'Raf';
+
+  @override
+  String get grammarStateNasb => 'Nasb';
+
+  @override
+  String get grammarStateJarr => 'Jarr';
+
+  @override
+  String get grammarStateJazm => 'Jazm';
+
+  @override
+  String get grammarStateIndeclinable => 'Indeclinable';
+
+  @override
   String get homeTab => 'Home';
 
   @override
@@ -298,7 +313,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutPurposeBody =>
-      'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from vocalized examples to independent reading without vowel marks.';
+      'إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from examples to independent reading without vowel marks.';
 
   @override
   String get aboutCompanyTitle => 'Developed by Ebaid LLC';
@@ -314,8 +329,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutReviewersTitle => 'Teacher reviewers';
 
   @override
+  String get aboutReviewerName => 'د. شريف محمد الصادق';
+
+  @override
+  String get aboutReviewerCredentials =>
+      'Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University';
+
+  @override
   String get aboutReviewersPending =>
-      'Qualified teachers who approve curriculum content will be credited here with their permission. Current beta lessons are still pending review.';
+      'Current beta lessons are still under review and have not yet been approved.';
 
   @override
   String get aboutContentStatusTitle => 'Content status';
@@ -328,9 +350,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.';
 
   @override
-  String get aboutContactTitle => 'Support and legal information';
-
-  @override
   String get language => 'Language';
 
   @override
@@ -341,6 +360,112 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get close => 'Close';
+
+  @override
+  String get restorePurchases => 'Restore purchases';
+
+  @override
+  String get restorePurchasesChecking => 'Checking for previous purchases…';
+
+  @override
+  String get restorePurchasesSuccess => 'Your subscription has been restored.';
+
+  @override
+  String get restorePurchasesNoneFound =>
+      'No active subscription was found for this store account.';
+
+  @override
+  String get restorePurchasesUnavailable =>
+      'Purchase restoration is not configured yet.';
+
+  @override
+  String get restorePurchasesError =>
+      'Could not restore your subscription. Check your connection and try again.';
+
+  @override
+  String get plusTitle => 'إعراب Plus';
+
+  @override
+  String get plusDescription =>
+      'Continue your grammar journey with advanced study.';
+
+  @override
+  String get plusBenefitLessons => 'Unlock Level 2 and all following levels.';
+
+  @override
+  String get plusBenefitPractice =>
+      'Practice across a wider range of grammar topics.';
+
+  @override
+  String get plusBenefitExplanations =>
+      'Explore extended explanations and examples.';
+
+  @override
+  String get plusLevelNotice =>
+      'إعراب Plus subscription required for this level.';
+
+  @override
+  String get plusRequired => 'Subscribe to إعراب Plus to unlock this level.';
+
+  @override
+  String get plusMonthly => 'Monthly subscription';
+
+  @override
+  String get plusAnnual => 'Annual subscription';
+
+  @override
+  String get plusPerMonth => 'Renews every month';
+
+  @override
+  String get plusPerYear => 'Renews every year';
+
+  @override
+  String get plusPurchaseAction => 'Subscribe';
+
+  @override
+  String get plusPurchaseSuccess => 'إعراب Plus is now active.';
+
+  @override
+  String get plusPurchaseCancelled => 'Purchase cancelled.';
+
+  @override
+  String get plusPurchaseChecking => 'Checking subscription…';
+
+  @override
+  String get plusPurchaseError =>
+      'The subscription could not be completed. Please try again.';
+
+  @override
+  String get plusNotConfigured =>
+      'Subscriptions are not available right now. Please try again later.';
+
+  @override
+  String get plusOfferingUnavailable =>
+      'No subscription packages are currently available.';
+
+  @override
+  String get plusOfferingError => 'Could not load subscription packages.';
+
+  @override
+  String get plusRenewalDisclosure =>
+      'Payment is charged through your app store and renews automatically unless cancelled in the store subscription settings before renewal.';
+
+  @override
+  String get plusPrivacyPolicy => 'Privacy Policy';
+
+  @override
+  String get plusTermsOfUse => 'Terms of Use';
+
+  @override
+  String get plusConfigurationError =>
+      'Subscriptions could not be configured. Please try again later.';
+
+  @override
+  String get plusExternalLinkError =>
+      'Could not open this page. Please try again.';
+
+  @override
+  String get retry => 'Retry';
 
   @override
   String get more => 'More';

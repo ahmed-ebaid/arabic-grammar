@@ -6,6 +6,7 @@ import 'core/config/app_environment.dart';
 import 'core/localization/locale_controller.dart';
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
+import 'core/subscriptions/subscription_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'core/user/user_data_controller.dart';
 import 'l10n/app_localizations.dart';
@@ -17,13 +18,17 @@ class ArabicGrammarApp extends StatelessWidget {
     required this.localeController,
     required this.lessonProgressController,
     UserDataController? userDataController,
+    SubscriptionController? subscriptionController,
     this.contentCatalog,
     super.key,
-  }) : userDataController = userDataController ?? UserDataController.inMemory();
+  }) : userDataController = userDataController ?? UserDataController.inMemory(),
+       subscriptionController =
+           subscriptionController ?? SubscriptionController.unconfigured();
 
   final AppEnvironment environment;
   final LocaleController localeController;
   final LessonProgressController lessonProgressController;
+  final SubscriptionController subscriptionController;
   final UserDataController userDataController;
   final ContentCatalog? contentCatalog;
 
@@ -62,6 +67,7 @@ class ArabicGrammarApp extends StatelessWidget {
             home: RootScaffold(
               contentCatalog: contentCatalog,
               lessonProgressController: lessonProgressController,
+              subscriptionController: subscriptionController,
               userDataController: userDataController,
             ),
           );

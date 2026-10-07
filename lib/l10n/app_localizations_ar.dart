@@ -12,6 +12,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appName => 'إعراب';
 
   @override
+  String get grammarStateRaf => 'الرفع';
+
+  @override
+  String get grammarStateNasb => 'النصب';
+
+  @override
+  String get grammarStateJarr => 'الجر';
+
+  @override
+  String get grammarStateJazm => 'الجزم';
+
+  @override
+  String get grammarStateIndeclinable => 'مبني';
+
+  @override
   String get homeTab => 'الرئيسية';
 
   @override
@@ -297,14 +312,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutPurposeBody =>
-      'يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة المشكولة إلى القراءة المستقلة دون حركات.';
+      'يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة إلى القراءة المستقلة دون حركات.';
 
   @override
-  String get aboutCompanyTitle => 'تطوير ونشر شركة إبيد ذ.م.م.';
+  String get aboutCompanyTitle => 'تطوير ونشر Ebaid LLC';
 
   @override
   String get aboutCompanyBody =>
-      'تطوّر شركة إبيد ذ.م.م. تقنيات تعليمية عملية تجعل التعلّم المنظّم أيسر وصولًا. وقد أنشأت الشركة تطبيق «إعراب» وتنشره، بما في ذلك برمجياته الأصلية وشروح دروسه وأمثلته وترجماته وتعليقاته وتمارينه.';
+      'تطوّر Ebaid LLC تقنيات تعليمية عملية تجعل التعلّم المنظّم أيسر وصولًا. وقد أنشأت الشركة تطبيق «إعراب» وتنشره، بما في ذلك برمجياته الأصلية وشروح دروسه وأمثلته وترجماته وتعليقاته وتمارينه.';
 
   @override
   String get aboutResourcesTitle => 'المصادر ونسب الفضل';
@@ -313,8 +328,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutReviewersTitle => 'المعلّمون المراجعون';
 
   @override
+  String get aboutReviewerName => 'د. شريف محمد الصادق';
+
+  @override
+  String get aboutReviewerCredentials =>
+      'مدرس اللغويات بكلية الدراسات الإسلامية والعربية للبنين بالقاهرة جامعة الأزهر';
+
+  @override
   String get aboutReviewersPending =>
-      'ستُذكر هنا أسماء المعلّمين المؤهلين الذين يعتمدون محتوى المنهج، بعد الحصول على إذنهم. وما زالت دروس النسخة التجريبية قيد المراجعة.';
+      'ما زالت دروس النسخة التجريبية قيد المراجعة، ولم تُعتمد بعد.';
 
   @override
   String get aboutContentStatusTitle => 'حالة المحتوى';
@@ -327,9 +349,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل. وقد تتغيّر التحليلات الأولية أثناء المراجعة.';
 
   @override
-  String get aboutContactTitle => 'الدعم والمعلومات القانونية';
-
-  @override
   String get language => 'اللغة';
 
   @override
@@ -340,6 +359,104 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get close => 'إغلاق';
+
+  @override
+  String get restorePurchases => 'استعادة الاشتراكات';
+
+  @override
+  String get restorePurchasesChecking => 'جارٍ التحقق من المشتريات السابقة…';
+
+  @override
+  String get restorePurchasesSuccess => 'تمت استعادة الاشتراك.';
+
+  @override
+  String get restorePurchasesNoneFound =>
+      'لم نعثر على اشتراك نشط لهذا الحساب في المتجر.';
+
+  @override
+  String get restorePurchasesUnavailable => 'استعادة الاشتراكات غير مهيأة بعد.';
+
+  @override
+  String get restorePurchasesError =>
+      'تعذرت استعادة الاشتراك. تحقق من اتصالك وحاول مجددًا.';
+
+  @override
+  String get plusTitle => 'إعراب بلس';
+
+  @override
+  String get plusDescription =>
+      'واصل رحلتك في النحو بدراسة المستويات المتقدمة.';
+
+  @override
+  String get plusBenefitLessons => 'افتح دروس المستوى الثاني وما بعده.';
+
+  @override
+  String get plusBenefitPractice => 'تدرّب على موضوعات نحوية متنوعة.';
+
+  @override
+  String get plusBenefitExplanations => 'استفد من الشروح والأمثلة الموسّعة.';
+
+  @override
+  String get plusLevelNotice => 'يتطلب هذا المستوى اشتراك إعراب بلس.';
+
+  @override
+  String get plusRequired => 'اشترك في إعراب بلس لفتح هذا المستوى.';
+
+  @override
+  String get plusMonthly => 'اشتراك شهري';
+
+  @override
+  String get plusAnnual => 'اشتراك سنوي';
+
+  @override
+  String get plusPerMonth => 'يُجدَّد كل شهر';
+
+  @override
+  String get plusPerYear => 'يُجدَّد كل سنة';
+
+  @override
+  String get plusPurchaseAction => 'اشترك الآن';
+
+  @override
+  String get plusPurchaseSuccess => 'تم تفعيل إعراب بلس.';
+
+  @override
+  String get plusPurchaseCancelled => 'أُلغيت عملية الشراء.';
+
+  @override
+  String get plusPurchaseChecking => 'جارٍ التحقق من الاشتراك…';
+
+  @override
+  String get plusPurchaseError => 'تعذر إتمام الاشتراك. حاول مجددًا.';
+
+  @override
+  String get plusNotConfigured => 'الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.';
+
+  @override
+  String get plusOfferingUnavailable => 'لا توجد باقات اشتراك متاحة حاليًّا.';
+
+  @override
+  String get plusOfferingError => 'تعذر تحميل باقات الاشتراك.';
+
+  @override
+  String get plusRenewalDisclosure =>
+      'تُحصّل قيمة الاشتراك عبر متجر التطبيقات، ويتجدد تلقائيًّا ما لم يُلغَ من إعدادات اشتراكات المتجر قبل موعد التجديد.';
+
+  @override
+  String get plusPrivacyPolicy => 'سياسة الخصوصية';
+
+  @override
+  String get plusTermsOfUse => 'شروط الاستخدام';
+
+  @override
+  String get plusConfigurationError =>
+      'تعذر إعداد الاشتراكات. حاول مجددًا لاحقًا.';
+
+  @override
+  String get plusExternalLinkError => 'تعذر فتح هذه الصفحة. حاول مجددًا.';
+
+  @override
+  String get retry => 'إعادة المحاولة';
 
   @override
   String get more => 'المزيد';
