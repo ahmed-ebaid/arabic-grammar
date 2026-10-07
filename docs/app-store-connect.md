@@ -132,6 +132,8 @@ manually from the Actions tab. It runs validation, builds a signed iOS IPA,
 and uploads it for internal testing. It only runs from `main`; it does not
 submit the app for production review. The build number is generated from the
 version in `pubspec.yaml` and the GitHub Actions run number.
+The workflow explicitly selects Xcode 26.3 and requires iOS SDK 26 or later
+before building to meet Apple's upload requirements.
 
 Store the RevenueCat Apple public SDK key as the Actions secret
 `REVENUECAT_IOS_API_KEY`. Configure the Apple products, the `plus` entitlement,

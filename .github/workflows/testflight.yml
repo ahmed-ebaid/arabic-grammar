@@ -20,6 +20,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Select Xcode 26 and verify iOS SDK
+        shell: bash
+        run: |
+          sudo xcode-select --switch /Applications/Xcode_26.3.app/Contents/Developer
+          xcodebuild -version
+          sdk_version="$(xcrun --sdk iphoneos --show-sdk-version)"
+          if [[ "${sdk_version%%.*}" -lt 26 ]]; then
+            echo "App Store Connect requires iOS SDK 26 or later; found $sdk_version." >&2
+            exit 1
+          fi
+          echo "Building with iOS SDK $sdk_version"
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
