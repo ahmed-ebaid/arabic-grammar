@@ -58,6 +58,7 @@ jobs:
           p12-password: ${{ secrets.APPSTORE_CERTIFICATES_PASSWORD }}
 
       - name: Download App Store provisioning profile
+        id: provisioning
         uses: apple-actions/download-provisioning-profiles@v6.1.0
         with:
           bundle-id: com.ebaidllc.arabicgrammar
@@ -65,6 +66,50 @@ jobs:
           issuer-id: ${{ vars.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ vars.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+
+      - name: Configure distribution signing
+        env:
+          PROFILES: ${{ steps.provisioning.outputs.profiles }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import plistlib
+          import subprocess
+
+          profiles = json.loads(os.environ["PROFILES"])
+          if len(profiles) != 1:
+              raise SystemExit("Expected exactly one App Store provisioning profile.")
+          profile = profiles[0]
+          project_path = "ios/Runner.xcodeproj/project.pbxproj"
+          project = plistlib.loads(subprocess.check_output([
+              "plutil", "-convert", "xml1", "-o", "-", project_path,
+          ]))
+          objects = project["objects"]
+          runner = next(obj for obj in objects.values()
+                        if obj.get("isa") == "PBXNativeTarget" and obj.get("name") == "Runner")
+          configurations = objects[runner["buildConfigurationList"]]["buildConfigurations"]
+          for configuration_id in configurations:
+              configuration = objects[configuration_id]
+              if configuration["name"] not in ("Release", "Profile"):
+                  continue
+              settings = configuration["buildSettings"]
+              settings["CODE_SIGN_STYLE"] = "Manual"
+              settings["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = "Apple Distribution"
+              settings["PROVISIONING_PROFILE_SPECIFIER"] = profile["name"]
+          with open(project_path, "wb") as output:
+              plistlib.dump(project, output)
+          with open("ios/ExportOptions.plist", "rb") as source:
+              options = plistlib.load(source)
+          options["signingStyle"] = "manual"
+          options["signingCertificate"] = "Apple Distribution"
+          options["provisioningProfiles"] = {
+              "com.ebaidllc.arabicgrammar": profile["name"],
+          }
+          with open("ios/ExportOptions.plist", "wb") as output:
+              plistlib.dump(options, output)
+          PY
 
       - name: Calculate build number
         id: version
