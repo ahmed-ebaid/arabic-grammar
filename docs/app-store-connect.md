@@ -148,7 +148,10 @@ Before the first run:
   `APPSTORE_CERTIFICATES_PASSWORD` Actions secrets.
 3. Ensure an App Store provisioning profile exists for
   `com.ebaidllc.arabicgrammar` and the distribution certificate. The workflow
-  downloads and installs that profile using the API key.
+  downloads and installs that profile using the API key. Create a manually
+  managed App Store Connect distribution profile named
+  `Arabic Grammar App Store CI`; the workflow selects this exact name rather
+  than an Xcode-managed profile.
 
 Add variables and secrets under the repository's **Settings → Secrets and
 variables → Actions**. Then start the workflow from **Actions → Upload iOS
