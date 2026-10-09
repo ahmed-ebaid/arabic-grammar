@@ -926,8 +926,9 @@ class _TokenCard extends StatelessWidget {
                 _AnalysisRow(
                   label: l10n.signLabel,
                   value: makeArabicDiacriticsVisible(
-                    '${token.grammaticalSign.forLanguage(languageCode)} (${token.ending})',
+                    token.grammaticalSign.forLanguage(languageCode),
                   ),
+                  accessory: _EndingMark(ending: token.ending),
                 ),
               _AnalysisRow(
                 label: l10n.reasonLabel,
@@ -959,11 +960,44 @@ class _TokenCard extends StatelessWidget {
   }
 }
 
+class _EndingMark extends StatelessWidget {
+  const _EndingMark({required this.ending});
+
+  final String ending;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<LearningColors>()!;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      decoration: BoxDecoration(
+        color: colors.blueContainer,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        makeArabicDiacriticsVisible('ـ$ending'),
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: colors.onBlueContainer,
+          fontSize: 26,
+          fontWeight: FontWeight.w700,
+          height: 1.35,
+        ),
+      ),
+    );
+  }
+}
+
 class _AnalysisRow extends StatelessWidget {
-  const _AnalysisRow({required this.label, required this.value});
+  const _AnalysisRow({
+    required this.label,
+    required this.value,
+    this.accessory,
+  });
 
   final String label;
   final String value;
+  final Widget? accessory;
 
   @override
   Widget build(BuildContext context) {
@@ -979,7 +1013,18 @@ class _AnalysisRow extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Expanded(child: Text(value)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(value),
+                if (accessory != null) ...[
+                  const SizedBox(height: 6),
+                  accessory!,
+                ],
+              ],
+            ),
+          ),
         ],
       ),
     );

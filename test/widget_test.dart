@@ -7,6 +7,7 @@ import 'package:arabic_grammar/core/localization/locale_controller.dart';
 import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/progress/lesson_progress_controller.dart';
 import 'package:arabic_grammar/core/theme/app_theme.dart';
+import 'package:arabic_grammar/core/user/user_data_controller.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -358,11 +359,14 @@ void main() {
   testWidgets('explains an incorrect answer and allows a retry', (
     tester,
   ) async {
+    final userDataController = UserDataController.inMemory();
+    await userDataController.setLearnerProfile(LearnerProfile.generalLearner);
     await tester.pumpWidget(
       ArabicGrammarApp(
         environment: const AppEnvironment(AppFlavor.production),
         localeController: LocaleController.inMemory(),
         lessonProgressController: LessonProgressController.inMemory(),
+        userDataController: userDataController,
         contentCatalog: _draftCatalog(),
       ),
     );
@@ -378,6 +382,12 @@ void main() {
     }
     await tester.tap(find.text('الطالبُ'));
     await tester.pumpAndSettle();
+    final endingMark = find.text('ـُ');
+    expect(endingMark, findsOneWidget);
+    expect(
+      tester.widget<Text>(endingMark).style?.fontSize,
+      greaterThanOrEqualTo(24),
+    );
     await tester.ensureVisible(find.text('تابع'));
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
