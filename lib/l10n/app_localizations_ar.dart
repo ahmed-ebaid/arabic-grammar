@@ -330,6 +330,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutResourcesTitle => 'المصادر ونسب الفضل';
 
   @override
+  String get aboutResourceTitleLabel => 'المرجع';
+
+  @override
+  String get aboutResourceAuthorLabel => 'المؤلف';
+
+  @override
+  String get aboutResourceCitationLabel => 'بيان المصدر';
+
+  @override
   String get aboutReviewersTitle => 'المعلّمون المراجعون';
 
   @override

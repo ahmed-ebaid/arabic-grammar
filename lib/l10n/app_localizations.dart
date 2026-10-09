@@ -674,6 +674,24 @@ abstract class AppLocalizations {
   /// **'Resources and attribution'**
   String get aboutResourcesTitle;
 
+  /// No description provided for @aboutResourceTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Resource'**
+  String get aboutResourceTitleLabel;
+
+  /// No description provided for @aboutResourceAuthorLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Author'**
+  String get aboutResourceAuthorLabel;
+
+  /// No description provided for @aboutResourceCitationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Source note'**
+  String get aboutResourceCitationLabel;
+
   /// No description provided for @aboutReviewersTitle.
   ///
   /// In en, this message translates to:

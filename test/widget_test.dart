@@ -215,7 +215,12 @@ void main() {
     expect(find.textContaining('الأمثلة المشكولة'), findsNothing);
     expect(find.text('تطوير ونشر Ebaid LLC'), findsOneWidget);
     expect(find.textContaining('شركة إبيد'), findsNothing);
-    expect(find.text('الآجرومية'), findsOneWidget);
+    expect(find.text('المرجع: الآجرومية'), findsOneWidget);
+    expect(find.textContaining('المؤلف: ابن آجروم'), findsOneWidget);
+    expect(
+      find.textContaining('بيان المصدر: رُوجع هذا المتن العربي التراثي'),
+      findsOneWidget,
+    );
     await tester.scrollUntilVisible(
       find.text('المعلّمون المراجعون'),
       300,
@@ -253,12 +258,12 @@ void main() {
     );
 
     await tester.scrollUntilVisible(
-      find.text('الآجرومية'),
+      find.text('المرجع: الآجرومية'),
       -300,
       scrollable: find.byType(Scrollable).last,
     );
 
-    expect(find.text('الآجرومية'), findsOneWidget);
+    expect(find.text('المرجع: الآجرومية'), findsOneWidget);
     expect(find.textContaining('ابن آجروم'), findsOneWidget);
   });
 
@@ -377,8 +382,8 @@ void main() {
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
 
-    await tester.ensureVisible(find.text('الفتحة: َ'));
-    await tester.tap(find.text('الفتحة: َ'));
+    await tester.ensureVisible(find.text('الفتحة (ـَ)'));
+    await tester.tap(find.text('الفتحة (ـَ)'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
@@ -390,8 +395,8 @@ void main() {
     await tester.ensureVisible(find.text('حاول مرة أخرى'));
     await tester.tap(find.text('حاول مرة أخرى'));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('الضمة: ُ'));
-    await tester.tap(find.text('الضمة: ُ'));
+    await tester.ensureVisible(find.text('الضمة (ـُ)'));
+    await tester.tap(find.text('الضمة (ـُ)'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
@@ -444,8 +449,8 @@ void main() {
     expect(find.text('تحقُّق سريع'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isFalse);
 
-    await tester.ensureVisible(find.text('الضمة: ُ'));
-    await tester.tap(find.text('الضمة: ُ'));
+    await tester.ensureVisible(find.text('الضمة (ـُ)'));
+    await tester.tap(find.text('الضمة (ـُ)'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));

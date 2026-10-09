@@ -453,8 +453,8 @@
           "id": "lesson-01-repeat-ending-01",
           "type": "chooseEnding",
           "prompt": {
-            "en": "New sentence: البيت واسع. Which ending belongs on البيت_?",
-            "ar": "جملة جديدة: «البيت واسع». ما حركة آخر «البيت»؟"
+            "en": "New sentence: البيت واسع. Which case marker belongs at the end of the word البيت?",
+            "ar": "جملة جديدة: «البيت واسع». ما الحركة المناسبة لآخر كلمة «البيت»؟"
           },
           "options": [
             {
@@ -478,7 +478,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "البيت is not an object in this nominal sentence.",
-                "ar": "«البيت» ليس مفعولًا به في هذه الجملة الاسمية."
+                "ar": "لم تقع كلمة «البيت» في موقع النصب؛ فهي مبتدأ مرفوع."
               }
             },
             {
@@ -581,8 +581,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "واسع is a noun describing the topic.",
-                "ar": "«واسع» اسم يخبر عن المبتدأ."
+                "en": "واسع is a noun that gives information about the subject, not a particle.",
+                "ar": "«واسع» اسم يخبر عن المبتدأ، وليس حرفًا."
               }
             }
           ]
@@ -603,8 +603,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. Jarr marks a noun after a preposition or as a genitive complement; verbs are never jarr.",
-                "ar": "صحيح. الجر يلحق الاسم بعد حرف الجر أو مضافًا إليه، ولا يلحق الأفعال أبدًا."
+                "en": "Correct. Jarr marks a noun after a preposition, as a genitive complement, or as a dependent of a genitive noun; verbs are never jarr.",
+                "ar": "صحيح. الجر يلحق الاسم بعد حرف الجر، أو إذا وقع مضافًا إليه أو تابعًا لمجرور، ولا يلحق الأفعال أبدًا."
               }
             },
             {
@@ -704,12 +704,12 @@
       },
       "objectives": [
         {
-          "en": "Sort common Arabic words into nouns, verbs, and particles.",
-          "ar": "أن تميّز الاسم والفعل والحرف في كلمات عربية شائعة."
+          "en": "Distinguish nouns, verbs, and particles in Arabic sentences.",
+          "ar": "أن تميّز الاسم والفعل والحرف في جمل عربية."
         },
         {
-          "en": "Use a word's kind to begin predicting its role and ending.",
-          "ar": "أن تستعين بنوع الكلمة لتبدأ توقّع وظيفتها وحركة آخرها."
+          "en": "Use a word's kind to predict its grammatical role and ending.",
+          "ar": "أن تستعين بنوع الكلمة لترجّح وظيفتها وحركة آخرها."
         }
       ],
       "prerequisites": [
@@ -725,8 +725,8 @@
             "ar": "أقسام الكلمة ثلاثة"
           },
           "body": {
-            "en": "A noun expresses a meaning on its own without being tied to a time, such as محمد (Muhammad), مكة (Mecca), or شجرة (tree). A verb expresses a meaning on its own and is tied to a time, such as أكل (ate), يكتب (writes), or اجلس (sit down). A particle has meaning through its relation to other words. Identifying a word's kind is an important first step in determining the sentence type and how to parse it.",
-            "ar": "الاسم: ما دلَّ على معنى في نفسه ولم يقترن بزمن، مثل: محمد، ومكة، وشجرة. والفعل: ما دلَّ على معنى في نفسه واقترن بزمن، مثل: أكل، ويكتب، واجلس. والحرف: ما دلَّ على معنى في غيره. ومعرفة نوع الكلمة مدخل مهم لتحديد نوع الجملة وكيفية إعرابها."
+            "en": "A noun expresses a meaning on its own without being tied to a time, such as محمد (Muhammad), مكة (Mecca), or شجرة (tree). A verb expresses a meaning on its own and is tied to a time, such as أكل (ate), يكتب (writes), or اجلس (sit down). A particle has meaning through its relation to other words, such as في, لم, and هل. Identifying a word's kind is an important first step in determining the sentence type and how to parse it.",
+            "ar": "الاسم: ما دلَّ على معنى في نفسه ولم يقترن بزمن، مثل: محمد، ومكة، وشجرة. والفعل: ما دلَّ على معنى في نفسه واقترن بزمن، مثل: أكل، ويكتب، واجلس. والحرف: ما دلَّ على معنى في غيره، مثل: في، ولم، وهل. ومعرفة نوع الكلمة مدخل مهم لتحديد نوع الجملة وكيفية إعرابها."
           },
           "examples": []
         },
@@ -812,8 +812,8 @@
           "id": "particle-clue",
           "type": "ruleSummary",
           "title": {
-            "en": "A useful clue",
-            "ar": "علامة نافعة"
+            "en": "Notice",
+            "ar": "تنبيه"
           },
           "body": {
             "en": "A preposition such as في is a particle. The noun after it is in jarr, as in جلست في البيت (I sat in the house). This pattern will help you choose kasra even when it is not written.",
@@ -873,8 +873,8 @@
           "id": "lesson-02-kind-02",
           "type": "matchRule",
           "prompt": {
-            "en": "Which word is a particle?",
-            "ar": "أي كلمة حرف؟"
+            "en": "Identify the particle below.",
+            "ar": "عيّن الحرف فيما يلي:"
           },
           "options": [
             {
@@ -897,8 +897,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "بيت names a thing, so it is a noun.",
-                "ar": "«بيت» يدل على شيء، فهو اسم."
+                "en": "بيت expresses a meaning on its own without being tied to time, so it is a noun.",
+                "ar": "«بيت» يدل على معنى في نفسه ولا يقترن بزمن، فهو اسم."
               }
             },
             {
@@ -965,7 +965,7 @@
           "id": "lesson-02-ending-04",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for البيت_ after في.",
+            "en": "Choose the ending for البيت after في.",
             "ar": "اختر حركة آخر «البيتـ» بعد «في»."
           },
           "options": [
@@ -1056,8 +1056,8 @@
           "id": "lesson-02-repeat-kind-01",
           "type": "matchRule",
           "prompt": {
-            "en": "What kind of word is لعب in لعب الولد في الحديقة؟",
-            "ar": "ما نوع كلمة «لعب» في «لعب الولد في الحديقة»؟"
+            "en": "What kind of word is لعب in the sentence لعب الولد في الحديقة?",
+            "ar": "ما نوع كلمة «لعب» في جملة «لعب الولد في الحديقة»؟"
           },
           "options": [
             {
@@ -1092,8 +1092,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Try again. It states an action rather than only connecting meanings.",
-                "ar": "حاول مرة أخرى. فهي تدل على حدث لا أنها تربط المعاني فقط."
+                "en": "Try again. A verb expresses an event and time on its own; it does not merely connect meanings.",
+                "ar": "حاول مرة أخرى. فالفعل يدل على حدث وزمن في نفسه، ولا يربط المعاني فقط."
               }
             }
           ]
@@ -1269,7 +1269,7 @@
           },
           "body": {
             "en": "A basic nominal sentence begins with a noun: the topic (mubtada). The predicate (khabar) completes the meaning. Both are normally in raf.",
-            "ar": "تبدأ الجملة الاسمية البسيطة باسم هو المبتدأ، ويأتي الخبر ليتم المعنى. والأصل أن يكونا مرفوعين."
+            "ar": "تبدأ الجملة الاسمية البسيطة باسم يُسمّى المبتدأ، ويأتي الخبر ليتمّم المعنى. والأصل أن يكونا مرفوعين."
           },
           "examples": []
         },
@@ -1277,12 +1277,12 @@
           "id": "knowledge-is-light",
           "type": "workedExample",
           "title": {
-            "en": "Read by structure",
-            "ar": "اقرأ بالتركيب"
+            "en": "Read the sentence correctly",
+            "ar": "اقرأ التركيب بطريقة صحيحة"
           },
           "body": {
-            "en": "In العِلْمُ نُورٌ, العلم is what we are talking about and نور tells us about it. The structure predicts damma on both words. Now try seeing the same sentence without tashkeel: العلم نور.",
-            "ar": "في «العِلْمُ نُورٌ»، «العلم» هو المتحدَّث عنه، و«نور» يخبر عنه. يدل التركيب على الضمة في آخر الكلمتين. والآن انظر إلى الجملة نفسها بلا تشكيل: «العلم نور»."
+            "en": "In العِلْمُ نُورٌ, العلم is what we are talking about and نور tells us about it. The structure indicates a damma at the end of both words because they are the subject and predicate. Now look at the same sentence without tashkeel: العلم نور.",
+            "ar": "في الجملة «العِلْمُ نُورٌ»، «العلم» هو المتحدَّث عنه، و«نور» يخبر عنه. يدل التركيب على الضمة في آخر الكلمتين؛ لأنهما مبتدأ وخبر. والآن انظر إلى الجملة نفسها بلا تشكيل: «العلم نور»."
           },
           "examples": [
             {
@@ -1408,8 +1408,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "البيت is the topic at the start.",
-                "ar": "«البيت» هو المبتدأ في أول الجملة."
+                "en": "البيت is the subject—the noun that the predicate gives information about.",
+                "ar": "«البيت» هو المبتدأ، وهو الاسم الذي يُخبر عنه."
               }
             },
             {
@@ -1476,8 +1476,8 @@
           "id": "lesson-03-ending-04",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Read without tashkeel: العلم نور. Which ending belongs on نور_?",
-            "ar": "اقرأ بلا تشكيل: «العلم نور». ما حركة آخر «نور»؟"
+            "en": "Read without tashkeel: العلم نور. What is the case marker of نور?",
+            "ar": "اقرأ بلا تشكيل: «العلم نور». ما العلامة الإعرابية لكلمة «نور»؟"
           },
           "options": [
             {
@@ -1614,7 +1614,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Identify the predicate in the sentence الجو بارد.",
-            "ar": "عيّن الخبر في جملة «الجو بارد»."
+            "ar": "عيّن الخبر في عبارة «الجو بارد»."
           },
           "options": [
             {
@@ -1729,8 +1729,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "بارد is a predicate here, not an object.",
-                "ar": "«بارد» خبر هنا، وليس مفعولًا به."
+                "en": "الخبر is nominative here, not accusative; بارد is the predicate, not a direct object.",
+                "ar": "الخبر مرفوع هنا، وليس منصوبًا؛ فـ«بارد» خبر وليس مفعولًا به."
               }
             },
             {
@@ -1741,8 +1741,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition or genitive construction governs بارد.",
-                "ar": "لا يسبق «بارد» حرف جر ولا يقع مضافًا إليه."
+                "en": "بارد is not preceded by a preposition, in a genitive construction, or a dependent of a genitive noun.",
+                "ar": "لا يسبق «بارد» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -2460,8 +2460,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "فتح is the action itself. Look for what was opened.",
-                "ar": "«فتح» هو الفعل نفسه؛ ابحث عمّا فُتح."
+                "en": "فتح is the verb. Ask what the doer opened; the noun that receives the action is the direct object.",
+                "ar": "«فتح» فعل؛ اسأل: ماذا فتح الفاعل؟ فالاسم الذي وقع عليه الفعل هو المفعول به."
               }
             }
           ]
@@ -2552,8 +2552,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "There is no preposition or other cause of jarr.",
-                "ar": "لا يوجد حرف جر ولا سبب آخر للجر."
+                "en": "الباب is not preceded by a preposition, in a genitive construction, or a dependent of a genitive noun.",
+                "ar": "لا يسبق «الباب» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -2598,8 +2598,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition governs الماء in this sentence.",
-                "ar": "لا يسبق «الماء» حرف جر في هذه الجملة."
+                "en": "الماء is not preceded by a preposition, in a genitive construction, or a dependent of a genitive noun.",
+                "ar": "لا يسبق «الماء» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -2827,8 +2827,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition governs العصير.",
-                "ar": "لا يسبق «العصير» حرف جر."
+                "en": "العصير is not preceded by a preposition, in a genitive construction, or a dependent of a genitive noun.",
+                "ar": "لا يسبق «العصير» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -3297,8 +3297,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "الحديقة is a noun that follows في directly.",
-                "ar": "«الحديقة» اسم يأتي بعد «في» مباشرة."
+                "en": "الحديقة is a noun that expresses a meaning on its own, and it follows the preposition في.",
+                "ar": "«الحديقة» اسم يدل على معنى في نفسه، وقد جاء بعد حرف الجر «في»."
               }
             }
           ]
@@ -3427,8 +3427,8 @@
             "ar": "استخدم كل القرائن"
           },
           "body": {
-            "en": "You can now ask three powerful questions: Who performed the action? What received it? Is there a preposition before the noun? In a nominal sentence, ask what the topic is and what tells us about it.",
-            "ar": "يمكنك الآن أن تسأل: من قام بالفعل؟ وعلى ماذا وقع؟ وهل يسبق الاسم حرف جر؟ وفي الجملة الاسمية اسأل: ما المبتدأ؟ وما الذي يخبر عنه؟"
+            "en": "In a verbal sentence, ask who performed the action, what received it, and whether a preposition comes before a noun. In a nominal sentence, ask which word begins the sentence and which word gives information about the subject.",
+            "ar": "في الجملة الفعلية، اسأل: من قام بالفعل؟ وعلى ماذا وقع الفعل؟ وهل يسبق الاسم حرف جر؟ وفي الجملة الاسمية، ما الكلمة التي بدأ بها الكلام؟ وما الكلمة التي أخبرت عن المبتدأ؟"
           },
           "examples": []
         },
@@ -3440,8 +3440,8 @@
             "ar": "اقرأ جملة جديدة"
           },
           "body": {
-            "en": "In شاهد الطفل القمر في السماء, الطفل performed the seeing (raf), القمر received it (nasb), and السماء follows في (jarr). These roles predict the endings even though none are written.",
-            "ar": "في «شاهد الطفل القمر في السماء»، «الطفل» قام بالرؤية فهو مرفوع، ووقع الفعل على «القمر» فهو منصوب، و«السماء» بعد «في» فهي مجرورة. تدل هذه الأدوار على الحركات وإن لم تُكتب."
+            "en": "In the sentence شاهد الطفل القمر في السماء, الطفل is the subject in raf because it performed the act of seeing; القمر is the direct object in nasb because the seeing was directed at it; and السماء is a genitive noun because it follows في. These grammatical roles explain the case endings, even when they are not written.",
+            "ar": "في جملة «شاهد الطفل القمر في السماء»، «الطفل» فاعل مرفوع؛ فقد قام بفعل الرؤية. و«القمر» مفعول به منصوب؛ إذ وقع عليه فعل الرؤية. أما «السماء» فاسم مجرور؛ لأنه جاء بعد «في». وتوضح هذه الوظائف النحوية سبب الحركات، حتى إن لم تُكتب."
           },
           "examples": [
             {
@@ -3554,8 +3554,8 @@
           "id": "lesson-07-nominal-01",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read الطريق طويل. Which ending belongs on طويل_?",
-            "ar": "اقرأ «الطريق طويل». ما حركة آخر «طويل»؟"
+            "en": "Read الطريق طويل. What is the case marker of طويل?",
+            "ar": "اقرأ «الطريق طويل». ما العلامة الإعرابية لكلمة «طويل»؟"
           },
           "options": [
             {
@@ -3600,8 +3600,8 @@
           "id": "lesson-07-subject-02",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read أكل الولد التفاحة. Which ending belongs on الولد_?",
-            "ar": "اقرأ «أكل الولد التفاحة». ما حركة آخر «الولد»؟"
+            "en": "Read أكل الولد التفاحة. What is the case marker of الولد?",
+            "ar": "اقرأ «أكل الولد التفاحة». ما العلامة الإعرابية لكلمة «الولد»؟"
           },
           "options": [
             {
@@ -3646,8 +3646,8 @@
           "id": "lesson-07-object-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "In the same sentence, which ending belongs on التفاحة_?",
-            "ar": "في الجملة نفسها، ما حركة آخر «التفاحة»؟"
+            "en": "In the same sentence, what is the appropriate ending on the word التفاحة?",
+            "ar": "في الجملة نفسها، ما الحركة المناسبة على آخر كلمة «التفاحة»؟"
           },
           "options": [
             {
@@ -3692,8 +3692,8 @@
           "id": "lesson-07-jarr-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read عاد الأب من العمل. Which ending belongs on العمل_?",
-            "ar": "اقرأ «عاد الأب من العمل». ما حركة آخر «العمل»؟"
+            "en": "Read عاد الأب من العمل. What is the case marker of العمل?",
+            "ar": "اقرأ «عاد الأب من العمل». ما العلامة الإعرابية لكلمة «العمل»؟"
           },
           "options": [
             {
@@ -3738,8 +3738,8 @@
           "id": "lesson-07-analysis-05",
           "type": "identifyRole",
           "prompt": {
-            "en": "In شاهد الطفل القمر في السماء, which sequence is correct?",
-            "ar": "في «شاهد الطفل القمر في السماء»، أي ترتيب صحيح؟"
+            "en": "In the sentence شاهد الطفل القمر في السماء, which sequence is correct?",
+            "ar": "في جملة «شاهد الطفل القمر في السماء»، أي ترتيب صحيح؟"
           },
           "options": [
             {
@@ -3786,8 +3786,8 @@
           "id": "lesson-07-repeat-nominal-01",
           "type": "addTashkeel",
           "prompt": {
-            "en": "New sentence: الجو جميل. Which ending belongs on جميل_?",
-            "ar": "جملة جديدة: «الجو جميل». ما حركة آخر «جميل»؟"
+            "en": "New sentence: الجو جميل. What is the appropriate ending on the word جميل?",
+            "ar": "جملة جديدة: «الجو جميل». ما الحركة المناسبة لآخر كلمة «جميل»؟"
           },
           "options": [
             {
@@ -3832,8 +3832,8 @@
           "id": "lesson-07-repeat-subject-02",
           "type": "addTashkeel",
           "prompt": {
-            "en": "New sentence: وصل القطار. Which ending belongs on القطار_?",
-            "ar": "جملة جديدة: «وصل القطار». ما حركة آخر «القطار»؟"
+            "en": "New sentence: وصل القطار. What is the appropriate ending on the word القطار?",
+            "ar": "جملة جديدة: «وصل القطار». ما الحركة المناسبة لآخر كلمة «القطار»؟"
           },
           "options": [
             {
@@ -3878,8 +3878,8 @@
           "id": "lesson-07-repeat-object-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "New sentence: حمل الرجل الحقيبة. Which ending belongs on الحقيبة_?",
-            "ar": "جملة جديدة: «حمل الرجل الحقيبة». ما حركة آخر «الحقيبة»؟"
+            "en": "New sentence: حمل الرجل الحقيبة. What is the case marker of الحقيبة?",
+            "ar": "جملة جديدة: «حمل الرجل الحقيبة». ما العلامة الإعرابية لكلمة «الحقيبة»؟"
           },
           "options": [
             {
@@ -3924,8 +3924,8 @@
           "id": "lesson-07-repeat-jarr-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "New sentence: سافر خالد إلى المدينة. Which ending belongs on المدينة_?",
-            "ar": "جملة جديدة: «سافر خالد إلى المدينة». ما حركة آخر «المدينة»؟"
+            "en": "New sentence: سافر خالد إلى المدينة. What is the case marker of المدينة?",
+            "ar": "جملة جديدة: «سافر خالد إلى المدينة». ما العلامة الإعرابية لكلمة «المدينة»؟"
           },
           "options": [
             {
@@ -3970,8 +3970,8 @@
           "id": "lesson-07-repeat-analysis-05",
           "type": "identifyRole",
           "prompt": {
-            "en": "In وضع المعلم الكتاب على المكتب, which sequence is correct?",
-            "ar": "في «وضع المعلم الكتاب على المكتب»، أي ترتيب صحيح؟"
+            "en": "In your sentence وضع المعلم الكتاب على المكتب, which sequence is correct?",
+            "ar": "في قولك: «وضع المعلم الكتاب على المكتب»، أي ترتيب صحيح؟"
           },
           "options": [
             {
@@ -3982,8 +3982,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Excellent. You found the doer, receiver, and preposition clue in a new sentence.",
-                "ar": "ممتاز. حددت الفاعل والمفعول به وقرينة حرف الجر في جملة جديدة."
+                "en": "Excellent. You found the subject, direct object, and genitive noun in a new sentence.",
+                "ar": "ممتاز. حددت الفاعل والمفعول به والاسم المجرور في جملة جديدة."
               }
             },
             {
@@ -4194,8 +4194,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Tanwin commonly marks بيتٌ as indefinite.",
-                "ar": "التنوين يدل هنا على أن «بيتٌ» نكرة."
+                "en": "بيتٌ is indefinite and can take ال to become البيت.",
+                "ar": "«بيتٌ» نكرة تقبل دخول «الـ» فتصير «البيت»."
               }
             },
             {
@@ -4308,8 +4308,8 @@
           "id": "lesson-08-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read الباب مفتوح. Which reading marks مفتوح as an indefinite predicate?",
-            "ar": "اقرأ «الباب مفتوح». أي قراءة تجعل «مفتوح» خبرًا نكرة؟"
+            "en": "Identify the predicate in الباب مفتوح, then choose the reading that makes مفتوح an indefinite predicate.",
+            "ar": "عيّن الخبر في «الباب مفتوح»، ثم اختر القراءة التي تجعل «مفتوح» خبرًا نكرة."
           },
           "options": [
             {
@@ -4380,8 +4380,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Tanwin marks مدرسةٌ as indefinite here.",
-                "ar": "التنوين جعل «مدرسةٌ» نكرة هنا."
+                "en": "مدرسةٌ is indefinite and can take ال to become المدرسة.",
+                "ar": "«مدرسةٌ» نكرة تقبل دخول «الـ» فتصير «المدرسة»."
               }
             },
             {
@@ -4392,8 +4392,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "غرفةٌ is indefinite here.",
-                "ar": "«غرفةٌ» نكرة هنا."
+                "en": "غرفةٌ is indefinite and can take ال to become الغرفة.",
+                "ar": "«غرفةٌ» نكرة تقبل دخول «الـ» فتصير «الغرفة»."
               }
             }
           ]
@@ -8218,17 +8218,21 @@
       "id": "lesson_16",
       "order": 16,
       "title": {
-        "en": "Past and present verbs",
-        "ar": "الفعل الماضي والمضارع"
+        "en": "Past, present, and imperative verbs",
+        "ar": "الفعل الماضي والمضارع والأمر"
       },
       "objectives": [
         {
-          "en": "Distinguish the past tense (always mabni) from the present tense (normally mu'rab).",
-          "ar": "أن تميّز الفعل الماضي (مبني دائمًا) من الفعل المضارع (معرب في الأصل)."
+          "en": "Distinguish the past, present, and imperative verb forms.",
+          "ar": "أن تميّز صيغ الفعل الماضي والمضارع والأمر."
         },
         {
           "en": "Recognize that an unaffected present-tense verb is in raf, marked by damma.",
           "ar": "أن تتعرّف أن الفعل المضارع إذا لم يسبقه ناصب أو جازم يكون مرفوعًا بالضمة."
+        },
+        {
+          "en": "Recognize that the past and imperative are mabni, while the present is normally mu'rab.",
+          "ar": "أن تتعرّف أن الماضي والأمر مبنيان، وأن المضارع معرب في الأصل."
         }
       ],
       "prerequisites": [
@@ -8246,6 +8250,19 @@
           "body": {
             "en": "The past tense (الماضي) is mabni: its ending never changes no matter its role. The present tense (المضارع) is normally mu'rab: it is in raf with damma unless a particle makes it nasb or jazm.",
             "ar": "الفعل الماضي مبني: لا يتغير آخره مهما كانت وظيفته. أما الفعل المضارع فمعرب في الأصل: يكون مرفوعًا بالضمة ما لم يسبقه حرف ينصبه أو يجزمه."
+          },
+          "examples": []
+        },
+        {
+          "id": "imperative-form",
+          "type": "introduction",
+          "title": {
+            "en": "The imperative",
+            "ar": "فعل الأمر"
+          },
+          "body": {
+            "en": "The imperative (فعل الأمر) requests an action, as in اُكْتُبْ (write). Like the past tense, it is mabni; the present tense is normally mu'rab. Lesson 22 develops commands and prohibitions further.",
+            "ar": "يطلب فعل الأمر وقوع الفعل، مثل «اُكْتُبْ». وهو مبني كالفعل الماضي، بخلاف المضارع المعرب في الأصل. ويتوسع الدرس ٢٢ في الأمر والنهي."
           },
           "examples": []
         },
@@ -8371,6 +8388,52 @@
               "feedback": {
                 "en": "A particle is not a verb at all.",
                 "ar": "الحرف ليس فعلًا أصلًا."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-16-imperative-05",
+          "type": "identifyRole",
+          "prompt": {
+            "en": "Which word is the imperative in اُكْتُبْ الدرس?",
+            "ar": "أي كلمة هي فعل الأمر في «اُكْتُبْ الدرس»؟"
+          },
+          "options": [
+            {
+              "id": "uktub",
+              "label": {
+                "en": "اُكْتُبْ",
+                "ar": "اُكْتُبْ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. اُكْتُبْ requests the action of writing, so it is an imperative.",
+                "ar": "صحيح. «اُكْتُبْ» يطلب فعل الكتابة، فهو فعل أمر."
+              }
+            },
+            {
+              "id": "dars",
+              "label": {
+                "en": "الدرس",
+                "ar": "الدرس"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "الدرس is a noun, not a verb.",
+                "ar": "«الدرس» اسم، وليس فعلًا."
+              }
+            },
+            {
+              "id": "yaktub",
+              "label": {
+                "en": "يكتب",
+                "ar": "يكتب"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "يكتب is a present-tense verb, not an imperative.",
+                "ar": "«يكتب» فعل مضارع، وليس فعل أمر."
               }
             }
           ]
@@ -8515,6 +8578,52 @@
         }
       ],
       "repeatExercises": [
+        {
+          "id": "lesson-16-repeat-imperative-05",
+          "type": "identifyRole",
+          "prompt": {
+            "en": "Which word is the imperative in اِجْلِسْ هنا?",
+            "ar": "أي كلمة هي فعل الأمر في «اِجْلِسْ هنا»؟"
+          },
+          "options": [
+            {
+              "id": "ijlis",
+              "label": {
+                "en": "اِجْلِسْ",
+                "ar": "اِجْلِسْ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. اِجْلِسْ requests the action of sitting, so it is an imperative.",
+                "ar": "صحيح. «اِجْلِسْ» يطلب فعل الجلوس، فهو فعل أمر."
+              }
+            },
+            {
+              "id": "huna",
+              "label": {
+                "en": "هنا",
+                "ar": "هنا"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "هنا indicates a place; it is not a verb.",
+                "ar": "«هنا» تدل على مكان، وليست فعلًا."
+              }
+            },
+            {
+              "id": "yajlisu",
+              "label": {
+                "en": "يجلس",
+                "ar": "يجلس"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "يجلس is a present-tense verb, not an imperative.",
+                "ar": "«يجلس» فعل مضارع، وليس فعل أمر."
+              }
+            }
+          ]
+        },
         {
           "id": "lesson-16-repeat-recognize-01",
           "type": "matchRule",
@@ -12044,10 +12153,14 @@
       "id": "lesson_23",
       "order": 23,
       "title": {
-        "en": "Recognizing derived verb forms",
-        "ar": "أوزان الفعل المزيد"
+        "en": "Basic and derived verb forms",
+        "ar": "أوزان الفعل الثلاثي المجرد والمزيد"
       },
       "objectives": [
+        {
+          "en": "Recognize the six common patterns of the basic triliteral verb.",
+          "ar": "أن تتعرّف الأوزان الستة الشائعة للفعل الثلاثي المجرد."
+        },
         {
           "en": "Recognize that adding letters to a basic verb root changes its meaning, as in علِمَ versus علَّمَ.",
           "ar": "أن تتعرّف أن زيادة حروف على الفعل الأصلي تغيّر معناه، كما في «علِمَ» و«علَّمَ»."
@@ -12060,8 +12173,21 @@
       "prerequisites": [
         "lesson_22"
       ],
-      "estimatedMinutes": 9,
+      "estimatedMinutes": 12,
       "sections": [
+        {
+          "id": "basic-triliteral-patterns",
+          "type": "introduction",
+          "title": {
+            "en": "The six basic triliteral patterns",
+            "ar": "أوزان الفعل الثلاثي المجرد الستة"
+          },
+          "body": {
+            "en": "A basic triliteral verb has no added root letters. Its past and present vowels occur in six common patterns: فَعَلَ يَفْعُلُ (نَصَرَ يَنْصُرُ, helped), فَعَلَ يَفْعِلُ (ضَرَبَ يَضْرِبُ, hit), فَعَلَ يَفْعَلُ (فَتَحَ يَفْتَحُ, opened), فَعِلَ يَفْعَلُ (فَرِحَ يَفْرَحُ, rejoiced), فَعِلَ يَفْعِلُ (حَسِبَ يَحْسِبُ, thought), and فَعُلَ يَفْعُلُ (كَرُمَ يَكْرُمُ, was generous). The pattern of a particular verb is learned from its usage or a dictionary; it cannot always be predicted from the consonants alone.",
+            "ar": "الفعل الثلاثي المجرد ما كانت أصوله ثلاثة أحرف من غير زيادة. وتأتي حركات ماضيه ومضارعه في ستة أوزان شائعة: «فَعَلَ يَفْعُلُ» مثل «نَصَرَ يَنْصُرُ»، و«فَعَلَ يَفْعِلُ» مثل «ضَرَبَ يَضْرِبُ»، و«فَعَلَ يَفْعَلُ» مثل «فَتَحَ يَفْتَحُ»، و«فَعِلَ يَفْعَلُ» مثل «فَرِحَ يَفْرَحُ»، و«فَعِلَ يَفْعِلُ» مثل «حَسِبَ يَحْسِبُ»، و«فَعُلَ يَفْعُلُ» مثل «كَرُمَ يَكْرُمُ». ويُعرف وزن الفعل من استعماله أو من المعجم؛ فلا يمكن دائمًا استنتاجه من حروفه وحدها."
+          },
+          "examples": []
+        },
         {
           "id": "derived-patterns",
           "type": "introduction",
@@ -12155,6 +12281,52 @@
         }
       ],
       "exercises": [
+        {
+          "id": "lesson-23-basic-pattern-01",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which pattern matches فَرِحَ يَفْرَحُ?",
+            "ar": "أي وزن يطابق «فَرِحَ يَفْرَحُ»؟"
+          },
+          "options": [
+            {
+              "id": "fa-ila-yafalu",
+              "label": {
+                "en": "فَعِلَ يَفْعَلُ",
+                "ar": "فَعِلَ يَفْعَلُ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Both the past and present match فَعِلَ يَفْعَلُ.",
+                "ar": "صحيح. يطابق الماضي والمضارع وزن «فَعِلَ يَفْعَلُ»."
+              }
+            },
+            {
+              "id": "faala-yafilu",
+              "label": {
+                "en": "فَعَلَ يَفْعِلُ",
+                "ar": "فَعَلَ يَفْعِلُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Check the vowels: فَرِحَ has kasra on the middle radical, and يَفْرَحُ has fatha.",
+                "ar": "تأمل الحركات: في «فَرِحَ» كسرة على الحرف الأوسط، وفي «يَفْرَحُ» فتحة."
+              }
+            },
+            {
+              "id": "faula-yafulu",
+              "label": {
+                "en": "فَعُلَ يَفْعُلُ",
+                "ar": "فَعُلَ يَفْعُلُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This pattern has damma on the middle radical in both forms.",
+                "ar": "في هذا الوزن ضمة على الحرف الأوسط في الماضي والمضارع."
+              }
+            }
+          ]
+        },
         {
           "id": "lesson-23-recognize-01",
           "type": "matchRule",
@@ -12341,6 +12513,52 @@
         }
       ],
       "repeatExercises": [
+        {
+          "id": "lesson-23-repeat-basic-pattern-01",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which pattern matches كَرُمَ يَكْرُمُ?",
+            "ar": "أي وزن يطابق «كَرُمَ يَكْرُمُ»؟"
+          },
+          "options": [
+            {
+              "id": "faula-yafulu",
+              "label": {
+                "en": "فَعُلَ يَفْعُلُ",
+                "ar": "فَعُلَ يَفْعُلُ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Both forms have damma on the middle radical.",
+                "ar": "صحيح. في الماضي والمضارع ضمة على الحرف الأوسط."
+              }
+            },
+            {
+              "id": "faala-yafilu",
+              "label": {
+                "en": "فَعَلَ يَفْعِلُ",
+                "ar": "فَعَلَ يَفْعِلُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Check the vowels on the middle radical in both forms.",
+                "ar": "راجع حركة الحرف الأوسط في الماضي والمضارع."
+              }
+            },
+            {
+              "id": "faala-yafalu",
+              "label": {
+                "en": "فَعَلَ يَفْعَلُ",
+                "ar": "فَعَلَ يَفْعَلُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This pattern has fatha on the middle radical in both forms.",
+                "ar": "في هذا الوزن فتحة على الحرف الأوسط في الماضي والمضارع."
+              }
+            }
+          ]
+        },
         {
           "id": "lesson-23-repeat-recognize-01",
           "type": "matchRule",

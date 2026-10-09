@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/localization/number_format.dart';
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -130,7 +131,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
         ),
         const SizedBox(height: 8),
         Text(
-          question.lesson.title.forLanguage(languageCode),
+          makeArabicDiacriticsVisible(
+            question.lesson.title.forLanguage(languageCode),
+          ),
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 24),
@@ -140,7 +143,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
         ],
         const SizedBox(height: 12),
         Text(
-          question.exercise.prompt.forLanguage(languageCode),
+          makeArabicDiacriticsVisible(
+            question.exercise.prompt.forLanguage(languageCode),
+          ),
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 20),
@@ -159,7 +164,9 @@ class _PracticeScreenState extends State<PracticeScreen> {
                 padding: const EdgeInsets.all(18),
               ),
               child: Text(
-                option.label.forLanguage(languageCode),
+                makeArabicDiacriticsVisible(
+                  option.label.forLanguage(languageCode),
+                ),
                 style: const TextStyle(fontSize: 17),
               ),
             ),
@@ -186,7 +193,11 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(height: 8),
-                    Text(selected.feedback.forLanguage(languageCode)),
+                    Text(
+                      makeArabicDiacriticsVisible(
+                        selected.feedback.forLanguage(languageCode),
+                      ),
+                    ),
                   ],
                 ],
               ),

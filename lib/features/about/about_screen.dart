@@ -70,9 +70,14 @@ class _AboutScreenState extends State<AboutScreen> {
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         leading: const Icon(Icons.menu_book_outlined),
-                        title: Text(source.title.forLanguage(languageCode)),
+                        title: Text(
+                          '${l10n.aboutResourceTitleLabel}: '
+                          '${source.title.forLanguage(languageCode)}',
+                        ),
                         subtitle: Text(
+                          '${l10n.aboutResourceAuthorLabel}: '
                           '${source.author.forLanguage(languageCode)}\n'
+                          '${l10n.aboutResourceCitationLabel}: '
                           '${source.citation.forLanguage(languageCode)}',
                         ),
                       ),

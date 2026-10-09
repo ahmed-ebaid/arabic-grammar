@@ -331,6 +331,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutResourcesTitle => 'Resources and attribution';
 
   @override
+  String get aboutResourceTitleLabel => 'Resource';
+
+  @override
+  String get aboutResourceAuthorLabel => 'Author';
+
+  @override
+  String get aboutResourceCitationLabel => 'Source note';
+
+  @override
   String get aboutReviewersTitle => 'Teacher reviewers';
 
   @override

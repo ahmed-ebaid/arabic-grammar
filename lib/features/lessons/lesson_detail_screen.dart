@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/localization/number_format.dart';
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
 import '../../core/theme/app_theme.dart';
@@ -56,7 +57,11 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.lesson.title.forLanguage(_languageCode)),
+        title: Text(
+          makeArabicDiacriticsVisible(
+            widget.lesson.title.forLanguage(_languageCode),
+          ),
+        ),
         actions: [
           AnimatedBuilder(
             animation: widget.userDataController,
@@ -485,7 +490,9 @@ class _ObjectivesStep extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          objective.forLanguage(languageCode),
+                          makeArabicDiacriticsVisible(
+                            objective.forLanguage(languageCode),
+                          ),
                           style: TextStyle(
                             color: colors.onBlueContainer,
                             fontSize: 17,
@@ -524,12 +531,14 @@ class _TeachingStep extends StatelessWidget {
     final example = section.examples.firstOrNull;
     return _StepLayout(
       icon: Icons.lightbulb_outline,
-      title: section.title.forLanguage(languageCode),
+      title: makeArabicDiacriticsVisible(
+        section.title.forLanguage(languageCode),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            section.body.forLanguage(languageCode),
+            makeArabicDiacriticsVisible(section.body.forLanguage(languageCode)),
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           if (example != null) ...[
@@ -577,19 +586,27 @@ class _ExerciseStep extends StatelessWidget {
             (option) => option.id == selectedOptionId,
           );
     return _QuestionLayout(
-      prompt: exercise.prompt.forLanguage(languageCode),
+      prompt: makeArabicDiacriticsVisible(
+        exercise.prompt.forLanguage(languageCode),
+      ),
       learningMode: learningMode,
       options: [
         for (final option in exercise.options)
           _AnswerOption(
             id: option.id,
-            label: option.label.forLanguage(languageCode),
+            label: makeArabicDiacriticsVisible(
+              option.label.forLanguage(languageCode),
+            ),
           ),
       ],
       selectedOptionId: selectedOptionId,
       answerChecked: answerChecked,
       isCorrect: selected?.isCorrect ?? false,
-      feedback: selected?.feedback.forLanguage(languageCode),
+      feedback: selected == null
+          ? null
+          : makeArabicDiacriticsVisible(
+              selected.feedback.forLanguage(languageCode),
+            ),
       onSelect: onSelect,
       onCheck: onCheck,
       onRetry: onRetry,
@@ -899,24 +916,31 @@ class _TokenCard extends StatelessWidget {
           children: [
             _AnalysisRow(
               label: l10n.roleLabel,
-              value: token.role.forLanguage(languageCode),
+              value: makeArabicDiacriticsVisible(
+                token.role.forLanguage(languageCode),
+              ),
             ),
             if (learningMode != LearningMode.simple) ...[
               _AnalysisRow(label: l10n.stateLabel, value: state),
               if (!isIndeclinable)
                 _AnalysisRow(
                   label: l10n.signLabel,
-                  value:
-                      '${token.grammaticalSign.forLanguage(languageCode)} (${token.ending})',
+                  value: makeArabicDiacriticsVisible(
+                    '${token.grammaticalSign.forLanguage(languageCode)} (${token.ending})',
+                  ),
                 ),
               _AnalysisRow(
                 label: l10n.reasonLabel,
-                value: token.reason.forLanguage(languageCode),
+                value: makeArabicDiacriticsVisible(
+                  token.reason.forLanguage(languageCode),
+                ),
               ),
             ] else
               _AnalysisRow(
                 label: l10n.reasonLabel,
-                value: token.reason.forLanguage(languageCode),
+                value: makeArabicDiacriticsVisible(
+                  token.reason.forLanguage(languageCode),
+                ),
               ),
           ],
         ),
