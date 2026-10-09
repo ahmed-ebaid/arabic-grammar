@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
@@ -182,7 +183,7 @@ class _PathCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            Text(
+            ArabicDiacriticsText(
               lesson.title.forLanguage(
                 Localizations.localeOf(context).languageCode,
               ),

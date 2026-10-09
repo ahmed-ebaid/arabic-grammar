@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
+
 class ArabicText extends StatelessWidget {
   const ArabicText(
     this.data, {
@@ -16,7 +18,7 @@ class ArabicText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Text(
+      child: ArabicDiacriticsText(
         data,
         textAlign: textAlign,
         style: const TextStyle(

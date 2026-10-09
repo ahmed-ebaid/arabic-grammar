@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -70,11 +71,11 @@ class _AboutScreenState extends State<AboutScreen> {
                       ListTile(
                         contentPadding: EdgeInsets.zero,
                         leading: const Icon(Icons.menu_book_outlined),
-                        title: Text(
+                        title: ArabicDiacriticsText(
                           '${l10n.aboutResourceTitleLabel}: '
                           '${source.title.forLanguage(languageCode)}',
                         ),
-                        subtitle: Text(
+                        subtitle: ArabicDiacriticsText(
                           '${l10n.aboutResourceAuthorLabel}: '
                           '${source.author.forLanguage(languageCode)}\n'
                           '${l10n.aboutResourceCitationLabel}: '

@@ -57,10 +57,8 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          makeArabicDiacriticsVisible(
-            widget.lesson.title.forLanguage(_languageCode),
-          ),
+        title: ArabicDiacriticsText(
+          widget.lesson.title.forLanguage(_languageCode),
         ),
         actions: [
           AnimatedBuilder(
@@ -121,7 +119,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
                         child: TextButton(
                           key: const ValueKey('lessonPreviousStep'),
                           onPressed: _canGoBack ? _goToPrevious : null,
-                          child: Text(l10n.previousStep),
+                          child: ArabicDiacriticsText(l10n.previousStep),
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -489,10 +487,8 @@ class _ObjectivesStep extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       Expanded(
-                        child: Text(
-                          makeArabicDiacriticsVisible(
-                            objective.forLanguage(languageCode),
-                          ),
+                        child: ArabicDiacriticsText(
+                          objective.forLanguage(languageCode),
                           style: TextStyle(
                             color: colors.onBlueContainer,
                             fontSize: 17,
@@ -531,14 +527,12 @@ class _TeachingStep extends StatelessWidget {
     final example = section.examples.firstOrNull;
     return _StepLayout(
       icon: Icons.lightbulb_outline,
-      title: makeArabicDiacriticsVisible(
-        section.title.forLanguage(languageCode),
-      ),
+      title: section.title.forLanguage(languageCode),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            makeArabicDiacriticsVisible(section.body.forLanguage(languageCode)),
+          ArabicDiacriticsText(
+            section.body.forLanguage(languageCode),
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           if (example != null) ...[
@@ -586,27 +580,19 @@ class _ExerciseStep extends StatelessWidget {
             (option) => option.id == selectedOptionId,
           );
     return _QuestionLayout(
-      prompt: makeArabicDiacriticsVisible(
-        exercise.prompt.forLanguage(languageCode),
-      ),
+      prompt: exercise.prompt.forLanguage(languageCode),
       learningMode: learningMode,
       options: [
         for (final option in exercise.options)
           _AnswerOption(
             id: option.id,
-            label: makeArabicDiacriticsVisible(
-              option.label.forLanguage(languageCode),
-            ),
+            label: option.label.forLanguage(languageCode),
           ),
       ],
       selectedOptionId: selectedOptionId,
       answerChecked: answerChecked,
       isCorrect: selected?.isCorrect ?? false,
-      feedback: selected == null
-          ? null
-          : makeArabicDiacriticsVisible(
-              selected.feedback.forLanguage(languageCode),
-            ),
+      feedback: selected?.feedback.forLanguage(languageCode),
       onSelect: onSelect,
       onCheck: onCheck,
       onRetry: onRetry,
@@ -661,10 +647,16 @@ class _QuestionLayout extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(prompt, style: Theme.of(context).textTheme.titleLarge),
+          ArabicDiacriticsText(
+            prompt,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           if (questionHint != null) ...[
             const SizedBox(height: 10),
-            Text(questionHint, style: Theme.of(context).textTheme.bodyMedium),
+            ArabicDiacriticsText(
+              questionHint,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ],
           const SizedBox(height: 20),
           for (final option in options)
@@ -731,7 +723,7 @@ class _OptionButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(18),
       ),
-      child: Text(
+      child: ArabicDiacriticsText(
         option.label,
         style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
       ),
@@ -780,7 +772,7 @@ class _FeedbackCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            Text(feedback),
+            ArabicDiacriticsText(feedback),
           ],
         ],
       ),
@@ -837,7 +829,7 @@ class _AnalysisStepState extends State<_AnalysisStep> {
                     '${entry.$2.text}${entry.$2.ending}',
                     style: const TextStyle(
                       fontFamily: 'AmiriQuran',
-                      fontSize: 24,
+                      fontSize: 28,
                     ),
                   ),
                   onSelected: (_) {
@@ -916,32 +908,24 @@ class _TokenCard extends StatelessWidget {
           children: [
             _AnalysisRow(
               label: l10n.roleLabel,
-              value: makeArabicDiacriticsVisible(
-                token.role.forLanguage(languageCode),
-              ),
+              value: token.role.forLanguage(languageCode),
             ),
             if (learningMode != LearningMode.simple) ...[
               _AnalysisRow(label: l10n.stateLabel, value: state),
               if (!isIndeclinable)
                 _AnalysisRow(
                   label: l10n.signLabel,
-                  value: makeArabicDiacriticsVisible(
-                    token.grammaticalSign.forLanguage(languageCode),
-                  ),
+                  value: token.grammaticalSign.forLanguage(languageCode),
                   accessory: _EndingMark(ending: token.ending),
                 ),
               _AnalysisRow(
                 label: l10n.reasonLabel,
-                value: makeArabicDiacriticsVisible(
-                  token.reason.forLanguage(languageCode),
-                ),
+                value: token.reason.forLanguage(languageCode),
               ),
             ] else
               _AnalysisRow(
                 label: l10n.reasonLabel,
-                value: makeArabicDiacriticsVisible(
-                  token.reason.forLanguage(languageCode),
-                ),
+                value: token.reason.forLanguage(languageCode),
               ),
           ],
         ),
@@ -1017,7 +1001,7 @@ class _AnalysisRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(value),
+                ArabicDiacriticsText(value),
                 if (accessory != null) ...[
                   const SizedBox(height: 6),
                   accessory!,
@@ -1162,7 +1146,7 @@ class _SentenceCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: Text(
+          child: ArabicDiacriticsText(
             example.vocalized,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -1198,7 +1182,7 @@ class _StepLayout extends StatelessWidget {
         children: [
           Icon(icon, size: 48, color: Theme.of(context).colorScheme.primary),
           const SizedBox(height: 12),
-          Text(
+          ArabicDiacriticsText(
             title,
             textAlign: TextAlign.center,
             style: Theme.of(

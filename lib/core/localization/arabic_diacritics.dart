@@ -1,3 +1,64 @@
+import 'package:flutter/material.dart';
+
+class ArabicDiacriticsText extends StatelessWidget {
+  const ArabicDiacriticsText(
+    this.data, {
+    this.style,
+    this.textAlign,
+    this.textDirection,
+    this.maxLines,
+    this.overflow,
+    this.softWrap,
+    this.textWidthBasis,
+    super.key,
+  });
+
+  final String data;
+  final TextStyle? style;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final int? maxLines;
+  final TextOverflow? overflow;
+  final bool? softWrap;
+  final TextWidthBasis? textWidthBasis;
+
+  @override
+  Widget build(BuildContext context) {
+    final formatted = makeArabicDiacriticsVisible(data);
+    final effectiveStyle = style ?? DefaultTextStyle.of(context).style;
+    final markStyle = effectiveStyle.copyWith(
+      color: Theme.of(context).colorScheme.primary,
+      fontSize: (effectiveStyle.fontSize ?? 14) + 6,
+      fontWeight: FontWeight.w700,
+    );
+    final spans = <InlineSpan>[];
+    final marks = RegExp(r'ـ[\u064B-\u0652\u0670]+');
+    var offset = 0;
+
+    for (final match in marks.allMatches(formatted)) {
+      if (match.start > offset) {
+        spans.add(TextSpan(text: formatted.substring(offset, match.start)));
+      }
+      spans.add(TextSpan(text: match.group(0), style: markStyle));
+      offset = match.end;
+    }
+    if (offset < formatted.length) {
+      spans.add(TextSpan(text: formatted.substring(offset)));
+    }
+
+    return Text.rich(
+      TextSpan(children: spans),
+      style: style,
+      textAlign: textAlign,
+      textDirection: textDirection,
+      maxLines: maxLines,
+      overflow: overflow,
+      softWrap: softWrap,
+      textWidthBasis: textWidthBasis,
+    );
+  }
+}
+
 String makeArabicDiacriticsVisible(String text) {
   final withSeparatedMarks = text.replaceAllMapped(
     RegExp(r':\s*([\u064B-\u0652\u0670]+)'),

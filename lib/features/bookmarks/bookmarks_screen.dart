@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/content/glossary_repository.dart';
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
 import '../../core/models/glossary_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
@@ -113,7 +114,9 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
             Card(
               child: ListTile(
                 leading: const Icon(Icons.school_outlined),
-                title: Text(lesson.title.forLanguage(languageCode)),
+                title: ArabicDiacriticsText(
+                  lesson.title.forLanguage(languageCode),
+                ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
@@ -133,7 +136,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
             Card(
               child: ListTile(
                 leading: const Icon(Icons.format_quote),
-                title: Text(
+                title: ArabicDiacriticsText(
                   entry.$2.vocalized,
                   textDirection: TextDirection.rtl,
                   style: const TextStyle(
@@ -141,7 +144,9 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                     fontSize: 20,
                   ),
                 ),
-                subtitle: Text(entry.$1.title.forLanguage(languageCode)),
+                subtitle: ArabicDiacriticsText(
+                  entry.$1.title.forLanguage(languageCode),
+                ),
               ),
             ),
         ],
@@ -151,8 +156,12 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
             Card(
               child: ListTile(
                 leading: const Icon(Icons.translate),
-                title: Text(term.term.forLanguage(languageCode)),
-                subtitle: Text(term.definition.forLanguage(languageCode)),
+                title: ArabicDiacriticsText(
+                  term.term.forLanguage(languageCode),
+                ),
+                subtitle: ArabicDiacriticsText(
+                  term.definition.forLanguage(languageCode),
+                ),
               ),
             ),
         ],

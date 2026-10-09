@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
@@ -274,7 +275,7 @@ class _LevelProgressCard extends StatelessWidget {
                 CircleAvatar(child: Text('${level.order}')),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: Text(
+                  child: ArabicDiacriticsText(
                     level.title.forLanguage(languageCode),
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
@@ -299,7 +300,7 @@ class _LevelProgressCard extends StatelessWidget {
             ),
             if (nextLesson != null) ...[
               const SizedBox(height: 4),
-              Text(
+              ArabicDiacriticsText(
                 l10n.progressNextLesson(
                   nextLesson.title.forLanguage(languageCode),
                 ),

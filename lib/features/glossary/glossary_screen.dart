@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/content/glossary_repository.dart';
 import '../../core/models/glossary_models.dart';
@@ -113,7 +114,7 @@ class _TermCard extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 12),
           child: ExpansionTile(
             leading: const CircleAvatar(child: Icon(Icons.translate)),
-            title: Text(
+            title: ArabicDiacriticsText(
               term.term.forLanguage(languageCode),
               style: Theme.of(context).textTheme.titleMedium,
             ),
@@ -129,9 +130,9 @@ class _TermCard extends StatelessWidget {
             childrenPadding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
             expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(term.definition.forLanguage(languageCode)),
+              ArabicDiacriticsText(term.definition.forLanguage(languageCode)),
               const SizedBox(height: 12),
-              Text(
+              ArabicDiacriticsText(
                 term.example.forLanguage(languageCode),
                 style: const TextStyle(fontFamily: 'AmiriQuran', fontSize: 20),
                 textDirection: TextDirection.rtl,

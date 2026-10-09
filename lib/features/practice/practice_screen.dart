@@ -130,10 +130,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 8),
-        Text(
-          makeArabicDiacriticsVisible(
-            question.lesson.title.forLanguage(languageCode),
-          ),
+        ArabicDiacriticsText(
+          question.lesson.title.forLanguage(languageCode),
           style: Theme.of(context).textTheme.labelLarge,
         ),
         const SizedBox(height: 24),
@@ -142,10 +140,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
           Text(modeHint, style: Theme.of(context).textTheme.bodyMedium),
         ],
         const SizedBox(height: 12),
-        Text(
-          makeArabicDiacriticsVisible(
-            question.exercise.prompt.forLanguage(languageCode),
-          ),
+        ArabicDiacriticsText(
+          question.exercise.prompt.forLanguage(languageCode),
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 20),
@@ -163,10 +159,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
                     : null,
                 padding: const EdgeInsets.all(18),
               ),
-              child: Text(
-                makeArabicDiacriticsVisible(
-                  option.label.forLanguage(languageCode),
-                ),
+              child: ArabicDiacriticsText(
+                option.label.forLanguage(languageCode),
                 style: const TextStyle(fontSize: 17),
               ),
             ),
@@ -193,10 +187,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     const SizedBox(height: 8),
-                    Text(
-                      makeArabicDiacriticsVisible(
-                        selected.feedback.forLanguage(languageCode),
-                      ),
+                    ArabicDiacriticsText(
+                      selected.feedback.forLanguage(languageCode),
                     ),
                   ],
                 ],

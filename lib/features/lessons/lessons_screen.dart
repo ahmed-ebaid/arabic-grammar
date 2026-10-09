@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../core/progress/lesson_progress_controller.dart';
@@ -108,7 +109,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                 ? learningColors.onBlueContainer
                 : learningColors.onCoralContainer,
           ),
-          title: Text(
+          title: ArabicDiacriticsText(
             level.title.forLanguage(languageCode),
             style: TextStyle(
               color: isPlusLevel
@@ -116,7 +117,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                   : learningColors.onCoralContainer,
             ),
           ),
-          subtitle: Text(
+          subtitle: ArabicDiacriticsText(
             '${level.description.forLanguage(languageCode)}\n'
             '${isPlusLevel && !hasPlus
                 ? AppLocalizations.of(context).plusLevelNotice
@@ -272,7 +273,7 @@ class _PathNode extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
+              ArabicDiacriticsText(
                 lesson.title.forLanguage(languageCode),
                 textAlign: TextAlign.center,
                 style: Theme.of(
