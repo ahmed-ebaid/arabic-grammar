@@ -44,6 +44,14 @@
       }
     }
   },
+  "estimatedMinutesPlural": "{minutes} min",
+  "@estimatedMinutesPlural": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
   "objectivesTitle": "What you will learn",
   "vocalizedLabel": "With vowel marks",
   "unvocalizedLabel": "Without vowel marks",

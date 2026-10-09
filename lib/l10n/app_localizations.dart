@@ -248,6 +248,12 @@ abstract class AppLocalizations {
   /// **'{minutes} min'**
   String estimatedMinutes(String minutes);
 
+  /// No description provided for @estimatedMinutesPlural.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String estimatedMinutesPlural(String minutes);
+
   /// No description provided for @objectivesTitle.
   ///
   /// In en, this message translates to:

@@ -523,8 +523,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "The topic is not in nasb in this basic pattern.",
-                "ar": "المبتدأ ليس منصوبًا في هذا النمط البسيط."
+                "en": "البيت is the topic here, so it is not in a position governed by nasb.",
+                "ar": "لم تقع كلمة «البيت» في موقع النصب هنا؛ فهي مبتدأ مرفوع."
               }
             },
             {
@@ -535,8 +535,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing governs البيت into jarr.",
-                "ar": "لا يوجد ما يجر «البيت»."
+                "en": "No preposition or genitive construction governs البيت, and it does not depend on a genitive noun.",
+                "ar": "لم تقع كلمة «البيت» في موقع الجر؛ فلا يسبقها حرف جر ولا تقع مضافًا إليه أو تابعةً لمجرور."
               }
             }
           ]
@@ -1338,8 +1338,8 @@
           "id": "lesson-03-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the topic in العلم نور?",
-            "ar": "ما المبتدأ في «العلم نور»؟"
+            "en": "Identify the topic in the sentence العلم نور.",
+            "ar": "عيّن المبتدأ في جملة «العلم نور»."
           },
           "options": [
             {
@@ -1374,8 +1374,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a nominal sentence, so look at its first noun.",
-                "ar": "هذه جملة اسمية؛ فانظر إلى اسمها الأول."
+                "en": "المدرسة كبيرة is a two-noun sentence; المدرسة is the topic, and كبيرة tells us about it.",
+                "ar": "«المدرسة كبيرة» جملة من اسمين؛ «المدرسة» مبتدأ، و«كبيرة» تخبر عنها."
               }
             }
           ]
@@ -1384,8 +1384,8 @@
           "id": "lesson-03-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the predicate in البيت واسع?",
-            "ar": "ما الخبر في «البيت واسع»؟"
+            "en": "Identify the predicate in the sentence البيت واسع.",
+            "ar": "عيّن الخبر في جملة «البيت واسع»."
           },
           "options": [
             {
@@ -1567,8 +1567,8 @@
           "id": "lesson-03-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the topic in المدرسة كبيرة؟",
-            "ar": "ما المبتدأ في «المدرسة كبيرة»؟"
+            "en": "Identify the topic in the phrase المدرسة كبيرة.",
+            "ar": "عيّن المبتدأ في عبارة «المدرسة كبيرة»."
           },
           "options": [
             {
@@ -1603,8 +1603,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a nominal sentence, so look at its first noun.",
-                "ar": "هذه جملة اسمية؛ فانظر إلى اسمها الأول."
+                "en": "المدرسة كبيرة is a two-noun sentence; المدرسة is the topic, and كبيرة tells us about it.",
+                "ar": "«المدرسة كبيرة» جملة من اسمين؛ «المدرسة» مبتدأ، و«كبيرة» تخبر عنها."
               }
             }
           ]
@@ -1613,8 +1613,8 @@
           "id": "lesson-03-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the predicate in الجو بارد؟",
-            "ar": "ما الخبر في «الجو بارد»؟"
+            "en": "Identify the predicate in the sentence الجو بارد.",
+            "ar": "عيّن الخبر في جملة «الجو بارد»."
           },
           "options": [
             {
@@ -1659,8 +1659,8 @@
           "id": "lesson-03-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "In المدرسة كبيرة, what state do the topic and predicate share؟",
-            "ar": "في «المدرسة كبيرة»، ما الحالة التي يشترك فيها المبتدأ والخبر؟"
+            "en": "What state do the topic and predicate share?",
+            "ar": "ما الحالة التي يشترك فيها المبتدأ والخبر؟"
           },
           "options": [
             {
@@ -1705,8 +1705,8 @@
           "id": "lesson-03-repeat-ending-04",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Read without tashkeel: الجو بارد. Which ending belongs on بارد_؟",
-            "ar": "اقرأ بلا تشكيل: «الجو بارد». ما حركة آخر «بارد»؟"
+            "en": "Read the following phrase with vowel marks and identify the grammatical ending of بارد.",
+            "ar": "اقرأ العبارة الآتية مع ضبطها بالشكل، وبيّن العلامة الإعرابية لكلمة «بارد»."
           },
           "options": [
             {
@@ -1779,8 +1779,8 @@
             "ar": "حدث ومن قام به"
           },
           "body": {
-            "en": "A verbal sentence often begins with a verb. Ask: who or what performed this action? That noun is the subject (فاعل), and it is normally in raf.",
-            "ar": "تبدأ الجملة الفعلية غالبًا بفعل. اسأل: من الذي قام بهذا الفعل؟ الاسم الذي قام به هو الفاعل، والفاعل مرفوع في الأصل."
+            "en": "A verbal sentence often begins with a verb. Its subject (فاعل) is the noun the verb is attributed to, often the person or thing that performed the action; it is normally in raf.",
+            "ar": "تبدأ الجملة الفعلية غالبًا بفعل. والفاعل هو الاسم الذي يُسنَد إليه الفعل، وقد يكون من قام به، وهو مرفوع في الأصل."
           },
           "examples": []
         },
@@ -1793,7 +1793,7 @@
           },
           "body": {
             "en": "In قَرَأَ الطِّفْلُ الكِتَابَ, قرأ is the action. الطفل performed it, so الطفل is the subject and takes damma. الكتاب did not read; it received the action.",
-            "ar": "في «قَرَأَ الطِّفْلُ الكِتَابَ»، «قرأ» هو الفعل، و«الطفل» قام بالقراءة، فهو الفاعل المرفوع بالضمة. أمّا «الكتاب» فلم يقرأ، بل وقع عليه الفعل."
+            "ar": "في جملة «قَرَأَ الطِّفْلُ الكِتَابَ»، «قرأ» هو الفعل، و«الطفل» قام بالقراءة، فهو الفاعل المرفوع بالضمة. أمّا «الكتاب» فلم يقرأ، بل وقع عليه الفعل."
           },
           "examples": [
             {
@@ -1870,8 +1870,8 @@
             "ar": "قرينة للقراءة"
           },
           "body": {
-            "en": "When an unvocalized sentence starts with a known verb, find its doer. In كتب المعلم, المعلم is the one who wrote, so read it المُعَلِّمُ.",
-            "ar": "إذا بدأت الجملة غير المشكولة بفعل معروف، فابحث عمّن قام به. في «كتب المعلم»، المعلّم هو الذي كتب، فنقرأها «المُعَلِّمُ»."
+            "en": "When an unvocalized sentence starts with a known verb, find the noun the verb is attributed to. In the phrase كتب المعلم, المعلم is the one who wrote, so read it المُعَلِّمُ.",
+            "ar": "إذا بدأت الجملة غير المشكولة بفعل معروف، فابحث عمّن أُسنِد إليه. في العبارة «كتب المعلم»، المعلّم هو الذي كتب، فنقرأها «المُعَلِّمُ»."
           },
           "examples": []
         }
@@ -1882,7 +1882,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the verb in قرأ الطفل الكتاب?",
-            "ar": "أي كلمة هي الفعل في «قرأ الطفل الكتاب»؟"
+            "ar": "عيّن الفعل فيما يلي: «قرأ الطفل الكتاب»."
           },
           "options": [
             {
@@ -1928,7 +1928,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Who performed the action in قرأ الطفل الكتاب?",
-            "ar": "من قام بالفعل في «قرأ الطفل الكتاب»؟"
+            "ar": "من قام بالفعل في العبارة «قرأ الطفل الكتاب»؟"
           },
           "options": [
             {
@@ -1973,8 +1973,8 @@
           "id": "lesson-04-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for الطِّفْل_ when it is the subject.",
-            "ar": "اختر حركة آخر «الطِّفْلـ» عندما يكون فاعلًا."
+            "en": "Choose the grammatical ending for الطفل when it is the subject.",
+            "ar": "اختر العلامة الإعرابية لكلمة «الطفل» حين تكون فاعلًا."
           },
           "options": [
             {
@@ -2010,7 +2010,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs الطفل here.",
-                "ar": "لا يسبق «الطفل» حرف جر هنا."
+                "ar": "لا يسبق «الطفل» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -2019,8 +2019,8 @@
           "id": "lesson-04-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read كتب المعلم. Which ending belongs on المعلم_?",
-            "ar": "اقرأ «كتب المعلم». ما حركة آخر «المعلم»؟"
+            "en": "Choose the ending for المعلم_ in كتب المعلم.",
+            "ar": "اختر الحركة المناسبة لآخر كلمة «المعلم» في «كتب المعلم»."
           },
           "options": [
             {
@@ -2111,7 +2111,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the verb in غسل الرجل السيارة؟",
-            "ar": "أي كلمة هي الفعل في «غسل الرجل السيارة»؟"
+            "ar": "عيّن الفعل في العبارة «غسل الرجل السيارة»."
           },
           "options": [
             {
@@ -2157,7 +2157,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Who performed the action in غسل الرجل السيارة؟",
-            "ar": "من قام بالفعل في «غسل الرجل السيارة»؟"
+            "ar": "من قام بالفعل في جملة «غسل الرجل السيارة»؟"
           },
           "options": [
             {
@@ -2203,7 +2203,7 @@
           "type": "chooseEnding",
           "prompt": {
             "en": "Choose the ending for الرَّجُل_ when it is the subject.",
-            "ar": "اختر حركة آخر «الرَّجُلـ» عندما يكون فاعلًا."
+            "ar": "اختر حركة كلمة «الرجل» حين يكون فاعلًا."
           },
           "options": [
             {
@@ -2239,7 +2239,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs الرجل here.",
-                "ar": "لا يسبق «الرجل» حرف جر هنا."
+                "ar": "لا يسبق «الرجل» حرف جر، ولا يقع مضافًا إليه أو تابعًا لمجرور."
               }
             }
           ]
@@ -2249,7 +2249,7 @@
           "type": "addTashkeel",
           "prompt": {
             "en": "Read لعب الولد. Which ending belongs on الولد_؟",
-            "ar": "اقرأ «لعب الولد». ما حركة آخر «الولد»؟"
+            "ar": "اقرأ «لعب الولد». ما العلامة الإعرابية لكلمة «الولد»؟"
           },
           "options": [
             {
@@ -2305,8 +2305,8 @@
           "ar": "أن تحدد الاسم الذي وقع عليه الفعل."
         },
         {
-          "en": "Read a basic direct object in nasb.",
-          "ar": "أن تقرأ المفعول به منصوبًا في الجملة البسيطة."
+          "en": "Read a basic direct object in nasb in a simple verbal sentence.",
+          "ar": "أن تقرأ المفعول به منصوبًا في الجملة الفعلية البسيطة."
         }
       ],
       "prerequisites": [
@@ -2322,8 +2322,8 @@
             "ar": "على ماذا وقع الفعل؟"
           },
           "body": {
-            "en": "Some actions pass from a subject to another noun. Ask: what did the subject open, read, drink, or see? That noun is the direct object (مفعول به), and it is normally in nasb.",
-            "ar": "تنتقل بعض الأفعال من الفاعل إلى اسم آخر. اسأل: ماذا فتح الفاعل أو قرأ أو شرب أو رأى؟ هذا الاسم هو المفعول به، وهو منصوب في الأصل."
+            "en": "In a verbal sentence, the verb is followed by its subject in raf. Some verbs then take a noun that receives the action; that noun is the direct object (مفعول به), normally in nasb.",
+            "ar": "في الترتيب النحوي يأتي الفعل ثم الفاعل مرفوعًا، وقد يتعدى الفعل إلى اسم بعد الفاعل يقع عليه، فيُعرب مفعولًا به منصوبًا."
           },
           "examples": []
         },
@@ -2336,7 +2336,7 @@
           },
           "body": {
             "en": "In فَتَحَ الوَلَدُ البَابَ, الولد performed the opening, so it is the subject in raf. الباب received the action, so it is the direct object in nasb with fatha.",
-            "ar": "في «فَتَحَ الوَلَدُ البَابَ»، «الولد» قام بالفتح، فهو فاعل مرفوع. ووقع الفتح على «الباب»، فهو مفعول به منصوب بالفتحة."
+            "ar": "في العبارة «فَتَحَ الوَلَدُ البَابَ»، «الولد» قام بالفتح، فهو فاعل مرفوع. ووقع الفتح على «الباب»، فهو مفعول به منصوب بالفتحة."
           },
           "examples": [
             {
@@ -2413,8 +2413,8 @@
             "ar": "استعن بالمعنى والتركيب"
           },
           "body": {
-            "en": "In شرب الطفل الماء, the child performs the drinking and the water receives it. Structure and meaning together predict: الطِّفْلُ المَاءَ.",
-            "ar": "في «شرب الطفل الماء»، الطفل هو الذي شرب، والماء هو الذي وقع عليه الشرب. يدل التركيب والمعنى معًا على القراءة: «الطِّفْلُ المَاءَ»."
+            "en": "In شرب الطفل الماء, the child drank, and الماء is the drink that received the action. Structure and meaning together predict: الطِّفْلُ المَاءَ.",
+            "ar": "في قولك: «شرب الطفل الماء»، الطفل هو الذي شرب، والماء هو المشروب الذي وقع عليه فعل الشرب. يدل التركيب والمعنى معًا على القراءة: «الطِّفْلُ المَاءَ»."
           },
           "examples": []
         }
@@ -2516,8 +2516,8 @@
           "id": "lesson-05-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for البَاب_ when it is the direct object.",
-            "ar": "اختر حركة آخر «البَابـ» عندما يكون مفعولًا به."
+            "en": "Read فتح الولد الباب. What is the grammatical ending of الباب?",
+            "ar": "اقرأ «فتح الولد الباب». ما العلامة الإعرابية لكلمة «الباب»؟"
           },
           "options": [
             {
@@ -2562,8 +2562,8 @@
           "id": "lesson-05-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read شرب الطفل الماء. Which ending belongs on الماء_?",
-            "ar": "اقرأ «شرب الطفل الماء». ما حركة آخر «الماء»؟"
+            "en": "Read شرب الطفل الماء. What is the grammatical ending of الماء?",
+            "ar": "اقرأ «شرب الطفل الماء». ما العلامة الإعرابية لكلمة «الماء»؟"
           },
           "options": [
             {
@@ -2791,8 +2791,8 @@
           "id": "lesson-05-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read شرب الرجل العصير. Which ending belongs on العصير_؟",
-            "ar": "اقرأ «شرب الرجل العصير». ما حركة آخر «العصير»؟"
+            "en": "Read شرب الرجل العصير. What is the grammatical ending of العصير?",
+            "ar": "اقرأ «شرب الرجل العصير». ما العلامة الإعرابية لكلمة «العصير»؟"
           },
           "options": [
             {
@@ -2976,7 +2976,7 @@
           },
           "body": {
             "en": "When you see في البيت without tashkeel, في tells you how to read the next ending: فِي البَيْتِ. The written structure replaces the missing vowel clue.",
-            "ar": "عندما ترى «في البيت» بلا تشكيل، يخبرك حرف «في» بكيفية قراءة آخر الاسم بعده: «فِي البَيْتِ». فالتركيب المكتوب يعوض الحركة المحذوفة."
+            "ar": "عندما ترى العبارة «في البيت» بلا تشكيل، يخبرك حرف «في» بكيفية قراءة آخر الاسم بعده: «فِي البَيْتِ». فالتركيب المكتوب يعوض الحركة المحذوفة."
           },
           "examples": []
         }
@@ -2987,7 +2987,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the preposition in ذهب الطالب إلى المدرسة?",
-            "ar": "أي كلمة هي حرف الجر في «ذهب الطالب إلى المدرسة»؟"
+            "ar": "أي كلمة هي حرف الجر في العبارة «ذهب الطالب إلى المدرسة»؟"
           },
           "options": [
             {
@@ -3011,7 +3011,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الطالب is a noun and the subject of ذهب.",
-                "ar": "«الطالب» اسم وهو فاعل «ذهب»."
+                "ar": "«الطالب» يدل على معنى في نفسه، وهو فاعل «ذهب»."
               }
             },
             {
@@ -3022,8 +3022,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "ذهب is the past-tense verb.",
-                "ar": "«ذهب» فعل ماضٍ."
+                "en": "ذهب expresses an action and a time, so it is a verb.",
+                "ar": "«ذهب» يدل على حدث وزمن، فهو فعل."
               }
             }
           ]
@@ -3033,7 +3033,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which noun is governed by the preposition in في البيت?",
-            "ar": "أي اسم جرّه حرف الجر في «في البيت»؟"
+            "ar": "أي اسم جرّه حرف الجر في العبارة «في البيت»؟"
           },
           "options": [
             {
@@ -3078,8 +3078,8 @@
           "id": "lesson-06-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state does a preposition normally give the noun after it?",
-            "ar": "ما الحالة التي يحدثها حرف الجر في الاسم بعده؟"
+            "en": "What is the grammatical state of a noun after a preposition?",
+            "ar": "ما الحالة الإعرابية للاسم الذي يأتي بعد حرف الجر؟"
           },
           "options": [
             {
@@ -3125,7 +3125,7 @@
           "type": "addTashkeel",
           "prompt": {
             "en": "Read جلست على الكرسي. Which ending belongs on الكرسي_?",
-            "ar": "اقرأ «جلست على الكرسي». ما حركة آخر «الكرسي»؟"
+            "ar": "اقرأ «جلست على الكرسي». ما الحركة المناسبة لآخر كلمة «الكرسي»؟"
           },
           "options": [
             {
@@ -3216,7 +3216,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the preposition in خرج الطبيب من المستشفى؟",
-            "ar": "أي كلمة حرف جر في «خرج الطبيب من المستشفى»؟"
+            "ar": "أي كلمة حرف جر في جملة «خرج الطبيب من المستشفى»؟"
           },
           "options": [
             {
@@ -3227,8 +3227,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. من is a preposition meaning \"from\".",
-                "ar": "صحيح. «من» حرف جر بمعنى الابتداء."
+                "en": "Correct. من is a preposition that marks where the doctor left from.",
+                "ar": "صحيح. «من» حرف جر يبيّن المكان الذي خرج منه الطبيب."
               }
             },
             {
@@ -3262,7 +3262,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which noun is governed by the preposition in في الحديقة؟",
-            "ar": "أي اسم مجرور بحرف الجر في «في الحديقة»؟"
+            "ar": "أي اسم مجرور بحرف الجر في العبارة «في الحديقة»؟"
           },
           "options": [
             {
@@ -3273,8 +3273,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الحديقة follows في and is in jarr.",
-                "ar": "صحيح. «الحديقة» بعد «في» فهي مجرورة."
+                "en": "Correct. الحديقة is a noun in jarr because it follows في.",
+                "ar": "صحيح. «الحديقة» اسم مجرور؛ لأنه جاء بعد «في»."
               }
             },
             {
@@ -3307,8 +3307,8 @@
           "id": "lesson-06-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state does a preposition normally give the noun after it؟",
-            "ar": "ما الحالة التي يجعل حرف الجر الاسم بعده عليها عادة؟"
+            "en": "What is the grammatical state of a noun after a preposition?",
+            "ar": "ما الحالة الإعرابية للاسم الذي يأتي بعد حرف الجر؟"
           },
           "options": [
             {
@@ -3319,8 +3319,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. A noun after a preposition is normally in jarr.",
-                "ar": "صحيح. الاسم بعد حرف الجر مجرور في الأصل."
+                "en": "Correct. A noun after a preposition is in jarr.",
+                "ar": "صحيح. الاسم بعد حرف الجر مجرور."
               }
             },
             {
@@ -3354,7 +3354,7 @@
           "type": "addTashkeel",
           "prompt": {
             "en": "Read جلس الرجل في الحديقة. Which ending belongs on الحديقة_؟",
-            "ar": "اقرأ «جلس الرجل في الحديقة». ما حركة آخر «الحديقة»؟"
+            "ar": "اقرأ «جلس الرجل في الحديقة». ما العلامة الإعرابية لكلمة «الحديقة»؟"
           },
           "options": [
             {
@@ -3365,8 +3365,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الحديقة follows في and is in jarr.",
-                "ar": "صحيح. «الحديقة» بعد «في» فهي مجرورة."
+                "en": "Correct. الحديقة is a noun in jarr because it follows في.",
+                "ar": "صحيح. «الحديقة» اسم مجرور؛ لأنه جاء بعد «في»."
               }
             },
             {
@@ -4070,8 +4070,8 @@
           "ar": "أن تتعرف «الـ» بوصفها علامة شائعة للاسم المعرفة."
         },
         {
-          "en": "Recognize tanwin as a common marker of an indefinite noun.",
-          "ar": "أن تتعرف التنوين بوصفه علامة شائعة للاسم النكرة."
+          "en": "Recognize tanwin as a common, but not exclusive, marker of an indefinite noun.",
+          "ar": "أن تتعرف التنوين بوصفه علامة شائعة غير حصرية للاسم النكرة."
         }
       ],
       "prerequisites": [
@@ -4087,8 +4087,8 @@
             "ar": "معيّن أم غير معيّن؟"
           },
           "body": {
-            "en": "A definite noun points to something known or specific. ال is a common clue: الكتاب means “the book.” An indefinite noun is not yet specified: كتابٌ means “a book,” and often carries tanwin.",
-            "ar": "الاسم المعرفة يدل على شيء معيّن أو معروف، ومن علاماته الشائعة «الـ»: «الكتاب». أمّا النكرة فتدل على شيء غير معيّن: «كتابٌ»، ومن علاماتها الشائعة التنوين."
+            "en": "A definite noun points to something known or specific. ال is a common clue: الكتاب means “the book.” An indefinite noun refers to a non-specific member of its kind, like كتابٌ. In traditional grammar, it accepts ال, can occupy positions that take a noun with ال, and can follow رُبَّ.",
+            "ar": "الاسم المعرفة يدل على شيء معيّن أو معروف، ومن علاماته الشائعة «الـ»: «الكتاب». أمّا النكرة فهي ما دلّ على مسمّى غير معيّن شائع في جنسه، مثل «كتابٌ». ومن علاماتها قبول دخول «الـ» عليها، ووقوعها موقع الاسم الذي يقبل «الـ»، وصحة دخول «رُبَّ» عليها."
           },
           "examples": []
         },
@@ -4143,8 +4143,8 @@
                   },
                   "ending": "ٌ",
                   "reason": {
-                    "en": "Tanwin commonly marks an indefinite noun; the predicate is in raf.",
-                    "ar": "التنوين من علامات النكرة، والخبر مرفوع."
+                    "en": "جديدٌ is indefinite and can take ال (الجديد); tanwin is a common clue, and the predicate is in raf.",
+                    "ar": "«جديدٌ» نكرة تقبل دخول «الـ» («الجديد»)، والتنوين علامة شائعة لها؛ والخبر مرفوع."
                   }
                 }
               ]
@@ -4159,8 +4159,8 @@
             "ar": "علامات نافعة وليست القصة كلها"
           },
           "body": {
-            "en": "ال and tanwin are excellent beginner clues, but names, pronouns, and other constructions can also be definite. For now, use the visible clue and keep reading the sentence structure.",
-            "ar": "«الـ» والتنوين علامتان نافعتان للمبتدئ، لكن الأعلام والضمائر وتراكيب أخرى قد تكون معارف أيضًا. استخدم الآن العلامة الظاهرة مع تركيب الجملة."
+            "en": "ال and tanwin are useful clues, not absolute tests: a proper name such as محمدٌ is definite even though it carries tanwin, and nouns can become definite in other ways. Use visible clues together with sentence structure.",
+            "ar": "«الـ» والتنوين علامتان نافعتان، لكنهما ليستا معيارًا قاطعًا؛ فالعَلَم «محمدٌ» معرفة مع أنه منوّن، وقد تكتسب الأسماء التعريف بطرق أخرى. اجمع بين العلامة الظاهرة وتركيب الجملة."
           },
           "examples": []
         }
@@ -4206,8 +4206,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "كتابٌ has tanwin and is indefinite here.",
-                "ar": "«كتابٌ» منوّن، فهو نكرة هنا."
+                "en": "كتابٌ is indefinite here; adding ال makes الكتاب definite.",
+                "ar": "«كتابٌ» نكرة هنا؛ فإذا دخلت عليه «الـ» صار «الكتاب» معرفة."
               }
             }
           ]
@@ -4228,8 +4228,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. The tanwin is a common indefiniteness clue.",
-                "ar": "صحيح. التنوين علامة شائعة للتنكير."
+                "en": "Correct. قلمٌ is indefinite; adding ال makes القلم definite.",
+                "ar": "صحيح. «قلمٌ» نكرة؛ فإذا دخلت عليه «الـ» صار «القلم» معرفة."
               }
             },
             {
@@ -4286,8 +4286,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "الكتاب has no tanwin; tanwin commonly signals indefiniteness.",
-                "ar": "«الكتاب» غير منوّن؛ والتنوين يدل غالبًا على التنكير."
+                "en": "ال and tanwin do not appear together on this noun; ال marks الكتاب as definite.",
+                "ar": "لا يجتمع «الـ» والتنوين في هذا الاسم؛ و«الـ» جعلت «الكتاب» معرفة."
               }
             },
             {
@@ -4298,8 +4298,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This sentence begins with a noun, not a verb.",
-                "ar": "هذه الجملة تبدأ باسم، لا بفعل."
+                "en": "A preceding verb does not make a noun definite; ال is what makes الكتاب definite.",
+                "ar": "الفعل السابق لا يجعل الاسم معرفة؛ الذي عرّف «الكتاب» هو «الـ»."
               }
             }
           ]
@@ -4320,8 +4320,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. The indefinite predicate is in raf with tanwin.",
-                "ar": "صحيح. الخبر النكرة مرفوع مع التنوين."
+                "en": "Correct. مفتوحٌ is the predicate and is indefinite because it can take ال; the predicate is in raf.",
+                "ar": "صحيح. «مفتوحٌ» خبر نكرة يقبل دخول «الـ»، والخبر مرفوع."
               }
             },
             {
@@ -4332,8 +4332,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Adding ال would make the word definite and change the intended pattern.",
-                "ar": "إضافة «الـ» تجعل الكلمة معرفة وتغيّر النمط المقصود."
+                "en": "Adding ال makes the word definite, as in الباب المفتوح, so it is no longer an indefinite predicate.",
+                "ar": "إضافة «الـ» تجعل الكلمة معرفة، كما في «الباب المفتوح»، فلا تكون خبرًا نكرة."
               }
             },
             {
@@ -4414,8 +4414,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. Tanwin is the visible clue.",
-                "ar": "صحيح. التنوين هو العلامة الظاهرة."
+                "en": "Correct. مُعَلِّمٌ is indefinite; it can take ال to become المُعَلِّم.",
+                "ar": "صحيح. «مُعَلِّمٌ» نكرة تقبل دخول «الـ» فتصير «المُعَلِّم»."
               }
             },
             {

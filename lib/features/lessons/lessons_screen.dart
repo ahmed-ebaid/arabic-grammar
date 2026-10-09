@@ -291,9 +291,10 @@ class _PathNode extends StatelessWidget {
                     ? (languageCode == 'ar'
                           ? 'الإتقان: ${localizedPercent(context, mastery)}'
                           : 'Mastery: ${localizedPercent(context, mastery)}')
-                    : (languageCode == 'ar'
-                          ? '${localizedNumber(context, lesson.estimatedMinutes)} دقائق'
-                          : '${localizedNumber(context, lesson.estimatedMinutes)} min'),
+                    : localizedEstimatedMinutes(
+                        context,
+                        lesson.estimatedMinutes,
+                      ),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall,
               ),

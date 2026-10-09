@@ -92,6 +92,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String estimatedMinutesPlural(String minutes) {
+    return '$minutes دقائق';
+  }
+
+  @override
   String get objectivesTitle => 'ماذا ستتعلَّم؟';
 
   @override

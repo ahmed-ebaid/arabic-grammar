@@ -44,6 +44,14 @@
       }
     }
   },
+  "estimatedMinutesPlural": "{minutes} دقائق",
+  "@estimatedMinutesPlural": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
   "objectivesTitle": "ماذا ستتعلَّم؟",
   "vocalizedLabel": "بالحركات",
   "unvocalizedLabel": "دون حركات",
