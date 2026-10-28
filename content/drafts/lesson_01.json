@@ -7159,8 +7159,8 @@
       },
       "objectives": [
         {
-          "en": "Recognize detached pronouns (هو, هي, أنتَ...) and attached possessive pronouns (ـه, ـها, ـكَ, ـي).",
-          "ar": "أن تتعرَّفَ على الضمائر المنفصلة (أنا، أنت، هو...) والضمائر المتصلة الدالة على الملكية (ـه، ـها، ـكَ، ـي)."
+          "en": "Recognize detached pronouns (أنا, أنت, هو...) and attached pronouns (ـه, ـها, ـكَ, ـي, ـنا), and know that attached pronouns express possession in jarr when joined to nouns (كتابه جميل), serve as direct objects in nasb when joined to verbs (رأيتك قادمًا), or serve as subjects in raf (سألْنا المعلمَ عن المسألة).",
+          "ar": "أن تتعرَّفَ على الضمائر المنفصلة (أنا، أنت، هو...) والضمائر المتصلة (ـه، ـها، ـكَ، ـي، ـنا)، وأن تعرف أنها تدل على الملكية حال اتصالها بالأسماء ومحلها الجر، نحو: كتابه جميل، وتكون مفعولًا به حال اتصالها بالأفعال ومحلها النصب، نحو: رأيتك قادمًا، وقد تكون فاعلًا ويكون محلها الرفع، نحو: سألْنا المعلمَ عن المسألة."
         },
         {
           "en": "Read a noun carrying an attached pronoun in its correct state.",
@@ -7180,8 +7180,8 @@
             "ar": "نوعان من الضمائر"
           },
           "body": {
-            "en": "A detached pronoun (هو, هي, أنا, أنتَ...) can stand alone, often as a topic or hidden subject. An attached possessive pronoun (ـه, ـها, ـكَ, ـي) joins directly onto a noun, making it definite through an idafa to the pronoun.",
-            "ar": "الضمير المنفصل (هو، هي، أنا، أنتَ...) يقف وحده، وغالبًا يكون مبتدأ أو فاعلًا مستترًا. أما ضمير الملكية المتصل (ـه، ـها، ـكَ، ـي) فيتصل بالاسم مباشرة، فيعرّفه بإضافته إلى الضمير."
+            "en": "A detached pronoun (أنا, نحن, أنت, هو, هي) stands as a separate word, as in أنت مجتهد (topic and predicate) and هي تذاكر (where هي is the topic and the subject of تذاكر is a hidden pronoun estimated as هي referring back to the topic). An attached pronoun (ـه, ـها, ـكَ, ـي) joins directly onto a word (a noun or a verb).",
+            "ar": "الضمير المنفصل (أنا، نحن، أنت، هو، هي) لا يتصل بالكلمة، نحو: (أنت مجتهد = مبتدأ وخبر) و(هي تذاكر: هي = مبتدأ، وفاعل تذاكر تقديره «هي» ضمير مستتر بعد الفعل يعود على المبتدأ)، وغالبًا يكون مبتدأ أو فاعلًا مستترًا. أما الضمير المتصل (ـه، ـها، ـكَ، ـي) فيتصل بالكلمة مباشرة (الاسم أو الفعل)."
           },
           "examples": []
         },
@@ -7912,44 +7912,44 @@
           "id": "lesson-15-read-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read معلموها مجتهدون. Which reading best completes معلمو_ها (the topic, construct plural)?",
-            "ar": "اقرأ «معلموها مجتهدون». أي قراءة تكمل «معلموـها» (المبتدأ، الجمع المضاف)؟"
+            "en": "Complete the sentence with the appropriate choice: «المدرسة …… مجتهدون».",
+            "ar": "أكمل العبارة التالية باختيار مناسب: «المدرسة…… مجتهدون»."
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "مُعَلِّمُو",
-                "ar": "مُعَلِّمُو"
+                "en": "مُعَلِّمُوها",
+                "ar": "مُعَلِّمُوها"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. As a mudaf, this plural drops its final نون and ends in raf و.",
-                "ar": "صحيح. بوصفه مضافًا، حذف هذا الجمع نونه وانتهى بواو الرفع."
+                "en": "Correct. معلموها is a second topic in raf with waw because it is a sound masculine plural in idafa, and its nun is dropped for idafa.",
+                "ar": "صحيح. لأن (معلموها) مبتدأ مرفوع بالواو؛ لأنه جمع مذكر سالم مضاف، وحذفت النون للإضافة."
               }
             },
             {
               "id": "wrong-jarr-nasb",
               "label": {
-                "en": "مُعَلِّمِي",
-                "ar": "مُعَلِّمِي"
+                "en": "مُعَلِّمِيها",
+                "ar": "مُعَلِّمِيها"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This ending marks nasb/jarr, but the whole phrase is the topic, so it should be raf.",
-                "ar": "هذه علامة النصب والجر، لكن التركيب كله مبتدأ فيجب أن يكون مرفوعًا."
+                "en": "No; a sound masculine plural is raised in raf with waw, not ya.",
+                "ar": "لا؛ لأن جمع المذكر السالم لا يرفع بالياء؛ بل بالواو."
               }
             },
             {
               "id": "wrong-full-nun",
               "label": {
-                "en": "مُعَلِّمُونَ",
-                "ar": "مُعَلِّمُونَ"
+                "en": "مُعَلِّمُونَها",
+                "ar": "مُعَلِّمُونَها"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "The full form with نون is used when the plural is not a mudaf; here it is joined to ـها, so the نون is dropped.",
-                "ar": "الصيغة الكاملة بالنون تُستعمل حين لا يكون الجمع مضافًا؛ وهنا هو متصل بـ«ـها» فتُحذف النون."
+                "en": "No; when a sound masculine plural is in idafa, its nun is dropped.",
+                "ar": "لا؛ لأن جمع المذكر السالم حال إضافته تحذف منه النون."
               }
             }
           ]
@@ -21141,8 +21141,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "ضرب clearly has a meaning (\"hit\"); the issue is only the invisible case ending on these two names.",
-                "ar": "لـ«ضرب» معنى واضح؛ والمشكلة فقط في غياب حركة الإعراب على هذين الاسمين."
+                "en": "No; ضرب has a clear meaning and is a transitive verb that raises a subject (فاعل) and governs a direct object (مفعول به) in nasb; the issue is the absence of a visible case vowel on these two nouns because both end in alif.",
+                "ar": "لا؛ لأن لـ«ضرب» معنى واضحًا؛ وهو فعل متعدٍّ يرفع فاعلًا وينصب مفعولًا، والمشكلة في غياب حركة الإعراب على هذين الاسمين والسبب أنهما منتهيان بألف."
               }
             },
             {
@@ -25847,8 +25847,8 @@
       },
       "objectives": [
         {
-          "en": "Recognize that pausing (waqf) replaces a final short vowel or tanwin with sukun.",
-          "ar": "أن تتعرّف أن الوقف يستبدل بالحركة القصيرة أو التنوين الأخير سكونًا."
+          "en": "Know that pausing (waqf) on a word uses sukun (the word's final vowel changes to sukun) because Arabic does not pause on a vocalized letter.",
+          "ar": "أن تعرف أن الوقف على الكلمة يكون بالسكون (تتغير حركة الكلمة إلى السكون) لأنه لا يوقف على متحرك."
         },
         {
           "en": "Recognize that continuing (wasl) keeps the full case ending audible.",
@@ -28294,18 +28294,18 @@
                   "start": 23,
                   "end": 25,
                   "role": {
-                    "en": "Noun (here naming the particle ال itself) governed by بِـ, fourth sign, coordinated",
-                    "ar": "اسم (يسمي هنا أداة «ال» نفسها) مجرور بالباء، العلامة الرابعة، معطوف"
+                    "en": "Coordinated (ma'tuf) to the jarr noun before it (a coordinated word follows what it is joined to)",
+                    "ar": "معطوف على المجرور قبله (والمعطوف يتبع المعطوف عليه)"
                   },
                   "grammarState": "jarr",
                   "grammaticalSign": {
-                    "en": "Jarr governed by بِـ, like the other four coordinated signs; its own written form is simply the two letters of the article",
-                    "ar": "مجرورة بالباء كبقية العلامات الأربع المعطوفة؛ وصورتها المكتوبة هي حرفا أداة التعريف فقط"
+                    "en": "In the position of jarr",
+                    "ar": "محلها الجر"
                   },
                   "ending": "ْ",
                   "reason": {
-                    "en": "ال names the definite article itself as the fourth sign: a noun can take ال.",
-                    "ar": "«ال» تسمي أداة التعريف نفسها علامة رابعة: قبول الاسم لها."
+                    "en": "أل is the definite article and is the fourth sign.",
+                    "ar": "«أل» أداة التعريف وهي العلامة الرابعة."
                   }
                 },
                 {

@@ -201,19 +201,26 @@ void main() {
     }
   });
 
-  test('clarification passages have not imported incomplete reviewer text', () {
-    expect(
-      lesson(14).sections.first.body.ar,
-      isNot(contains('الاسم أو الفعل')),
-    );
-    expect(lesson(15).exercises[2].prompt.ar, contains('معلموها'));
-    expect(
-      lesson(40).exercises.first.options[1].feedback.ar,
-      isNot(contains('يرفع المبتدأ وينصب الخبر')),
-    );
-    expect(lesson(49).objectives.first.ar, isNot(contains('لأنه لا يوقف')));
-    final article = lesson(53).sections[1].examples.single.tokens[3];
-    expect(article.role.ar, startsWith('اسم (يسمي'));
-    expect(article.role.ar, isNot(contains('حرف تعريف')));
-  });
+  test(
+    'applies the five clarified author passages from the updated review',
+    () {
+      expect(lesson(14).sections.first.body.ar, contains('الاسم أو الفعل'));
+      expect(lesson(15).exercises[2].prompt.ar, contains('المدرسة…… مجتهدون'));
+      expect(
+        lesson(15).exercises[2].options.first.feedback.ar,
+        contains('(معلموها) مبتدأ مرفوع بالواو'),
+      );
+      expect(
+        lesson(40).exercises.first.options[1].feedback.ar,
+        contains('يرفع فاعلًا وينصب مفعولًا'),
+      );
+      expect(
+        lesson(49).objectives.first.ar,
+        contains('لأنه لا يوقف على متحرك'),
+      );
+      final article = lesson(53).sections[1].examples.single.tokens[3];
+      expect(article.role.ar, startsWith('معطوف على المجرور قبله'));
+      expect(article.role.ar, isNot(contains('حرف تعريف')));
+    },
+  );
 }
