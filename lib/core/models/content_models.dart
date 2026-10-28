@@ -336,6 +336,30 @@ class GrammarToken {
   final LocalizedText grammaticalSign;
   final String ending;
   final LocalizedText reason;
+
+  String get displayText {
+    final suffix = ending.replaceAll(RegExp(r'[\u064B-\u065F\u0670]'), '');
+    final start = suffix.isEmpty ? -1 : text.lastIndexOf(suffix);
+    if (start >= 0 &&
+        const {
+          '',
+          'ه',
+          'ها',
+          'هما',
+          'هم',
+          'هن',
+          'ك',
+          'كما',
+          'كم',
+          'كن',
+          'نا',
+          'ي',
+        }.contains(text.substring(start + suffix.length))) {
+      // The inflection can precede an attached pronoun, as in معلموها.
+      return text.replaceRange(start, start + suffix.length, ending);
+    }
+    return '$text$ending';
+  }
 }
 
 class Exercise {

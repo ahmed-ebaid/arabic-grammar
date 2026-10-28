@@ -826,7 +826,7 @@ class _AnalysisStepState extends State<_AnalysisStep> {
                 ChoiceChip(
                   selected: _selectedToken == entry.$1,
                   label: Text(
-                    '${entry.$2.text}${entry.$2.ending}',
+                    entry.$2.displayText,
                     style: const TextStyle(
                       fontFamily: 'AmiriQuran',
                       fontSize: 28,
