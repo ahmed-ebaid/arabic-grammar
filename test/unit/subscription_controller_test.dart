@@ -1,9 +1,47 @@
 import 'package:arabic_grammar/core/subscriptions/subscription_controller.dart';
+import 'package:arabic_grammar/core/subscriptions/subscription_configuration.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:purchases_flutter/errors.dart';
 
 void main() {
+  test(
+    'Android internal access needs no billing or paid entitlement',
+    () async {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+      addTearDown(() => debugDefaultTargetPlatformOverride = null);
+      final controller = await SubscriptionController.configureFromEnvironment(
+        configuration: const SubscriptionConfiguration(
+          androidInternalTestAccess: true,
+        ),
+      );
+      addTearDown(controller.dispose);
+      expect(controller.isInternalTestAccess, isTrue);
+      expect(controller.hasPlusAccess, isTrue);
+      expect(controller.isPlusActive, isFalse);
+      expect(controller.isConfigured, isFalse);
+      expect(controller.configurationFailed, isFalse);
+      expect(
+        await controller.restorePurchases(),
+        SubscriptionActionResult.notConfigured,
+      );
+      expect(controller.hasPlusAccess, isTrue);
+    },
+  );
+
+  test('Android internal flag does not grant iOS access', () async {
+    debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    addTearDown(() => debugDefaultTargetPlatformOverride = null);
+    final controller = await SubscriptionController.configureFromEnvironment(
+      configuration: const SubscriptionConfiguration(
+        androidInternalTestAccess: true,
+      ),
+    );
+    addTearDown(controller.dispose);
+    expect(controller.isInternalTestAccess, isFalse);
+    expect(controller.hasPlusAccess, isFalse);
+  });
   test(
     'restore activates Plus only when the entitlement is returned',
     () async {

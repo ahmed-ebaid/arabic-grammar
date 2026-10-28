@@ -106,13 +106,14 @@ class _RootScaffoldState extends State<RootScaffold> {
                   title: Text(l10n.learnerProfileChange),
                 ),
               ),
-              PopupMenuItem(
-                value: _AppMenuAction.restorePurchases,
-                child: ListTile(
-                  leading: const Icon(Icons.restore),
-                  title: Text(l10n.restorePurchases),
+              if (!widget.subscriptionController.isInternalTestAccess)
+                PopupMenuItem(
+                  value: _AppMenuAction.restorePurchases,
+                  child: ListTile(
+                    leading: const Icon(Icons.restore),
+                    title: Text(l10n.restorePurchases),
+                  ),
                 ),
-              ),
               PopupMenuItem(
                 value: _AppMenuAction.about,
                 child: ListTile(

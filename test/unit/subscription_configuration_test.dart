@@ -4,6 +4,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  test('internal access is opt-in and limited to Android', () {
+    const configuration = SubscriptionConfiguration(
+      androidInternalTestAccess: true,
+    );
+    expect(
+      configuration.grantsInternalTestAccess(TargetPlatform.android),
+      isTrue,
+    );
+    expect(configuration.grantsInternalTestAccess(TargetPlatform.iOS), isFalse);
+    expect(
+      const SubscriptionConfiguration().grantsInternalTestAccess(
+        TargetPlatform.android,
+      ),
+      isFalse,
+    );
+  });
   const testConfiguration = SubscriptionConfiguration(
     testApiKey: 'test_example',
   );

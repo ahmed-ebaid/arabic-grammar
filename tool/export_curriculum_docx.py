@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -153,6 +154,18 @@ def add_rtl_table(document: Document, headers: list[str], fill: str) -> Any:
     return table
 
 
+def token_display_text(token: dict[str, Any]) -> str:
+    ending = token["ending"]
+    suffix = re.sub(r"[\u064B-\u065F\u0670]", "", ending)
+    text = token["text"]
+    start = text.rfind(suffix) if suffix else -1
+    if start >= 0 and text[start + len(suffix) :] in (
+        "", "ه", "ها", "هما", "هم", "هن", "ك", "كما", "كم", "كن", "نا", "ي"
+    ):
+        return text[:start] + ending + text[start + len(suffix) :]
+    return text + ending
+
+
 def add_example(document: Document, example: dict[str, Any]) -> None:
     add_heading_ar(document, "مثال", level=4)
     add_paragraph_ar(document, example["vocalized"], size=Pt(16))
@@ -168,7 +181,7 @@ def add_example(document: Document, example: dict[str, Any]) -> None:
         sign = ar(token["grammaticalSign"])
         cells = table.add_row().cells
         values = [
-            f"{token['text']}{token['ending']}",
+            token_display_text(token),
             ar(token["role"]),
             sign if indeclinable else GRAMMAR_STATE_AR[token["grammarState"]],
             "—" if indeclinable else f"{sign} ({token['ending']})",

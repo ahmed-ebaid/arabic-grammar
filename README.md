@@ -101,6 +101,13 @@ flutter build appbundle --release \
 
 Upload the resulting AAB through Google Play Console's internal testing track.
 
+For the temporary Android internal-testing build without RevenueCat, use
+`--dart-define=ANDROID_INTERNAL_TEST_ACCESS=true` instead of the Android SDK key.
+This explicitly enables access to all Plus levels on Android without configuring
+billing or reporting a paid entitlement. Normal lesson mastery requirements
+remain in effect. Purchase restoration is hidden in this build. The flag has no
+effect on iOS, and must be omitted from public Google Play releases.
+
 The current beta version is `0.1.0+23`. App Store Connect metadata and the
 external-beta release gate are documented in `docs/app-store-connect.md`.
 

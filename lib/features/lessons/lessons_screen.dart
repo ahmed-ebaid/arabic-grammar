@@ -94,7 +94,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
         .map((lessonId) => lessonsById[lessonId]!)
         .toList(growable: false);
     final isPlusLevel = level.order > 1;
-    final hasPlus = widget.subscriptionController.isPlusActive;
+    final hasPlus = widget.subscriptionController.hasPlusAccess;
     return [
       Card(
         color: isPlusLevel

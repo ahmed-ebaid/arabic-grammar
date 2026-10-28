@@ -6,15 +6,50 @@ import 'package:arabic_grammar/core/config/app_environment.dart';
 import 'package:arabic_grammar/core/localization/locale_controller.dart';
 import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/progress/lesson_progress_controller.dart';
+import 'package:arabic_grammar/core/subscriptions/subscription_configuration.dart';
+import 'package:arabic_grammar/core/subscriptions/subscription_controller.dart';
 import 'package:arabic_grammar/core/theme/app_theme.dart';
 import 'package:arabic_grammar/core/user/user_data_controller.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  testWidgets('Android internal access hides billing and Plus locks', (
+    tester,
+  ) async {
+    debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    addTearDown(() => debugDefaultTargetPlatformOverride = null);
+    final controller = await SubscriptionController.configureFromEnvironment(
+      configuration: const SubscriptionConfiguration(
+        androidInternalTestAccess: true,
+      ),
+    );
+    debugDefaultTargetPlatformOverride = null;
+    addTearDown(controller.dispose);
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: LessonProgressController.inMemory(),
+        subscriptionController: controller,
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+    await tester.tap(find.byTooltip('المزيد'));
+    await tester.pumpAndSettle();
+    expect(find.text('استعادة الاشتراكات'), findsNothing);
+    await tester.tapAt(const Offset(10, 500));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الدروس'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('إعراب بلس'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('Level 2 opens the Plus offer when billing is unconfigured', (
     tester,
   ) async {

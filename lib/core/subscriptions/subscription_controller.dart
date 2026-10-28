@@ -45,7 +45,11 @@ abstract interface class SubscriptionGateway {
 }
 
 class SubscriptionController extends ChangeNotifier {
-  SubscriptionController._(this._gateway, {this.configurationFailed = false});
+  SubscriptionController._(
+    this._gateway, {
+    this.configurationFailed = false,
+    this.isInternalTestAccess = false,
+  });
 
   factory SubscriptionController.unconfigured() =>
       SubscriptionController._(null);
@@ -55,6 +59,7 @@ class SubscriptionController extends ChangeNotifier {
 
   final SubscriptionGateway? _gateway;
   final bool configurationFailed;
+  final bool isInternalTestAccess;
   final List<SubscriptionPackageOption> _packages = [];
   SubscriptionOfferingStatus _offeringStatus =
       SubscriptionOfferingStatus.notLoaded;
@@ -67,12 +72,19 @@ class SubscriptionController extends ChangeNotifier {
   bool get isRestoring => _isRestoring;
   bool get isBusy => _isPurchasing || _isRestoring;
   bool get isPlusActive => _isPlusActive;
+  bool get hasPlusAccess => isInternalTestAccess || isPlusActive;
   List<SubscriptionPackageOption> get packages => List.unmodifiable(_packages);
   SubscriptionOfferingStatus get offeringStatus => _offeringStatus;
 
-  static Future<SubscriptionController> configureFromEnvironment() async {
+  static Future<SubscriptionController> configureFromEnvironment({
+    SubscriptionConfiguration configuration =
+        const SubscriptionConfiguration.fromDefines(),
+  }) async {
+    if (configuration.grantsInternalTestAccess(defaultTargetPlatform)) {
+      return SubscriptionController._(null, isInternalTestAccess: true);
+    }
     try {
-      final apiKey = const SubscriptionConfiguration.fromDefines().apiKeyFor(
+      final apiKey = configuration.apiKeyFor(
         platform: defaultTargetPlatform,
         flavor: AppEnvironment.fromDefines().flavor,
         isRelease: kReleaseMode,

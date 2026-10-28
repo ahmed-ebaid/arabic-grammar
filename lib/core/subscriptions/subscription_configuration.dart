@@ -7,6 +7,7 @@ class SubscriptionConfiguration {
     this.testApiKey = '',
     this.iosApiKey = '',
     this.androidApiKey = '',
+    this.androidInternalTestAccess = false,
   });
 
   const SubscriptionConfiguration.fromDefines()
@@ -14,11 +15,18 @@ class SubscriptionConfiguration {
       iosApiKey = const String.fromEnvironment('REVENUECAT_IOS_API_KEY'),
       androidApiKey = const String.fromEnvironment(
         'REVENUECAT_ANDROID_API_KEY',
+      ),
+      androidInternalTestAccess = const bool.fromEnvironment(
+        'ANDROID_INTERNAL_TEST_ACCESS',
       );
 
   final String testApiKey;
   final String iosApiKey;
   final String androidApiKey;
+  final bool androidInternalTestAccess;
+
+  bool grantsInternalTestAccess(TargetPlatform platform) =>
+      androidInternalTestAccess && platform == TargetPlatform.android;
 
   String apiKeyFor({
     required TargetPlatform platform,
