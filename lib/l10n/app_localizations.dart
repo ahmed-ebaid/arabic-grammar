@@ -824,6 +824,12 @@ abstract class AppLocalizations {
   /// **'Continue your grammar journey with advanced study.'**
   String get plusDescription;
 
+  /// No description provided for @plusProgressiveUnlockNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Plus unlocks Level 2 and above. Lessons still open in order as you reach 70% mastery in earlier lessons.'**
+  String get plusProgressiveUnlockNotice;
+
   /// No description provided for @plusBenefitLessons.
   ///
   /// In en, this message translates to:

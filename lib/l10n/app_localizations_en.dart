@@ -415,6 +415,10 @@ class AppLocalizationsEn extends AppLocalizations {
       'Continue your grammar journey with advanced study.';
 
   @override
+  String get plusProgressiveUnlockNotice =>
+      'Plus unlocks Level 2 and above. Lessons still open in order as you reach 70% mastery in earlier lessons.';
+
+  @override
   String get plusBenefitLessons => 'Unlock Level 2 and all following levels.';
 
   @override

@@ -196,6 +196,7 @@
   "restorePurchasesError": "Could not restore your subscription. Check your connection and try again.",
   "plusTitle": "إعراب Plus",
   "plusDescription": "Continue your grammar journey with advanced study.",
+  "plusProgressiveUnlockNotice": "Plus unlocks Level 2 and above. Lessons still open in order as you reach 70% mastery in earlier lessons.",
   "plusBenefitLessons": "Unlock Level 2 and all following levels.",
   "plusBenefitPractice": "Practice across a wider range of grammar topics.",
   "plusBenefitExplanations": "Explore extended explanations and examples.",

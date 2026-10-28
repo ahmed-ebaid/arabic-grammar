@@ -52,46 +52,95 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('Level 2 opens the Plus offer when billing is unconfigured', (
-    tester,
-  ) async {
-    final catalog = _draftCatalog();
-    await tester.pumpWidget(
-      ArabicGrammarApp(
-        environment: const AppEnvironment(AppFlavor.production),
-        localeController: LocaleController.inMemory(),
-        lessonProgressController: LessonProgressController.inMemory(),
-        contentCatalog: catalog,
-      ),
-    );
+  testWidgets(
+    'Level 2 gates lesson tap on prerequisites and offers Plus via level card',
+    (tester) async {
+      final catalog = _draftCatalog();
+      final progressController = LessonProgressController.inMemory();
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: LocaleController.inMemory(),
+          lessonProgressController: progressController,
+          contentCatalog: catalog,
+        ),
+      );
 
-    await tester.tap(find.text('الدروس'));
-    await tester.pumpAndSettle();
-    final levelTwo = catalog.levels.firstWhere((level) => level.order == 2);
-    final premiumLesson = catalog.lessons.firstWhere(
-      (lesson) => lesson.id == levelTwo.lessonIds.first,
-    );
-    final premiumTitle = find.text(premiumLesson.title.ar);
-    await tester.scrollUntilVisible(
-      premiumTitle,
-      120,
-      scrollable: find.byType(Scrollable).last,
-    );
-    await Scrollable.ensureVisible(
-      tester.element(premiumTitle),
-      alignment: 0.25,
-    );
-    await tester.pumpAndSettle();
-    await tester.tap(premiumTitle);
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('الدروس'));
+      await tester.pumpAndSettle();
+      final levelTwo = catalog.levels.firstWhere((level) => level.order == 2);
+      final premiumLesson = catalog.lessons.firstWhere(
+        (lesson) => lesson.id == levelTwo.lessonIds.first,
+      );
+      final premiumTitle = find.text(premiumLesson.title.ar);
+      await tester.scrollUntilVisible(
+        premiumTitle,
+        120,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await Scrollable.ensureVisible(
+        tester.element(premiumTitle),
+        alignment: 0.25,
+      );
+      await tester.pumpAndSettle();
 
-    expect(find.text('إعراب بلس'), findsWidgets);
-    expect(
-      find.text('الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.'),
-      findsOneWidget,
-    );
-    expect(tester.takeException(), isNull);
-  });
+      // Prerequisite is unfinished, so tapping the lesson does not open the paywall.
+      await tester.tap(premiumTitle);
+      await tester.pumpAndSettle();
+      expect(
+        find.text('الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.'),
+        findsNothing,
+      );
+
+      // Tapping the Level 2 header card opens the Plus offer at any time.
+      final levelTwoHeader = find.text(levelTwo.title.ar);
+      await tester.scrollUntilVisible(
+        levelTwoHeader,
+        -120,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await Scrollable.ensureVisible(
+        tester.element(levelTwoHeader),
+        alignment: 0.25,
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(levelTwoHeader);
+      await tester.pumpAndSettle();
+
+      expect(find.text('إعراب بلس'), findsWidgets);
+      expect(
+        find.textContaining('وتُفتح الدروس بالتدريج عند إتقان كل درس سابق'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.'),
+        findsOneWidget,
+      );
+      Navigator.of(
+        tester.element(find.text('الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.')),
+      ).pop();
+      await tester.pumpAndSettle();
+
+      // Once prerequisites are mastered, tapping the premium lesson opens the Plus offer.
+      for (final prereqId in premiumLesson.prerequisites) {
+        await progressController.complete(prereqId, 0, mastery: 100);
+      }
+      await tester.pumpAndSettle();
+      await Scrollable.ensureVisible(
+        tester.element(premiumTitle),
+        alignment: 0.25,
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('اشترك في إعراب بلس لفتح هذا المستوى.'), findsWidgets);
+      await tester.tap(premiumTitle);
+      await tester.pumpAndSettle();
+      expect(
+        find.text('الاشتراكات غير متاحة حاليًّا. حاول لاحقًا.'),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('offers purchase restore and explains when not configured', (
     tester,

@@ -109,6 +109,13 @@ class _LessonsScreenState extends State<LessonsScreen> {
                 ? learningColors.onBlueContainer
                 : learningColors.onCoralContainer,
           ),
+          trailing: isPlusLevel && !hasPlus
+              ? Icon(
+                  Icons.workspace_premium_outlined,
+                  color: learningColors.onBlueContainer,
+                )
+              : null,
+          onTap: isPlusLevel && !hasPlus ? _openPlusPaywall : null,
           title: ArabicDiacriticsText(
             level.title.forLanguage(languageCode),
             style: TextStyle(
@@ -215,7 +222,7 @@ class _PathNode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mastered = mastery >= 70;
-    final canTap = premiumLocked || unlocked;
+    final canTap = unlocked;
     final accessible = !premiumLocked && unlocked;
     final colors = Theme.of(context).extension<LearningColors>()!;
     final nodeColor = !unlocked
@@ -282,12 +289,12 @@ class _PathNode extends StatelessWidget {
               ),
               const SizedBox(height: 3),
               Text(
-                premiumLocked
-                    ? AppLocalizations.of(context).plusRequired
-                    : !unlocked
+                !unlocked
                     ? (languageCode == 'ar'
                           ? 'مغلق حتى إتقان الدرس السابق'
                           : 'Locked until the previous lesson is mastered')
+                    : premiumLocked
+                    ? AppLocalizations.of(context).plusRequired
                     : mastery > 0
                     ? (languageCode == 'ar'
                           ? 'الإتقان: ${localizedPercent(context, mastery)}'

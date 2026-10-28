@@ -413,6 +413,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'واصل رحلتك في النحو بدراسة المستويات المتقدمة.';
 
   @override
+  String get plusProgressiveUnlockNotice =>
+      'يفتح اشتراك «إعراب بلس» المستوى الثاني وما بعده، وتُفتح الدروس بالتدريج عند إتقان كل درس سابق بنسبة ٧٠٪.';
+
+  @override
   String get plusBenefitLessons => 'افتح دروس المستوى الثاني وما بعده.';
 
   @override

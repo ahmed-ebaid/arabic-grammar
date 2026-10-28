@@ -53,6 +53,12 @@ class _PlusPaywallScreenState extends State<PlusPaywallScreen> {
               ),
               const SizedBox(height: 8),
               Text(l10n.plusDescription, textAlign: TextAlign.center),
+              const SizedBox(height: 8),
+              Text(
+                l10n.plusProgressiveUnlockNotice,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               const SizedBox(height: 20),
               _BenefitRow(text: l10n.plusBenefitLessons),
               _BenefitRow(text: l10n.plusBenefitPractice),

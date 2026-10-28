@@ -11,6 +11,7 @@ import 'features/home/home_screen.dart';
 import 'features/lessons/lessons_screen.dart';
 import 'features/practice/practice_screen.dart';
 import 'features/progress/progress_screen.dart';
+import 'features/subscriptions/plus_paywall_screen.dart';
 import 'l10n/app_localizations.dart';
 
 class RootScaffold extends StatefulWidget {
@@ -106,6 +107,15 @@ class _RootScaffoldState extends State<RootScaffold> {
                   title: Text(l10n.learnerProfileChange),
                 ),
               ),
+              if (!widget.subscriptionController.isInternalTestAccess &&
+                  !widget.subscriptionController.hasPlusAccess)
+                PopupMenuItem(
+                  value: _AppMenuAction.plusOffer,
+                  child: ListTile(
+                    leading: const Icon(Icons.workspace_premium_outlined),
+                    title: Text(l10n.plusTitle),
+                  ),
+                ),
               if (!widget.subscriptionController.isInternalTestAccess)
                 PopupMenuItem(
                   value: _AppMenuAction.restorePurchases,
@@ -193,6 +203,15 @@ class _RootScaffoldState extends State<RootScaffold> {
         Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: (_) => AboutScreen(contentCatalog: widget.contentCatalog),
+          ),
+        );
+        return;
+      case _AppMenuAction.plusOffer:
+        Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => PlusPaywallScreen(
+              subscriptionController: widget.subscriptionController,
+            ),
           ),
         );
         return;
@@ -303,6 +322,7 @@ enum _AppMenuAction {
   bookmarks,
   textSize,
   learnerProfile,
+  plusOffer,
   restorePurchases,
   about,
 }
