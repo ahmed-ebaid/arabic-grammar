@@ -24,6 +24,11 @@ flutter run --dart-define=APP_ENV=development
 
 Supported `APP_ENV` values are `development`, `staging`, and `production`.
 
+Standalone fatha, kasra, damma, and sukun use the shared
+`ArabicDiacriticsText` renderer on iOS and Android, including lesson ending
+badges. Use it for curriculum text that can contain standalone marks; marks
+attached to words retain their normal font rendering.
+
 ### إعراب Plus subscriptions
 
 Level 1 remains free; Level 2 and later levels require the active `plus`
@@ -110,6 +115,11 @@ effect on iOS, and must be omitted from public Google Play releases.
 
 The current beta version is `0.1.0+23`. App Store Connect metadata and the
 external-beta release gate are documented in `docs/app-store-connect.md`.
+
+On iOS and Android, open the app's More menu → About & credits to see the
+installed app version and build number. These come from the installed package,
+including store-specific build-number overrides, rather than the curriculum
+version.
 
 ## Project Structure
 

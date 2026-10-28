@@ -39,7 +39,17 @@ class ArabicDiacriticsText extends StatelessWidget {
       if (match.start > offset) {
         spans.add(TextSpan(text: formatted.substring(offset, match.start)));
       }
-      spans.add(TextSpan(text: match.group(0), style: markStyle));
+      final mark = match.group(0)!.substring(1);
+      if (_drawnMarks.contains(mark)) {
+        spans.add(
+          WidgetSpan(
+            alignment: PlaceholderAlignment.middle,
+            child: HarakaGlyph(mark: mark, color: markStyle.color!),
+          ),
+        );
+      } else {
+        spans.add(TextSpan(text: match.group(0), style: markStyle));
+      }
       offset = match.end;
     }
     if (offset < formatted.length) {
@@ -88,3 +98,78 @@ bool _isArabicLetter(int rune) =>
     (rune >= 0x0621 && rune <= 0x064A) ||
     (rune >= 0x066E && rune <= 0x06D3) ||
     (rune >= 0x06FA && rune <= 0x06FC);
+
+const _drawnMarks = {'\u064E', '\u064F', '\u0650', '\u0652'};
+
+/// Draws a basic short vowel or sukun over a base stroke so it stays legible
+/// regardless of the platform font's mark glyphs.
+class HarakaGlyph extends StatelessWidget {
+  const HarakaGlyph({required this.mark, required this.color, super.key});
+
+  final String mark;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 28,
+      height: 36,
+      child: CustomPaint(painter: _HarakaPainter(mark, color)),
+    );
+  }
+}
+
+class _HarakaPainter extends CustomPainter {
+  _HarakaPainter(this.mark, this.color);
+
+  final String mark;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final stroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2
+      ..strokeCap = StrokeCap.round;
+    final cx = size.width / 2;
+    final baseY = size.height * 0.5;
+    canvas.drawLine(Offset(cx - 10, baseY), Offset(cx + 10, baseY), stroke);
+
+    switch (mark) {
+      case '\u064E':
+        canvas.drawLine(
+          Offset(cx - 6, baseY - 6),
+          Offset(cx + 6, baseY - 11),
+          stroke..strokeWidth = 2,
+        );
+      case '\u0650':
+        canvas.drawLine(
+          Offset(cx - 6, baseY + 11),
+          Offset(cx + 6, baseY + 6),
+          stroke..strokeWidth = 2,
+        );
+      case '\u064F':
+        canvas.drawOval(
+          Rect.fromCenter(
+            center: Offset(cx + 1, baseY - 10),
+            width: 4.5,
+            height: 3.5,
+          ),
+          stroke..strokeWidth = 1.2,
+        );
+        canvas.drawPath(
+          Path()
+            ..moveTo(cx + 3.25, baseY - 10)
+            ..cubicTo(cx + 7, baseY - 6, cx + 2, baseY - 4, cx - 4, baseY - 4),
+          stroke..strokeWidth = 2,
+        );
+      case '\u0652':
+        canvas.drawCircle(Offset(cx, baseY - 9), 4, stroke..strokeWidth = 1.8);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_HarakaPainter old) =>
+      old.mark != mark || old.color != color;
+}

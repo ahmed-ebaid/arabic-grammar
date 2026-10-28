@@ -644,6 +644,24 @@ abstract class AppLocalizations {
   /// **'About & credits'**
   String get aboutTitle;
 
+  /// No description provided for @aboutAppVersionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App version'**
+  String get aboutAppVersionTitle;
+
+  /// No description provided for @aboutAppVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'{version} (build {build})'**
+  String aboutAppVersion(String version, String build);
+
+  /// No description provided for @aboutAppVersionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to load the app version.'**
+  String get aboutAppVersionError;
+
   /// No description provided for @aboutPurposeTitle.
   ///
   /// In en, this message translates to:

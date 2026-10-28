@@ -160,6 +160,15 @@
     }
   },
   "aboutTitle": "About & credits",
+  "aboutAppVersionTitle": "App version",
+  "aboutAppVersion": "{version} (build {build})",
+  "@aboutAppVersion": {
+    "placeholders": {
+      "version": { "type": "String" },
+      "build": { "type": "String" }
+    }
+  },
+  "aboutAppVersionError": "Unable to load the app version.",
   "aboutPurposeTitle": "Our purpose",
   "aboutPurposeBody": "إعراب teaches learners to infer Arabic word endings from grammar, word form, and context. Lessons move gradually from examples to independent reading without vowel marks.",
   "aboutCompanyTitle": "Developed by Ebaid LLC",

@@ -160,6 +160,9 @@
     }
   },
   "aboutTitle": "عن التطبيق وشكر المساهمين",
+  "aboutAppVersionTitle": "إصدار التطبيق",
+  "aboutAppVersion": "{version} (البناء {build})",
+  "aboutAppVersionError": "تعذّر تحميل إصدار التطبيق.",
   "aboutPurposeTitle": "هدفنا",
   "aboutPurposeBody": "يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة إلى القراءة المستقلة دون حركات.",
   "aboutCompanyTitle": "تطوير ونشر Ebaid LLC",

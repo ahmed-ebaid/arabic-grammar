@@ -314,6 +314,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutTitle => 'About & credits';
 
   @override
+  String get aboutAppVersionTitle => 'App version';
+
+  @override
+  String aboutAppVersion(String version, String build) {
+    return '$version (build $build)';
+  }
+
+  @override
+  String get aboutAppVersionError => 'Unable to load the app version.';
+
+  @override
   String get aboutPurposeTitle => 'Our purpose';
 
   @override

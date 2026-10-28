@@ -18,6 +18,7 @@ dependencies:
   flutter_tts: ^4.2.5
   purchases_flutter: ^10.10.0
   url_launcher: ^6.3.2
+  package_info_plus: ^10.2.2
 
 dev_dependencies:
   flutter_test:

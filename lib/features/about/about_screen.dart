@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../core/localization/arabic_diacritics.dart';
+import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -17,6 +19,7 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
+  late final Future<PackageInfo> _packageInfo = PackageInfo.fromPlatform();
   late final Future<ContentCatalog> _catalog = widget.contentCatalog == null
       ? _loadCatalog()
       : Future.value(widget.contentCatalog);
@@ -55,6 +58,34 @@ class _AboutScreenState extends State<AboutScreen> {
           return ListView(
             padding: const EdgeInsets.all(20),
             children: [
+              _AboutSection(
+                title: l10n.aboutAppVersionTitle,
+                child: FutureBuilder<PackageInfo>(
+                  future: _packageInfo,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Text(l10n.aboutAppVersionError);
+                    }
+                    if (!snapshot.hasData) {
+                      return const LinearProgressIndicator();
+                    }
+                    final info = snapshot.data!;
+                    String localizedDigits(String value) =>
+                        value.replaceAllMapped(
+                          RegExp(r'[0-9]'),
+                          (match) =>
+                              localizedNumber(context, int.parse(match[0]!)),
+                        );
+                    return Text(
+                      l10n.aboutAppVersion(
+                        localizedDigits(info.version),
+                        localizedDigits(info.buildNumber),
+                      ),
+                      textDirection: Directionality.of(context),
+                    );
+                  },
+                ),
+              ),
               _AboutSection(
                 title: l10n.aboutPurposeTitle,
                 child: Text(l10n.aboutPurposeBody),

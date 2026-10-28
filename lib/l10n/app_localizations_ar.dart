@@ -313,6 +313,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutTitle => 'عن التطبيق وشكر المساهمين';
 
   @override
+  String get aboutAppVersionTitle => 'إصدار التطبيق';
+
+  @override
+  String aboutAppVersion(String version, String build) {
+    return '$version (البناء $build)';
+  }
+
+  @override
+  String get aboutAppVersionError => 'تعذّر تحميل إصدار التطبيق.';
+
+  @override
   String get aboutPurposeTitle => 'هدفنا';
 
   @override

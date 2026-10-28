@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:arabic_grammar/app.dart';
 import 'package:arabic_grammar/core/config/app_environment.dart';
+import 'package:arabic_grammar/core/localization/arabic_diacritics.dart';
 import 'package:arabic_grammar/core/localization/locale_controller.dart';
 import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/progress/lesson_progress_controller.dart';
@@ -16,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
   testWidgets('Android internal access hides billing and Plus locks', (
@@ -229,6 +231,13 @@ void main() {
   testWidgets('shows curriculum sources and review status in About', (
     tester,
   ) async {
+    PackageInfo.setMockInitialValues(
+      appName: 'Arabic Grammar',
+      packageName: 'com.ebaidllc.arabicgrammar',
+      version: '0.1.0',
+      buildNumber: '25',
+      buildSignature: '',
+    );
     await tester.pumpWidget(
       ArabicGrammarApp(
         environment: const AppEnvironment(AppFlavor.production),
@@ -244,6 +253,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('عن التطبيق وشكر المساهمين'), findsOneWidget);
+    expect(find.text('إصدار التطبيق'), findsOneWidget);
+    expect(find.text('٠.١.٠ (البناء ٢٥)'), findsOneWidget);
     expect(
       find.textContaining('من الأمثلة إلى القراءة المستقلة'),
       findsOneWidget,
@@ -417,18 +428,15 @@ void main() {
     }
     await tester.tap(find.text('الطالبُ'));
     await tester.pumpAndSettle();
-    final endingMark = find.text('ـُ');
+    final endingMark = find.byType(HarakaGlyph);
     expect(endingMark, findsOneWidget);
-    expect(
-      tester.widget<Text>(endingMark).style?.fontSize,
-      greaterThanOrEqualTo(24),
-    );
+    expect(tester.widget<HarakaGlyph>(endingMark).mark, '\u064F');
     await tester.ensureVisible(find.text('تابع'));
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
 
-    await tester.ensureVisible(find.text('الفتحة (ـَ)'));
-    await tester.tap(find.text('الفتحة (ـَ)'));
+    await tester.ensureVisible(find.textContaining('الفتحة'));
+    await tester.tap(find.textContaining('الفتحة'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
@@ -440,8 +448,8 @@ void main() {
     await tester.ensureVisible(find.text('حاول مرة أخرى'));
     await tester.tap(find.text('حاول مرة أخرى'));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('الضمة (ـُ)'));
-    await tester.tap(find.text('الضمة (ـُ)'));
+    await tester.ensureVisible(find.textContaining('الضمة'));
+    await tester.tap(find.textContaining('الضمة'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
@@ -494,8 +502,8 @@ void main() {
     expect(find.text('تحقُّق سريع'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isFalse);
 
-    await tester.ensureVisible(find.text('الضمة (ـُ)'));
-    await tester.tap(find.text('الضمة (ـُ)'));
+    await tester.ensureVisible(find.textContaining('الضمة'));
+    await tester.tap(find.textContaining('الضمة'));
     await tester.pump();
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
