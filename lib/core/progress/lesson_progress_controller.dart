@@ -19,6 +19,20 @@ class LessonProgressController extends ChangeNotifier {
   final Map<String, bool> _answers = {};
   final Map<String, int> _practiceStats = {};
   String? _practiceDate;
+  String? _lastActiveLessonId;
+
+  String? get lastActiveLessonId =>
+      _lastActiveLessonId ??
+      _box?.get(StorageKeys.lastActiveLessonId) as String?;
+
+  Future<void> markLessonActive(String lessonId) async {
+    if (lastActiveLessonId == lessonId) {
+      return;
+    }
+    _lastActiveLessonId = lessonId;
+    await _box?.put(StorageKeys.lastActiveLessonId, lessonId);
+    notifyListeners();
+  }
 
   int stepFor(String lessonId) {
     return _steps[lessonId] ??
@@ -100,7 +114,11 @@ class LessonProgressController extends ChangeNotifier {
 
   Future<void> saveStep(String lessonId, int step) async {
     _steps[lessonId] = step;
-    await _box?.put(StorageKeys.lessonStep(lessonId), step);
+    _lastActiveLessonId = lessonId;
+    await _box?.putAll({
+      StorageKeys.lessonStep(lessonId): step,
+      StorageKeys.lastActiveLessonId: lessonId,
+    });
     notifyListeners();
   }
 
@@ -115,6 +133,7 @@ class LessonProgressController extends ChangeNotifier {
     _steps[lessonId] = finalStep;
     _mastery[lessonId] = bestMastery;
     _attempts[lessonId] = attemptsFor(lessonId) + 1;
+    _lastActiveLessonId = lessonId;
     if (bestMastery >= 70) {
       _completedLessons.add(lessonId);
     }
@@ -123,6 +142,7 @@ class LessonProgressController extends ChangeNotifier {
       StorageKeys.lessonMastery(lessonId): bestMastery,
       StorageKeys.lessonAttempts(lessonId): _attempts[lessonId],
       StorageKeys.lessonCompleted(lessonId): bestMastery >= 70,
+      StorageKeys.lastActiveLessonId: lessonId,
     });
     await _bumpStreakForToday();
     notifyListeners();
@@ -130,6 +150,7 @@ class LessonProgressController extends ChangeNotifier {
 
   Future<void> restart(String lessonId) async {
     _steps[lessonId] = 0;
+    _lastActiveLessonId = lessonId;
     final answerPrefix = 'lesson.$lessonId.answer.';
     _answers.removeWhere((key, _) => key.startsWith(answerPrefix));
     final storedAnswerKeys = _box?.keys
@@ -137,7 +158,10 @@ class LessonProgressController extends ChangeNotifier {
         .where((key) => key.startsWith(answerPrefix))
         .toList();
     await _box?.deleteAll(storedAnswerKeys ?? const <String>[]);
-    await _box?.put(StorageKeys.lessonStep(lessonId), 0);
+    await _box?.putAll({
+      StorageKeys.lessonStep(lessonId): 0,
+      StorageKeys.lastActiveLessonId: lessonId,
+    });
     notifyListeners();
   }
 

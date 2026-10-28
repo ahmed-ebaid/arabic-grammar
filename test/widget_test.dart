@@ -277,6 +277,33 @@ void main() {
     expect(find.text('تابع'), findsOneWidget);
   });
 
+  testWidgets('continues directly to the last active lesson from home', (
+    tester,
+  ) async {
+    final progress = LessonProgressController.inMemory();
+    await progress.saveStep('lesson_01', 1);
+
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: progress,
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+
+    await tester.scrollUntilVisible(
+      find.text('تابع الدرس'),
+      250,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('تابع الدرس'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('الخطوة ٢ من ٩'), findsOneWidget);
+    expect(find.text('تابع'), findsOneWidget);
+  });
+
   testWidgets('shows curriculum sources and review status in About', (
     tester,
   ) async {

@@ -8,6 +8,7 @@ import 'features/about/about_screen.dart';
 import 'features/bookmarks/bookmarks_screen.dart';
 import 'features/glossary/glossary_screen.dart';
 import 'features/home/home_screen.dart';
+import 'features/lessons/lesson_detail_screen.dart';
 import 'features/lessons/lessons_screen.dart';
 import 'features/practice/practice_screen.dart';
 import 'features/progress/progress_screen.dart';
@@ -142,6 +143,7 @@ class _RootScaffoldState extends State<RootScaffold> {
             contentCatalog: widget.contentCatalog,
             progressController: widget.lessonProgressController,
             onStartLearning: () => _selectTab(1),
+            onContinueLesson: _openLessonFromHome,
           ),
           LessonsScreen(
             contentCatalog: widget.contentCatalog,
@@ -170,6 +172,36 @@ class _RootScaffoldState extends State<RootScaffold> {
 
   void _selectTab(int index) {
     setState(() => _currentIndex = index);
+  }
+
+  Future<void> _openLessonFromHome(Lesson lesson) async {
+    final catalog = widget.contentCatalog;
+    final level = catalog?.levels
+        .where((candidate) => candidate.lessonIds.contains(lesson.id))
+        .firstOrNull;
+    final isPlusLevel = (level?.order ?? 1) > 1;
+    if (isPlusLevel && !widget.subscriptionController.hasPlusAccess) {
+      await Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
+          builder: (_) => PlusPaywallScreen(
+            subscriptionController: widget.subscriptionController,
+          ),
+        ),
+      );
+      return;
+    }
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(
+        builder: (_) => LessonDetailScreen(
+          lesson: lesson,
+          progressController: widget.lessonProgressController,
+          userDataController: widget.userDataController,
+        ),
+      ),
+    );
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void _handleMenuAction(_AppMenuAction action) {

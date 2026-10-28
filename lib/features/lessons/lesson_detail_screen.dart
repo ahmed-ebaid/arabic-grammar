@@ -47,6 +47,11 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         .clamp(0, _steps.length - 1);
     _restoreSolvedExercises();
     _syncAnswerState(_currentStep);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        widget.progressController.markLessonActive(widget.lesson.id);
+      }
+    });
   }
 
   @override

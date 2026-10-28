@@ -79,4 +79,16 @@ void main() {
     expect(controller.practiceTotalStars, 5);
     expect(controller.practiceDailyAnswered, 20);
   });
+
+  test('tracks the last active lesson across steps and completion', () async {
+    final controller = LessonProgressController.inMemory();
+
+    expect(controller.lastActiveLessonId, isNull);
+
+    await controller.markLessonActive('lesson_01');
+    expect(controller.lastActiveLessonId, 'lesson_01');
+
+    await controller.saveStep('lesson_02', 2);
+    expect(controller.lastActiveLessonId, 'lesson_02');
+  });
 }

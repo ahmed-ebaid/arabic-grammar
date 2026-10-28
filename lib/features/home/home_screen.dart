@@ -12,11 +12,13 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({
     required this.onStartLearning,
     required this.progressController,
+    this.onContinueLesson,
     this.contentCatalog,
     super.key,
   });
 
   final VoidCallback onStartLearning;
+  final ValueChanged<Lesson>? onContinueLesson;
   final ContentCatalog? contentCatalog;
   final LessonProgressController progressController;
 
@@ -61,6 +63,7 @@ class HomeScreen extends StatelessWidget {
                     catalog: contentCatalog!,
                     progressController: progressController,
                     onStartLearning: onStartLearning,
+                    onContinueLesson: onContinueLesson,
                   ),
                 )
               else
@@ -140,19 +143,39 @@ class _PathCard extends StatelessWidget {
     required this.catalog,
     required this.progressController,
     required this.onStartLearning,
+    this.onContinueLesson,
   });
 
   final ContentCatalog catalog;
   final LessonProgressController progressController;
   final VoidCallback onStartLearning;
+  final ValueChanged<Lesson>? onContinueLesson;
+
+  Lesson _targetLesson() {
+    final lastId = progressController.lastActiveLessonId;
+    if (lastId != null) {
+      final lastLesson = catalog.lessons
+          .where((candidate) => candidate.id == lastId)
+          .firstOrNull;
+      if (lastLesson != null &&
+          !progressController.isCompleted(lastLesson.id)) {
+        return lastLesson;
+      }
+    }
+    return catalog.lessons.firstWhere(
+      (candidate) => !progressController.isCompleted(candidate.id),
+      orElse: () => catalog.lessons.last,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final lesson = catalog.lessons.firstWhere(
-      (candidate) => !progressController.isCompleted(candidate.id),
-      orElse: () => catalog.lessons.last,
-    );
+    final lesson = _targetLesson();
+    final hasProgress =
+        progressController.totalXp > 0 ||
+        progressController.lastActiveLessonId != null ||
+        progressController.stepFor(lesson.id) > 0;
     final mastery = progressController.masteryFor(lesson.id);
     final title = progressController.isCompleted(lesson.id)
         ? l10n.pathCompleteTitle
@@ -208,12 +231,16 @@ class _PathCard extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             FilledButton.icon(
-              onPressed: onStartLearning,
+              onPressed: () {
+                if (hasProgress && onContinueLesson != null) {
+                  onContinueLesson!(lesson);
+                } else {
+                  onStartLearning();
+                }
+              },
               icon: const Icon(Icons.play_arrow),
               label: Text(
-                progressController.totalXp == 0
-                    ? l10n.startLearning
-                    : l10n.pathContinueAction,
+                !hasProgress ? l10n.startLearning : l10n.pathContinueAction,
               ),
             ),
           ],
