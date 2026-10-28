@@ -11,7 +11,7 @@
       },
       "description": {
         "en": "Notice that endings carry meaning and recognize the basic shape of simple sentences.",
-        "ar": "أن تلاحظ أن كثيرًا من الكلمات العربية يختلف أواخرها، وهذا الاختلاف يدل على اختلاف وظيفتها، وأن تتعرّف الشكل الأساسي للجمل البسيطة."
+        "ar": "أن تلاحظ أن كثيرًا من الكلمات العربية يختلف أواخرها، وهذا الاختلاف يدل على اختلاف وظيفتها، وأن تتعرَّفَ على الشكل الأساسي للجمل البسيطة."
       },
       "lessonIds": [
         "lesson_01",
@@ -146,7 +146,7 @@
       },
       "description": {
         "en": "Meet a first, carefully chosen sequence of core topics from the classical didactic poem Alfiyyat Ibn Malik, reading a few of its most reliably attested verses alongside original explanations.",
-        "ar": "أن تتعرف على موضوعات مختارة بعناية من ألفية ابن مالك، مع قراءة عدد من أبياتها، والاطلاع على بعض شروحها المشهورة."
+        "ar": "أن تتعرَّفَ على موضوعات مختارة بعناية من ألفية ابن مالك، مع قراءة عدد من أبياتها، والاطلاع على بعض شروحها المشهورة."
       },
       "lessonIds": [
         "lesson_52",
@@ -179,7 +179,7 @@
         },
         {
           "en": "Recognize raf, nasb, jarr, and jazm as four grammatical states.",
-          "ar": "أن تتعرَّف الرفع والنصب والجر والجزم بوصفها حالات إعرابية."
+          "ar": "أن تتعرَّفَ على الرفع والنصب والجر والجزم بوصفها حالات إعرابية."
         },
         {
           "en": "Use grammar, morphology, and context to choose the correct reading.",
@@ -2845,7 +2845,7 @@
       "objectives": [
         {
           "en": "Recognize common prepositions as reading clues.",
-          "ar": "أن تتعرف حروف الجر الشائعة بوصفها قرائن للقراءة."
+          "ar": "أن تتعرَّفَ على حروف الجر الشائعة بوصفها قرائن للقراءة."
         },
         {
           "en": "Read the noun after a preposition in jarr.",
@@ -4067,11 +4067,11 @@
       "objectives": [
         {
           "en": "Recognize ال as a common marker of a definite noun.",
-          "ar": "أن تتعرف «الـ» بوصفها علامة شائعة للاسم المعرفة."
+          "ar": "أن تتعرَّفَ على «الـ» بوصفها علامة شائعة للاسم المعرفة."
         },
         {
           "en": "Recognize tanwin as a common, but not exclusive, marker of an indefinite noun.",
-          "ar": "أن تتعرف التنوين بوصفه علامة شائعة غير حصرية للاسم النكرة."
+          "ar": "أن تتعرَّفَ على التنوين بوصفه علامة شائعة غير حصرية للاسم النكرة."
         }
       ],
       "prerequisites": [
@@ -4574,7 +4574,7 @@
       "objectives": [
         {
           "en": "Recognize ta marbuta as a common feminine marker.",
-          "ar": "أن تتعرف التاء المربوطة بوصفها علامة شائعة للتأنيث."
+          "ar": "أن تتعرَّفَ على التاء المربوطة بوصفها علامة شائعة للتأنيث."
         },
         {
           "en": "Match a simple predicate to a masculine or feminine noun.",
@@ -5068,7 +5068,7 @@
       "objectives": [
         {
           "en": "Recognize the dual ending and the sound masculine and feminine plural endings.",
-          "ar": "أن تتعرّف علامة المثنى وعلامتي جمع المذكر السالم وجمع المؤنث السالم."
+          "ar": "أن تتعرَّفَ على علامة المثنى وعلامتي جمع المذكر السالم وجمع المؤنث السالم."
         },
         {
           "en": "Read a noun in dual or sound plural form in its correct state.",
@@ -5562,7 +5562,7 @@
       "objectives": [
         {
           "en": "Recognize adjective agreement in definiteness, gender, number, and case.",
-          "ar": "أن تتعرّف الأوجه الأربعة التي تطابق فيها الصفة موصوفها: التعريف أو التنكير، والتذكير أو التأنيث، والإفراد أو التثنية أو الجمع، والرفع أو النصب أو الجر."
+          "ar": "أن تتعرَّفَ على الأوجه الأربعة التي تطابق فيها الصفة موصوفها: التعريف أو التنكير، والتذكير أو التأنيث، والإفراد أو التثنية أو الجمع، والرفع أو النصب أو الجر."
         },
         {
           "en": "Apply agreement to read a new noun-adjective phrase correctly.",
@@ -6134,7 +6134,7 @@
       "objectives": [
         {
           "en": "Recognize idafa as a relationship between two nouns: the first is mudaf and the second mudaf ilayh.",
-          "ar": "أن تتعرّف الإضافة: نسبة اسم إلى اسم آخر، فالأول مضاف والثاني مضاف إليه."
+          "ar": "أن تتعرَّفَ على الإضافة: نسبة اسم إلى اسم آخر، فالأول مضاف والثاني مضاف إليه."
         },
         {
           "en": "Know that the mudaf ilayh is in jarr and that, in semantic idafa, the mudaf takes neither tanwin nor ال.",
@@ -6647,7 +6647,7 @@
       "objectives": [
         {
           "en": "Recognize هذا, هذه, and هؤلاء as pointing to a nearby noun.",
-          "ar": "أن تتعرّف أسماء الإشارة «هذا» و«هذه» و«هؤلاء» الدالة على القريب."
+          "ar": "أن تتعرَّفَ على أسماء الإشارة «هذا» و«هذه» و«هؤلاء» الدالة على القريب."
         },
         {
           "en": "Read the following noun in its correct state after a demonstrative.",
@@ -7160,7 +7160,7 @@
       "objectives": [
         {
           "en": "Recognize detached pronouns (هو, هي, أنتَ...) and attached possessive pronouns (ـه, ـها, ـكَ, ـي).",
-          "ar": "أن تتعرّف الضمائر المنفصلة (أنا، أنت، هو...) والضمائر المتصلة الدالة على الملكية (ـه، ـها، ـكَ، ـي)."
+          "ar": "أن تتعرَّفَ على الضمائر المنفصلة (أنا، أنت، هو...) والضمائر المتصلة الدالة على الملكية (ـه، ـها، ـكَ، ـي)."
         },
         {
           "en": "Read a noun carrying an attached pronoun in its correct state.",
@@ -9376,7 +9376,7 @@
       "objectives": [
         {
           "en": "Recognize the four present-tense prefixes أ, ن, ي, ت (أنيت) marking person.",
-          "ar": "أن تتعرّف على أحرف المضارعة الأربعة أ، ن، ي، ت (أنيت) الدالة على الفاعل."
+          "ar": "أن تتعرَّفَ على أحرف المضارعة الأربعة أ، ن، ي، ت (أنيت) الدالة على الفاعل."
         },
         {
           "en": "Use a verb's prefix to identify its subject before reading the rest of the word.",
@@ -11024,11 +11024,11 @@
       "objectives": [
         {
           "en": "Recognize أنْ as a common cause of nasb in the present tense.",
-          "ar": "أن تتعرّف على «أنْ» بوصفها سببًا شائعًا لنصب الفعل المضارع."
+          "ar": "أن تتعرَّفَ على «أنْ» بوصفها سببًا شائعًا لنصب الفعل المضارع."
         },
         {
           "en": "Recognize إنْ as a common cause of jazm in conditional sentences.",
-          "ar": "أن تتعرّف على «إنْ» بوصفها سببًا شائعًا لجزم فعلين في جملة الشرط."
+          "ar": "أن تتعرَّفَ على «إنْ» بوصفها سببًا شائعًا لجزم فعلين في جملة الشرط."
         }
       ],
       "prerequisites": [
@@ -11605,7 +11605,7 @@
         },
         {
           "en": "Recognize لا الناهية as jazming the present verb to express prohibition.",
-          "ar": "أن تتعرّف «لا» الناهية بوصفها تجزم الفعل المضارع وتدل على النهي."
+          "ar": "أن تتعرَّفَ على «لا» الناهية بوصفها تجزم الفعل المضارع وتدل على النهي."
         }
       ],
       "prerequisites": [
@@ -12159,7 +12159,7 @@
       "objectives": [
         {
           "en": "Recognize the six common patterns of the basic triliteral verb.",
-          "ar": "أن تتعرّف الأوزان الستة الشائعة للفعل الثلاثي المجرد."
+          "ar": "أن تتعرَّفَ على الأوزان الستة الشائعة للفعل الثلاثي المجرد."
         },
         {
           "en": "Recognize that adding letters to a basic verb root changes its meaning, as in علِمَ versus علَّمَ.",
@@ -12167,7 +12167,7 @@
         },
         {
           "en": "Recognize the derived patterns فَعَّلَ and أَفْعَلَ on high-frequency verbs.",
-          "ar": "أن تتعرّف وزني «فَعَّلَ» و«أَفْعَلَ» في أفعال شائعة."
+          "ar": "أن تتعرَّفَ على وزني «فَعَّلَ» و«أَفْعَلَ» في أفعال شائعة."
         }
       ],
       "prerequisites": [
@@ -12785,7 +12785,7 @@
         },
         {
           "en": "Recognize the جزم sign of \"the five verbs\" (dropping the final نون).",
-          "ar": "أن تتعرّف على علامة جزم الأفعال الخمسة وهي (حذف النون)."
+          "ar": "أن تتعرَّفَ على علامة جزم الأفعال الخمسة وهي (حذف النون)."
         }
       ],
       "prerequisites": [
@@ -13332,11 +13332,11 @@
       "objectives": [
         {
           "en": "Recognize كان entering a nominal sentence: its noun (اسمها) stays raf, its predicate (خبرها) becomes nasb.",
-          "ar": "أن تتعرّف على دخول «كان» على الجملة الاسمية: اسمها يظل مرفوعًا وخبرها يصير منصوبًا."
+          "ar": "أن تتعرَّفَ على دخول «كان» على الجملة الاسمية: اسمها يظل مرفوعًا وخبرها يصير منصوبًا."
         },
         {
           "en": "Recognize other كان-sisters such as أصبح and صار.",
-          "ar": "أن تتعرّف على أخوات كان مثل «أصبح» و«صار»."
+          "ar": "أن تتعرَّفَ على أخوات كان مثل «أصبح» و«صار»."
         }
       ],
       "prerequisites": [
@@ -13845,7 +13845,7 @@
       "objectives": [
         {
           "en": "Recognize إنّ entering a nominal sentence: its noun (اسمها) becomes nasb, its predicate (خبرها) stays raf.",
-          "ar": "أن تتعرّف على أحكام دخول «إنّ» على الجملة الاسمية: اسمها يصير منصوبًا وخبرها يبقى مرفوعًا."
+          "ar": "أن تتعرَّفَ على أحكام دخول «إنّ» على الجملة الاسمية: اسمها يصير منصوبًا وخبرها يبقى مرفوعًا."
         },
         {
           "en": "Contrast إنّ's effect with كان's opposite effect.",
@@ -14358,7 +14358,7 @@
       "objectives": [
         {
           "en": "Recognize الذي, التي, and الذين as connecting a definite noun to a descriptive clause.",
-          "ar": "أن تتعرّف على «الذي» و«التي» و«الذين» بوصفها أسماء موصولة تتبعها جملة توضحها وتتمّم معناها، تسمّى جملة الصلة."
+          "ar": "أن تتعرَّفَ على «الذي» و«التي» و«الذين» بوصفها أسماء موصولة تتبعها جملة توضحها وتتمّم معناها، تسمّى جملة الصلة."
         },
         {
           "en": "Recognize that a relative pronoun is mabni, even though the noun it describes may take any state.",
@@ -14871,7 +14871,7 @@
       "objectives": [
         {
           "en": "Recognize و, ف, ثم, أو, and لكن as joining two words or clauses of the same role.",
-          "ar": "أن تتعرّف على حروف العطف( و، ف، ثم، أو، لكن) بوصفها تربط بين كلمتين أو جملتين متشابهتين في الوظيفة."
+          "ar": "أن تتعرَّفَ على حروف العطف( و، ف، ثم، أو، لكن) بوصفها تربط بين كلمتين أو جملتين متشابهتين في الوظيفة."
         },
         {
           "en": "Read the joined word (المعطوف) with the same state as the word before it (المعطوف عليه).",
@@ -18956,7 +18956,7 @@
       "objectives": [
         {
           "en": "Recognize the passive pattern (فُعِلَ) used when the doer is unknown or unimportant.",
-          "ar": "أن تتعرّف صيغة المبني للمجهول (فُعِلَ) المستعملة حين يكون الفاعل مجهولًا أو غير مهم."
+          "ar": "أن تتعرَّفَ على صيغة المبني للمجهول (فُعِلَ) المستعملة حين يكون الفاعل مجهولًا أو غير مهم."
         },
         {
           "en": "Read نائب الفاعل (standing in for the missing doer) in raf.",
@@ -19473,7 +19473,7 @@
         },
         {
           "en": "Recognize المصدر (verbal noun) as naming the action itself, still reading as an ordinary noun.",
-          "ar": "أن تتعرّف المصدر بوصفه اسمًا للحدث نفسه، فهو يعامل معاملة الأسماء."
+          "ar": "أن تتعرَّفَ على المصدر بوصفه اسمًا للحدث نفسه، فهو يعامل معاملة الأسماء."
         }
       ],
       "prerequisites": [
@@ -20001,7 +20001,7 @@
       "objectives": [
         {
           "en": "Recognize a chain of three or more nouns in successive idafa.",
-          "ar": "أن تتعرّف تسلسل ثلاثة أسماء أو أكثر في إضافات متتابعة."
+          "ar": "أن تتعرَّفَ على تسلسل ثلاثة أسماء أو أكثر في إضافات متتابعة."
         },
         {
           "en": "Recognize that only the first noun's state depends on the sentence, while every later noun stays jarr.",
@@ -23687,7 +23687,7 @@
       "objectives": [
         {
           "en": "Recognize إذا and إنْ as introducing a condition with a result clause.",
-          "ar": "أن تتعرّف «إذا» و«إنْ» بوصفهما تفتتحان جملة شرط لها جواب."
+          "ar": "أن تتعرَّفَ على «إذا» و«إنْ» بوصفهما تفتتحان جملة شرط لها جواب."
         },
         {
           "en": "Read both the شرط clause and جواب الشرط correctly.",
@@ -24713,7 +24713,7 @@
       "objectives": [
         {
           "en": "Recognize the raf sign of a present-tense verb ending in alif, waw, or ya.",
-          "ar": "أن تتعرّف علامة رفع الفعل المضارع المعتل الآخر بالألف أو الواو أو الياء."
+          "ar": "أن تتعرَّفَ على علامة رفع الفعل المضارع المعتل الآخر بالألف أو الواو أو الياء."
         },
         {
           "en": "Recognize how jazm shortens a weak present-tense verb by dropping its final weak letter.",
@@ -25290,7 +25290,7 @@
       "objectives": [
         {
           "en": "Recognize ليت (wish) and لعلّ (hope) as acting like إنّ: nasbing their noun, raising their predicate.",
-          "ar": "أن تتعرّف على عمل «ليت» و«لعلّ» حيث تعملان عمل «إنّ»: فينصب الاسم ويرفع الخبر بعدهما."
+          "ar": "أن تتعرَّفَ على عمل «ليت» و«لعلّ» حيث تعملان عمل «إنّ»: فينصب الاسم ويرفع الخبر بعدهما."
         },
         {
           "en": "Recognize لولا (\"were it not for\") as followed by a raf noun whose predicate is obligatorily omitted.",
@@ -29879,7 +29879,7 @@
         },
         {
           "en": "Recognize the second test: a word stands in place of a noun that can take ال to become definite.",
-          "ar": "أن تتعرّف الاختبار الثاني في البيت: وقوع الكلمة موقع اسم يقبل «ال» المؤثرة في التعريف."
+          "ar": "أن تتعرَّفَ على الاختبار الثاني في البيت: وقوع الكلمة موقع اسم يقبل «ال» المؤثرة في التعريف."
         }
       ],
       "prerequisites": [
