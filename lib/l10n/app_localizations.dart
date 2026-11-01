@@ -653,8 +653,8 @@ abstract class AppLocalizations {
   /// No description provided for @aboutAppVersion.
   ///
   /// In en, this message translates to:
-  /// **'{version} (build {build})'**
-  String aboutAppVersion(String version, String build);
+  /// **'{version}'**
+  String aboutAppVersion(String version);
 
   /// No description provided for @aboutAppVersionError.
   ///
@@ -1121,7 +1121,7 @@ abstract class AppLocalizations {
   /// No description provided for @learnerProfileTitle.
   ///
   /// In en, this message translates to:
-  /// **'Learner profile'**
+  /// **'Learner type'**
   String get learnerProfileTitle;
 
   /// No description provided for @learnerProfileBody.
@@ -1157,7 +1157,7 @@ abstract class AppLocalizations {
   /// No description provided for @learnerProfileChange.
   ///
   /// In en, this message translates to:
-  /// **'Change profile'**
+  /// **'Change learner type'**
   String get learnerProfileChange;
 
   /// No description provided for @youngLearnerBanner.

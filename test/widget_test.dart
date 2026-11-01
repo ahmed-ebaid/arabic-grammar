@@ -328,7 +328,8 @@ void main() {
 
     expect(find.text('عن التطبيق وشكر المساهمين'), findsOneWidget);
     expect(find.text('إصدار التطبيق'), findsOneWidget);
-    expect(find.text('٠.١.٠ (البناء ٢٥)'), findsOneWidget);
+    expect(find.text('0.1.0'), findsOneWidget);
+    expect(find.textContaining('البناء'), findsNothing);
     expect(
       find.textContaining('من الأمثلة إلى القراءة المستقلة'),
       findsOneWidget,

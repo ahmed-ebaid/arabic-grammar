@@ -317,8 +317,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutAppVersionTitle => 'App version';
 
   @override
-  String aboutAppVersion(String version, String build) {
-    return '$version (build $build)';
+  String aboutAppVersion(String version) {
+    return '$version';
   }
 
   @override
@@ -577,7 +577,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learningModeAdult => 'Adult';
 
   @override
-  String get learnerProfileTitle => 'Learner profile';
+  String get learnerProfileTitle => 'Learner type';
 
   @override
   String get learnerProfileBody =>
@@ -598,7 +598,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Deeper grammatical explanations and direct rule application';
 
   @override
-  String get learnerProfileChange => 'Change profile';
+  String get learnerProfileChange => 'Change learner type';
 
   @override
   String get youngLearnerBanner => 'A fun step-by-step adventure';

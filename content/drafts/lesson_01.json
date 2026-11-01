@@ -1791,8 +1791,8 @@
             "ar": "تتبّع الحدث"
           },
           "body": {
-            "en": "In قَرَأَ الطِّفْلُ الكِتَابَ, قرأ is the action. الطفل performed it, so الطفل is the subject and takes damma. الكتاب did not read; it received the action.",
-            "ar": "في جملة «قَرَأَ الطِّفْلُ الكِتَابَ»، «قرأ» هو الفعل، و«الطفل» قام بالقراءة، فهو الفاعل المرفوع بالضمة. أمّا «الكتاب» فلم يقرأ، بل وقع عليه الفعل."
+            "en": "In the sentence قَرَأَ الطِّفْلُ الكِتَابَ, قرأ is the action. الطفل performed it, so الطفل is the subject and takes damma. الكتاب did not read; it received the action (reading).",
+            "ar": "في جملة «قَرَأَ الطِّفْلُ الكِتَابَ»، «قرأ» هو الفعل، و«الطفل» قام بالقراءة، فهو الفاعل المرفوع بالضمة. أمّا «الكتاب» فلم يقرأ، بل وقع عليه الفعل (القراءة)."
           },
           "examples": [
             {
@@ -1927,7 +1927,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Who performed the action in قرأ الطفل الكتاب?",
-            "ar": "من قام بالفعل في العبارة «قرأ الطفل الكتاب»؟"
+            "ar": "من قام بالفعل في عبارة «قرأ الطفل الكتاب»؟"
           },
           "options": [
             {
@@ -2110,7 +2110,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the verb in غسل الرجل السيارة؟",
-            "ar": "عيّن الفعل في العبارة «غسل الرجل السيارة»."
+            "ar": "عيّن الفعل في عبارة «غسل الرجل السيارة»."
           },
           "options": [
             {
@@ -2202,7 +2202,7 @@
           "type": "chooseEnding",
           "prompt": {
             "en": "Choose the ending for الرَّجُل_ when it is the subject.",
-            "ar": "اختر حركة كلمة «الرجل» حين يكون فاعلًا."
+            "ar": "اختر حركة آخر كلمة «الرجل» حين يكون فاعلًا."
           },
           "options": [
             {
@@ -2335,7 +2335,7 @@
           },
           "body": {
             "en": "In فَتَحَ الوَلَدُ البَابَ, الولد performed the opening, so it is the subject in raf. الباب received the action, so it is the direct object in nasb with fatha.",
-            "ar": "في العبارة «فَتَحَ الوَلَدُ البَابَ»، «الولد» قام بالفتح، فهو فاعل مرفوع. ووقع الفتح على «الباب»، فهو مفعول به منصوب بالفتحة."
+            "ar": "في عبارة «فَتَحَ الوَلَدُ البَابَ»، «الولد» قام بالفتح، فهو فاعل مرفوع. ووقع الفتح على «الباب»، فهو مفعول به منصوب بالفتحة."
           },
           "examples": [
             {
@@ -2865,7 +2865,7 @@
           },
           "body": {
             "en": "Prepositions such as في (in), من (from), إلى (to), على (on), and بـ (with/by) govern the noun after them. That noun is in jarr, usually heard with kasra.",
-            "ar": "حروف الجر مثل «في، ومن، وإلى، وعلى، والباء» تؤثر في الاسم بعدها. يكون هذا الاسم مجرورًا، وعلامته الأصلية الكسرة."
+            "ar": "حروف الجر مثل «في»، و«مِن»، و«إلى»، و«على»، و«الباء» تؤثر في الاسم بعدها. يكون هذا الاسم مجرورًا، وعلامته الأصلية الكسرة."
           },
           "examples": []
         },
@@ -2975,7 +2975,7 @@
           },
           "body": {
             "en": "When you see في البيت without tashkeel, في tells you how to read the next ending: فِي البَيْتِ. The written structure replaces the missing vowel clue.",
-            "ar": "عندما ترى العبارة «في البيت» بلا تشكيل، يخبرك حرف «في» بكيفية قراءة آخر الاسم بعده: «فِي البَيْتِ». فالتركيب المكتوب يعوض الحركة المحذوفة."
+            "ar": "عندما ترى عبارة «في البيت» بلا تشكيل، يخبرك حرف «في» بكيفية قراءة آخر الاسم بعده بالكسر: «فِي البَيْتِ». فالتركيب المكتوب يعوض الحركة المحذوفة."
           },
           "examples": []
         }
@@ -2986,7 +2986,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is the preposition in ذهب الطالب إلى المدرسة?",
-            "ar": "أي كلمة هي حرف الجر في العبارة «ذهب الطالب إلى المدرسة»؟"
+            "ar": "أي كلمة هي حرف الجر في عبارة «ذهب الطالب إلى المدرسة»؟"
           },
           "options": [
             {
@@ -3010,7 +3010,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الطالب is a noun and the subject of ذهب.",
-                "ar": "«الطالب» يدل على معنى في نفسه، وهو فاعل «ذهب»."
+                "ar": "لا؛ لأن «الطالب» يدل على معنى في نفسه، وهو فاعل «ذهب»."
               }
             },
             {
@@ -3022,7 +3022,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "ذهب expresses an action and a time, so it is a verb.",
-                "ar": "«ذهب» يدل على حدث وزمن، فهو فعل."
+                "ar": "لا؛ لأن «ذهب» يدل على حدث وزمن، فهو فعل."
               }
             }
           ]
@@ -3032,7 +3032,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which noun is governed by the preposition in في البيت?",
-            "ar": "أي اسم جرّه حرف الجر في العبارة «في البيت»؟"
+            "ar": "أي اسم جرّه حرف الجر في عبارة «في البيت»؟"
           },
           "options": [
             {
@@ -3261,7 +3261,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which noun is governed by the preposition in في الحديقة؟",
-            "ar": "أي اسم مجرور بحرف الجر في العبارة «في الحديقة»؟"
+            "ar": "أي اسم مجرور بحرف الجر في عبارة «في الحديقة»؟"
           },
           "options": [
             {
@@ -3297,7 +3297,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الحديقة is a noun that expresses a meaning on its own, and it follows the preposition في.",
-                "ar": "«الحديقة» اسم يدل على معنى في نفسه، وقد جاء بعد حرف الجر «في»."
+                "ar": "لا؛ لأن «الحديقة» اسم يدل على معنى في نفسه، وقد جاء بعد حرف الجر «في»."
               }
             }
           ]
@@ -3738,7 +3738,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "In the sentence شاهد الطفل القمر في السماء, which sequence is correct?",
-            "ar": "في جملة «شاهد الطفل القمر في السماء»، أي ترتيب صحيح؟"
+            "ar": "في عبارة «شاهد الطفل القمر في السماء»، أي ترتيب صحيح؟"
           },
           "options": [
             {
@@ -4746,7 +4746,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "سيارة is treated as feminine.",
-                "ar": "لا؛ لأن الكلمة لا تناسب المبتدأ من جهة المعنى، ولا تشتمل على علامة تأنيث حتى تطابق المبتدأ المؤنث «الطالبة»."
+                "ar": "لا؛ لأن «سيارة» اسم مؤنث."
               }
             }
           ]
@@ -4792,7 +4792,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "طلاب does not describe the singular feminine topic.",
-                "ar": "لا؛ لأن «طلاب» جمع، ولا تناسب المبتدأ المفرد المؤنث «الطالبة» هنا في العدد والمعنى."
+                "ar": "لا؛ لأن الكلمة لا تناسب المبتدأ من جهة المعنى، ولا تشتمل على علامة تأنيث حتى تطابق المبتدأ المؤنث «الطالبة»."
               }
             }
           ]
@@ -4874,7 +4874,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "مهندس has no ta marbuta.",
-                "ar": "لا؛ لأن «طبيبة» مؤنث لاشتمالها على تاء التأنيث."
+                "ar": "لا؛ لأن «مهندس» لا ينتهي بتاء مربوطة."
               }
             },
             {
@@ -4886,7 +4886,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "باب has no feminine marker.",
-                "ar": "لا؛ لأن «شجرة» اسم مؤنث لاشتمالها على تاء التأنيث."
+                "ar": "لا؛ لأن «باب» لا يحمل علامة التأنيث هذه."
               }
             }
           ]
@@ -4920,7 +4920,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "طبيبة is the feminine form.",
-                "ar": "لا؛ لعدم اشتمال «حاضر» على علامة تأنيث تطابق «المعلمة»."
+                "ar": "لا؛ لأن «طبيبة» مؤنث لاشتمالها على تاء التأنيث."
               }
             },
             {
@@ -4932,7 +4932,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "شجرة is treated as feminine.",
-                "ar": "لا؛ لأن «شجرة» مؤنث، وتظهر فيه تاء التأنيث."
+                "ar": "لا؛ لأن «شجرة» اسم مؤنث لاشتمالها على تاء التأنيث."
               }
             }
           ]
@@ -4966,7 +4966,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Use the feminine form with المعلمة.",
-                "ar": "لا؛ لأن هذه الصيغة المذكرة لا تطابق «المعلمة»."
+                "ar": "لا؛ لعدم اشتمال «حاضر» على علامة تأنيث تطابق «المعلمة»."
               }
             },
             {
@@ -5482,7 +5482,7 @@
           "type": "addTashkeel",
           "prompt": {
             "en": "Correct العامل مجتهدات by choosing the appropriate topic:",
-            "ar": "صحّح العبارة «العامل مجتهدات» باختيار المبتدأ المناسب مما يلي:"
+            "ar": "صحّح عبارة «العامل مجتهدات» باختيار المبتدأ المناسب مما يلي:"
           },
           "options": [
             {
@@ -5788,7 +5788,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. المجتهد describes الولد.",
-                "ar": "صحيح. «البنات» مبتدأ و«المجتهدات» صفة تطابقه، وكلاهما مرفوع."
+                "ar": "صحيح. «المجتهد» صفة تصف «الولد»."
               }
             },
             {
@@ -6436,7 +6436,7 @@
               "id": "correct",
               "label": {
                 "en": "The mudaf takes neither tanwin nor ال",
-                "ar": "المضاف لا ينوّن ولا يحلّى بـ«الـ»"
+                "ar": "المضاف في الإضافة المعنوية لا ينوّن ولا يحلّى بـ«الـ»"
               },
               "isCorrect": true,
               "feedback": {
@@ -6802,7 +6802,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "In هذا الكتاب جديد, what is جديدٌ's role?",
-            "ar": "في جملة «هذا الكتاب جديد»، ما وظيفة «جديدٌ»؟"
+            "ar": "في نحو: «هذا الكتاب جديد»، ما وظيفة «جديدٌ»؟"
           },
           "options": [
             {
@@ -7012,7 +7012,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به."
+                "ar": "لا؛ لأنه لا يوجد في هذه العبارة فعل يطلب مفعولًا به."
               }
             },
             {
@@ -7034,7 +7034,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "What state is السيارةُ in after تلك in تلك السيارة جديدة?",
-            "ar": "في قولك «تلك السيارة جديدة»، ما الحالة الإعرابية لكلمة «السيارة»؟"
+            "ar": "في قولك: «تلك السيارة جديدة»، ما الحالة الإعرابية لكلمة «السيارة»؟"
           },
           "options": [
             {
@@ -7176,7 +7176,7 @@
           "type": "introduction",
           "title": {
             "en": "Two kinds of pronoun",
-            "ar": "نوعان من الضمائر"
+            "ar": "الضمائر نوعان"
           },
           "body": {
             "en": "A detached pronoun (أنا, نحن, أنت, هو, هي) stands as a separate word, as in أنت مجتهد (topic and predicate) and هي تذاكر (where هي is the topic and the subject of تذاكر is a hidden pronoun estimated as هي referring back to the topic). An attached pronoun (ـه, ـها, ـكَ, ـي) joins directly onto a word (a noun or a verb).",
@@ -7250,7 +7250,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma on كتاب; the pronoun ـه itself takes no case ending",
-                    "ar": "الضمة الظاهرة على «كتاب»؛ والضمير «ـه» لا تلحقه حركة إعراب"
+                    "ar": "الضمة الظاهرة على «كتاب»، والضمير «ـه» مبني لا تلحقه حركة إعراب"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -7300,7 +7300,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ـه attached to a noun means \"his.\"",
-                "ar": "صحيح. «ـها» ضمير متصل؛ لأنه اتصل بالاسم «كتاب» ودلّ على الملكية."
+                "ar": "صحيح. «ـه» إذا اتصلت باسم دلت على ملكية المفرد المذكر."
               }
             },
             {
@@ -7712,7 +7712,7 @@
           },
           "body": {
             "en": "A short description can combine a demonstrative, an indefinite predicate, adjective agreement, and an idafa to a pronoun, all at once. Read each word by asking the same questions you already know: what is its role, and what governs its state?",
-            "ar": "قد يجمع الوصف القصير بين اسم إشارة وخبر نكرة ومطابقة صفة وإضافة إلى ضمير، كل ذلك معًا. اقرأ كل كلمة بالأسئلة نفسها التي تعرفها: ما وظيفتها؟ وما الذي يحكم حالتها؟"
+            "ar": "اقرأ كل كلمة بالأسئلة نفسها التي تعرفها: ما وظيفتها؟ وما الذي يحكم حالتها؟"
           },
           "examples": []
         },
@@ -7777,7 +7777,7 @@
                   "end": 24,
                   "role": {
                     "en": "Construct plural noun with attached pronoun (topic)",
-                    "ar": "جمع مضاف إلى ضمير متصل (مبتدأ)"
+                    "ar": "مبتدأ، وهو جمع مضاف إلى ضمير متصل"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -8879,7 +8879,7 @@
           "type": "introduction",
           "title": {
             "en": "A doer without a separate word",
-            "ar": "فاعل بلا كلمة منفصلة"
+            "ar": "فعل بدون فاعل ظاهر بعده"
           },
           "body": {
             "en": "When a present-tense verb has no noun directly after it, its subject is often a hidden pronoun (فاعل مستتر) understood as هو or هي, referring back to someone already mentioned.",
@@ -8934,7 +8934,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب أو جازم"
+                    "ar": "الضمة الظاهرة؛ لأن الفعل المضارع لم يسبقه ناصب ولا جازم"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -9428,7 +9428,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب أو جازم"
+                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب ولا جازم"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -9473,7 +9473,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب أو جازم"
+                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب ولا جازم"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -11040,7 +11040,7 @@
           "type": "introduction",
           "title": {
             "en": "Another nasb cause, another jazm cause",
-            "ar": "ناصب آخر وجازم آخر"
+            "ar": "ناصب وجازم متشابهان في البنية (أنْ وإنْ)"
           },
           "body": {
             "en": "أنْ (\"to\") nasbs the present verb after it: أريد أن أذهب. إنْ (\"if\") jazms two present verbs: the condition (فعل الشرط) and its result (جواب الشرط): إنْ تجتهدْ تنجحْ.",
@@ -11053,7 +11053,7 @@
           "type": "workedExample",
           "title": {
             "en": "To go, and if you strive",
-            "ar": "أن أذهب، وإن تجتهد"
+            "ar": "أن أذهب، وإن تجتهد تنجح"
           },
           "body": {
             "en": "In أُرِيدُ أَنْ أَذْهَبَ, أنْ nasbs أذهب. In إِنْ تَجْتَهِدْ تَنْجَحْ, إنْ jazms both تجتهد (the condition) and تنجح (the result).",
@@ -12355,7 +12355,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is the basic root, meaning \"knew,\" not the derived teaching sense.",
-                "ar": "«علم» هو الفعل المجرد بمعنى المعرفة، لا تعليم غيره."
+                "ar": "لا؛ لأن هذا هو الفعل الأصلي، ومعناه «عرف»، لا تعليم غيره."
               }
             },
             {
@@ -12367,7 +12367,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is a different derived pattern meaning \"learned,\" not \"taught.\"",
-                "ar": "«استعلم» معناه طلب العلم، لا تعليم غيره."
+                "ar": "لا؛ لأن هذا وزن مزيد آخر معناه «تلقى العلم»، لا تعليم غيره."
               }
             }
           ]
@@ -12890,7 +12890,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب أو جازم"
+                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب ولا جازم"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -12909,7 +12909,7 @@
                   "grammarState": "jazm",
                   "grammaticalSign": {
                     "en": "The final نون is dropped for jazm",
-                    "ar": "تُحذف النون علامة للجزم"
+                    "ar": "حذف النون"
                   },
                   "ending": "وا",
                   "reason": {
@@ -14374,7 +14374,7 @@
           "type": "introduction",
           "title": {
             "en": "A noun and its description",
-            "ar": "اسم وجملة تصفه"
+            "ar": "اسم وجملة توضحه"
           },
           "body": {
             "en": "A relative pronoun (اسم موصول) such as الذي, التي, or الذين links a definite noun to a following descriptive clause (صلة الموصول). The relative pronoun itself is mabni and never changes shape.",
@@ -14887,7 +14887,7 @@
           "type": "introduction",
           "title": {
             "en": "Joining two equals",
-            "ar": "ربط بين متشابهين"
+            "ar": "ربط بين تابع ومتبوع (معطوف ومعطوف عليه)"
           },
           "body": {
             "en": "A coordinating particle (حرف عطف) links two words or clauses with the same role. The joined word (المعطوف) normally takes the same grammatical state as the word before it (المعطوف عليه).",
@@ -15894,7 +15894,7 @@
           "type": "introduction",
           "title": {
             "en": "How did it happen?",
-            "ar": "كيف وقع الحدث؟"
+            "ar": "كيف كانت هيئة صاحب الحدث؟"
           },
           "body": {
             "en": "الحال is an indefinite noun in nasb answering the question \"how?\" about the doer during the action. Unlike a نعت, which describes a noun directly, الحال describes the situation while the action happens.",
@@ -16918,7 +16918,7 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; feminine-marked number counting a masculine noun",
-                    "ar": "الضمة الظاهرة؛ عدد بتاء التأنيث يعدّ اسمًا مذكرًا"
+                    "ar": "الضمة الظاهرة"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -17389,7 +17389,7 @@
           "type": "workedExample",
           "title": {
             "en": "Two connected sentences",
-            "ar": "جملتان متصلتان"
+            "ar": "جملتان"
           },
           "body": {
             "en": "كَانَ الجَوُّ بَارِدًا صَبَاحًا. دَخَلَ الطَّالِبُ الَّذِي نَجَحَ مُبْتَسِمًا. Here كان nasbs باردًا, صباحًا is a time adverb in nasb, الذي introduces a relative clause, and مبتسمًا is a حال in nasb.",
@@ -17933,7 +17933,7 @@
         },
         {
           "en": "Apply agreement and jarr rules to a modern-register sentence.",
-          "ar": "أن تطبّق قواعد المطابقة والجر على جملة بأسلوب حديث."
+          "ar": "أن تطبّق قواعد المطابقة والجر على جملة في كلام مستحدث."
         }
       ],
       "prerequisites": [
@@ -17950,7 +17950,7 @@
           },
           "body": {
             "en": "Modern news sentences often begin with a verb reporting an event, followed by its subject and any objects or prepositional phrases. Every rule you have learned still applies here.",
-            "ar": "كثيرًا ما تبدأ جمل الأخبار الحديثة بفعل يخبر عن حدث، يتبعه فاعله وما بعده من مفعولات أو أشباه جمل. وكل قاعدة تعلمتها ما زالت تنطبق هنا."
+            "ar": "كثيرًا ما تبدأ الجمل المستحدثة بفعل (يشتمل على حدث) يتبعه فاعله ثم يتبعه أحد المفاعيل أو أشباه الجمل. وكل قاعدة تعلمتها ستطبقها هنا بإذن الله."
           },
           "examples": []
         },

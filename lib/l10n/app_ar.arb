@@ -161,7 +161,7 @@
   },
   "aboutTitle": "عن التطبيق وشكر المساهمين",
   "aboutAppVersionTitle": "إصدار التطبيق",
-  "aboutAppVersion": "{version} (البناء {build})",
+  "aboutAppVersion": "{version}",
   "aboutAppVersionError": "تعذّر تحميل إصدار التطبيق.",
   "aboutPurposeTitle": "هدفنا",
   "aboutPurposeBody": "يعلّم تطبيق «إعراب» المتعلّم كيف يستدلّ بالنحو وبنية الكلمة والسياق على حركة آخرها. وتنتقل الدروس تدريجيًّا من الأمثلة إلى القراءة المستقلة دون حركات.",
@@ -244,13 +244,13 @@
   ,"learningModeSimple": "مبسّط"
   ,"learningModeDetailed": "مفصّل"
   ,"learningModeAdult": "للكبار"
-  ,"learnerProfileTitle": "ملف المتعلّم"
+  ,"learnerProfileTitle": "نوع المتعلّم"
   ,"learnerProfileBody": "يساعدنا ذلك على تهيئة سرعة المسار وطريقة التشجيع المناسبة لتعلّمك."
   ,"learnerProfileYoung": "متعلّم صغير"
   ,"learnerProfileYoungSubtitle": "خطوات مبسّطة وألوان مبهجة وتشجيع مستمر"
   ,"learnerProfileGeneral": "متعلّم عام"
   ,"learnerProfileGeneralSubtitle": "شروح نحوية أوفى وتطبيق مباشر للقواعد"
-  ,"learnerProfileChange": "تغيير الملف"
+  ,"learnerProfileChange": "تغيير نوع المتعلّم"
   ,"youngLearnerBanner": "رحلة ممتعة خطوة بخطوة"
   ,"youngLearnerQuestionHint": "اقرأ المثال بهدوء ثم اختر الإجابة الصحيحة."
   ,"learningIllustrationLabel": "بطاقة مبهجة لتعلّم العربية",

@@ -316,8 +316,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutAppVersionTitle => 'إصدار التطبيق';
 
   @override
-  String aboutAppVersion(String version, String build) {
-    return '$version (البناء $build)';
+  String aboutAppVersion(String version) {
+    return '$version';
   }
 
   @override
@@ -568,7 +568,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get learningModeAdult => 'للكبار';
 
   @override
-  String get learnerProfileTitle => 'ملف المتعلّم';
+  String get learnerProfileTitle => 'نوع المتعلّم';
 
   @override
   String get learnerProfileBody =>
@@ -589,7 +589,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'شروح نحوية أوفى وتطبيق مباشر للقواعد';
 
   @override
-  String get learnerProfileChange => 'تغيير الملف';
+  String get learnerProfileChange => 'تغيير نوع المتعلّم';
 
   @override
   String get youngLearnerBanner => 'رحلة ممتعة خطوة بخطوة';

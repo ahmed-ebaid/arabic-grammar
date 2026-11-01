@@ -161,11 +161,10 @@
   },
   "aboutTitle": "About & credits",
   "aboutAppVersionTitle": "App version",
-  "aboutAppVersion": "{version} (build {build})",
+  "aboutAppVersion": "{version}",
   "@aboutAppVersion": {
     "placeholders": {
-      "version": { "type": "String" },
-      "build": { "type": "String" }
+      "version": { "type": "String" }
     }
   },
   "aboutAppVersionError": "Unable to load the app version.",
@@ -250,13 +249,13 @@
   ,"learningModeSimple": "Simple"
   ,"learningModeDetailed": "Detailed"
   ,"learningModeAdult": "Adult"
-  ,"learnerProfileTitle": "Learner profile"
+  ,"learnerProfileTitle": "Learner type"
   ,"learnerProfileBody": "This helps us shape the pace and encouragement for your learning path."
   ,"learnerProfileYoung": "Young learner"
   ,"learnerProfileYoungSubtitle": "Guided steps, cheerful colors, and friendly encouragement"
   ,"learnerProfileGeneral": "General learner"
   ,"learnerProfileGeneralSubtitle": "Deeper grammatical explanations and direct rule application"
-  ,"learnerProfileChange": "Change profile"
+  ,"learnerProfileChange": "Change learner type"
   ,"youngLearnerBanner": "A fun step-by-step adventure"
   ,"youngLearnerQuestionHint": "Read the example carefully, then pick the right answer."
   ,"learningIllustrationLabel": "A cheerful Arabic learning card",

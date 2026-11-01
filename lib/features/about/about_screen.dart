@@ -71,11 +71,9 @@ class _AboutScreenState extends State<AboutScreen> {
                     }
                     final info = snapshot.data!;
                     return Text(
-                      l10n.aboutAppVersion(
-                        _localizedDigits(context, info.version),
-                        _localizedDigits(context, info.buildNumber),
-                      ),
-                      textDirection: Directionality.of(context),
+                      l10n.aboutAppVersion(info.version),
+                      textDirection: TextDirection.ltr,
+                      textAlign: TextAlign.start,
                     );
                   },
                 ),
