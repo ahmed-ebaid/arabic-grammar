@@ -3227,7 +3227,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. من is a preposition that marks where the doctor left from.",
-                "ar": "صحيح. «من» حرف جر يبيّن المكان الذي خرج منه الطبيب."
+                "ar": "صحيح. «مِن» حرف جر معناه الابتداء."
               }
             },
             {
@@ -4274,7 +4274,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ال points to the specific book.",
-                "ar": "صحيح. «الـ» تدل على كتاب معيّن."
+                "ar": "صحيح؛ لأن «الـ» تدل على كتاب معيّن."
               }
             },
             {
@@ -5262,7 +5262,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. The dual object is in nasb, marked by ya.",
-                "ar": "صحيح. المثنى ينصب بالياء؛ لأنه وقع مفعولًا به."
+                "ar": "صحيح؛ لأن المثنى ينصب بالياء (ين)."
               }
             },
             {
@@ -6301,7 +6301,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. الطالب is the mudaf ilayh, specifying whose book it is.",
-                "ar": "صحيح. «الطالب» مضاف إليه، ويدل هنا على مالك الكتاب."
+                "ar": "صحيح. «الطالب» مضاف إليه، فالكتاب ملكه."
               }
             },
             {
@@ -6487,7 +6487,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. الطالبة is the mudaf ilayh, specifying whose pen it is.",
-                "ar": "صحيح. «الطالبة» مضاف إليه، ويدل هنا على مالك القلم."
+                "ar": "صحيح. «الطالبة» مضاف إليه، فالقلم ملك للطالبة."
               }
             },
             {
@@ -7300,7 +7300,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ـه attached to a noun means \"his.\"",
-                "ar": "صحيح. «ـها» ضمير متصل؛ لأنه اتصل بالاسم «كتاب»."
+                "ar": "صحيح. «ـها» ضمير متصل؛ لأنه اتصل بالاسم «كتاب» ودلّ على الملكية."
               }
             },
             {
@@ -8156,7 +8156,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. The attached pronoun ـه is the mudaf ilayh here.",
-                "ar": "صحيح. إذا اتصل الضمير باسم، كان الضمير في محل جر مضافًا إليه."
+                "ar": "صحيح؛ لأن الاسم إذا اتصل بضمير كان الضمير مضافًا إليه في محل جر."
               }
             },
             {
@@ -8500,7 +8500,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. يكتب expresses an ongoing or habitual action.",
-                "ar": "صحيح. «يكتب» يدل على حدث مستمر أو معتاد."
+                "ar": "صحيح. «يكتب» يدل على حدث في الحال (حال زمن التكلم)."
               }
             },
             {
@@ -8546,7 +8546,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. Nothing governs يلعب here, so it stays in raf.",
-                "ar": "صحيح. لم يسبقه ناصب ولا جازم، فحكمه الرفع."
+                "ar": "صحيح؛ لأنه لم يُسبق بناصب ولا جازم، فحكمه الرفع."
               }
             },
             {
@@ -8732,7 +8732,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. تشرح expresses an ongoing or habitual action.",
-                "ar": "صحيح. «تشرح» يدل على حدث مستمر أو معتاد."
+                "ar": "صحيح. «تشرح» يدل على حدث في زمن التكلم."
               }
             },
             {
@@ -8778,7 +8778,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. Nothing governs تفهم here, so it stays in raf.",
-                "ar": "صحيح. لأنه لم يسبق بناصب ولا جازم، فحكمه الرفع."
+                "ar": "صحيح؛ لأنه لم يُسبق بناصب ولا جازم، فحكمه الرفع."
               }
             },
             {
@@ -9122,7 +9122,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. Its hidden subject هي (referring to البنت) is unaffected, so it stays in raf.",
-                "ar": "صحيح. لم يسبق الفعل ناصب ولا جازم، فحكمه الرفع، وفاعله ضمير مستتر تقديره «هي» يعود على «البنت»."
+                "ar": "صحيح؛ لأنه لم يُسبق بناصب ولا جازم، والفاعل ضمير مستتر تقديره «هي» يعود على «البنت»."
               }
             },
             {
@@ -9204,7 +9204,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "In المعلم يشرح الدرس, who is the understood doer of يشرح؟",
-            "ar": "في عبارة «المعلم يشرح الدرس»، إلى من يعود الضمير المستتر في الفعل «يشرح»؟"
+            "ar": "في عبارة: «المعلم يشرح الدرس»، من الفاعل المفهوم من الضمير المستتر في «يشرح»؟"
           },
           "options": [
             {
@@ -9697,7 +9697,7 @@
           "type": "matchRule",
           "prompt": {
             "en": "Which prefix marks a present-tense verb for هو (\"he\") or a group هم, confirmed by a following subject?",
-            "ar": "ما حرف المضارعة الدال على الغائب المذكر، مثل «هو» أو «هم»؟"
+            "ar": "ما حرف المضارعة الدال على الضمير «هو» أو الضمير «هم»؟"
           },
           "options": [
             {
@@ -9743,7 +9743,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "In يفهم الولد السؤال, who is the doer signaled by the prefix ي (confirmed by الولد)?",
-            "ar": "في جملة «يفهم الولد السؤال»، من الفاعل الذي يؤكّد السياق أن حرف المضارعة «ي» يدل عليه؟"
+            "ar": "في جملة: «يفهم الولد السؤال»، عيّن الفاعل الذي يدل عليه حرف المضارعة (ي)."
           },
           "options": [
             {
@@ -9755,7 +9755,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. The prefix ي signals a third-person subject, here confirmed as الولد.",
-                "ar": "صحيح. يدل حرف المضارعة «ي» على فاعل غائب، وهو هنا «الولد»."
+                "ar": "صحيح. يدل حرف المضارعة «ي» على الفاعل المذكر، وهو هنا «الولد»."
               }
             },
             {
@@ -14583,7 +14583,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الذي does not take raf; it is mabni regardless of its role.",
-                "ar": "لا؛ لأن «الذي» مبني، فلا تظهر عليه علامة رفع، وإن كان له محل إعرابي تحدّده وظيفته."
+                "ar": "لا؛ لأن الرفع نوع من الإعراب و(الذي) مبني."
               }
             },
             {
@@ -14595,7 +14595,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الذي does not take nasb; it is mabni regardless of its role.",
-                "ar": "لا؛ لأن «الذي» مبني، فلا تظهر عليه علامة نصب، وإن كان له محل إعرابي تحدّده وظيفته."
+                "ar": "لا؛ لأن النصب نوع من الإعراب و(الذي) مبني."
               }
             }
           ]
@@ -14769,7 +14769,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الذين does not take raf; it is mabni regardless of its role.",
-                "ar": "لا؛ لأن «الذين» مبني، فلا تظهر عليه علامة رفع، وإن كان له محل إعرابي تحدّده وظيفته."
+                "ar": "لا؛ لأن الرفع نوع من الإعراب والاسم الموصول مبني."
               }
             },
             {
@@ -14781,7 +14781,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الذين does not take nasb; it is mabni regardless of its role.",
-                "ar": "لا؛ لأن «الذين» مبني، فلا تظهر عليه علامة نصب، وإن كان له محل إعرابي تحدّده وظيفته."
+                "ar": "لا؛ لأن النصب نوع من الإعراب، والاسم الموصول مبني."
               }
             }
           ]
@@ -16956,7 +16956,7 @@
           "type": "matchRule",
           "prompt": {
             "en": "Which of the following phrases uses the number ثلاثة correctly?",
-            "ar": "ما العبارة المناسبة للعدد «ثلاثة» مما يلي؟"
+            "ar": "ما المناسب مما يلي بعد العدد «ثلاثة»؟"
           },
           "options": [
             {
@@ -17048,7 +17048,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is المعدود (the counted noun) in ثلاثة طلاب؟",
-            "ar": "في عبارة «هؤلاء ثلاثة طلاب»، ما المضاف إليه؟"
+            "ar": "أي كلمة هي المعدود في عبارة: «ثلاثة طلاب»؟"
           },
           "options": [
             {
@@ -17130,7 +17130,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is singular and nasb, the pattern for numbers 11-99, not 3-10.",
-                "ar": "لا؛ لأن المعدود بعد الأعداد من ثلاثة إلى عشرة يكون جمعًا مجرورًا، لا مفردًا منصوبًا."
+                "ar": "لا؛ لأن (معلمة) مفرد منصوب، وهو نمط الأعداد ١١-٩٩، لا ٣-١٠."
               }
             }
           ]
@@ -17304,7 +17304,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. وردات is the counted noun in idafa, so it is in jarr, not raf.",
-                "ar": "لا؛ لأن «وردات» معدود مضاف إليه، فهو مجرور، لا مرفوع."
+                "ar": "لا؛ لأن المعدود بعد عدد ٣-١٠ يجب جره، فهو مجرور لا مرفوع."
               }
             },
             {
@@ -17630,7 +17630,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. الذي introduces the clause نجح describing الطالب.",
-                "ar": "صحيح. «الذي» اسم موصول، وجملة «نجح» صلته."
+                "ar": "صحيح. «الذي» موصول جملة الصلة، التي تصف «الطالب»."
               }
             },
             {
@@ -18576,7 +18576,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is the active pattern, where a doer is understood.",
-                "ar": "هذا التشكيل للمبني للمعلوم، حيث يُفهم فاعل."
+                "ar": "لا؛ لأن هذا التشكيل للمبني للمعلوم، فالفاعل يُذكر."
               }
             },
             {
@@ -18762,7 +18762,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is the active pattern, where a doer is understood.",
-                "ar": "هذا التشكيل للمبني للمعلوم، حيث يُفهم فاعل."
+                "ar": "لا؛ لأن هذا التشكيل للمبني للمعلوم، حيث يُذكر الفاعل."
               }
             },
             {
@@ -20674,7 +20674,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "By word-order convention, عيسى is read as the object, coming second, not the doer.",
-                "ar": "بعرف الترتيب يُقرأ «عيسى» مفعولًا به، إذ يأتي ثانيًا، لا فاعلًا."
+                "ar": "لا؛ لأنه بعرف الترتيب يكون «عيسى» مفعولًا به، لكونه لم يأتِ بعد الفعل مباشرة."
               }
             },
             {
@@ -20754,7 +20754,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. By word-order convention, the noun right after the verb is read as the doer, even though its ending is not visibly marked.",
-                "ar": "صحيح. بعرف الترتيب يُقرأ الاسم الذي يلي الفعل فاعلًا، وإن كانت حركته غير ظاهرة."
+                "ar": "صحيح. بعرف الترتيب يكون الاسم الذي يلي الفعل فاعلًا، لأن حركته غير ظاهرة."
               }
             },
             {
@@ -20860,7 +20860,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "By word-order convention, مصطفى is read as the object, coming second, not the doer.",
-                "ar": "بعرف الترتيب يُقرأ «مصطفى» مفعولًا به، إذ يأتي ثانيًا، لا فاعلًا."
+                "ar": "لا؛ لأنه بعرف الترتيب يكون «مصطفى» مفعولًا به؛ إذ يأتي ثانيًا، غير تالٍ للفعل."
               }
             },
             {
@@ -20906,7 +20906,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This overstates the uncertainty; broader context often does resolve such cases.",
-                "ar": "لا؛ لأن السياق قد يرجّح المعنى المراد."
+                "ar": "لا؛ لأن الواقع اللغوي أكّد أن السياق له أثر كبير في ترجيح المعنى المراد."
               }
             },
             {
@@ -20928,7 +20928,7 @@
           "type": "addTashkeel",
           "prompt": {
             "en": "Read دعا سلمى ليلى. Which reading reflects the usual word-order convention for the doer?",
-            "ar": "اقرأ «دعا سلمى ليلى». أي قراءة تعكس عرف الترتيب المعتاد للفاعل؟"
+            "ar": "اقرأ: «كلمت سلمى ليلى». عيّن الفاعل معتمدًا على الترتيب المعتاد للفاعل."
           },
           "options": [
             {
@@ -20940,7 +20940,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. By word-order convention, the noun right after the verb is read as the doer, even though its ending is not visibly marked.",
-                "ar": "صحيح. بعرف الترتيب يُقرأ الاسم الذي يلي الفعل فاعلًا، وإن كانت حركته غير ظاهرة."
+                "ar": "صحيح. بعرف الترتيب يكون الاسم الذي يلي الفعل فاعلًا، لأن الحركات غير ظاهرة."
               }
             },
             {
@@ -20952,7 +20952,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "By convention, the second noun is read as the object, not the doer.",
-                "ar": "بعرف الترتيب تُقرأ الثانية مفعولًا بها، لا فاعلة."
+                "ar": "لا؛ لأنه بعرف الترتيب تكون الكلمة الثانية بعد الفعل مفعولًا به، لا فاعلًا."
               }
             },
             {
@@ -25351,11 +25351,11 @@
           "type": "introduction",
           "title": {
             "en": "Pausing changes the sound, not the grammar",
-            "ar": "الوقف يغيّر الصوت لا النحو"
+            "ar": "الوقف يغيّر الصوتَ لا الوظيفة النحوية"
           },
           "body": {
             "en": "When continuing to read (وصل), a word's full case ending is pronounced. When pausing at a word (وقف), its final short vowel or tanwin is replaced by sukun and is not heard, even though the underlying grammatical state has not changed.",
-            "ar": "عند الوصل يُنطق حرف الإعراب كاملًا. وعند الوقف على كلمة، تُستبدل حركتها القصيرة أو تنوينها بالسكون فلا تُسمع، مع أن حالتها الإعرابية الأصلية لم تتغير."
+            "ar": "عند الوصل ننطق الحركة الإعرابية، وعند الوقف على كلمة، تُستبدل الحركة بالسكون، مع أن حالتها الإعرابية الأصلية لم تتغير."
           },
           "examples": []
         },
@@ -25368,18 +25368,18 @@
           },
           "body": {
             "en": "الطَّالِبُ مُجْتَهِدٌ read with وصل (continuing) sounds its tanwin fully. Paused at the end (وقف), مجتهد would be pronounced مجتهدْ, its tanwin unheard, though it is still grammatically raf.",
-            "ar": "«الطَّالِبُ مُجْتَهِدٌ» تُقرأ بوصل ينطق تنوينها كاملًا. وإذا وُقف عندها (وقف)، تُنطق «مجتهد» «مجتهدْ» بلا تنوين مسموع، مع بقائها مرفوعة إعرابيًّا."
+            "ar": "«طالبٌ مُجْتَهِدٌ في الفصل» في الوصل ننطق (التنوين) في (طالبٌ)، لكن إذا وُقف عليها نقف بالسكون (طالبْ) مع بقائها مرفوعة إعرابيًّا."
           },
           "examples": [
             {
               "id": "student-diligent-pause-example",
-              "vocalized": "الطَّالِبُ مُجْتَهِدٌ",
-              "unvocalized": "الطالب مجتهد",
+              "vocalized": "طَالِبٌ مُجْتَهِدٌ",
+              "unvocalized": "طالب مجتهد",
               "tokens": [
                 {
-                  "text": "الطالب",
+                  "text": "طالب",
                   "start": 0,
-                  "end": 6,
+                  "end": 4,
                   "role": {
                     "en": "Topic (mubtada)",
                     "ar": "مبتدأ"
@@ -25387,26 +25387,26 @@
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma, heard whether continuing or pausing here",
-                    "ar": "الضمة الظاهرة، تُسمع سواء وصلنا أم وقفنا هنا"
+                    "ar": "الضمة الظاهرة (التنوين)، تُسمع وصلًا (طالبٌ) ولو وقفنا نُسكّن الباء (طالبْ)"
                   },
-                  "ending": "ُ",
+                  "ending": "ٌ",
                   "reason": {
                     "en": "الطالب is the topic and is in raf.",
-                    "ar": "«الطالب» مبتدأ مرفوع."
+                    "ar": "«طالب» مبتدأ مرفوع."
                   }
                 },
                 {
                   "text": "مجتهد",
-                  "start": 7,
-                  "end": 12,
+                  "start": 5,
+                  "end": 10,
                   "role": {
                     "en": "Predicate (khabar); heard with tanwin in wasl, sukun in waqf",
-                    "ar": "خبر؛ يُسمع بتنوين في الوصل، وبسكون في الوقف"
+                    "ar": "صفة لـ(طالب)؛ يُسمع بتنوين في الوصل، وبسكون في الوقف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Tanwin damm in wasl; replaced by sukun if we pause here",
-                    "ar": "تنوين الضم في الوصل؛ ويُستبدل بالسكون إذا وقفنا هنا"
+                    "ar": "تنوين الضم في الوصل؛ ويُستبدل بالسكون إذا وقفنا هنا (مجتهدْ)"
                   },
                   "ending": "ٌ",
                   "reason": {
@@ -25471,7 +25471,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "In الطالب مجتهد read with وصل (continuing), what state (and audible ending) does مجتهدٌ have؟",
-            "ar": "في «الطالب مجتهد» مقروءة بالوصل، ما حالة «مجتهدٌ» (وحركتها المسموعة)؟"
+            "ar": "كيف تقرأ (طالب) في عبارة «طالبٌ مجتهد في الفصل» حال الوصل؟"
           },
           "options": [
             {
@@ -25483,7 +25483,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. In wasl, مجتهدٌ is heard fully, in raf with tanwin.",
-                "ar": "صحيح. في الوصل تُسمع «مجتهدٌ» كاملة، مرفوعة بتنوين."
+                "ar": "صحيح. في الوصل تُسمع «طالبٌ» مرفوعة بتنوين."
               }
             },
             {
@@ -25495,19 +25495,19 @@
               "isCorrect": false,
               "feedback": {
                 "en": "مجتهد is the predicate here, in raf, not nasb.",
-                "ar": "«مجتهد» خبر هنا، مرفوع، لا منصوب."
+                "ar": "لا؛ لأن «طالبٌ» مبتدأ مرفوع، لا منصوب."
               }
             },
             {
               "id": "raf-silent",
               "label": {
                 "en": "Raf, but silent (as in waqf)",
-                "ar": "الرفع، لكن ساكنة (كما في الوقف)"
+                "ar": "الرفع، لكن الباء ساكنة"
               },
               "isCorrect": false,
               "feedback": {
                 "en": "This describes waqf, not wasl; the question specifies continuing to read (وصل).",
-                "ar": "هذا وصف الوقف لا الوصل؛ والسؤال يحدد متابعة القراءة (الوصل)."
+                "ar": "لا؛ لأن هذا يحدث في الوقف؛ والسؤال عن قراءتها حال الوصل."
               }
             }
           ]
@@ -26007,7 +26007,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. الاجتهاد remains a topic in raf because ما prevents إنّ from governing case.",
-                "ar": "صحيح. «الاجتهاد» مبتدأ مرفوع؛ لأن «ما» كفّت «إنّ» عن العمل."
+                "ar": "صحيح. «إنما» تقصر المعنى ولا تنصب المبتدأ، لدخول (ما) عليها."
               }
             },
             {
@@ -26181,7 +26181,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "What state is العدلُ in, in إنما العدل أساس الأمن؟",
-            "ar": "ما حالة «العدلُ» في «إنما العدل أساس الأمن»؟"
+            "ar": "ما حالة كلمة «العدلُ» في عبارة «إنما العدل أساس الملك»؟"
           },
           "options": [
             {
@@ -26765,7 +26765,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "ما prevents إنّ from governing case, so إنما does not put the topic in nasb.",
-                "ar": "«ما» الكافّة تمنع «إنّ» من العمل، فلا تنصب «إنما» المبتدأ."
+                "ar": "هذا خلط شائع؛ فـ«إنما» لا تعمل عمل «إنّ» النحوي؛ لأن (ما) كفّتها عن العمل."
               }
             },
             {
@@ -26951,7 +26951,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "ما prevents إنّ from governing case, so إنما does not put the topic in nasb.",
-                "ar": "«ما» الكافّة تمنع «إنّ» من العمل، فلا تنصب «إنما» المبتدأ."
+                "ar": "لا؛ لأن «إنما» لا تنصب المبتدأ بسبب دخول (ما) الكافّة عليها."
               }
             },
             {
@@ -27314,7 +27314,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. مفيد is an adjective in raf, agreeing with لفظ in case.",
-                "ar": "صحيح. «مفيد» نعت مرفوع يتبع «لفظ» في الإعراب."
+                "ar": "صحيح. «مفيد» نعت مرفوع يطابق «لفظ»، لأنه يتبع (لفظ) في الإعراب."
               }
             },
             {
@@ -27870,7 +27870,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "What state are الجر, التنوين, الندا, ال, and مسند all in within this verse?",
-            "ar": "ما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«ال» و«مسند» جميعًا في هذا البيت؟"
+            "ar": "ما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«أل» و«مسند» جميعًا في هذا البيت؟"
           },
           "options": [
             {
@@ -28017,12 +28017,12 @@
               "id": "correct",
               "label": {
                 "en": "Accepting ال",
-                "ar": "قبول «ال»"
+                "ar": "قبول «أل»"
               },
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ال is explicitly named as a sign of nounhood in the verse.",
-                "ar": "صحيح. ذكر البيت «ال» صراحة علامة للاسمية."
+                "ar": "صحيح. ذكر البيت «أل» صراحة علامة للاسمية."
               }
             },
             {
@@ -28046,7 +28046,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Most nouns are mu'rab and do take case endings; the verse names ال as a sign, not a lack of case marking.",
-                "ar": "لا؛ لأن الأسماء لها علامات ومنها (ال)"
+                "ar": "لا؛ لأن الأسماء لها علامات ومنها (أل)."
               }
             }
           ]
@@ -28109,12 +28109,12 @@
               "id": "al",
               "label": {
                 "en": "ال",
-                "ar": "ال"
+                "ar": "أل"
               },
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ال immediately follows و after الندا.",
-                "ar": "صحيح. «ال» عطفت على «الندا» مباشرة."
+                "ar": "صحيح. «أل» عُطفت على «الندا» مباشرة."
               }
             },
             {
@@ -28430,12 +28430,12 @@
               "id": "wrong-al",
               "label": {
                 "en": "It can take ال",
-                "ar": "قبولها «ال»"
+                "ar": "قبولها «أل»"
               },
               "isCorrect": false,
               "feedback": {
                 "en": "Accepting ال is a noun sign from the previous lesson, not a verb sign here.",
-                "ar": "لا؛ لأن قبول «ال» علامة اسمية من الدرس السابق، لا علامة فعل هنا."
+                "ar": "لا؛ لأن قبول «أل» علامة اسمية من الدرس السابق، لا علامة فعل هنا."
               }
             },
             {
@@ -28747,7 +28747,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. فعل is the topic of the whole verse, so it is in raf, with tanwin.",
-                "ar": "صحيح. «فعل» مبتدأ البيت كله، فهو مرفوع بالضمة."
+                "ar": "صحيح. «فعل» مبتدأ البيت كله، فهو مرفوع بالتنوين."
               }
             },
             {
@@ -29570,7 +29570,7 @@
               "id": "correct",
               "label": {
                 "en": "Accepting a meaningful ال, or standing in the position of something already mentioned",
-                "ar": "قبول «ال» مؤثرة، أو الوقوع موقع ما سبق ذكره"
+                "ar": "قبول «أل» مؤثرة، أو الوقوع موقع ما سبق ذكره"
               },
               "isCorrect": true,
               "feedback": {
@@ -30684,7 +30684,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. الاسم is in jarr after ل, not the topic.",
-                "ar": "لا؛ لأن «الاسم» مجرور باللام، وليس مبتدأ."
+                "ar": "لا؛ لأن «الاسم» بعد اللام ومجرور، وليس مبتدأ."
               }
             },
             {
@@ -30696,7 +30696,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. حصل is a verb, not the topic.",
-                "ar": "لا؛ لأن «حصل» فعل، وليس المبتدأ."
+                "ar": "لا؛ لأن «حصل» فعل والمبتدأ لا يكون فعلًا."
               }
             }
           ]
@@ -31225,7 +31225,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "لفظ is the predicate here; كلامنا is the topic it describes.",
-                "ar": "لا؛ لأن «لفظ» هو الخبر الذي يُخبر به عن «كلامنا»، و«كلامنا» هي المبتدأ."
+                "ar": "لا؛ لأن كلمة «لفظ» يُخبر بها ولا يُخبر عنها، فهي خبر."
               }
             },
             {
@@ -31259,7 +31259,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. اسم is a fronted predicate in raf; فعل and حرف are coordinated with it and share its case.",
-                "ar": "صحيح. «اسم» خبر مقدم مرفوع، و«فعل» و«حرف» معطوفان عليه مرفوعان."
+                "ar": "صحيح. (اسم) خبر مقدم مرفوع، و(فعل) معطوف عليه مرفوع، و(حرف) معطوف على ما قبله مرفوع؛ لأن المعطوف على المرفوع مرفوع."
               }
             },
             {
@@ -31346,12 +31346,12 @@
               "id": "correct",
               "label": {
                 "en": "The nominal sentences in this passage have a topic and a predicate, both in raf",
-                "ar": "الجمل الاسمية في هذا المقطع تتكوّن من مبتدأ وخبر، وكلاهما مرفوع"
+                "ar": "كل جملة اسمية تتكوّن من مبتدأ وخبر، وكلاهما مرفوع"
               },
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. The definitions and examples here follow the topic-and-predicate pattern, both in raf.",
-                "ar": "صحيح. جمل التعريف والأمثلة هنا تتّبع نمط المبتدأ والخبر المرفوعين."
+                "ar": "صحيح. هذه هي أركان الجملة الاسمية (مبتدأ وخبر) وكلاهما مرفوع."
               }
             },
             {

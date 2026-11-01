@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/localization/arabic_diacritics.dart';
+import '../../core/user/user_data_controller.dart';
+import 'young_learner_mascot.dart';
 
 class CorrectAnswerCelebration extends StatelessWidget {
   const CorrectAnswerCelebration({
@@ -13,6 +18,9 @@ class CorrectAnswerCelebration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final isYoungLearner =
+        context.watch<UserDataController?>()?.learnerProfile ==
+        LearnerProfile.youngLearner;
     return TweenAnimationBuilder<double>(
       duration: const Duration(milliseconds: 420),
       curve: Curves.elasticOut,
@@ -25,7 +33,14 @@ class CorrectAnswerCelebration extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.celebration, color: colors.primary, size: 30),
+          if (isYoungLearner)
+            const YoungLearnerMascot(
+              kind: CartoonCharacterKind.boy,
+              size: 46,
+              celebrating: true,
+            )
+          else
+            Icon(Icons.celebration, color: colors.primary, size: 30),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -39,7 +54,10 @@ class CorrectAnswerCelebration extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(body),
+                ArabicDiacriticsText(
+                  body,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ],
             ),
           ),

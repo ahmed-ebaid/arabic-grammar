@@ -13,6 +13,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/arabic_text.dart';
+import '../../shared/widgets/young_learner_mascot.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
+    final scheme = Theme.of(context).colorScheme;
     final learningColors = Theme.of(context).extension<LearningColors>()!;
     final userData = context.watch<UserDataController?>();
     final isYoungLearner =
@@ -43,62 +45,19 @@ class HomeScreen extends StatelessWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
           child: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
             children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(14),
-                    decoration: BoxDecoration(
-                      color: learningColors.blueContainer,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Icon(
-                      isYoungLearner
-                          ? Icons.auto_awesome_rounded
-                          : Icons.auto_stories_outlined,
-                      size: 32,
-                      color: learningColors.onBlueContainer,
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          l10n.appName,
-                          key: const Key('home_brand_title'),
-                          style: TextStyle(
-                            fontFamily: 'AmiriQuran',
-                            fontSize: 32,
-                            height: 1.2,
-                            fontWeight: FontWeight.w700,
-                            color: learningColors.onBlueContainer,
-                          ),
-                        ),
-                        const _HijriDateLabel(),
-                        if (isYoungLearner)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 4),
-                            child: Text(
-                              l10n.youngLearnerBanner,
-                              style: textTheme.labelMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
+              const _HijriDateLabel(),
+              const SizedBox(height: 10),
               Text(l10n.welcomeTitle, style: textTheme.headlineMedium),
-              const SizedBox(height: 12),
-              Text(l10n.welcomeBody, style: textTheme.bodyLarge),
-              const SizedBox(height: 24),
+              const SizedBox(height: 6),
+              Text(
+                l10n.welcomeBody,
+                style: textTheme.bodyLarge?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+              const SizedBox(height: 14),
               if (contentCatalog != null && contentCatalog!.lessons.isNotEmpty)
                 AnimatedBuilder(
                   animation: progressController,
@@ -107,6 +66,7 @@ class HomeScreen extends StatelessWidget {
                     progressController: progressController,
                     onStartLearning: onStartLearning,
                     onContinueLesson: onContinueLesson,
+                    isYoungLearner: isYoungLearner,
                   ),
                 )
               else
@@ -115,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                   icon: const Icon(Icons.play_arrow_rounded),
                   label: Text(l10n.startLearning),
                 ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               AnimatedBuilder(
                 animation: progressController,
                 builder: (context, _) => Wrap(
@@ -124,7 +84,12 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Chip(
                       side: BorderSide.none,
-                      avatar: const Icon(Icons.local_fire_department, size: 18),
+                      backgroundColor: learningColors.sunshineContainer,
+                      avatar: Icon(
+                        Icons.local_fire_department,
+                        size: 20,
+                        color: learningColors.onSunshineContainer,
+                      ),
                       label: Text(
                         l10n.homeStreakDays(
                           localizedNumber(
@@ -132,47 +97,64 @@ class HomeScreen extends StatelessWidget {
                             progressController.streakCount,
                           ),
                         ),
+                        style: TextStyle(
+                          color: learningColors.onSunshineContainer,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Chip(
                       side: BorderSide.none,
-                      avatar: const Icon(Icons.bolt, size: 18),
+                      backgroundColor: learningColors.blueContainer,
+                      avatar: Icon(
+                        Icons.bolt,
+                        size: 20,
+                        color: learningColors.onBlueContainer,
+                      ),
                       label: Text(
                         l10n.homeTotalXp(
                           localizedNumber(context, progressController.totalXp),
+                        ),
+                        style: TextStyle(
+                          color: learningColors.onBlueContainer,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               Card(
-                color: Theme.of(context).colorScheme.surfaceContainerLow,
+                color: scheme.surfaceContainerLow,
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
                         l10n.exampleLabel,
                         style: textTheme.labelLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
+                          color: scheme.primary,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 8),
                       ArabicText(
                         l10n.exampleSentence,
                         textAlign: TextAlign.center,
                         style: textTheme.headlineMedium,
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 8),
                       Text(l10n.exampleExplanation),
                     ],
                   ),
                 ),
               ),
+              if (isYoungLearner) ...[
+                const SizedBox(height: 12),
+                const InteractiveHarakaPlayground(),
+              ],
             ],
           ),
         ),
@@ -261,12 +243,14 @@ class _PathCard extends StatelessWidget {
     required this.progressController,
     required this.onStartLearning,
     this.onContinueLesson,
+    this.isYoungLearner = false,
   });
 
   final ContentCatalog catalog;
   final LessonProgressController progressController;
   final VoidCallback onStartLearning;
   final ValueChanged<Lesson>? onContinueLesson;
+  final bool isYoungLearner;
 
   Lesson _targetLesson() {
     final lastId = progressController.lastActiveLessonId;
@@ -297,71 +281,93 @@ class _PathCard extends StatelessWidget {
     final title = progressController.isCompleted(lesson.id)
         ? l10n.pathCompleteTitle
         : l10n.pathContinueTitle;
-    final colors = Theme.of(context).extension<LearningColors>()!;
-    final scheme = Theme.of(context).colorScheme;
 
-    return Card(
-      color: colors.blueContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              children: [
-                Icon(Icons.route_outlined, color: colors.onBlueContainer),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: colors.onBlueContainer,
-                      fontWeight: FontWeight.bold,
-                    ),
+    final gradientColors = isYoungLearner
+        ? const [Color(0xFF0E7490), Color(0xFF0A4F63)]
+        : const [Color(0xFF245B8A), Color(0xFF153A5B)];
+    const lightText = Color(0xFFF5FAFD);
+    const mutedLightText = Color(0xFFCDE4F5);
+    final buttonFg = isYoungLearner
+        ? const Color(0xFF0A4F63)
+        : const Color(0xFF153A5B);
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: gradientColors,
+        ),
+        borderRadius: BorderRadius.circular(isYoungLearner ? 24 : 20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.route_outlined, color: mutedLightText),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: mutedLightText,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            ArabicDiacriticsText(
-              lesson.title.forLanguage(
-                Localizations.localeOf(context).languageCode,
               ),
-              style: Theme.of(
-                context,
-              ).textTheme.titleLarge?.copyWith(color: colors.onBlueContainer),
+            ],
+          ),
+          const SizedBox(height: 8),
+          ArabicDiacriticsText(
+            lesson.title.forLanguage(
+              Localizations.localeOf(context).languageCode,
             ),
-            const SizedBox(height: 12),
-            LinearProgressIndicator(
-              value: mastery / 100,
-              minHeight: 8,
-              borderRadius: BorderRadius.circular(999),
-              backgroundColor: scheme.surface,
-              color: scheme.primary,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: lightText,
+              fontWeight: FontWeight.w700,
             ),
-            const SizedBox(height: 6),
-            Text(
-              l10n.pathMastery(localizedNumber(context, mastery)),
-              style: Theme.of(
-                context,
-              ).textTheme.labelMedium?.copyWith(color: colors.onBlueContainer),
-            ),
-            const SizedBox(height: 16),
-            FilledButton.icon(
-              onPressed: () {
-                if (hasProgress && onContinueLesson != null) {
-                  onContinueLesson!(lesson);
-                } else {
-                  onStartLearning();
-                }
-              },
-              icon: const Icon(Icons.play_arrow),
-              label: Text(
-                !hasProgress ? l10n.startLearning : l10n.pathContinueAction,
+          ),
+          const SizedBox(height: 10),
+          LinearProgressIndicator(
+            value: mastery / 100,
+            minHeight: 8,
+            borderRadius: BorderRadius.circular(999),
+            backgroundColor: Colors.white.withValues(alpha: 0.2),
+            color: const Color(0xFFFCD34D),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            l10n.pathMastery(localizedNumber(context, mastery)),
+            style: Theme.of(
+              context,
+            ).textTheme.labelMedium?.copyWith(color: mutedLightText),
+          ),
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            style: FilledButton.styleFrom(
+              backgroundColor: lightText,
+              foregroundColor: buttonFg,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
               ),
             ),
-          ],
-        ),
+            onPressed: () {
+              if (hasProgress && onContinueLesson != null) {
+                onContinueLesson!(lesson);
+              } else {
+                onStartLearning();
+              }
+            },
+            icon: const Icon(Icons.play_arrow_rounded),
+            label: Text(
+              !hasProgress ? l10n.startLearning : l10n.pathContinueAction,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            ),
+          ),
+        ],
       ),
     );
   }

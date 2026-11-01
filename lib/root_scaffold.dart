@@ -20,6 +20,7 @@ import 'features/practice/practice_screen.dart';
 import 'features/progress/progress_screen.dart';
 import 'features/subscriptions/plus_paywall_screen.dart';
 import 'l10n/app_localizations.dart';
+import 'shared/widgets/young_learner_mascot.dart';
 
 class RootScaffold extends StatefulWidget {
   const RootScaffold({
@@ -539,6 +540,10 @@ class _RootScaffoldState extends State<RootScaffold>
                 const SizedBox(height: 20),
                 _LearnerProfileOptionCard(
                   icon: Icons.auto_awesome_outlined,
+                  leadingWidget: const YoungLearnerMascot(
+                    kind: CartoonCharacterKind.duo,
+                    size: 48,
+                  ),
                   title: l10n.learnerProfileYoung,
                   subtitle: l10n.learnerProfileYoungSubtitle,
                   selected: !required && current == LearnerProfile.youngLearner,
@@ -576,9 +581,11 @@ class _LearnerProfileOptionCard extends StatelessWidget {
     required this.subtitle,
     required this.selected,
     required this.onTap,
+    this.leadingWidget,
   });
 
   final IconData icon;
+  final Widget? leadingWidget;
   final String title;
   final String subtitle;
   final bool selected;
@@ -608,20 +615,21 @@ class _LearnerProfileOptionCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
             children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: selected
-                      ? scheme.primary.withValues(alpha: 0.14)
-                      : learningColors.blueContainer,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Icon(
-                  icon,
-                  color: learningColors.onBlueContainer,
-                  size: 24,
-                ),
-              ),
+              leadingWidget ??
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: selected
+                          ? scheme.primary.withValues(alpha: 0.14)
+                          : learningColors.blueContainer,
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Icon(
+                      icon,
+                      color: learningColors.onBlueContainer,
+                      size: 24,
+                    ),
+                  ),
               const SizedBox(width: 14),
               Expanded(
                 child: Column(

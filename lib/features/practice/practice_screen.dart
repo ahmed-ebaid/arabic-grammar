@@ -158,7 +158,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
               ),
               child: ArabicDiacriticsText(
                 option.label.forLanguage(languageCode),
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 19),
               ),
             ),
           ),
@@ -176,7 +176,13 @@ class _PracticeScreenState extends State<PracticeScreen> {
                   if (selected.isCorrect)
                     CorrectAnswerCelebration(
                       title: l10n.correctAnswerTitle,
-                      body: l10n.correctAnswerCelebration,
+                      body:
+                          selected.feedback
+                              .forLanguage(languageCode)
+                              .trim()
+                              .isNotEmpty
+                          ? selected.feedback.forLanguage(languageCode)
+                          : l10n.correctAnswerCelebration,
                     )
                   else ...[
                     Text(

@@ -11,6 +11,7 @@ import 'package:arabic_grammar/core/subscriptions/subscription_configuration.dar
 import 'package:arabic_grammar/core/subscriptions/subscription_controller.dart';
 import 'package:arabic_grammar/core/theme/app_theme.dart';
 import 'package:arabic_grammar/core/user/user_data_controller.dart';
+import 'package:arabic_grammar/shared/widgets/young_learner_mascot.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -233,6 +234,7 @@ void main() {
       );
       await tester.pump(const Duration(milliseconds: 500));
 
+      expect(find.text('إعراب'), findsOneWidget);
       expect(find.text('تعلَّم لماذا تتغيَّر أواخر الكلمات'), findsOneWidget);
       expect(find.text('الطَّالِبُ مُجْتَهِدٌ'), findsOneWidget);
       expect(find.text('الدروس'), findsOneWidget);
@@ -530,6 +532,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('أحسنت!'), findsOneWidget);
+    expect(find.textContaining('صحيح'), findsOneWidget);
+    expect(find.text('أصبت! واصل التقدّم.'), findsNothing);
     expect(find.text('تابع'), findsOneWidget);
   });
 
@@ -644,6 +648,44 @@ void main() {
     );
     expect(find.text('الإتقان: ٧٥%'), findsOneWidget);
   });
+
+  testWidgets(
+    'young learner mode shows interactive Omar and Maryam haraka playground',
+    (tester) async {
+      final userData = UserDataController.inMemory();
+      await userData.setLearnerProfile(LearnerProfile.youngLearner);
+
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: LocaleController.inMemory(const Locale('ar')),
+          lessonProgressController: LessonProgressController.inMemory(),
+          userDataController: userData,
+          contentCatalog: _draftCatalog(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.scrollUntilVisible(
+        find.text('الكَسْرَة'),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(find.text('الكَسْرَة'));
+      await tester.pumpAndSettle();
+      expect(find.byType(InteractiveHarakaPlayground), findsOneWidget);
+      expect(
+        find.text('مَلْعَبُ الحَرَكَاتِ مَعَ عُمَر وَمَرْيَم'),
+        findsOneWidget,
+      );
+      expect(find.text('البَيْتُ جَمِيلٌ'), findsOneWidget);
+
+      await tester.tap(find.text('الكَسْرَة'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('فِي البَيْتِ نُورٌ'), findsOneWidget);
+    },
+  );
 }
 
 ContentCatalog _draftCatalog() {

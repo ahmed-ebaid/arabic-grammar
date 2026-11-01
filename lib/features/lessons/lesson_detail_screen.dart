@@ -12,6 +12,7 @@ import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
+import '../../shared/widgets/young_learner_mascot.dart';
 
 class LessonDetailScreen extends StatefulWidget {
   const LessonDetailScreen({
@@ -496,7 +497,7 @@ class _ObjectivesStep extends StatelessWidget {
                           objective.forLanguage(languageCode),
                           style: TextStyle(
                             color: colors.onBlueContainer,
-                            fontSize: 17,
+                            fontSize: 19,
                           ),
                         ),
                       ),
@@ -648,6 +649,13 @@ class _QuestionLayout extends StatelessWidget {
     };
     return _StepLayout(
       icon: Icons.quiz_outlined,
+      headerWidget: learningMode == LearningMode.simple
+          ? InteractiveQuestionCompanion(
+              hint: questionHint,
+              answerChecked: answerChecked,
+              isCorrect: isCorrect,
+            )
+          : null,
       title: questionTitle,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -728,7 +736,7 @@ class _OptionButton extends StatelessWidget {
       ),
       child: ArabicDiacriticsText(
         option.label,
-        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+        style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -759,7 +767,9 @@ class _FeedbackCard extends StatelessWidget {
           if (isCorrect)
             CorrectAnswerCelebration(
               title: l10n.correctAnswerTitle,
-              body: l10n.correctAnswerCelebration,
+              body: feedback.trim().isNotEmpty
+                  ? feedback
+                  : l10n.correctAnswerCelebration,
             )
           else ...[
             Row(
@@ -832,7 +842,7 @@ class _AnalysisStepState extends State<_AnalysisStep> {
                     entry.$2.displayText,
                     style: const TextStyle(
                       fontFamily: 'AmiriQuran',
-                      fontSize: 28,
+                      fontSize: 30,
                     ),
                   ),
                   onSelected: (_) {
@@ -973,7 +983,7 @@ class _EndingMark extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           color: colors.onBlueContainer,
-          fontSize: 26,
+          fontSize: 28,
           fontWeight: FontWeight.w700,
           height: 1.35,
         ),
@@ -1176,9 +1186,11 @@ class _StepLayout extends StatelessWidget {
     required this.title,
     required this.body,
     required this.action,
+    this.headerWidget,
   });
 
   final IconData icon;
+  final Widget? headerWidget;
   final String title;
   final Widget body;
   final Widget action;
@@ -1190,7 +1202,12 @@ class _StepLayout extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Icon(icon, size: 48, color: Theme.of(context).colorScheme.primary),
+          headerWidget ??
+              Icon(
+                icon,
+                size: 48,
+                color: Theme.of(context).colorScheme.primary,
+              ),
           const SizedBox(height: 12),
           ArabicDiacriticsText(
             title,
