@@ -30,19 +30,13 @@ class ArabicSpeechHelper {
   FlutterTts? _tts;
   bool _configured = false;
 
-  static final RegExp _emojiPattern = RegExp(
-    r'[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}]',
-    unicode: true,
-  );
-
   static String _sanitizeForSpeech(String raw) {
     var cleaned = raw.replaceAll('ـُ', ' ضَمَّة ');
     cleaned = cleaned.replaceAll('ـَ', ' فَتْحَة ');
     cleaned = cleaned.replaceAll('ـِ', ' كَسْرَة ');
     cleaned = cleaned.replaceAll('ـْ', ' سُكُون ');
     cleaned = cleaned.replaceAll(RegExp(r'_+'), ' ');
-    cleaned = cleaned.replaceAll(RegExp(r'[«»"“”()]'), ' ');
-    cleaned = cleaned.replaceAll(_emojiPattern, ' ');
+    cleaned = cleaned.replaceAll(RegExp(r'[«»"“”()🎯⭐🌟💡🔍🤔💪🚀]'), ' ');
     cleaned = cleaned.replaceAll(RegExp(r'\s+'), ' ');
     return cleaned.trim();
   }
@@ -67,19 +61,20 @@ class ArabicSpeechHelper {
   }
 
   Future<void> _configureIfNeeded(FlutterTts tts) async {
-    if (_configured) return;
+    if (_configured) {
+      return;
+    }
     _configured = true;
     try {
       if (Platform.isIOS) {
-        await tts.setIosAudioCategory(
-          IosTextToSpeechAudioCategory.playback,
-          const [
-            IosTextToSpeechAudioCategoryOptions.allowBluetooth,
-            IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
-            IosTextToSpeechAudioCategoryOptions.mixWithOthers,
-          ],
-          IosTextToSpeechAudioMode.defaultMode,
-        );
+        const category = IosTextToSpeechAudioCategory.playback;
+        const mode = IosTextToSpeechAudioMode.defaultMode;
+        const options = [
+          IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+          IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
+          IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+        ];
+        await tts.setIosAudioCategory(category, options, mode);
         await tts.setSharedInstance(true);
       }
     } catch (_) {
@@ -1108,21 +1103,20 @@ class _InteractiveHarakaPlaygroundState
           ArabicSpeechHelper.instance.speak(challenge.explanation);
         } else {
           _challengeCorrect = false;
-          ArabicSpeechHelper.instance.speak(
-            'حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل! انْظُرْ إِلَى مَا قَبْلَ الكَلِمَةِ',
-          );
+          const retryMsg = 'حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل!';
+          ArabicSpeechHelper.instance.speak(retryMsg);
         }
       } else {
-        _speakActiveHaraka(_words[_selectedWordIndex].harakat[index]);
+        final word = _words[_selectedWordIndex];
+        _speakActiveHaraka(word.harakat[index]);
       }
     });
   }
 
   String _challengeFullSentence(_HarakaChallenge challenge) {
-    return challenge.promptSentence.replaceAll(
-      RegExp(r'[^\s]+___'),
-      challenge.targetWord,
-    );
+    final blank = RegExp(r'[^\s]+___');
+    final sentence = challenge.promptSentence;
+    return sentence.replaceAll(blank, challenge.targetWord);
   }
 
   void _speakCurrentCard() {
@@ -1131,9 +1125,8 @@ class _InteractiveHarakaPlaygroundState
       ArabicSpeechHelper.instance.speak(_challengeFullSentence(challenge));
       return;
     }
-    _speakActiveHaraka(
-      _words[_selectedWordIndex].harakat[_selectedHarakaIndex],
-    );
+    final word = _words[_selectedWordIndex];
+    _speakActiveHaraka(word.harakat[_selectedHarakaIndex]);
   }
 
   void _nextChallenge() {
