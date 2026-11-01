@@ -30,24 +30,40 @@ class ArabicSpeechHelper {
   FlutterTts? _tts;
   bool _configured = false;
 
+  static final RegExp _emojiPattern = RegExp(
+    r'[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}]',
+    unicode: true,
+  );
+
   static String _sanitizeForSpeech(String raw) {
-    var cleaned = raw
-        .replaceAll('ـُ', ' ضَمَّة ')
-        .replaceAll('ـَ', ' فَتْحَة ')
-        .replaceAll('ـِ', ' كَسْرَة ')
-        .replaceAll('ـْ', ' سُكُون ')
-        .replaceAll(RegExp(r'_+'), ' ')
-        .replaceAll(RegExp(r'[«»"“”()]'), ' ')
-        .replaceAll(
-          RegExp(
-            r'[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}]',
-            unicode: true,
-          ),
-          ' ',
-        )
-        .replaceAll(RegExp(r'\s+'), ' ')
-        .trim();
-    return cleaned;
+    var cleaned = raw.replaceAll('ـُ', ' ضَمَّة ');
+    cleaned = cleaned.replaceAll('ـَ', ' فَتْحَة ');
+    cleaned = cleaned.replaceAll('ـِ', ' كَسْرَة ');
+    cleaned = cleaned.replaceAll('ـْ', ' سُكُون ');
+    cleaned = cleaned.replaceAll(RegExp(r'_+'), ' ');
+    cleaned = cleaned.replaceAll(RegExp(r'[«»"“”()]'), ' ');
+    cleaned = cleaned.replaceAll(_emojiPattern, ' ');
+    cleaned = cleaned.replaceAll(RegExp(r'\s+'), ' ');
+    return cleaned.trim();
+  }
+
+  static String? _pickArabicLocale(List<dynamic> rawLanguages) {
+    final arabicLocales = <String>[];
+    for (final item in rawLanguages) {
+      final tag = item.toString();
+      if (tag.toLowerCase().startsWith('ar')) {
+        arabicLocales.add(tag);
+      }
+    }
+    const preferredOrder = ['ar-001', 'ar-sa', 'ar-eg', 'ar'];
+    for (final preferred in preferredOrder) {
+      for (final candidate in arabicLocales) {
+        if (candidate.toLowerCase() == preferred) {
+          return candidate;
+        }
+      }
+    }
+    return arabicLocales.firstOrNull;
   }
 
   Future<void> _configureIfNeeded(FlutterTts tts) async {
@@ -66,47 +82,37 @@ class ArabicSpeechHelper {
         );
         await tts.setSharedInstance(true);
       }
-    } catch (_) {}
+    } catch (_) {
+      // Ignore audio category errors on unsupported platforms.
+    }
 
     try {
-      // On iOS, Apple's Arabic voice locale is typically 'ar-001' (not 'ar-SA').
-      // Discover the exact installed 'ar*' locale from getLanguages() first.
       String? selectedLocale;
-      final dynamic rawLanguages = await tts.getLanguages;
-      if (rawLanguages is List) {
-        final arabicLocales = rawLanguages
-            .map((e) => e.toString())
-            .where((lang) => lang.toLowerCase().startsWith('ar'))
-            .toList();
-        for (final preferred in const ['ar-001', 'ar-SA', 'ar-EG', 'ar']) {
-          final match = arabicLocales
-              .where((l) => l.toLowerCase() == preferred.toLowerCase())
-              .firstOrNull;
-          if (match != null) {
-            selectedLocale = match;
-            break;
-          }
-        }
-        selectedLocale ??= arabicLocales.firstOrNull;
+      final Object? rawLanguages = await tts.getLanguages;
+      if (rawLanguages is List<dynamic>) {
+        selectedLocale = _pickArabicLocale(rawLanguages);
       }
-
       if (selectedLocale != null) {
         await tts.setLanguage(selectedLocale);
       } else {
         for (final fallback in const ['ar-001', 'ar-SA', 'ar-EG', 'ar']) {
-          final res = await tts.setLanguage(fallback);
+          final Object? res = await tts.setLanguage(fallback);
           if (res == 1 || res == true) {
             break;
           }
         }
       }
-    } catch (_) {}
+    } catch (_) {
+      // Ignore language selection errors.
+    }
 
     try {
       await tts.setVolume(1.0);
       await tts.setSpeechRate(0.45);
       await tts.setPitch(1.03);
-    } catch (_) {}
+    } catch (_) {
+      // Ignore speech rate configuration errors.
+    }
   }
 
   Future<void> speak(String text) async {
@@ -1073,16 +1079,20 @@ class _InteractiveHarakaPlaygroundState
   int _starsEarned = 0;
   bool? _challengeCorrect;
 
+  void _speakActiveHaraka(_HarakaOption active) {
+    final w = active.wordWithMark;
+    final s = active.sentence;
+    final story = active.story;
+    ArabicSpeechHelper.instance.speak('$w، $s، $story');
+  }
+
   void _selectWord(int index) {
     HapticFeedback.selectionClick();
     setState(() {
       _selectedWordIndex = index;
       _hasInteracted = true;
     });
-    final active = _words[index].harakat[_selectedHarakaIndex];
-    ArabicSpeechHelper.instance.speak(
-      '${active.wordWithMark}، ${active.sentence}، ${active.story}',
-    );
+    _speakActiveHaraka(_words[index].harakat[_selectedHarakaIndex]);
   }
 
   void _selectHaraka(int index) {
@@ -1103,10 +1113,7 @@ class _InteractiveHarakaPlaygroundState
           );
         }
       } else {
-        final active = _words[_selectedWordIndex].harakat[index];
-        ArabicSpeechHelper.instance.speak(
-          '${active.name}: ${active.wordWithMark}، ${active.sentence}، ${active.story}',
-        );
+        _speakActiveHaraka(_words[_selectedWordIndex].harakat[index]);
       }
     });
   }
@@ -1115,6 +1122,17 @@ class _InteractiveHarakaPlaygroundState
     return challenge.promptSentence.replaceAll(
       RegExp(r'[^\s]+___'),
       challenge.targetWord,
+    );
+  }
+
+  void _speakCurrentCard() {
+    if (_challengeMode) {
+      final challenge = _challenges[_challengeIndex];
+      ArabicSpeechHelper.instance.speak(_challengeFullSentence(challenge));
+      return;
+    }
+    _speakActiveHaraka(
+      _words[_selectedWordIndex].harakat[_selectedHarakaIndex],
     );
   }
 
@@ -1135,18 +1153,7 @@ class _InteractiveHarakaPlaygroundState
       _challengeCorrect = null;
       _hasInteracted = true;
     });
-    if (_challengeMode) {
-      final challenge = _challenges[_challengeIndex];
-      final fullSentence = _challengeFullSentence(challenge);
-      ArabicSpeechHelper.instance.speak(
-        'تَحَدِّي عُمَر وَمَرْيَم: أَيُّ حَرَكَةٍ تُكْمِلُ الجُمْلَةَ؟ $fullSentence',
-      );
-    } else {
-      final active = _words[_selectedWordIndex].harakat[_selectedHarakaIndex];
-      ArabicSpeechHelper.instance.speak(
-        '${active.wordWithMark}، ${active.sentence}، ${active.story}',
-      );
-    }
+    _speakCurrentCard();
   }
 
   void _cycleCheer() {
@@ -1154,8 +1161,7 @@ class _InteractiveHarakaPlaygroundState
       _cheerIndex = (_cheerIndex + 1) % _mascotCheers.length;
       _hasInteracted = true;
     });
-    final active = _words[_selectedWordIndex].harakat[_selectedHarakaIndex];
-    ArabicSpeechHelper.instance.speak('${active.sentence}، ${active.story}');
+    _speakCurrentCard();
   }
 
   @override
@@ -1283,11 +1289,7 @@ class _InteractiveHarakaPlaygroundState
                           ),
                           const SizedBox(width: 6),
                           InkWell(
-                            onTap: () => ArabicSpeechHelper.instance.speak(
-                              _challengeMode
-                                  ? '${_challengeFullSentence(challenge)}، $statusMessage'
-                                  : '${active.wordWithMark}، ${active.sentence}، ${active.story}',
-                            ),
+                            onTap: _speakCurrentCard,
                             borderRadius: BorderRadius.circular(999),
                             child: Padding(
                               padding: const EdgeInsets.all(4),
@@ -1342,11 +1344,7 @@ class _InteractiveHarakaPlaygroundState
           ),
           const SizedBox(height: 8),
           InkWell(
-            onTap: () => ArabicSpeechHelper.instance.speak(
-              _challengeMode
-                  ? _challengeFullSentence(challenge)
-                  : '${active.wordWithMark}، ${active.sentence}، ${active.story}',
-            ),
+            onTap: _speakCurrentCard,
             borderRadius: BorderRadius.circular(18),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
