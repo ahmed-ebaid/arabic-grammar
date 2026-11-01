@@ -6704,7 +6704,7 @@
                   "ending": "ا",
                   "reason": {
                     "en": "Demonstratives are mabni; they do not take case endings.",
-                    "ar": "أسماء الإشارة مبنية، فلا تلحقها حركات الإعراب."
+                    "ar": "«هذا» اسم إشارة مبني على السكون في محل رفع مبتدأ."
                   }
                 },
                 {
@@ -7245,17 +7245,17 @@
                   "end": 15,
                   "role": {
                     "en": "Noun with attached possessive pronoun (mudaf + mudaf ilayh), topic",
-                    "ar": "اسم مضاف إلى ضمير متصل، وهو مبتدأ"
+                    "ar": "«كتاب» مبتدأ وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma on كتاب; the pronoun ـه itself takes no case ending",
-                    "ar": "الضمة الظاهرة على «كتاب»، والضمير «ـه» مبني لا تلحقه حركة إعراب"
+                    "ar": "الضمة الظاهرة على «كتاب»، والضمير «ـه» مبني في محل جر مضاف إليه"
                   },
                   "ending": "ُ",
                   "reason": {
                     "en": "كتابه is the topic of this clause, so it is in raf; the attached pronoun ـه is mabni and does not change.",
-                    "ar": "«كتابه» مبتدأ الجملة الثانية فهو مرفوع؛ والضمير المتصل «ـه» مبني لا يتغير."
+                    "ar": "«كتابه» مبتدأ الجملة الثانية فهو مرفوع؛ والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -7777,7 +7777,7 @@
                   "end": 24,
                   "role": {
                     "en": "Construct plural noun with attached pronoun (topic)",
-                    "ar": "مبتدأ، وهو جمع مضاف إلى ضمير متصل"
+                    "ar": "مبتدأ، وهو جمع مذكر سالم مضاف، والضمير المتصل «ـها» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -7787,7 +7787,7 @@
                   "ending": "ُو",
                   "reason": {
                     "en": "معلمو is a mudaf (its نون is dropped), joined to the mudaf ilayh pronoun ـها, and the whole word is the topic in raf.",
-                    "ar": "«معلمو» مضاف (حذفت نونه)، متصل بمضاف إليه هو الضمير «ـها»، والكلمة كلها مبتدأ مرفوع."
+                    "ar": "«معلمو» مبتدأ مرفوع بالواو وهو مضاف (حُذفت نونه للإضافة)، والضمير المتصل «ـها» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -8920,7 +8920,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "الولد is the topic of the whole nominal sentence.",
-                    "ar": "«الولد» والجملة بعده خبر"
+                    "ar": "«الولد» مبتدأ مرفوع، والجملة الفعلية بعده في محل رفع خبر."
                   }
                 },
                 {
@@ -8939,7 +8939,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "يكتب itself is raf because nothing governs it, and its hidden فاعل stands in the position of raf.",
-                    "ar": "«يكتب» مرفوع لأنه لم يسبقه ناصب ولا جازم، وفاعله المستتر في محل رفع."
+                    "ar": "«يكتب» فعل مضارع مرفوع لأنه لم يسبقه ناصب ولا جازم، وفاعله ضمير مستتر تقديره «هو» في محل رفع."
                   }
                 },
                 {
@@ -9986,12 +9986,12 @@
                   "grammarState": "nasb",
                   "grammaticalSign": {
                     "en": "Visible fatha",
-                    "ar": "الفتحة الظاهرة"
+                    "ar": "الفتحة الظاهرة (ولم تنوّن الكلمة لوجود «أل» فيها)"
                   },
                   "ending": "َ",
                   "reason": {
                     "en": "أعطى takes two objects; الطالب is the one who received something.",
-                    "ar": "«أعطى» يتعدى إلى مفعولين؛ و«الطالب» هو من أُعطِي الكتاب"
+                    "ar": "«أعطى» يتعدى إلى مفعولين؛ و«الطالب» هو من أُعطِي الكتاب، فهو مفعول به أول منصوب."
                   }
                 },
                 {
@@ -10005,7 +10005,7 @@
                   "grammarState": "nasb",
                   "grammaticalSign": {
                     "en": "Fatha with tanwin",
-                    "ar": "الفتحة مع التنوين"
+                    "ar": "الفتحة مع التنوين (ونُوّنت الكلمة لعدم وجود «أل» فيها)"
                   },
                   "ending": "ًا",
                   "reason": {
@@ -12895,7 +12895,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "يقول is the verbal predicate of المعلم, with a hidden فاعل referring back to it.",
-                    "ar": "«يقول» فعل مضارع مرفوع وفاعله مستتر يعود عليه."
+                    "ar": "«يقول» فعل مضارع مرفوع وفاعله ضمير مستتر تقديره «هو»، والجملة الفعلية في محل رفع خبر المبتدأ «المعلم»."
                   }
                 },
                 {
@@ -12904,7 +12904,7 @@
                   "end": 57,
                   "role": {
                     "en": "Present verb, one of \"the five verbs,\" jazm by dropping the final نون",
-                    "ar": "من الأفعال الخمسة، علامة جزمها حذف النون"
+                    "ar": "فعل مضارع مجزوم (من الأفعال الخمسة)، وواو الجماعة ضمير متصل مبني في محل رفع فاعل"
                   },
                   "grammarState": "jazm",
                   "grammaticalSign": {
@@ -12914,7 +12914,7 @@
                   "ending": "وا",
                   "reason": {
                     "en": "لا الناهية jazms this \"five verbs\" form by dropping its final نون.",
-                    "ar": "«لا» الناهية تجزم هذه الصيغة من الأفعال الخمسة بحذف نونها."
+                    "ar": "«لا» الناهية تجزم هذه الصيغة من الأفعال الخمسة بحذف نونها، وواو الجماعة ضمير متصل مبني في محل رفع فاعل."
                   }
                 }
               ]
@@ -14424,7 +14424,7 @@
                   "end": 15,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني"
+                    "ar": "اسم موصول مبني في محل رفع نعت (صفة)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -14434,7 +14434,7 @@
                   "ending": "ي",
                   "reason": {
                     "en": "الذي is mabni; it introduces the clause describing الطالب.",
-                    "ar": "«الذي» مبني؛ يفتتح الجملة التي تصف (الذي)."
+                    "ar": "«الذي» اسم موصول مبني في محل رفع نعت لـ«الطالب»، ويفتتح جملة الصلة «اجتهد»."
                   }
                 },
                 {
@@ -14453,7 +14453,7 @@
                   "ending": "َ",
                   "reason": {
                     "en": "اجتهد completes the description that الذي introduces.",
-                    "ar": "«اجتهد» يوضح الاسم الموصول"
+                    "ar": "«اجتهد» فعل ماضٍ مبني على الفتح، وفاعله ضمير مستتر تقديره «هو»، والجملة صلة الموصول."
                   }
                 }
               ]
@@ -17483,7 +17483,7 @@
                   "end": 37,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني"
+                    "ar": "اسم موصول مبني في محل رفع نعت (صفة)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -17493,7 +17493,7 @@
                   "ending": "ي",
                   "reason": {
                     "en": "الذي introduces the clause describing الطالب.",
-                    "ar": "«الذي» اسم موصول تتبعه جملة الصلة."
+                    "ar": "«الذي» اسم موصول مبني في محل رفع نعت لـ«الطالب»، وتتلوه جملة الصلة «نجح»."
                   }
                 },
                 {
@@ -18528,7 +18528,7 @@
                   "end": 15,
                   "role": {
                     "en": "Adverb of time",
-                    "ar": "ظرف زمان"
+                    "ar": "ظرف زمان مبني على الكسر في محل نصب"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -18538,7 +18538,7 @@
                   "ending": "ِ",
                   "reason": {
                     "en": "أمس shows when the writing happened.",
-                    "ar": "«أمس» يدل على وقت الكتابة."
+                    "ar": "«أمسِ» ظرف زمان يدل على وقت الكتابة، وهو مبني على الكسر في محل نصب."
                   }
                 }
               ]
@@ -19051,7 +19051,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كتابه is the topic of the second clause, so it is in raf.",
-                    "ar": "«كتابه» مبتدأ الجملة الثانية، فهو مرفوع."
+                    "ar": "«كتابه» مبتدأ الجملة الثانية مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -21112,7 +21112,7 @@
                   "end": 29,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني"
+                    "ar": "اسم موصول مبني في محل نصب نعت (صفة)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -21122,7 +21122,7 @@
                   "ending": "ين",
                   "reason": {
                     "en": "الذين introduces the clause describing الطلاب.",
-                    "ar": "«الذين» اسم موصول، وجملة «نجحوا» صلته، وهو يعود على «الطلاب»."
+                    "ar": "«الذين» اسم موصول مبني على الفتح في محل نصب نعت لـ«الطلاب»، وجملة «نجحوا» صلته."
                   }
                 },
                 {
@@ -21131,17 +21131,17 @@
                   "end": 35,
                   "role": {
                     "en": "Past verb, one of \"the five verbs\" pattern in the plural",
-                    "ar": "فعل ماضٍ"
+                    "ar": "فعل ماضٍ، وواو الجماعة ضمير متصل مبني في محل رفع فاعل"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
                     "en": "Built on the fixed past-plural ending",
-                    "ar": "مبني"
+                    "ar": "مبني على الضم لاتصاله بواو الجماعة"
                   },
                   "ending": "وا",
                   "reason": {
                     "en": "نجحوا reports the past action of الطلاب inside the relative clause.",
-                    "ar": "«نجحوا» فعل جملة الصلة."
+                    "ar": "«نجحوا» فعل ماضٍ مبني على الضم، وواو الجماعة ضمير متصل مبني في محل رفع فاعل، والجملة صلة الموصول."
                   }
                 }
               ]
@@ -21701,7 +21701,7 @@
                   "end": 66,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني"
+                    "ar": "اسم موصول مبني في محل جر نعت (صفة)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -21711,7 +21711,7 @@
                   "ending": "ين",
                   "reason": {
                     "en": "الذين introduces the clause describing الطلاب.",
-                    "ar": "«الذين» اسم موصول يعود على «الطلاب»، وتتلوه جملة الصلة."
+                    "ar": "«الذين» اسم موصول مبني على الفتح في محل جر نعت لـ«الطلاب»، وتتلوه جملة الصلة «التحقوا»."
                   }
                 },
                 {
@@ -24285,7 +24285,7 @@
                   "end": 16,
                   "role": {
                     "en": "Direct object, with attached pronoun",
-                    "ar": "مفعول به، وهو مضاف إلى ضمير متصل"
+                    "ar": "مفعول به وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "nasb",
                   "grammaticalSign": {
@@ -24295,7 +24295,7 @@
                   "ending": "َ",
                   "reason": {
                     "en": "صديقه receives the calling, so it is the object in nasb.",
-                    "ar": "«صديقه» وقعت عليه الدعوة، فهو مفعول به منصوب."
+                    "ar": "«صديقه» وقعت عليه الدعوة فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 }
               ]
@@ -24359,7 +24359,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "الولد performed the calling, so it is still the subject in raf.",
-                    "ar": "«الولد» قام بالدعوة، فهو ما فاعل مرفوع."
+                    "ar": "«الولد» قام بالدعوة، فهو فاعل مرفوع."
                   }
                 }
               ]
@@ -26522,7 +26522,7 @@
                   "end": 46,
                   "role": {
                     "en": "Direct object, with attached pronoun",
-                    "ar": "مفعول به، مضاف إلى ضمير متصل"
+                    "ar": "مفعول به وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "nasb",
                   "grammaticalSign": {
@@ -26532,7 +26532,7 @@
                   "ending": "َ",
                   "reason": {
                     "en": "مراده receives the action of reaching, so it is the object in nasb.",
-                    "ar": "«مراده» وقع عليه فعل البلوغ، فهو مفعول به منصوب."
+                    "ar": "«مراده» وقع عليه فعل البلوغ فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -27054,7 +27054,7 @@
                   "end": 6,
                   "role": {
                     "en": "Topic (mubtada), an idafa to the attached pronoun نا",
-                    "ar": "مبتدأ، وهو مضاف إلى الضمير المتصل «نا»"
+                    "ar": "مبتدأ وهو مضاف، والضمير المتصل «نا» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -27064,7 +27064,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كلامنا is what Ibn Malik is defining, so it is the topic of this nominal sentence, in raf.",
-                    "ar": "«كلامنا» مبتدأ الجملة الاسمية، وهو مرفوع."
+                    "ar": "«كلامنا» مبتدأ الجملة الاسمية مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -29428,7 +29428,7 @@
                   "end": 9,
                   "role": {
                     "en": "Predicate (khabar), an idafa to ال",
-                    "ar": "خبر، وهو مضاف إلى «ال»"
+                    "ar": "خبر، وهو مضاف إلى «أل»"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -30526,7 +30526,7 @@
                   "end": 37,
                   "role": {
                     "en": "Noun governed by لِـ (its ال is orthographically merged into للـ)",
-                    "ar": "اسم مجرور باللام (اندمجت \"ال\" فيها كتابةً فصارت \"للـ\")"
+                    "ar": "اسم مجرور باللام (اندمجت «أل» فيها كتابةً فصارت «للـ»)"
                   },
                   "grammarState": "jarr",
                   "grammaticalSign": {
@@ -31082,7 +31082,7 @@
                   "end": 6,
                   "role": {
                     "en": "Topic (mubtada), an idafa to نا",
-                    "ar": "مبتدأ، مضاف إلى «نا»"
+                    "ar": "مبتدأ وهو مضاف، والضمير المتصل «نا» مبني في محل جر مضاف إليه"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -31092,7 +31092,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كلامنا is the topic of the opening definition.",
-                    "ar": "«كلامنا» مبتدأ."
+                    "ar": "«كلامنا» مبتدأ مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
