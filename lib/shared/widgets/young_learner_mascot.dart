@@ -1111,6 +1111,13 @@ class _InteractiveHarakaPlaygroundState
     });
   }
 
+  String _challengeFullSentence(_HarakaChallenge challenge) {
+    return challenge.promptSentence.replaceAll(
+      RegExp(r'[^\s]+___'),
+      challenge.targetWord,
+    );
+  }
+
   void _nextChallenge() {
     HapticFeedback.selectionClick();
     setState(() {
@@ -1118,12 +1125,7 @@ class _InteractiveHarakaPlaygroundState
       _challengeCorrect = null;
     });
     final challenge = _challenges[_challengeIndex];
-    ArabicSpeechHelper.instance.speak(
-      challenge.promptSentence.replaceAll(
-        RegExp(r'[^\s]+___'),
-        challenge.targetWord,
-      ),
-    );
+    ArabicSpeechHelper.instance.speak(_challengeFullSentence(challenge));
   }
 
   void _toggleChallengeMode() {
@@ -1135,8 +1137,9 @@ class _InteractiveHarakaPlaygroundState
     });
     if (_challengeMode) {
       final challenge = _challenges[_challengeIndex];
+      final fullSentence = _challengeFullSentence(challenge);
       ArabicSpeechHelper.instance.speak(
-        'تَحَدِّي عُمَر وَمَرْيَم: أَيُّ حَرَكَةٍ تُكْمِلُ الجُمْلَةَ؟ ${challenge.promptSentence.replaceAll(RegExp(r'[^\s]+___'), challenge.targetWord)}',
+        'تَحَدِّي عُمَر وَمَرْيَم: أَيُّ حَرَكَةٍ تُكْمِلُ الجُمْلَةَ؟ $fullSentence',
       );
     } else {
       final active = _words[_selectedWordIndex].harakat[_selectedHarakaIndex];
@@ -1282,7 +1285,7 @@ class _InteractiveHarakaPlaygroundState
                           InkWell(
                             onTap: () => ArabicSpeechHelper.instance.speak(
                               _challengeMode
-                                  ? '${challenge.promptSentence.replaceAll(RegExp(r'[^\s]+___'), challenge.targetWord)}، $statusMessage'
+                                  ? '${_challengeFullSentence(challenge)}، $statusMessage'
                                   : '${active.wordWithMark}، ${active.sentence}، ${active.story}',
                             ),
                             borderRadius: BorderRadius.circular(999),
@@ -1341,10 +1344,7 @@ class _InteractiveHarakaPlaygroundState
           InkWell(
             onTap: () => ArabicSpeechHelper.instance.speak(
               _challengeMode
-                  ? challenge.promptSentence.replaceAll(
-                      RegExp(r'[^\s]+___'),
-                      challenge.targetWord,
-                    )
+                  ? _challengeFullSentence(challenge)
                   : '${active.wordWithMark}، ${active.sentence}، ${active.story}',
             ),
             borderRadius: BorderRadius.circular(18),
