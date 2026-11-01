@@ -684,6 +684,16 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('فِي البَيْتِ نُورٌ'), findsOneWidget);
+
+      await tester.tap(find.text('تحدّي النجوم 🎯'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('فِي البَيْتـ___ نُورٌ'), findsOneWidget);
+
+      await tester.tap(find.text('الكَسْرَة'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('⭐ 1'), findsOneWidget);
     },
   );
 }

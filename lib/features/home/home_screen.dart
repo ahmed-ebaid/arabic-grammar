@@ -127,32 +127,50 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 10),
               Card(
                 color: scheme.surfaceContainerLow,
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        l10n.exampleLabel,
-                        style: textTheme.labelLarge?.copyWith(
-                          color: scheme.primary,
-                          fontWeight: FontWeight.w700,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () =>
+                      ArabicSpeechHelper.instance.speak(l10n.exampleSentence),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              l10n.exampleLabel,
+                              style: textTheme.labelLarge?.copyWith(
+                                color: scheme.primary,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Icon(
+                              Icons.volume_up_rounded,
+                              size: 20,
+                              color: scheme.primary,
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      ArabicText(
-                        l10n.exampleSentence,
-                        textAlign: TextAlign.center,
-                        style: textTheme.headlineMedium,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(l10n.exampleExplanation),
-                    ],
+                        const SizedBox(height: 4),
+                        ArabicText(
+                          l10n.exampleSentence,
+                          textAlign: TextAlign.center,
+                          style: textTheme.headlineMedium,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(l10n.exampleExplanation),
+                      ],
+                    ),
                   ),
                 ),
               ),
               if (isYoungLearner) ...[
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 const InteractiveHarakaPlayground(),
               ],
             ],
