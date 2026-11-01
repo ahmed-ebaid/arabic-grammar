@@ -587,10 +587,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get learnerProfileYoung => 'Young learner';
 
   @override
+  String get learnerProfileYoungSubtitle =>
+      'Guided steps, cheerful colors, and friendly encouragement';
+
+  @override
   String get learnerProfileGeneral => 'General learner';
 
   @override
+  String get learnerProfileGeneralSubtitle =>
+      'Deeper grammatical explanations and direct rule application';
+
+  @override
   String get learnerProfileChange => 'Change profile';
+
+  @override
+  String get youngLearnerBanner => 'A fun step-by-step adventure';
+
+  @override
+  String get youngLearnerQuestionHint =>
+      'Read the example carefully, then pick the right answer.';
 
   @override
   String get learningIllustrationLabel => 'A cheerful Arabic learning card';
@@ -629,4 +644,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String practiceXpEarned(String xp) {
     return '+$xp XP';
   }
+
+  @override
+  String get seasonalIconTitle => 'Seasonal app icon';
+
+  @override
+  String get seasonalIconSubtitle =>
+      'Change the app icon during Ramadan, Eid al-Fitr, and Eid al-Adha.';
+
+  @override
+  String get rateAppTitle => 'Rate the app';
+
+  @override
+  String get rateAppSubtitle =>
+      'Enjoying إعراب? Share a review to help others discover the app.';
+
+  @override
+  String get rateAppUnavailable =>
+      'Could not open the review prompt right now. Please try again later.';
 }

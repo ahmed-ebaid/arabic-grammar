@@ -70,6 +70,12 @@ def ar_num(value: Any) -> str:
     return str(value).translate(_ARABIC_DIGITS)
 
 
+def ar_minutes(value: int) -> str:
+    """Render an estimated-minute count with the matching Arabic noun form."""
+    unit = "دقائق" if 3 <= value % 100 <= 10 else "دقيقة"
+    return f"{ar_num(value)} {unit}"
+
+
 def ar_content_version(value: str) -> str:
     return ar_num(value.replace("-draft.", " — مسودة "))
 
@@ -287,7 +293,7 @@ def add_lesson(
     add_paragraph_ar(
         document,
         f"المستوى: {ar(level['title'])} | "
-        f"الزمن التقديري: {ar_num(lesson['estimatedMinutes'])} دقيقة | "
+        f"الزمن التقديري: {ar_minutes(lesson['estimatedMinutes'])} | "
         f"المتطلبات السابقة: {prerequisites}",
     )
 
@@ -310,7 +316,7 @@ def add_lesson(
     for number, exercise in enumerate(lesson["exercises"], start=1):
         add_exercise(document, exercise, number)
 
-    add_heading_ar(document, "تمارين المراجعة البديلة", level=2)
+    add_heading_ar(document, "تمارين مراجعة إضافية", level=2)
     for number, exercise in enumerate(lesson["repeatExercises"], start=1):
         add_exercise(document, exercise, number)
 

@@ -1136,17 +1136,41 @@ abstract class AppLocalizations {
   /// **'Young learner'**
   String get learnerProfileYoung;
 
+  /// No description provided for @learnerProfileYoungSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Guided steps, cheerful colors, and friendly encouragement'**
+  String get learnerProfileYoungSubtitle;
+
   /// No description provided for @learnerProfileGeneral.
   ///
   /// In en, this message translates to:
   /// **'General learner'**
   String get learnerProfileGeneral;
 
+  /// No description provided for @learnerProfileGeneralSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Deeper grammatical explanations and direct rule application'**
+  String get learnerProfileGeneralSubtitle;
+
   /// No description provided for @learnerProfileChange.
   ///
   /// In en, this message translates to:
   /// **'Change profile'**
   String get learnerProfileChange;
+
+  /// No description provided for @youngLearnerBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'A fun step-by-step adventure'**
+  String get youngLearnerBanner;
+
+  /// No description provided for @youngLearnerQuestionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the example carefully, then pick the right answer.'**
+  String get youngLearnerQuestionHint;
 
   /// No description provided for @learningIllustrationLabel.
   ///
@@ -1201,6 +1225,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{xp} XP'**
   String practiceXpEarned(String xp);
+
+  /// No description provided for @seasonalIconTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Seasonal app icon'**
+  String get seasonalIconTitle;
+
+  /// No description provided for @seasonalIconSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the app icon during Ramadan, Eid al-Fitr, and Eid al-Adha.'**
+  String get seasonalIconSubtitle;
+
+  /// No description provided for @rateAppTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate the app'**
+  String get rateAppTitle;
+
+  /// No description provided for @rateAppSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoying إعراب? Share a review to help others discover the app.'**
+  String get rateAppSubtitle;
+
+  /// No description provided for @rateAppUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the review prompt right now. Please try again later.'**
+  String get rateAppUnavailable;
 }
 
 class _AppLocalizationsDelegate

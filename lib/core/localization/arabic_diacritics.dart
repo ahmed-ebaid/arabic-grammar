@@ -99,10 +99,18 @@ bool _isArabicLetter(int rune) =>
     (rune >= 0x066E && rune <= 0x06D3) ||
     (rune >= 0x06FA && rune <= 0x06FC);
 
-const _drawnMarks = {'\u064E', '\u064F', '\u0650', '\u0652'};
+const _drawnMarks = {
+  '\u064B', // fathatan (ً)
+  '\u064C', // dammatan (ٌ)
+  '\u064D', // kasratan (ٍ)
+  '\u064E', // fatha (َ)
+  '\u064F', // damma (ُ)
+  '\u0650', // kasra (ِ)
+  '\u0652', // sukun (ْ)
+};
 
-/// Draws a basic short vowel or sukun over a base stroke so it stays legible
-/// regardless of the platform font's mark glyphs.
+/// Draws a short vowel, tanween, or sukun over a base stroke so it stays
+/// legible regardless of the platform font's mark glyphs.
 class HarakaGlyph extends StatelessWidget {
   const HarakaGlyph({required this.mark, required this.color, super.key});
 
@@ -143,30 +151,112 @@ class _HarakaPainter extends CustomPainter {
           Offset(cx + 6, baseY - 11),
           stroke..strokeWidth = 2,
         );
+      case '\u064B':
+        stroke.strokeWidth = 2;
+        canvas.drawLine(
+          Offset(cx - 6, baseY - 9.5),
+          Offset(cx + 6, baseY - 14.5),
+          stroke,
+        );
+        canvas.drawLine(
+          Offset(cx - 6, baseY - 4.5),
+          Offset(cx + 6, baseY - 9.5),
+          stroke,
+        );
       case '\u0650':
         canvas.drawLine(
           Offset(cx - 6, baseY + 11),
           Offset(cx + 6, baseY + 6),
           stroke..strokeWidth = 2,
         );
+      case '\u064D':
+        stroke.strokeWidth = 2;
+        canvas.drawLine(
+          Offset(cx - 6, baseY + 9.5),
+          Offset(cx + 6, baseY + 4.5),
+          stroke,
+        );
+        canvas.drawLine(
+          Offset(cx - 6, baseY + 14.5),
+          Offset(cx + 6, baseY + 9.5),
+          stroke,
+        );
       case '\u064F':
-        canvas.drawOval(
-          Rect.fromCenter(
-            center: Offset(cx + 1, baseY - 10),
-            width: 4.5,
-            height: 3.5,
-          ),
-          stroke..strokeWidth = 1.2,
-        );
-        canvas.drawPath(
-          Path()
-            ..moveTo(cx + 3.25, baseY - 10)
-            ..cubicTo(cx + 7, baseY - 6, cx + 2, baseY - 4, cx - 4, baseY - 4),
-          stroke..strokeWidth = 2,
-        );
+        _paintDamma(canvas, cx, baseY - 10);
+      case '\u064C':
+        _paintSmallDamma(canvas, cx - 4.5, baseY - 10);
+        _paintSmallDamma(canvas, cx + 4.5, baseY - 10);
       case '\u0652':
         canvas.drawCircle(Offset(cx, baseY - 9), 4, stroke..strokeWidth = 1.8);
     }
+  }
+
+  void _paintDamma(Canvas canvas, double centerX, double loopY) {
+    final loopStroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2
+      ..strokeCap = StrokeCap.round;
+    final tailStroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..strokeCap = StrokeCap.round;
+    canvas.drawOval(
+      Rect.fromCenter(
+        center: Offset(centerX + 1, loopY),
+        width: 4.5,
+        height: 3.5,
+      ),
+      loopStroke,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(centerX + 3.25, loopY)
+        ..cubicTo(
+          centerX + 7,
+          loopY + 4,
+          centerX + 2,
+          loopY + 6,
+          centerX - 4,
+          loopY + 6,
+        ),
+      tailStroke,
+    );
+  }
+
+  void _paintSmallDamma(Canvas canvas, double centerX, double loopY) {
+    final loopStroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2
+      ..strokeCap = StrokeCap.round;
+    final tailStroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8
+      ..strokeCap = StrokeCap.round;
+    canvas.drawOval(
+      Rect.fromCenter(
+        center: Offset(centerX + 0.8, loopY),
+        width: 3.8,
+        height: 3.0,
+      ),
+      loopStroke,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(centerX + 2.7, loopY)
+        ..cubicTo(
+          centerX + 5.2,
+          loopY + 3.5,
+          centerX + 1.5,
+          loopY + 5.2,
+          centerX - 3.2,
+          loopY + 5.2,
+        ),
+      tailStroke,
+    );
   }
 
   @override

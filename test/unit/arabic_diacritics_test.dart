@@ -49,8 +49,12 @@ void main() {
           home: const Scaffold(
             body: Column(
               children: [
-                ArabicDiacriticsText('الضمة: ُ الفتحة: َ الكسرة: ِ السكون: ْ'),
+                ArabicDiacriticsText(
+                  'الضمة: ُ الفتحة: َ الكسرة: ِ السكون: ْ '
+                  'تنوين الضم: ٌ تنوين الفتح: ً تنوين الكسر: ٍ',
+                ),
                 ArabicDiacriticsText('ـُ'),
+                ArabicDiacriticsText('ـٌ'),
                 ArabicDiacriticsText('الطَّالِبُ'),
               ],
             ),
@@ -62,7 +66,17 @@ void main() {
         tester
             .widgetList<HarakaGlyph>(find.byType(HarakaGlyph))
             .map((glyph) => glyph.mark),
-        ['\u064F', '\u064E', '\u0650', '\u0652', '\u064F'],
+        [
+          '\u064F',
+          '\u064E',
+          '\u0650',
+          '\u0652',
+          '\u064C',
+          '\u064B',
+          '\u064D',
+          '\u064F',
+          '\u064C',
+        ],
       );
       expect(find.text('الطَّالِبُ'), findsOneWidget);
     });

@@ -98,7 +98,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
         .firstOrNull;
     final learningMode = widget.userDataController.learningMode;
     final modeHint = switch (learningMode) {
-      LearningMode.simple => null,
+      LearningMode.simple => l10n.youngLearnerQuestionHint,
       LearningMode.detailed => l10n.learningModeDetailedQuestionHint,
       LearningMode.adult => l10n.learningModeAdultQuestionHint,
     };
@@ -134,11 +134,8 @@ class _PracticeScreenState extends State<PracticeScreen> {
           question.lesson.title.forLanguage(languageCode),
           style: Theme.of(context).textTheme.labelLarge,
         ),
-        const SizedBox(height: 24),
-        if (modeHint != null) ...[
-          const SizedBox(height: 8),
-          Text(modeHint, style: Theme.of(context).textTheme.bodyMedium),
-        ],
+        const SizedBox(height: 32),
+        Text(modeHint, style: Theme.of(context).textTheme.bodyMedium),
         const SizedBox(height: 12),
         ArabicDiacriticsText(
           question.exercise.prompt.forLanguage(languageCode),

@@ -219,8 +219,12 @@ void main() {
         contains('لأنه لا يوقف على متحرك'),
       );
       final article = lesson(52).sections[1].examples.single.tokens[3];
-      expect(article.role.ar, startsWith('معطوف على المجرور قبله'));
+      expect(article.role.ar, 'معطوف مجرور');
       expect(article.role.ar, isNot(contains('حرف تعريف')));
+      expect(
+        lesson(2).exercises[3].prompt.ar,
+        'اختر العلامة المناسبة على آخر كلمة (البيت) في جملة: الطفل في البيت.',
+      );
     },
   );
 

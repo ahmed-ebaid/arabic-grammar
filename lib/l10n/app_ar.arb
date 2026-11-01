@@ -247,8 +247,12 @@
   ,"learnerProfileTitle": "ملف المتعلّم"
   ,"learnerProfileBody": "يساعدنا ذلك على تهيئة سرعة المسار وطريقة التشجيع المناسبة لتعلّمك."
   ,"learnerProfileYoung": "متعلّم صغير"
+  ,"learnerProfileYoungSubtitle": "خطوات مبسّطة وألوان مبهجة وتشجيع مستمر"
   ,"learnerProfileGeneral": "متعلّم عام"
+  ,"learnerProfileGeneralSubtitle": "شروح نحوية أوفى وتطبيق مباشر للقواعد"
   ,"learnerProfileChange": "تغيير الملف"
+  ,"youngLearnerBanner": "رحلة ممتعة خطوة بخطوة"
+  ,"youngLearnerQuestionHint": "اقرأ المثال بهدوء ثم اختر الإجابة الصحيحة."
   ,"learningIllustrationLabel": "بطاقة مبهجة لتعلّم العربية",
   "celebrationIllustrationLabel": "احتفال ملوّن بإنجاز نحوي",
   "homeStreakDays": "سلسلة {days} يوم",
@@ -277,5 +281,10 @@
     "placeholders": {
       "xp": {"type": "String"}
     }
-  }
+  },
+  "seasonalIconTitle": "أيقونة المواسم",
+  "seasonalIconSubtitle": "تغيير أيقونة التطبيق في رمضان وعيد الفطر وعيد الأضحى.",
+  "rateAppTitle": "قيّم التطبيق",
+  "rateAppSubtitle": "هل تستمتع بتطبيق «إعراب»؟ شاركنا تقييمك ليساعد الآخرين على اكتشافه.",
+  "rateAppUnavailable": "تعذّر فتح نافذة التقييم الآن. حاول مجددًا لاحقًا."
 }

@@ -253,8 +253,12 @@
   ,"learnerProfileTitle": "Learner profile"
   ,"learnerProfileBody": "This helps us shape the pace and encouragement for your learning path."
   ,"learnerProfileYoung": "Young learner"
+  ,"learnerProfileYoungSubtitle": "Guided steps, cheerful colors, and friendly encouragement"
   ,"learnerProfileGeneral": "General learner"
+  ,"learnerProfileGeneralSubtitle": "Deeper grammatical explanations and direct rule application"
   ,"learnerProfileChange": "Change profile"
+  ,"youngLearnerBanner": "A fun step-by-step adventure"
+  ,"youngLearnerQuestionHint": "Read the example carefully, then pick the right answer."
   ,"learningIllustrationLabel": "A cheerful Arabic learning card",
   "celebrationIllustrationLabel": "A colorful Arabic grammar celebration",
   "homeStreakDays": "{days}-day streak",
@@ -283,5 +287,10 @@
     "placeholders": {
       "xp": {"type": "String"}
     }
-  }
+  },
+  "seasonalIconTitle": "Seasonal app icon",
+  "seasonalIconSubtitle": "Change the app icon during Ramadan, Eid al-Fitr, and Eid al-Adha.",
+  "rateAppTitle": "Rate the app",
+  "rateAppSubtitle": "Enjoying إعراب? Share a review to help others discover the app.",
+  "rateAppUnavailable": "Could not open the review prompt right now. Please try again later."
 }

@@ -1,17 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../services/review_prompt_service.dart';
 import '../storage/storage_keys.dart';
 
 class LessonProgressController extends ChangeNotifier {
-  LessonProgressController(this._box);
+  LessonProgressController(
+    this._box, {
+    ReviewPromptService? reviewPromptService,
+  }) : reviewPromptService = reviewPromptService ?? ReviewPromptService();
 
-  LessonProgressController.inMemory() : _box = null;
+  LessonProgressController.inMemory({this.reviewPromptService}) : _box = null;
 
   static const xpPerCorrectAnswer = 10;
   static const streakMilestones = {3, 7, 14, 30, 60, 100};
 
   final Box<dynamic>? _box;
+  final ReviewPromptService? reviewPromptService;
   final Map<String, int> _steps = {};
   final Set<String> _completedLessons = {};
   final Map<String, int> _mastery = {};
@@ -145,6 +150,7 @@ class LessonProgressController extends ChangeNotifier {
       StorageKeys.lastActiveLessonId: lessonId,
     });
     await _bumpStreakForToday();
+    await reviewPromptService?.recordMeaningfulLearningDay();
     notifyListeners();
   }
 
@@ -208,6 +214,7 @@ class LessonProgressController extends ChangeNotifier {
     });
     await _awardXp(correct * xpPerCorrectAnswer);
     await _bumpStreakForToday();
+    await reviewPromptService?.recordMeaningfulLearningDay();
     notifyListeners();
   }
 

@@ -259,11 +259,8 @@ void main() {
       ),
     );
 
-    await tester.scrollUntilVisible(
-      find.text('ابدأ التعلُّم'),
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await tester.ensureVisible(find.text('ابدأ التعلُّم'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('ابدأ التعلُّم'));
     await tester.pumpAndSettle();
 
@@ -292,11 +289,8 @@ void main() {
       ),
     );
 
-    await tester.scrollUntilVisible(
-      find.text('تابع الدرس'),
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await tester.ensureVisible(find.text('تابع الدرس'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('تابع الدرس'));
     await tester.pumpAndSettle();
 
@@ -325,6 +319,8 @@ void main() {
 
     await tester.tap(find.byTooltip('المزيد'));
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('عن التطبيق وشكر المساهمين'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('عن التطبيق وشكر المساهمين'));
     await tester.pumpAndSettle();
 
@@ -338,6 +334,11 @@ void main() {
     expect(find.textContaining('الأمثلة المشكولة'), findsNothing);
     expect(find.text('تطوير ونشر Ebaid LLC'), findsOneWidget);
     expect(find.textContaining('شركة إبيد'), findsNothing);
+    await tester.scrollUntilVisible(
+      find.text('المرجع: الآجرومية'),
+      200,
+      scrollable: find.byType(Scrollable),
+    );
     expect(find.text('المرجع: الآجرومية'), findsOneWidget);
     expect(find.textContaining('المؤلف: ابن آجروم'), findsOneWidget);
     expect(

@@ -30,6 +30,9 @@ abstract final class StorageKeys {
   static const streakDate = 'streak.date';
   static const totalXp = 'xp.total';
   static const lastActiveLessonId = 'lesson.lastActiveId';
+  static const seasonalIconEnabled = 'seasonal_icon_enabled';
+  static const reviewPromptLearningDays = 'review_prompt_learning_days';
+  static const reviewPromptLastAttempt = 'review_prompt_last_attempt';
 
   static String bookmark(String type, String id) => '$bookmarkPrefix$type.$id';
 

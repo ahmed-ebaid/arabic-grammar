@@ -41,6 +41,8 @@ class ArabicGrammarApp extends StatelessWidget {
       ],
       child: Consumer2<LocaleController, UserDataController>(
         builder: (context, locale, userData, child) {
+          final isYoungLearner =
+              userData.learnerProfile == LearnerProfile.youngLearner;
           return MaterialApp(
             onGenerateTitle: (context) => AppLocalizations.of(context).appName,
             debugShowCheckedModeBanner: !environment.isProduction,
@@ -52,8 +54,8 @@ class ArabicGrammarApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            theme: AppTheme.light,
-            darkTheme: AppTheme.dark,
+            theme: AppTheme.lightFor(youngLearner: isYoungLearner),
+            darkTheme: AppTheme.darkFor(youngLearner: isYoungLearner),
             themeMode: ThemeMode.system,
             builder: (context, child) {
               final mediaQuery = MediaQuery.of(context);

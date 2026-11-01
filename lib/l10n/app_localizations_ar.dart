@@ -578,10 +578,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get learnerProfileYoung => 'متعلّم صغير';
 
   @override
+  String get learnerProfileYoungSubtitle =>
+      'خطوات مبسّطة وألوان مبهجة وتشجيع مستمر';
+
+  @override
   String get learnerProfileGeneral => 'متعلّم عام';
 
   @override
+  String get learnerProfileGeneralSubtitle =>
+      'شروح نحوية أوفى وتطبيق مباشر للقواعد';
+
+  @override
   String get learnerProfileChange => 'تغيير الملف';
+
+  @override
+  String get youngLearnerBanner => 'رحلة ممتعة خطوة بخطوة';
+
+  @override
+  String get youngLearnerQuestionHint =>
+      'اقرأ المثال بهدوء ثم اختر الإجابة الصحيحة.';
 
   @override
   String get learningIllustrationLabel => 'بطاقة مبهجة لتعلّم العربية';
@@ -617,4 +632,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String practiceXpEarned(String xp) {
     return '+$xp نقطة خبرة';
   }
+
+  @override
+  String get seasonalIconTitle => 'أيقونة المواسم';
+
+  @override
+  String get seasonalIconSubtitle =>
+      'تغيير أيقونة التطبيق في رمضان وعيد الفطر وعيد الأضحى.';
+
+  @override
+  String get rateAppTitle => 'قيّم التطبيق';
+
+  @override
+  String get rateAppSubtitle =>
+      'هل تستمتع بتطبيق «إعراب»؟ شاركنا تقييمك ليساعد الآخرين على اكتشافه.';
+
+  @override
+  String get rateAppUnavailable =>
+      'تعذّر فتح نافذة التقييم الآن. حاول مجددًا لاحقًا.';
 }

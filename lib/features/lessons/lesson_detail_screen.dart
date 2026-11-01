@@ -642,7 +642,7 @@ class _QuestionLayout extends StatelessWidget {
       LearningMode.adult => l10n.learningModeAdultQuestionTitle,
     };
     final questionHint = switch (learningMode) {
-      LearningMode.simple => null,
+      LearningMode.simple => l10n.youngLearnerQuestionHint,
       LearningMode.detailed => l10n.learningModeDetailedQuestionHint,
       LearningMode.adult => l10n.learningModeAdultQuestionHint,
     };
@@ -656,13 +656,11 @@ class _QuestionLayout extends StatelessWidget {
             prompt,
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          if (questionHint != null) ...[
-            const SizedBox(height: 10),
-            ArabicDiacriticsText(
-              questionHint,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ],
+          const SizedBox(height: 10),
+          ArabicDiacriticsText(
+            questionHint,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           const SizedBox(height: 20),
           for (final option in options)
             Padding(
@@ -927,11 +925,18 @@ class _TokenCard extends StatelessWidget {
                 label: l10n.reasonLabel,
                 value: token.reason.forLanguage(languageCode),
               ),
-            ] else
+            ] else ...[
+              if (!isIndeclinable)
+                _AnalysisRow(
+                  label: l10n.signLabel,
+                  value: token.grammaticalSign.forLanguage(languageCode),
+                  accessory: _EndingMark(ending: token.ending),
+                ),
               _AnalysisRow(
                 label: l10n.reasonLabel,
                 value: token.reason.forLanguage(languageCode),
               ),
+            ],
           ],
         ),
       ),
@@ -958,10 +963,10 @@ class _EndingMark extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<LearningColors>()!;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: colors.blueContainer,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: ArabicDiacriticsText(
         'ـ$ending',
