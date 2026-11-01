@@ -4,7 +4,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/theme/app_theme.dart';
@@ -18,113 +17,6 @@ bool get _isFlutterTestEnvironment {
     return Platform.environment.containsKey('FLUTTER_TEST');
   } catch (_) {
     return true;
-  }
-}
-
-/// Shared lightweight Arabic TTS helper so tapping speaker buttons or words
-/// speaks Arabic aloud on iOS/Android while safely no-opping in widget tests.
-class ArabicSpeechHelper {
-  ArabicSpeechHelper._();
-  static final ArabicSpeechHelper instance = ArabicSpeechHelper._();
-
-  FlutterTts? _tts;
-  bool _configured = false;
-
-  static String _sanitizeForSpeech(String raw) {
-    var cleaned = raw.replaceAll('ـُ', ' ضَمَّة ');
-    cleaned = cleaned.replaceAll('ـَ', ' فَتْحَة ');
-    cleaned = cleaned.replaceAll('ـِ', ' كَسْرَة ');
-    cleaned = cleaned.replaceAll('ـْ', ' سُكُون ');
-    cleaned = cleaned.replaceAll(RegExp(r'_+'), ' ');
-    cleaned = cleaned.replaceAll(RegExp(r'[«»"“”()🎯⭐🌟💡🔍🤔💪🚀]'), ' ');
-    cleaned = cleaned.replaceAll(RegExp(r'\s+'), ' ');
-    return cleaned.trim();
-  }
-
-  static String? _pickArabicLocale(List<dynamic> rawLanguages) {
-    final arabicLocales = <String>[];
-    for (final item in rawLanguages) {
-      final tag = item.toString();
-      if (tag.toLowerCase().startsWith('ar')) {
-        arabicLocales.add(tag);
-      }
-    }
-    const preferredOrder = ['ar-001', 'ar-sa', 'ar-eg', 'ar'];
-    for (final preferred in preferredOrder) {
-      for (final candidate in arabicLocales) {
-        if (candidate.toLowerCase() == preferred) {
-          return candidate;
-        }
-      }
-    }
-    return arabicLocales.firstOrNull;
-  }
-
-  Future<void> _configureIfNeeded(FlutterTts tts) async {
-    if (_configured) {
-      return;
-    }
-    _configured = true;
-    try {
-      if (Platform.isIOS) {
-        const category = IosTextToSpeechAudioCategory.playback;
-        const mode = IosTextToSpeechAudioMode.defaultMode;
-        const options = [
-          IosTextToSpeechAudioCategoryOptions.allowBluetooth,
-          IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
-          IosTextToSpeechAudioCategoryOptions.mixWithOthers,
-        ];
-        await tts.setIosAudioCategory(category, options, mode);
-        await tts.setSharedInstance(true);
-      }
-    } catch (_) {
-      // Ignore audio category errors on unsupported platforms.
-    }
-
-    try {
-      String? selectedLocale;
-      final Object? rawLanguages = await tts.getLanguages;
-      if (rawLanguages is List<dynamic>) {
-        selectedLocale = _pickArabicLocale(rawLanguages);
-      }
-      if (selectedLocale != null) {
-        await tts.setLanguage(selectedLocale);
-      } else {
-        for (final fallback in const ['ar-001', 'ar-SA', 'ar-EG', 'ar']) {
-          final Object? res = await tts.setLanguage(fallback);
-          if (res == 1 || res == true) {
-            break;
-          }
-        }
-      }
-    } catch (_) {
-      // Ignore language selection errors.
-    }
-
-    try {
-      await tts.setVolume(1.0);
-      await tts.setSpeechRate(0.45);
-      await tts.setPitch(1.03);
-    } catch (_) {
-      // Ignore speech rate configuration errors.
-    }
-  }
-
-  Future<void> speak(String text) async {
-    if (_isFlutterTestEnvironment) {
-      return;
-    }
-    final cleaned = _sanitizeForSpeech(text);
-    if (cleaned.isEmpty) {
-      return;
-    }
-    try {
-      final tts = _tts ??= FlutterTts();
-      await _configureIfNeeded(tts);
-      await tts.speak(cleaned);
-    } catch (_) {
-      // Ignore TTS errors on unsupported devices/simulators.
-    }
   }
 }
 
@@ -1074,20 +966,12 @@ class _InteractiveHarakaPlaygroundState
   int _starsEarned = 0;
   bool? _challengeCorrect;
 
-  void _speakActiveHaraka(_HarakaOption active) {
-    final w = active.wordWithMark;
-    final s = active.sentence;
-    final story = active.story;
-    ArabicSpeechHelper.instance.speak('$w، $s، $story');
-  }
-
   void _selectWord(int index) {
     HapticFeedback.selectionClick();
     setState(() {
       _selectedWordIndex = index;
       _hasInteracted = true;
     });
-    _speakActiveHaraka(_words[index].harakat[_selectedHarakaIndex]);
   }
 
   void _selectHaraka(int index) {
@@ -1100,33 +984,11 @@ class _InteractiveHarakaPlaygroundState
         if (index == challenge.correctHarakaIndex) {
           _challengeCorrect = true;
           _starsEarned = (_starsEarned + 1).clamp(0, 99);
-          ArabicSpeechHelper.instance.speak(challenge.explanation);
         } else {
           _challengeCorrect = false;
-          const retryMsg = 'حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل!';
-          ArabicSpeechHelper.instance.speak(retryMsg);
         }
-      } else {
-        final word = _words[_selectedWordIndex];
-        _speakActiveHaraka(word.harakat[index]);
       }
     });
-  }
-
-  String _challengeFullSentence(_QuickChallenge challenge) {
-    final blank = RegExp(r'[^\s]+___');
-    final sentence = challenge.promptSentence;
-    return sentence.replaceAll(blank, challenge.targetWord);
-  }
-
-  void _speakCurrentCard() {
-    if (_challengeMode) {
-      final challenge = _challenges[_challengeIndex];
-      ArabicSpeechHelper.instance.speak(_challengeFullSentence(challenge));
-      return;
-    }
-    final word = _words[_selectedWordIndex];
-    _speakActiveHaraka(word.harakat[_selectedHarakaIndex]);
   }
 
   void _nextChallenge() {
@@ -1135,8 +997,6 @@ class _InteractiveHarakaPlaygroundState
       _challengeIndex = (_challengeIndex + 1) % _challenges.length;
       _challengeCorrect = null;
     });
-    final challenge = _challenges[_challengeIndex];
-    ArabicSpeechHelper.instance.speak(_challengeFullSentence(challenge));
   }
 
   void _toggleChallengeMode() {
@@ -1146,15 +1006,14 @@ class _InteractiveHarakaPlaygroundState
       _challengeCorrect = null;
       _hasInteracted = true;
     });
-    _speakCurrentCard();
   }
 
   void _cycleCheer() {
+    HapticFeedback.selectionClick();
     setState(() {
       _cheerIndex = (_cheerIndex + 1) % _mascotCheers.length;
       _hasInteracted = true;
     });
-    _speakCurrentCard();
   }
 
   @override
@@ -1269,31 +1128,12 @@ class _InteractiveHarakaPlaygroundState
                           width: 1.5,
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ArabicDiacriticsText(
-                              statusMessage,
-                              style: textTheme.bodySmall?.copyWith(
-                                color: scheme.onSurface,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 6),
-                          InkWell(
-                            onTap: _speakCurrentCard,
-                            borderRadius: BorderRadius.circular(999),
-                            child: Padding(
-                              padding: const EdgeInsets.all(4),
-                              child: Icon(
-                                Icons.volume_up_rounded,
-                                size: 20,
-                                color: scheme.primary,
-                              ),
-                            ),
-                          ),
-                        ],
+                      child: ArabicDiacriticsText(
+                        statusMessage,
+                        style: textTheme.bodySmall?.copyWith(
+                          color: scheme.onSurface,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ],
@@ -1336,84 +1176,77 @@ class _InteractiveHarakaPlaygroundState
             ],
           ),
           const SizedBox(height: 8),
-          InkWell(
-            onTap: _speakCurrentCard,
-            borderRadius: BorderRadius.circular(18),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              decoration: BoxDecoration(
-                color: scheme.surface.withValues(alpha: 0.96),
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(
-                  color: scheme.outlineVariant.withValues(alpha: 0.65),
-                  width: 1.5,
-                ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: scheme.surface.withValues(alpha: 0.96),
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: scheme.outlineVariant.withValues(alpha: 0.65),
+                width: 1.5,
               ),
-              child: _challengeMode
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: ArabicDiacriticsText(
-                            _challengeCorrect == true
-                                ? challenge.promptSentence.replaceAll(
-                                    RegExp(r'[^\s]+___'),
-                                    challenge.targetWord,
-                                  )
-                                : challenge.promptSentence,
-                            textAlign: TextAlign.center,
-                            style: textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.w800,
-                              color: _challengeCorrect == true
-                                  ? const Color(0xFF059669)
-                                  : scheme.onSurface,
-                            ),
-                          ),
-                        ),
-                        if (_challengeCorrect == true)
-                          TextButton.icon(
-                            onPressed: _nextChallenge,
-                            icon: const Icon(
-                              Icons.arrow_back_rounded,
-                              size: 18,
-                            ),
-                            label: const Text('التالي'),
-                          ),
-                      ],
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: active.badgeColor.withValues(alpha: 0.14),
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          child: ArabicDiacriticsText(
-                            active.wordWithMark,
-                            style: textTheme.titleLarge?.copyWith(
-                              color: active.badgeColor,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: ArabicDiacriticsText(
-                            active.sentence,
-                            textAlign: TextAlign.end,
-                            style: textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
             ),
+            child: _challengeMode
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: ArabicDiacriticsText(
+                          _challengeCorrect == true
+                              ? challenge.promptSentence.replaceAll(
+                                  RegExp(r'[^\s]+___'),
+                                  challenge.targetWord,
+                                )
+                              : challenge.promptSentence,
+                          textAlign: TextAlign.center,
+                          style: textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w800,
+                            color: _challengeCorrect == true
+                                ? const Color(0xFF059669)
+                                : scheme.onSurface,
+                          ),
+                        ),
+                      ),
+                      if (_challengeCorrect == true)
+                        TextButton.icon(
+                          onPressed: _nextChallenge,
+                          icon: const Icon(Icons.arrow_back_rounded, size: 18),
+                          label: const Text('التالي'),
+                        ),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: active.badgeColor.withValues(alpha: 0.14),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: ArabicDiacriticsText(
+                          active.wordWithMark,
+                          style: textTheme.titleLarge?.copyWith(
+                            color: active.badgeColor,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: ArabicDiacriticsText(
+                          active.sentence,
+                          textAlign: TextAlign.end,
+                          style: textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
           ),
           const SizedBox(height: 10),
           Row(
@@ -1505,14 +1338,13 @@ class _HarakaPlaygroundButton extends StatelessWidget {
 
 /// A Duolingo-style character + speech-bubble header where Omar (`عُمَر`) or
 /// Maryam (`مَرْيَم`) stands beside a 3D bordered speech bubble with a pointer
-/// tail and an audio speaker button.
+/// tail and animated encouragement.
 class DuolingoCharacterHeader extends StatefulWidget {
   const DuolingoCharacterHeader({
     required this.character,
     required this.speakerName,
     required this.message,
     this.mood = MascotMood.happy,
-    this.speechText,
     this.trailing,
     this.onTap,
     super.key,
@@ -1522,7 +1354,6 @@ class DuolingoCharacterHeader extends StatefulWidget {
   final String speakerName;
   final String message;
   final MascotMood mood;
-  final String? speechText;
   final Widget? trailing;
   final VoidCallback? onTap;
 
@@ -1532,18 +1363,14 @@ class DuolingoCharacterHeader extends StatefulWidget {
 }
 
 class _DuolingoCharacterHeaderState extends State<DuolingoCharacterHeader> {
-  bool _speaking = false;
+  bool _animating = false;
 
-  Future<void> _speak() async {
+  void _triggerCheer() {
     HapticFeedback.selectionClick();
-    setState(() => _speaking = true);
-    await ArabicSpeechHelper.instance.speak(
-      widget.speechText ?? widget.message,
-    );
-    if (!mounted) return;
-    Future<void>.delayed(const Duration(milliseconds: 1400), () {
+    setState(() => _animating = true);
+    Future<void>.delayed(const Duration(milliseconds: 1100), () {
       if (mounted) {
-        setState(() => _speaking = false);
+        setState(() => _animating = false);
       }
     });
   }
@@ -1562,11 +1389,11 @@ class _DuolingoCharacterHeaderState extends State<DuolingoCharacterHeader> {
         YoungLearnerMascot(
           kind: widget.character,
           size: 86,
-          mood: widget.mood,
-          speaking: _speaking,
+          mood: _animating ? MascotMood.cheering : widget.mood,
+          speaking: _animating,
           onTap: () {
             widget.onTap?.call();
-            _speak();
+            _triggerCheer();
           },
         ),
         const SizedBox(width: 8),
@@ -1574,7 +1401,7 @@ class _DuolingoCharacterHeaderState extends State<DuolingoCharacterHeader> {
           child: InkWell(
             onTap: () {
               widget.onTap?.call();
-              _speak();
+              _triggerCheer();
             },
             borderRadius: BorderRadius.circular(20),
             child: Container(
@@ -1600,8 +1427,8 @@ class _DuolingoCharacterHeaderState extends State<DuolingoCharacterHeader> {
                   Padding(
                     padding: const EdgeInsets.only(top: 2),
                     child: Icon(
-                      Icons.volume_up_rounded,
-                      size: 22,
+                      Icons.auto_awesome_rounded,
+                      size: 20,
                       color: accentColor,
                     ),
                   ),
@@ -1643,22 +1470,20 @@ class _DuolingoCharacterHeaderState extends State<DuolingoCharacterHeader> {
 }
 
 /// Interactive companion header shown on questions in Young Learner mode.
-/// Kids can tap Omar & Maryam to reveal/cycle a friendly grammar clue, hear it
-/// spoken aloud, and watch the character react with cheering or encouragement
-/// when an answer is checked.
+/// Kids can tap Omar & Maryam to reveal/cycle a friendly grammar clue and
+/// watch the characters react with cheering or encouragement when an answer
+/// is checked.
 class InteractiveQuestionCompanion extends StatefulWidget {
   const InteractiveQuestionCompanion({
     required this.hint,
     required this.answerChecked,
     required this.isCorrect,
-    this.questionPrompt,
     super.key,
   });
 
   final String hint;
   final bool answerChecked;
   final bool isCorrect;
-  final String? questionPrompt;
 
   @override
   State<InteractiveQuestionCompanion> createState() =>
@@ -1668,7 +1493,7 @@ class InteractiveQuestionCompanion extends StatefulWidget {
 class _InteractiveQuestionCompanionState
     extends State<InteractiveQuestionCompanion> {
   bool _showTipBubble = false;
-  bool _speaking = false;
+  bool _animating = false;
 
   MascotMood get _mood {
     if (!widget.answerChecked) {
@@ -1689,21 +1514,15 @@ class _InteractiveQuestionCompanionState
     return 'اضْغَطْ عَلَى عُمَر وَمَرْيَم لِتَحْصُلَ عَلَى تَلْمِيحِ البَطَلِ! 💡';
   }
 
-  Future<void> _handleTap() async {
+  void _handleTap() {
     HapticFeedback.selectionClick();
-    final nextShowTip = !_showTipBubble;
     setState(() {
-      _showTipBubble = nextShowTip;
-      _speaking = true;
+      _showTipBubble = !_showTipBubble;
+      _animating = true;
     });
-    final textToSpeak = widget.answerChecked
-        ? _bubbleText
-        : (nextShowTip ? widget.hint : (widget.questionPrompt ?? widget.hint));
-    await ArabicSpeechHelper.instance.speak(textToSpeak);
-    if (!mounted) return;
-    Future<void>.delayed(const Duration(milliseconds: 1200), () {
+    Future<void>.delayed(const Duration(milliseconds: 1100), () {
       if (mounted) {
-        setState(() => _speaking = false);
+        setState(() => _animating = false);
       }
     });
   }
@@ -1740,7 +1559,7 @@ class _InteractiveQuestionCompanionState
               kind: CartoonCharacterKind.duo,
               size: 74,
               mood: _mood,
-              speaking: _speaking,
+              speaking: _animating,
             ),
             const SizedBox(width: 10),
             Expanded(
@@ -1759,12 +1578,6 @@ class _InteractiveQuestionCompanionState
                 ),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.volume_up_rounded,
-                      size: 20,
-                      color: scheme.primary,
-                    ),
-                    const SizedBox(width: 8),
                     Expanded(
                       child: ArabicDiacriticsText(
                         _bubbleText,
