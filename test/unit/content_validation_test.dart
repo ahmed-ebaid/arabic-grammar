@@ -19,7 +19,7 @@ void main() {
       expect(issues, isEmpty);
       expect(catalog.contentVersion, '7.0.0-draft.1');
       expect(catalog.levels, hasLength(7));
-      expect(catalog.lessons, hasLength(59));
+      expect(catalog.lessons, hasLength(58));
       expect(catalog.lessons.first.title.en, 'Why endings change');
       expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
@@ -63,9 +63,9 @@ void main() {
         'lesson_15',
         'lesson_24',
         'lesson_33',
-        'lesson_42',
-        'lesson_51',
-        'lesson_59',
+        'lesson_41',
+        'lesson_50',
+        'lesson_58',
       ]);
     });
 

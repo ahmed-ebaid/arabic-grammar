@@ -76,7 +76,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get moduleTitle => 'Beginner foundations';
 
   @override
-  String get moduleSubtitle => '59 guided lessons';
+  String get moduleSubtitle => '58 guided lessons';
 
   @override
   String get comingSoon => 'Curriculum content is coming in the next phase.';

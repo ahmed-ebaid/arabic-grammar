@@ -76,7 +76,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get moduleTitle => 'أساسيات المبتدئين';
 
   @override
-  String get moduleSubtitle => '٥٩ درسًا إرشاديًّا';
+  String get moduleSubtitle => '٥٨ درسًا إرشاديًّا';
 
   @override
   String get comingSoon => 'سيُضاف محتوى المنهج في المرحلة التالية.';

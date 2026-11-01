@@ -102,7 +102,7 @@ Connect does not repeatedly request export-compliance answers for each build.
 
 - Beta app description: Learn Arabic grammar and word endings through a
   bilingual, offline-first curriculum. The app has seven progressive levels
-  with 59 interactive lessons, instant explanations, saved progress, mastery
+  with 58 interactive lessons, instant explanations, saved progress, mastery
   scoring, varied repeat practice, unvocalized reading checkpoints, and 70%
   lesson unlocking. Ten-question mixed and weak-area practice sessions add
   local daily goals, stars, and collectible milestone badges. The advanced

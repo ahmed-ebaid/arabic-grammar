@@ -466,7 +466,7 @@ void main() {
     await tester.tap(find.text('التقدم'));
     await tester.pumpAndSettle();
 
-    expect(find.text('أتقنت ١ درسًا من أصل ٥٩'), findsOneWidget);
+    expect(find.text('أتقنت ١ درسًا من أصل ٥٨'), findsOneWidget);
     expect(find.text('نجوم التدريب'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('التقدّم حسب المستوى'),

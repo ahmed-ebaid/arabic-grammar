@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @moduleSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'59 guided lessons'**
+  /// **'58 guided lessons'**
   String get moduleSubtitle;
 
   /// No description provided for @comingSoon.

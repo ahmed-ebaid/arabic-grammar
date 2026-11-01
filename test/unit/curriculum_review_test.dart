@@ -74,13 +74,13 @@ void main() {
   test('article notation omits hamza in prose but preserves quoted verses', () {
     expect(lesson(8).objectives.first.ar, contains('«الـ»'));
     expect(lesson(12).objectives[1].ar, contains('«الـ»'));
-    expect(lesson(53).sections.first.body.ar, contains('«ال»'));
-    expect(lesson(56).sections.first.body.ar, contains('«ال»'));
+    expect(lesson(52).sections.first.body.ar, contains('«ال»'));
+    expect(lesson(55).sections.first.body.ar, contains('«ال»'));
     expect(
-      lesson(56).sections[1].examples.single.unvocalized,
+      lesson(55).sections[1].examples.single.unvocalized,
       'نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا',
     );
-    expect(lesson(53).sections[1].examples.single.tokens[3].text, 'أل');
+    expect(lesson(52).sections[1].examples.single.tokens[3].text, 'أل');
   });
 
   test('dual formation is distinct from its actual case sign', () {
@@ -138,7 +138,7 @@ void main() {
   });
 
   test('noun before verb is a topic, not the verbal subject', () {
-    for (final number in [16, 47]) {
+    for (final number in [16, 46]) {
       final examples = lesson(
         number,
       ).sections.expand((section) => section.examples);
@@ -147,7 +147,7 @@ void main() {
       expect(token.role.en, 'Topic (mubtada)');
       expect(token.reason.ar, contains('الجملة الفعلية'));
     }
-    final weakVerb = lesson(47).sections[1].examples[1].tokens.last;
+    final weakVerb = lesson(46).sections[1].examples[1].tokens.last;
     expect(weakVerb.text, 'الولد');
     expect(weakVerb.role.ar, 'فاعل');
   });
@@ -169,17 +169,17 @@ void main() {
     'Alfiyya adjective and pre-verbal topic analyses agree with answers',
     () {
       expect(
-        lesson(52).exercises[1].options.first.feedback.ar,
+        lesson(51).exercises[1].options.first.feedback.ar,
         contains('نعت مرفوع'),
       );
       expect(
-        lesson(52).exercises[1].options.first.feedback.en,
+        lesson(51).exercises[1].options.first.feedback.en,
         contains('adjective'),
       );
-      final topic = lesson(58).sections[1].examples.first.tokens.last;
+      final topic = lesson(57).sections[1].examples.first.tokens.last;
       expect(topic.text, 'تمييز');
       expect(topic.role.ar, 'مبتدأ مؤخر');
-      final exercise = lesson(58).exercises[1];
+      final exercise = lesson(57).exercises[1];
       expect(exercise.prompt.ar, contains('المبتدأ'));
       expect(exercise.prompt.en, contains('topic'));
       expect(exercise.options.first.label.ar, 'تمييز');
@@ -211,16 +211,52 @@ void main() {
         contains('(معلموها) مبتدأ مرفوع بالواو'),
       );
       expect(
-        lesson(40).exercises.first.options[1].feedback.ar,
+        lesson(39).exercises.first.options[1].feedback.ar,
         contains('يرفع فاعلًا وينصب مفعولًا'),
       );
       expect(
-        lesson(49).objectives.first.ar,
+        lesson(48).objectives.first.ar,
         contains('لأنه لا يوقف على متحرك'),
       );
-      final article = lesson(53).sections[1].examples.single.tokens[3];
+      final article = lesson(52).sections[1].examples.single.tokens[3];
       expect(article.role.ar, startsWith('معطوف على المجرور قبله'));
       expect(article.role.ar, isNot(contains('حرف تعريف')));
+    },
+  );
+
+  test(
+    'removes headlines lesson, renumbers, and applies new author updates',
+    () {
+      expect(catalog.lessons, hasLength(58));
+      expect(lesson(35).title.ar, 'المبني للمجهول');
+      expect(lesson(35).prerequisites, ['lesson_34']);
+      expect(lesson(37).title.ar, 'تعدد الإضافة');
+      expect(
+        lesson(42).sections[1].examples.single.vocalized,
+        'كِتَابًا قَرَأْتُ',
+      );
+      expect(
+        lesson(42).exercises[1].options.first.label.ar,
+        'تاء الفاعل في (قرأت)',
+      );
+      expect(
+        lesson(43).sections[1].examples.single.vocalized,
+        'مَنِ الكَرِيمُ؟ مُحَمَّدٌ',
+      );
+      expect(lesson(43).exercises.first.options.first.label.ar, 'الخبر (كريم)');
+      expect(lesson(54).sections.first.title.ar, 'قسم ثالث بطريق الاستبعاد');
+      expect(
+        lesson(54).sections[1].body.ar,
+        contains('سواهما الحرف كهل وفي ولم'),
+      );
+      expect(
+        lesson(54).sections[1].examples.single.tokens.first.role.ar,
+        'خبر مقدم لـ(الكلم)',
+      );
+      expect(
+        lesson(54).exercises[1].options[2].feedback.ar,
+        'لا؛ لأن الفعل هو القسم الثاني.',
+      );
     },
   );
 }

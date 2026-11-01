@@ -110,8 +110,7 @@
         "lesson_38",
         "lesson_39",
         "lesson_40",
-        "lesson_41",
-        "lesson_42"
+        "lesson_41"
       ]
     },
     {
@@ -126,6 +125,7 @@
         "ar": "أن تتعامل مع نثر بأسلوب فصيح مع الحذر المناسب والتحليل الأعمق."
       },
       "lessonIds": [
+        "lesson_42",
         "lesson_43",
         "lesson_44",
         "lesson_45",
@@ -133,8 +133,7 @@
         "lesson_47",
         "lesson_48",
         "lesson_49",
-        "lesson_50",
-        "lesson_51"
+        "lesson_50"
       ]
     },
     {
@@ -149,14 +148,14 @@
         "ar": "أن تتعرَّفَ على موضوعات مختارة بعناية من ألفية ابن مالك، مع قراءة عدد من أبياتها، والاطلاع على بعض شروحها المشهورة."
       },
       "lessonIds": [
+        "lesson_51",
         "lesson_52",
         "lesson_53",
         "lesson_54",
         "lesson_55",
         "lesson_56",
         "lesson_57",
-        "lesson_58",
-        "lesson_59"
+        "lesson_58"
       ]
     }
   ],
@@ -18437,519 +18436,6 @@
       "id": "lesson_35",
       "order": 35,
       "title": {
-        "en": "Headlines and omission",
-        "ar": "العناوين والحذف"
-      },
-      "objectives": [
-        {
-          "en": "Recognize that headlines often omit كان and rely on context to be understood.",
-          "ar": "أن تعرف أن العناوين تحذف «كان» غالبًا وتعتمد على السياق للفهم."
-        },
-        {
-          "en": "Apply prepositional jarr and adjective agreement inside a terse headline.",
-          "ar": "أن تطبّق الجر بحرف الجر وتطابق الصفة لموصوفها داخل عنوان موجز."
-        }
-      ],
-      "prerequisites": [
-        "lesson_34"
-      ],
-      "estimatedMinutes": 9,
-      "sections": [
-        {
-          "id": "headline-intro",
-          "type": "introduction",
-          "title": {
-            "en": "Short by design",
-            "ar": "موجزة بقصد الإيجاز"
-          },
-          "body": {
-            "en": "Headlines are terse, often omitting the verb كان and relying on the reader to supply it from context. A headline noun followed by a prepositional phrase can still be read using the rules you already know.",
-            "ar": "العناوين موجزة، وتحذف الفعل «كان» غالبًا معتمدةً على القارئ لاستنتاجه من السياق. ويمكن قراءة اسم العنوان مع شبه الجملة بعده بالقواعد نفسها التي تعرفها."
-          },
-          "examples": []
-        },
-        {
-          "id": "minister-visit",
-          "type": "workedExample",
-          "title": {
-            "en": "The minister, on a visit",
-            "ar": "الوزير في زيارة"
-          },
-          "body": {
-            "en": "الوَزِيرُ فِي زِيَارَةٍ رَسْمِيَّةٍ reads smoothly even without a stated verb: كان is understood. زيارةٍ follows في in jarr, and رسميةٍ agrees with it.",
-            "ar": "«الوَزِيرُ فِي زِيَارَةٍ رَسْمِيَّةٍ» تُقرأ بسلاسة ولو لم يُذكر فعل: تُفهم «كان» من السياق. و«زيارةٍ» بعد «في» مجرورة، و«رسميةٍ» تطابقها."
-          },
-          "examples": [
-            {
-              "id": "minister-visit-example",
-              "vocalized": "الوَزِيرُ فِي زِيَارَةٍ رَسْمِيَّةٍ",
-              "unvocalized": "الوزير في زيارة رسمية",
-              "tokens": [
-                {
-                  "text": "الوزير",
-                  "start": 0,
-                  "end": 6,
-                  "role": {
-                    "en": "Topic (mubtada), or ism kana understood",
-                    "ar": "مبتدأ، أو اسم كان مقدّرة"
-                  },
-                  "grammarState": "raf",
-                  "grammaticalSign": {
-                    "en": "Visible damma",
-                    "ar": "الضمة الظاهرة"
-                  },
-                  "ending": "ُ",
-                  "reason": {
-                    "en": "الوزير stands as the sentence's topic, whether or not كان is stated.",
-                    "ar": "«الوزير» مبتدأ الجملة، سواء ذُكرت «كان» أم لا."
-                  }
-                },
-                {
-                  "text": "زيارة",
-                  "start": 10,
-                  "end": 15,
-                  "role": {
-                    "en": "Noun governed by a preposition",
-                    "ar": "اسم مجرور"
-                  },
-                  "grammarState": "jarr",
-                  "grammaticalSign": {
-                    "en": "Kasra with tanwin",
-                    "ar": "الكسرة مع التنوين"
-                  },
-                  "ending": "ٍ",
-                  "reason": {
-                    "en": "زيارة follows the preposition في and is in jarr.",
-                    "ar": "«زيارة» بعد حرف الجر «في»، فهي مجرورة."
-                  }
-                },
-                {
-                  "text": "رسمية",
-                  "start": 16,
-                  "end": 21,
-                  "role": {
-                    "en": "Adjective (na'at), agreeing with زيارة",
-                    "ar": "نعت يطابق «زيارة»"
-                  },
-                  "grammarState": "jarr",
-                  "grammaticalSign": {
-                    "en": "Kasra with tanwin, agreeing with زيارة",
-                    "ar": "الكسرة مع التنوين، مطابقة لـ«زيارة»"
-                  },
-                  "ending": "ٍ",
-                  "reason": {
-                    "en": "رسمية matches زيارة in definiteness, gender, number, and state.",
-                    "ar": "«رسمية» تطابق «زيارة» في التعريف والتذكير والعدد والحالة."
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "exercises": [
-        {
-          "id": "lesson-35-recognize-01",
-          "type": "matchRule",
-          "prompt": {
-            "en": "Which best explains why الوزير في زيارة رسمية reads smoothly without a stated verb?",
-            "ar": "أي عبارة تفسّر لماذا تُقرأ «الوزير في زيارة رسمية» بسلاسة دون فعل مذكور؟"
-          },
-          "options": [
-            {
-              "id": "correct",
-              "label": {
-                "en": "Headlines often omit the verb كان and rely on context.",
-                "ar": "تحذف العناوين الفعل «كان» غالبًا وتعتمد على السياق."
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. A headline reader supplies the missing verb from context.",
-                "ar": "صحيح. يستنتج قارئ العنوان الفعل المحذوف من السياق."
-              }
-            },
-            {
-              "id": "wrong-invalid",
-              "label": {
-                "en": "This is not a valid Arabic sentence.",
-                "ar": "هذه ليست جملة عربية صحيحة."
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "It is a valid, common headline pattern once the omitted verb is understood.",
-                "ar": "هي نمط عنوان صحيح وشائع متى فُهم الفعل المحذوف."
-              }
-            },
-            {
-              "id": "wrong-verb",
-              "label": {
-                "en": "الوزير must itself be a verb here.",
-                "ar": "يجب أن تكون «الوزير» فعلًا هنا."
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "الوزير is clearly a noun (a title), not a verb.",
-                "ar": "«الوزير» اسم واضح (لقب)، لا فعل."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-state-02",
-          "type": "identifyState",
-          "prompt": {
-            "en": "What state is زيارةٍ in, after the preposition في؟",
-            "ar": "ما حالة «زيارةٍ» بعد حرف الجر «في»؟"
-          },
-          "options": [
-            {
-              "id": "jarr",
-              "label": {
-                "en": "Jarr (جر)",
-                "ar": "الجر"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. A noun after a preposition is in jarr.",
-                "ar": "صحيح. الاسم بعد حرف الجر مجرور."
-              }
-            },
-            {
-              "id": "raf",
-              "label": {
-                "en": "Raf (رفع)",
-                "ar": "الرفع"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "زيارة does not perform any action; it follows a preposition.",
-                "ar": "«زيارة» لا تقوم بفعل؛ فهي بعد حرف جر."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "Nasb (نصب)",
-                "ar": "النصب"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "زيارة is not a direct object; it follows the preposition في.",
-                "ar": "«زيارة» ليست مفعولًا به؛ فهي بعد حرف الجر «في»."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-agree-03",
-          "type": "matchRule",
-          "prompt": {
-            "en": "Which adjective correctly agrees with زيارةٍ (indefinite, feminine, jarr)?",
-            "ar": "أي صفة تطابق «زيارةٍ» (نكرة، مؤنث، مجرور)؟"
-          },
-          "options": [
-            {
-              "id": "correct",
-              "label": {
-                "en": "رسميةٍ",
-                "ar": "رسميةٍ"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. Indefinite, feminine, and jarr, matching زيارة.",
-                "ar": "صحيح. نكرة ومؤنثة ومجرورة، مطابقة لـ«زيارة»."
-              }
-            },
-            {
-              "id": "wrong-gender-state",
-              "label": {
-                "en": "رسميٌّ",
-                "ar": "رسميٌّ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "This is masculine and raf, but زيارة is feminine and jarr.",
-                "ar": "هذه مذكرة ومرفوعة، لكن «زيارة» مؤنثة ومجرورة."
-              }
-            },
-            {
-              "id": "wrong-state",
-              "label": {
-                "en": "رسميًّا",
-                "ar": "رسميًّا"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "This is masculine and nasb, but زيارة is feminine and jarr.",
-                "ar": "هذه مذكرة ومنصوبة، لكن «زيارة» مؤنثة ومجرورة."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-read-04",
-          "type": "addTashkeel",
-          "prompt": {
-            "en": "Read الرئيس في اجتماع مهم. Which ending belongs on اجتماع_ (after في)؟",
-            "ar": "اقرأ «الرئيس في اجتماع مهم». ما حركة آخر «اجتماع» (بعد «في»)؟"
-          },
-          "options": [
-            {
-              "id": "jarr",
-              "label": {
-                "en": "اجْتِمَاعٍ",
-                "ar": "اجْتِمَاعٍ"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. اجتماع follows في and is in jarr.",
-                "ar": "صحيح. «اجتماع» بعد «في»، فهو مجرور."
-              }
-            },
-            {
-              "id": "raf",
-              "label": {
-                "en": "اجْتِمَاعٌ",
-                "ar": "اجْتِمَاعٌ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "الرئيس, not اجتماع, is the topic here; اجتماع follows a preposition.",
-                "ar": "«الرئيس» لا «اجتماع» هو المبتدأ هنا؛ و«اجتماع» بعد حرف جر."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "اجْتِمَاعًا",
-                "ar": "اجْتِمَاعًا"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "There is no verb here needing an object in nasb.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
-              }
-            }
-          ]
-        }
-      ],
-      "repeatExercises": [
-        {
-          "id": "lesson-35-repeat-recognize-01",
-          "type": "matchRule",
-          "prompt": {
-            "en": "Which best explains why المديرة في مؤتمر دولي reads smoothly without a stated verb?",
-            "ar": "أي عبارة تفسّر لماذا تُقرأ «المديرة في مؤتمر دولي» بسلاسة دون فعل مذكور؟"
-          },
-          "options": [
-            {
-              "id": "correct",
-              "label": {
-                "en": "Headlines commonly drop كان and let the reader supply it from context.",
-                "ar": "تسقط العناوين «كان» عادة وتترك القارئ يستنتجها من السياق."
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. A headline reader supplies the missing verb from context.",
-                "ar": "صحيح. يستنتج قارئ العنوان الفعل المحذوف من السياق."
-              }
-            },
-            {
-              "id": "wrong-invalid",
-              "label": {
-                "en": "This is not a valid Arabic sentence.",
-                "ar": "هذه ليست جملة عربية صحيحة."
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "It is a valid, common headline pattern once the omitted verb is understood.",
-                "ar": "هي نمط عنوان صحيح وشائع متى فُهم الفعل المحذوف."
-              }
-            },
-            {
-              "id": "wrong-verb",
-              "label": {
-                "en": "المديرة must itself be a verb here.",
-                "ar": "يجب أن تكون «المديرة» فعلًا هنا."
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "المديرة is clearly a noun (a title), not a verb.",
-                "ar": "«المديرة» اسم واضح (لقب)، لا فعل."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-repeat-state-02",
-          "type": "identifyState",
-          "prompt": {
-            "en": "What state is مؤتمرٍ in, after the preposition في؟",
-            "ar": "ما حالة «مؤتمرٍ» بعد حرف الجر «في»؟"
-          },
-          "options": [
-            {
-              "id": "jarr",
-              "label": {
-                "en": "Jarr (جر)",
-                "ar": "الجر"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. A noun after a preposition is in jarr.",
-                "ar": "صحيح. الاسم بعد حرف الجر مجرور."
-              }
-            },
-            {
-              "id": "raf",
-              "label": {
-                "en": "Raf (رفع)",
-                "ar": "الرفع"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "مؤتمر does not perform any action; it follows a preposition.",
-                "ar": "«مؤتمر» لا يقوم بفعل؛ فهو بعد حرف جر."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "Nasb (نصب)",
-                "ar": "النصب"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "مؤتمر is not a direct object; it follows the preposition في.",
-                "ar": "«مؤتمر» ليس مفعولًا به؛ فهو بعد حرف الجر «في»."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-repeat-agree-03",
-          "type": "matchRule",
-          "prompt": {
-            "en": "Which adjective correctly agrees with مؤتمرٍ (indefinite, masculine, jarr)?",
-            "ar": "أي صفة تطابق «مؤتمرٍ» (نكرة، مذكر، مجرور)؟"
-          },
-          "options": [
-            {
-              "id": "correct",
-              "label": {
-                "en": "دوليٍّ",
-                "ar": "دوليٍّ"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. Indefinite, masculine, and jarr, matching مؤتمر.",
-                "ar": "صحيح. نكرة ومذكرة ومجرورة، مطابقة لـ«مؤتمر»."
-              }
-            },
-            {
-              "id": "wrong-gender",
-              "label": {
-                "en": "دوليةٍ",
-                "ar": "دوليةٍ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "This is feminine, but مؤتمر is masculine.",
-                "ar": "هذه صفة مؤنثة، و«مؤتمر» مذكر."
-              }
-            },
-            {
-              "id": "wrong-state",
-              "label": {
-                "en": "دوليٌّ",
-                "ar": "دوليٌّ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "This is raf, but مؤتمر is jarr after the preposition في.",
-                "ar": "هذه مرفوعة، لكن «مؤتمر» مجرور بعد حرف الجر «في»."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-35-repeat-read-04",
-          "type": "addTashkeel",
-          "prompt": {
-            "en": "Read الوفد في برنامج حافل. Which ending belongs on برنامج_ (after في)؟",
-            "ar": "اقرأ «الوفد في برنامج حافل». ما حركة آخر «برنامج» (بعد «في»)؟"
-          },
-          "options": [
-            {
-              "id": "jarr",
-              "label": {
-                "en": "بَرْنَامَجٍ",
-                "ar": "بَرْنَامَجٍ"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. برنامج follows في and is in jarr.",
-                "ar": "صحيح. «برنامج» بعد «في»، فهو مجرور."
-              }
-            },
-            {
-              "id": "raf",
-              "label": {
-                "en": "بَرْنَامَجٌ",
-                "ar": "بَرْنَامَجٌ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "الوفد, not برنامج, is the topic here; برنامج follows a preposition.",
-                "ar": "«الوفد» لا «برنامج» هو المبتدأ هنا؛ و«برنامج» بعد حرف جر."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "بَرْنَامَجًا",
-                "ar": "بَرْنَامَجًا"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "There is no verb here needing an object in nasb.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
-              }
-            }
-          ]
-        }
-      ],
-      "sources": [
-        {
-          "id": "arabic-grammar-original-content",
-          "title": {
-            "en": "Original إعراب lesson content",
-            "ar": "المحتوى الأصلي لدروس إعراب"
-          },
-          "author": {
-            "en": "Ebaid LLC",
-            "ar": "Ebaid LLC"
-          },
-          "url": null,
-          "licenseStatus": "original",
-          "citation": {
-            "en": "All explanations, examples, translations, feedback, and exercise wording in this lesson were written for this application.",
-            "ar": "كُتبت جميع الشروح والأمثلة والترجمات والتعليقات وصياغات التمارين في هذا الدرس خصيصًا لهذا التطبيق."
-          }
-        }
-      ],
-      "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
-      }
-    },
-    {
-      "id": "lesson_36",
-      "order": 36,
-      "title": {
         "en": "The passive voice",
         "ar": "المبني للمجهول"
       },
@@ -18964,7 +18450,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_35"
+        "lesson_34"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -19062,7 +18548,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-36-recognize-01",
+          "id": "lesson-35-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which pattern shows the passive voice, where the doer is unstated?",
@@ -19108,7 +18594,7 @@
           ]
         },
         {
-          "id": "lesson-36-role-02",
+          "id": "lesson-35-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In كتب التقرير أمس, which word is نائب الفاعل؟",
@@ -19154,7 +18640,7 @@
           ]
         },
         {
-          "id": "lesson-36-state-03",
+          "id": "lesson-35-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is التقريرُ in, in كتب التقرير أمس؟",
@@ -19200,7 +18686,7 @@
           ]
         },
         {
-          "id": "lesson-36-read-04",
+          "id": "lesson-35-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read نشر الخبر في الجريدة. Which ending belongs on الخبر_ (نائب الفاعل)؟",
@@ -19248,7 +18734,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-36-repeat-recognize-01",
+          "id": "lesson-35-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which pattern shows the passive voice?",
@@ -19294,7 +18780,7 @@
           ]
         },
         {
-          "id": "lesson-36-repeat-role-02",
+          "id": "lesson-35-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In فتح الباب صباحا, which word is نائب الفاعل؟",
@@ -19340,7 +18826,7 @@
           ]
         },
         {
-          "id": "lesson-36-repeat-state-03",
+          "id": "lesson-35-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is البابُ in, in فتح الباب صباحا؟",
@@ -19386,7 +18872,7 @@
           ]
         },
         {
-          "id": "lesson-36-repeat-read-04",
+          "id": "lesson-35-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بني المسجد قديما. Which ending belongs on المسجد_؟",
@@ -19460,8 +18946,8 @@
       }
     },
     {
-      "id": "lesson_37",
-      "order": 37,
+      "id": "lesson_36",
+      "order": 36,
       "title": {
         "en": "Verbal nouns, active participles, and passive participles",
         "ar": "المصدر واسم الفاعل واسم المفعول"
@@ -19477,7 +18963,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_36"
+        "lesson_35"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -19594,7 +19080,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-37-recognize-01",
+          "id": "lesson-36-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which word is اسم فاعل (meaning \"the one who does the action\"), from كتب؟",
@@ -19640,7 +19126,7 @@
           ]
         },
         {
-          "id": "lesson-37-role-02",
+          "id": "lesson-36-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In الكاتب مشهور وكتابه مقروء, which word is اسم المفعول؟",
@@ -19686,7 +19172,7 @@
           ]
         },
         {
-          "id": "lesson-37-state-03",
+          "id": "lesson-36-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الكاتبُ in, as the topic?",
@@ -19732,7 +19218,7 @@
           ]
         },
         {
-          "id": "lesson-37-read-04",
+          "id": "lesson-36-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read الطالب مجتهد ونجاحه مؤكد. Which ending belongs on نجاحه_؟",
@@ -19780,7 +19266,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-37-repeat-recognize-01",
+          "id": "lesson-36-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which word is اسم مفعول (meaning \"the one/thing the action was done to\"), from فهم؟",
@@ -19826,7 +19312,7 @@
           ]
         },
         {
-          "id": "lesson-37-repeat-role-02",
+          "id": "lesson-36-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In المعلمة محبوبة وشرحها مفهوم, which word is المصدر (naming the action of explaining)؟",
@@ -19872,7 +19358,7 @@
           ]
         },
         {
-          "id": "lesson-37-repeat-state-03",
+          "id": "lesson-36-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is المعلمةُ in, as the topic?",
@@ -19918,7 +19404,7 @@
           ]
         },
         {
-          "id": "lesson-37-repeat-read-04",
+          "id": "lesson-36-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read الطبيب ماهر وعلاجه ناجح. Which ending belongs on علاجه_؟",
@@ -19992,11 +19478,11 @@
       }
     },
     {
-      "id": "lesson_38",
-      "order": 38,
+      "id": "lesson_37",
+      "order": 37,
       "title": {
         "en": "Nested idafa chains",
-        "ar": "الإضافة المتسلسلة"
+        "ar": "تعدد الإضافة"
       },
       "objectives": [
         {
@@ -20009,7 +19495,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_37"
+        "lesson_36"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -20107,7 +19593,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-38-role-01",
+          "id": "lesson-37-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In قرأت عنوان مقالة الجريدة, which word is the object of قرأت (the whole chain's role)؟",
@@ -20153,7 +19639,7 @@
           ]
         },
         {
-          "id": "lesson-38-state-02",
+          "id": "lesson-37-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state are مقالةِ and الجريدةِ in (both mid-chain and final)?",
@@ -20199,7 +19685,7 @@
           ]
         },
         {
-          "id": "lesson-38-rule-03",
+          "id": "lesson-37-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "In a three-noun idafa chain, which noun may take a case other than jarr?",
@@ -20245,7 +19731,7 @@
           ]
         },
         {
-          "id": "lesson-38-read-04",
+          "id": "lesson-37-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read حضرت افتتاح مكتبة المدرسة. Which ending belongs on مكتبة_؟",
@@ -20293,7 +19779,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-38-repeat-role-01",
+          "id": "lesson-37-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In سمعت خبر نجاح الفريق, which word is the object of سمعت؟",
@@ -20339,7 +19825,7 @@
           ]
         },
         {
-          "id": "lesson-38-repeat-state-02",
+          "id": "lesson-37-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state are نجاحِ and الفريقِ in?",
@@ -20385,7 +19871,7 @@
           ]
         },
         {
-          "id": "lesson-38-repeat-rule-03",
+          "id": "lesson-37-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which noun in a long idafa chain keeps changing its case with the sentence's role, while the rest stay fixed in jarr?",
@@ -20431,7 +19917,7 @@
           ]
         },
         {
-          "id": "lesson-38-repeat-read-04",
+          "id": "lesson-37-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read حضرت حفل تكريم الفائز. Which ending belongs on تكريم_؟",
@@ -20505,8 +19991,8 @@
       }
     },
     {
-      "id": "lesson_39",
-      "order": 39,
+      "id": "lesson_38",
+      "order": 38,
       "title": {
         "en": "Punctuation and discourse clues",
         "ar": "علامات الترقيم وقرائن السياق"
@@ -20522,7 +20008,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_38"
+        "lesson_37"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -20620,7 +20106,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-39-recognize-01",
+          "id": "lesson-38-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "What does a colon (:) most often introduce after a verb like قال؟",
@@ -20666,7 +20152,7 @@
           ]
         },
         {
-          "id": "lesson-39-role-02",
+          "id": "lesson-38-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In قال المدير: العمل اليوم مهم, which word is the subject of قال؟",
@@ -20712,7 +20198,7 @@
           ]
         },
         {
-          "id": "lesson-39-state-03",
+          "id": "lesson-38-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is اليومَ in, in العمل اليوم مهم (ظرف زمان)؟",
@@ -20758,7 +20244,7 @@
           ]
         },
         {
-          "id": "lesson-39-read-04",
+          "id": "lesson-38-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read كتب المعلم: الامتحان غدا صعب. Which ending belongs on غدا_ (ظرف زمان)؟",
@@ -20806,7 +20292,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-39-repeat-recognize-01",
+          "id": "lesson-38-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "What does a question mark (؟) signal about the clause before it؟",
@@ -20852,7 +20338,7 @@
           ]
         },
         {
-          "id": "lesson-39-repeat-role-02",
+          "id": "lesson-38-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In سأل الطالب: هل الدرس سهل؟, which word is the subject of سأل؟",
@@ -20898,7 +20384,7 @@
           ]
         },
         {
-          "id": "lesson-39-repeat-state-03",
+          "id": "lesson-38-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الدرسُ in, in هل الدرس سهل؟ (topic)؟",
@@ -20944,7 +20430,7 @@
           ]
         },
         {
-          "id": "lesson-39-repeat-read-04",
+          "id": "lesson-38-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read قال الطبيب: العلاج اليوم مفيد. Which ending belongs on اليوم_؟",
@@ -21018,8 +20504,8 @@
       }
     },
     {
-      "id": "lesson_40",
-      "order": 40,
+      "id": "lesson_39",
+      "order": 39,
       "title": {
         "en": "Reading ambiguity",
         "ar": "الاحتمال في القراءة"
@@ -21035,7 +20521,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_39"
+        "lesson_38"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -21114,7 +20600,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-40-recognize-01",
+          "id": "lesson-39-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Why can tashkeel alone not settle who hit whom in ضرب موسى عيسى؟",
@@ -21160,7 +20646,7 @@
           ]
         },
         {
-          "id": "lesson-40-role-02",
+          "id": "lesson-39-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "By the usual word-order convention, who is read as the doer (فاعل) in ضرب موسى عيسى؟",
@@ -21206,7 +20692,7 @@
           ]
         },
         {
-          "id": "lesson-40-rule-03",
+          "id": "lesson-39-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "What could confirm the intended reading beyond word order?",
@@ -21252,7 +20738,7 @@
           ]
         },
         {
-          "id": "lesson-40-read-04",
+          "id": "lesson-39-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read قابل موسى مصطفى. Which reading reflects the usual word-order convention for the doer?",
@@ -21300,7 +20786,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-40-repeat-recognize-01",
+          "id": "lesson-39-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Why does tashkeel not resolve who visited whom in زار عيسى مصطفى؟",
@@ -21346,7 +20832,7 @@
           ]
         },
         {
-          "id": "lesson-40-repeat-role-02",
+          "id": "lesson-39-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "By word-order convention, who is read as the doer in زار عيسى مصطفى؟",
@@ -21392,7 +20878,7 @@
           ]
         },
         {
-          "id": "lesson-40-repeat-rule-03",
+          "id": "lesson-39-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "What could help confirm who actually did the visiting?",
@@ -21438,7 +20924,7 @@
           ]
         },
         {
-          "id": "lesson-40-repeat-read-04",
+          "id": "lesson-39-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read دعا سلمى ليلى. Which reading reflects the usual word-order convention for the doer?",
@@ -21512,8 +20998,8 @@
       }
     },
     {
-      "id": "lesson_41",
-      "order": 41,
+      "id": "lesson_40",
+      "order": 40,
       "title": {
         "en": "Guided modern article",
         "ar": "مقالة موجهة"
@@ -21529,7 +21015,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_40"
+        "lesson_39"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -21665,7 +21151,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-41-state-01",
+          "id": "lesson-40-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الطلابَ in, after أنّ؟",
@@ -21711,7 +21197,7 @@
           ]
         },
         {
-          "id": "lesson-41-role-02",
+          "id": "lesson-40-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word introduces the relative clause (صلة الموصول) in الطلاب الذين نجحوا؟",
@@ -21757,7 +21243,7 @@
           ]
         },
         {
-          "id": "lesson-41-rule-03",
+          "id": "lesson-40-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which two clues together justify reading الطلاب as nasb here?",
@@ -21803,7 +21289,7 @@
           ]
         },
         {
-          "id": "lesson-41-read-04",
+          "id": "lesson-40-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read أعلنت الجامعة أن الطلاب الذين نجحوا سيكافأون. Which ending belongs on الطلاب_؟",
@@ -21851,7 +21337,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-41-repeat-state-01",
+          "id": "lesson-40-repeat-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is العمالَ in, after إنّ؟",
@@ -21897,7 +21383,7 @@
           ]
         },
         {
-          "id": "lesson-41-repeat-role-02",
+          "id": "lesson-40-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word introduces the relative clause in العمال الذين اجتهدوا؟",
@@ -21943,7 +21429,7 @@
           ]
         },
         {
-          "id": "lesson-41-repeat-rule-03",
+          "id": "lesson-40-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which two clues together justify reading العمال as nasb here?",
@@ -21989,7 +21475,7 @@
           ]
         },
         {
-          "id": "lesson-41-repeat-read-04",
+          "id": "lesson-40-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read قالت الوزارة إن العمال الذين اجتهدوا سيكرمون. Which ending belongs on العمال_؟",
@@ -22063,8 +21549,8 @@
       }
     },
     {
-      "id": "lesson_42",
-      "order": 42,
+      "id": "lesson_41",
+      "order": 41,
       "title": {
         "en": "Level 5 mastery project",
         "ar": "مشروع إتقان المستوى الخامس"
@@ -22080,7 +21566,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_41"
+        "lesson_40"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -22273,7 +21759,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-42-state-01",
+          "id": "lesson-41-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is العامَ in, in بدأت المدارس العام الدراسي الجديد (object)?",
@@ -22319,7 +21805,7 @@
           ]
         },
         {
-          "id": "lesson-42-state-02",
+          "id": "lesson-41-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is عددَ in, after أنّ؟",
@@ -22365,7 +21851,7 @@
           ]
         },
         {
-          "id": "lesson-42-role-03",
+          "id": "lesson-41-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is مضاف إليه to عدد in عدد الطلاب؟",
@@ -22411,7 +21897,7 @@
           ]
         },
         {
-          "id": "lesson-42-rule-04",
+          "id": "lesson-41-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim best justifies reading حقٌّ as raf in إن التعليم حق للجميع؟",
@@ -22459,7 +21945,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-42-repeat-state-01",
+          "id": "lesson-41-repeat-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is فرعًا in, in افتتحت الشركة فرعا جديدا (object)?",
@@ -22505,7 +21991,7 @@
           ]
         },
         {
-          "id": "lesson-42-repeat-state-02",
+          "id": "lesson-41-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is عددَ in, after إنّ؟",
@@ -22551,7 +22037,7 @@
           ]
         },
         {
-          "id": "lesson-42-repeat-role-03",
+          "id": "lesson-41-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is مضاف إليه to عدد in عدد العمال؟",
@@ -22597,7 +22083,7 @@
           ]
         },
         {
-          "id": "lesson-42-repeat-rule-04",
+          "id": "lesson-41-repeat-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim best justifies reading فرصةٌ as raf in إن العمل فرصة للجميع?",
@@ -22671,8 +22157,8 @@
       }
     },
     {
-      "id": "lesson_43",
-      "order": 43,
+      "id": "lesson_42",
+      "order": 42,
       "title": {
         "en": "Flexible classical word order",
         "ar": "حرية الترتيب في الفصحى"
@@ -22688,7 +22174,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_42"
+        "lesson_41"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -22700,8 +22186,8 @@
             "ar": "الحركات لا الموضع"
           },
           "body": {
-            "en": "Classical usage permits fronting an object or predicate before the subject or topic for emphasis. Case endings, not word order, remain the reliable evidence for each word's role.",
-            "ar": "يجيز الأسلوب الفصيح تقديم المفعول به على الفاعل، أو الخبر على المبتدأ لغرض بلاغي. وتبقى الحركات، لا الترتيب، الدليل الموثوق على وظيفة كل كلمة."
+            "en": "Classical usage permits fronting an object before the verb or a predicate before the topic for rhetorical emphasis. Case endings, not word order, remain the reliable evidence for each word's role.",
+            "ar": "يجيز الأسلوب الفصيح تقديم المفعول به على الفعل أو الخبر على المبتدأ لغرض بلاغي. وتبقى الحركات، لا الترتيب، الدليل الموثوق على وظيفة كل كلمة."
           },
           "examples": []
         },
@@ -22709,18 +22195,18 @@
           "id": "a-book-he-read",
           "type": "workedExample",
           "title": {
-            "en": "A book, he read",
-            "ar": "كتابًا قرأ"
+            "en": "A book, I read",
+            "ar": "كتابًا قرأتُ"
           },
           "body": {
-            "en": "In كِتَابًا قَرَأَ الطَّالِبُ, the object كتابًا is fronted before the verb, yet its fatha still marks it as nasb; الطالب, though last, is still the subject in raf.",
-            "ar": "في «كِتَابًا قَرَأَ الطَّالِبُ»، تقدّم المفعول به «كتابًا» على الفعل، لكن فتحته ما زالت تدل على النصب؛ و«الطالب»، رغم تأخره، ما زال الفاعل المرفوع."
+            "en": "In كِتَابًا قَرَأْتُ, the direct object كتابًا is fronted before the verb, yet its grammatical sign (fatha) marks it as nasb.",
+            "ar": "في عبارة «كِتَابًا قَرَأْتُ»، تقدّم المفعول به «كتابًا» على الفعل، لكن علامته الإعرابية (الفتحة) تدل على النصب."
           },
           "examples": [
             {
               "id": "a-book-he-read-example",
-              "vocalized": "كِتَابًا قَرَأَ الطَّالِبُ",
-              "unvocalized": "كتابا قرأ الطالب",
+              "vocalized": "كِتَابًا قَرَأْتُ",
+              "unvocalized": "كتابا قرأت",
               "tokens": [
                 {
                   "text": "كتابا",
@@ -22756,27 +22242,27 @@
                   },
                   "ending": "َ",
                   "reason": {
-                    "en": "قرأ is a regular past-tense verb, always mabni.",
+                    "en": "قرأ is a past-tense verb, always mabni.",
                     "ar": "«قرأ» فعل ماضٍ مبني دائمًا."
                   }
                 },
                 {
-                  "text": "الطالب",
-                  "start": 10,
-                  "end": 16,
+                  "text": "ت",
+                  "start": 9,
+                  "end": 10,
                   "role": {
-                    "en": "Subject (fa'il)",
-                    "ar": "فاعل"
+                    "en": "Subject pronoun (التاء in قرأت)",
+                    "ar": "فاعل (التاء في «قرأت»)"
                   },
-                  "grammarState": "raf",
+                  "grammarState": "indeclinable",
                   "grammaticalSign": {
-                    "en": "Visible damma, unaffected by its late position",
-                    "ar": "الضمة الظاهرة، لا يغيّرها تأخره"
+                    "en": "Pronoun built on damma",
+                    "ar": "ضمير مبني على الضم"
                   },
                   "ending": "ُ",
                   "reason": {
-                    "en": "الطالب performed the reading and stays raf, even coming last.",
-                    "ar": "«الطالب» قام بالقراءة ويبقى مرفوعًا، وإن جاء متأخرا."
+                    "en": "The attached pronoun تاء الفاعل in قرأت performed the reading and is in the place of raf as the subject, even though the verb and subject come after the object.",
+                    "ar": "التاء في (قرأت) ضمير الفاعل في محل رفع، وإن جاء الفعل وفاعله متأخرين عن المفعول به."
                   }
                 }
               ]
@@ -22786,11 +22272,11 @@
       ],
       "exercises": [
         {
-          "id": "lesson-43-rule-01",
+          "id": "lesson-42-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In كتابا قرأ الطالب, what tells us كتابا is the object, even though it comes first?",
-            "ar": "في عبارة «كتابا قرأ الطالب»، ما الذي يدل على أن «كتابا» مفعول به رغم تقدّمه؟"
+            "en": "In كتابا قرأت, what tells us كتابا is the object, even though it comes first?",
+            "ar": "في عبارة «كتابا قرأت»، ما الذي يدل على أن «كتابا» مفعول به رغم تقدّمه؟"
           },
           "options": [
             {
@@ -22832,23 +22318,23 @@
           ]
         },
         {
-          "id": "lesson-43-role-02",
+          "id": "lesson-42-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which word is the subject (فاعل) in كتابا قرأ الطالب؟",
-            "ar": "ما الفاعل فيما يلي: «كتابا قرأ الطالب»؟"
+            "en": "What is the subject (فاعل) in كتابا قرأت؟",
+            "ar": "ما الفاعل فيما يلي: «كتابا قرأت»؟"
           },
           "options": [
             {
               "id": "talib",
               "label": {
-                "en": "الطالب",
-                "ar": "الطالب"
+                "en": "The subject pronoun تاء الفاعل in قرأت",
+                "ar": "تاء الفاعل في (قرأت)"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الطالب is the subject, despite coming last.",
-                "ar": "صحيح. «الطالب» هو الفاعل، رغم تأخره."
+                "en": "Correct. Because the تاء in (قرأت) is the subject pronoun.",
+                "ar": "صحيح. لأن التاء في (قرأت) ضمير الفاعل."
               }
             },
             {
@@ -22878,7 +22364,7 @@
           ]
         },
         {
-          "id": "lesson-43-state-03",
+          "id": "lesson-42-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is كتابًا in?",
@@ -22924,11 +22410,11 @@
           ]
         },
         {
-          "id": "lesson-43-read-04",
+          "id": "lesson-42-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read درسا كتب الطالب. Which ending belongs on درس_؟",
-            "ar": "اقرأ: «درسا كتب الطالب». ما حركة آخر كلمة «درس»؟"
+            "en": "Read درسا كتبت. Which ending belongs on درس_؟",
+            "ar": "اقرأ: «درسا كتبت». ما حركة آخر كلمة «درس»؟"
           },
           "options": [
             {
@@ -22951,7 +22437,7 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "الطالب, not درس, is the subject here, even though درس comes first.",
+                "en": "The raised case (raf) is for the subject, not the direct object.",
                 "ar": "لا؛ لأن الرفع يكون للفاعل وليس للمفعول."
               }
             },
@@ -22972,11 +22458,11 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-43-repeat-rule-01",
+          "id": "lesson-42-repeat-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In رسالة كتب المعلم, what tells us رسالة is the object despite coming first?",
-            "ar": "في جملة: «رسالة كتب المعلم» ما الذي يدل على أن «رسالة» مفعول به رغم تقدّمها؟"
+            "en": "In رسالة كتبت, what tells us رسالة is the object despite coming first?",
+            "ar": "في جملة: «رسالة كتبت» ما الذي يدل على أن «رسالة» مفعول به رغم تقدّمها؟"
           },
           "options": [
             {
@@ -23018,23 +22504,23 @@
           ]
         },
         {
-          "id": "lesson-43-repeat-role-02",
+          "id": "lesson-42-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which word is the subject in رسالة كتب المعلم؟",
-            "ar": "ما الفاعل في عبارة «رسالة كتب المعلم»؟"
+            "en": "What is the subject in رسالة كتبت؟",
+            "ar": "ما الفاعل في عبارة «رسالة كتبت»؟"
           },
           "options": [
             {
               "id": "muallim",
               "label": {
-                "en": "المعلم",
-                "ar": "المعلم"
+                "en": "The subject pronoun تاء الفاعل in كتبت",
+                "ar": "تاء الفاعل في (كتبت)"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. المعلم is the subject, despite coming last.",
-                "ar": "صحيح. «المعلم» هو الفاعل، رغم تأخره."
+                "en": "Correct. The attached pronoun تاء is the subject, despite coming after the object.",
+                "ar": "صحيح. التاء ضمير الفاعل، رغم تأخره."
               }
             },
             {
@@ -23064,7 +22550,7 @@
           ]
         },
         {
-          "id": "lesson-43-repeat-state-03",
+          "id": "lesson-42-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is رسالةً in?",
@@ -23110,11 +22596,11 @@
           ]
         },
         {
-          "id": "lesson-43-repeat-read-04",
+          "id": "lesson-42-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read قصة قرأ الولد. Which ending belongs on قصة_؟",
-            "ar": "اقرأ: «قصة قرأ الولد». ما حركة آخر كلمة «قصة»؟"
+            "en": "Read قصة قرأت. Which ending belongs on قصة_؟",
+            "ar": "اقرأ: «قصة قرأت». ما حركة آخر كلمة «قصة»؟"
           },
           "options": [
             {
@@ -23137,7 +22623,7 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "الولد, not قصة, is the subject here, even though قصة comes first.",
+                "en": "The raised case (raf) is for the subject, and قصة is a direct object in nasb.",
                 "ar": "لا؛ لأن الرفع يكون للفاعل، و(قصة) مفعول به منصوب."
               }
             },
@@ -23184,8 +22670,8 @@
       }
     },
     {
-      "id": "lesson_44",
-      "order": 44,
+      "id": "lesson_43",
+      "order": 43,
       "title": {
         "en": "Omission of subject and predicate",
         "ar": "حذف المبتدأ أو الخبر"
@@ -23201,7 +22687,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_43"
+        "lesson_42"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -23222,23 +22708,23 @@
           "id": "who-is-diligent",
           "type": "workedExample",
           "title": {
-            "en": "Who is diligent? The student.",
-            "ar": "من المجتهد؟ الطالب."
+            "en": "Who is generous? Muhammad.",
+            "ar": "من الكريم؟ محمد."
           },
           "body": {
-            "en": "مَنِ المُجْتَهِدُ؟ الطَّالِبُ. In the answer, الطالبُ is the topic, and its predicate (مجتهدٌ) is understood from the question, so it is omitted but still implied.",
-            "ar": "«مَنِ المُجْتَهِدُ؟ الطَّالِبُ». في الجواب، «الطالبُ» مبتدأ، وخبره («مجتهدٌ») مفهوم من السؤال، فحُذف مع بقائه مقدَّرًا."
+            "en": "In (محمد كريم), if we ask: «مَنِ الكَرِيمُ؟» the answer is (محمد). It is the topic (mubtada), and its predicate (كريم) is understood from the question, so it is omitted while remaining implied.",
+            "ar": "«من الكريم في قولنا (محمد كريم)؟» الجواب (محمد). وهو مبتدأ، وخبره (كريم) مفهوم من السؤال، فحُذف مع بقائه مقدَّرًا."
           },
           "examples": [
             {
               "id": "who-is-diligent-example",
-              "vocalized": "مَنِ المُجْتَهِدُ؟ الطَّالِبُ",
-              "unvocalized": "من المجتهد؟ الطالب",
+              "vocalized": "مَنِ الكَرِيمُ؟ مُحَمَّدٌ",
+              "unvocalized": "من الكريم؟ محمد",
               "tokens": [
                 {
-                  "text": "المجتهد",
+                  "text": "الكريم",
                   "start": 3,
-                  "end": 10,
+                  "end": 9,
                   "role": {
                     "en": "Predicate (khabar), in the question",
                     "ar": "خبر، في السؤال"
@@ -23250,14 +22736,14 @@
                   },
                   "ending": "ُ",
                   "reason": {
-                    "en": "المجتهد is the predicate of the question, telling us what quality is being asked about.",
-                    "ar": "«المجتهد» خبر السؤال، يدل على الصفة المسؤول عنها."
+                    "en": "الكريم is the predicate of the question, asking about the one described as generous (محمد).",
+                    "ar": "(الكريم) خبر السؤال، لأنه يخبر عن (محمد)."
                   }
                 },
                 {
-                  "text": "الطالب",
-                  "start": 12,
-                  "end": 18,
+                  "text": "محمد",
+                  "start": 11,
+                  "end": 15,
                   "role": {
                     "en": "Topic (mubtada), in the answer, with an omitted but understood predicate",
                     "ar": "مبتدأ، في الجواب، خبره محذوف مفهوم"
@@ -23267,10 +22753,10 @@
                     "en": "Visible damma",
                     "ar": "الضمة الظاهرة"
                   },
-                  "ending": "ُ",
+                  "ending": "ٌ",
                   "reason": {
-                    "en": "الطالب is the topic of the short answer; its predicate (مجتهدٌ) is understood from the question and omitted.",
-                    "ar": "«الطالب» مبتدأ الجواب القصير؛ وخبره («مجتهدٌ») مفهوم من السؤال ومحذوف."
+                    "en": "محمد is the topic and its predicate (كريم) is understood from the question and omitted.",
+                    "ar": "(محمد) مبتدأ وخبره (كريم) مفهوم من السؤال ومحذوف."
                   }
                 }
               ]
@@ -23280,18 +22766,18 @@
       ],
       "exercises": [
         {
-          "id": "lesson-44-rule-01",
+          "id": "lesson-43-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In the answer الطالبُ (to من المجتهد؟), what is understood but not stated?",
-            "ar": "في الجواب «الطالبُ» (عن «من المجتهد؟»)، ما المفهوم غير المذكور؟"
+            "en": "In the sentence (محمد كريم), we can ask: من الكريم؟ and the answer is (محمد). What is understood but not stated?",
+            "ar": "في جملة (محمد كريم) يمكن أن نسأل: من الكريم؟ والجواب: (محمد). ما المفهوم غير المذكور؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "The predicate مجتهدٌ",
-                "ar": "الخبر «مجتهدٌ»"
+                "en": "The predicate (كريم)",
+                "ar": "الخبر (كريم)"
               },
               "isCorrect": true,
               "feedback": {
@@ -23308,29 +22794,29 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No verb is involved in this nominal sentence at all.",
-                "ar": "لا يوجد فعل في هذه الجملة الاسمية أصلًا."
+                "ar": "لا؛ لأنه لا يوجد فعل في هذه الجملة الاسمية أصلًا."
               }
             },
             {
               "id": "wrong-nothing",
               "label": {
-                "en": "Nothing is missing",
+                "en": "Nothing is omitted",
                 "ar": "لا شيء محذوف"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "The short answer الطالب only makes sense as a topic with an implied predicate.",
-                "ar": "الجواب القصير «الطالب» لا يستقيم معناه إلا مبتدأ له خبر مقدَّر."
+                "en": "The answer (محمد) only makes sense as a topic with an implied predicate.",
+                "ar": "لا؛ لأن الجواب (محمد) لا يستقيم معناه إلا مبتدأ له خبر مقدَّر."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-state-02",
+          "id": "lesson-43-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الطالبُ in, in the answer الطالب (short for الطالبُ مجتهدٌ)?",
-            "ar": "ما حالة «الطالبُ» في الجواب (اختصارًا لـ«الطالبُ مجتهدٌ»)؟"
+            "en": "What state is (محمد) in, in the answer (short for محمد كريم)?",
+            "ar": "ما حالة (محمد) في الجواب (اختصارًا لـ«محمد كريم»)؟"
           },
           "options": [
             {
@@ -23341,8 +22827,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الطالب is the topic, so it is in raf, even with its predicate omitted.",
-                "ar": "صحيح. «الطالب» مبتدأ، فهو مرفوع، حتى مع حذف خبره."
+                "en": "Correct. (محمد) is the topic, so it is in raf, even with its predicate omitted.",
+                "ar": "صحيح. (محمد) مبتدأ، فهو مرفوع، حتى مع حذف خبره."
               }
             },
             {
@@ -23354,7 +22840,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "The topic is not nasb in this basic pattern.",
-                "ar": "المبتدأ ليس منصوبًا في هذا النمط البسيط."
+                "ar": "لا؛ لأن المبتدأ ليس منصوبًا في هذا النمط البسيط."
               }
             },
             {
@@ -23365,18 +22851,18 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing governs الطالب into jarr.",
-                "ar": "لا يوجد ما يجر «الطالب»."
+                "en": "Nothing governs (محمد) into jarr.",
+                "ar": "لا؛ لأنه لا يوجد ما يجر (محمد)."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-role-03",
+          "id": "lesson-43-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "In the question من المجتهد؟, what is المجتهدُ's role؟",
-            "ar": "في السؤال «من المجتهد؟»، ما وظيفة «المجتهدُ»؟"
+            "en": "In the question من الكريم؟, what is the role of (كريم)؟",
+            "ar": "في السؤال «من الكريم؟»، ما وظيفة (كريم)؟"
           },
           "options": [
             {
@@ -23387,8 +22873,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. المجتهد is the predicate of من in this question.",
-                "ar": "صحيح. «المجتهد» خبر «من» في هذا السؤال."
+                "en": "Correct. (كريم) is the predicate of من in this question.",
+                "ar": "صحيح. (كريم) خبر «من» في هذا السؤال."
               }
             },
             {
@@ -23400,7 +22886,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به."
+                "ar": "لا؛ لأنه لا يوجد هنا فعل يحتاج مفعولًا به."
               }
             },
             {
@@ -23411,54 +22897,54 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "There is no idafa here.",
-                "ar": "لا توجد إضافة هنا."
+                "en": "It is not preceded by a mudaf.",
+                "ar": "لا؛ لأنه لم يسبق بمضاف."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-read-04",
+          "id": "lesson-43-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read (question) من الناجح؟ (answer) الطالبة. Which ending belongs on الطالبة_؟",
-            "ar": "اقرأ (السؤال) «من الناجح؟» (والجواب) «الطالبة». ما حركة آخر «الطالبة»؟"
+            "en": "Read: (question) من الناجح؟ (answer) (محمد). Which ending belongs on (محمد)؟",
+            "ar": "اقرأ: (السؤال) «من الناجح؟» (والجواب) (محمد). ما حركة آخر (محمد)؟"
           },
           "options": [
             {
               "id": "raf",
               "label": {
-                "en": "الطَّالِبَةُ",
-                "ar": "الطَّالِبَةُ"
+                "en": "مُحَمَّدٌ",
+                "ar": "مُحَمَّدٌ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الطالبة is the topic, with its predicate (ناجحةٌ) omitted but understood.",
-                "ar": "صحيح. «الطالبة» مبتدأ، خبرها («ناجحةٌ») محذوف مفهوم."
+                "en": "Correct. (محمد) is the topic, with its predicate ناجح omitted but understood.",
+                "ar": "صحيح. (محمد) مبتدأ، خبره «ناجح» محذوف مفهوم."
               }
             },
             {
               "id": "nasb",
               "label": {
-                "en": "الطَّالِبَةَ",
-                "ar": "الطَّالِبَةَ"
+                "en": "مُحَمَّدًا",
+                "ar": "مُحَمَّدًا"
               },
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object in nasb.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
+                "ar": "لا؛ لأنه لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
               }
             },
             {
               "id": "jarr",
               "label": {
-                "en": "الطَّالِبَةِ",
-                "ar": "الطَّالِبَةِ"
+                "en": "مُحَمَّدٍ",
+                "ar": "مُحَمَّدٍ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition governs الطالبة here.",
-                "ar": "لا يسبق «الطالبة» حرف جر هنا."
+                "en": "There is no cause for jarr here.",
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -23466,18 +22952,18 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-44-repeat-rule-01",
+          "id": "lesson-43-repeat-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In the answer المديرُ (to من المسؤول؟), what is understood but not stated?",
-            "ar": "في الجواب «المديرُ» (عن «من المسؤول؟»)، ما المفهوم غير المذكور؟"
+            "en": "Sentence: المدير في مكتبه. Question: من الذي في مكتبه؟ Answer: (المدير). What is understood but not stated?",
+            "ar": "جملة: المدير في مكتبه. السؤال: «من الذي في مكتبه؟» الجواب: (المدير). ما المفهوم غير المذكور؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "The predicate المسؤولُ",
-                "ar": "الخبر «المسؤولُ»"
+                "en": "The predicate (في مكتبه)",
+                "ar": "الخبر (في مكتبه)"
               },
               "isCorrect": true,
               "feedback": {
@@ -23494,25 +22980,25 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No verb is involved in this nominal sentence at all.",
-                "ar": "لا يوجد فعل في هذه الجملة الاسمية أصلًا."
+                "ar": "لا؛ لأنه لا يوجد فعل في هذه الجملة الاسمية أصلًا."
               }
             },
             {
               "id": "wrong-nothing",
               "label": {
-                "en": "Nothing is missing",
+                "en": "Nothing is omitted",
                 "ar": "لا شيء محذوف"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "The short answer المدير only makes sense as a topic with an implied predicate.",
-                "ar": "الجواب القصير «المدير» لا يستقيم معناه إلا مبتدأ له خبر مقدَّر."
+                "en": "The answer المدير only makes sense as a topic with an implied predicate.",
+                "ar": "لا؛ لأن الجواب «المدير» لا يستقيم معناه إلا مبتدأ له خبر مقدَّر."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-repeat-state-02",
+          "id": "lesson-43-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is المديرُ in, in the answer?",
@@ -23540,7 +23026,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "The topic is not nasb in this basic pattern.",
-                "ar": "المبتدأ ليس منصوبًا في هذا النمط البسيط."
+                "ar": "لا؛ لأن المبتدأ ليس منصوبًا في هذا النمط البسيط."
               }
             },
             {
@@ -23552,17 +23038,17 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Nothing governs المدير into jarr.",
-                "ar": "لا يوجد ما يجر «المدير»."
+                "ar": "لا؛ لأنه لا يوجد ما يجر كلمة «المدير»."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-repeat-role-03",
+          "id": "lesson-43-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "In the question من المسؤول؟, what is المسؤولُ's role؟",
-            "ar": "في السؤال «من المسؤول؟»، ما وظيفة «المسؤولُ»؟"
+            "en": "In the sentence (المدير في مكتبه), what is the role of (في مكتبه)؟",
+            "ar": "في عبارة (المدير في مكتبه)، ما وظيفة (في مكتبه)؟"
           },
           "options": [
             {
@@ -23573,8 +23059,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. المسؤول is the predicate of من in this question.",
-                "ar": "صحيح. «المسؤول» خبر «من» في هذا السؤال."
+                "en": "Correct; because it gives information about the topic (المدير).",
+                "ar": "صحيح؛ لأنها أخبرت عن المبتدأ (المدير)."
               }
             },
             {
@@ -23586,7 +23072,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به."
+                "ar": "لا؛ لأنه لا يوجد هنا فعل يحتاج مفعولًا به."
               }
             },
             {
@@ -23597,18 +23083,18 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "There is no idafa here.",
-                "ar": "لا توجد إضافة هنا."
+                "en": "It is not preceded by a mudaf.",
+                "ar": "لا؛ لأنه لم يسبق بمضاف."
               }
             }
           ]
         },
         {
-          "id": "lesson-44-repeat-read-04",
+          "id": "lesson-43-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read (question) من الفائز؟ (answer) العامل. Which ending belongs on العامل_؟",
-            "ar": "اقرأ (السؤال) «من الفائز؟» (والجواب) «العامل». ما حركة آخر «العامل»؟"
+            "en": "(العامل هو الفائز) Read (question) من الفائز؟ (answer) العامل. Which ending belongs on العامل_؟",
+            "ar": "(العامل هو الفائز) اقرأ (السؤال) «من الفائز؟» (والجواب) «العامل». ما حركة آخر «العامل»؟"
           },
           "options": [
             {
@@ -23632,7 +23118,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object in nasb.",
-                "ar": "لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
+                "ar": "لا؛ لأنه لا يوجد هنا فعل يحتاج مفعولًا به منصوبًا."
               }
             },
             {
@@ -23643,8 +23129,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition governs العامل here.",
-                "ar": "لا يسبق «العامل» حرف جر هنا."
+                "en": "There is no cause for jarr here.",
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -23678,8 +23164,8 @@
       }
     },
     {
-      "id": "lesson_45",
-      "order": 45,
+      "id": "lesson_44",
+      "order": 44,
       "title": {
         "en": "Conditional sentences",
         "ar": "أسلوب الشرط"
@@ -23695,7 +23181,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_44"
+        "lesson_43"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -23812,7 +23298,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-45-role-01",
+          "id": "lesson-44-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is فعل الشرط in إذا اجتهد الطالب نجح؟",
@@ -23858,7 +23344,7 @@
           ]
         },
         {
-          "id": "lesson-45-role-02",
+          "id": "lesson-44-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is جواب الشرط in إذا اجتهد الطالب نجح؟",
@@ -23904,7 +23390,7 @@
           ]
         },
         {
-          "id": "lesson-45-rule-03",
+          "id": "lesson-44-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which conditional particle jazms both the شرط and جواب الشرط verbs when they are present tense؟",
@@ -23950,7 +23436,7 @@
           ]
         },
         {
-          "id": "lesson-45-read-04",
+          "id": "lesson-44-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read إن يجتهد الطالب ينجح. Which ending belongs on ينجح_ (جواب الشرط)؟",
@@ -23998,7 +23484,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-45-repeat-role-01",
+          "id": "lesson-44-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is فعل الشرط in إذا سافر الرجل استراح؟",
@@ -24044,7 +23530,7 @@
           ]
         },
         {
-          "id": "lesson-45-repeat-role-02",
+          "id": "lesson-44-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is جواب الشرط in إذا سافر الرجل استراح؟",
@@ -24090,7 +23576,7 @@
           ]
         },
         {
-          "id": "lesson-45-repeat-rule-03",
+          "id": "lesson-44-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which conditional particle is typically followed by a jazm-marked present verb in both clauses؟",
@@ -24136,7 +23622,7 @@
           ]
         },
         {
-          "id": "lesson-45-repeat-read-04",
+          "id": "lesson-44-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read إن يدرس الطالب يفهم. Which ending belongs on يفهم_ (جواب الشرط)؟",
@@ -24210,8 +23696,8 @@
       }
     },
     {
-      "id": "lesson_46",
-      "order": 46,
+      "id": "lesson_45",
+      "order": 45,
       "title": {
         "en": "Emphasis, restriction, and fronting",
         "ar": "التوكيد والقصر والتقديم"
@@ -24227,7 +23713,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_45"
+        "lesson_44"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -24306,7 +23792,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-46-recognize-01",
+          "id": "lesson-45-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which construction expresses restriction, meaning \"only/nothing but\"؟",
@@ -24352,7 +23838,7 @@
           ]
         },
         {
-          "id": "lesson-46-role-02",
+          "id": "lesson-45-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In ما نجح إلا المجتهد, which word is read as the doer (فاعل), despite following إلا؟",
@@ -24398,7 +23884,7 @@
           ]
         },
         {
-          "id": "lesson-46-state-03",
+          "id": "lesson-45-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is المجتهدُ in, in ما نجح إلا المجتهد؟",
@@ -24444,7 +23930,7 @@
           ]
         },
         {
-          "id": "lesson-46-read-04",
+          "id": "lesson-45-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read ما فاز إلا الصادق. Which ending belongs on الصادق_؟",
@@ -24492,7 +23978,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-46-repeat-recognize-01",
+          "id": "lesson-45-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which particle or phrase most directly signals restriction (\"only\")؟",
@@ -24538,7 +24024,7 @@
           ]
         },
         {
-          "id": "lesson-46-repeat-role-02",
+          "id": "lesson-45-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In ما فاز إلا الصابر, which word is read as the doer, despite following إلا؟",
@@ -24584,7 +24070,7 @@
           ]
         },
         {
-          "id": "lesson-46-repeat-state-03",
+          "id": "lesson-45-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الصابرُ in?",
@@ -24630,7 +24116,7 @@
           ]
         },
         {
-          "id": "lesson-46-repeat-read-04",
+          "id": "lesson-45-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read ما نجح إلا الصابر. Which ending belongs on الصابر_؟",
@@ -24704,8 +24190,8 @@
       }
     },
     {
-      "id": "lesson_47",
-      "order": 47,
+      "id": "lesson_46",
+      "order": 46,
       "title": {
         "en": "Weak verbs",
         "ar": "الأفعال المعتلة"
@@ -24721,7 +24207,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_46"
+        "lesson_45"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -24883,7 +24369,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-47-recognize-01",
+          "id": "lesson-46-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which of these verbs is معتل (contains و, ي, or ا as a root letter)؟",
@@ -24929,7 +24415,7 @@
           ]
         },
         {
-          "id": "lesson-47-state-02",
+          "id": "lesson-46-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is يدعو in, in الولد يدعو صديقه (nothing governs it)؟",
@@ -24975,7 +24461,7 @@
           ]
         },
         {
-          "id": "lesson-47-rule-03",
+          "id": "lesson-46-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "How does jazm affect a weak verb like يدعو, compared to a sound verb like يكتب؟",
@@ -25021,7 +24507,7 @@
           ]
         },
         {
-          "id": "lesson-47-read-04",
+          "id": "lesson-46-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read لم يرم الولد الكرة. Which ending completes يرم_ (jazm, weak verb from رمى)؟",
@@ -25069,7 +24555,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-47-repeat-recognize-01",
+          "id": "lesson-46-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which of these verbs is معتل؟",
@@ -25115,7 +24601,7 @@
           ]
         },
         {
-          "id": "lesson-47-repeat-state-02",
+          "id": "lesson-46-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is يمشي in, in الرجل يمشي إلى العمل؟",
@@ -25161,7 +24647,7 @@
           ]
         },
         {
-          "id": "lesson-47-repeat-rule-03",
+          "id": "lesson-46-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "What typically happens to a weak final letter (و, ي, or ا) when its verb takes jazm؟",
@@ -25207,7 +24693,7 @@
           ]
         },
         {
-          "id": "lesson-47-repeat-read-04",
+          "id": "lesson-46-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read لم يدع الرجل صديقه. Which ending completes يدع_ (jazm)؟",
@@ -25281,8 +24767,8 @@
       }
     },
     {
-      "id": "lesson_48",
-      "order": 48,
+      "id": "lesson_47",
+      "order": 47,
       "title": {
         "en": "Classical particles",
         "ar": "حروف وأساليب فصيحة"
@@ -25298,7 +24784,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_47"
+        "lesson_46"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -25441,7 +24927,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-48-recognize-01",
+          "id": "lesson-47-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which particle expresses a wish (\"I wish...\") and, like إنّ, puts the following noun in nasb؟",
@@ -25487,7 +24973,7 @@
           ]
         },
         {
-          "id": "lesson-48-state-02",
+          "id": "lesson-47-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الوقتَ in, in ليت الوقت يعود؟",
@@ -25533,7 +25019,7 @@
           ]
         },
         {
-          "id": "lesson-48-role-03",
+          "id": "lesson-47-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In لولا الصبر لضاع الحق, which word is مبتدأ (with its predicate obligatorily omitted)؟",
@@ -25579,7 +25065,7 @@
           ]
         },
         {
-          "id": "lesson-48-read-04",
+          "id": "lesson-47-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read لعل الجهد ينفع. Which ending belongs on الجهد_؟",
@@ -25627,7 +25113,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-48-repeat-recognize-01",
+          "id": "lesson-47-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "Which particle expresses hope (\"perhaps\") and, like إنّ, puts the following noun in nasb؟",
@@ -25673,7 +25159,7 @@
           ]
         },
         {
-          "id": "lesson-48-repeat-state-02",
+          "id": "lesson-47-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الشبابَ in, in ليت الشباب يعود؟",
@@ -25719,7 +25205,7 @@
           ]
         },
         {
-          "id": "lesson-48-repeat-role-03",
+          "id": "lesson-47-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In لولا العلم لضل الإنسان, which word is مبتدأ (with its predicate obligatorily omitted)؟",
@@ -25765,7 +25251,7 @@
           ]
         },
         {
-          "id": "lesson-48-repeat-read-04",
+          "id": "lesson-47-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read ليت الفرصة تعود. Which ending belongs on الفرصة_؟",
@@ -25839,8 +25325,8 @@
       }
     },
     {
-      "id": "lesson_49",
-      "order": 49,
+      "id": "lesson_48",
+      "order": 48,
       "title": {
         "en": "Waqf and wasl",
         "ar": "الوصل والوقف"
@@ -25856,7 +25342,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_48"
+        "lesson_47"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -25935,7 +25421,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-49-recognize-01",
+          "id": "lesson-48-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "What happens to a word's final short vowel or tanwin when we pause (وقف) at it؟",
@@ -25981,7 +25467,7 @@
           ]
         },
         {
-          "id": "lesson-49-state-02",
+          "id": "lesson-48-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "In الطالب مجتهد read with وصل (continuing), what state (and audible ending) does مجتهدٌ have؟",
@@ -26027,7 +25513,7 @@
           ]
         },
         {
-          "id": "lesson-49-rule-03",
+          "id": "lesson-48-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Pausing (وقف) changes the ______ of a word, not necessarily its underlying grammatical state.",
@@ -26073,7 +25559,7 @@
           ]
         },
         {
-          "id": "lesson-49-read-04",
+          "id": "lesson-48-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "If you pause after باردٌ in الجو باردٌ (وقف), how is the final letter pronounced؟",
@@ -26121,7 +25607,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-49-repeat-recognize-01",
+          "id": "lesson-48-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "At a pause (وقف), what typically happens to a final tanwin (like ٌ or ً)؟",
@@ -26167,7 +25653,7 @@
           ]
         },
         {
-          "id": "lesson-49-repeat-state-02",
+          "id": "lesson-48-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "In البيت واسع read with وصل, what state (and audible ending) does واسعٌ have؟",
@@ -26213,7 +25699,7 @@
           ]
         },
         {
-          "id": "lesson-49-repeat-rule-03",
+          "id": "lesson-48-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Waqf changes how a word is pronounced at the pause, but not its ______.",
@@ -26259,7 +25745,7 @@
           ]
         },
         {
-          "id": "lesson-49-repeat-read-04",
+          "id": "lesson-48-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "If you pause after جميلٌ in الجو جميلٌ (وقف), how is the final letter pronounced؟",
@@ -26333,8 +25819,8 @@
       }
     },
     {
-      "id": "lesson_50",
-      "order": 50,
+      "id": "lesson_49",
+      "order": 49,
       "title": {
         "en": "Guided classical passage",
         "ar": "نص فصيح موجَّه"
@@ -26350,7 +25836,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_49"
+        "lesson_48"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -26505,7 +25991,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-50-state-01",
+          "id": "lesson-49-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الاجتهادُ in, in إنما الاجتهاد مفتاح النجاح؟",
@@ -26551,7 +26037,7 @@
           ]
         },
         {
-          "id": "lesson-50-role-02",
+          "id": "lesson-49-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is جواب الشرط in من يصبر يظفر؟",
@@ -26597,7 +26083,7 @@
           ]
         },
         {
-          "id": "lesson-50-state-03",
+          "id": "lesson-49-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is كلَّ in, after ليت؟",
@@ -26643,7 +26129,7 @@
           ]
         },
         {
-          "id": "lesson-50-read-04",
+          "id": "lesson-49-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read وليت كل إنسان يعلم ذلك. Which ending belongs on إنسان_ (مضاف إليه)؟",
@@ -26691,7 +26177,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-50-repeat-state-01",
+          "id": "lesson-49-repeat-state-01",
           "type": "identifyState",
           "prompt": {
             "en": "What state is العدلُ in, in إنما العدل أساس الأمن؟",
@@ -26737,7 +26223,7 @@
           ]
         },
         {
-          "id": "lesson-50-repeat-role-02",
+          "id": "lesson-49-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word is جواب الشرط in من يعدل يحبب؟",
@@ -26783,7 +26269,7 @@
           ]
         },
         {
-          "id": "lesson-50-repeat-state-03",
+          "id": "lesson-49-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is كلَّ in, after ليت؟",
@@ -26829,7 +26315,7 @@
           ]
         },
         {
-          "id": "lesson-50-repeat-read-04",
+          "id": "lesson-49-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read وليت كل حاكم يفهم ذلك. Which ending belongs on حاكم_ (مضاف إليه)؟",
@@ -26903,8 +26389,8 @@
       }
     },
     {
-      "id": "lesson_51",
-      "order": 51,
+      "id": "lesson_50",
+      "order": 50,
       "title": {
         "en": "Level 6 mastery project",
         "ar": "مشروع إتقان المستوى السادس"
@@ -26920,7 +26406,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_50"
+        "lesson_49"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -27113,7 +26599,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-51-role-01",
+          "id": "lesson-50-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In لولا الأمل لما سعى إنسان, which word is مبتدأ لولا (its predicate obligatorily omitted)؟",
@@ -27159,7 +26645,7 @@
           ]
         },
         {
-          "id": "lesson-51-state-02",
+          "id": "lesson-50-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is مرادَهُ in, in فمن يجتهد يبلغ مراده (object)؟",
@@ -27205,7 +26691,7 @@
           ]
         },
         {
-          "id": "lesson-51-state-03",
+          "id": "lesson-50-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is الصبرِ in, after the idafa in ثمرة الصبر؟",
@@ -27251,7 +26737,7 @@
           ]
         },
         {
-          "id": "lesson-51-rule-04",
+          "id": "lesson-50-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim about إنما النجاح ثمرة الصبر is most defensible؟",
@@ -27299,7 +26785,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-51-repeat-role-01",
+          "id": "lesson-50-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In لولا الحرص لما نجح عامل, which word is مبتدأ لولا؟",
@@ -27345,7 +26831,7 @@
           ]
         },
         {
-          "id": "lesson-51-repeat-state-02",
+          "id": "lesson-50-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is غايتَهُ in, in فمن يجتهد يبلغ غايته؟",
@@ -27391,7 +26877,7 @@
           ]
         },
         {
-          "id": "lesson-51-repeat-state-03",
+          "id": "lesson-50-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is المثابرةِ in, after the idafa in ثمرة المثابرة؟",
@@ -27437,7 +26923,7 @@
           ]
         },
         {
-          "id": "lesson-51-repeat-rule-04",
+          "id": "lesson-50-repeat-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim about إنما التفوق ثمرة المثابرة is most defensible؟",
@@ -27511,8 +26997,8 @@
       }
     },
     {
-      "id": "lesson_52",
-      "order": 52,
+      "id": "lesson_51",
+      "order": 51,
       "title": {
         "en": "Al-kalam: its definition and its unit",
         "ar": "الكلام: تعريفه ووحدته"
@@ -27528,7 +27014,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_51"
+        "lesson_50"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -27766,7 +27252,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-52-role-01",
+          "id": "lesson-51-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In كلامنا لفظ مفيد كاستقم, what is كلامنا's role?",
@@ -27812,7 +27298,7 @@
           ]
         },
         {
-          "id": "lesson-52-state-02",
+          "id": "lesson-51-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is مفيدٌ in (as the adjective of لفظ)?",
@@ -27858,7 +27344,7 @@
           ]
         },
         {
-          "id": "lesson-52-rule-03",
+          "id": "lesson-51-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, what three word-kinds together make up الكلم؟",
@@ -27904,7 +27390,7 @@
           ]
         },
         {
-          "id": "lesson-52-read-04",
+          "id": "lesson-51-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read واسم وفعل ثم حرف الكلم. Which ending completes حرف_ (coordinated with اسم and فعل)?",
@@ -27952,7 +27438,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-52-repeat-role-01",
+          "id": "lesson-51-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In كلامنا لفظ مفيد كاستقم, what is لفظٌ's role?",
@@ -27998,7 +27484,7 @@
           ]
         },
         {
-          "id": "lesson-52-repeat-state-02",
+          "id": "lesson-51-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is كلامنا in?",
@@ -28044,7 +27530,7 @@
           ]
         },
         {
-          "id": "lesson-52-repeat-rule-03",
+          "id": "lesson-51-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which word in the verse serves as Ibn Malik's own example of a meaningful (mufid) utterance?",
@@ -28090,7 +27576,7 @@
           ]
         },
         {
-          "id": "lesson-52-repeat-read-04",
+          "id": "lesson-51-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read واسم وفعل ثم حرف الكلم. Which ending completes فعل_ (coordinated with اسم)?",
@@ -28181,8 +27667,8 @@
       }
     },
     {
-      "id": "lesson_53",
-      "order": 53,
+      "id": "lesson_52",
+      "order": 52,
       "title": {
         "en": "Signs of the noun",
         "ar": "علامات الاسم"
@@ -28198,7 +27684,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_52"
+        "lesson_51"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -28334,7 +27820,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-53-recognize-01",
+          "id": "lesson-52-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, which of these is one of the signs that identify a noun?",
@@ -28380,7 +27866,7 @@
           ]
         },
         {
-          "id": "lesson-53-state-02",
+          "id": "lesson-52-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state are الجر, التنوين, الندا, ال, and مسند all in within this verse?",
@@ -28426,7 +27912,7 @@
           ]
         },
         {
-          "id": "lesson-53-role-03",
+          "id": "lesson-52-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word in the verse is joined (ma'tuf) to الجر by و?",
@@ -28472,7 +27958,7 @@
           ]
         },
         {
-          "id": "lesson-53-read-04",
+          "id": "lesson-52-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل. Which ending completes مسند_ (joined to the signs before it)?",
@@ -28520,7 +28006,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-53-repeat-recognize-01",
+          "id": "lesson-52-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, which of these is one of the signs that identify a noun?",
@@ -28566,7 +28052,7 @@
           ]
         },
         {
-          "id": "lesson-53-repeat-state-02",
+          "id": "lesson-52-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is التنوين in within this verse?",
@@ -28612,7 +28098,7 @@
           ]
         },
         {
-          "id": "lesson-53-repeat-role-03",
+          "id": "lesson-52-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "Which word in the verse is joined (ma'tuf) to الندا by و?",
@@ -28658,7 +28144,7 @@
           ]
         },
         {
-          "id": "lesson-53-repeat-read-04",
+          "id": "lesson-52-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل. Which ending completes التنوين_ (joined to الجر)؟",
@@ -28749,8 +28235,8 @@
       }
     },
     {
-      "id": "lesson_54",
-      "order": 54,
+      "id": "lesson_53",
+      "order": 53,
       "title": {
         "en": "Signs of the verb",
         "ar": "علامات الفعل"
@@ -28766,7 +28252,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_53"
+        "lesson_52"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -28921,7 +28407,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-54-recognize-01",
+          "id": "lesson-53-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, which of these confirms that a word is a verb?",
@@ -28967,7 +28453,7 @@
           ]
         },
         {
-          "id": "lesson-54-role-02",
+          "id": "lesson-53-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In this verse, which word is the topic (mubtada) that the four signs collectively identify?",
@@ -29013,7 +28499,7 @@
           ]
         },
         {
-          "id": "lesson-54-state-03",
+          "id": "lesson-53-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is فعلٌ in, in this verse?",
@@ -29059,7 +28545,7 @@
           ]
         },
         {
-          "id": "lesson-54-read-04",
+          "id": "lesson-53-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بتا فعلت وأتت ويا افعلي ونون أقبلن فعل ينجلي. Which ending completes نون_ (coordinated with the signs before it)؟",
@@ -29107,7 +28593,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-54-repeat-recognize-01",
+          "id": "lesson-53-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, which of these confirms that a word is a verb?",
@@ -29153,7 +28639,7 @@
           ]
         },
         {
-          "id": "lesson-54-repeat-role-02",
+          "id": "lesson-53-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In this verse, which word is the predicate clause telling us what فعل does?",
@@ -29199,7 +28685,7 @@
           ]
         },
         {
-          "id": "lesson-54-repeat-state-03",
+          "id": "lesson-53-repeat-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is تا in, in this verse (as one of the four signs)?",
@@ -29245,7 +28731,7 @@
           ]
         },
         {
-          "id": "lesson-54-repeat-read-04",
+          "id": "lesson-53-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بتا فعلت وأتت ويا افعلي ونون أقبلن فعل ينجلي. Which ending completes فعل_ (topic of the whole verse)؟",
@@ -29336,8 +28822,8 @@
       }
     },
     {
-      "id": "lesson_55",
-      "order": 55,
+      "id": "lesson_54",
+      "order": 54,
       "title": {
         "en": "The particle: defined by exclusion",
         "ar": "الحرف: التعريف بالاستبعاد"
@@ -29353,7 +28839,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_54"
+        "lesson_53"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -29361,12 +28847,12 @@
           "id": "particle-by-exclusion-intro",
           "type": "introduction",
           "title": {
-            "en": "A third category, by elimination",
-            "ar": "قسم ثالث بطريق الحذف"
+            "en": "A third category, by exclusion",
+            "ar": "قسم ثالث بطريق الاستبعاد"
           },
           "body": {
-            "en": "Unlike الاسم and الفعل, الحرف has no positive signs of its own in Ibn Malik's system: a word is a particle simply because it fails every test for a noun (jarr, tanwin, vocative, ال, musnad) and every test for a verb (تاء الفاعل, تاء التأنيث الساكنة, يا المخاطبة, نون التوكيد).",
-            "ar": "بخلاف الاسم والفعل، لا توجد للحرف علامات إيجابية خاصة به عند ابن مالك: فالكلمة حرف لمجرد أنها لا تقبل أي علامة من علامات الأسماء (الجر والتنوين والنداء وأل والإسناد) ولا أي علامة من علامات الأفعال (تاء الفاعل وتاء التأنيث الساكنة وياء المخاطبة ونون التوكيد)."
+            "en": "Unlike الاسم and الفعل, الحرف has no special signs of its own: a word is a particle simply because it accepts none of the signs of nouns (jarr, tanwin, vocative, ال, predication) and none of the signs of verbs (تاء الفاعل, تاء التأنيث الساكنة, ياء المخاطبة, نون التوكيد).",
+            "ar": "الحرف بخلاف الاسم والفعل، لأنه لا توجد للحرف علامات خاصة به، فالكلمة حرف لمجرد أنها لا تقبل أي علامة من علامات الأسماء (الجر والتنوين والنداء وأل والإسناد) ولا أي علامة من علامات الأفعال (تاء الفاعل وتاء التأنيث الساكنة وياء المخاطبة ونون التوكيد)."
           },
           "examples": []
         },
@@ -29378,8 +28864,8 @@
             "ar": "مذكور ثالثًا في البيت الافتتاحي"
           },
           "body": {
-            "en": "وَاسْمٌ وَفِعْلٌ ثُمَّ حَرْفٌ الْكَلِمْ — the same second hemistich from lesson 52, quoted again from Alfiyyat Ibn Malik (public domain). حرفٌ is named third, after اسمٌ and فعلٌ have already been tested for and ruled out.",
-            "ar": "«وَاسْمٌ وَفِعْلٌ ثُمَّ حَرْفٌ الْكَلِمْ» — الشطر الثاني نفسه من الدرس ٥٢، من ألفية ابن مالك (نص عام). ذُكر «حرفٌ» ثالثًا، بعد أن يكون اختبارا الاسم والفعل قد استُبعدا."
+            "en": "Ibn Malik said: سِوَاهُمَا الْحَرْفُ كَهَلْ وَفِي وَلَمْ, and also in stating the parts of speech: وَاسْمٌ وَفِعْلٌ ثُمَّ حَرْفٌ الْكَلِمْ. The third category of words is الحرف, which is whatever accepts neither the signs of a noun nor the signs of a verb.",
+            "ar": "قال ابن مالك: «سواهما الحرف كهل وفي ولم»، وقال أيضًا في بيان أقسام الكلمة: «وَاسْمٌ وَفِعْلٌ ثُمَّ حَرْفٌ الْكَلِمْ». القسم الثالث من أقسام الكلمة «الحرف»، وهو ما لا يقبل علامات الاسم، ولا علامات الفعل."
           },
           "examples": [
             {
@@ -29392,8 +28878,8 @@
                   "start": 1,
                   "end": 4,
                   "role": {
-                    "en": "First listed word-kind (tested for first)",
-                    "ar": "أول قسم مذكور (يُختبر له أولًا)"
+                    "en": "Fronted predicate (khabar muqaddam) of (الكلم)",
+                    "ar": "خبر مقدم لـ(الكلم)"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -29402,8 +28888,8 @@
                   },
                   "ending": "ٌ",
                   "reason": {
-                    "en": "اسم is checked first, using the five noun signs from the previous lesson.",
-                    "ar": "«اسم» يُختبر أولًا، بعلامات الاسم الخمس من الدرس السابق."
+                    "en": "It gives the predicate about the delayed topic (الكلم).",
+                    "ar": "يخبر بها عن المبتدأ (الكلم)."
                   }
                 },
                 {
@@ -29411,8 +28897,8 @@
                   "start": 6,
                   "end": 9,
                   "role": {
-                    "en": "Second listed word-kind (tested for second)",
-                    "ar": "القسم الثاني (يُختبر له ثانيًا)"
+                    "en": "Coordinated with the preceding word",
+                    "ar": "معطوف على ما قبله"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -29421,8 +28907,8 @@
                   },
                   "ending": "ٌ",
                   "reason": {
-                    "en": "فعل is checked second, using the four verb signs from this level's previous lesson.",
-                    "ar": "«فعل» يُختبر ثانيًا، بعلامات الفعل الأربع من الدرس السابق في هذا المستوى."
+                    "en": "The conjunction (و) carries the grammatical ruling from the first word to the coordinated word.",
+                    "ar": "حرف العطف (و) ينقل الحكم من المعطوف عليه للمعطوف."
                   }
                 },
                 {
@@ -29430,8 +28916,8 @@
                   "start": 13,
                   "end": 16,
                   "role": {
-                    "en": "Third word-kind, identified only once the first two tests both fail",
-                    "ar": "القسم الثالث، ولا يتقرر إلا بعد فشل الاختبارين الأولين"
+                    "en": "Coordinated with the preceding word",
+                    "ar": "معطوف على ما قبله"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -29440,8 +28926,8 @@
                   },
                   "ending": "ٌ",
                   "reason": {
-                    "en": "حرف is only reached last: a word earns this label precisely by not being an اسم or a فعل.",
-                    "ar": "لا يُتوصَّل إلى «حرف» إلا أخيرًا: فالكلمة تستحق هذا الاسم لأنها ببساطة ليست اسمًا ولا فعلًا."
+                    "en": "The conjunction (ثم) carries the grammatical ruling from the preceding word to the coordinated word.",
+                    "ar": "حرف العطف (ثم) ينقل الحكم من المعطوف عليه للمعطوف."
                   }
                 }
               ]
@@ -29451,7 +28937,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-55-recognize-01",
+          "id": "lesson-54-recognize-01",
           "type": "matchRule",
           "prompt": {
             "en": "According to Ibn Malik's system, how is a word confirmed to be a حرف?",
@@ -29461,47 +28947,47 @@
             {
               "id": "correct",
               "label": {
-                "en": "It fails every noun sign and every verb sign",
-                "ar": "بأن تفشل في كل علامات الاسم وكل علامات الفعل"
+                "en": "By accepting neither the signs of nouns nor the signs of verbs",
+                "ar": "بأن لا تقبل الكلمة علامات الأسماء، ولا علامات الأفعال"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. الحرف has no positive test of its own; it is identified by exclusion.",
-                "ar": "صحيح. لا يوجد للحرف اختبار إيجابي خاص به؛ بل يُعرف بالاستبعاد."
+                "en": "Correct; a particle has no special sign of its own.",
+                "ar": "صحيح؛ فليس للحرف علامة."
               }
             },
             {
               "id": "wrong-jarr",
               "label": {
-                "en": "It accepts jarr",
+                "en": "By accepting jarr",
                 "ar": "بأن تقبل الجر"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Accepting jarr is a sign of a noun, the opposite of how a particle is identified.",
-                "ar": "قبول الجر علامة الاسم، وهو عكس ما يعرّف به الحرف."
+                "en": "No; accepting jarr is a sign of a noun.",
+                "ar": "لا؛ لأن قبول الجر علامة للاسم."
               }
             },
             {
               "id": "wrong-nun",
               "label": {
-                "en": "It accepts نون التوكيد",
+                "en": "By accepting نون التوكيد",
                 "ar": "بأن تقبل نون التوكيد"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Accepting نون التوكيد is a sign of a verb, the opposite of how a particle is identified.",
-                "ar": "قبول نون التوكيد علامة الفعل، وهو عكس ما يعرّف به الحرف."
+                "en": "No; accepting نون التوكيد is a sign of a verb.",
+                "ar": "لا؛ لأن قبول نون التوكيد علامة للفعل."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-role-02",
+          "id": "lesson-54-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In واسم وفعل ثم حرف الكلم, which word is named third, after the two other word-kinds have been ruled out?",
-            "ar": "في «واسم وفعل ثم حرف الكلم»، أي كلمة ذُكرت ثالثة، بعد استبعاد القسمين الآخرين؟"
+            "en": "In Ibn Malik's statement واسم وفعل ثم حرف الكلم, what is the third category of words?",
+            "ar": "في قول ابن مالك: «واسم وفعل ثم حرف الكلم»، ما القسم الثالث للكلمة؟"
           },
           "options": [
             {
@@ -29512,8 +28998,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. حرف comes last in the verse, after اسم and فعل.",
-                "ar": "صحيح. «حرف» يأتي أخيرًا في البيت، بعد «اسم» و«فعل»."
+                "en": "Correct. حرف is the third category of words.",
+                "ar": "صحيح. «حرف» هو القسم الثالث للكلمة."
               }
             },
             {
@@ -29524,8 +29010,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "اسم is named first, not third.",
-                "ar": "«اسم» يُذكر أولًا، لا ثالثًا."
+                "en": "No; الاسم is the first category.",
+                "ar": "لا؛ لأن «الاسم» هو القسم الأول."
               }
             },
             {
@@ -29536,14 +29022,14 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "فعل is named second, not third.",
-                "ar": "«فعل» يُذكر ثانيًا، لا ثالثًا."
+                "en": "No; الفعل is the second category.",
+                "ar": "لا؛ لأن الفعل هو القسم الثاني."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-state-03",
+          "id": "lesson-54-state-03",
           "type": "identifyState",
           "prompt": {
             "en": "What state is حرفٌ in, in this verse (matching اسم and فعل)؟",
@@ -29558,8 +29044,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. حرف is coordinated with اسم and فعل, all listed together in raf.",
-                "ar": "صحيح. «حرف» معطوف على «اسم» و«فعل»، وكلها معًا مرفوعة."
+                "en": "Correct. حرف is coordinated with فعل and is in raf.",
+                "ar": "صحيح. «حرف» معطوف على «فعل» وهو مرفوع."
               }
             },
             {
@@ -29570,8 +29056,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing here governs حرف into nasb; it matches اسم and فعل in raf.",
-                "ar": "لا يوجد هنا ما ينصب «حرف»؛ فهو يطابق «اسم» و«فعل» في الرفع."
+                "en": "No; nothing here governs حرف into nasb.",
+                "ar": "لا؛ لأنه لا يوجد هنا ما ينصب «حرف»."
               }
             },
             {
@@ -29582,18 +29068,18 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition or idafa governs حرف here.",
-                "ar": "لا حرف جر ولا إضافة تحكم «حرف» هنا."
+                "en": "No; there is neither a preposition nor idafa before حرف.",
+                "ar": "لا؛ لأنه لا يوجد حرف جر ولا إضافة قبل كلمة (حرف)."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-read-04",
+          "id": "lesson-54-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read واسم وفعل ثم حرف الكلم. If a word fails every noun sign and every verb sign, which reading of حرف_ correctly names its category؟",
-            "ar": "اقرأ «واسم وفعل ثم حرف الكلم». إذا فشلت كلمة في كل علامات الاسم وكل علامات الفعل، أي قراءة لـ«حرفـ» تسمي قسمها الصحيح؟"
+            "en": "Read واسم وفعل ثم حرف الكلم. Which word accepts neither the signs of nouns nor the signs of verbs?",
+            "ar": "اقرأ «واسم وفعل ثم حرف الكلم». ما الكلمة التي لا تقبل علامات الأسماء ولا الأفعال؟"
           },
           "options": [
             {
@@ -29604,8 +29090,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. Such a word is a حرف, named here in raf with tanwin, coordinated with اسم and فعل.",
-                "ar": "صحيح. هذه الكلمة حرف، مذكور هنا مرفوعًا بالتنوين، معطوفًا على «اسم» و«فعل»."
+                "en": "Correct. A particle has no special sign of its own.",
+                "ar": "صحيح. فليس للحرف علامة."
               }
             },
             {
@@ -29616,8 +29102,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "اسم is the category a word failed to belong to by definition here, not the correct label.",
-                "ar": "«اسم» هو القسم الذي فشلت الكلمة في الانتماء إليه هنا بحكم الفرض، لا التسمية الصحيحة."
+                "en": "No; a noun has its own signs.",
+                "ar": "لا؛ لأن الاسم له علامات."
               }
             },
             {
@@ -29628,8 +29114,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "فعل is the category a word failed to belong to by definition here, not the correct label.",
-                "ar": "«فعل» هو القسم الذي فشلت الكلمة في الانتماء إليه هنا بحكم الفرض، لا التسمية الصحيحة."
+                "en": "No; a verb has its own signs.",
+                "ar": "لا؛ لأن للفعل علامات."
               }
             }
           ]
@@ -29637,57 +29123,57 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-55-repeat-recognize-01",
+          "id": "lesson-54-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "Which pair of test-sets must BOTH fail before a word is confirmed to be a حرف؟",
-            "ar": "أي مجموعتَي اختبارات يجب أن تفشل الكلمة في كلتيهما لتتأكد أنها حرف؟"
+            "en": "Which criterion confirms that a word is a حرف؟",
+            "ar": "ما الاختيار الذي يؤكد أن الكلمة حرف؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "The five noun signs and the four verb signs",
-                "ar": "علامات الاسم الخمس وعلامات الفعل الأربع"
+                "en": "Checking both noun signs and verb signs",
+                "ar": "علامات الاسم وعلامات الفعل"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. Only after both full sets of tests fail is a word confirmed as a particle.",
-                "ar": "صحيح. لا تتأكد حرفية الكلمة إلا بعد فشلها في المجموعتين كاملتين."
+                "en": "Correct. A word's not accepting the signs of nouns or the signs of verbs shows that it is a particle.",
+                "ar": "صحيح. عدم قبول الكلمة لعلامات الأسماء وعلامات الأفعال يدل على أنها حرف."
               }
             },
             {
               "id": "wrong-only-noun",
               "label": {
-                "en": "Only the five noun signs",
-                "ar": "علامات الاسم الخمس فقط"
+                "en": "Only the signs of nouns",
+                "ar": "علامات الأسماء فقط"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Failing only the noun signs is not enough; the verb signs must be checked too before ruling out فعل.",
-                "ar": "لا يكفي فشلها في علامات الاسم وحدها؛ يجب اختبار علامات الفعل أيضًا قبل استبعاد الفعلية."
+                "en": "No; it might still accept the signs of verbs and thus be a verb.",
+                "ar": "لا؛ لأنها قد تقبل علامات الأفعال فتكون فعلًا."
               }
             },
             {
               "id": "wrong-only-verb",
               "label": {
-                "en": "Only the four verb signs",
-                "ar": "علامات الفعل الأربع فقط"
+                "en": "Only the signs of verbs",
+                "ar": "علامات الأفعال فقط"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Failing only the verb signs is not enough; the noun signs must be checked too before ruling out اسم.",
-                "ar": "لا يكفي فشلها في علامات الفعل وحدها؛ يجب اختبار علامات الاسم أيضًا قبل استبعاد الاسمية."
+                "en": "No; it might still accept the signs of nouns and thus be a noun.",
+                "ar": "لا؛ لأنها قد تقبل علامات الأسماء فتكون اسمًا."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-repeat-role-02",
+          "id": "lesson-54-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In واسم وفعل ثم حرف الكلم, which word is named first, tested before all others?",
-            "ar": "في «واسم وفعل ثم حرف الكلم»، أي كلمة ذُكرت أولًا، ويُختبر لها قبل غيرها؟"
+            "en": "In Ibn Malik's statement واسم وفعل ثم حرف الكلم, what is the first category of words?",
+            "ar": "في قول ابن مالك: «واسم وفعل ثم حرف الكلم» ما القسم الأول للكلمة؟"
           },
           "options": [
             {
@@ -29698,8 +29184,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. اسم comes first in the verse and in the order of testing.",
-                "ar": "صحيح. «اسم» يأتي أولًا في البيت وفي ترتيب الاختبار."
+                "en": "Correct. اسم is the first category of words.",
+                "ar": "صحيح. «اسم» هو القسم الأول للكلمة."
               }
             },
             {
@@ -29710,8 +29196,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "حرف is named last, not first.",
-                "ar": "«حرف» يُذكر أخيرًا، لا أولًا."
+                "en": "No; الحرف is the third category of words.",
+                "ar": "لا؛ لأن الحرف هو القسم الثالث للكلمة."
               }
             },
             {
@@ -29722,17 +29208,17 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "فعل is named second, not first.",
-                "ar": "«فعل» يُذكر ثانيًا، لا أولًا."
+                "en": "No; الفعل is the second category of words.",
+                "ar": "لا؛ لأن الفعل هو القسم الثاني للكلمة."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-repeat-state-03",
+          "id": "lesson-54-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فعلٌ in, in this verse (matching اسم and حرف)?",
+            "en": "What state is فعلٌ in, in this verse (matching اسم and حرف)؟",
             "ar": "ما حالة «فعلٌ» في هذا البيت (مطابقة لـ«اسم» و«حرف»)؟"
           },
           "options": [
@@ -29744,8 +29230,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. فعل is coordinated with اسم and حرف, all listed together in raf.",
-                "ar": "صحيح. «فعل» معطوف على «اسم» و«حرف»، وكلها معًا مرفوعة."
+                "en": "Correct. فعل is coordinated with اسم.",
+                "ar": "صحيح. «فعل» معطوف على «اسم»."
               }
             },
             {
@@ -29756,8 +29242,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing here governs فعل into nasb; it matches اسم and حرف in raf.",
-                "ar": "لا يوجد هنا ما ينصب «فعل»؛ فهو يطابق «اسم» و«حرف» في الرفع."
+                "en": "No; there is no cause for nasb here.",
+                "ar": "لا؛ لأنه لا سبب للنصب هنا."
               }
             },
             {
@@ -29768,54 +29254,54 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition or idafa governs فعل here.",
-                "ar": "لا حرف جر ولا إضافة تحكم «فعل» هنا."
+                "en": "No; there is no cause for jarr here.",
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
         },
         {
-          "id": "lesson-55-repeat-read-04",
+          "id": "lesson-54-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read واسم وفعل ثم حرف الكلم. Which reading of اسم_ correctly matches its coordinated role?",
-            "ar": "اقرأ «واسم وفعل ثم حرف الكلم». أي قراءة لـ«اسمـ» تطابق دورها المعطوف؟"
+            "en": "Read: واسم وفعل ثم حرف الكلم. What is the correct vocalization of (اسم)؟",
+            "ar": "اقرأ: «واسم وفعل ثم حرف الكلم». ما الضبط الصحيح لكلمة (اسم)؟"
           },
           "options": [
             {
-              "id": "correct",
+              "id": "raf",
               "label": {
                 "en": "اِسْمٌ",
                 "ar": "اِسْمٌ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. اسم is coordinated with فعل and حرف, all in raf with tanwin.",
-                "ar": "صحيح. «اسم» معطوف على «فعل» و«حرف»، وكلها مرفوعة بالتنوين."
+                "en": "Correct. Because it is the predicate for the delayed topic (الكلم).",
+                "ar": "صحيح. لأنه خبر للمبتدأ المؤخر (الكلم)."
               }
             },
             {
-              "id": "wrong-nasb",
+              "id": "nasb",
               "label": {
                 "en": "اِسْمًا",
                 "ar": "اِسْمًا"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing here governs اسم into nasb; it matches فعل and حرف in raf.",
-                "ar": "لا يوجد هنا ما ينصب «اسم»؛ فهو يطابق «فعل» و«حرف» في الرفع."
+                "en": "No; there is no cause for nasb here.",
+                "ar": "لا؛ لأنه لا سبب للنصب هنا."
               }
             },
             {
-              "id": "wrong-jarr",
+              "id": "jarr",
               "label": {
                 "en": "اِسْمٍ",
                 "ar": "اِسْمٍ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition or idafa governs اسم here.",
-                "ar": "لا حرف جر ولا إضافة تحكم «اسم» هنا."
+                "en": "No; there is no cause for jarr here.",
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -29866,8 +29352,8 @@
       }
     },
     {
-      "id": "lesson_56",
-      "order": 56,
+      "id": "lesson_55",
+      "order": 55,
       "title": {
         "en": "Indefinite and definite, in the Alfiyya",
         "ar": "النكرة والمعرفة في الألفية"
@@ -29883,7 +29369,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_55"
+        "lesson_54"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -29981,7 +29467,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-56-role-01",
+          "id": "lesson-55-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In this verse, which word is the topic (mubtada) being defined?",
@@ -30027,7 +29513,7 @@
           ]
         },
         {
-          "id": "lesson-56-state-02",
+          "id": "lesson-55-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is واقعٌ in, in this verse?",
@@ -30073,7 +29559,7 @@
           ]
         },
         {
-          "id": "lesson-56-rule-03",
+          "id": "lesson-55-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "According to this verse, what are the two alternative tests for a noun being indefinite (nakira)?",
@@ -30119,7 +29605,7 @@
           ]
         },
         {
-          "id": "lesson-56-read-04",
+          "id": "lesson-55-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا. Which ending completes واقع_ (second predicate, coordinated by أو)؟",
@@ -30167,7 +29653,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-56-repeat-role-01",
+          "id": "lesson-55-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In this verse, which word is the first predicate (khabar) of نكرة؟",
@@ -30213,7 +29699,7 @@
           ]
         },
         {
-          "id": "lesson-56-repeat-state-02",
+          "id": "lesson-55-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is قابلُ in, in this verse?",
@@ -30259,7 +29745,7 @@
           ]
         },
         {
-          "id": "lesson-56-repeat-rule-03",
+          "id": "lesson-55-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
             "en": "Which particle joins the two alternative tests for nakira in this verse?",
@@ -30305,7 +29791,7 @@
           ]
         },
         {
-          "id": "lesson-56-repeat-read-04",
+          "id": "lesson-55-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا. Which ending completes نكرة_ (the topic)؟",
@@ -30396,8 +29882,8 @@
       }
     },
     {
-      "id": "lesson_57",
-      "order": 57,
+      "id": "lesson_56",
+      "order": 56,
       "title": {
         "en": "The topic and predicate, in the Alfiyya",
         "ar": "المبتدأ والخبر في الألفية"
@@ -30413,7 +29899,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_56"
+        "lesson_55"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -30549,7 +30035,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-57-role-01",
+          "id": "lesson-56-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In the example sentence زيد عاذر من اعتذر, what is the second زيد's role?",
@@ -30595,7 +30081,7 @@
           ]
         },
         {
-          "id": "lesson-57-state-02",
+          "id": "lesson-56-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is عاذرٌ in, in the example sentence زيد عاذر من اعتذر؟",
@@ -30641,7 +30127,7 @@
           ]
         },
         {
-          "id": "lesson-57-role-03",
+          "id": "lesson-56-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In the first hemistich, مبتدأٌ زيدٌ وعاذرٌ خبرْ, what is مبتدأٌ's own grammatical role in this line (not what it names)?",
@@ -30687,7 +30173,7 @@
           ]
         },
         {
-          "id": "lesson-57-read-04",
+          "id": "lesson-56-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read مبتدأ زيد وعاذر خبر إن قلت زيد عاذر من اعتذر. Which reading completes the second زيد_ (topic of the example sentence)؟",
@@ -30735,7 +30221,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-57-repeat-role-01",
+          "id": "lesson-56-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In the first hemistich, what is زيدٌ's own role (the delayed topic named by مبتدأٌ)?",
@@ -30781,7 +30267,7 @@
           ]
         },
         {
-          "id": "lesson-57-repeat-state-02",
+          "id": "lesson-56-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state is زيدٌ in, in the example sentence زيد عاذر من اعتذر؟",
@@ -30827,7 +30313,7 @@
           ]
         },
         {
-          "id": "lesson-57-repeat-role-03",
+          "id": "lesson-56-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In the first hemistich, what is خبرْ's own grammatical role in this line (not what it names)?",
@@ -30873,7 +30359,7 @@
           ]
         },
         {
-          "id": "lesson-57-repeat-read-04",
+          "id": "lesson-56-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read مبتدأ زيد وعاذر خبر إن قلت زيد عاذر من اعتذر. Which reading completes عاذر_ (predicate of the example sentence)؟",
@@ -30964,8 +30450,8 @@
       }
     },
     {
-      "id": "lesson_58",
-      "order": 58,
+      "id": "lesson_57",
+      "order": 57,
       "title": {
         "en": "Reading the signs-verses without tashkeel",
         "ar": "قراءة أبيات من ألفية ابن مالك (غير مضبوطة بالشكل)"
@@ -30981,7 +30467,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_57"
+        "lesson_56"
       ],
       "estimatedMinutes": 9,
       "sections": [
@@ -31124,7 +30610,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-58-read-01",
+          "id": "lesson-57-read-01",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل. Which ending completes التنوين_؟",
@@ -31170,7 +30656,7 @@
           ]
         },
         {
-          "id": "lesson-58-role-02",
+          "id": "lesson-57-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In Ibn Malik's للاسم تمييز حصل, identify the topic:",
@@ -31216,7 +30702,7 @@
           ]
         },
         {
-          "id": "lesson-58-read-03",
+          "id": "lesson-57-read-03",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بتا فعلت وأتت ويا افعلي ونون أقبلن فعل ينجلي. Which ending completes فعل_؟",
@@ -31262,7 +30748,7 @@
           ]
         },
         {
-          "id": "lesson-58-state-04",
+          "id": "lesson-57-state-04",
           "type": "identifyState",
           "prompt": {
             "en": "What state is نون in, in this verse (as one of the four verb signs)?",
@@ -31310,7 +30796,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-58-repeat-read-01",
+          "id": "lesson-57-repeat-read-01",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل. Which ending completes الجر_؟",
@@ -31356,7 +30842,7 @@
           ]
         },
         {
-          "id": "lesson-58-repeat-role-02",
+          "id": "lesson-57-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
             "en": "In بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل, which word is governed by the preposition لِـ?",
@@ -31402,7 +30888,7 @@
           ]
         },
         {
-          "id": "lesson-58-repeat-read-03",
+          "id": "lesson-57-repeat-read-03",
           "type": "addTashkeel",
           "prompt": {
             "en": "Read بالجر والتنوين والندا وأل ومسند للاسم تمييز حصل. Which ending completes مسند_؟",
@@ -31448,7 +30934,7 @@
           ]
         },
         {
-          "id": "lesson-58-repeat-state-04",
+          "id": "lesson-57-repeat-state-04",
           "type": "identifyState",
           "prompt": {
             "en": "What state is تا in, in the verb-signs verse (as one of the four signs)?",
@@ -31539,8 +31025,8 @@
       }
     },
     {
-      "id": "lesson_59",
-      "order": 59,
+      "id": "lesson_58",
+      "order": 58,
       "title": {
         "en": "Level 7 reading checkpoint",
         "ar": "تحدي القراءة للمستوى السابع"
@@ -31556,7 +31042,7 @@
         }
       ],
       "prerequisites": [
-        "lesson_58"
+        "lesson_57"
       ],
       "estimatedMinutes": 10,
       "sections": [
@@ -31711,7 +31197,7 @@
       ],
       "exercises": [
         {
-          "id": "lesson-59-role-01",
+          "id": "lesson-58-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In كلامنا لفظ مفيد, what is كلامنا's role?",
@@ -31757,7 +31243,7 @@
           ]
         },
         {
-          "id": "lesson-59-state-02",
+          "id": "lesson-58-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state are اسم, فعل, and حرف all in, in واسم وفعل ثم حرف الكلم؟",
@@ -31803,7 +31289,7 @@
           ]
         },
         {
-          "id": "lesson-59-role-03",
+          "id": "lesson-58-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In زيد عاذر من اعتذر, which word is the predicate (khabar)?",
@@ -31849,7 +31335,7 @@
           ]
         },
         {
-          "id": "lesson-59-rule-04",
+          "id": "lesson-58-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim about this combined excerpt is most defensible?",
@@ -31897,7 +31383,7 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-59-repeat-role-01",
+          "id": "lesson-58-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
             "en": "In زيد عاذر من اعتذر, what is زيد's role?",
@@ -31943,7 +31429,7 @@
           ]
         },
         {
-          "id": "lesson-59-repeat-state-02",
+          "id": "lesson-58-repeat-state-02",
           "type": "identifyState",
           "prompt": {
             "en": "What state are كلامنا and لفظ in, in كلامنا لفظ مفيد؟",
@@ -31989,7 +31475,7 @@
           ]
         },
         {
-          "id": "lesson-59-repeat-role-03",
+          "id": "lesson-58-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
             "en": "In واسم وفعل ثم حرف الكلم, which word is coordinated last, after ثم?",
@@ -32035,7 +31521,7 @@
           ]
         },
         {
-          "id": "lesson-59-repeat-rule-04",
+          "id": "lesson-58-repeat-rule-04",
           "type": "matchRule",
           "prompt": {
             "en": "Which claim about زيد عاذر من اعتذر is most defensible?",
