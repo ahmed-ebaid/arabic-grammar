@@ -941,11 +941,15 @@ class _AnalysisStepState extends State<_AnalysisStep> {
               for (final entry in widget.example.tokens.indexed)
                 ChoiceChip(
                   selected: _selectedToken == entry.$1,
-                  label: Text(
-                    entry.$2.displayText,
-                    style: const TextStyle(
-                      fontFamily: 'AmiriQuran',
-                      fontSize: 30,
+                  label: Padding(
+                    padding: const EdgeInsets.only(top: 4, bottom: 14),
+                    child: Text(
+                      entry.$2.displayText,
+                      style: const TextStyle(
+                        fontFamily: 'AmiriQuran',
+                        fontSize: 30,
+                        height: 1.35,
+                      ),
                     ),
                   ),
                   onSelected: (_) {
@@ -1072,23 +1076,37 @@ class _EndingMark extends StatelessWidget {
 
   final String ending;
 
+  static String _formatEnding(String raw) {
+    if (raw == 'ًا') {
+      return 'ـًا';
+    }
+    final stripped = raw.replaceFirst(
+      RegExp(r'^[\u064B-\u0652\u0670]+(?=[\u0621-\u064A])'),
+      '',
+    );
+    if (RegExp(r'[\u0621-\u064A]').hasMatch(stripped)) {
+      return stripped;
+    }
+    return 'ـ$raw';
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<LearningColors>()!;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 14),
       decoration: BoxDecoration(
         color: colors.blueContainer,
         borderRadius: BorderRadius.circular(12),
       ),
       child: ArabicDiacriticsText(
-        'ـ$ending',
+        _formatEnding(ending),
         textAlign: TextAlign.center,
         style: TextStyle(
           color: colors.onBlueContainer,
           fontSize: 28,
           fontWeight: FontWeight.w700,
-          height: 1.35,
+          height: 1.4,
         ),
       ),
     );
@@ -1345,12 +1363,16 @@ class _SentenceCardState extends State<_SentenceCard> {
                         backgroundColor: _activeTokenIndex == entry.$1
                             ? scheme.primaryContainer
                             : scheme.surface.withValues(alpha: 0.9),
-                        label: Text(
-                          '🔍 ${entry.$2.displayText}',
-                          style: const TextStyle(
-                            fontFamily: 'AmiriQuran',
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
+                        label: Padding(
+                          padding: const EdgeInsets.only(top: 2, bottom: 10),
+                          child: Text(
+                            '🔍 ${entry.$2.displayText}',
+                            style: const TextStyle(
+                              fontFamily: 'AmiriQuran',
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              height: 1.35,
+                            ),
                           ),
                         ),
                         onPressed: () => _selectToken(entry.$1),

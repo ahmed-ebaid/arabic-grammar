@@ -111,7 +111,7 @@ void main() {
 
   test('semantic idafa is qualified rather than overgeneralized', () {
     final addition = lesson(12);
-    expect(addition.objectives[1].ar, contains('الإضافة المعنوية'));
+    expect(addition.objectives[1].ar, contains('إلا في بعض المسائل'));
     expect(addition.objectives[1].en, contains('semantic idafa'));
     final token = addition.sections[1].examples.single.tokens.first;
     expect(token.role.ar, 'مبتدأ وهو مضاف');

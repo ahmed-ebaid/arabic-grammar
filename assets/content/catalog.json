@@ -6133,11 +6133,11 @@
       "objectives": [
         {
           "en": "Recognize idafa as a relationship between two nouns: the first is mudaf and the second mudaf ilayh.",
-          "ar": "أن تتعرَّفَ على الإضافة: نسبة اسم إلى اسم آخر، فالأول مضاف والثاني مضاف إليه."
+          "ar": "أن تتعرَّفَ على الإضافة: إسناد اسم إلى اسم (الأول المضاف، والثاني المضاف إليه)."
         },
         {
           "en": "Know that the mudaf ilayh is in jarr and that, in semantic idafa, the mudaf takes neither tanwin nor ال.",
-          "ar": "أن تعرف أن المضاف إليه مجرور، وأن المضاف في الإضافة المعنوية لا ينوّن ولا تدخله «الـ»."
+          "ar": "أن تذكر أن المضاف إليه مجرور دائمًا، وأن المضاف لا يقبل «الـ» التعريف ولا التنوين إلا في بعض المسائل."
         }
       ],
       "prerequisites": [
@@ -6154,7 +6154,7 @@
           },
           "body": {
             "en": "In semantic idafa, the first noun (mudaf) takes neither ال nor tanwin, and the second (mudaf ilayh) is in jarr, as in كتاب الطالب. Some forms of verbal idafa follow different rules outside this lesson's scope.",
-            "ar": "في الإضافة المعنوية، لا يقبل الاسم الأول (المضاف) «الـ» ولا التنوين، والاسم الثاني (المضاف إليه) مجرور. ومن أمثلتها «كتاب الطالب». أما بعض صور الإضافة اللفظية فلها أحكام أخرى لا ندرسها هنا."
+            "ar": "في الإضافة لا يقبل الاسم الأول (المضاف) «الـ» التعريف ولا التنوين إلا في بعض المسائل (في الإضافة اللفظية)، والاسم الثاني (المضاف إليه) مجرور دائمًا."
           },
           "examples": []
         },
@@ -6229,7 +6229,7 @@
                   "ending": "ٌ",
                   "reason": {
                     "en": "جديد tells us about the whole idafa phrase and is in raf like any predicate.",
-                    "ar": "«جديد» خبر عن المضاف الذي خصّصه المضاف إليه، وهو مرفوع."
+                    "ar": "«جديد» يخبر عن المضاف والمضاف إليه، وهو مرفوع كأي خبر."
                   }
                 }
               ]
@@ -6274,7 +6274,7 @@
               "id": "wrong-al",
               "label": {
                 "en": "In semantic idafa, the mudaf accepts ال",
-                "ar": "المضاف في الإضافة المعنوية يقبل «الـ»"
+                "ar": "المضاف في الإضافة المعنوية (المحضة) يقبل «الـ»"
               },
               "isCorrect": false,
               "feedback": {
