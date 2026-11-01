@@ -1113,7 +1113,7 @@ class _InteractiveHarakaPlaygroundState
     });
   }
 
-  String _challengeFullSentence(_HarakaChallenge challenge) {
+  String _challengeFullSentence(_QuickChallenge challenge) {
     final blank = RegExp(r'[^\s]+___');
     final sentence = challenge.promptSentence;
     return sentence.replaceAll(blank, challenge.targetWord);
