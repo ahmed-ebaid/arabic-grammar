@@ -371,7 +371,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutDisclaimer =>
-      'هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل. وقد تتغيّر التحليلات الأولية أثناء المراجعة.';
+      'هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل.';
 
   @override
   String get language => 'اللغة';

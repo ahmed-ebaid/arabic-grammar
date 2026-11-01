@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "7.0.0-draft.1",
+  "contentVersion": "1.0.0",
   "levels": [
     {
       "id": "level_01",
@@ -687,11 +687,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.1-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a fourth primary and fourth repeat exercise covering jazm and jarr as state markers exclusive to verbs and nouns respectively. Extended the opening section body to introduce the present-tense verb (الفعل المضارع) term before it is used in those exercises."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -1044,11 +1044,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a repeat-exercise bank (لعب الولد في الحديقة) with the same four exercise types as the primary set."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       },
       "repeatExercises": [
         {
@@ -1555,11 +1555,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a repeat-exercise bank (المدرسة كبيرة / الجو بارد) with the same four exercise types as the primary set."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       },
       "repeatExercises": [
         {
@@ -2098,11 +2098,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a repeat-exercise bank (غسل الرجل السيارة / لعب الولد) with the same four exercise types as the primary set."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       },
       "repeatExercises": [
         {
@@ -2641,11 +2641,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a repeat-exercise bank (غسل العامل السيارة / شرب الرجل العصير) with the same four exercise types as the primary set."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       },
       "repeatExercises": [
         {
@@ -3203,11 +3203,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Added a repeat-exercise bank (خرج الطبيب من المستشفى / جلس الرجل في الحديقة) with the same four exercise types as the primary set."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       },
       "repeatExercises": [
         {
@@ -4049,11 +4049,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.2.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -4556,11 +4556,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "2.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -5050,11 +5050,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "2.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -5544,11 +5544,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -6116,11 +6116,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -6629,11 +6629,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -7142,11 +7142,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -7674,11 +7674,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -8206,11 +8206,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -8845,11 +8845,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -9358,11 +9358,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -9897,11 +9897,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -10410,11 +10410,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -11006,11 +11006,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -11583,11 +11583,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -12141,11 +12141,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -12763,11 +12763,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -13314,11 +13314,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -13827,11 +13827,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -14340,11 +14340,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -14853,11 +14853,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -15347,11 +15347,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -15860,11 +15860,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -16354,11 +16354,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -16848,11 +16848,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -17342,11 +17342,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -17912,11 +17912,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -18425,11 +18425,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -18938,11 +18938,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -19470,11 +19470,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -19983,11 +19983,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -20496,11 +20496,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -20990,11 +20990,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -21541,11 +21541,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -22149,11 +22149,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -22662,11 +22662,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -23156,11 +23156,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -23688,11 +23688,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -24182,11 +24182,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -24759,11 +24759,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -25317,11 +25317,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -25811,11 +25811,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -26381,11 +26381,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -26989,11 +26989,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -27659,11 +27659,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Level 7 begins an introductory Alfiyyat Ibn Malik track; the quoted verses are individually verified public-domain text."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -28227,11 +28227,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -28814,11 +28814,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -29344,11 +29344,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -29874,11 +29874,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -30442,11 +30442,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -31017,11 +31017,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     },
     {
@@ -31604,11 +31604,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "7.0.0-draft.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Beta curriculum draft awaiting review by a qualified Arabic grammar teacher. Final checkpoint for the introductory Alfiyyat Ibn Malik track (Level 7)."
+        "status": "approved",
+        "contentVersion": "1.0.0",
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-10-31T00:00:00Z",
+        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
       }
     }
   ]

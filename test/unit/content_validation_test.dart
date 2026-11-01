@@ -17,7 +17,7 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.contentVersion, '7.0.0-draft.1');
+      expect(catalog.contentVersion, '1.0.0');
       expect(catalog.levels, hasLength(7));
       expect(catalog.lessons, hasLength(58));
       expect(catalog.lessons.first.title.en, 'Why endings change');
@@ -45,7 +45,12 @@ void main() {
               .having(
                 (lesson) => lesson.review.status,
                 'review status',
-                ReviewStatus.pendingReview,
+                ReviewStatus.approved,
+              )
+              .having(
+                (lesson) => lesson.review.reviewer,
+                'reviewer',
+                'د. شريف محمد الصادق',
               ),
         ),
       );
@@ -69,8 +74,11 @@ void main() {
       ]);
     });
 
-    test('rejects the draft from a release catalog', () {
-      final catalog = ContentDecoder.decode(_sampleSource());
+    test('rejects unapproved lessons from a release catalog', () {
+      final json = _sampleJson();
+      final review = _lesson(json)['review'] as Map<String, Object?>;
+      review['status'] = 'pendingReview';
+      final catalog = ContentDecoder.decode(jsonEncode(json));
       final issues = ContentValidator.validate(
         catalog,
         requireReleaseApproval: true,
@@ -148,6 +156,8 @@ void main() {
       final json = _sampleJson();
       final review = _lesson(json)['review'] as Map<String, Object?>;
       review['status'] = 'approved';
+      review['reviewer'] = null;
+      review['reviewedAt'] = null;
 
       final issues = ContentValidator.validate(
         ContentDecoder.decode(jsonEncode(json)),
@@ -167,7 +177,9 @@ void main() {
     final catalog = await const ContentRepository().load();
 
     expect(catalog.schemaVersion, 1);
-    expect(catalog.lessons, isEmpty);
+    expect(catalog.contentVersion, '1.0.0');
+    expect(catalog.levels, hasLength(7));
+    expect(catalog.lessons, hasLength(58));
   });
 
   test('loads the bilingual grammar glossary', () {

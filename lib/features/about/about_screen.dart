@@ -70,16 +70,10 @@ class _AboutScreenState extends State<AboutScreen> {
                       return const LinearProgressIndicator();
                     }
                     final info = snapshot.data!;
-                    String localizedDigits(String value) =>
-                        value.replaceAllMapped(
-                          RegExp(r'[0-9]'),
-                          (match) =>
-                              localizedNumber(context, int.parse(match[0]!)),
-                        );
                     return Text(
                       l10n.aboutAppVersion(
-                        localizedDigits(info.version),
-                        localizedDigits(info.buildNumber),
+                        _localizedDigits(context, info.version),
+                        _localizedDigits(context, info.buildNumber),
                       ),
                       textDirection: Directionality.of(context),
                     );
@@ -141,7 +135,8 @@ class _AboutScreenState extends State<AboutScreen> {
               _AboutSection(
                 title: l10n.aboutContentStatusTitle,
                 child: Text(
-                  '${l10n.aboutContentVersion}: ${catalog.contentVersion}\n\n'
+                  '${l10n.aboutContentVersion}: '
+                  '${_localizedDigits(context, catalog.contentVersion)}\n\n'
                   '${l10n.aboutDisclaimer}',
                 ),
               ),
@@ -151,6 +146,12 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
     );
   }
+
+  static String _localizedDigits(BuildContext context, String value) =>
+      value.replaceAllMapped(
+        RegExp(r'[0-9]'),
+        (match) => localizedNumber(context, int.parse(match[0]!)),
+      );
 
   static Future<ContentCatalog> _loadCatalog() async {
     final source = await rootBundle.loadString('content/drafts/lesson_01.json');

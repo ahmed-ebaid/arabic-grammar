@@ -357,20 +357,17 @@ void main() {
       ),
       findsOneWidget,
     );
-    await tester.scrollUntilVisible(
-      find.textContaining('ما زالت دروس النسخة التجريبية قيد المراجعة'),
-      150,
-      scrollable: find.byType(Scrollable),
-    );
     expect(
       find.textContaining('ما زالت دروس النسخة التجريبية قيد المراجعة'),
-      findsOneWidget,
+      findsNothing,
     );
     await tester.scrollUntilVisible(
       find.text('حالة المحتوى'),
       250,
       scrollable: find.byType(Scrollable),
     );
+    expect(find.textContaining('إصدار المنهج: ١.٠.٠'), findsOneWidget);
+    expect(find.textContaining('وقد تتغيّر التحليلات الأولية'), findsNothing);
     await tester.drag(find.byType(ListView), const Offset(0, -600));
     await tester.pumpAndSettle();
     expect(find.text('الدعم والمعلومات القانونية'), findsNothing);

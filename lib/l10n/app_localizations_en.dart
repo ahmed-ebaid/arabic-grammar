@@ -372,7 +372,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutDisclaimer =>
-      'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.';
+      'This app is a learning aid and does not replace instruction from a qualified Arabic teacher.';
 
   @override
   String get language => 'Language';

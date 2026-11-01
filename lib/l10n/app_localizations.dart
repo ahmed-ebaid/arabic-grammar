@@ -749,7 +749,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutDisclaimer.
   ///
   /// In en, this message translates to:
-  /// **'This app is a learning aid and does not replace instruction from a qualified Arabic teacher. Draft analyses may change during review.'**
+  /// **'This app is a learning aid and does not replace instruction from a qualified Arabic teacher.'**
   String get aboutDisclaimer;
 
   /// No description provided for @language.
