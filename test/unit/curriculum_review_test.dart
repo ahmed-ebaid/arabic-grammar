@@ -224,39 +224,40 @@ void main() {
     },
   );
 
-  test(
-    'removes headlines lesson, renumbers, and applies new author updates',
-    () {
-      expect(catalog.lessons, hasLength(58));
-      expect(lesson(35).title.ar, 'المبني للمجهول');
-      expect(lesson(35).prerequisites, ['lesson_34']);
-      expect(lesson(37).title.ar, 'تعدد الإضافة');
-      expect(
-        lesson(42).sections[1].examples.single.vocalized,
-        'كِتَابًا قَرَأْتُ',
-      );
-      expect(
-        lesson(42).exercises[1].options.first.label.ar,
-        'تاء الفاعل في (قرأت)',
-      );
-      expect(
-        lesson(43).sections[1].examples.single.vocalized,
-        'مَنِ الكَرِيمُ؟ مُحَمَّدٌ',
-      );
-      expect(lesson(43).exercises.first.options.first.label.ar, 'الخبر (كريم)');
-      expect(lesson(54).sections.first.title.ar, 'قسم ثالث بطريق الاستبعاد');
-      expect(
-        lesson(54).sections[1].body.ar,
-        contains('سواهما الحرف كهل وفي ولم'),
-      );
-      expect(
-        lesson(54).sections[1].examples.single.tokens.first.role.ar,
-        'خبر مقدم لـ(الكلم)',
-      );
-      expect(
-        lesson(54).exercises[1].options[2].feedback.ar,
-        'لا؛ لأن الفعل هو القسم الثاني.',
-      );
-    },
-  );
+  test('removes headlines lesson, renumbers, and applies new author updates', () {
+    expect(catalog.lessons, hasLength(58));
+    expect(lesson(35).title.ar, 'المبني للمجهول');
+    expect(lesson(35).prerequisites, ['lesson_34']);
+    expect(lesson(37).title.ar, 'تعدد الإضافة');
+    expect(
+      lesson(42).sections[1].examples.single.vocalized,
+      'كِتَابًا قَرَأْتُ',
+    );
+    expect(
+      lesson(42).exercises[1].options.first.label.ar,
+      'تاء الفاعل في (قرأت)',
+    );
+    expect(
+      lesson(43).sections[1].examples.single.vocalized,
+      'مَنِ الكَرِيمُ؟ مُحَمَّدٌ',
+    );
+    expect(lesson(43).exercises.first.options.first.label.ar, 'الخبر (كريم)');
+    expect(lesson(54).sections.first.title.ar, 'قسم ثالث بطريق الاستبعاد');
+    expect(
+      lesson(54).sections[1].body.ar,
+      contains('سواهما الحرف كهل وفي ولم'),
+    );
+    expect(
+      lesson(54).sections[1].examples.single.tokens.first.role.ar,
+      'خبر مقدم لـ(الكلم)',
+    );
+    expect(
+      lesson(54).exercises[1].options[2].feedback.ar,
+      'لا؛ لأن الفعل هو القسم الثاني.',
+    );
+    expect(
+      lesson(20).objectives.first.ar,
+      'أن تميّز بين أدوات نفي الحاضر والمستقبل (لا / لن) وأدوات نفي الماضي (ما / لم).',
+    );
+  });
 }
