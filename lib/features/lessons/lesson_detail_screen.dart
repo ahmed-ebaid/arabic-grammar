@@ -218,6 +218,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       ),
       _StepKind.completion => _CompletionStep(
         mastery: widget.progressController.masteryFor(widget.lesson.id),
+        learningMode: learningMode,
         progressController: widget.progressController,
         onRestart: _restart,
         onClose: () => Navigator.of(context).pop(),
@@ -256,6 +257,12 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       HapticFeedback.mediumImpact();
     } else {
       HapticFeedback.heavyImpact();
+    }
+    if (widget.userDataController.learningMode == LearningMode.simple) {
+      final feedbackText = option.feedback.forLanguage(_languageCode);
+      if (feedbackText.trim().isNotEmpty) {
+        ArabicSpeechHelper.instance.speak(feedbackText);
+      }
     }
   }
 
@@ -487,7 +494,9 @@ class _ObjectivesStepState extends State<_ObjectivesStep> {
         _checkedIndices.add(index);
       }
     });
-    ArabicSpeechHelper.instance.speak(text);
+    if (widget.learningMode == LearningMode.simple) {
+      ArabicSpeechHelper.instance.speak(text);
+    }
   }
 
   @override
@@ -526,10 +535,12 @@ class _ObjectivesStepState extends State<_ObjectivesStep> {
                   padding: const EdgeInsets.symmetric(vertical: 6),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(14),
-                    onTap: () => _toggleObjective(
-                      entry.$1,
-                      entry.$2.forLanguage(widget.languageCode),
-                    ),
+                    onTap: isYoungLearner
+                        ? () => _toggleObjective(
+                            entry.$1,
+                            entry.$2.forLanguage(widget.languageCode),
+                          )
+                        : null,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 220),
                       padding: const EdgeInsets.symmetric(
@@ -537,7 +548,8 @@ class _ObjectivesStepState extends State<_ObjectivesStep> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: _checkedIndices.contains(entry.$1)
+                        color:
+                            isYoungLearner && _checkedIndices.contains(entry.$1)
                             ? Colors.white.withValues(alpha: 0.45)
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(14),
@@ -546,7 +558,7 @@ class _ObjectivesStepState extends State<_ObjectivesStep> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Icon(
-                            _checkedIndices.contains(entry.$1)
+                            isYoungLearner && _checkedIndices.contains(entry.$1)
                                 ? Icons.check_circle_rounded
                                 : Icons.check_circle_outline,
                             color: colors.onBlueContainer,
@@ -558,20 +570,24 @@ class _ObjectivesStepState extends State<_ObjectivesStep> {
                               style: TextStyle(
                                 color: colors.onBlueContainer,
                                 fontSize: 19,
-                                fontWeight: _checkedIndices.contains(entry.$1)
+                                fontWeight:
+                                    isYoungLearner &&
+                                        _checkedIndices.contains(entry.$1)
                                     ? FontWeight.w700
                                     : FontWeight.w500,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 6),
-                          Icon(
-                            Icons.volume_up_rounded,
-                            size: 18,
-                            color: colors.onBlueContainer.withValues(
-                              alpha: 0.75,
+                          if (isYoungLearner) ...[
+                            const SizedBox(width: 6),
+                            Icon(
+                              Icons.volume_up_rounded,
+                              size: 18,
+                              color: colors.onBlueContainer.withValues(
+                                alpha: 0.75,
+                              ),
                             ),
-                          ),
+                          ],
                         ],
                       ),
                     ),
@@ -617,30 +633,55 @@ class _TeachingStep extends StatelessWidget {
               speakerName: 'مَرْيَم تَشْرَحُ:',
               message:
                   'اضْغَطْ هُنَا لِتَسْمَعَ الشَّرْحَ، ثُمَّ اضْغَطْ عَلَى كَلِمَاتِ المِثَالِ! 💡',
-              speechText: bodyText,
+              speechText: example != null
+                  ? '$bodyText. مِثَال: ${example.vocalized}'
+                  : bodyText,
             )
           : null,
       title: section.title.forLanguage(languageCode),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          InkWell(
-            onTap: () {
-              HapticFeedback.selectionClick();
-              ArabicSpeechHelper.instance.speak(bodyText);
-            },
-            borderRadius: BorderRadius.circular(16),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: ArabicDiacriticsText(
-                bodyText,
-                style: Theme.of(context).textTheme.bodyLarge,
+          if (isYoungLearner)
+            InkWell(
+              onTap: () {
+                HapticFeedback.selectionClick();
+                ArabicSpeechHelper.instance.speak(bodyText);
+              },
+              borderRadius: BorderRadius.circular(16),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ArabicDiacriticsText(
+                        bodyText,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Icon(
+                      Icons.volume_up_rounded,
+                      size: 20,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ],
+                ),
               ),
+            )
+          else
+            ArabicDiacriticsText(
+              bodyText,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
-          ),
           if (example != null) ...[
             const SizedBox(height: 24),
-            _SentenceCard(example: example, languageCode: languageCode),
+            _SentenceCard(
+              example: example,
+              languageCode: languageCode,
+              learningMode: learningMode,
+            ),
           ],
         ],
       ),
@@ -744,9 +785,10 @@ class _QuestionLayout extends StatelessWidget {
       LearningMode.detailed => l10n.learningModeDetailedQuestionHint,
       LearningMode.adult => l10n.learningModeAdultQuestionHint,
     };
+    final isYoungLearner = learningMode == LearningMode.simple;
     return _StepLayout(
       icon: Icons.quiz_outlined,
-      headerWidget: learningMode == LearningMode.simple
+      headerWidget: isYoungLearner
           ? InteractiveQuestionCompanion(
               hint: questionHint,
               answerChecked: answerChecked,
@@ -758,32 +800,38 @@ class _QuestionLayout extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          InkWell(
-            onTap: () {
-              HapticFeedback.selectionClick();
-              ArabicSpeechHelper.instance.speak(prompt);
-            },
-            borderRadius: BorderRadius.circular(16),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ArabicDiacriticsText(
-                      prompt,
-                      style: Theme.of(context).textTheme.titleLarge,
+          if (isYoungLearner)
+            InkWell(
+              onTap: () {
+                HapticFeedback.selectionClick();
+                ArabicSpeechHelper.instance.speak(prompt);
+              },
+              borderRadius: BorderRadius.circular(16),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ArabicDiacriticsText(
+                        prompt,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 8),
-                  Icon(
-                    Icons.volume_up_rounded,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    Icon(
+                      Icons.volume_up_rounded,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ],
+                ),
               ),
+            )
+          else
+            ArabicDiacriticsText(
+              prompt,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-          ),
           const SizedBox(height: 10),
           ArabicDiacriticsText(
             questionHint,
@@ -798,7 +846,9 @@ class _QuestionLayout extends StatelessWidget {
                 selected: selectedOptionId == option.id,
                 disabled: answerChecked,
                 onPressed: () {
-                  ArabicSpeechHelper.instance.speak(option.label);
+                  if (isYoungLearner) {
+                    ArabicSpeechHelper.instance.speak(option.label);
+                  }
                   onSelect(option.id);
                 },
               ),
@@ -996,7 +1046,11 @@ class _AnalysisStepState extends State<_AnalysisStep> {
                   onSelected: (_) {
                     setState(() => _selectedToken = entry.$1);
                     HapticFeedback.selectionClick();
-                    ArabicSpeechHelper.instance.speak(entry.$2.displayText);
+                    if (isYoungLearner) {
+                      ArabicSpeechHelper.instance.speak(
+                        '${entry.$2.displayText}، ${entry.$2.role.forLanguage(widget.languageCode)}، ${entry.$2.reason.forLanguage(widget.languageCode)}',
+                      );
+                    }
                   },
                 ),
             ],
@@ -1187,12 +1241,14 @@ class _AnalysisRow extends StatelessWidget {
 class _CompletionStep extends StatefulWidget {
   const _CompletionStep({
     required this.mastery,
+    required this.learningMode,
     required this.progressController,
     required this.onRestart,
     required this.onClose,
   });
 
   final int mastery;
+  final LearningMode learningMode;
   final LessonProgressController progressController;
   final VoidCallback onRestart;
   final VoidCallback onClose;
@@ -1219,6 +1275,7 @@ class _CompletionStepState extends State<_CompletionStep>
     final l10n = AppLocalizations.of(context);
     final colors = Theme.of(context).extension<LearningColors>()!;
     final passed = widget.mastery >= 70;
+    final isYoungLearner = widget.learningMode == LearningMode.simple;
     return _StepLayout(
       icon: passed ? Icons.celebration : Icons.refresh_rounded,
       title: passed
@@ -1247,28 +1304,43 @@ class _CompletionStepState extends State<_CompletionStep>
               curve: Curves.elasticOut,
             ),
             child: Container(
-              width: 170,
-              height: 170,
+              width: isYoungLearner ? 148 : 116,
+              height: isYoungLearner ? 148 : 116,
               decoration: BoxDecoration(
                 color: colors.sunshineContainer,
                 shape: BoxShape.circle,
               ),
               alignment: Alignment.center,
-              child: YoungLearnerMascot(
-                kind: CartoonCharacterKind.duo,
-                size: 112,
-                mood: passed ? MascotMood.cheering : MascotMood.encouraging,
-              ),
+              child: isYoungLearner
+                  ? YoungLearnerMascot(
+                      kind: CartoonCharacterKind.duo,
+                      size: 100,
+                      mood: passed
+                          ? MascotMood.cheering
+                          : MascotMood.encouraging,
+                      onTap: () => ArabicSpeechHelper.instance.speak(
+                        passed
+                            ? '${l10n.lessonCompleteTitle}، ${l10n.lessonCompleteBody}'
+                            : 'تدرَّب مرة أخرى',
+                      ),
+                    )
+                  : Icon(
+                      passed
+                          ? Icons.workspace_premium_rounded
+                          : Icons.refresh_rounded,
+                      size: 60,
+                      color: colors.onSunshineContainer,
+                    ),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           Text(
             _languageCode(context) == 'ar'
                 ? 'الإتقان: ${localizedPercent(context, widget.mastery)}'
                 : 'Mastery: ${localizedPercent(context, widget.mastery)}',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
           Text(
             passed
                 ? l10n.lessonCompleteBody
@@ -1303,10 +1375,15 @@ class _CompletionStepState extends State<_CompletionStep>
 }
 
 class _SentenceCard extends StatefulWidget {
-  const _SentenceCard({required this.example, required this.languageCode});
+  const _SentenceCard({
+    required this.example,
+    required this.languageCode,
+    required this.learningMode,
+  });
 
   final GrammarExample example;
   final String languageCode;
+  final LearningMode learningMode;
 
   @override
   State<_SentenceCard> createState() => _SentenceCardState();
@@ -1321,15 +1398,21 @@ class _SentenceCardState extends State<_SentenceCard> {
     setState(() {
       _activeTokenIndex = _activeTokenIndex == index ? null : index;
     });
-    ArabicSpeechHelper.instance.speak(token.displayText);
+    if (widget.learningMode == LearningMode.simple) {
+      ArabicSpeechHelper.instance.speak(
+        '${token.displayText}، ${token.role.forLanguage(widget.languageCode)}، ${token.reason.forLanguage(widget.languageCode)}',
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<LearningColors>()!;
     final scheme = Theme.of(context).colorScheme;
+    final isYoungLearner = widget.learningMode == LearningMode.simple;
     final activeToken =
-        _activeTokenIndex != null &&
+        isYoungLearner &&
+            _activeTokenIndex != null &&
             _activeTokenIndex! < widget.example.tokens.length
         ? widget.example.tokens[_activeTokenIndex!]
         : null;
@@ -1343,38 +1426,48 @@ class _SentenceCardState extends State<_SentenceCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              InkWell(
-                onTap: () {
-                  HapticFeedback.selectionClick();
-                  ArabicSpeechHelper.instance.speak(widget.example.vocalized);
-                },
-                borderRadius: BorderRadius.circular(14),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: ArabicDiacriticsText(
-                          widget.example.vocalized,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headlineMedium
-                              ?.copyWith(
-                                fontFamily: 'AmiriQuran',
-                                color: colors.onSunshineContainer,
-                              ),
+              if (isYoungLearner)
+                InkWell(
+                  onTap: () {
+                    HapticFeedback.selectionClick();
+                    ArabicSpeechHelper.instance.speak(widget.example.vocalized);
+                  },
+                  borderRadius: BorderRadius.circular(14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Flexible(
+                          child: ArabicDiacriticsText(
+                            widget.example.vocalized,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.headlineMedium
+                                ?.copyWith(
+                                  fontFamily: 'AmiriQuran',
+                                  color: colors.onSunshineContainer,
+                                ),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      Icon(
-                        Icons.volume_up_rounded,
-                        color: colors.onSunshineContainer,
-                      ),
-                    ],
+                        const SizedBox(width: 8),
+                        Icon(
+                          Icons.volume_up_rounded,
+                          color: colors.onSunshineContainer,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              else
+                ArabicDiacriticsText(
+                  widget.example.vocalized,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontFamily: 'AmiriQuran',
+                    color: colors.onSunshineContainer,
                   ),
                 ),
-              ),
-              if (widget.example.tokens.length > 1) ...[
+              if (isYoungLearner && widget.example.tokens.length > 1) ...[
                 const SizedBox(height: 12),
                 Wrap(
                   alignment: WrapAlignment.center,

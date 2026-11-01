@@ -675,7 +675,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(InteractiveHarakaPlayground), findsOneWidget);
       expect(
-        find.text('مَلْعَبُ الحَرَكَاتِ مَعَ عُمَر وَمَرْيَم'),
+        find.text('اكْتَشِفِ الحَرَكَاتِ مَعَ عُمَر وَمَرْيَم'),
         findsOneWidget,
       );
       expect(find.text('البَيْتُ جَمِيلٌ'), findsOneWidget);
@@ -694,6 +694,37 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('⭐ 1'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'general learner mode hides Omar and Maryam mascots and speaker icons',
+    (tester) async {
+      final userData = UserDataController.inMemory();
+      await userData.setLearnerProfile(LearnerProfile.generalLearner);
+
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: LocaleController.inMemory(const Locale('ar')),
+          lessonProgressController: LessonProgressController.inMemory(),
+          userDataController: userData,
+          contentCatalog: _draftCatalog(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byType(InteractiveHarakaPlayground), findsNothing);
+      expect(find.byType(YoungLearnerMascot), findsNothing);
+      expect(find.byIcon(Icons.volume_up_rounded), findsNothing);
+
+      await tester.tap(find.text('الدروس'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('لماذا تتغيَّر أواخر الكلمات؟'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(YoungLearnerMascot), findsNothing);
+      expect(find.byIcon(Icons.volume_up_rounded), findsNothing);
     },
   );
 }

@@ -129,8 +129,11 @@ class HomeScreen extends StatelessWidget {
                 color: scheme.surfaceContainerLow,
                 child: InkWell(
                   borderRadius: BorderRadius.circular(20),
-                  onTap: () =>
-                      ArabicSpeechHelper.instance.speak(l10n.exampleSentence),
+                  onTap: isYoungLearner
+                      ? () => ArabicSpeechHelper.instance.speak(
+                          '${l10n.exampleSentence}، ${l10n.exampleExplanation}',
+                        )
+                      : null,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -149,11 +152,12 @@ class HomeScreen extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
-                            Icon(
-                              Icons.volume_up_rounded,
-                              size: 20,
-                              color: scheme.primary,
-                            ),
+                            if (isYoungLearner)
+                              Icon(
+                                Icons.volume_up_rounded,
+                                size: 20,
+                                color: scheme.primary,
+                              ),
                           ],
                         ),
                         const SizedBox(height: 4),
