@@ -345,7 +345,13 @@ void main() {
     expect(find.text('المرجع: الآجرومية'), findsOneWidget);
     expect(find.textContaining('المؤلف: ابن آجروم'), findsOneWidget);
     expect(
-      find.textContaining('بيان المصدر: رُوجع هذا المتن العربي التراثي'),
+      find.textContaining(
+        'بيان المصدر: استند إعداد المنهج إلى مفاهيم نحوية مختارة',
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining('فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية'),
       findsOneWidget,
     );
     await tester.scrollUntilVisible(

@@ -647,8 +647,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -664,8 +664,8 @@
           "url": null,
           "licenseStatus": "conceptualReference",
           "citation": {
-            "en": "Only the general beginner progression was consulted. No prose, translation, exercise, or lesson arrangement was copied.",
-            "ar": "رُوجع التسلسل العام للمبتدئين فقط، ولم يُنسخ أي نص أو ترجمة أو تمرين أو ترتيب للدروس."
+            "en": "The curriculum draws on this source’s general beginner progression. No prose, translations, exercises, or lesson sequence are reproduced.",
+            "ar": "استفاد إعداد المنهج من التدرّج العام للمبتدئين في هذا المرجع، دون اقتباس نصوصه أو ترجماته أو تمارينه أو اتباع ترتيب دروسه."
           }
         },
         {
@@ -989,7 +989,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Not here. في makes the noun after it jarr.",
-                "ar": "لا محل لها هنا؛ لأن الاسم مسبوق بحرف الجر «في»."
+                "ar": "لا محل للضمة هنا؛ لأن الاسم مسبوق بحرف الجر «في»، فلا يكون مرفوعًا."
               }
             },
             {
@@ -1001,7 +1001,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Not here. Look for the preposition clue.",
-                "ar": "لا محل لها هنا؛ لأن الاسم مسبوق بحرف الجر «في»."
+                "ar": "لا محل للفتحة هنا؛ لأن الاسم مجرور بـ«في»، وليس منصوبًا."
               }
             }
           ]
@@ -1021,8 +1021,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -1218,7 +1218,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Not here. في makes the noun after it jarr.",
-                "ar": "ليس محلها هنا؛ لأن الاسم مجرور بحرف الجر «في»."
+                "ar": "ليس محل الضمة هنا؛ لأن الاسم مسبوق بحرف الجر «في»، فلا يكون مرفوعًا."
               }
             },
             {
@@ -1230,7 +1230,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Not here. Look for the preposition clue.",
-                "ar": "ليس محلها هنا؛ لأن الاسم مجرور بحرف الجر «في»."
+                "ar": "ليس محل الفتحة هنا؛ لأن الاسم مجرور بـ«في»، وليس منصوبًا."
               }
             }
           ]
@@ -1532,8 +1532,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -2075,8 +2075,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -2618,8 +2618,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -3180,8 +3180,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -3716,7 +3716,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "The preposition من governs العمل into jarr.",
-                "ar": "حرف الجر «من» يجر الكلمة بعده."
+                "ar": "لا؛ لأن «الرجل» هو الفاعل المرفوع، أما «العمل» فمجرور بحرف الجر «من»."
               }
             },
             {
@@ -3728,7 +3728,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "العمل is not a direct object; it follows من.",
-                "ar": "حرف الجر «من» يجر الكلمة بعده."
+                "ar": "لا؛ لأن «العمل» ليس مفعولًا به منصوبًا، بل اسم مجرور بعد «من»."
               }
             }
           ]
@@ -4026,8 +4026,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -4380,7 +4380,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "مدرسةٌ is indefinite and can take ال to become المدرسة.",
-                "ar": "لا؛ لأن الكلمة تقبل دخول «الـ» عليها."
+                "ar": "لا؛ لأن «مدرسةٌ» مجردة من «الـ» وتقبل دخولها عليها، فهي نكرة."
               }
             },
             {
@@ -4392,7 +4392,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "غرفةٌ is indefinite and can take ال to become الغرفة.",
-                "ar": "لا؛ لأن الكلمة تقبل دخول «الـ» عليها."
+                "ar": "لا؛ لأن «غرفةٌ» مجردة من «الـ» وتقبل دخولها عليها، فهي نكرة."
               }
             }
           ]
@@ -5228,7 +5228,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Nasb would need a governor such as إنّ or a verb making one of them an object.",
-                "ar": "لا؛ لأن النصب يحتاج إلى ناصب مثل «إنَّ» أو أن يُسبق الاسم بفعل."
+                "ar": "لا؛ لأن النصب يحتاج إلى ناصب مثل «إنَّّ» أو أن يُسبق الاسم بفعل."
               }
             },
             {
@@ -6704,7 +6704,7 @@
                   "ending": "ا",
                   "reason": {
                     "en": "Demonstratives are mabni; they do not take case endings.",
-                    "ar": "«هذا» اسم إشارة مبني على السكون في محل رفع مبتدأ."
+                    "ar": "«هذا» يفتتح الجملة الاسمية ويشير إلى «الطالب»."
                   }
                 },
                 {
@@ -7207,17 +7207,17 @@
                   "end": 2,
                   "role": {
                     "en": "Detached pronoun, topic (mabni, in the position of raf)",
-                    "ar": "ضمير منفصل مبتدأ (مبني في محل رفع)"
+                    "ar": "ضمير منفصل (مبتدأ)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
                     "en": "Built (mabni); pronouns never take case endings",
-                    "ar": "مبني؛ الضمائر كلها مبنية، لا تلحقها حركات الإعراب"
+                    "ar": "مبني على الفتح"
                   },
                   "ending": "َ",
                   "reason": {
                     "en": "هو is a detached pronoun and is mabni, standing in the position of raf as topic.",
-                    "ar": "«هو» ضمير منفصل مبني على الفتح وهو في محل رفع مبتدأ."
+                    "ar": "«هو» ضمير منفصل مبني على الفتح في محل رفع مبتدأ."
                   }
                 },
                 {
@@ -7245,17 +7245,17 @@
                   "end": 15,
                   "role": {
                     "en": "Noun with attached possessive pronoun (mudaf + mudaf ilayh), topic",
-                    "ar": "«كتاب» مبتدأ وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma on كتاب; the pronoun ـه itself takes no case ending",
-                    "ar": "الضمة الظاهرة على «كتاب»، والضمير «ـه» مبني في محل جر مضاف إليه"
+                    "ar": "الضمة الظاهرة على «كتاب»"
                   },
                   "ending": "ُ",
                   "reason": {
                     "en": "كتابه is the topic of this clause, so it is in raf; the attached pronoun ـه is mabni and does not change.",
-                    "ar": "«كتابه» مبتدأ الجملة الثانية فهو مرفوع؛ والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
+                    "ar": "«كتاب» مبتدأ الجملة الثانية فهو مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -7346,7 +7346,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. هو is the topic; مجتهد tells us about it.",
-                "ar": "صحيح. «هو» مبتدأ، و«مجتهد» يخبر عنه."
+                "ar": "صحيح. «هو» ضمير منفصل مبني في محل رفع مبتدأ، و«مجتهد» خبره."
               }
             },
             {
@@ -7370,7 +7370,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs هو here.",
-                "ar": "لا يوجد حرف جر هنا."
+                "ar": "لا؛ لأنه لا يوجد حرف جر قبل «هو»، وهو ضمير منفصل في أول الجملة."
               }
             }
           ]
@@ -7392,7 +7392,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. كتابه is the topic, so it is in raf.",
-                "ar": "صحيح. «كتابه» مبتدأ، فهو مرفوع."
+                "ar": "صحيح. «كتاب» مبتدأ مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
               }
             },
             {
@@ -7416,7 +7416,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs كتابه here; it stands as the topic.",
-                "ar": "لا يوجد حرف جر قبل الكلمة."
+                "ar": "لا؛ لأنه لا يوجد هنا موجب لجر كلمة «كتاب»، أما الضمير المتصل «ـه» فهو الذي في محل جر مضاف إليه."
               }
             }
           ]
@@ -7438,7 +7438,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. بيتها is the topic, so it is in raf.",
-                "ar": "صحيح. «بيتها» مبتدأ، فهو مرفوع."
+                "ar": "صحيح. «بيت» مبتدأ مرفوع بالضمة، والضمير المتصل «ـها» مبني في محل جر مضاف إليه."
               }
             },
             {
@@ -7462,7 +7462,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs بيتها here; it stands as the topic.",
-                "ar": "لا يوجد حرف جر هنا."
+                "ar": "لا؛ لأنه لا يوجد هنا موجب لجر كلمة «بيت»، فهي مبتدأ مرفوع."
               }
             }
           ]
@@ -7532,7 +7532,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. أنتَ is the topic; مجتهد tells us about it.",
-                "ar": "صحيح. «أنتَ» مبتدأ، و«مجتهد» يخبر عنه."
+                "ar": "صحيح. «أنتَ» ضمير منفصل مبني في محل رفع مبتدأ، و«مجتهد» خبره."
               }
             },
             {
@@ -7578,7 +7578,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. قلمك is the topic, so it is in raf.",
-                "ar": "صحيح. «قلمك» مبتدأ، فهو مرفوع."
+                "ar": "صحيح. «قلم» مبتدأ مرفوع، والضمير المتصل «ـك» مبني في محل جر مضاف إليه."
               }
             },
             {
@@ -7624,7 +7624,7 @@
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. سيارتهم is the topic, so it is in raf.",
-                "ar": "صحيح. «سيارتهم» مبتدأ، فهي مرفوعة."
+                "ar": "صحيح. «سيارة» مبتدأ مرفوع بالضمة، والضمير المتصل «ـهم» مبني في محل جر مضاف إليه."
               }
             },
             {
@@ -7648,7 +7648,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs سيارتهم here; it stands as the topic.",
-                "ar": "لا موجب للجر هنا."
+                "ar": "لا؛ لأنه لا يوجد هنا موجب لجر كلمة «سيارة»، فهي مبتدأ مرفوع."
               }
             }
           ]
@@ -7777,17 +7777,17 @@
                   "end": 24,
                   "role": {
                     "en": "Construct plural noun with attached pronoun (topic)",
-                    "ar": "مبتدأ، وهو جمع مذكر سالم مضاف، والضمير المتصل «ـها» مبني في محل جر مضاف إليه"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Waw, the raf sign of the sound masculine plural; nun is omitted in idafa",
-                    "ar": "الواو علامة رفع جمع المذكر السالم، وقد حُذفت النون للإضافة"
+                    "ar": "الواو (حُذفت النون للإضافة)"
                   },
                   "ending": "ُو",
                   "reason": {
                     "en": "معلمو is a mudaf (its نون is dropped), joined to the mudaf ilayh pronoun ـها, and the whole word is the topic in raf.",
-                    "ar": "«معلمو» مبتدأ مرفوع بالواو وهو مضاف (حُذفت نونه للإضافة)، والضمير المتصل «ـها» مبني في محل جر مضاف إليه."
+                    "ar": "«معلمو» مبتدأ مرفوع بالواو لأنه جمع مذكر سالم، والضمير المتصل «ـها» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -7856,7 +7856,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "There is no verb here needing an object.",
-                "ar": "لا؛ لأنه لايوجد هنا فعل يحتاج مفعولًا به."
+                "ar": "لا؛ لأنه لا يوجد هنا فعل يحتاج مفعولًا به."
               }
             }
           ]
@@ -8088,7 +8088,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition or idafa governs either word here.",
-                "ar": "لا؛ لأنه لاسبب للجر في الجملة"
+                "ar": "لا؛ لأنه لا سبب للجر في الجملة"
               }
             }
           ]
@@ -8307,7 +8307,7 @@
                   "end": 11,
                   "role": {
                     "en": "Present-tense verb, unaffected",
-                    "ar": "فعل مضارع لم يسبقه ناصب ولا جازم"
+                    "ar": "فعل مضارع مرفوع"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -8317,7 +8317,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "The present-tense verb has no nasb or jazm governor, so it is in raf; its subject is a hidden هو referring to الطالب.",
-                    "ar": "الفعل مضارع لم يسبقه ناصب ولا جازم، فهو مرفوع، وفاعله ضمير مستتر تقديره «هو» يعود على «الطالب»."
+                    "ar": "الفعل المضارع إذا لم يسبقه ناصب ولا جازم فحكمه الرفع، والفاعل ضمير مستتر تقديره هو يعود على (الطالب)."
                   }
                 },
                 {
@@ -8822,8 +8822,8 @@
           "url": "https://archive.org/details/al_ajurrumiyyah",
           "licenseStatus": "publicDomain",
           "citation": {
-            "en": "The public-domain classical Arabic text was consulted for the traditional grammatical categories.",
-            "ar": "رُوجع هذا المتن العربي التراثي المتاح ضمن الملكية العامة للاستفادة من التقسيمات النحوية الموروثة."
+            "en": "The curriculum draws on selected grammatical concepts and traditional terminology in this public-domain work. Ebaid LLC prepared the app’s original lesson explanations, examples, and exercises.",
+            "ar": "استند إعداد المنهج إلى مفاهيم نحوية مختارة ومصطلحات تراثية في هذا المتن المتاح ضمن الملكية العامة. أما شروح الدروس وأمثلتها وتمارينها فأعدّتها Ebaid LLC، وهي مواد تعليمية أصلية."
           }
         },
         {
@@ -8929,17 +8929,17 @@
                   "end": 10,
                   "role": {
                     "en": "Present verb with a hidden subject (هو, referring to الولد)",
-                    "ar": "فعل مضارع وفاعله ضمير مستتر تقديره هو يعود على الولد"
+                    "ar": "فعل مضارع مرفوع"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ لأن الفعل المضارع لم يسبقه ناصب ولا جازم"
+                    "ar": "الضمة الظاهرة"
                   },
                   "ending": "ُ",
                   "reason": {
                     "en": "يكتب itself is raf because nothing governs it, and its hidden فاعل stands in the position of raf.",
-                    "ar": "«يكتب» فعل مضارع مرفوع لأنه لم يسبقه ناصب ولا جازم، وفاعله ضمير مستتر تقديره «هو» في محل رفع."
+                    "ar": "«يكتب» مرفوع لأنه لم يسبقه ناصب ولا جازم، وفاعله ضمير مستتر تقديره «هو» في محل رفع يعود على «الولد»."
                   }
                 },
                 {
@@ -10338,7 +10338,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs either object here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا"
+                "ar": "لا؛ لأنه لا سبب للجر هنا"
               }
             }
           ]
@@ -12691,7 +12691,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs ابنه here.",
-                "ar": "لا؛ لأنه لايوجد سبب للجر هنا."
+                "ar": "لا؛ لأنه لا يوجد سبب للجر هنا."
               }
             }
           ]
@@ -12885,12 +12885,12 @@
                   "end": 45,
                   "role": {
                     "en": "Present verb, predicate, with a hidden subject (هو, referring to المعلم)",
-                    "ar": "فعل مضارع وفاعله مستتر تقديره هو يعود على المعلم"
+                    "ar": "فعل مضارع مرفوع"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
                     "en": "Visible damma; unaffected present verb",
-                    "ar": "الضمة الظاهرة؛ فعل مضارع لم يسبقه ناصب ولا جازم"
+                    "ar": "الضمة الظاهرة"
                   },
                   "ending": "ُ",
                   "reason": {
@@ -12904,7 +12904,7 @@
                   "end": 57,
                   "role": {
                     "en": "Present verb, one of \"the five verbs,\" jazm by dropping the final نون",
-                    "ar": "فعل مضارع مجزوم (من الأفعال الخمسة)، وواو الجماعة ضمير متصل مبني في محل رفع فاعل"
+                    "ar": "فعل مضارع مجزوم (من الأفعال الخمسة)"
                   },
                   "grammarState": "jazm",
                   "grammaticalSign": {
@@ -14424,7 +14424,7 @@
                   "end": 15,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني في محل رفع نعت (صفة)"
+                    "ar": "اسم موصول (نعت)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -14641,7 +14641,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs الطالبة here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا"
+                "ar": "لا؛ لأنه لا سبب للجر هنا"
               }
             }
           ]
@@ -15275,7 +15275,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs either word here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا."
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -15834,7 +15834,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs مساء here; it is a ظرف, normally nasb.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا"
+                "ar": "لا؛ لأنه لا سبب للجر هنا"
               }
             }
           ]
@@ -16328,7 +16328,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs مبتسم here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا"
+                "ar": "لا؛ لأنه لا سبب للجر هنا"
               }
             }
           ]
@@ -16544,7 +16544,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs واحدا here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا."
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -16822,7 +16822,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs كتاب here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا."
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -17026,7 +17026,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "طلاب is governed by the number as its mudaf ilayh, not raf.",
-                "ar": "لا؛ لأن تمييز العدد (٣) لايرفع."
+                "ar": "لا؛ لأن تمييز العدد (٣) لا يُرفع."
               }
             },
             {
@@ -17483,7 +17483,7 @@
                   "end": 37,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني في محل رفع نعت (صفة)"
+                    "ar": "اسم موصول (نعت)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -17748,7 +17748,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs معتدلًا here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا"
+                "ar": "لا؛ لأنه لا سبب للجر هنا"
               }
             }
           ]
@@ -18528,7 +18528,7 @@
                   "end": 15,
                   "role": {
                     "en": "Adverb of time",
-                    "ar": "ظرف زمان مبني على الكسر في محل نصب"
+                    "ar": "ظرف زمان"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -18774,7 +18774,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This is the active present tense, not the passive.",
-                "ar": "لا؛ لأن هذا مضارع مبني للمعلوم. لا مبني للمجهول."
+                "ar": "لا؛ لأن هذا مضارع مبني للمعلوم، لا مبني للمجهول."
               }
             }
           ]
@@ -18866,7 +18866,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs الباب here.",
-                "ar": "لا؛ لأنه لايوجد سبب للجر هنا"
+                "ar": "لا؛ لأنه لا يوجد سبب للجر هنا"
               }
             }
           ]
@@ -19041,7 +19041,7 @@
                   "end": 19,
                   "role": {
                     "en": "Noun with attached pronoun (mudaf + mudaf ilayh), topic",
-                    "ar": "(كتاب) مبتدأ وهو مضاف و(الهاء) ضمير مبني في محل جر مضاف إليه"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -19051,7 +19051,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كتابه is the topic of the second clause, so it is in raf.",
-                    "ar": "«كتابه» مبتدأ الجملة الثانية مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
+                    "ar": "«كتاب» مبتدأ الجملة الثانية مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -19713,7 +19713,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "The last noun is always jarr, as the final mudaf ilayh in the chain.",
-                "ar": "لا؛ لأنه وقع مضافا إليه وهو مجرور دائما. بوصفه آخر مضاف إليه في السلسلة."
+                "ar": "لا؛ لأنه وقع مضافا إليه وهو مجرور دائمًا؛ بوصفه آخر مضاف إليه في السلسلة."
               }
             },
             {
@@ -19759,7 +19759,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "افتتاح, not مكتبة, is the direct object of حضرت; مكتبة is jarr as its mudaf ilayh.",
-                "ar": "لا؛ لأنها وقعت مضافا إليه والمضاف إليه مجرور دائما."
+                "ar": "لا؛ لأن «مكتبة» مضاف إليه مجرور بالكسرة، وليست مرفوعة بالضمة."
               }
             },
             {
@@ -19771,7 +19771,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Only the first noun in the chain (افتتاح) can be nasb here; مكتبة, as its mudaf ilayh, stays jarr.",
-                "ar": "لا؛ لأنها وقعت مضافا إليه والمضاف إليه مجرور دائما."
+                "ar": "لا؛ لأن «مكتبة» مضاف إليه لـ«افتتاح» فهي مجرورة بالكسرة، وليست منصوبة بالفتحة."
               }
             }
           ]
@@ -19853,7 +19853,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Neither word performs an action; both are governed as mudaf ilayh, in jarr.",
-                "ar": "لا؛ لأن المضاف إليه مجرور دائما."
+                "ar": "لا؛ لأن كل اسم بعد المضاف الأول في سلسلة الإضافة مضاف إليه مجرور، لا منصوب."
               }
             },
             {
@@ -19865,7 +19865,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Only the very first noun in the chain can take nasb if the sentence requires it; the rest stay jarr.",
-                "ar": "لا؛ لأن المضاف إليه مجرور دائما."
+                "ar": "لا؛ لأن كل اسم بعد المضاف الأول في سلسلة الإضافة مضاف إليه مجرور، لا مرفوع."
               }
             }
           ]
@@ -20790,7 +20790,7 @@
           "type": "matchRule",
           "prompt": {
             "en": "Why does tashkeel not resolve who visited whom in زار عيسى مصطفى؟",
-            "ar": "لماذا لا يحسم التشكيل (مَن زار) من في قولنا: «زار عيسى مصطفى»؟"
+            "ar": "لماذا لا يحسم التشكيل (مَن زار مَن) في قولنا: «زار عيسى مصطفى»؟"
           },
           "options": [
             {
@@ -20814,7 +20814,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "زار clearly has a meaning (\"visited\"); the issue is only the invisible case ending on these two names.",
-                "ar": "لا؛ لأن «زار» فعل يرفع فاعلا وينصب مفعولا، والإشكال في انتهاء (عيسى) و(موسى) بالألف."
+                "ar": "لا؛ لأن «زار» فعل يرفع فاعلًا وينصب مفعولًا، والإشكال في انتهاء «عيسى» و«مصطفى» بالألف."
               }
             },
             {
@@ -21112,7 +21112,7 @@
                   "end": 29,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني في محل نصب نعت (صفة)"
+                    "ar": "اسم موصول (نعت)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -21131,7 +21131,7 @@
                   "end": 35,
                   "role": {
                     "en": "Past verb, one of \"the five verbs\" pattern in the plural",
-                    "ar": "فعل ماضٍ، وواو الجماعة ضمير متصل مبني في محل رفع فاعل"
+                    "ar": "فعل ماضٍ (جملة الصلة)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -21701,7 +21701,7 @@
                   "end": 66,
                   "role": {
                     "en": "Relative pronoun (mabni)",
-                    "ar": "اسم موصول مبني في محل جر نعت (صفة)"
+                    "ar": "اسم موصول (نعت)"
                   },
                   "grammarState": "indeclinable",
                   "grammaticalSign": {
@@ -23803,12 +23803,12 @@
               "id": "ma-illa",
               "label": {
                 "en": "ما...إلا",
-                "ar": "ما...إلا"
+                "ar": "ما ... إلا"
               },
               "isCorrect": true,
               "feedback": {
                 "en": "Correct. ما...إلا restricts the meaning to only what follows إلا.",
-                "ar": "صحيح. «ما...إلا» تقصر المعنى على ما بعد «إلا» فقط."
+                "ar": "صحيح. «ما ... إلا» تقصر المعنى على ما بعد «إلا» فقط."
               }
             },
             {
@@ -24285,7 +24285,7 @@
                   "end": 16,
                   "role": {
                     "en": "Direct object, with attached pronoun",
-                    "ar": "مفعول به وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
+                    "ar": "مفعول به وهو مضاف"
                   },
                   "grammarState": "nasb",
                   "grammaticalSign": {
@@ -24295,7 +24295,7 @@
                   "ending": "َ",
                   "reason": {
                     "en": "صديقه receives the calling, so it is the object in nasb.",
-                    "ar": "«صديقه» وقعت عليه الدعوة فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
+                    "ar": "«صديق» وقع عليه فعل الدعوة فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 }
               ]
@@ -24955,7 +24955,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "و is a plain coordinating particle, with no such nasbing effect.",
-                "ar": "لا؛ لأن الواو حرف عطف، وليست من أخوات إنَ."
+                "ar": "لا؛ لأن الواو حرف عطف، وليست من أخوات إنَّ."
               }
             },
             {
@@ -24967,7 +24967,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "ثم signals sequence, not a wish, and has no such nasbing effect.",
-                "ar": "لا؛ لأن «ثم» تفيد الترتيب لا التمني، وليست من أخوات إنَ."
+                "ar": "لا؛ لأن «ثم» تفيد الترتيب لا التمني، وليست من أخوات إنَّ."
               }
             }
           ]
@@ -25141,7 +25141,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "و is a plain coordinating particle, with no such nasbing effect.",
-                "ar": "لا؛ لأن الواو حرف عطف، وليس من أخوات (إنَ)"
+                "ar": "لا؛ لأن الواو حرف عطف، وليس من أخوات (إنَّ)"
               }
             },
             {
@@ -25153,7 +25153,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "ثم signals sequence, not hope, and has no such nasbing effect.",
-                "ar": "لا؛ لأن «ثم» تفيد الترتيب لا الترجي، وليس من أخوات (إنَ)."
+                "ar": "لا؛ لأن «ثم» تفيد الترتيب لا الترجي، وليس من أخوات (إنَّ)."
               }
             }
           ]
@@ -26522,7 +26522,7 @@
                   "end": 46,
                   "role": {
                     "en": "Direct object, with attached pronoun",
-                    "ar": "مفعول به وهو مضاف، والضمير المتصل «ـه» مبني في محل جر مضاف إليه"
+                    "ar": "مفعول به وهو مضاف"
                   },
                   "grammarState": "nasb",
                   "grammaticalSign": {
@@ -26532,7 +26532,7 @@
                   "ending": "َ",
                   "reason": {
                     "en": "مراده receives the action of reaching, so it is the object in nasb.",
-                    "ar": "«مراده» وقع عليه فعل البلوغ فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
+                    "ar": "«مراد» وقع عليه فعل البلوغ فهو مفعول به منصوب، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -27054,7 +27054,7 @@
                   "end": 6,
                   "role": {
                     "en": "Topic (mubtada), an idafa to the attached pronoun نا",
-                    "ar": "مبتدأ وهو مضاف، والضمير المتصل «نا» مبني في محل جر مضاف إليه"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -27064,7 +27064,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كلامنا is what Ibn Malik is defining, so it is the topic of this nominal sentence, in raf.",
-                    "ar": "«كلامنا» مبتدأ الجملة الاسمية مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
+                    "ar": "«كلام» مبتدأ الجملة الاسمية مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -27175,7 +27175,7 @@
                   "end": 5,
                   "role": {
                     "en": "Topic (mubtada), an idafa to the attached pronoun ه (referring to الكلام)",
-                    "ar": "مبتدأ، مضاف إلى الضمير الهاء (هـ)"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -27185,7 +27185,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "واحده (\"its single unit\") is the topic of this new nominal sentence.",
-                    "ar": "«واحده» مبتدأ هذه الجملة الاسمية الجديدة."
+                    "ar": "«واحد» مبتدأ هذه الجملة الاسمية مرفوع، والضمير المتصل «ـه» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -27524,7 +27524,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No preposition governs كلامنا here.",
-                "ar": "لا؛ لأنه لاسبب للجر هنا."
+                "ar": "لا؛ لأنه لا سبب للجر هنا."
               }
             }
           ]
@@ -27558,7 +27558,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "لفظ is the general term being defined, not the illustrative example.",
-                "ar": "لا؛ لأنها لم يمثل بها في البيت"
+                "ar": "لا؛ لأن «لفظ» جزء من تعريف الكلام في البيت، وليست المثال الذي مثّل به."
               }
             },
             {
@@ -27570,7 +27570,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "الكلم is the collective term for words in general, not the illustrative example.",
-                "ar": "لا؛ لأنها لم يمثل بها في البيت"
+                "ar": "لا؛ لأن «الكلم» مصطلح آخر عرّفه ابن مالك في البيت الثاني، وليست المثال."
               }
             }
           ]
@@ -27894,7 +27894,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "None of these five words is a topic or subject here; all follow بِـ.",
-                "ar": "لا؛ لأن كلمة (الجر) مجرورة بالباء والباقي عٌطِف عليها فتجر مثلها."
+                "ar": "لا؛ لأن كلمة (الجر) مجرورة بالباء والباقي عُطِف عليها فتجر مثلها."
               }
             },
             {
@@ -27906,7 +27906,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "None of these five words is a direct object here; all follow the preposition بِـ.",
-                "ar": "لا؛ لأن كلمة (الجر) مجرورة بالباء والباقي عٌطِف عليها فتجر مثلها"
+                "ar": "لا؛ لأن كلمة (الجر) مجرورة بالباء والباقي عُطِف عليها فتجر مثلها"
               }
             }
           ]
@@ -28447,7 +28447,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "Jarr governs nouns, not verbs; this verse identifies the verb by different signs.",
-                "ar": "لا؛ لأن الجر للأسماء لا الأفعال؛."
+                "ar": "لا؛ لأن الجر للأسماء لا الأفعال."
               }
             }
           ]
@@ -29657,7 +29657,7 @@
           "type": "identifyRole",
           "prompt": {
             "en": "In this verse, which word is the first predicate (khabar) of نكرة؟",
-            "ar": "ماخبر «نكرة» في بيت ابن مالك المذكور؟"
+            "ar": "ما خبر «نكرة» في بيت ابن مالك المذكور؟"
           },
           "options": [
             {
@@ -29749,7 +29749,7 @@
           "type": "matchRule",
           "prompt": {
             "en": "Which particle joins the two alternative tests for nakira in this verse?",
-            "ar": "ماحرف العطف في هذا البيت؟"
+            "ar": "ما حرف العطف في هذا البيت؟"
           },
           "options": [
             {
@@ -30249,7 +30249,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "مبتدأٌ, not زيدٌ, is the fronted predicate here.",
-                "ar": "«مبتدأٌ» لا «زيدٌ» هو الخبر المقدَّم هنا."
+                "ar": "لا؛ لأن «زيدٌ» مُخبَر عنه لا مُخبَر به، فهو مبتدأ مؤخر، و«مبتدأٌ» خبر مقدَّم."
               }
             },
             {
@@ -31082,7 +31082,7 @@
                   "end": 6,
                   "role": {
                     "en": "Topic (mubtada), an idafa to نا",
-                    "ar": "مبتدأ وهو مضاف، والضمير المتصل «نا» مبني في محل جر مضاف إليه"
+                    "ar": "مبتدأ وهو مضاف"
                   },
                   "grammarState": "raf",
                   "grammaticalSign": {
@@ -31092,7 +31092,7 @@
                   "ending": "ُ",
                   "reason": {
                     "en": "كلامنا is the topic of the opening definition.",
-                    "ar": "«كلامنا» مبتدأ مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
+                    "ar": "«كلام» مبتدأ مرفوع، والضمير المتصل «نا» مبني في محل جر مضاف إليه."
                   }
                 },
                 {
@@ -31363,7 +31363,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. This nominal sentence consists of a topic and a predicate.",
-                "ar": "لا؛ لأن الجملة الاسمية تتكوّن هنا من مبتدأ وخبر، لا من فعل وفاعل."
+                "ar": "لا؛ لأن هذا خطأ ومخالف لما قرّره العلماء؛ فالجملة الاسمية تتكوّن من مبتدأ وخبر."
               }
             },
             {
@@ -31375,7 +31375,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. Two verbs do not form the topic and predicate of this construction.",
-                "ar": "لا؛ لأن الفعلين لا يكونان مبتدأً وخبرًا في هذا التركيب."
+                "ar": "لا؛ لأن هذا التركيب لا يصح في كلام العرب؛ إذ لا تتكوّن الجملة من فعلين بلا اسم."
               }
             }
           ]
@@ -31561,7 +31561,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "This overclaims certainty as a general rule; while this particular sentence is straightforward, other classical constructions can admit genuine debate.",
-                "ar": "هذا يبالغ في اليقين كقاعدة عامة؛ فمع أن هذه الجملة بعينها واضحة، تراكيب فصيحة أخرى قد تحتمل نقاشًا فعليًّا."
+                "ar": "لا؛ لأن هذا خطأ يخالف ما ورد عن العرب؛ فقد سُمع عنهم تقديم الخبر في مواضع كثيرة."
               }
             }
           ]
