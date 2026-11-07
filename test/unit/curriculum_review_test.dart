@@ -74,8 +74,36 @@ void main() {
   test('article notation omits hamza in prose but preserves quoted verses', () {
     expect(lesson(8).objectives.first.ar, contains('«الـ»'));
     expect(lesson(12).objectives[1].ar, contains('«الـ»'));
-    expect(lesson(52).sections.first.body.ar, contains('«ال»'));
-    expect(lesson(55).sections.first.body.ar, contains('«ال»'));
+    final bookTokens = lesson(19).sections
+        .firstWhere((section) => section.id == 'teacher-gave-book')
+        .examples
+        .single
+        .tokens;
+    expect(bookTokens[1].grammaticalSign.ar, contains('«الـ» التعريف'));
+    expect(bookTokens[2].grammaticalSign.ar, contains('«الـ» التعريف'));
+    expect(bookTokens[1].grammaticalSign.ar, isNot(contains('«أل»')));
+    expect(lesson(52).objectives.first.ar, contains('«الـ» التعريف'));
+    expect(
+      lesson(
+        55,
+      ).objectives.any((objective) => objective.ar.contains('«الـ» المؤثرة')),
+      isTrue,
+    );
+    final indefiniteExercise = lesson(
+      55,
+    ).exercises.firstWhere((exercise) => exercise.id == 'lesson-55-rule-03');
+    expect(
+      indefiniteExercise.options.first.label.ar,
+      contains('«الـ» المؤثرة'),
+    );
+    final idafaToken = lesson(57).sections[1].examples.first.tokens.firstWhere(
+      (token) => token.text == 'اسم',
+    );
+    expect(idafaToken.role.ar, contains('«الـ» التعريف'));
+    expect(
+      lesson(52).sections[1].body.ar,
+      contains('«بِالْجَرِّ وَالتَّنْوِينِ وَالنِّدَا وَأَلْ'),
+    );
     expect(
       lesson(55).sections[1].examples.single.unvocalized,
       'نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا',
@@ -201,6 +229,31 @@ void main() {
     }
   });
 
+  test('grammar explanations distinguish rules from exceptions', () {
+    final pronouns = lesson(14).sections.first.body;
+    expect(pronouns.ar, contains('الضمير المنفصل ظاهر'));
+    expect(pronouns.ar, isNot(contains('مبتدأ أو فاعلًا مستترًا')));
+
+    final derived = lesson(23).sections[1].body;
+    for (final term in ['التعدية', 'التكثير', 'المطاوعة', 'السياق']) {
+      expect(derived.ar, contains(term));
+    }
+    expect(derived.en, contains('depend on the verb and context'));
+
+    final relatives = lesson(27).sections.first.body;
+    for (final form in ['اللذان', 'اللتان', 'اللذين', 'اللتين']) {
+      expect(relatives.ar, contains(form));
+    }
+    expect(relatives.ar, contains('إعراب المثنى'));
+    expect(lesson(42).sections.first.body.ar, contains('بالترتيب والسياق'));
+    expect(lesson(47).sections.first.body.ar, contains('معنى خاص'));
+    expect(lesson(48).sections.first.body.ar, contains('«كتابًا»'));
+    expect(lesson(48).sections.first.body.ar, contains('ألف عوض'));
+    for (final bank in [lesson(48).exercises, lesson(48).repeatExercises]) {
+      expect(bank.first.prompt.ar, isNot(contains('ً')));
+    }
+  });
+
   test(
     'applies the five clarified author passages from the updated review',
     () {
@@ -214,10 +267,7 @@ void main() {
         lesson(39).exercises.first.options[1].feedback.ar,
         contains('يرفع فاعلًا وينصب مفعولًا'),
       );
-      expect(
-        lesson(48).objectives.first.ar,
-        contains('لأنه لا يوقف على متحرك'),
-      );
+      expect(lesson(48).objectives.first.ar, contains('ألف العوض'));
       final article = lesson(52).sections[1].examples.single.tokens[3];
       expect(article.role.ar, 'معطوف مجرور');
       expect(article.role.ar, isNot(contains('حرف تعريف')));

@@ -156,7 +156,7 @@
       "transliteration": "ism",
       "definition": {
         "en": "A word that names a person, thing, place, or idea, and can generally take tanwin, definiteness, or jarr.",
-        "ar": "كلمة تدل على شخص أو شيء أو مكان أو معنى، ويصح دخول التنوين أو أل التعريف أو حرف الجر عليها."
+        "ar": "كلمة تدل على شخص أو شيء أو مكان أو معنى، ويصح دخول التنوين أو «الـ» التعريف أو حرف الجر عليها."
       },
       "example": {
         "en": "'Kitab' (book) and 'Muhammad' are both asma'.",
@@ -360,7 +360,7 @@
       "transliteration": "muḍāf",
       "definition": {
         "en": "The first noun in an idafa construction; it never takes tanwin or the definite article, and its meaning depends on the noun after it.",
-        "ar": "الاسم الأول في تركيب الإضافة، ولا يقبل التنوين ولا أل، ويكتسب تعريفه أو تخصيصه مما بعده."
+        "ar": "الاسم الأول في تركيب الإضافة، ولا يقبل التنوين ولا «الـ» التعريف، ويكتسب تعريفه أو تخصيصه مما بعده."
       },
       "example": {
         "en": "In 'kitabu at-talibi' (the student's book), 'kitabu' is the mudaf.",
@@ -805,7 +805,7 @@
       "transliteration": "ma'rifa",
       "definition": {
         "en": "A noun that refers to a specific, identifiable thing, such as a proper name, pronoun, or a noun with the definite article.",
-        "ar": "اسم يدل على شيء معيّن معروف، كالعلَم والضمير والاسم المقترن بأل التعريف."
+        "ar": "اسم يدل على شيء معيّن معروف، كالعلَم والضمير والاسم المقترن بـ«الـ» التعريف."
       },
       "example": {
         "en": "'Khalidun', 'huwa', and 'al-waladu' are all ma'rifa.",
@@ -1076,11 +1076,11 @@
       "transliteration": "'alāmāt al-ism",
       "definition": {
         "en": "Tests that identify a word as a noun, such as accepting tanwin, the definite article, jarr, or being preceded by a preposition.",
-        "ar": "علامات تدل على أن الكلمة اسم، كقبول التنوين أو أل التعريف أو الجر أو دخول حرف الجر عليها."
+        "ar": "علامات تدل على أن الكلمة اسم، كقبول التنوين أو «الـ» التعريف أو الجر أو دخول حرف الجر عليها."
       },
       "example": {
         "en": "Because 'kitabun' accepts tanwin and 'al', we know it is an ism.",
-        "ar": "لأن \"كتابٌ\" يقبل التنوين وأل، عرفنا أنه اسم."
+        "ar": "لأن \"كتابٌ\" يقبل التنوين و«الـ» التعريف، عرفنا أنه اسم."
       },
       "lessonIds": [
         "lesson_52"
