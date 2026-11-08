@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+import '../../core/content/content_repository.dart';
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
@@ -152,8 +150,7 @@ class _AboutScreenState extends State<AboutScreen> {
       );
 
   static Future<ContentCatalog> _loadCatalog() async {
-    final source = await rootBundle.loadString('content/drafts/lesson_01.json');
-    return ContentCatalog.fromJson(jsonDecode(source));
+    return const ContentRepository().load();
   }
 }
 

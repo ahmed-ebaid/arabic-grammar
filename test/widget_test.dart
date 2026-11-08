@@ -13,6 +13,7 @@ import 'package:arabic_grammar/core/theme/app_theme.dart';
 import 'package:arabic_grammar/core/user/user_data_controller.dart';
 import 'package:arabic_grammar/shared/widgets/young_learner_mascot.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
+import 'package:arabic_grammar/features/lessons/lesson_detail_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -21,6 +22,56 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
+  testWidgets('optional Alfiyya reading preserves completed lesson progress', (
+    tester,
+  ) async {
+    final catalog = _draftCatalog();
+    final lesson = catalog.lessons.firstWhere((item) => item.id == 'lesson_07');
+    final progress = LessonProgressController.inMemory();
+    final finalStep =
+        1 +
+        lesson.sections.length +
+        lesson.sections.fold<int>(
+          0,
+          (count, section) => count + section.examples.length,
+        ) +
+        lesson.exercises.length;
+    await progress.complete(lesson.id, finalStep, mastery: 80);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        theme: AppTheme.lightFor(youngLearner: false),
+        home: LessonDetailScreen(
+          lesson: lesson,
+          progressController: progress,
+          userDataController: UserDataController.inMemory(),
+          previewUnreviewed: true,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(progress.isCompleted(lesson.id), isTrue);
+    final attempts = progress.attemptsFor(lesson.id);
+    final xp = progress.totalXp;
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('openAlfiyyaReading')),
+    );
+    await tester.tap(find.byKey(const ValueKey('openAlfiyyaReading')));
+    await tester.pumpAndSettle();
+    expect(find.text('أبيات من ألفية ابن مالك'), findsOneWidget);
+    expect(find.textContaining('قراءة اختيارية غير مُقيَّمة'), findsOneWidget);
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
+    expect(progress.masteryFor(lesson.id), 80);
+    expect(progress.attemptsFor(lesson.id), attempts);
+    expect(progress.totalXp, xp);
+    expect(progress.stepFor(lesson.id), finalStep);
+    expect(progress.isCompleted(lesson.id), isTrue);
+  });
+
   testWidgets('Android internal access hides billing and Plus locks', (
     tester,
   ) async {

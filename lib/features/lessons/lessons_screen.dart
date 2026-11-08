@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
+import '../../core/content/content_repository.dart';
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
@@ -172,8 +170,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
   }
 
   static Future<ContentCatalog> _loadCatalog() async {
-    final source = await rootBundle.loadString('content/drafts/lesson_01.json');
-    return ContentCatalog.fromJson(jsonDecode(source));
+    return const ContentRepository().load();
   }
 
   Future<void> _openLesson(Lesson lesson) async {

@@ -55,6 +55,13 @@ An approved lesson must contain:
 Changing grammar content, a canonical answer, or an explanation after approval
 requires a new content version and a new teacher review.
 
+For explicitly requested internal testing only, build with
+`--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the pending draft
+and enables the optional Alfiyya readings; it does not mark them approved.
+The TestFlight workflow currently uses this flag. Such builds must not be
+promoted to a production store release until teacher review is complete.
+Without the flag, the app loads and validates the approved bundled catalog.
+
 After approval, promote the exact reviewed lesson into the bundled release
 catalog:
 

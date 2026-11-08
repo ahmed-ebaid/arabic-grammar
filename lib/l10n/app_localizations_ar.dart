@@ -12,6 +12,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get appName => 'إعراب';
 
   @override
+  String get alfiyyaTitle => 'أبيات من ألفية ابن مالك';
+
+  @override
+  String get alfiyyaOpen => 'اقرأ أبياتًا من الألفية';
+
+  @override
+  String get alfiyyaOptional =>
+      'قراءة اختيارية غير مُقيَّمة؛ لا تؤثر في درجتك أو فتح الدرس التالي.';
+
+  @override
+  String get alfiyyaSource =>
+      'المصدر: ابن مالك، ألفية ابن مالك. الشروح الإضافية بانتظار مراجعة المعلّم.';
+
+  @override
   String get grammarStateRaf => 'الرفع';
 
   @override

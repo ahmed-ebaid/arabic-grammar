@@ -41,20 +41,17 @@ void main() {
                 (lesson) => lesson.repeatExercises.length,
                 'repeat exercise count',
                 greaterThanOrEqualTo(4),
-              )
-              .having(
-                (lesson) => lesson.review.status,
-                'review status',
-                ReviewStatus.approved,
-              )
-              .having(
-                (lesson) => lesson.review.reviewer,
-                'reviewer',
-                'د. شريف محمد الصادق',
               ),
         ),
       );
       for (final lesson in catalog.lessons) {
+        if (lesson.id == 'lesson_01' || lesson.id == 'lesson_13') {
+          expect(lesson.review.status, ReviewStatus.pendingReview);
+          expect(lesson.review.reviewer, isNull);
+        } else {
+          expect(lesson.review.status, ReviewStatus.approved);
+          expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
+        }
         expect(
           lesson.repeatExercises,
           hasLength(lesson.exercises.length),
@@ -174,13 +171,31 @@ void main() {
   });
 
   test('bundled release catalog contains only releasable content', () async {
-    final catalog = await const ContentRepository().load();
+    final catalog = await const ContentRepository(
+      previewUnreviewed: false,
+    ).load();
 
     expect(catalog.schemaVersion, 1);
     expect(catalog.contentVersion, '1.0.0');
     expect(catalog.levels, hasLength(7));
     expect(catalog.lessons, hasLength(58));
   });
+
+  test(
+    'testing preview loads drafts without granting release approval',
+    () async {
+      final catalog = await const ContentRepository(
+        previewUnreviewed: true,
+      ).load();
+      expect(catalog.lessons.first.review.status, ReviewStatus.pendingReview);
+      expect(catalog.lessons[12].review.status, ReviewStatus.pendingReview);
+      expect(ContentValidator.validate(catalog), isEmpty);
+      expect(
+        ContentValidator.validate(catalog, requireReleaseApproval: true),
+        isNotEmpty,
+      );
+    },
+  );
 
   test('loads the bilingual grammar glossary', () {
     final source = File('assets/content/glossary.json').readAsStringSync();

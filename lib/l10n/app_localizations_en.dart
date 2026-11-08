@@ -12,6 +12,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'إعراب';
 
   @override
+  String get alfiyyaTitle => 'Verses from Ibn Malik’s Alfiyya';
+
+  @override
+  String get alfiyyaOpen => 'Read verses from the Alfiyya';
+
+  @override
+  String get alfiyyaOptional =>
+      'Optional, ungraded reading; it does not affect your score or unlocks.';
+
+  @override
+  String get alfiyyaSource =>
+      'Source: Ibn Malik, Alfiyyat Ibn Malik. The new explanations await teacher review.';
+
+  @override
   String get grammarStateRaf => 'Raf';
 
   @override

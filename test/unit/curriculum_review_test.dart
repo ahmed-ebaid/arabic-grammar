@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:arabic_grammar/core/content/content_decoder.dart';
 import 'package:arabic_grammar/core/models/content_models.dart';
+import 'package:arabic_grammar/features/lessons/alfiyya_readings.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -9,6 +10,49 @@ void main() {
     File('content/drafts/lesson_01.json').readAsStringSync(),
   );
   Lesson lesson(int number) => catalog.lessons[number - 1];
+
+  test('Alfiyya readings cover each level-ending lesson', () {
+    expect(
+      alfiyyaReadings.keys.toSet(),
+      catalog.levels.map((level) => level.lessonIds.last).toSet(),
+    );
+    for (final readings in alfiyyaReadings.values) {
+      expect(readings.length, greaterThanOrEqualTo(2));
+      for (final reading in readings) {
+        expect(reading.verse, contains('\n'));
+        expect(reading.ar, isNotEmpty);
+        expect(reading.en, isNotEmpty);
+      }
+    }
+  });
+
+  test('inflection and fixed endings are explained in both lessons', () {
+    final first = lesson(1);
+    final demonstratives = lesson(13);
+    final intro = first.sections.first.body;
+    for (final example in ['الطالبُ', 'الطالبَ', 'الطالبِ']) {
+      expect(intro.ar, contains(example));
+      expect(intro.en, contains(example));
+    }
+    for (final body in [intro, demonstratives.sections.first.body]) {
+      for (final example in ['جاءَ هذا', 'رأيتُ هذا', 'سلّمتُ على هذا']) {
+        expect(body.ar, contains(example));
+        expect(body.en, contains(example));
+      }
+      for (final position in ['رفع', 'نصب', 'جر']) {
+        expect(body.ar, contains('محل $position'));
+      }
+      for (final position in ['raf', 'nasb', 'jarr']) {
+        expect(body.en, contains(position));
+      }
+    }
+    for (final item in [first, demonstratives]) {
+      expect(item.review.status, ReviewStatus.pendingReview);
+      expect(item.review.reviewer, isNull);
+      expect(item.review.reviewedAt, isNull);
+      expect(item.sections, hasLength(2));
+    }
+  });
 
   test('token display does not repeat letters already in an ending', () {
     const cases = [

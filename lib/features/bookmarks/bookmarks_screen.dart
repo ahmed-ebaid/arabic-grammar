@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
+import '../../core/content/content_repository.dart';
 import '../../core/content/glossary_repository.dart';
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
@@ -170,8 +168,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
   }
 
   static Future<ContentCatalog> _loadContent() async {
-    final source = await rootBundle.loadString('content/drafts/lesson_01.json');
-    return ContentCatalog.fromJson(jsonDecode(source));
+    return const ContentRepository().load();
   }
 }
 

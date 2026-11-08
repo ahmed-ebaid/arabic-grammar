@@ -104,6 +104,30 @@ abstract class AppLocalizations {
   /// **'إعراب'**
   String get appName;
 
+  /// No description provided for @alfiyyaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verses from Ibn Malik’s Alfiyya'**
+  String get alfiyyaTitle;
+
+  /// No description provided for @alfiyyaOpen.
+  ///
+  /// In en, this message translates to:
+  /// **'Read verses from the Alfiyya'**
+  String get alfiyyaOpen;
+
+  /// No description provided for @alfiyyaOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional, ungraded reading; it does not affect your score or unlocks.'**
+  String get alfiyyaOptional;
+
+  /// No description provided for @alfiyyaSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Source: Ibn Malik, Alfiyyat Ibn Malik. The new explanations await teacher review.'**
+  String get alfiyyaSource;
+
   /// No description provided for @grammarStateRaf.
   ///
   /// In en, this message translates to:

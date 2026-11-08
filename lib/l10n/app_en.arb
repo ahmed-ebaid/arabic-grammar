@@ -1,6 +1,10 @@
 {
   "@@locale": "en",
   "appName": "إعراب",
+  "alfiyyaTitle": "Verses from Ibn Malik’s Alfiyya",
+  "alfiyyaOpen": "Read verses from the Alfiyya",
+  "alfiyyaOptional": "Optional, ungraded reading; it does not affect your score or unlocks.",
+  "alfiyyaSource": "Source: Ibn Malik, Alfiyyat Ibn Malik. The new explanations await teacher review.",
   "grammarStateRaf": "Raf",
   "grammarStateNasb": "Nasb",
   "grammarStateJarr": "Jarr",

@@ -196,8 +196,8 @@
             "ar": "قد يختلف آخر الكلمة لاختلاف وظيفتها في الجملة"
           },
           "body": {
-            "en": "Word endings can change with a word's grammatical role and the meaning of the sentence. In many sentences, the final vowel helps identify a noun's role: topic, subject, object, or a noun governed by a preposition. Use grammar, morphology, and context together to choose the correct reading. Endings also mark verbs: a present-tense verb (الفعل المضارع, the action-word form for now or habitual actions) can take jazm after certain particles, while jarr marks nouns only. We will learn these patterns gradually.",
-            "ar": "قد تتغير أواخر الكلمات تبعًا لوظيفتها الإعرابية واختلاف معنى الكلام. ففي كثير من الجمل تساعدنا الحركة الأخيرة على معرفة وظيفة الاسم: أمبتدأ هو أم فاعل أم مفعول به أم اسم مجرور؟ ونستعين بالقواعد النحوية والصرفية والسياق لاختيار القراءة الصحيحة. وتُستخدم الحركات لتمييز الأفعال أيضًا: فالفعل المضارع الدال على الحال قد يُجزم بعد أدوات معيّنة، أما الجر فيلحق الأسماء وحدها. وسنتعلَّم هذه الأنماط بالتدرُّج."
+            "en": "Word endings can change with a word's grammatical role and the meaning of the sentence. An inflected word (مُعْرَب) changes its ending according to the grammatical factors affecting it: compare جاءَ الطالبُ (the student came), رأيتُ الطالبَ (I saw the student), and سلّمتُ على الطالبِ (I greeted the student). An indeclinable word (مَبْنِيّ) keeps a fixed ending despite changes in those factors: compare جاءَ هذا, رأيتُ هذا, and سلّمتُ على هذا. Although هذا stays the same, its grammatical position changes: it is in the position of raf, nasb, and jarr respectively. In many sentences, the final vowel helps identify a noun's role: topic, subject, object, or a noun governed by a preposition. Use grammar, morphology, and context together to choose the correct reading. Endings also mark verbs: a present-tense verb (الفعل المضارع, the action-word form for now or habitual actions) can take jazm after certain particles, while jarr marks nouns only. We will learn these patterns gradually.",
+            "ar": "قد تتغير أواخر الكلمات تبعًا لوظيفتها الإعرابية واختلاف معنى الكلام. فالكلمة المُعْرَبة يتغير آخرها باختلاف العوامل الداخلة عليها: «جاءَ الطالبُ»، و«رأيتُ الطالبَ»، و«سلّمتُ على الطالبِ». أما الكلمة المَبْنِيّة فيلزم آخرها حالةً واحدةً رغم اختلاف العوامل: «جاءَ هذا»، و«رأيتُ هذا»، و«سلّمتُ على هذا». ومع أن «هذا» لا يتغير آخره، فإن محلّه الإعرابي يتغير: فهو في محل رفع، ثم في محل نصب، ثم في محل جر. ففي كثير من الجمل تساعدنا الحركة الأخيرة على معرفة وظيفة الاسم: أمبتدأ هو أم فاعل أم مفعول به أم اسم مجرور؟ ونستعين بالقواعد النحوية والصرفية والسياق لاختيار القراءة الصحيحة. وتُستخدم الحركات لتمييز الأفعال أيضًا: فالفعل المضارع الدال على الحال قد يُجزم بعد أدوات معيّنة، أما الجر فيلحق الأسماء وحدها. وسنتعلَّم هذه الأنماط بالتدرُّج."
           },
           "examples": []
         },
@@ -687,11 +687,11 @@
         }
       ],
       "review": {
-        "status": "approved",
-        "contentVersion": "1.0.0",
-        "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "status": "pendingReview",
+        "contentVersion": "1.0.1",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": "Previously approved content was revised to explain inflected and indeclinable words; the revised lesson requires teacher review."
       }
     },
     {
@@ -6666,8 +6666,8 @@
             "ar": "الإشارة إلى اسم"
           },
           "body": {
-            "en": "هذا points to a nearby masculine singular noun, هذه to a nearby feminine singular noun, and هؤلاء to nearby people (plural). ذلك and تلك point to something farther away.",
-            "ar": "«هذا» تشير إلى اسم مفرد مذكر قريب، و«هذه» إلى اسم مفرد مؤنث قريب، و«هؤلاء» إلى جماعة أشخاص قريبين. أما «ذلك» و«تلك» فتشيران إلى شيء بعيد."
+            "en": "هذا points to a nearby masculine singular noun, هذه to a nearby feminine singular noun, and هؤلاء to nearby people (plural). ذلك and تلك point to something farther away. هذا is indeclinable: its form stays fixed even when its grammatical position changes. In جاءَ هذا it is the subject in the position of raf; in رأيتُ هذا it is the object in the position of nasb; in سلّمتُ على هذا it is governed by the preposition in the position of jarr.",
+            "ar": "«هذا» تشير إلى اسم مفرد مذكر قريب، و«هذه» إلى اسم مفرد مؤنث قريب، و«هؤلاء» إلى جماعة أشخاص قريبين. أما «ذلك» و«تلك» فتشيران إلى شيء بعيد. و«هذا» مبني لا يتغير آخره، وإن تغيّر محلّه الإعرابي: ففي «جاءَ هذا» هو فاعل في محل رفع، وفي «رأيتُ هذا» هو مفعول به في محل نصب، وفي «سلّمتُ على هذا» هو اسم مجرور بحرف الجر في محل جر."
           },
           "examples": []
         },
@@ -7142,11 +7142,11 @@
         }
       ],
       "review": {
-        "status": "approved",
-        "contentVersion": "1.0.0",
-        "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "status": "pendingReview",
+        "contentVersion": "1.0.1",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": "Previously approved content was revised to explain the grammatical position of an indeclinable demonstrative; the revised lesson requires teacher review."
       }
     },
     {

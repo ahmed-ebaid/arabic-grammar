@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/content/content_repository.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
@@ -13,18 +14,21 @@ import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import '../../shared/widgets/young_learner_mascot.dart';
+import 'alfiyya_readings.dart';
 
 class LessonDetailScreen extends StatefulWidget {
   const LessonDetailScreen({
     required this.lesson,
     required this.progressController,
     required this.userDataController,
+    this.previewUnreviewed = previewUnreviewedContent,
     super.key,
   });
 
   final Lesson lesson;
   final LessonProgressController progressController;
   final UserDataController userDataController;
+  final bool previewUnreviewed;
 
   @override
   State<LessonDetailScreen> createState() => _LessonDetailScreenState();
@@ -222,6 +226,17 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         progressController: widget.progressController,
         onRestart: _restart,
         onClose: () => Navigator.of(context).pop(),
+        onReadAlfiyya:
+            widget.previewUnreviewed &&
+                alfiyyaReadings.containsKey(widget.lesson.id)
+            ? () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => _AlfiyyaReadingScreen(
+                    readings: alfiyyaReadings[widget.lesson.id]!,
+                  ),
+                ),
+              )
+            : null,
       ),
     };
   }
@@ -1163,6 +1178,7 @@ class _CompletionStep extends StatefulWidget {
     required this.progressController,
     required this.onRestart,
     required this.onClose,
+    required this.onReadAlfiyya,
   });
 
   final int mastery;
@@ -1170,6 +1186,7 @@ class _CompletionStep extends StatefulWidget {
   final LessonProgressController progressController;
   final VoidCallback onRestart;
   final VoidCallback onClose;
+  final VoidCallback? onReadAlfiyya;
 
   @override
   State<_CompletionStep> createState() => _CompletionStepState();
@@ -1269,6 +1286,15 @@ class _CompletionStepState extends State<_CompletionStep>
       action: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          if (widget.onReadAlfiyya != null) ...[
+            OutlinedButton.icon(
+              key: const ValueKey('openAlfiyyaReading'),
+              onPressed: widget.onReadAlfiyya,
+              icon: const Icon(Icons.menu_book_rounded),
+              label: Text(l10n.alfiyyaOpen),
+            ),
+            const SizedBox(height: 10),
+          ],
           if (passed)
             FilledButton(
               onPressed: widget.onClose,
@@ -1286,6 +1312,50 @@ class _CompletionStepState extends State<_CompletionStep>
 
   String _languageCode(BuildContext context) =>
       Localizations.localeOf(context).languageCode;
+}
+
+class _AlfiyyaReadingScreen extends StatelessWidget {
+  const _AlfiyyaReadingScreen({required this.readings});
+
+  final List<AlfiyyaReading> readings;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final isArabic = Localizations.localeOf(context).languageCode == 'ar';
+    return Scaffold(
+      appBar: AppBar(title: Text(l10n.alfiyyaTitle)),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          Text(l10n.alfiyyaOptional),
+          for (final reading in readings)
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: ArabicDiacriticsText(
+                        reading.verse,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    ArabicDiacriticsText(isArabic ? reading.ar : reading.en),
+                  ],
+                ),
+              ),
+            ),
+          const SizedBox(height: 12),
+          Text(l10n.alfiyyaSource),
+        ],
+      ),
+    );
+  }
 }
 
 class _SentenceCard extends StatefulWidget {
