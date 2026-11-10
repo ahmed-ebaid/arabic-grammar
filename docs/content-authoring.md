@@ -62,6 +62,39 @@ The TestFlight workflow currently uses this flag. Such builds must not be
 promoted to a production store release until teacher review is complete.
 Without the flag, the app loads and validates the approved bundled catalog.
 
+### Optional Alfiyya readings
+
+`lib/features/lessons/alfiyya_readings.dart` contains the pending-review
+selections shown after each level's final review. The reading route does not
+add lesson steps, record answers, award XP, or change completion/unlocks.
+Each selection has a stable related lesson ID, bilingual topic and explanation,
+an Arabic example, and optional bilingual advanced notes.
+
+The expanded selections follow the topic suggestions in the supplied
+`ibnmalek.docx`, not its older lesson numbering. In levels five and six,
+the app's lesson numbers are one lower after removal of the headlines lesson.
+The source document is a selection aid, not evidence of teacher approval.
+Verse references are Ibn Malik's public-domain *Alfiyya*; original modern
+explanations and examples remain pending review. Consult the corresponding
+chapters, not isolated lines:
+
+- [Alfiyya text](https://ar.wikisource.org/wiki/ألفية_ابن_مالك)
+- [Ibn Aqil: demonstratives](https://ar.wikisource.org/wiki/شرح_ابن_عقيل/المجلد_الأول/اسم_الإشارة)
+- [Ibn Aqil: relatives](https://ar.wikisource.org/wiki/شرح_ابن_عقيل/المجلد_الأول/الموصول)
+
+The shorter Alfiyya transcription omits `تي` in the demonstrative verse;
+the Ibn Aqil transcription includes it. Do not copy merged lines or misplaced
+diacritics from the supplied document. Advanced pronoun references, dialectal
+prepositions, exception rules, and pause exceptions belong in expandable notes.
+Do not treat `والثان منهما كثاني اثني كسا` as a standalone rule for all
+two-object verbs: it refers back to the `أعلم وأرى` discussion.
+The document's weak-noun passage (`المصطفى والمرتقي`) is not a weak-verb rule.
+No new verse is invented for the document's empty headings (such as present
+prefixes or derived-verb patterns), or for punctuation/context lessons without
+a directly relevant selection.
+
+### Promoting reviewed lessons
+
 After approval, promote the exact reviewed lesson into the bundled release
 catalog:
 

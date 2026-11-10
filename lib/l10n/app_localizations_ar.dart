@@ -22,6 +22,12 @@ class AppLocalizationsAr extends AppLocalizations {
       'قراءة اختيارية غير مُقيَّمة؛ لا تؤثر في درجتك أو فتح الدرس التالي.';
 
   @override
+  String get alfiyyaExample => 'مثال يربط البيت بالدرس';
+
+  @override
+  String get alfiyyaMoreDetails => 'للتوسع';
+
+  @override
   String get alfiyyaSource =>
       'المصدر: ابن مالك، ألفية ابن مالك. الشروح الإضافية بانتظار مراجعة المعلّم.';
 

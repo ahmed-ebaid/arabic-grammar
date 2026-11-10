@@ -1329,25 +1329,49 @@ class _AlfiyyaReadingScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           Text(l10n.alfiyyaOptional),
-          for (final reading in readings)
+          for (final (index, reading) in readings.indexed)
             Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: ArabicDiacriticsText(
-                        reading.verse,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    ArabicDiacriticsText(isArabic ? reading.ar : reading.en),
-                  ],
+              child: ExpansionTile(
+                key: PageStorageKey('alfiyya-topic-$index'),
+                initiallyExpanded: index == 0,
+                title: ArabicDiacriticsText(
+                  reading.topic.forLanguage(isArabic ? 'ar' : 'en'),
                 ),
+                childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: ArabicDiacriticsText(
+                      reading.verse,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  ArabicDiacriticsText(
+                    reading.explanation.forLanguage(isArabic ? 'ar' : 'en'),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    l10n.alfiyyaExample,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: ArabicDiacriticsText(reading.example),
+                  ),
+                  if (reading.details case final details?)
+                    ExpansionTile(
+                      key: PageStorageKey('alfiyya-details-$index'),
+                      title: Text(l10n.alfiyyaMoreDetails),
+                      children: [
+                        ArabicDiacriticsText(
+                          details.forLanguage(isArabic ? 'ar' : 'en'),
+                        ),
+                      ],
+                    ),
+                ],
               ),
             ),
           const SizedBox(height: 12),

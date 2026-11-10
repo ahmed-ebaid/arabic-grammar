@@ -4,6 +4,8 @@
   "alfiyyaTitle": "أبيات من ألفية ابن مالك",
   "alfiyyaOpen": "اقرأ أبياتًا من الألفية",
   "alfiyyaOptional": "قراءة اختيارية غير مُقيَّمة؛ لا تؤثر في درجتك أو فتح الدرس التالي.",
+  "alfiyyaExample": "مثال يربط البيت بالدرس",
+  "alfiyyaMoreDetails": "للتوسع",
   "alfiyyaSource": "المصدر: ابن مالك، ألفية ابن مالك. الشروح الإضافية بانتظار مراجعة المعلّم.",
   "grammarStateRaf": "الرفع",
   "grammarStateNasb": "النصب",

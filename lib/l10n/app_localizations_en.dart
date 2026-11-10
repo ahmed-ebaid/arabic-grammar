@@ -22,6 +22,12 @@ class AppLocalizationsEn extends AppLocalizations {
       'Optional, ungraded reading; it does not affect your score or unlocks.';
 
   @override
+  String get alfiyyaExample => 'An example connected to the lesson';
+
+  @override
+  String get alfiyyaMoreDetails => 'More detail';
+
+  @override
   String get alfiyyaSource =>
       'Source: Ibn Malik, Alfiyyat Ibn Malik. The new explanations await teacher review.';
 

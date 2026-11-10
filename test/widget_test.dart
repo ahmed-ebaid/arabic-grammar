@@ -22,11 +22,108 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
-  testWidgets('optional Alfiyya reading preserves completed lesson progress', (
+  for (final language in ['ar', 'en']) {
+    testWidgets('optional Alfiyya reading preserves progress in $language', (
+      tester,
+    ) async {
+      final catalog = _draftCatalog();
+      final lesson = catalog.lessons.firstWhere(
+        (item) => item.id == 'lesson_07',
+      );
+      final progress = LessonProgressController.inMemory();
+      final finalStep =
+          1 +
+          lesson.sections.length +
+          lesson.sections.fold<int>(
+            0,
+            (count, section) => count + section.examples.length,
+          ) +
+          lesson.exercises.length;
+      await progress.complete(lesson.id, finalStep, mastery: 80);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: Locale(language),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: AppTheme.lightFor(youngLearner: false),
+          home: LessonDetailScreen(
+            lesson: lesson,
+            progressController: progress,
+            userDataController: UserDataController.inMemory(),
+            previewUnreviewed: true,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final l10n = AppLocalizations.of(
+        tester.element(find.byType(LessonDetailScreen)),
+      );
+      expect(progress.isCompleted(lesson.id), isTrue);
+      final attempts = progress.attemptsFor(lesson.id);
+      final xp = progress.totalXp;
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('openAlfiyyaReading')),
+      );
+      await tester.tap(find.byKey(const ValueKey('openAlfiyyaReading')));
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.alfiyyaTitle), findsOneWidget);
+      expect(find.text(l10n.alfiyyaOptional), findsOneWidget);
+      expect(
+        find.text(language == 'ar' ? 'أقسام الكلمة' : 'Word classes'),
+        findsOneWidget,
+      );
+      expect(find.text(l10n.alfiyyaExample), findsOneWidget);
+      expect(
+        tester
+            .widget<Directionality>(
+              find
+                  .ancestor(
+                    of: find.textContaining('كلامنا لفظ مفيد'),
+                    matching: find.byType(Directionality),
+                  )
+                  .first,
+            )
+            .textDirection,
+        TextDirection.rtl,
+      );
+      final prepositions = find.text(
+        language == 'ar' ? 'حروف الجر' : 'Prepositions',
+      );
+      await tester.scrollUntilVisible(
+        prepositions,
+        200,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.tap(prepositions);
+      await tester.pumpAndSettle();
+      final advancedText = find.textContaining(
+        language == 'ar' ? 'لغات عربية مخصوصة' : 'particular dialectal usages',
+      );
+      expect(advancedText, findsNothing);
+      await tester.ensureVisible(find.text(l10n.alfiyyaMoreDetails));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.alfiyyaMoreDetails));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(advancedText);
+      await tester.pumpAndSettle();
+      expect(advancedText.hitTestable(), findsOneWidget);
+      await tester.tap(find.byType(BackButton));
+      await tester.pumpAndSettle();
+      expect(progress.masteryFor(lesson.id), 80);
+      expect(progress.attemptsFor(lesson.id), attempts);
+      expect(progress.totalXp, xp);
+      expect(progress.stepFor(lesson.id), finalStep);
+      expect(progress.isCompleted(lesson.id), isTrue);
+    });
+  }
+
+  testWidgets('approved-only lessons do not expose pending Alfiyya readings', (
     tester,
   ) async {
-    final catalog = _draftCatalog();
-    final lesson = catalog.lessons.firstWhere((item) => item.id == 'lesson_07');
+    final lesson = _draftCatalog().lessons.singleWhere(
+      (lesson) => lesson.id == 'lesson_07',
+    );
     final progress = LessonProgressController.inMemory();
     final finalStep =
         1 +
@@ -37,10 +134,9 @@ void main() {
         ) +
         lesson.exercises.length;
     await progress.complete(lesson.id, finalStep, mastery: 80);
-
     await tester.pumpWidget(
       MaterialApp(
-        locale: const Locale('ar'),
+        locale: const Locale('en'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: AppTheme.lightFor(youngLearner: false),
@@ -48,27 +144,12 @@ void main() {
           lesson: lesson,
           progressController: progress,
           userDataController: UserDataController.inMemory(),
-          previewUnreviewed: true,
+          previewUnreviewed: false,
         ),
       ),
     );
     await tester.pumpAndSettle();
-    expect(progress.isCompleted(lesson.id), isTrue);
-    final attempts = progress.attemptsFor(lesson.id);
-    final xp = progress.totalXp;
-    await tester.ensureVisible(
-      find.byKey(const ValueKey('openAlfiyyaReading')),
-    );
-    await tester.tap(find.byKey(const ValueKey('openAlfiyyaReading')));
-    await tester.pumpAndSettle();
-    expect(find.text('أبيات من ألفية ابن مالك'), findsOneWidget);
-    expect(find.textContaining('قراءة اختيارية غير مُقيَّمة'), findsOneWidget);
-    await tester.tap(find.byType(BackButton));
-    await tester.pumpAndSettle();
-    expect(progress.masteryFor(lesson.id), 80);
-    expect(progress.attemptsFor(lesson.id), attempts);
-    expect(progress.totalXp, xp);
-    expect(progress.stepFor(lesson.id), finalStep);
+    expect(find.byKey(const ValueKey('openAlfiyyaReading')), findsNothing);
     expect(progress.isCompleted(lesson.id), isTrue);
   });
 

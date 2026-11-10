@@ -122,6 +122,18 @@ abstract class AppLocalizations {
   /// **'Optional, ungraded reading; it does not affect your score or unlocks.'**
   String get alfiyyaOptional;
 
+  /// No description provided for @alfiyyaExample.
+  ///
+  /// In en, this message translates to:
+  /// **'An example connected to the lesson'**
+  String get alfiyyaExample;
+
+  /// No description provided for @alfiyyaMoreDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'More detail'**
+  String get alfiyyaMoreDetails;
+
   /// No description provided for @alfiyyaSource.
   ///
   /// In en, this message translates to:

@@ -16,15 +16,78 @@ void main() {
       alfiyyaReadings.keys.toSet(),
       catalog.levels.map((level) => level.lessonIds.last).toSet(),
     );
-    for (final readings in alfiyyaReadings.values) {
-      expect(readings.length, greaterThanOrEqualTo(2));
+    for (final entry in alfiyyaReadings.entries) {
+      final readings = entry.value;
+      final endLesson = catalog.lessons.singleWhere(
+        (lesson) => lesson.id == entry.key,
+      );
+      expect(readings.length, greaterThanOrEqualTo(5));
       for (final reading in readings) {
         expect(reading.verse, contains('\n'));
-        expect(reading.ar, isNotEmpty);
-        expect(reading.en, isNotEmpty);
+        final relatedLesson = catalog.lessons.singleWhere(
+          (lesson) => lesson.id == reading.lessonId,
+        );
+        expect(relatedLesson.order, lessThanOrEqualTo(endLesson.order));
+        expect(reading.topic.ar, isNotEmpty);
+        expect(reading.topic.en, isNotEmpty);
+        expect(reading.explanation.ar, isNotEmpty);
+        expect(reading.explanation.en, isNotEmpty);
+        expect(reading.example, isNotEmpty);
+        if (reading.details case final details?) {
+          expect(details.ar, isNotEmpty);
+          expect(details.en, isNotEmpty);
+        }
       }
     }
   });
+
+  test(
+    'expanded Alfiyya selections retain context and correct lesson mapping',
+    () {
+      AlfiyyaReading reading(String ending, String topic) =>
+          alfiyyaReadings[ending]!.singleWhere(
+            (reading) => reading.topic.ar == topic,
+          );
+
+      expect(
+        reading('lesson_15', 'أسماء الإشارة').verse,
+        contains('بذي وذه تي تا على الأنثى اقتصر'),
+      );
+      expect(
+        reading('lesson_15', 'بناء الضمائر').verse,
+        contains('وكل مضمر له البنا يجب'),
+      );
+      expect(
+        reading('lesson_07', 'حروف الجر').details!.ar,
+        contains('لغات عربية مخصوصة'),
+      );
+      expect(
+        reading('lesson_24', 'الفعل المتعدي').details!.ar,
+        contains('سياق «أعلم وأرى»'),
+      );
+      expect(
+        reading('lesson_33', 'الاستثناء بإلّا').verse,
+        contains('إتباع ما اتصل'),
+      );
+      expect(reading('lesson_41', 'نائب الفاعل').lessonId, 'lesson_35');
+      expect(
+        reading('lesson_41', 'اسم الفاعل واسم المفعول').lessonId,
+        'lesson_36',
+      );
+      expect(
+        reading('lesson_50', 'الأفعال المعتلة').verse,
+        isNot(contains('المصطفى')),
+      );
+      expect(
+        reading('lesson_50', 'الوصل والوقف').details!.ar,
+        contains('التاء المربوطة'),
+      );
+      expect(
+        reading('lesson_50', 'حذف المبتدأ أو الخبر').details!.ar,
+        contains('خبر الكون العام'),
+      );
+    },
+  );
 
   test('inflection and fixed endings are explained in both lessons', () {
     final first = lesson(1);
