@@ -1190,6 +1190,12 @@ abstract class AppLocalizations {
   /// **'Deeper grammatical explanations and direct rule application'**
   String get learnerProfileGeneralSubtitle;
 
+  /// No description provided for @comingSoonShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoonShort;
+
   /// No description provided for @learnerProfileChange.
   ///
   /// In en, this message translates to:
@@ -1261,18 +1267,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{xp} XP'**
   String practiceXpEarned(String xp);
-
-  /// No description provided for @seasonalIconTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Seasonal app icon'**
-  String get seasonalIconTitle;
-
-  /// No description provided for @seasonalIconSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Change the app icon during Ramadan, Eid al-Fitr, and Eid al-Adha.'**
-  String get seasonalIconSubtitle;
 
   /// No description provided for @rateAppTitle.
   ///

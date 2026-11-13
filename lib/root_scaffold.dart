@@ -6,7 +6,6 @@ import 'package:in_app_review/in_app_review.dart';
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/services/review_prompt_service.dart';
-import 'core/services/seasonal_icon_service.dart';
 import 'core/subscriptions/subscription_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'core/user/user_data_controller.dart';
@@ -46,37 +45,17 @@ class _RootScaffoldState extends State<RootScaffold>
   Timer? _reviewPromptTimer;
   bool _isForeground = true;
   bool _reviewPromptHandledThisLaunch = false;
-  bool _seasonalIconSupported = false;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(_initializeSeasonalIconAndReviewPrompt());
+      _scheduleReviewPrompt();
       if (mounted && !widget.userDataController.hasLearnerProfile) {
         _showLearnerProfileDialog(required: true);
       }
     });
-  }
-
-  Future<void> _initializeSeasonalIconAndReviewPrompt() async {
-    try {
-      final service = SeasonalIconService();
-      final supported = await service.isSupported();
-      if (mounted && supported != _seasonalIconSupported) {
-        setState(() => _seasonalIconSupported = supported);
-      }
-      if (supported && await service.applyForDate()) {
-        // Avoid stacking the review sheet on top of the icon-change alert.
-        _reviewPromptHandledThisLaunch = true;
-        _reviewPromptTimer?.cancel();
-        _reviewPromptTimer = null;
-      }
-    } catch (error) {
-      debugPrint('Seasonal icon update failed: $error');
-    }
-    _scheduleReviewPrompt();
   }
 
   void _scheduleReviewPrompt() {
@@ -110,7 +89,7 @@ class _RootScaffoldState extends State<RootScaffold>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     _isForeground = state == AppLifecycleState.resumed;
     if (_isForeground) {
-      unawaited(_initializeSeasonalIconAndReviewPrompt());
+      _scheduleReviewPrompt();
     }
   }
 
@@ -183,14 +162,6 @@ class _RootScaffoldState extends State<RootScaffold>
                   title: Text(l10n.learnerProfileChange),
                 ),
               ),
-              if (_seasonalIconSupported)
-                PopupMenuItem(
-                  value: _AppMenuAction.seasonalIcon,
-                  child: ListTile(
-                    leading: const Icon(Icons.nights_stay_outlined),
-                    title: Text(l10n.seasonalIconTitle),
-                  ),
-                ),
               if (!widget.subscriptionController.isInternalTestAccess &&
                   !widget.subscriptionController.hasPlusAccess)
                 PopupMenuItem(
@@ -322,9 +293,6 @@ class _RootScaffoldState extends State<RootScaffold>
       case _AppMenuAction.learnerProfile:
         _showLearnerProfileDialog();
         return;
-      case _AppMenuAction.seasonalIcon:
-        _showSeasonalIconDialog();
-        return;
       case _AppMenuAction.rateApp:
         _rateApp();
         return;
@@ -348,50 +316,6 @@ class _RootScaffoldState extends State<RootScaffold>
         _restorePurchases();
         return;
     }
-  }
-
-  Future<void> _showSeasonalIconDialog() async {
-    final l10n = AppLocalizations.of(context);
-    final service = SeasonalIconService();
-    var enabled = service.isEnabled;
-    var saving = false;
-
-    await showDialog<void>(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setDialogState) => AlertDialog(
-          title: Text(l10n.seasonalIconTitle),
-          content: SwitchListTile(
-            contentPadding: EdgeInsets.zero,
-            secondary: const Icon(Icons.nights_stay_outlined),
-            title: Text(l10n.seasonalIconTitle),
-            subtitle: Text(l10n.seasonalIconSubtitle),
-            value: enabled,
-            onChanged: saving
-                ? null
-                : (value) async {
-                    setDialogState(() {
-                      enabled = value;
-                      saving = true;
-                    });
-                    try {
-                      await service.setEnabled(value);
-                    } finally {
-                      if (context.mounted) {
-                        setDialogState(() => saving = false);
-                      }
-                    }
-                  },
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text(l10n.close),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   Future<void> _rateApp() async {
@@ -546,9 +470,10 @@ class _RootScaffoldState extends State<RootScaffold>
                   ),
                   title: l10n.learnerProfileYoung,
                   subtitle: l10n.learnerProfileYoungSubtitle,
-                  selected: !required && current == LearnerProfile.youngLearner,
-                  onTap: () =>
-                      Navigator.pop(dialogContext, LearnerProfile.youngLearner),
+                  selected: false,
+                  enabled: false,
+                  statusLabel: l10n.comingSoonShort,
+                  onTap: null,
                 ),
                 const SizedBox(height: 12),
                 _LearnerProfileOptionCard(
@@ -581,6 +506,8 @@ class _LearnerProfileOptionCard extends StatelessWidget {
     required this.subtitle,
     required this.selected,
     required this.onTap,
+    this.enabled = true,
+    this.statusLabel,
     this.leadingWidget,
   });
 
@@ -589,7 +516,9 @@ class _LearnerProfileOptionCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final bool selected;
-  final VoidCallback onTap;
+  final bool enabled;
+  final String? statusLabel;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -610,7 +539,7 @@ class _LearnerProfileOptionCard extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: onTap,
+        onTap: enabled ? onTap : null,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
@@ -659,12 +588,31 @@ class _LearnerProfileOptionCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(
-                selected
-                    ? Icons.check_circle_rounded
-                    : Icons.chevron_right_rounded,
-                color: selected ? scheme.primary : scheme.onSurfaceVariant,
-              ),
+              if (statusLabel != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: scheme.surfaceContainerHighest,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    statusLabel!,
+                    style: textTheme.labelSmall?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                )
+              else
+                Icon(
+                  selected
+                      ? Icons.check_circle_rounded
+                      : Icons.chevron_right_rounded,
+                  color: selected ? scheme.primary : scheme.onSurfaceVariant,
+                ),
             ],
           ),
         ),
@@ -678,7 +626,6 @@ enum _AppMenuAction {
   bookmarks,
   textSize,
   learnerProfile,
-  seasonalIcon,
   plusOffer,
   restorePurchases,
   rateApp,

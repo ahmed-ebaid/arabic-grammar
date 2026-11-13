@@ -618,6 +618,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'Deeper grammatical explanations and direct rule application';
 
   @override
+  String get comingSoonShort => 'Coming soon';
+
+  @override
   String get learnerProfileChange => 'Change learner type';
 
   @override
@@ -664,13 +667,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String practiceXpEarned(String xp) {
     return '+$xp XP';
   }
-
-  @override
-  String get seasonalIconTitle => 'Seasonal app icon';
-
-  @override
-  String get seasonalIconSubtitle =>
-      'Change the app icon during Ramadan, Eid al-Fitr, and Eid al-Adha.';
 
   @override
   String get rateAppTitle => 'Rate the app';

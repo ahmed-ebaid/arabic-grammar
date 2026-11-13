@@ -1,7 +1,59 @@
+import 'dart:io';
+
+import 'package:arabic_grammar/core/storage/storage_keys.dart';
 import 'package:arabic_grammar/core/user/user_data_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() {
+  test('keeps the young learner profile unavailable for launch', () async {
+    final controller = UserDataController.inMemory();
+
+    expect(controller.learnerProfile, LearnerProfile.generalLearner);
+    await controller.setLearnerProfile(LearnerProfile.youngLearner);
+
+    expect(controller.learnerProfile, LearnerProfile.generalLearner);
+    expect(controller.learningMode, LearningMode.adult);
+  });
+
+  test(
+    'persists general selection and keeps stored young profiles locked',
+    () async {
+      final directory = await Directory.systemTemp.createTemp(
+        'learner_profile_',
+      );
+      Hive.init(directory.path);
+      final box = await Hive.openBox<dynamic>('profiles');
+      addTearDown(() async {
+        await box.close();
+        await directory.delete(recursive: true);
+      });
+
+      final fresh = UserDataController(box);
+      expect(fresh.hasLearnerProfile, isFalse);
+      await fresh.setLearnerProfile(LearnerProfile.generalLearner);
+      expect(fresh.hasLearnerProfile, isTrue);
+      expect(
+        box.get(StorageKeys.learnerProfile),
+        LearnerProfile.generalLearner.name,
+      );
+
+      await box.put(
+        StorageKeys.learnerProfile,
+        LearnerProfile.youngLearner.name,
+      );
+      final existing = UserDataController(box);
+      expect(existing.learnerProfile, LearnerProfile.generalLearner);
+      await existing.setLearnerProfile(LearnerProfile.youngLearner);
+      expect(existing.learnerProfile, LearnerProfile.generalLearner);
+      await existing.setLearnerProfile(LearnerProfile.generalLearner);
+      expect(
+        box.get(StorageKeys.learnerProfile),
+        LearnerProfile.generalLearner.name,
+      );
+    },
+  );
+
   test('stores bookmarks by content type', () async {
     final controller = UserDataController.inMemory();
 

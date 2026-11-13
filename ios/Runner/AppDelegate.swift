@@ -12,9 +12,6 @@ import UIKit
 
   func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
-    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "AppIconChannel") {
-      registerAppIconChannel(messenger: registrar.messenger())
-    }
     if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "HijriCalendarChannel") {
       let channel = FlutterMethodChannel(
         name: "com.ebaidllc.arabicgrammar/hijri_calendar",
@@ -39,52 +36,6 @@ import UIKit
           return
         }
         result(["year": year, "month": month, "day": day])
-      }
-    }
-  }
-
-  private func registerAppIconChannel(messenger: FlutterBinaryMessenger) {
-    let channel = FlutterMethodChannel(
-      name: "com.ebaidllc.arabicgrammar/app_icon",
-      binaryMessenger: messenger
-    )
-    channel.setMethodCallHandler { call, result in
-      let app = UIApplication.shared
-      switch call.method {
-      case "supportsAlternateIcons":
-        result(app.supportsAlternateIcons)
-      case "getIconName":
-        result(app.alternateIconName)
-      case "setIconName":
-        let arguments = call.arguments as? [String: Any]
-        let name = arguments?["name"] as? String
-        guard app.supportsAlternateIcons, app.applicationState == .active else {
-          result(
-            FlutterError(
-              code: "unavailable",
-              message: "Alternate icons can only change while the app is active.",
-              details: nil
-            )
-          )
-          return
-        }
-        app.setAlternateIconName(name) { error in
-          DispatchQueue.main.async {
-            if let error = error {
-              result(
-                FlutterError(
-                  code: "set_icon_failed",
-                  message: error.localizedDescription,
-                  details: nil
-                )
-              )
-            } else {
-              result(nil)
-            }
-          }
-        }
-      default:
-        result(FlutterMethodNotImplemented)
       }
     }
   }

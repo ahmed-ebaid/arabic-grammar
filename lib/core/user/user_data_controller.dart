@@ -13,15 +13,12 @@ class UserDataController extends ChangeNotifier {
   UserDataController(this._box)
     : _textScale = (_boxValue<double>(_box, StorageKeys.textScale) ?? 1.0)
           .clamp(0.9, 1.4),
-      _learnerProfile = _profileValue(
-        _box?.get(StorageKeys.learnerProfile),
-        _box?.get(StorageKeys.learningMode),
-      );
+      _learnerProfile = LearnerProfile.generalLearner;
 
   UserDataController.inMemory()
     : _box = null,
       _textScale = 1.0,
-      _learnerProfile = LearnerProfile.youngLearner;
+      _learnerProfile = LearnerProfile.generalLearner;
 
   final Box<dynamic>? _box;
   final Set<String> _bookmarks = {};
@@ -49,10 +46,16 @@ class UserDataController extends ChangeNotifier {
   }
 
   Future<void> setLearnerProfile(LearnerProfile profile) async {
-    if (_learnerProfile == profile) return;
+    if (profile == LearnerProfile.youngLearner) return;
+    final changed = _learnerProfile != profile;
+    if (!changed &&
+        (_box == null ||
+            _box.get(StorageKeys.learnerProfile) == profile.name)) {
+      return;
+    }
     _learnerProfile = profile;
     await _box?.put(StorageKeys.learnerProfile, profile.name);
-    notifyListeners();
+    if (changed) notifyListeners();
   }
 
   bool isBookmarked(BookmarkType type, String id) {
@@ -124,16 +127,4 @@ class UserDataController extends ChangeNotifier {
   }
 
   static T? _boxValue<T>(Box<dynamic>? box, String key) => box?.get(key) as T?;
-
-  static LearnerProfile _profileValue(Object? profile, Object? legacyMode) {
-    if (profile == LearnerProfile.generalLearner.name) {
-      return LearnerProfile.generalLearner;
-    }
-    if (profile == LearnerProfile.youngLearner.name) {
-      return LearnerProfile.youngLearner;
-    }
-    return legacyMode == LearningMode.adult.name
-        ? LearnerProfile.generalLearner
-        : LearnerProfile.youngLearner;
-  }
 }

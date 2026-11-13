@@ -161,11 +161,31 @@ build to TestFlight → Run workflow**, selecting `main`. Internal testers must
 already have App Store Connect access and be added to an internal TestFlight
 group.
 
+## App Store screenshots
+
+Capture screenshots from the release build on real iPhone and iPad simulators
+or devices, using the Arabic locale and clean sample progress. Use the display
+sizes currently requested by App Store Connect. The set should show the lesson
+path, a clear grammar explanation, an exercise, answer feedback, and learner
+progress. Keep simulator controls, debug UI, personal data, and unshipped
+features out of the images. Re-capture after material UI or curriculum changes;
+the screenshots must represent the submitted build.
+
+## Academic content review
+
+Follow the [academic curriculum review protocol](review/academic-review-protocol.md).
+The review export is versioned and hashed, and approval must cover the exact
+content promoted for release. Do not claim Al-Azhar or other institutional
+approval or endorsement without explicit written authorization.
+
 ## Production release gate
 
 Do not submit the app for production App Review until:
 
-1. The beta curriculum is approved by a qualified Arabic grammar teacher.
+1. The shipped curriculum has a recorded approval from a qualified Arabic
+   grammar reviewer for the exact version, with blocking findings resolved.
 2. The approved lessons are promoted into `assets/content/catalog.json`.
 3. `dart run tool/validate_content.dart --release` passes.
 4. The privacy, support, and terms URLs are publicly reachable.
+5. The final screenshots match the submitted build and the App Store Connect
+   privacy answers match its current SDKs and behavior.

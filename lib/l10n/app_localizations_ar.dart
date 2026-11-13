@@ -609,6 +609,9 @@ class AppLocalizationsAr extends AppLocalizations {
       'شروح نحوية أوفى وتطبيق مباشر للقواعد';
 
   @override
+  String get comingSoonShort => 'قريبًا';
+
+  @override
   String get learnerProfileChange => 'تغيير نوع المتعلّم';
 
   @override
@@ -652,13 +655,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String practiceXpEarned(String xp) {
     return '+$xp نقطة خبرة';
   }
-
-  @override
-  String get seasonalIconTitle => 'أيقونة المواسم';
-
-  @override
-  String get seasonalIconSubtitle =>
-      'تغيير أيقونة التطبيق في رمضان وعيد الفطر وعيد الأضحى.';
 
   @override
   String get rateAppTitle => 'قيّم التطبيق';

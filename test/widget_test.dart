@@ -22,7 +22,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
-  testWidgets('passive example shows its internal vowels in analysis', (
+  testWidgets('general learner sees internal vowels in passive examples', (
     tester,
   ) async {
     final lesson = _draftCatalog().lessons.singleWhere(
@@ -35,7 +35,7 @@ void main() {
         locale: const Locale('ar'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        theme: AppTheme.lightFor(youngLearner: true),
+        theme: AppTheme.lightFor(youngLearner: false),
         home: LessonDetailScreen(
           lesson: lesson,
           progressController: progress,
@@ -45,9 +45,6 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('كُتِبَ'), findsOneWidget);
-    await tester.tap(find.text('كُتِبَ'));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('«كُتِبَ»'), findsOneWidget);
     expect(find.text('كتبَ'), findsNothing);
   });
 
@@ -745,7 +742,7 @@ void main() {
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
 
-    expect(find.text('تحقُّق سريع'), findsOneWidget);
+    expect(find.text('طبِّق القاعدة'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isFalse);
 
     await tester.ensureVisible(find.textContaining('الضمة'));
@@ -818,10 +815,9 @@ void main() {
   });
 
   testWidgets(
-    'young learner mode shows interactive Omar and Maryam haraka playground',
+    'young learner profile is marked coming soon and cannot be selected',
     (tester) async {
       final userData = UserDataController.inMemory();
-      await userData.setLearnerProfile(LearnerProfile.youngLearner);
 
       await tester.pumpWidget(
         ArabicGrammarApp(
@@ -834,34 +830,24 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await tester.scrollUntilVisible(
-        find.text('الكَسْرَة'),
-        200,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.ensureVisible(find.text('الكَسْرَة'));
+      await tester.tap(find.byTooltip('المزيد'));
       await tester.pumpAndSettle();
-      expect(find.byType(InteractiveHarakaPlayground), findsOneWidget);
-      expect(
-        find.text('اكْتَشِفِ الحَرَكَاتِ مَعَ عُمَر وَمَرْيَم'),
-        findsOneWidget,
-      );
-      expect(find.text('البَيْتُ جَمِيلٌ'), findsOneWidget);
-
-      await tester.tap(find.text('الكَسْرَة'));
+      await tester.tap(find.text('تغيير نوع المتعلّم'));
       await tester.pumpAndSettle();
 
-      expect(find.text('فِي البَيْتِ نُورٌ'), findsOneWidget);
+      expect(find.text('متعلّم صغير'), findsOneWidget);
+      expect(find.text('قريبًا'), findsOneWidget);
 
-      await tester.tap(find.text('تحدّي النجوم 🎯'));
+      await tester.tap(find.text('متعلّم صغير'));
       await tester.pumpAndSettle();
 
-      expect(find.text('فِي البَيْتـ___ نُورٌ'), findsOneWidget);
+      expect(find.text('نوع المتعلّم'), findsOneWidget);
+      expect(userData.learnerProfile, LearnerProfile.generalLearner);
 
-      await tester.tap(find.text('الكَسْرَة'));
+      await tester.tap(find.text('متعلّم عام'));
       await tester.pumpAndSettle();
 
-      expect(find.text('⭐ 1'), findsOneWidget);
+      expect(userData.learnerProfile, LearnerProfile.generalLearner);
     },
   );
 
