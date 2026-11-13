@@ -12,16 +12,113 @@ import 'package:arabic_grammar/core/subscriptions/subscription_controller.dart';
 import 'package:arabic_grammar/core/theme/app_theme.dart';
 import 'package:arabic_grammar/core/user/user_data_controller.dart';
 import 'package:arabic_grammar/shared/widgets/young_learner_mascot.dart';
+import 'package:arabic_grammar/shared/widgets/course_completion_celebration.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
 import 'package:arabic_grammar/features/lessons/lesson_detail_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
+  for (final otherLessonComplete in [false, true]) {
+    testWidgets(
+      'course celebration requires all lessons mastered: $otherLessonComplete',
+      (tester) async {
+        final lessons = _draftCatalog().lessons.take(2).toList();
+        final lesson = lessons.last;
+        final progress = LessonProgressController.inMemory();
+        if (otherLessonComplete) {
+          await progress.complete(lessons.first.id, 0, mastery: 75);
+        }
+        for (final exercise in lesson.exercises) {
+          await progress.recordFirstAttempt(
+            lesson.id,
+            exercise.id,
+            correct: true,
+          );
+        }
+        final finalStep =
+            1 +
+            lesson.sections.length +
+            lesson.sections.fold<int>(0, (sum, s) => sum + s.examples.length) +
+            lesson.exercises.length;
+        await progress.saveStep(lesson.id, finalStep - 1);
+        Widget screen() => MaterialApp(
+          locale: const Locale('ar'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: AppTheme.lightFor(youngLearner: false),
+          home: LessonDetailScreen(
+            lesson: lesson,
+            courseLessons: lessons,
+            progressController: progress,
+            userDataController: UserDataController.inMemory(),
+          ),
+        );
+        await tester.pumpWidget(screen());
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
+        await tester.pumpAndSettle();
+        expect(
+          find.byType(CourseCompletionCelebration),
+          otherLessonComplete ? findsOneWidget : findsNothing,
+        );
+        if (otherLessonComplete) {
+          expect(find.text('أتممت المنهج، أحسنت!'), findsOneWidget);
+          expect(find.textContaining('٨٨%'), findsOneWidget);
+          await tester.tap(find.text('إغلاق'));
+          await tester.pumpAndSettle();
+          await tester.pumpWidget(const SizedBox());
+          await tester.pumpWidget(screen());
+          await tester.pumpAndSettle();
+          expect(find.byType(CourseCompletionCelebration), findsNothing);
+        }
+      },
+    );
+  }
+
+  testWidgets('course celebration respects reduced motion', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: const MediaQuery(
+          data: MediaQueryData(disableAnimations: true),
+          child: CourseCompletionCelebration(lessonCount: 58, mastery: 90),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('courseFireworks')), findsNothing);
+    expect(find.byIcon(Icons.emoji_events_rounded), findsOneWidget);
+    expect(find.textContaining('٥٨'), findsOneWidget);
+  });
+
+  testWidgets('course fireworks fill the screen and finish without looping', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: const CourseCompletionCelebration(lessonCount: 58, mastery: 90),
+      ),
+    );
+    final fireworks = find.byKey(const ValueKey('courseFireworks'));
+    expect(tester.getSize(fireworks), tester.getSize(find.byType(Dialog)));
+    await tester.pump(const Duration(milliseconds: 900));
+    expect(tester.takeException(), isNull);
+    await tester.pumpAndSettle();
+    expect(tester.binding.hasScheduledFrame, isFalse);
+    expect(find.text('راجع ما تعلّمت'), findsOneWidget);
+  });
+
   testWidgets('general learner sees internal vowels in passive examples', (
     tester,
   ) async {
@@ -100,6 +197,16 @@ void main() {
         findsOneWidget,
       );
       expect(find.text(l10n.alfiyyaExample), findsOneWidget);
+      final workedExample = find.text(
+        language == 'ar'
+            ? 'في «ذهبَ الطالبُ إلى المدرسةِ»: «ذهب» فعل، و«الطالب» اسم، و«إلى» حرف.'
+            : 'In ذهبَ الطالبُ إلى المدرسةِ: ذهب is a verb, الطالب a noun, and إلى a particle.',
+      );
+      expect(workedExample, findsOneWidget);
+      expect(
+        Directionality.of(tester.element(workedExample)),
+        language == 'ar' ? TextDirection.rtl : TextDirection.ltr,
+      );
       expect(
         tester
             .widget<Directionality>(
@@ -379,25 +486,27 @@ void main() {
   }
 
   testWidgets(
-    'renders the Arabic-only shell without language or speaker controls',
+    'switches between Arabic and English without changing lesson progress',
     (tester) async {
       final localeController = LocaleController.inMemory(const Locale('ar'));
+      final progress = LessonProgressController.inMemory();
+      await progress.complete('lesson_01', 0, mastery: 80);
 
       await tester.pumpWidget(
         ArabicGrammarApp(
           environment: const AppEnvironment(AppFlavor.production),
           localeController: localeController,
-          lessonProgressController: LessonProgressController.inMemory(),
+          lessonProgressController: progress,
+          contentCatalog: _draftCatalog(),
         ),
       );
       await tester.pump(const Duration(milliseconds: 500));
 
       expect(find.text('إعراب'), findsOneWidget);
       expect(find.text('تعلَّم لماذا تتغيَّر أواخر الكلمات'), findsOneWidget);
-      expect(find.text('الطَّالِبُ مُجْتَهِدٌ'), findsOneWidget);
       expect(find.text('الدروس'), findsOneWidget);
       expect(find.text('Learn why Arabic endings change'), findsNothing);
-      expect(find.byTooltip('اللغة'), findsNothing);
+      expect(find.byTooltip('اللغة'), findsOneWidget);
       expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
 
       expect(
@@ -406,8 +515,88 @@ void main() {
             .textDirection,
         TextDirection.rtl,
       );
+      await tester.tap(find.byTooltip('اللغة'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('English'));
+      await tester.pumpAndSettle();
+      expect(localeController.locale, const Locale('en'));
+      expect(find.text('Learn why Arabic endings change'), findsOneWidget);
+      expect(find.text('Lessons'), findsOneWidget);
+      expect(
+        tester
+            .widget<Directionality>(find.byType(Directionality).first)
+            .textDirection,
+        TextDirection.ltr,
+      );
+      expect(find.byIcon(Icons.volume_up_outlined), findsNothing);
+      await tester.tap(find.byTooltip('Language'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('العربية'));
+      await tester.pumpAndSettle();
+      expect(find.text('الدروس'), findsOneWidget);
+      expect(progress.masteryFor('lesson_01'), 80);
     },
   );
+
+  testWidgets('English screens and lesson analysis fit a small phone', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(375, 812);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(const Locale('en')),
+        lessonProgressController: LessonProgressController.inMemory(),
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Learn why Arabic endings change'), findsOneWidget);
+    for (final tab in ['Practice', 'Progress', 'Lessons']) {
+      await tester.tap(find.text(tab));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    }
+    await Scrollable.ensureVisible(
+      tester.element(find.text('Why endings change')),
+      alignment: 0.5,
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Why endings change'));
+    await tester.pumpAndSettle();
+    expect(find.text('What you will learn'), findsOneWidget);
+    for (var step = 0; step < 3; step++) {
+      await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    }
+    await tester.tap(find.text('الطالبُ'));
+    await tester.pumpAndSettle();
+    expect(find.text('Role'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('More'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Grammar glossary'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(SearchBar), 'mubtada');
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(ExpansionTile).first);
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Practice'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Mixed review'));
+    await tester.pumpAndSettle();
+    expect(find.text('1/10'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('opens lesson 1 from home', (tester) async {
     await tester.pumpWidget(
@@ -558,6 +747,7 @@ void main() {
   testWidgets('searches and bookmarks bilingual glossary terms', (
     tester,
   ) async {
+    rootBundle.evict('assets/content/glossary.json');
     await tester.pumpWidget(
       ArabicGrammarApp(
         environment: const AppEnvironment(AppFlavor.production),
@@ -639,6 +829,11 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('التقدّم حسب المستوى'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('المستوى الأول: أساس القراءة'),
+      150,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('المستوى الأول: أساس القراءة'), findsOneWidget);
     expect(find.text('١/٧'), findsOneWidget);
   });

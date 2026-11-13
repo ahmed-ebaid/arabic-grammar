@@ -1268,6 +1268,60 @@ abstract class AppLocalizations {
   /// **'+{xp} XP'**
   String practiceXpEarned(String xp);
 
+  /// No description provided for @lessonUnlockRequirement.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach {percent} mastery in each lesson to unlock the next.'**
+  String lessonUnlockRequirement(String percent);
+
+  /// No description provided for @lessonLockedPrevious.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked until the previous lesson is mastered'**
+  String get lessonLockedPrevious;
+
+  /// No description provided for @lessonMastery.
+  ///
+  /// In en, this message translates to:
+  /// **'Mastery: {percent}'**
+  String lessonMastery(String percent);
+
+  /// No description provided for @lessonPracticeAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice again'**
+  String get lessonPracticeAgain;
+
+  /// No description provided for @lessonRetryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You need {percent} to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.'**
+  String lessonRetryBody(String percent);
+
+  /// No description provided for @courseCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You completed the course. Well done!'**
+  String get courseCompleteTitle;
+
+  /// No description provided for @courseCompleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An important step in your Arabic journey. Keep reviewing to strengthen what you have learned.'**
+  String get courseCompleteBody;
+
+  /// No description provided for @courseCompleteSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Lessons completed: {count}\nAverage mastery: {mastery}'**
+  String courseCompleteSummary(String count, String mastery);
+
+  /// No description provided for @courseReviewAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Review what you learned'**
+  String get courseReviewAction;
+
   /// No description provided for @rateAppTitle.
   ///
   /// In en, this message translates to:

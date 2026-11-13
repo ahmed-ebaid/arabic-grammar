@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:provider/provider.dart';
 
+import 'core/localization/locale_controller.dart';
 import 'core/models/content_models.dart';
 import 'core/progress/lesson_progress_controller.dart';
 import 'core/services/review_prompt_service.dart';
@@ -130,6 +132,18 @@ class _RootScaffoldState extends State<RootScaffold>
       appBar: AppBar(
         title: Text(l10n.appName),
         actions: [
+          PopupMenuButton<String>(
+            tooltip: l10n.language,
+            icon: const Icon(Icons.language),
+            initialValue: Localizations.localeOf(context).languageCode,
+            onSelected: (languageCode) => context
+                .read<LocaleController>()
+                .setLocale(Locale(languageCode)),
+            itemBuilder: (_) => [
+              PopupMenuItem(value: 'ar', child: Text(l10n.arabic)),
+              PopupMenuItem(value: 'en', child: Text(l10n.english)),
+            ],
+          ),
           PopupMenuButton<_AppMenuAction>(
             tooltip: l10n.more,
             onSelected: _handleMenuAction,
@@ -256,6 +270,7 @@ class _RootScaffoldState extends State<RootScaffold>
       MaterialPageRoute<void>(
         builder: (_) => LessonDetailScreen(
           lesson: lesson,
+          courseLessons: catalog?.lessons ?? const [],
           progressController: widget.lessonProgressController,
           userDataController: widget.userDataController,
         ),

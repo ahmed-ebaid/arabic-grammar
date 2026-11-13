@@ -294,6 +294,24 @@
       "xp": {"type": "String"}
     }
   },
+  "lessonUnlockRequirement": "Reach {percent} mastery in each lesson to unlock the next.",
+  "@lessonUnlockRequirement": {"placeholders": {"percent": {"type": "String"}}},
+  "lessonLockedPrevious": "Locked until the previous lesson is mastered",
+  "lessonMastery": "Mastery: {percent}",
+  "@lessonMastery": {"placeholders": {"percent": {"type": "String"}}},
+  "lessonPracticeAgain": "Practice again",
+  "lessonRetryBody": "You need {percent} to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.",
+  "@lessonRetryBody": {"placeholders": {"percent": {"type": "String"}}},
+  "courseCompleteTitle": "You completed the course. Well done!",
+  "courseCompleteBody": "An important step in your Arabic journey. Keep reviewing to strengthen what you have learned.",
+  "courseCompleteSummary": "Lessons completed: {count}\nAverage mastery: {mastery}",
+  "@courseCompleteSummary": {
+    "placeholders": {
+      "count": {"type": "String"},
+      "mastery": {"type": "String"}
+    }
+  },
+  "courseReviewAction": "Review what you learned",
   "rateAppTitle": "Rate the app",
   "rateAppSubtitle": "Enjoying إعراب? Share a review to help others discover the app.",
   "rateAppUnavailable": "Could not open the review prompt right now. Please try again later."

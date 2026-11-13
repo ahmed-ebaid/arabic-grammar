@@ -120,6 +120,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                   MaterialPageRoute<void>(
                     builder: (_) => LessonDetailScreen(
                       lesson: lesson,
+                      courseLessons: catalog.lessons,
                       progressController: widget.progressController,
                       userDataController: widget.userDataController,
                     ),

@@ -164,12 +164,23 @@ group.
 ## App Store screenshots
 
 Capture screenshots from the release build on real iPhone and iPad simulators
-or devices, using the Arabic locale and clean sample progress. Use the display
+or devices, using each listing's Arabic or English locale and clean sample progress. Use the display
 sizes currently requested by App Store Connect. The set should show the lesson
 path, a clear grammar explanation, an exercise, answer feedback, and learner
 progress. Keep simulator controls, debug UI, personal data, and unshipped
 features out of the images. Re-capture after material UI or curriculum changes;
 the screenshots must represent the submitted build.
+
+## Interface language
+
+The app starts in Arabic. The globe control in the top bar switches between
+Arabic and English and saves the selection on-device. Switching languages
+preserves lesson progress. Arabic sentences and verses remain Arabic; navigation
+and translated explanations follow the selected language.
+
+Translation completeness and layout checks do not constitute academic approval.
+Review English against the current Arabic curriculum, including repeat practice,
+rather than relying on an older export or the presence of English fields.
 
 ## Academic content review
 

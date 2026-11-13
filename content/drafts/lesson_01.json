@@ -6334,7 +6334,7 @@
           "id": "lesson-12-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for الطالب_ as مضاف إليه in كتاب الطالب.",
+            "en": "Choose the correct ending for الطالب in كتاب الطالب.",
             "ar": "اختر العلامة المناسبة على آخر كلمة «الطالب» في عبارة «كتاب الطالب»."
           },
           "options": [
@@ -6380,7 +6380,7 @@
           "id": "lesson-12-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read باب البيت مفتوح. Which reading completes البيت_ (مضاف إليه)?",
+            "en": "Read باب البيت مفتوح. What is the correct vocalization of البيت?",
             "ar": "اقرأ: «باب البيت مفتوح». ما الضبط الصحيح لكلمة (البيت)؟"
           },
           "options": [
@@ -6520,7 +6520,7 @@
           "id": "lesson-12-repeat-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for الطالبة_ as مضاف إليه in قلم الطالبة.",
+            "en": "Choose the correct ending for الطالبة in قلم الطالبة.",
             "ar": "اختر العلامة المناسبة على آخر كلمة «الطالبة» في عبارة «قلم الطالبة»."
           },
           "options": [
@@ -6566,7 +6566,7 @@
           "id": "lesson-12-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read معلم المدرسة نشيط. Which reading completes المدرسة_ (مضاف إليه)?",
+            "en": "Read معلم المدرسة نشيط. What is the correct vocalization of المدرسة?",
             "ar": "اقرأ: «معلم المدرسة نشيط». ما الضبط الصحيح لكلمة (المدرسة)؟"
           },
           "options": [
@@ -11196,7 +11196,7 @@
           "id": "lesson-21-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "Which particle causes the following present verb to take nasb (like أنْ)?",
+            "en": "Which particle causes the following present-tense verb to take nasb?",
             "ar": "أي أداة تنصب الفعل المضارع بعدها؟"
           },
           "options": [
@@ -11800,7 +11800,7 @@
           "id": "lesson-22-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تكتب in, in لا تكتب بسرعة؟",
+            "en": "What is the grammatical state of تكتب after the prohibitive لا?",
             "ar": "ما الحالة الإعرابية للفعل «تكتب» بعد «لا» الناهية؟"
           },
           "options": [
@@ -13019,7 +13019,7 @@
           "id": "lesson-24-read-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read لا تتأخروا. Which reading correctly completes تتأخر_وا/ون (jazm, one of the five verbs)?",
+            "en": "How do you read تتأخرون when it is preceded by the prohibitive لا?",
             "ar": "كيف تقرأ (تتأخرون) إذا سبقت بلا الناهية؟"
           },
           "options": [
@@ -13205,7 +13205,7 @@
           "id": "lesson-24-repeat-read-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read لا تلعبوا بالنار. Which reading correctly completes تلعب_وا/ون?",
+            "en": "Choose the correct verb to complete لا ... بالنار.",
             "ar": "اختر الفعل المناسب مما يلي: «لا ... بالنار»."
           },
           "options": [
@@ -13626,7 +13626,7 @@
           "id": "lesson-25-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "Which verb from كان's sisters means \"became\" and behaves like كان?",
+            "en": "Which of the following verbs expresses a change of state?",
             "ar": "ما الفعل الذي يفيد معنى التحول مما يلي؟"
           },
           "options": [
@@ -15659,7 +15659,7 @@
           "id": "lesson-29-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "Which word is a ظرف مكان meaning \"above/on top of\"?",
+            "en": "Which of the following adverbs means \"above\"?",
             "ar": "ما الظرف الذي معناه العلو فيما يلي؟"
           },
           "options": [
@@ -20928,7 +20928,7 @@
           "id": "lesson-39-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read دعا سلمى ليلى. Which reading reflects the usual word-order convention for the doer?",
+            "en": "Read كلمت سلمى ليلى. Identify the subject using the usual subject order.",
             "ar": "اقرأ: «كلمت سلمى ليلى». عيّن الفاعل معتمدًا على الترتيب المعتاد للفاعل."
           },
           "options": [
@@ -21201,7 +21201,7 @@
           "id": "lesson-40-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which word introduces the relative clause (صلة الموصول) in الطلاب الذين نجحوا؟",
+            "en": "Identify the relative pronoun in الطلاب الذين نجحوا.",
             "ar": "عين الموصول في جملة: «الطلاب الذين نجحوا»؟"
           },
           "options": [
@@ -25471,7 +25471,7 @@
           "id": "lesson-48-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "In الطالب مجتهد read with وصل (continuing), what state (and audible ending) does مجتهد have؟",
+            "en": "How do you read طالب in طالب مجتهد في الفصل when continuing without a pause (wasl)?",
             "ar": "كيف تقرأ (طالب) في عبارة «طالب مجتهد في الفصل» حال الوصل؟"
           },
           "options": [
@@ -26181,7 +26181,7 @@
           "id": "lesson-49-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is العدل in, in إنما العدل أساس الأمن؟",
+            "en": "What is the grammatical state of العدل in إنما العدل أساس الملك?",
             "ar": "ما حالة كلمة «العدل» في عبارة «إنما العدل أساس الملك»؟"
           },
           "options": [
@@ -27676,11 +27676,11 @@
       },
       "objectives": [
         {
-          "en": "Read Ibn Malik's verse listing four signs that identify a noun: jarr, tanwin, vocative address, and ال.",
+          "en": "Read the first half of Ibn Malik's verse, which lists four signs that identify nouns: jarr, tanwin, vocative address, and the definite article ال.",
           "ar": "أن تقرأ الشطر الأول من بيت ابن مالك الذي يذكر فيه أربع علامات تُعرف بها الأسماء: الجر والتنوين والنداء و«الـ» التعريف."
         },
         {
-          "en": "Add a fifth sign from the same verse: a word that can carry a predicate (musnad ilayh).",
+          "en": "Read the second half of the same verse, which adds a fifth sign: a word can have a predicate attributed to it (musnad ilayh).",
           "ar": "أن تقرأ الشطر الثاني من البيت نفسه والذي يضيف علامة خامسة، وهي: صلاحية الكلمة لأن يُسند إليها خبر."
         }
       ],
@@ -29365,8 +29365,8 @@
           "ar": "أن تقرأ بيت ابن مالك المعرِّف للنكرة بأنها ما يقبل «ال» مؤثرة."
         },
         {
-          "en": "Recognize the second test: a word stands in place of a noun that can take ال to become definite.",
-          "ar": "أن تتعرَّفَ على الاختبار الثاني في البيت: وقوع الكلمة موقع اسم يقبل «الـ» المؤثرة في التعريف."
+          "en": "Recognize the second test in the verse: a word occupies the position of something that accepts ال with a defining effect.",
+          "ar": "أن تتعرّف على الاختبار الثاني في البيت: وقوع الكلمة موقع ما يقبل «ال» مؤثرة."
         }
       ],
       "prerequisites": [
@@ -29609,7 +29609,7 @@
           "id": "lesson-55-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا. Which ending completes واقع_ (second predicate, coordinated by أو)؟",
+            "en": "Read نكرة قابل ال مؤثرا — أو واقع موقع ما قد ذكرا. How do you read واقع, which is coordinated by أو?",
             "ar": "اقرأ: «نكرة قابل ال مؤثرا — أو واقع موقع ما قد ذكرا». كيف تقرأ: «واقع» (المعطوف بـ«أو»)؟"
           },
           "options": [
@@ -29795,7 +29795,7 @@
           "id": "lesson-55-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read نكرة قابل أل مؤثرا أو واقع موقع ما قد ذكرا. Which ending completes نكرة_ (the topic)؟",
+            "en": "Read نكرة قابل ال مؤثرا — أو واقع موقع ما قد ذكرا. How do you read نكرة, the subject (mubtada)?",
             "ar": "اقرأ «نكرة قابل ال مؤثرا — أو واقع موقع ما قد ذكرا». كيف تقرأ «نكرة» (المبتدأ)؟"
           },
           "options": [

@@ -6,7 +6,9 @@ import '../storage/storage_keys.dart';
 class LocaleController extends ChangeNotifier {
   LocaleController(Box<dynamic> settingsBox)
     : _settingsBox = settingsBox,
-      _locale = const Locale('ar');
+      _locale = settingsBox.get(StorageKeys.locale) == 'en'
+          ? const Locale('en')
+          : const Locale('ar');
 
   LocaleController.inMemory([this._locale = const Locale('ar')])
     : _settingsBox = null;

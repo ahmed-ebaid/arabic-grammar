@@ -130,50 +130,54 @@ class _Dashboard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 1.35,
-          children: [
-            _MetricCard(
-              icon: Icons.play_lesson_outlined,
-              value: localizedNumber(context, started),
-              label: l10n.progressLessonsStarted,
-            ),
-            _MetricCard(
-              icon: Icons.star,
-              value: localizedNumber(
-                context,
-                progressController.practiceTotalStars,
-              ),
-              label: l10n.progressPracticeStars,
-            ),
-            _MetricCard(
-              icon: Icons.track_changes,
-              value:
-                  '${localizedNumber(context, dailyAnswered)}/'
-                  '${localizedNumber(context, 10)}',
-              label: l10n.progressDailyGoal,
-            ),
-            _MetricCard(
-              icon: Icons.check_circle_outline,
-              value: localizedPercent(context, practiceAccuracy),
-              label: l10n.progressPracticeAccuracy,
-            ),
-            _MetricCard(
-              icon: Icons.local_fire_department,
-              value: localizedNumber(context, progressController.streakCount),
-              label: l10n.progressStreak,
-            ),
-            _MetricCard(
-              icon: Icons.bolt,
-              value: localizedNumber(context, progressController.totalXp),
-              label: l10n.progressTotalXp,
-            ),
-          ],
+        LayoutBuilder(
+          builder: (context, constraints) => Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            children: [
+              for (final metric in [
+                _MetricCard(
+                  icon: Icons.play_lesson_outlined,
+                  value: localizedNumber(context, started),
+                  label: l10n.progressLessonsStarted,
+                ),
+                _MetricCard(
+                  icon: Icons.star,
+                  value: localizedNumber(
+                    context,
+                    progressController.practiceTotalStars,
+                  ),
+                  label: l10n.progressPracticeStars,
+                ),
+                _MetricCard(
+                  icon: Icons.track_changes,
+                  value:
+                      '${localizedNumber(context, dailyAnswered)}/'
+                      '${localizedNumber(context, 10)}',
+                  label: l10n.progressDailyGoal,
+                ),
+                _MetricCard(
+                  icon: Icons.check_circle_outline,
+                  value: localizedPercent(context, practiceAccuracy),
+                  label: l10n.progressPracticeAccuracy,
+                ),
+                _MetricCard(
+                  icon: Icons.local_fire_department,
+                  value: localizedNumber(
+                    context,
+                    progressController.streakCount,
+                  ),
+                  label: l10n.progressStreak,
+                ),
+                _MetricCard(
+                  icon: Icons.bolt,
+                  value: localizedNumber(context, progressController.totalXp),
+                  label: l10n.progressTotalXp,
+                ),
+              ])
+                SizedBox(width: (constraints.maxWidth - 12) / 2, child: metric),
+            ],
+          ),
         ),
         const SizedBox(height: 24),
         Text(
@@ -218,6 +222,7 @@ class _MetricCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon),

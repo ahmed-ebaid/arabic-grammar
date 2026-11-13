@@ -289,6 +289,24 @@
       "xp": {"type": "String"}
     }
   },
+  "lessonUnlockRequirement": "أتقن {percent} من كل درس لفتح الدرس التالي.",
+  "@lessonUnlockRequirement": {"placeholders": {"percent": {"type": "String"}}},
+  "lessonLockedPrevious": "مغلق حتى إتقان الدرس السابق",
+  "lessonMastery": "الإتقان: {percent}",
+  "@lessonMastery": {"placeholders": {"percent": {"type": "String"}}},
+  "lessonPracticeAgain": "تدرَّب مرة أخرى",
+  "lessonRetryBody": "تحتاج إلى {percent} لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.",
+  "@lessonRetryBody": {"placeholders": {"percent": {"type": "String"}}},
+  "courseCompleteTitle": "أتممت المنهج، أحسنت!",
+  "courseCompleteBody": "خطوة مهمة في رحلتك مع العربية. واصل المراجعة لتثبيت ما تعلّمت.",
+  "courseCompleteSummary": "الدروس المكتملة: {count}\nمتوسط الإتقان: {mastery}",
+  "@courseCompleteSummary": {
+    "placeholders": {
+      "count": {"type": "String"},
+      "mastery": {"type": "String"}
+    }
+  },
+  "courseReviewAction": "راجع ما تعلّمت",
   "rateAppTitle": "قيّم التطبيق",
   "rateAppSubtitle": "هل تستمتع بتطبيق «إعراب»؟ شاركنا تقييمك ليساعد الآخرين على اكتشافه.",
   "rateAppUnavailable": "تعذّر فتح نافذة التقييم الآن. حاول مجددًا لاحقًا."

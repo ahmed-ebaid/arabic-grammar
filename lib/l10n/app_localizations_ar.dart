@@ -657,6 +657,42 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String lessonUnlockRequirement(String percent) {
+    return 'أتقن $percent من كل درس لفتح الدرس التالي.';
+  }
+
+  @override
+  String get lessonLockedPrevious => 'مغلق حتى إتقان الدرس السابق';
+
+  @override
+  String lessonMastery(String percent) {
+    return 'الإتقان: $percent';
+  }
+
+  @override
+  String get lessonPracticeAgain => 'تدرَّب مرة أخرى';
+
+  @override
+  String lessonRetryBody(String percent) {
+    return 'تحتاج إلى $percent لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.';
+  }
+
+  @override
+  String get courseCompleteTitle => 'أتممت المنهج، أحسنت!';
+
+  @override
+  String get courseCompleteBody =>
+      'خطوة مهمة في رحلتك مع العربية. واصل المراجعة لتثبيت ما تعلّمت.';
+
+  @override
+  String courseCompleteSummary(String count, String mastery) {
+    return 'الدروس المكتملة: $count\nمتوسط الإتقان: $mastery';
+  }
+
+  @override
+  String get courseReviewAction => 'راجع ما تعلّمت';
+
+  @override
   String get rateAppTitle => 'قيّم التطبيق';
 
   @override

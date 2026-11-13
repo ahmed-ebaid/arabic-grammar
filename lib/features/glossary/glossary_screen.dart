@@ -135,7 +135,9 @@ class _TermCard extends StatelessWidget {
               ArabicDiacriticsText(
                 term.example.forLanguage(languageCode),
                 style: const TextStyle(fontFamily: 'AmiriQuran', fontSize: 20),
-                textDirection: TextDirection.rtl,
+                textDirection: languageCode == 'ar'
+                    ? TextDirection.rtl
+                    : TextDirection.ltr,
               ),
               const SizedBox(height: 8),
               Text(

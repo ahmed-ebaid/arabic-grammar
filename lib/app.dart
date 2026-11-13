@@ -46,8 +46,8 @@ class ArabicGrammarApp extends StatelessWidget {
           return MaterialApp(
             onGenerateTitle: (context) => AppLocalizations.of(context).appName,
             debugShowCheckedModeBanner: !environment.isProduction,
-            locale: const Locale('ar'),
-            supportedLocales: const <Locale>[Locale('ar')],
+            locale: locale.locale,
+            supportedLocales: AppLocalizations.supportedLocales,
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,

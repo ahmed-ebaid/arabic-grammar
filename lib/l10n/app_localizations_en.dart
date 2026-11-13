@@ -669,6 +669,43 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String lessonUnlockRequirement(String percent) {
+    return 'Reach $percent mastery in each lesson to unlock the next.';
+  }
+
+  @override
+  String get lessonLockedPrevious =>
+      'Locked until the previous lesson is mastered';
+
+  @override
+  String lessonMastery(String percent) {
+    return 'Mastery: $percent';
+  }
+
+  @override
+  String get lessonPracticeAgain => 'Practice again';
+
+  @override
+  String lessonRetryBody(String percent) {
+    return 'You need $percent to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.';
+  }
+
+  @override
+  String get courseCompleteTitle => 'You completed the course. Well done!';
+
+  @override
+  String get courseCompleteBody =>
+      'An important step in your Arabic journey. Keep reviewing to strengthen what you have learned.';
+
+  @override
+  String courseCompleteSummary(String count, String mastery) {
+    return 'Lessons completed: $count\nAverage mastery: $mastery';
+  }
+
+  @override
+  String get courseReviewAction => 'Review what you learned';
+
+  @override
   String get rateAppTitle => 'Rate the app';
 
   @override

@@ -12,6 +12,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
+import '../../shared/widgets/course_completion_celebration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import '../../shared/widgets/young_learner_mascot.dart';
 import 'alfiyya_readings.dart';
@@ -21,6 +22,7 @@ class LessonDetailScreen extends StatefulWidget {
     required this.lesson,
     required this.progressController,
     required this.userDataController,
+    this.courseLessons = const [],
     this.previewUnreviewed = previewUnreviewedContent,
     super.key,
   });
@@ -28,6 +30,7 @@ class LessonDetailScreen extends StatefulWidget {
   final Lesson lesson;
   final LessonProgressController progressController;
   final UserDataController userDataController;
+  final List<Lesson> courseLessons;
   final bool previewUnreviewed;
 
   @override
@@ -296,11 +299,44 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
             true;
       }).length;
       final mastery = (correctAnswers * 100 / _activeExercises.length).round();
+      final courseWasComplete =
+          widget.courseLessons.isNotEmpty &&
+          widget.courseLessons.every(
+            (lesson) => widget.progressController.isMastered(lesson.id),
+          );
       await widget.progressController.complete(
         widget.lesson.id,
         nextStep,
         mastery: mastery,
       );
+      if (mounted &&
+          !courseWasComplete &&
+          widget.courseLessons.isNotEmpty &&
+          widget.courseLessons.every(
+            (lesson) => widget.progressController.isMastered(lesson.id),
+          )) {
+        final averageMastery =
+            (widget.courseLessons.fold<int>(
+                      0,
+                      (sum, lesson) =>
+                          sum + widget.progressController.masteryFor(lesson.id),
+                    ) /
+                    widget.courseLessons.length)
+                .round();
+        final review = await showDialog<bool>(
+          context: context,
+          useSafeArea: false,
+          builder: (_) => CourseCompletionCelebration(
+            lessonCount: widget.courseLessons.length,
+            mastery: averageMastery,
+          ),
+        );
+        if (!mounted) return;
+        if (review == true) {
+          Navigator.of(context).pop();
+          return;
+        }
+      }
       HapticFeedback.mediumImpact();
     } else {
       await widget.progressController.saveStep(widget.lesson.id, nextStep);
@@ -1213,11 +1249,7 @@ class _CompletionStepState extends State<_CompletionStep>
     final isYoungLearner = widget.learningMode == LearningMode.simple;
     return _StepLayout(
       icon: passed ? Icons.celebration : Icons.refresh_rounded,
-      title: passed
-          ? l10n.lessonCompleteTitle
-          : (_languageCode(context) == 'ar'
-                ? 'تدرَّب مرة أخرى'
-                : 'Practice again'),
+      title: passed ? l10n.lessonCompleteTitle : l10n.lessonPracticeAgain,
       body: Column(
         children: [
           if (passed && widget.mastery == 100)
@@ -1266,18 +1298,14 @@ class _CompletionStepState extends State<_CompletionStep>
           ),
           const SizedBox(height: 16),
           Text(
-            _languageCode(context) == 'ar'
-                ? 'الإتقان: ${localizedPercent(context, widget.mastery)}'
-                : 'Mastery: ${localizedPercent(context, widget.mastery)}',
+            l10n.lessonMastery(localizedPercent(context, widget.mastery)),
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 10),
           Text(
             passed
                 ? l10n.lessonCompleteBody
-                : (_languageCode(context) == 'ar'
-                      ? 'تحتاج إلى ${localizedPercent(context, 70)} لفتح الدرس التالي. الأخطاء جزء من التعلُّم، والمحاولة الجديدة بلا عقوبة.'
-                      : 'You need 70% to unlock the next lesson. Mistakes are part of learning, and a new attempt has no penalty.'),
+                : l10n.lessonRetryBody(localizedPercent(context, 70)),
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium,
           ),
@@ -1309,9 +1337,6 @@ class _CompletionStepState extends State<_CompletionStep>
       ),
     );
   }
-
-  String _languageCode(BuildContext context) =>
-      Localizations.localeOf(context).languageCode;
 }
 
 class _AlfiyyaReadingScreen extends StatelessWidget {
@@ -1358,8 +1383,12 @@ class _AlfiyyaReadingScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: ArabicDiacriticsText(reading.example),
+                    textDirection: isArabic
+                        ? TextDirection.rtl
+                        : TextDirection.ltr,
+                    child: ArabicDiacriticsText(
+                      reading.example.forLanguage(isArabic ? 'ar' : 'en'),
+                    ),
                   ),
                   if (reading.details case final details?)
                     ExpansionTile(

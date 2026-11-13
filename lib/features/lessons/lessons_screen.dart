@@ -124,11 +124,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
           ),
           subtitle: ArabicDiacriticsText(
             '${level.description.forLanguage(languageCode)}\n'
-            '${isPlusLevel && !hasPlus
-                ? AppLocalizations.of(context).plusLevelNotice
-                : languageCode == 'ar'
-                ? 'أتقن 70% من كل درس لفتح الدرس التالي.'
-                : 'Reach 70% mastery in each lesson to unlock the next.'}',
+            '${isPlusLevel && !hasPlus ? AppLocalizations.of(context).plusLevelNotice : AppLocalizations.of(context).lessonUnlockRequirement(localizedPercent(context, 70))}',
             style: TextStyle(
               color: isPlusLevel
                   ? learningColors.onBlueContainer
@@ -149,7 +145,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
           premiumLocked: isPlusLevel && !hasPlus,
           onTap: () => isPlusLevel && !hasPlus
               ? _openPlusPaywall()
-              : _openLesson(entry.$2),
+              : _openLesson(entry.$2, allLessons),
         ),
         if (entry.$1 < lessons.length - 1)
           Center(
@@ -173,11 +169,12 @@ class _LessonsScreenState extends State<LessonsScreen> {
     return const ContentRepository().load();
   }
 
-  Future<void> _openLesson(Lesson lesson) async {
+  Future<void> _openLesson(Lesson lesson, List<Lesson> courseLessons) async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => LessonDetailScreen(
           lesson: lesson,
+          courseLessons: courseLessons,
           progressController: widget.progressController,
           userDataController: widget.userDataController,
         ),
@@ -287,15 +284,13 @@ class _PathNode extends StatelessWidget {
               const SizedBox(height: 3),
               Text(
                 !unlocked
-                    ? (languageCode == 'ar'
-                          ? 'مغلق حتى إتقان الدرس السابق'
-                          : 'Locked until the previous lesson is mastered')
+                    ? AppLocalizations.of(context).lessonLockedPrevious
                     : premiumLocked
                     ? AppLocalizations.of(context).plusRequired
                     : mastery > 0
-                    ? (languageCode == 'ar'
-                          ? 'الإتقان: ${localizedPercent(context, mastery)}'
-                          : 'Mastery: ${localizedPercent(context, mastery)}')
+                    ? AppLocalizations.of(
+                        context,
+                      ).lessonMastery(localizedPercent(context, mastery))
                     : localizedEstimatedMinutes(
                         context,
                         lesson.estimatedMinutes,

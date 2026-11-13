@@ -11,6 +11,27 @@ void main() {
   );
   Lesson lesson(int number) => catalog.lessons[number - 1];
 
+  test('English prompts follow revised Arabic examples without extra cues', () {
+    Exercise exercise(String id) => catalog.lessons
+        .expand((lesson) => [...lesson.exercises, ...lesson.repeatExercises])
+        .singleWhere((exercise) => exercise.id == id);
+    final pauseQuestion = exercise('lesson-48-state-02').prompt;
+    expect(pauseQuestion.en, contains('طالب مجتهد في الفصل'));
+    expect(pauseQuestion.ar, contains('طالب مجتهد في الفصل'));
+    final subjectQuestion = exercise('lesson-39-repeat-read-04').prompt;
+    expect(subjectQuestion.en, contains('كلمت سلمى ليلى'));
+    expect(subjectQuestion.ar, contains('كلمت سلمى ليلى'));
+    final restrictionQuestion = exercise('lesson-49-repeat-state-01').prompt;
+    expect(restrictionQuestion.en, contains('إنما العدل أساس الملك'));
+    expect(restrictionQuestion.ar, contains('إنما العدل أساس الملك'));
+    expect(exercise('lesson-21-recognize-01').prompt.en, isNot(contains('أن')));
+    expect(exercise('lesson-24-read-03').prompt.en, isNot(contains('تتأخروا')));
+    expect(
+      exercise('lesson-24-repeat-read-03').prompt.en,
+      isNot(contains('تلعبوا')),
+    );
+  });
+
   test('Alfiyya readings cover each level-ending lesson', () {
     expect(
       alfiyyaReadings.keys.toSet(),
@@ -32,7 +53,8 @@ void main() {
         expect(reading.topic.en, isNotEmpty);
         expect(reading.explanation.ar, isNotEmpty);
         expect(reading.explanation.en, isNotEmpty);
-        expect(reading.example, isNotEmpty);
+        expect(reading.example.ar, isNotEmpty);
+        expect(reading.example.en, isNotEmpty);
         if (reading.details case final details?) {
           expect(details.ar, isNotEmpty);
           expect(details.en, isNotEmpty);
@@ -326,10 +348,8 @@ void main() {
     expect(bookTokens[1].grammaticalSign.ar, isNot(contains('«أل»')));
     expect(lesson(52).objectives.first.ar, contains('«الـ» التعريف'));
     expect(
-      lesson(
-        55,
-      ).objectives.any((objective) => objective.ar.contains('«الـ» المؤثرة')),
-      isTrue,
+      lesson(55).objectives[1].ar,
+      'أن تتعرّف على الاختبار الثاني في البيت: وقوع الكلمة موقع ما يقبل «ال» مؤثرة.',
     );
     final indefiniteExercise = lesson(
       55,
