@@ -2,6 +2,12 @@ name: Upload iOS build to TestFlight
 
 on:
   workflow_dispatch:
+    inputs:
+      release_candidate:
+        description: Build approved production content without draft preview
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: read
@@ -51,7 +57,7 @@ jobs:
         run: flutter test
 
       - name: Validate lesson drafts
-        run: dart run tool/validate_content.dart
+        run: dart run tool/validate_content.dart ${{ inputs.release_candidate && '--release' || '' }}
 
       - name: Verify RevenueCat App Store key
         env:
@@ -154,7 +160,7 @@ jobs:
         run: >-
           flutter build ipa --release
           --dart-define=APP_ENV=production
-          --dart-define=PREVIEW_UNREVIEWED_CONTENT=true
+          --dart-define=PREVIEW_UNREVIEWED_CONTENT=${{ !inputs.release_candidate }}
           --dart-define="REVENUECAT_IOS_API_KEY=$REVENUECAT_IOS_API_KEY"
           --build-name=${{ steps.version.outputs.name }}
           --build-number=${{ steps.version.outputs.number }}

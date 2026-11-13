@@ -6,8 +6,8 @@
 - Bundle ID: `com.ebaidllc.arabicgrammar`
 - SKU: `arabic-grammar-ios`
 - Primary language: Arabic
-- Version: `0.1.0`
-- Build: `14`
+- Version: `0.9.0`
+- Build: assigned by the upload workflow
 - Primary category: Education
 - Secondary category: Reference
 - Age rating target: 4+
@@ -134,6 +134,11 @@ submit the app for production review. The build number is generated from the
 version in `pubspec.yaml` and the GitHub Actions run number.
 The workflow explicitly selects Xcode 26.3 and requires iOS SDK 26 or later
 before building to meet Apple's upload requirements.
+
+For an App Store release candidate, enable **release_candidate** when dispatching
+the workflow. This requires release-approved content and disables draft-preview
+content. Leave it disabled for the existing internal content-preview testing flow.
+Both modes upload to TestFlight only; neither submits the app for App Review.
 
 Store the RevenueCat Apple public SDK key as the Actions secret
 `REVENUECAT_IOS_API_KEY`. Configure the Apple products, the `plus` entitlement,

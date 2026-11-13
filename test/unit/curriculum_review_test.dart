@@ -132,9 +132,9 @@ void main() {
       }
     }
     for (final item in [first, demonstratives]) {
-      expect(item.review.status, ReviewStatus.pendingReview);
-      expect(item.review.reviewer, isNull);
-      expect(item.review.reviewedAt, isNull);
+      expect(item.review.status, ReviewStatus.approved);
+      expect(item.review.reviewer, 'د. شريف محمد الصادق');
+      expect(item.review.reviewedAt, isNotNull);
       expect(item.sections, hasLength(2));
     }
   });

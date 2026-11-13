@@ -45,13 +45,8 @@ void main() {
         ),
       );
       for (final lesson in catalog.lessons) {
-        if (lesson.id == 'lesson_01' || lesson.id == 'lesson_13') {
-          expect(lesson.review.status, ReviewStatus.pendingReview);
-          expect(lesson.review.reviewer, isNull);
-        } else {
-          expect(lesson.review.status, ReviewStatus.approved);
-          expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
-        }
+        expect(lesson.review.status, ReviewStatus.approved);
+        expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
         expect(
           lesson.repeatExercises,
           hasLength(lesson.exercises.length),
@@ -205,17 +200,33 @@ void main() {
   });
 
   test(
-    'testing preview loads drafts without granting release approval',
+    'production and preview contain the confirmed lesson revisions',
     () async {
-      final catalog = await const ContentRepository(
+      final preview = await const ContentRepository(
         previewUnreviewed: true,
       ).load();
-      expect(catalog.lessons.first.review.status, ReviewStatus.pendingReview);
-      expect(catalog.lessons[12].review.status, ReviewStatus.pendingReview);
-      expect(ContentValidator.validate(catalog), isEmpty);
+      final production = await const ContentRepository(
+        previewUnreviewed: false,
+      ).load();
+      for (final id in ['lesson_01', 'lesson_13']) {
+        final draft = preview.lessons.singleWhere((lesson) => lesson.id == id);
+        final bundled = production.lessons.singleWhere(
+          (lesson) => lesson.id == id,
+        );
+        expect(bundled.review.status, ReviewStatus.approved);
+        expect(bundled.review.contentVersion, '1.0.1');
+        expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
+        expect(bundled.sections.first.body.en, draft.sections.first.body.en);
+        expect(bundled.sections.first.body.ar, contains('جاءَ هذا'));
+        expect(bundled.sections.first.body.en, contains('جاءَ هذا'));
+      }
       expect(
-        ContentValidator.validate(catalog, requireReleaseApproval: true),
-        isNotEmpty,
+        ContentValidator.validate(preview, requireReleaseApproval: true),
+        isEmpty,
+      );
+      expect(
+        ContentValidator.validate(production, requireReleaseApproval: true),
+        isEmpty,
       );
     },
   );

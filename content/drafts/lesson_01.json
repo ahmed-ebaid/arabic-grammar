@@ -687,11 +687,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
+        "status": "approved",
         "contentVersion": "1.0.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Previously approved content was revised to explain inflected and indeclinable words; the revised lesson requires teacher review."
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-11-13T22:31:18Z",
+        "notes": "The project owner confirmed Sherif's approval of the current revised Arabic wording on 2026-11-13, including the explanation of inflected and indeclinable words. reviewedAt records this confirmation, not an independently verified review date. The project owner also directed that the aligned English translation be included in the release; no separate English review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 1578dc8d24c83a7c9681c68dbfc401eec4790d0525a7e4eac43849bdf5e7b4f1."
       }
     },
     {
@@ -7142,11 +7142,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
+        "status": "approved",
         "contentVersion": "1.0.1",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Previously approved content was revised to explain the grammatical position of an indeclinable demonstrative; the revised lesson requires teacher review."
+        "reviewer": "د. شريف محمد الصادق",
+        "reviewedAt": "2026-11-13T22:31:18Z",
+        "notes": "The project owner confirmed Sherif's approval of the current revised Arabic wording on 2026-11-13, including the grammatical position of an indeclinable demonstrative. reviewedAt records this confirmation, not an independently verified review date. The project owner also directed that the aligned English translation be included in the release; no separate English review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 845a097022e1d7bde25cf7e91a6d9e3699500308360bea80b838dead532148cc."
       }
     },
     {

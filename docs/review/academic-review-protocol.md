@@ -49,3 +49,16 @@ Only content with a recorded approval for the exact shipped version may be
 promoted into `assets/content/catalog.json` for production. Keep unresolved
 lessons in the draft catalog, and require
 `dart run tool/validate_content.dart --release` before App Store submission.
+
+## Release confirmation recorded on 2026-11-13
+
+The project owner confirmed that Sherif's approval includes the current revised
+Arabic wording of Lessons 1 and 13 (lesson content version `1.0.1`), not only the
+earlier Desktop Word document. The owner also directed that their aligned English
+translations be included in the public release.
+
+Both catalogs record this confirmation and the corresponding lesson snapshot
+hashes in their review notes. `reviewedAt` records when the owner confirmed the
+approval; it is not an independently verified date of Sherif's review. This record
+does not claim a separate English-language academic review or institutional
+endorsement.
