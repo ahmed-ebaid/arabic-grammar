@@ -149,6 +149,29 @@ void main() {
       expect(messages, contains('must contain exactly one correct option'));
     });
 
+    test('rejects a vocalized token that differs from its example', () {
+      final json = _sampleJson();
+      final lessons = json['lessons'] as List<Object?>;
+      final lesson = lessons[34] as Map<String, Object?>;
+      final sections = lesson['sections'] as List<Object?>;
+      final example =
+          ((sections[1] as Map<String, Object?>)['examples'] as List<Object?>)
+                  .single
+              as Map<String, Object?>;
+      final token =
+          (example['tokens'] as List<Object?>).first as Map<String, Object?>;
+      token['vocalized'] = 'كَتَبَ';
+      final issues = ContentValidator.validate(
+        ContentDecoder.decode(jsonEncode(json)),
+      );
+      expect(
+        issues.map((issue) => issue.toString()),
+        contains(
+          contains('must match token text and appear in the vocalized example'),
+        ),
+      );
+    });
+
     test('requires reviewer metadata for approved lessons', () {
       final json = _sampleJson();
       final review = _lesson(json)['review'] as Map<String, Object?>;

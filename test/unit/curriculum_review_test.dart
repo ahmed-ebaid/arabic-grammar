@@ -117,6 +117,25 @@ void main() {
     }
   });
 
+  test('mastery prompts do not reveal the case of عدد in the question', () {
+    final project = lesson(41);
+    final prompts = [...project.exercises, ...project.repeatExercises].where(
+      (exercise) =>
+          exercise.id == 'lesson-41-state-02' ||
+          exercise.id == 'lesson-41-repeat-state-02',
+    );
+    expect(prompts, hasLength(2));
+    for (final exercise in prompts) {
+      expect(exercise.prompt.ar, contains('«عدد»'));
+      expect(exercise.prompt.ar, isNot(contains('عددَ')));
+      expect(exercise.prompt.en, contains('عدد in'));
+      expect(
+        exercise.options.singleWhere((option) => option.isCorrect).id,
+        'nasb',
+      );
+    }
+  });
+
   test('token display does not repeat letters already in an ending', () {
     const cases = [
       ('الطالب', 'ُ', 'الطالبُ'),
@@ -145,6 +164,23 @@ void main() {
     }
   });
 
+  test('passive analysis preserves the vowels within the verb', () {
+    for (final path in [
+      'content/drafts/lesson_01.json',
+      'assets/content/catalog.json',
+    ]) {
+      final source = ContentDecoder.decode(File(path).readAsStringSync());
+      final example = source.lessons
+          .singleWhere((lesson) => lesson.id == 'lesson_35')
+          .sections
+          .singleWhere((section) => section.id == 'report-was-written')
+          .examples
+          .single;
+      expect(example.tokens.first.displayText, 'كُتِبَ');
+      expect(example.tokens.last.displayText, 'أمسِ');
+    }
+  });
+
   test(
     'every analysis token preserves its original letters when displayed',
     () {
@@ -164,6 +200,105 @@ void main() {
       }
     },
   );
+
+  test('case and ending prompts do not reveal answers with vowel marks', () {
+    final marks = RegExp(r'[\u064B-\u065F\u0670]');
+    for (final item in catalog.lessons) {
+      for (final exercise in [...item.exercises, ...item.repeatExercises]) {
+        if (exercise.type != ExerciseType.identifyState &&
+            exercise.type != ExerciseType.chooseEnding) {
+          continue;
+        }
+        expect(
+          exercise.prompt.ar,
+          isNot(matches(marks)),
+          reason: '${item.id}/${exercise.id} Arabic prompt',
+        );
+        expect(
+          exercise.prompt.en,
+          isNot(matches(marks)),
+          reason: '${item.id}/${exercise.id} English prompt',
+        );
+      }
+    }
+
+    final predicate = alfiyyaReadings['lesson_41']!.singleWhere(
+      (reading) => reading.topic.ar == 'الخبر وأنواعه',
+    );
+    expect(
+      predicate.verse,
+      'والخبر الجزء المتم الفائدة\n'
+      'كالله بر والأيادي شاهدة\n'
+      'ومفردا يأتي ويأتي جملة\n'
+      'حاوية معنى الذي سيقت له',
+    );
+    expect(
+      alfiyyaReadings['lesson_33']!
+          .singleWhere((reading) => reading.topic.ar == 'العدد والمعدود')
+          .verse,
+      'ثلاثة بالتاء قل للعشرة\n'
+      'في عد ما آحاده مذكرة\n'
+      'في الضد جرد والمميز اجرر\n'
+      'جمعا بلفظ قلة في الأكثر',
+    );
+    expect(
+      alfiyyaReadings['lesson_24']!
+          .singleWhere((reading) => reading.topic.ar == 'الفعل المتعدي')
+          .verse,
+      'علامة الفعل المعدى أن تصل\n'
+      'هاء ضمير غير مصدر به نحو عمل',
+    );
+  });
+
+  test('case prompts do not reveal answers through written case endings', () {
+    const formerCueByExercise = {
+      'lesson-10-state-02': ['الطالبان', 'مجتهدان'],
+      'lesson-10-repeat-state-02': ['البنتان', 'مجتهدتان'],
+      'lesson-19-state-03': ['كتابا'],
+      'lesson-19-repeat-state-03': ['قلما'],
+      'lesson-25-state-02': ['باردا'],
+      'lesson-25-repeat-state-02': ['ناجحا'],
+      'lesson-30-state-02': ['ضاحكا'],
+      'lesson-30-repeat-state-02': ['مسرعا'],
+      'lesson-31-state-02': ['واحدا'],
+      'lesson-31-repeat-state-02': ['اثنين'],
+      'lesson-33-state-01': ['باردا'],
+      'lesson-33-repeat-state-01': ['معتدلا'],
+      'lesson-41-repeat-state-01': ['فرعا'],
+      'lesson-42-state-03': ['كتابا'],
+      'lesson-42-repeat-state-03': ['ما الحالة الإعرابية لكلمة «رسالة»؟'],
+      'lesson-42-rule-01': ['كِتَابًا'],
+      'lesson-42-repeat-rule-01': ['رِسَالَةً'],
+    };
+    final exercises = [
+      for (final item in catalog.lessons) ...item.exercises,
+      for (final item in catalog.lessons) ...item.repeatExercises,
+    ];
+
+    for (final exercise in exercises) {
+      final formerCues = formerCueByExercise[exercise.id];
+      if (formerCues == null) continue;
+      for (final cue in formerCues) {
+        expect(
+          exercise.prompt.ar,
+          isNot(contains(cue)),
+          reason: '${exercise.id} Arabic prompt',
+        );
+        expect(
+          exercise.prompt.en,
+          isNot(contains(cue)),
+          reason: '${exercise.id} English prompt',
+        );
+      }
+    }
+
+    for (final id in ['lesson-42-rule-01', 'lesson-42-repeat-rule-01']) {
+      final exercise = exercises.singleWhere((item) => item.id == id);
+      final answer = exercise.options.singleWhere((option) => option.isCorrect);
+      expect(answer.label.ar, contains('مفعول به مقدّم'));
+      expect(answer.label.ar, isNot(contains('حركة')));
+    }
+  });
 
   test('indefiniteness question tests acceptance of the article', () {
     final exercise = lesson(8).repeatExercises[2];

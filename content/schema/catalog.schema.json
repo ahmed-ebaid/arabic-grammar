@@ -153,6 +153,7 @@
       ],
       "properties": {
         "text": {"type": "string", "minLength": 1},
+        "vocalized": {"type": "string", "minLength": 1},
         "start": {"type": "integer", "minimum": 0},
         "end": {"type": "integer", "minimum": 1},
         "role": {"$ref": "#/$defs/localizedText"},

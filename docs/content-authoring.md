@@ -15,7 +15,9 @@ Release-ready lessons are copied into the generated
 6. Use modern copyrighted books only as conceptual references unless written
    commercial permission permits more.
 7. Annotate the unvocalized example. Token `start` and `end` values are
-   zero-based Dart string offsets, with `end` exclusive.
+   zero-based Dart string offsets, with `end` exclusive. Where internal
+   vowels are essential, specify the optional token `vocalized` exactly as it
+   appears in the vocalized example; it replaces the token's display text.
 8. Give every answer option bilingual feedback that teaches why it is right or
    wrong.
 9. Keep review status at `draft` or `pendingReview` until a qualified teacher

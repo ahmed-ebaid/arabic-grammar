@@ -247,7 +247,7 @@ const alfiyyaReadings = <String, List<AlfiyyaReading>>{
     AlfiyyaReading(
       lessonId: 'lesson_19',
       topic: LocalizedText(ar: 'الفعل المتعدي', en: 'Transitive verbs'),
-      verse: 'علامة الفعل المعدى أن تصل\nها غير مصدر به نحو عمل',
+      verse: 'علامة الفعل المعدى أن تصل\nهاء ضمير غير مصدر به نحو عمل',
       explanation: LocalizedText(
         ar: 'من علامات الفعل المتعدي اتصاله بهاء ضمير تعود على مفعول به، لا على مصدر الفعل.',
         en: 'One test for a transitive verb is attachment of an object pronoun ha referring to something other than the verb’s verbal noun.',
@@ -381,7 +381,7 @@ const alfiyyaReadings = <String, List<AlfiyyaReading>>{
         en: 'Numbers and counted nouns',
       ),
       verse:
-          'ثلاثة بالتاء قل للعشره\nفي عد ما آحاده مذكره\nفي الضد جرد والمميز اجرر\nجمعا بلفظ قلة في الأكثر',
+          'ثلاثة بالتاء قل للعشرة\nفي عد ما آحاده مذكرة\nفي الضد جرد والمميز اجرر\nجمعا بلفظ قلة في الأكثر',
       explanation: LocalizedText(
         ar: 'تخالف الأعداد من ثلاثة إلى عشرة جنس مفرد المعدود، ويأتي المعدود جمعًا مجرورًا في هذا التركيب.',
         en: 'Numbers three through ten have the opposite gender to the singular counted noun; the counted noun is plural and in jarr.',
@@ -397,7 +397,7 @@ const alfiyyaReadings = <String, List<AlfiyyaReading>>{
         en: 'The predicate and its forms',
       ),
       verse:
-          'والخبر الجزء المتم الفائده\nكالله بر والأيادي شاهده\nومفردا يأتي ويأتي جمله\nحاوية معنى الذي سيقت له',
+          'والخبر الجزء المتم الفائدة\nكالله بر والأيادي شاهدة\nومفردا يأتي ويأتي جملة\nحاوية معنى الذي سيقت له',
       explanation: LocalizedText(
         ar: 'يتم الخبر معنى الجملة، وقد يكون مفردًا أو جملة؛ والبيتان مختاران من باب الابتداء.',
         en: 'The predicate completes the sentence’s meaning and may be a single expression or a clause. These are selected verses from the topic-and-predicate chapter.',

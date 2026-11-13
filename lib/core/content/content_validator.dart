@@ -382,6 +382,21 @@ abstract final class ContentValidator {
           ),
         );
       }
+      if (token.vocalized case final vocalized?) {
+        final unmarked = vocalized.replaceAll(
+          RegExp(r'[\u064B-\u065F\u0670]'),
+          '',
+        );
+        if (unmarked != token.text || !example.vocalized.contains(vocalized)) {
+          issues.add(
+            ContentValidationIssue(
+              path: '$tokenPath.vocalized',
+              message:
+                  'must match token text and appear in the vocalized example',
+            ),
+          );
+        }
+      }
       previousEnd = token.end;
     }
   }

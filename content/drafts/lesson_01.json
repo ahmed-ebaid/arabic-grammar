@@ -266,8 +266,8 @@
           "id": "lesson-01-ending-01",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Which ending completes الطَّالِب_ in الطَّالِبُ مُجْتَهِدٌ?",
-            "ar": "ما العلامة الإعرابية لكلمة «الطالب» في جملة «الطَّالِبُ مُجْتَهِدٌ»؟"
+            "en": "Which ending completes الطالب_ in الطالب مجتهد?",
+            "ar": "ما العلامة الإعرابية لكلمة «الطالب» في جملة «الطالب مجتهد»؟"
           },
           "options": [
             {
@@ -312,8 +312,8 @@
           "id": "lesson-01-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What is the grammatical state of الطالبُ in this sentence?",
-            "ar": "ما الحالة الإعرابية لكلمة «الطالبُ» في هذه الجملة؟"
+            "en": "What is the grammatical state of الطالب in this sentence?",
+            "ar": "ما الحالة الإعرابية لكلمة «الطالب» في هذه الجملة؟"
           },
           "options": [
             {
@@ -498,8 +498,8 @@
           "id": "lesson-01-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What is the grammatical state of البيتُ in البيتُ واسعٌ?",
-            "ar": "ما الحالة الإعرابية لكلمة «البيتُ» في جملة «البيتُ واسعٌ»؟"
+            "en": "What is the grammatical state of البيت in البيت واسع?",
+            "ar": "ما الحالة الإعرابية لكلمة «البيت» في جملة «البيت واسع»؟"
           },
           "options": [
             {
@@ -1705,7 +1705,7 @@
           "type": "chooseEnding",
           "prompt": {
             "en": "Read the following phrase with vowel marks and identify the grammatical ending of بارد.",
-            "ar": "اقرأ العبارة الآتية مع ضبطها بالشكل: «الجو بارد»، مبيّنًا العلامة الإعرابية لكلمة (بارد)."
+            "ar": "اقرأ العبارة الآتية مع ضبطها بالشكل: «الجو بارد»، مبينا العلامة الإعرابية لكلمة (بارد)."
           },
           "options": [
             {
@@ -1973,7 +1973,7 @@
           "type": "chooseEnding",
           "prompt": {
             "en": "Choose the grammatical ending for الطفل when it is the subject.",
-            "ar": "اختر العلامة الإعرابية لكلمة «الطفل» حين تكون فاعلًا."
+            "ar": "اختر العلامة الإعرابية لكلمة «الطفل» حين تكون فاعلا."
           },
           "options": [
             {
@@ -2201,8 +2201,8 @@
           "id": "lesson-04-repeat-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for الرَّجُل_ when it is the subject.",
-            "ar": "اختر حركة آخر كلمة «الرجل» حين يكون فاعلًا."
+            "en": "Choose the ending for الرجل_ when it is the subject.",
+            "ar": "اختر حركة آخر كلمة «الرجل» حين يكون فاعلا."
           },
           "options": [
             {
@@ -2744,7 +2744,7 @@
           "id": "lesson-05-repeat-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the ending for السَّيَّارَة_ when it is the direct object.",
+            "en": "Choose the ending for السيارة_ when it is the direct object.",
             "ar": "ما علامة إعراب كلمة (السيارة) في عبارة: «غسل العامل السيارة»؟"
           },
           "options": [
@@ -5203,8 +5203,8 @@
           "id": "lesson-10-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "In الطالبان مجتهدان, what state are both dual nouns in?",
-            "ar": "في عبارة «الطالبان مجتهدان»، ما حالة الاسمين المثنيين؟"
+            "en": "What is the case of a dual noun when used as a subject or predicate?",
+            "ar": "ما الحالة الإعرابية للمثنى إذا وقع في موقع المبتدأ أو الخبر؟"
           },
           "options": [
             {
@@ -5249,8 +5249,8 @@
           "id": "lesson-10-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the dual form of المهندس as the object in رأيتُ ... .",
-            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندس» بوصفها مفعولًا به في عبارة «رأيتُ ...»."
+            "en": "Choose the dual form of المهندس as the object in رأيت ... .",
+            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندس» بوصفها مفعولا به في عبارة «رأيت ...»."
           },
           "options": [
             {
@@ -5389,8 +5389,8 @@
           "id": "lesson-10-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "In البنتان مجتهدتان, what state are both dual nouns in?",
-            "ar": "في عبارة «البنتان مجتهدتان»، ما حالة الاسمين المثنيين؟"
+            "en": "What is the case of a dual noun when used as a subject or predicate?",
+            "ar": "ما الحالة الإعرابية للمثنى إذا وقع في موقع المبتدأ أو الخبر؟"
           },
           "options": [
             {
@@ -5435,8 +5435,8 @@
           "id": "lesson-10-repeat-ending-03",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the dual form of المهندسة as the object in رأيتُ ... .",
-            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندسة» بوصفها مفعولًا به في عبارة «رأيتُ ...»."
+            "en": "Choose the dual form of المهندسة as the object in رأيت ... .",
+            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندسة» بوصفها مفعولا به في عبارة «رأيت ...»."
           },
           "options": [
             {
@@ -5821,7 +5821,7 @@
           "id": "lesson-11-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "In البنات المجتهدات ناجحات, what state are البناتُ and المجتهداتُ in?",
+            "en": "In البنات المجتهدات ناجحات, what state are البنات and المجتهدات in?",
             "ar": "في عبارة «البنات المجتهدات ناجحات»، ما حالة «البنات» و«المجتهدات»؟"
           },
           "options": [
@@ -6007,7 +6007,7 @@
           "id": "lesson-11-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "In المعلمات الجديدات مشهورات, what state are المعلماتُ and الجديداتُ in?",
+            "en": "In المعلمات الجديدات مشهورات, what state are المعلمات and الجديدات in?",
             "ar": "في جملة «المعلمات الجديدات مشهورات»، ما حالة «المعلمات» و«الجديدات»؟"
           },
           "options": [
@@ -6847,8 +6847,8 @@
           "id": "lesson-13-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الكتابُ in after هذا in this sentence?",
-            "ar": "ما حالة «الكتابُ» بعد «هذا» في هذه الجملة؟"
+            "en": "What state is الكتاب in after هذا in this sentence?",
+            "ar": "ما حالة «الكتاب» بعد «هذا» في هذه الجملة؟"
           },
           "options": [
             {
@@ -7033,7 +7033,7 @@
           "id": "lesson-13-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is السيارةُ in after تلك in تلك السيارة جديدة?",
+            "en": "What state is السيارة in after تلك in تلك السيارة جديدة?",
             "ar": "في قولك: «تلك السيارة جديدة»، ما الحالة الإعرابية لكلمة «السيارة»؟"
           },
           "options": [
@@ -7379,8 +7379,8 @@
           "id": "lesson-14-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is كتابُهُ in, in كتابه جديد?",
-            "ar": "ما حالة «كتابُهُ» في «كتابه جديد»؟"
+            "en": "What state is كتابه in, in كتابه جديد?",
+            "ar": "ما حالة «كتابه» في «كتابه جديد»؟"
           },
           "options": [
             {
@@ -7565,8 +7565,8 @@
           "id": "lesson-14-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is قلمُكَ in, in قلمك جديد?",
-            "ar": "ما حالة «قلمُكَ» في عبارة: «قلمك جديد»؟"
+            "en": "What state is قلمك in, in قلمك جديد?",
+            "ar": "ما حالة «قلمك» في عبارة: «قلمك جديد»؟"
           },
           "options": [
             {
@@ -7865,8 +7865,8 @@
           "id": "lesson-15-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are مدرسةٌ and كبيرةٌ in?",
-            "ar": "ما حالة «مدرسةٌ» و«كبيرةٌ»؟"
+            "en": "What state are مدرسة and كبيرة in?",
+            "ar": "ما حالة «مدرسة» و«كبيرة»؟"
           },
           "options": [
             {
@@ -8051,8 +8051,8 @@
           "id": "lesson-15-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are بيتٌ and جميلٌ in?",
-            "ar": "ما حالة «بيتٌ» و«جميلٌ»؟"
+            "en": "What state are بيت and جميل in?",
+            "ar": "ما حالة «بيت» و«جميل»؟"
           },
           "options": [
             {
@@ -8441,8 +8441,8 @@
           "id": "lesson-16-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is يكتبُ in, in الطالب يكتب الدرس (nothing governs it)?",
-            "ar": "ما حالة الفعل «يكتبُ» في عبارة: «الطالب يكتب الدرس»؟ لاحظ (لم يسبق بناصب ولا جازم)"
+            "en": "What state is يكتب in, in الطالب يكتب الدرس (nothing governs it)?",
+            "ar": "ما حالة الفعل «يكتب» في عبارة: «الطالب يكتب الدرس»؟ لاحظ (لم يسبق بناصب ولا جازم)"
           },
           "options": [
             {
@@ -8673,8 +8673,8 @@
           "id": "lesson-16-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تشرحُ in, in المعلمة تشرح الدرس (nothing governs it)?",
-            "ar": "ما حالة الفعل «تشرحُ» في جملة: «المعلمة تشرح الدرس»؟ لاحظ: لم يسبق بناصب ولا جازم."
+            "en": "What state is تشرح in, in المعلمة تشرح الدرس (nothing governs it)?",
+            "ar": "ما حالة الفعل «تشرح» في جملة: «المعلمة تشرح الدرس»؟ لاحظ: لم يسبق بناصب ولا جازم."
           },
           "options": [
             {
@@ -9602,8 +9602,8 @@
           "id": "lesson-18-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الدرسَ in, in أكتب الدرس؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الدرسَ» في عبارة «أكتب الدرس»؟"
+            "en": "What state is الدرس in, in أكتب الدرس؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الدرس» في عبارة «أكتب الدرس»؟"
           },
           "options": [
             {
@@ -9788,8 +9788,8 @@
           "id": "lesson-18-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is السؤالَ in, in يفهم الولد السؤال؟",
-            "ar": "ما الحالة الإعرابية لكلمة «السؤالَ» في عبارة «يفهم الولد السؤال»؟"
+            "en": "What state is السؤال in, in يفهم الولد السؤال؟",
+            "ar": "ما الحالة الإعرابية لكلمة «السؤال» في عبارة «يفهم الولد السؤال»؟"
           },
           "options": [
             {
@@ -10115,8 +10115,8 @@
           "id": "lesson-19-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are both objects in, in أعطى المعلم الطالب كتابا؟",
-            "ar": "ما الحالة الإعرابية للمفعولين في «أعطى المعلم الطالب كتابا»؟"
+            "en": "What is the case of both objects in أعطى المعلم الطالب الكتاب?",
+            "ar": "ما الحالة الإعرابية للمفعولين في «أعطى المعلم الطالب الكتاب»؟"
           },
           "options": [
             {
@@ -10301,8 +10301,8 @@
           "id": "lesson-19-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are both objects in, in أعطت المعلمة البنت قلما؟",
-            "ar": "ما الحالة الإعرابية للمفعولين في قولك: «أعطت المعلمة البنت قلما»؟"
+            "en": "What is the case of both objects in أعطت المعلمة البنت القلم?",
+            "ar": "ما الحالة الإعرابية للمفعولين في قولك: «أعطت المعلمة البنت القلم»؟"
           },
           "options": [
             {
@@ -10665,8 +10665,8 @@
           "id": "lesson-20-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is يكتبِ in, in الطالب لم يكتب الدرس؟",
-            "ar": "ما حالة «يكتبِ» في قولنا: «الطالب لم يكتب الدرس»؟"
+            "en": "What state is يكتب in, in الطالب لم يكتب الدرس؟",
+            "ar": "ما حالة «يكتب» في قولنا: «الطالب لم يكتب الدرس»؟"
           },
           "options": [
             {
@@ -10851,7 +10851,7 @@
           "id": "lesson-20-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is يشرحِ in, in المعلم لم يشرح الدرس؟",
+            "en": "What state is يشرح in, in المعلم لم يشرح الدرس؟",
             "ar": "ما الحالة الإعرابية للفعل «يشرح» في قولك: «المعلم لم يشرح الدرس»؟"
           },
           "options": [
@@ -11242,8 +11242,8 @@
           "id": "lesson-21-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are تجتهدْ and تنجحْ in, in إن تجتهد تنجح؟",
-            "ar": "ما الحالة الإعرابية للفعلين «تجتهدْ» و«تنجحْ» في قولك: «إن تجتهد تنجح»؟"
+            "en": "What state are تجتهد and تنجح in, in إن تجتهد تنجح؟",
+            "ar": "ما الحالة الإعرابية للفعلين «تجتهد» و«تنجح» في قولك: «إن تجتهد تنجح»؟"
           },
           "options": [
             {
@@ -11428,8 +11428,8 @@
           "id": "lesson-21-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are تدرسْ and تفهمْ in, in إن تدرس تفهم؟",
-            "ar": "ما الحالة الإعرابية للفعل «تدرسْ» و«تفهمْ» في قولك: «إن تدرس تفهم»؟"
+            "en": "What state are تدرس and تفهم in, in إن تدرس تفهم؟",
+            "ar": "ما الحالة الإعرابية للفعل «تدرس» و«تفهم» في قولك: «إن تدرس تفهم»؟"
           },
           "options": [
             {
@@ -11800,8 +11800,8 @@
           "id": "lesson-22-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تكتبْ in, in لا تكتب بسرعة؟",
-            "ar": "ما الحالة الإعرابية للفعل «تكتبْ» بعد «لا» الناهية؟"
+            "en": "What state is تكتب in, in لا تكتب بسرعة؟",
+            "ar": "ما الحالة الإعرابية للفعل «تكتب» بعد «لا» الناهية؟"
           },
           "options": [
             {
@@ -11986,8 +11986,8 @@
           "id": "lesson-22-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تشربْ in, in لا تشرب الماء البارد؟",
-            "ar": "ما الحالة الإعرابية للفعل «تشربْ» في قولك: «لا تشرب الماء البارد»؟"
+            "en": "What state is تشرب in, in لا تشرب الماء البارد؟",
+            "ar": "ما الحالة الإعرابية للفعل «تشرب» في قولك: «لا تشرب الماء البارد»؟"
           },
           "options": [
             {
@@ -12422,8 +12422,8 @@
           "id": "lesson-23-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الطالبَ in, in علم المعلم الطالب؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الطالبَ» في عبارة «علم المعلم الطالب»؟"
+            "en": "What state is الطالب in, in علم المعلم الطالب؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الطالب» في عبارة «علم المعلم الطالب»؟"
           },
           "options": [
             {
@@ -12654,8 +12654,8 @@
           "id": "lesson-23-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is ابنَه in, in أدخل الأب ابنه المدرسة؟",
-            "ar": "ما الحالة الإعرابية لكلمة «ابنَه» في عبارة: «أدخل الأب ابنه المدرسة»؟"
+            "en": "What state is ابنه in, in أدخل الأب ابنه المدرسة؟",
+            "ar": "ما الحالة الإعرابية لكلمة «ابنه» في عبارة: «أدخل الأب ابنه المدرسة»؟"
           },
           "options": [
             {
@@ -12973,8 +12973,8 @@
           "id": "lesson-24-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is يقولُ in (nothing governs it)?",
-            "ar": "ما الحالة الإعرابية للفعل «يقولُ» إن لم يسبق بناصب ولا جازم؟"
+            "en": "What state is يقول in (nothing governs it)?",
+            "ar": "ما الحالة الإعرابية للفعل «يقول» إن لم يسبق بناصب ولا جازم؟"
           },
           "options": [
             {
@@ -13159,8 +13159,8 @@
           "id": "lesson-24-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is يقولُ in (nothing governs it)?",
-            "ar": "ما الحالة الإعرابية للفعل «يقولُ» إذا لم يسبقه ناصب ولا جازم؟"
+            "en": "What state is يقول in (nothing governs it)?",
+            "ar": "ما الحالة الإعرابية للفعل «يقول» إذا لم يسبقه ناصب ولا جازم؟"
           },
           "options": [
             {
@@ -13486,8 +13486,8 @@
           "id": "lesson-25-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is باردًا in, in كان الطقس باردا؟",
-            "ar": "ما الحالة الإعرابية لكلمة «باردًا» في عبارة: «كان الطقس باردا»؟"
+            "en": "What is the case of the predicate of كان?",
+            "ar": "ما الحالة الإعرابية لخبر «كان»؟"
           },
           "options": [
             {
@@ -13672,8 +13672,8 @@
           "id": "lesson-25-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is ناجحًا in, in صار الطالب ناجحا؟",
-            "ar": "ما الحالة الإعرابية لكلمة «ناجحًا» في عبارة: «صار الطالب ناجحا»؟"
+            "en": "What is the case of the predicate of صار?",
+            "ar": "ما الحالة الإعرابية لخبر «صار»؟"
           },
           "options": [
             {
@@ -13999,8 +13999,8 @@
           "id": "lesson-26-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الطالبَ in, in إن الطالب مجتهد؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الطالبَ» في قولك: «إن الطالب مجتهد»؟"
+            "en": "What state is الطالب in, in إن الطالب مجتهد؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الطالب» في قولك: «إن الطالب مجتهد»؟"
           },
           "options": [
             {
@@ -14185,8 +14185,8 @@
           "id": "lesson-26-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الامتحانَ in, in لكن الامتحان صعب؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الامتحانَ» في عبارة: «لكن الامتحان صعب»؟"
+            "en": "What state is الامتحان in, in لكن الامتحان صعب؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الامتحان» في عبارة: «لكن الامتحان صعب»؟"
           },
           "options": [
             {
@@ -15052,8 +15052,8 @@
           "id": "lesson-28-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المعلمُ in, in حضر الطالب والمعلم (matching الطالب)؟",
-            "ar": "ما الحالة الإعرابية لكلمة «المعلمُ» في عبارة: «حضر الطالب والمعلم» (مطابقة لـ«الطالب»)؟"
+            "en": "What state is المعلم in, in حضر الطالب والمعلم (matching الطالب)؟",
+            "ar": "ما الحالة الإعرابية لكلمة «المعلم» في عبارة: «حضر الطالب والمعلم» (مطابقة لـ«الطالب»)؟"
           },
           "options": [
             {
@@ -15238,8 +15238,8 @@
           "id": "lesson-28-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الابنُ in, in سافر الأب ثم الابن (matching الأب)؟",
-            "ar": "ما حالة كلمة «الابنُ» في عبارة: «سافر الأب ثم الابن» (مطابقة لـ«الأب»)؟"
+            "en": "What state is الابن in, in سافر الأب ثم الابن (matching الأب)؟",
+            "ar": "ما حالة كلمة «الابن» في عبارة: «سافر الأب ثم الابن» (مطابقة لـ«الأب»)؟"
           },
           "options": [
             {
@@ -15519,8 +15519,8 @@
           "id": "lesson-29-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is أمامَ in, in جلس الولد أمام الباب؟",
-            "ar": "ما الحالة الإعرابية لكلمة «أمامَ» في قولك: «جلس الولد أمام الباب»؟"
+            "en": "What state is أمام in, in جلس الولد أمام الباب؟",
+            "ar": "ما الحالة الإعرابية لكلمة «أمام» في قولك: «جلس الولد أمام الباب»؟"
           },
           "options": [
             {
@@ -15705,8 +15705,8 @@
           "id": "lesson-29-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فوقَ in, in نام الطفل فوق السرير؟",
-            "ar": "ما الحالة الإعرابية لكلمة «فوقَ» في قولك: «نام الطفل فوق السرير»؟"
+            "en": "What state is فوق in, in نام الطفل فوق السرير؟",
+            "ar": "ما الحالة الإعرابية لكلمة «فوق» في قولك: «نام الطفل فوق السرير»؟"
           },
           "options": [
             {
@@ -16013,8 +16013,8 @@
           "id": "lesson-30-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is ضاحكا in?",
-            "ar": "ما حالة «ضاحكا»؟"
+            "en": "What is the default case of a حال?",
+            "ar": "ما الحالة الإعرابية للحال في الأصل؟"
           },
           "options": [
             {
@@ -16199,8 +16199,8 @@
           "id": "lesson-30-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مسرعا in?",
-            "ar": "ما حالة «مسرعا»؟"
+            "en": "What is the default case of a حال?",
+            "ar": "ما الحالة الإعرابية للحال في الأصل؟"
           },
           "options": [
             {
@@ -16507,8 +16507,8 @@
           "id": "lesson-31-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is واحدا in?",
-            "ar": "ما حالة «واحدا»؟"
+            "en": "What is the case of the excepted noun in a complete affirmative exception?",
+            "ar": "ما الحالة الإعرابية للمستثنى في الاستثناء التام المثبت؟"
           },
           "options": [
             {
@@ -16693,8 +16693,8 @@
           "id": "lesson-31-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is اثنين in?",
-            "ar": "ما الحالة الإعرابية لكلمة «اثنين»؟"
+            "en": "What is the case of the excepted noun in a complete affirmative exception?",
+            "ar": "ما الحالة الإعرابية للمستثنى في الاستثناء التام المثبت؟"
           },
           "options": [
             {
@@ -17001,8 +17001,8 @@
           "id": "lesson-32-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is طلابٍ in, in ثلاثة طلاب؟",
-            "ar": "ما الحالة الإعرابية لكلمة «طلابٍ» في عبارة: «ثلاثة طلاب»؟"
+            "en": "What state is طلاب in, in ثلاثة طلاب؟",
+            "ar": "ما الحالة الإعرابية لكلمة «طلاب» في عبارة: «ثلاثة طلاب»؟"
           },
           "options": [
             {
@@ -17187,8 +17187,8 @@
           "id": "lesson-32-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is أقلامٍ in, in أربعة أقلام؟",
-            "ar": "ما الحالة الإعرابية لـ«أقلامٍ» في قولك: «أربعة أقلام»؟"
+            "en": "What state is أقلام in, in أربعة أقلام؟",
+            "ar": "ما الحالة الإعرابية لـ«أقلام» في قولك: «أربعة أقلام»؟"
           },
           "options": [
             {
@@ -17525,8 +17525,8 @@
           "id": "lesson-33-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is باردًا in, in كان الجو باردا صباحا؟",
-            "ar": "ما الحالة الإعرابية لكلمة «باردًا» في جملة: «كان الجو باردا صباحا»؟"
+            "en": "What is the case of the predicate of كان?",
+            "ar": "ما الحالة الإعرابية لخبر «كان»؟"
           },
           "options": [
             {
@@ -17711,8 +17711,8 @@
           "id": "lesson-33-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is معتدلًا in, in صار الجو معتدلا مساء؟",
-            "ar": "ما الحالة الإعرابية لكلمة «معتدلًا» في جملة: «صار الجو معتدلا مساء»؟"
+            "en": "What is the case of the predicate of صار?",
+            "ar": "ما الحالة الإعرابية لخبر «صار»؟"
           },
           "options": [
             {
@@ -18084,8 +18084,8 @@
           "id": "lesson-34-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مشروعٍ in, after the preposition عن؟",
-            "ar": "ما الحالة الإعرابية لكلمة «مشروعٍ» بعد حرف الجر «عن»؟"
+            "en": "What state is مشروع in, after the preposition عن؟",
+            "ar": "ما الحالة الإعرابية لكلمة «مشروع» بعد حرف الجر «عن»؟"
           },
           "options": [
             {
@@ -18270,8 +18270,8 @@
           "id": "lesson-34-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مدرسةً in, in افتتحت الحكومة مدرسة جديدة (object)؟",
-            "ar": "ما الحالة الإعرابية لكلمة «مدرسةً» في جملة: «افتتحت الحكومة مدرسة جديدة» (المفعول به)؟"
+            "en": "What state is مدرسة in, in افتتحت الحكومة مدرسة جديدة (object)؟",
+            "ar": "ما الحالة الإعرابية لكلمة «مدرسة» في جملة: «افتتحت الحكومة مدرسة جديدة» (المفعول به)؟"
           },
           "options": [
             {
@@ -18486,6 +18486,7 @@
               "tokens": [
                 {
                   "text": "كتب",
+                  "vocalized": "كُتِبَ",
                   "start": 0,
                   "end": 3,
                   "role": {
@@ -18643,8 +18644,8 @@
           "id": "lesson-35-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is التقريرُ in, in كتب التقرير أمس؟",
-            "ar": "ما الحالة الإعرابية لكلمة «التقريرُ» في قولك: «كتب التقرير أمس»؟"
+            "en": "What state is التقرير in, in كتب التقرير أمس؟",
+            "ar": "ما الحالة الإعرابية لكلمة «التقرير» في قولك: «كتب التقرير أمس»؟"
           },
           "options": [
             {
@@ -18829,8 +18830,8 @@
           "id": "lesson-35-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is البابُ in, in فتح الباب صباحا؟",
-            "ar": "ما الحالة الإعرابية لكلمة «البابُ» في قولك: «فتح الباب صباحا»؟"
+            "en": "What state is الباب in, in فتح الباب صباحا؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الباب» في قولك: «فتح الباب صباحا»؟"
           },
           "options": [
             {
@@ -19175,8 +19176,8 @@
           "id": "lesson-36-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الكاتبُ in, as the topic?",
-            "ar": "ما الحالة الإعرابية لكلمة «الكاتبُ» بوصفه مبتدأ؟"
+            "en": "What state is الكاتب in, as the topic?",
+            "ar": "ما الحالة الإعرابية لكلمة «الكاتب» بوصفه مبتدأ؟"
           },
           "options": [
             {
@@ -19361,8 +19362,8 @@
           "id": "lesson-36-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المعلمةُ in, as the topic?",
-            "ar": "ما الحالة الإعرابية لكلمة «المعلمةُ» بوصفها مبتدأ؟"
+            "en": "What state is المعلمة in, as the topic?",
+            "ar": "ما الحالة الإعرابية لكلمة «المعلمة» بوصفها مبتدأ؟"
           },
           "options": [
             {
@@ -19642,8 +19643,8 @@
           "id": "lesson-37-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are مقالةِ and الجريدةِ in (both mid-chain and final)?",
-            "ar": "ما الحالة الإعرابية لكلمة «مقالةِ» و«الجريدةِ» (الوسطى والأخيرة في السلسلة)؟"
+            "en": "What state are مقالة and الجريدة in (both mid-chain and final)?",
+            "ar": "ما الحالة الإعرابية لكلمة «مقالة» و«الجريدة» (الوسطى والأخيرة في السلسلة)؟"
           },
           "options": [
             {
@@ -19828,8 +19829,8 @@
           "id": "lesson-37-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are نجاحِ and الفريقِ in?",
-            "ar": "ما حالة «نجاحِ» و«الفريقِ»؟"
+            "en": "What state are نجاح and الفريق in?",
+            "ar": "ما حالة «نجاح» و«الفريق»؟"
           },
           "options": [
             {
@@ -20201,8 +20202,8 @@
           "id": "lesson-38-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is اليومَ in, in العمل اليوم مهم (ظرف زمان)؟",
-            "ar": "ما الحالة الإعرابية لكلمة «اليومَ» في قولك: «العمل اليوم مهم» (ظرف زمان)؟"
+            "en": "What state is اليوم in, in العمل اليوم مهم (ظرف زمان)؟",
+            "ar": "ما الحالة الإعرابية لكلمة «اليوم» في قولك: «العمل اليوم مهم» (ظرف زمان)؟"
           },
           "options": [
             {
@@ -20387,8 +20388,8 @@
           "id": "lesson-38-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الدرسُ in, in هل الدرس سهل؟ (topic)؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الدرسُ» في عبارة: «هل الدرس سهل؟» (مبتدأ)؟"
+            "en": "What state is الدرس in, in هل الدرس سهل؟ (topic)؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الدرس» في عبارة: «هل الدرس سهل؟» (مبتدأ)؟"
           },
           "options": [
             {
@@ -21154,8 +21155,8 @@
           "id": "lesson-40-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الطلابَ in, after أنّ؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الطلابَ» بعد «أنّ»؟"
+            "en": "What state is الطلاب in, after أن؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الطلاب» بعد «أن»؟"
           },
           "options": [
             {
@@ -21340,8 +21341,8 @@
           "id": "lesson-40-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is العمالَ in, after إنّ؟",
-            "ar": "ما الحالة الإعرابية لكلمة «العمالَ» بعد «إنّ»؟"
+            "en": "What state is العمال in, after إن؟",
+            "ar": "ما الحالة الإعرابية لكلمة «العمال» بعد «إن»؟"
           },
           "options": [
             {
@@ -21762,8 +21763,8 @@
           "id": "lesson-41-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is العامَ in, in بدأت المدارس العام الدراسي الجديد (object)?",
-            "ar": "ما حالة «العامَ» في «بدأت المدارس العام الدراسي الجديد» (المفعول به)؟"
+            "en": "What state is العام in, in بدأت المدارس العام الدراسي الجديد (object)?",
+            "ar": "ما حالة «العام» في «بدأت المدارس العام الدراسي الجديد» (المفعول به)؟"
           },
           "options": [
             {
@@ -21808,8 +21809,8 @@
           "id": "lesson-41-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is عددَ in, after أنّ؟",
-            "ar": "ما حالة «عددَ» بعد «أنّ»؟"
+            "en": "What state is عدد in, after أن؟",
+            "ar": "ما حالة «عدد» بعد «أن»؟"
           },
           "options": [
             {
@@ -21948,8 +21949,8 @@
           "id": "lesson-41-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فرعًا in, in افتتحت الشركة فرعا جديدا (object)?",
-            "ar": "ما الحالة الإعرابية لكلمة «فرعًا» في عبارة «افتتحت الشركة فرعا جديدا» (المفعول به)؟"
+            "en": "What is the case of a direct object?",
+            "ar": "ما الحالة الإعرابية للمفعول به؟"
           },
           "options": [
             {
@@ -21994,8 +21995,8 @@
           "id": "lesson-41-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is عددَ in, after إنّ؟",
-            "ar": "ما الحالة الإعرابية لكلمة «عددَ» بعد «إنّ»؟"
+            "en": "What state is عدد in, after إن؟",
+            "ar": "ما الحالة الإعرابية لكلمة «عدد» بعد «إن»؟"
           },
           "options": [
             {
@@ -22275,20 +22276,20 @@
           "id": "lesson-42-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In كِتَابًا قَرَأْتُ, what indicates that كِتَابًا is the direct object despite coming first?",
-            "ar": "في عبارة «كِتَابًا قَرَأْتُ»، ما الذي يدل على أن «كِتَابًا» مفعول به رغم تقدّمه؟"
+            "en": "What is the grammatical role of الكتاب in الكتاب قرأت أنا?",
+            "ar": "ما الوظيفة النحوية لكلمة «الكتاب» في «الكتاب قرأت أنا»؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "Its nasb ending (fatha/tanwin)",
-                "ar": "حركته المنصوبة (الفتحة/التنوين)"
+                "en": "A fronted direct object (مفعول به مقدّم)",
+                "ar": "مفعول به مقدّم"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. In this sentence, the nasb ending indicates that كِتَابًا is the direct object.",
-                "ar": "صحيح. في هذه العبارة تدل علامة النصب على أن «كِتَابًا» مفعول به."
+                "en": "Correct. أنا identifies the reader, so الكتاب is the fronted object.",
+                "ar": "صحيح. «أنا» تدل على القارئ، فتكون «الكتاب» مفعولًا به مقدّمًا."
               }
             },
             {
@@ -22311,8 +22312,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Word order alone would be misleading here; the case ending is what decides.",
-                "ar": "لا؛ لأن الترتيب وحده لا يكفي هنا؛ والحركة الإعرابية هنا هي التي وضحت المراد."
+                "en": "أنا identifies the reader; the fronted noun is the object.",
+                "ar": "«أنا» تدل على القارئ، والاسم المتقدم هو المفعول به."
               }
             }
           ]
@@ -22321,8 +22322,8 @@
           "id": "lesson-42-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the subject (فاعل) in كتابا قرأت؟",
-            "ar": "ما الفاعل فيما يلي: «كتابا قرأت»؟"
+            "en": "What is the subject (فاعل) in الكتاب قرأت أنا?",
+            "ar": "ما الفاعل فيما يلي: «الكتاب قرأت أنا»؟"
           },
           "options": [
             {
@@ -22340,13 +22341,13 @@
             {
               "id": "kitaban",
               "label": {
-                "en": "كتابا",
-                "ar": "كتابا"
+                "en": "الكتاب",
+                "ar": "الكتاب"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "كتابا is the object in nasb, not the subject.",
-                "ar": "لا؛ لأن «كتابًا» مفعول به منصوب، لا فاعل."
+                "en": "الكتاب is the object, not the subject.",
+                "ar": "لا؛ لأن «الكتاب» مفعول به، لا فاعل."
               }
             },
             {
@@ -22367,8 +22368,8 @@
           "id": "lesson-42-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is كتابًا in?",
-            "ar": "ما الحالة الإعرابية لكلمة «كتابًا»؟"
+            "en": "What is the case of الكتاب in الكتاب قرأت أنا?",
+            "ar": "ما الحالة الإعرابية لكلمة «الكتاب» في «الكتاب قرأت أنا»؟"
           },
           "options": [
             {
@@ -22379,8 +22380,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. It is the direct object, in nasb, regardless of its fronted position.",
-                "ar": "صحيح. هو مفعول به منصوب، بصرف النظر عن تقدّمه."
+                "en": "Correct. It is the fronted direct object, in nasb.",
+                "ar": "صحيح. هو مفعول به مقدّم، منصوب."
               }
             },
             {
@@ -22391,8 +22392,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "كتابا did not perform the reading; it received the action, in nasb.",
-                "ar": "لا؛ لأن «كتابًا» لم يقم بالقراءة، بل وقعت عليه، فهو منصوب."
+                "en": "الكتاب did not perform the reading; it received the action.",
+                "ar": "لا؛ لأن «الكتاب» لم يقم بالقراءة، بل وقعت عليه."
               }
             },
             {
@@ -22403,8 +22404,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "No preposition governs كتابا here.",
-                "ar": "لا؛ لأنه لا سبب للجر هنا."
+                "en": "No preposition governs الكتاب here.",
+                "ar": "لا؛ لأنه لا سبب لجر «الكتاب» هنا."
               }
             }
           ]
@@ -22461,20 +22462,20 @@
           "id": "lesson-42-repeat-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In رِسَالَةً كَتَبْتُ, what indicates that رِسَالَةً is the direct object despite coming first?",
-            "ar": "في عبارة «رِسَالَةً كَتَبْتُ»، ما الذي يدل على أن «رِسَالَةً» مفعول به رغم تقدّمه؟"
+            "en": "What is the grammatical role of الرسالة in الرسالة كتبت أنا?",
+            "ar": "ما الوظيفة النحوية لكلمة «الرسالة» في «الرسالة كتبت أنا»؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "Its nasb ending",
-                "ar": "حركتها المنصوبة"
+                "en": "A fronted direct object (مفعول به مقدّم)",
+                "ar": "مفعول به مقدّم"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. In this sentence, the nasb ending indicates that رِسَالَةً is the direct object.",
-                "ar": "صحيح. في هذه العبارة تدل علامة النصب على أن «رِسَالَةً» مفعول به."
+                "en": "Correct. أنا identifies the writer, so الرسالة is the fronted object.",
+                "ar": "صحيح. «أنا» تدل على الكاتب، فتكون «الرسالة» مفعولًا به مقدّمًا."
               }
             },
             {
@@ -22497,8 +22498,8 @@
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Word order alone would be misleading here; the case ending is what decides.",
-                "ar": "لا؛ لأن الترتيب وحده لا يكفي هنا؛ والحركة الإعرابية هنا هي التي عينت المفعول."
+                "en": "أنا identifies the writer; the fronted noun is the object.",
+                "ar": "«أنا» تدل على الكاتب، والاسم المتقدم هو المفعول به."
               }
             }
           ]
@@ -22507,8 +22508,8 @@
           "id": "lesson-42-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "What is the subject in رسالة كتبت؟",
-            "ar": "ما الفاعل في عبارة «رسالة كتبت»؟"
+            "en": "What is the subject in الرسالة كتبت أنا?",
+            "ar": "ما الفاعل في عبارة «الرسالة كتبت أنا»؟"
           },
           "options": [
             {
@@ -22526,13 +22527,13 @@
             {
               "id": "risala",
               "label": {
-                "en": "رسالة",
-                "ar": "رسالة"
+                "en": "الرسالة",
+                "ar": "الرسالة"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "رسالة is the object in nasb, not the subject.",
-                "ar": "لا؛ لأن «رسالة» مفعول به منصوب، لا فاعل."
+                "en": "الرسالة is the object, not the subject.",
+                "ar": "لا؛ لأن «الرسالة» مفعول به، لا فاعل."
               }
             },
             {
@@ -22553,8 +22554,8 @@
           "id": "lesson-42-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is رسالةً in?",
-            "ar": "ما الحالة الإعرابية لكلمة «رسالةً»؟"
+            "en": "What is the case of الرسالة in الرسالة كتبت أنا?",
+            "ar": "ما الحالة الإعرابية لكلمة «الرسالة» في «الرسالة كتبت أنا»؟"
           },
           "options": [
             {
@@ -22565,8 +22566,8 @@
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. It is the direct object, in nasb, regardless of its fronted position.",
-                "ar": "صحيح. هي مفعول به منصوب، بصرف النظر عن تقدّمها."
+                "en": "Correct. It is the fronted direct object, in nasb.",
+                "ar": "صحيح. هي مفعول به مقدّم، منصوب."
               }
             },
             {
@@ -22816,7 +22817,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "What state is (محمد) in, in the answer (short for محمد كريم)?",
-            "ar": "ما حالة (محمد) في الجواب (اختصارًا لـ«محمد كريم»)؟"
+            "ar": "ما حالة (محمد) في الجواب (اختصارا لـ«محمد كريم»)؟"
           },
           "options": [
             {
@@ -23001,8 +23002,8 @@
           "id": "lesson-43-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المديرُ in, in the answer?",
-            "ar": "ما حالة «المديرُ» في الجواب؟"
+            "en": "What state is المدير in, in the answer?",
+            "ar": "ما حالة «المدير» في الجواب؟"
           },
           "options": [
             {
@@ -23887,8 +23888,8 @@
           "id": "lesson-45-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المجتهدُ in, in ما نجح إلا المجتهد؟",
-            "ar": "ما الحالة الإعرابية لكلمة «المجتهدُ» في «ما نجح إلا المجتهد»؟"
+            "en": "What state is المجتهد in, in ما نجح إلا المجتهد؟",
+            "ar": "ما الحالة الإعرابية لكلمة «المجتهد» في «ما نجح إلا المجتهد»؟"
           },
           "options": [
             {
@@ -24073,8 +24074,8 @@
           "id": "lesson-45-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الصابرُ in?",
-            "ar": "ما الحالة الإعرابية لكلمة «الصابرُ»؟"
+            "en": "What state is الصابر in?",
+            "ar": "ما الحالة الإعرابية لكلمة «الصابر»؟"
           },
           "options": [
             {
@@ -24976,8 +24977,8 @@
           "id": "lesson-47-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الوقتَ in, in ليت الوقت يعود؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الوقتَ» في «ليت الوقت يعود»؟"
+            "en": "What state is الوقت in, in ليت الوقت يعود؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الوقت» في «ليت الوقت يعود»؟"
           },
           "options": [
             {
@@ -25162,8 +25163,8 @@
           "id": "lesson-47-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الشبابَ in, in ليت الشباب يعود؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الشبابَ» في جملة: «ليت الشباب يعود»؟"
+            "en": "What state is الشباب in, in ليت الشباب يعود؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الشباب» في جملة: «ليت الشباب يعود»؟"
           },
           "options": [
             {
@@ -25470,8 +25471,8 @@
           "id": "lesson-48-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "In الطالب مجتهد read with وصل (continuing), what state (and audible ending) does مجتهدٌ have؟",
-            "ar": "كيف تقرأ (طالب) في عبارة «طالبٌ مجتهد في الفصل» حال الوصل؟"
+            "en": "In الطالب مجتهد read with وصل (continuing), what state (and audible ending) does مجتهد have؟",
+            "ar": "كيف تقرأ (طالب) في عبارة «طالب مجتهد في الفصل» حال الوصل؟"
           },
           "options": [
             {
@@ -25656,8 +25657,8 @@
           "id": "lesson-48-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "In البيت واسع read with وصل, what state (and audible ending) does واسعٌ have؟",
-            "ar": "في عبارة: «البيت واسع» حال قراءتها بالوصل، ما الحالة الإعرابية لكلمة «واسعٌ» وما حركتها المسموعة؟"
+            "en": "In البيت واسع read with وصل, what state (and audible ending) does واسع have؟",
+            "ar": "في عبارة: «البيت واسع» حال قراءتها بالوصل، ما الحالة الإعرابية لكلمة «واسع» وما حركتها المسموعة؟"
           },
           "options": [
             {
@@ -25994,8 +25995,8 @@
           "id": "lesson-49-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الاجتهادُ in, in إنما الاجتهاد مفتاح النجاح؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الاجتهادُ» في قولك: «إنما الاجتهاد مفتاح النجاح»؟"
+            "en": "What state is الاجتهاد in, in إنما الاجتهاد مفتاح النجاح؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الاجتهاد» في قولك: «إنما الاجتهاد مفتاح النجاح»؟"
           },
           "options": [
             {
@@ -26086,8 +26087,8 @@
           "id": "lesson-49-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is كلَّ in, after ليت؟",
-            "ar": "ما حالة «كلَّ» بعد «ليت»؟"
+            "en": "What state is كل in, after ليت؟",
+            "ar": "ما حالة «كل» بعد «ليت»؟"
           },
           "options": [
             {
@@ -26180,8 +26181,8 @@
           "id": "lesson-49-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is العدلُ in, in إنما العدل أساس الأمن؟",
-            "ar": "ما حالة كلمة «العدلُ» في عبارة «إنما العدل أساس الملك»؟"
+            "en": "What state is العدل in, in إنما العدل أساس الأمن؟",
+            "ar": "ما حالة كلمة «العدل» في عبارة «إنما العدل أساس الملك»؟"
           },
           "options": [
             {
@@ -26272,8 +26273,8 @@
           "id": "lesson-49-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is كلَّ in, after ليت؟",
-            "ar": "ما الحالة الإعرابية لكلمة «كلَّ» بعد «ليت»؟"
+            "en": "What state is كل in, after ليت؟",
+            "ar": "ما الحالة الإعرابية لكلمة «كل» بعد «ليت»؟"
           },
           "options": [
             {
@@ -26648,8 +26649,8 @@
           "id": "lesson-50-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مرادَهُ in, in فمن يجتهد يبلغ مراده (object)؟",
-            "ar": "ما الحالة الإعرابية لكلمة «مرادَهُ» في عبارة: «فمن يجتهد يبلغ مراده» (المفعول به)؟"
+            "en": "What state is مراده in, in فمن يجتهد يبلغ مراده (object)؟",
+            "ar": "ما الحالة الإعرابية لكلمة «مراده» في عبارة: «فمن يجتهد يبلغ مراده» (المفعول به)؟"
           },
           "options": [
             {
@@ -26694,8 +26695,8 @@
           "id": "lesson-50-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الصبرِ in, after the idafa in ثمرة الصبر؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الصبرِ» بعد الإضافة في «ثمرة الصبر»؟"
+            "en": "What state is الصبر in, after the idafa in ثمرة الصبر؟",
+            "ar": "ما الحالة الإعرابية لكلمة «الصبر» بعد الإضافة في «ثمرة الصبر»؟"
           },
           "options": [
             {
@@ -26834,8 +26835,8 @@
           "id": "lesson-50-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is غايتَهُ in, in فمن يجتهد يبلغ غايته؟",
-            "ar": "ما الحالة الإعرابية لكلمة «غايتَهُ» في قولك: «فمن يجتهد يبلغ غايته»؟"
+            "en": "What state is غايته in, in فمن يجتهد يبلغ غايته؟",
+            "ar": "ما الحالة الإعرابية لكلمة «غايته» في قولك: «فمن يجتهد يبلغ غايته»؟"
           },
           "options": [
             {
@@ -26880,8 +26881,8 @@
           "id": "lesson-50-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المثابرةِ in, after the idafa in ثمرة المثابرة؟",
-            "ar": "ما الحالة الإعرابية لكلمة «المثابرةِ» بعد الإضافة في قولنا «إنما التفوق ثمرة المثابرة»؟"
+            "en": "What state is المثابرة in, after the idafa in ثمرة المثابرة؟",
+            "ar": "ما الحالة الإعرابية لكلمة «المثابرة» بعد الإضافة في قولنا «إنما التفوق ثمرة المثابرة»؟"
           },
           "options": [
             {
@@ -27301,8 +27302,8 @@
           "id": "lesson-51-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مفيدٌ in (as the adjective of لفظ)?",
-            "ar": "ما الحالة الإعرابية لكلمة «مفيدٌ» (بوصفه نعتًا لـ«لفظ»)؟"
+            "en": "What state is مفيد in (as the adjective of لفظ)?",
+            "ar": "ما الحالة الإعرابية لكلمة «مفيد» (بوصفه نعتا لـ«لفظ»)؟"
           },
           "options": [
             {
@@ -27870,7 +27871,7 @@
           "type": "identifyState",
           "prompt": {
             "en": "What state are الجر, التنوين, الندا, ال, and مسند all in within this verse?",
-            "ar": "ما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«أل» و«مسند» جميعًا في هذا البيت؟"
+            "ar": "ما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«أل» و«مسند» جميعا في هذا البيت؟"
           },
           "options": [
             {
@@ -28502,8 +28503,8 @@
           "id": "lesson-53-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فعلٌ in, in this verse?",
-            "ar": "ما الحالة الإعرابية لكلمة «فعلٌ» في هذا البيت؟"
+            "en": "What state is فعل in, in this verse?",
+            "ar": "ما الحالة الإعرابية لكلمة «فعل» في هذا البيت؟"
           },
           "options": [
             {
@@ -29032,8 +29033,8 @@
           "id": "lesson-54-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is حرفٌ in, in this verse (matching اسم and فعل)؟",
-            "ar": "ما حالة «حرفٌ» في هذا البيت (مطابقة لـ«اسم» و«فعل»)؟"
+            "en": "What state is حرف in, in this verse (matching اسم and فعل)؟",
+            "ar": "ما حالة «حرف» في هذا البيت (مطابقة لـ«اسم» و«فعل»)؟"
           },
           "options": [
             {
@@ -29218,8 +29219,8 @@
           "id": "lesson-54-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فعلٌ in, in this verse (matching اسم and حرف)؟",
-            "ar": "ما حالة «فعلٌ» في هذا البيت (مطابقة لـ«اسم» و«حرف»)؟"
+            "en": "What state is فعل in, in this verse (matching اسم and حرف)؟",
+            "ar": "ما حالة «فعل» في هذا البيت (مطابقة لـ«اسم» و«حرف»)؟"
           },
           "options": [
             {
@@ -29516,8 +29517,8 @@
           "id": "lesson-55-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is واقعٌ in, in this verse?",
-            "ar": "ما الحالة الإعرابية لـ«واقعٌ» في هذا البيت؟"
+            "en": "What state is واقع in, in this verse?",
+            "ar": "ما الحالة الإعرابية لـ«واقع» في هذا البيت؟"
           },
           "options": [
             {
@@ -29702,8 +29703,8 @@
           "id": "lesson-55-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is قابلُ in, in this verse?",
-            "ar": "ما الحالة الإعرابية لكلمة «قابلُ» في هذا البيت؟"
+            "en": "What state is قابل in, in this verse?",
+            "ar": "ما الحالة الإعرابية لكلمة «قابل» في هذا البيت؟"
           },
           "options": [
             {
@@ -30084,8 +30085,8 @@
           "id": "lesson-56-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is عاذرٌ in, in the example sentence زيد عاذر من اعتذر؟",
-            "ar": "ما الحالة الإعرابية لـ«عاذرٌ» في جملة «زيد عاذر من اعتذر»؟"
+            "en": "What state is عاذر in, in the example sentence زيد عاذر من اعتذر؟",
+            "ar": "ما الحالة الإعرابية لـ«عاذر» في جملة «زيد عاذر من اعتذر»؟"
           },
           "options": [
             {
@@ -30270,8 +30271,8 @@
           "id": "lesson-56-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is زيدٌ in, in the example sentence زيد عاذر من اعتذر؟",
-            "ar": "ما الحالة الإعرابية لكلمة «زيدٌ» في جملة «زيد عاذر من اعتذر»؟"
+            "en": "What state is زيد in, in the example sentence زيد عاذر من اعتذر؟",
+            "ar": "ما الحالة الإعرابية لكلمة «زيد» في جملة «زيد عاذر من اعتذر»؟"
           },
           "options": [
             {

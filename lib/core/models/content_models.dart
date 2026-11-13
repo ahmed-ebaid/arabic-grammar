@@ -295,6 +295,7 @@ class GrammarToken {
     required this.grammaticalSign,
     required this.ending,
     required this.reason,
+    this.vocalized,
   });
 
   factory GrammarToken.fromJson(Map<String, Object?> json, String path) {
@@ -307,6 +308,7 @@ class GrammarToken {
       'grammaticalSign',
       'ending',
       'reason',
+      'vocalized',
     }, path);
     return GrammarToken(
       text: JsonValue.requiredString(json, 'text', path),
@@ -325,6 +327,7 @@ class GrammarToken {
       ),
       ending: JsonValue.requiredString(json, 'ending', path),
       reason: LocalizedText.fromJson(json['reason'], '$path.reason'),
+      vocalized: JsonValue.optionalString(json, 'vocalized', path),
     );
   }
 
@@ -336,8 +339,10 @@ class GrammarToken {
   final LocalizedText grammaticalSign;
   final String ending;
   final LocalizedText reason;
+  final String? vocalized;
 
   String get displayText {
+    if (vocalized case final vocalized?) return vocalized;
     final suffix = ending.replaceAll(RegExp(r'[\u064B-\u065F\u0670]'), '');
     final start = suffix.isEmpty ? -1 : text.lastIndexOf(suffix);
     if (start >= 0 &&

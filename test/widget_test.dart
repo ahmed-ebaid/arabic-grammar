@@ -22,6 +22,35 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() {
+  testWidgets('passive example shows its internal vowels in analysis', (
+    tester,
+  ) async {
+    final lesson = _draftCatalog().lessons.singleWhere(
+      (lesson) => lesson.id == 'lesson_35',
+    );
+    final progress = LessonProgressController.inMemory();
+    await progress.saveStep(lesson.id, 3);
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        theme: AppTheme.lightFor(youngLearner: true),
+        home: LessonDetailScreen(
+          lesson: lesson,
+          progressController: progress,
+          userDataController: UserDataController.inMemory(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('كُتِبَ'), findsOneWidget);
+    await tester.tap(find.text('كُتِبَ'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('«كُتِبَ»'), findsOneWidget);
+    expect(find.text('كتبَ'), findsNothing);
+  });
+
   for (final language in ['ar', 'en']) {
     testWidgets('optional Alfiyya reading preserves progress in $language', (
       tester,
