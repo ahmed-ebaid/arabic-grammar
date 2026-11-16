@@ -385,16 +385,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Current beta lessons are still under review and have not yet been approved.';
 
   @override
-  String get aboutContentStatusTitle => 'Content status';
-
-  @override
-  String get aboutContentVersion => 'Curriculum version';
-
-  @override
-  String get aboutDisclaimer =>
-      'This app is a learning aid and does not replace instruction from a qualified Arabic teacher.';
-
-  @override
   String get language => 'Language';
 
   @override

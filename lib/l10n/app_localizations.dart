@@ -770,24 +770,6 @@ abstract class AppLocalizations {
   /// **'Current beta lessons are still under review and have not yet been approved.'**
   String get aboutReviewersPending;
 
-  /// No description provided for @aboutContentStatusTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Content status'**
-  String get aboutContentStatusTitle;
-
-  /// No description provided for @aboutContentVersion.
-  ///
-  /// In en, this message translates to:
-  /// **'Curriculum version'**
-  String get aboutContentVersion;
-
-  /// No description provided for @aboutDisclaimer.
-  ///
-  /// In en, this message translates to:
-  /// **'This app is a learning aid and does not replace instruction from a qualified Arabic teacher.'**
-  String get aboutDisclaimer;
-
   /// No description provided for @language.
   ///
   /// In en, this message translates to:

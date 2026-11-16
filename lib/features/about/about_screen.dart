@@ -3,7 +3,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../core/content/content_repository.dart';
 import '../../core/localization/arabic_diacritics.dart';
-import '../../core/localization/number_format.dart';
 import '../../core/models/content_models.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -128,26 +127,12 @@ class _AboutScreenState extends State<AboutScreen> {
                   ],
                 ),
               ),
-              _AboutSection(
-                title: l10n.aboutContentStatusTitle,
-                child: Text(
-                  '${l10n.aboutContentVersion}: '
-                  '${_localizedDigits(context, catalog.contentVersion)}\n\n'
-                  '${l10n.aboutDisclaimer}',
-                ),
-              ),
             ],
           );
         },
       ),
     );
   }
-
-  static String _localizedDigits(BuildContext context, String value) =>
-      value.replaceAllMapped(
-        RegExp(r'[0-9]'),
-        (match) => localizedNumber(context, int.parse(match[0]!)),
-      );
 
   static Future<ContentCatalog> _loadCatalog() async {
     return const ContentRepository().load();

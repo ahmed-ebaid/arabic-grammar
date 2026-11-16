@@ -57,6 +57,11 @@ An approved lesson must contain:
 Changing grammar content, a canonical answer, or an explanation after approval
 requires a new content version and a new teacher review.
 
+Lesson 08 version `1.0.1` expands the bilingual explanation of definiteness,
+the definite-article test, and the example with «رُبَّ أَخٍ». The owner
+confirmed teacher approval by Dr. Sherif Mohamed El-Sadek on 2026-11-16;
+version `1.0.1` is included in the 0.9.1 release catalog.
+
 For explicitly requested internal testing only, build with
 `--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the pending draft
 and enables the optional Alfiyya readings; it does not mark them approved.
@@ -102,9 +107,12 @@ catalog:
 
 ```bash
 dart run tool/promote_lesson.dart \
-  --source=content/drafts/lesson_01.json
+  --source=content/drafts/lesson_01.json \
+  --lesson=lesson_08
 ```
 
-The promotion command refuses unapproved content, replaces an older lesson with
-the same stable ID, sorts lessons by order, and validates the complete release
-catalog before writing it.
+When the source contains the full draft catalog, specify the lesson ID so only
+that lesson is promoted. The command refuses unapproved draft catalogs,
+replaces the selected lesson with the same stable ID, sorts lessons by order,
+and validates the complete release catalog before writing it. A single-lesson
+source may omit `--lesson` when its catalog also satisfies release validation.

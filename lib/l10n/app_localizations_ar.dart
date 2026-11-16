@@ -384,16 +384,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'ما زالت دروس النسخة التجريبية قيد المراجعة، ولم تُعتمد بعد.';
 
   @override
-  String get aboutContentStatusTitle => 'حالة المحتوى';
-
-  @override
-  String get aboutContentVersion => 'إصدار المنهج';
-
-  @override
-  String get aboutDisclaimer =>
-      'هذا التطبيق وسيلة تعليمية ولا يغني عن المعلّم المؤهل.';
-
-  @override
   String get language => 'اللغة';
 
   @override

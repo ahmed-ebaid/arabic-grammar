@@ -4086,8 +4086,8 @@
             "ar": "معيّن أم غير معيّن؟"
           },
           "body": {
-            "en": "A definite noun points to something known or specific. ال is a common clue: الكتاب means “the book.” An indefinite noun refers to a non-specific member of its kind, like كتابٌ. In traditional grammar, it accepts ال, can occupy positions that take a noun with ال, and can follow رُبَّ.",
-            "ar": "الاسم المعرفة يدل على شيء معيّن أو معروف، ومن علاماته الشائعة «الـ»: «الكتاب». أمّا النكرة فهي ما دلّ على مسمّى غير معيّن شائع في جنسه، مثل «كتابٌ». ومن علاماتها قبول دخول «الـ» عليها، ووقوعها موقع الاسم الذي يقبل «الـ»، وصحة دخول «رُبَّ» عليها."
+            "en": "An indefinite noun refers to a non-specific member of its kind: كِتَابٌ means “a book,” and رَجُلٌ means “a man.” A definite noun refers to something specific or known, such as الْكِتَابُ (“the book”) and الرَّجُلُ (“the man”).\n\nOne sign of an indefinite noun is that it accepts the definite article ال: رَجُلٌ becomes الرَّجُلُ. The latter already has ال, so we do not add it again. Not accepting ال alone does not prove that a noun is definite; some indefinite nouns stand in place of nouns that accept it.\n\nAnother sign is that a noun can follow رُبَّ. In the traditional saying رُبَّ أَخٍ لَكَ لَمْ تَلِدْهُ أُمُّكَ (“You may have a brother whom your mother did not bear”), أَخٍ is indefinite and follows رُبَّ, which puts it in jarr.",
+            "ar": "النكرة اسم يدلّ على مسمّى غير معيّن شائع في جنسه، مثل «كِتَابٌ» و«رَجُلٌ». أمّا المعرفة فتدلّ على معيّن أو معروف، مثل «الْكِتَابُ» و«الرَّجُلُ».\n\nمن علامات النكرة قبول «أل» التي تفيد التعريف؛ فكلمة «رَجُلٌ» تقبلها فتصير «الرَّجُلُ». أمّا «الرَّجُلُ» فقد دخلت عليها «أل» بالفعل، فلا نكرّرها. ولا يكفي عدم قبول «أل» وحده للحكم بأن الاسم معرفة؛ فمن النكرات ما يقع موقع اسم يقبلها.\n\nومن علاماتها أيضًا صحّة دخول «رُبَّ» عليها، كما في القول المشهور: «رُبَّ أَخٍ لَكَ لَمْ تَلِدْهُ أُمُّكَ». فكلمة «أَخٍ» نكرة، وقد دخلت عليها «رُبَّ» فجرّتها."
           },
           "examples": []
         },
@@ -4557,10 +4557,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-16T16:53:08Z",
+        "notes": "Version 1.0.0 was reviewed and approved on 2026-10-31. Version 1.0.1 expands the bilingual definition of indefinite and definite nouns, clarifies the definite-article test, and adds a traditional saying illustrating رُبَّ. On 2026-11-16, the owner confirmed that Dr. Sherif corrected and approved this revision; reviewedAt records the owner's confirmation time, not an independently verified teacher review time."
       }
     },
     {

@@ -8,10 +8,13 @@ Future<void> main(List<String> arguments) async {
   final sourceArgument = arguments
       .where((argument) => argument.startsWith('--source='))
       .firstOrNull;
+  final lessonArgument = arguments
+      .where((argument) => argument.startsWith('--lesson='))
+      .firstOrNull;
   if (sourceArgument == null) {
     stderr.writeln(
       'Usage: dart run tool/promote_lesson.dart '
-      '--source=content/drafts/lesson_01.json',
+      '--source=content/drafts/lesson_01.json --lesson=lesson_08',
     );
     exitCode = 64;
     return;
@@ -38,8 +41,24 @@ Future<void> main(List<String> arguments) async {
     exitCode = 1;
     return;
   }
-  if (sourceCatalog.lessons.length != 1) {
-    stderr.writeln('A promotion source must contain exactly one lesson.');
+  final sourceJson = jsonDecode(sourceText) as Map<String, Object?>;
+  final sourceLessons = (sourceJson['lessons'] as List<Object?>)
+      .cast<Map<String, Object?>>();
+  final lessonId = lessonArgument?.substring('--lesson='.length);
+  if (lessonId == null && sourceLessons.length != 1) {
+    stderr.writeln(
+      'Specify --lesson when the source contains more than one lesson.',
+    );
+    exitCode = 1;
+    return;
+  }
+  final sourceLesson = lessonId == null
+      ? sourceLessons.single
+      : sourceLessons.where((lesson) => lesson['id'] == lessonId).firstOrNull;
+  if (sourceLesson == null) {
+    stderr.writeln(
+      'The source does not contain lesson ${lessonId ?? '(unspecified)'}.',
+    );
     exitCode = 1;
     return;
   }
@@ -47,9 +66,6 @@ Future<void> main(List<String> arguments) async {
   final releaseFile = File('assets/content/catalog.json');
   final releaseJson =
       jsonDecode(await releaseFile.readAsString()) as Map<String, Object?>;
-  final sourceJson = jsonDecode(sourceText) as Map<String, Object?>;
-  final sourceLesson =
-      (sourceJson['lessons'] as List<Object?>).single as Map<String, Object?>;
   final sourceId = sourceLesson['id'];
   final releaseLessons = (releaseJson['lessons'] as List<Object?>)
       .cast<Map<String, Object?>>();

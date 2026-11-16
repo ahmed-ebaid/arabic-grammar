@@ -221,11 +221,37 @@ void main() {
         expect(bundled.sections.first.body.en, contains('جاءَ هذا'));
       }
       expect(
-        ContentValidator.validate(preview, requireReleaseApproval: true),
+        ContentValidator.validate(production, requireReleaseApproval: true),
         isEmpty,
       );
+    },
+  );
+
+  test(
+    'teacher-approved definiteness revision is included in release',
+    () async {
+      final preview = await const ContentRepository(
+        previewUnreviewed: true,
+      ).load();
+      final production = await const ContentRepository(
+        previewUnreviewed: false,
+      ).load();
+      final draft = preview.lessons.singleWhere((l) => l.id == 'lesson_08');
+      final bundled = production.lessons.singleWhere(
+        (l) => l.id == 'lesson_08',
+      );
+
+      expect(draft.review.contentVersion, '1.0.1');
+      expect(draft.review.status, ReviewStatus.approved);
+      expect(bundled.review.status, ReviewStatus.approved);
+      expect(bundled.review.contentVersion, '1.0.1');
+      expect(bundled.review.reviewer, 'د. شريف محمد الصادق');
+      expect(draft.sections.first.body.ar, contains('رُبَّ أَخٍ'));
+      expect(draft.sections.first.body.en, contains('رُبَّ أَخٍ'));
+      expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
+      expect(bundled.sections.first.body.en, draft.sections.first.body.en);
       expect(
-        ContentValidator.validate(production, requireReleaseApproval: true),
+        ContentValidator.validate(preview, requireReleaseApproval: true),
         isEmpty,
       );
     },
