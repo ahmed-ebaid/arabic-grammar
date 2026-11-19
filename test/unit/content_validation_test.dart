@@ -17,7 +17,7 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.contentVersion, '1.0.0');
+      expect(catalog.contentVersion, '1.0.1');
       expect(catalog.levels, hasLength(7));
       expect(catalog.lessons, hasLength(58));
       expect(catalog.lessons.first.title.en, 'Why endings change');
@@ -194,9 +194,55 @@ void main() {
     ).load();
 
     expect(catalog.schemaVersion, 1);
-    expect(catalog.contentVersion, '1.0.0');
+    expect(catalog.contentVersion, '1.0.1');
     expect(catalog.levels, hasLength(7));
     expect(catalog.lessons, hasLength(58));
+  });
+
+  test('approved question revisions are included in the release', () {
+    final draft = _sampleJson();
+    final release =
+        jsonDecode(File('assets/content/catalog.json').readAsStringSync())
+            as Map<String, Object?>;
+    final releaseLessons = {
+      for (final item in release['lessons'] as List<Object?>)
+        (item as Map<String, Object?>)['id'] as String: item,
+    };
+    const revisedIds = {
+      'lesson_01',
+      'lesson_03',
+      'lesson_07',
+      'lesson_13',
+      'lesson_15',
+      'lesson_30',
+      'lesson_35',
+      'lesson_37',
+      'lesson_40',
+      'lesson_41',
+      'lesson_43',
+      'lesson_45',
+      'lesson_51',
+      'lesson_52',
+      'lesson_53',
+      'lesson_54',
+      'lesson_55',
+      'lesson_56',
+      'lesson_57',
+      'lesson_58',
+    };
+    for (final item in draft['lessons'] as List<Object?>) {
+      final lesson = item as Map<String, Object?>;
+      if (!revisedIds.contains(lesson['id'])) continue;
+      final bundled = releaseLessons[lesson['id']]!;
+      final review = lesson['review'] as Map<String, Object?>;
+      expect(review['status'], 'approved', reason: '${lesson['id']}');
+      expect(
+        jsonEncode(bundled),
+        jsonEncode(lesson),
+        reason: '${lesson['id']}',
+      );
+    }
+    expect(revisedIds.every(releaseLessons.containsKey), isTrue);
   });
 
   test(
@@ -214,7 +260,7 @@ void main() {
           (lesson) => lesson.id == id,
         );
         expect(bundled.review.status, ReviewStatus.approved);
-        expect(bundled.review.contentVersion, '1.0.1');
+        expect(bundled.review.contentVersion, '1.0.2');
         expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
         expect(bundled.sections.first.body.en, draft.sections.first.body.en);
         expect(bundled.sections.first.body.ar, contains('جاءَ هذا'));

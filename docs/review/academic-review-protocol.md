@@ -62,3 +62,16 @@ hashes in their review notes. `reviewedAt` records when the owner confirmed the
 approval; it is not an independently verified date of Sherif's review. This record
 does not claim a separate English-language academic review or institutional
 endorsement.
+
+## Question revision confirmation recorded on 2026-11-19
+
+The project owner confirmed that the teacher reviewed and approved the revised
+questions in lessons 01, 03, 07, 13, 15, 30, 35, 37, 40, 41, 43, 45, and
+51–58. The revised Arabic draft was shared in the conversation; aligned English
+wording is included, without claiming a separate English-language academic
+review. The confirmation time recorded as `reviewedAt` is not an independently
+verified review date. No institutional endorsement is claimed.
+
+The approved draft catalog is version `1.0.1`; its UTF-8 file SHA-256 is
+`0c9b62e6b4c2e6438c597fae614894afaa06ba6db407aeff03e034367c18544f`.
+Each changed lesson also records a snapshot hash excluding review metadata.

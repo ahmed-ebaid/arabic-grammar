@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "1.0.0",
+  "contentVersion": "1.0.1",
   "levels": [
     {
       "id": "level_01",
@@ -312,8 +312,8 @@
           "id": "lesson-01-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What is the grammatical state of الطالب in this sentence?",
-            "ar": "ما الحالة الإعرابية لكلمة «الطالب» في هذه الجملة؟"
+            "en": "What is the grammatical state of الطالب in الطالب مجتهد?",
+            "ar": "ما الحالة الإعرابية لكلمة «الطالب» في جملة «الطالب مجتهد»؟"
           },
           "options": [
             {
@@ -688,10 +688,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.1",
+        "contentVersion": "1.0.2",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-11-13T22:31:18Z",
-        "notes": "The project owner confirmed Sherif's approval of the current revised Arabic wording on 2026-11-13, including the explanation of inflected and indeclinable words. reviewedAt records this confirmation, not an independently verified review date. The project owner also directed that the aligned English translation be included in the release; no separate English review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 1578dc8d24c83a7c9681c68dbfc401eec4790d0525a7e4eac43849bdf5e7b4f1."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): c4eb06b92bfc01dc2cc831cfbde8e6a7c7b75c6a72a66a3a8bdcbeefbe4bcd0a."
       }
     },
     {
@@ -1556,10 +1556,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): a634b567b788afddbbdb2d4b7c0f68d2345a01a0a8b72192b1cda0a73990428f."
       },
       "repeatExercises": [
         {
@@ -1704,7 +1704,7 @@
           "id": "lesson-03-repeat-ending-04",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Read the following phrase with vowel marks and identify the grammatical ending of بارد.",
+            "en": "Read الجو بارد with vowel marks. What is the grammatical ending of بارد?",
             "ar": "اقرأ العبارة الآتية مع ضبطها بالشكل: «الجو بارد»، مبينا العلامة الإعرابية لكلمة (بارد)."
           },
           "options": [
@@ -3645,8 +3645,8 @@
           "id": "lesson-07-object-03",
           "type": "addTashkeel",
           "prompt": {
-            "en": "In the same sentence, what is the appropriate ending on the word التفاحة?",
-            "ar": "في الجملة نفسها، ما الحركة المناسبة على آخر كلمة «التفاحة»؟"
+            "en": "In أكل الولد التفاحة, what is the appropriate ending on التفاحة?",
+            "ar": "في جملة «أكل الولد التفاحة»، ما الحركة المناسبة على آخر كلمة «التفاحة»؟"
           },
           "options": [
             {
@@ -4050,10 +4050,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 34198a08613490f30e947ca0efb28188dc9353e5aafcf5be37970a3661e992ee."
       }
     },
     {
@@ -6847,8 +6847,8 @@
           "id": "lesson-13-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الكتاب in after هذا in this sentence?",
-            "ar": "ما حالة «الكتاب» بعد «هذا» في هذه الجملة؟"
+            "en": "What is the grammatical state of الكتاب in هذا الكتاب جديد?",
+            "ar": "ما الحالة الإعرابية لكلمة «الكتاب» في جملة «هذا الكتاب جديد»؟"
           },
           "options": [
             {
@@ -7143,10 +7143,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.1",
+        "contentVersion": "1.0.2",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-11-13T22:31:18Z",
-        "notes": "The project owner confirmed Sherif's approval of the current revised Arabic wording on 2026-11-13, including the grammatical position of an indeclinable demonstrative. reviewedAt records this confirmation, not an independently verified review date. The project owner also directed that the aligned English translation be included in the release; no separate English review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 845a097022e1d7bde25cf7e91a6d9e3699500308360bea80b838dead532148cc."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): c71989277be576cbeada2db482c5283209fca35ac2575549086e696f56257708."
       }
     },
     {
@@ -7865,8 +7865,8 @@
           "id": "lesson-15-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are مدرسة and كبيرة in?",
-            "ar": "ما حالة «مدرسة» و«كبيرة»؟"
+            "en": "In هذه مدرسة كبيرة, what state are مدرسة and كبيرة in?",
+            "ar": "في جملة «هذه مدرسة كبيرة»، ما حالة «مدرسة» و«كبيرة»؟"
           },
           "options": [
             {
@@ -8051,8 +8051,8 @@
           "id": "lesson-15-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are بيت and جميل in?",
-            "ar": "ما حالة «بيت» و«جميل»؟"
+            "en": "In هذا بيت جميل, what state are بيت and جميل in?",
+            "ar": "في جملة «هذا بيت جميل»، ما حالة «بيت» و«جميل»؟"
           },
           "options": [
             {
@@ -8207,10 +8207,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 11bc3c62396a918d0ad759d665b3759d25a80aa02c3a9eeb51f2b10a821a7036."
       }
     },
     {
@@ -16059,8 +16059,8 @@
           "id": "lesson-30-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which grammatical role is ضاحكا (compared to being an ordinary نعت)؟",
-            "ar": "ما إعراب «ضاحكا» (مقارنة بالنعت)؟"
+            "en": "What is the grammatical role of ضاحكا in دخل الطالب ضاحكا?",
+            "ar": "ما إعراب «ضاحكا» في جملة «دخل الطالب ضاحكا»؟"
           },
           "options": [
             {
@@ -16245,8 +16245,8 @@
           "id": "lesson-30-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which grammatical role is مسرعا?",
-            "ar": "ما إعراب «مسرعا»؟"
+            "en": "What is the grammatical role of مسرعا in خرج الرجل مسرعا?",
+            "ar": "ما إعراب «مسرعا» في جملة «خرج الرجل مسرعا»؟"
           },
           "options": [
             {
@@ -16355,10 +16355,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 54b633cca43ae6c9ec54448fcc4d7694ae93b7b5e23a57a757157423334c6386."
       }
     },
     {
@@ -18598,8 +18598,8 @@
           "id": "lesson-35-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In كتب التقرير أمس, which word is نائب الفاعل؟",
-            "ar": "في جملة «كتب التقرير أمس»، أي كلمة هي نائب الفاعل؟"
+            "en": "In كُتِبَ التقرير أمس, which word is نائب الفاعل?",
+            "ar": "في جملة «كُتِبَ التقرير أمس»، أي كلمة هي نائب الفاعل؟"
           },
           "options": [
             {
@@ -18644,8 +18644,8 @@
           "id": "lesson-35-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is التقرير in, in كتب التقرير أمس؟",
-            "ar": "ما الحالة الإعرابية لكلمة «التقرير» في قولك: «كتب التقرير أمس»؟"
+            "en": "What state is التقرير in, in كُتِبَ التقرير أمس?",
+            "ar": "ما الحالة الإعرابية لكلمة «التقرير» في قولك: «كُتِبَ التقرير أمس»؟"
           },
           "options": [
             {
@@ -18690,8 +18690,8 @@
           "id": "lesson-35-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read نشر الخبر في الجريدة. Which ending belongs on الخبر_ (نائب الفاعل)؟",
-            "ar": "اقرأ: «نشر الخبر في الجريدة». ما حركة آخر كلمة «الخبر» (نائب الفاعل)؟"
+            "en": "Read نُشِرَ الخبر في الجريدة. Which ending belongs on الخبر (نائب الفاعل)?",
+            "ar": "اقرأ: «نُشِرَ الخبر في الجريدة». ما حركة آخر كلمة «الخبر» (نائب الفاعل)؟"
           },
           "options": [
             {
@@ -18784,8 +18784,8 @@
           "id": "lesson-35-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In فتح الباب صباحا, which word is نائب الفاعل؟",
-            "ar": "في قولك: «فتح الباب صباحا»، ما نائب الفاعل؟"
+            "en": "In فُتِحَ الباب صباحا, which word is نائب الفاعل?",
+            "ar": "في قولك: «فُتِحَ الباب صباحا»، ما نائب الفاعل؟"
           },
           "options": [
             {
@@ -18830,8 +18830,8 @@
           "id": "lesson-35-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الباب in, in فتح الباب صباحا؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الباب» في قولك: «فتح الباب صباحا»؟"
+            "en": "What state is الباب in, in فُتِحَ الباب صباحا?",
+            "ar": "ما الحالة الإعرابية لكلمة «الباب» في قولك: «فُتِحَ الباب صباحا»؟"
           },
           "options": [
             {
@@ -18876,8 +18876,8 @@
           "id": "lesson-35-repeat-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read بني المسجد قديما. Which ending belongs on المسجد_؟",
-            "ar": "اقرأ: «بني المسجد قديما». ما حركة آخر كلمة «المسجد»؟"
+            "en": "Read بُنِيَ المسجد قديما. Which ending belongs on المسجد?",
+            "ar": "اقرأ: «بُنِيَ المسجد قديما». ما حركة آخر كلمة «المسجد»؟"
           },
           "options": [
             {
@@ -18940,10 +18940,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 418ce86d21adb8de819b435c5baba724f2fd2c9ab08628c723922b8bfc1bca5c."
       }
     },
     {
@@ -19643,8 +19643,8 @@
           "id": "lesson-37-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are مقالة and الجريدة in (both mid-chain and final)?",
-            "ar": "ما الحالة الإعرابية لكلمة «مقالة» و«الجريدة» (الوسطى والأخيرة في السلسلة)؟"
+            "en": "In قرأت عنوان مقالة الجريدة, what state are مقالة and الجريدة in?",
+            "ar": "في جملة «قرأت عنوان مقالة الجريدة»، ما الحالة الإعرابية لكلمتي «مقالة» و«الجريدة»؟"
           },
           "options": [
             {
@@ -19829,8 +19829,8 @@
           "id": "lesson-37-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are نجاح and الفريق in?",
-            "ar": "ما حالة «نجاح» و«الفريق»؟"
+            "en": "In سمعت خبر نجاح الفريق, what state are نجاح and الفريق in?",
+            "ar": "في جملة «سمعت خبر نجاح الفريق»، ما حالة «نجاح» و«الفريق»؟"
           },
           "options": [
             {
@@ -19985,10 +19985,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 1f232f2442451cafa2ddf8bfa771efff5cc88494dc5c8688bb1573f8e533dc09."
       }
     },
     {
@@ -21155,8 +21155,8 @@
           "id": "lesson-40-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الطلاب in, after أن؟",
-            "ar": "ما الحالة الإعرابية لكلمة «الطلاب» بعد «أن»؟"
+            "en": "What state is الطلاب in after أنّ?",
+            "ar": "ما الحالة الإعرابية لكلمة «الطلاب» بعد «أنّ»؟"
           },
           "options": [
             {
@@ -21247,8 +21247,8 @@
           "id": "lesson-40-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "Which two clues together justify reading الطلاب as nasb here?",
-            "ar": "أي دليلين معًا يبرران قراءة «الطلاب» منصوبة هنا؟"
+            "en": "In أعلنت الجامعة أنّ الطلاب الذين نجحوا سيكافأون, which two clues together justify reading الطلاب as nasb?",
+            "ar": "في جملة «أعلنت الجامعة أنّ الطلاب الذين نجحوا سيكافأون»، أي دليلين معًا يبرران قراءة «الطلاب» منصوبة؟"
           },
           "options": [
             {
@@ -21341,8 +21341,8 @@
           "id": "lesson-40-repeat-state-01",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is العمال in, after إن؟",
-            "ar": "ما الحالة الإعرابية لكلمة «العمال» بعد «إن»؟"
+            "en": "What state is العمال in after إنّ?",
+            "ar": "ما الحالة الإعرابية لكلمة «العمال» بعد «إنّ»؟"
           },
           "options": [
             {
@@ -21433,8 +21433,8 @@
           "id": "lesson-40-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "Which two clues together justify reading العمال as nasb here?",
-            "ar": "أي دليلين يبرران قراءة «العمال» منصوبة هنا؟"
+            "en": "In قالت الوزارة إنّ العمال الذين اجتهدوا سيكرمون, which two clues justify reading العمال as nasb?",
+            "ar": "في جملة «قالت الوزارة إنّ العمال الذين اجتهدوا سيكرمون»، أي دليلين يبرران قراءة «العمال» منصوبة؟"
           },
           "options": [
             {
@@ -21543,10 +21543,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3d12da43805c7d5f91571ec2c7b553fab5d97a58bdea73c7549f31529ec5f8cb."
       }
     },
     {
@@ -21809,8 +21809,8 @@
           "id": "lesson-41-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is عدد in, after أن؟",
-            "ar": "ما حالة «عدد» بعد «أن»؟"
+            "en": "What state is عدد in after أنّ?",
+            "ar": "ما حالة «عدد» بعد «أنّ»؟"
           },
           "options": [
             {
@@ -21995,8 +21995,8 @@
           "id": "lesson-41-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is عدد in, after إن؟",
-            "ar": "ما الحالة الإعرابية لكلمة «عدد» بعد «إن»؟"
+            "en": "What state is عدد in after إنّ?",
+            "ar": "ما الحالة الإعرابية لكلمة «عدد» بعد «إنّ»؟"
           },
           "options": [
             {
@@ -22151,10 +22151,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 259074a29a687dea97dccd64e542021495c4593e397b1ea1c6a5adc7218254fa."
       }
     },
     {
@@ -22770,8 +22770,8 @@
           "id": "lesson-43-rule-01",
           "type": "matchRule",
           "prompt": {
-            "en": "In the sentence (محمد كريم), we can ask: من الكريم؟ and the answer is (محمد). What is understood but not stated?",
-            "ar": "في جملة (محمد كريم) يمكن أن نسأل: من الكريم؟ والجواب: (محمد). ما المفهوم غير المذكور؟"
+            "en": "For محمد كريم, we ask من الكريم؟ and answer محمد. What is understood but omitted from the answer?",
+            "ar": "في جملة «محمد كريم» نسأل: «من الكريم؟» ونجيب: «محمد». ما المفهوم غير المذكور في الجواب؟"
           },
           "options": [
             {
@@ -23002,8 +23002,8 @@
           "id": "lesson-43-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is المدير in, in the answer?",
-            "ar": "ما حالة «المدير» في الجواب؟"
+            "en": "In the answer المدير to من الذي في مكتبه؟, what state is المدير in?",
+            "ar": "في جواب «المدير» عن السؤال «من الذي في مكتبه؟»، ما الحالة الإعرابية لكلمة «المدير»؟"
           },
           "options": [
             {
@@ -23158,10 +23158,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): c00d004a136854aa5198deeb82a0ea6dc6e67e8b9ead21b2a337d1743f27a9ad."
       }
     },
     {
@@ -24074,8 +24074,8 @@
           "id": "lesson-45-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is الصابر in?",
-            "ar": "ما الحالة الإعرابية لكلمة «الصابر»؟"
+            "en": "What state is الصابر in, in ما فاز إلا الصابر?",
+            "ar": "ما الحالة الإعرابية لكلمة «الصابر» في جملة «ما فاز إلا الصابر»؟"
           },
           "options": [
             {
@@ -24184,10 +24184,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): de455623fd7ef7c301de757ff71fb3a11a12944e184a74308639490a96729dc9."
       }
     },
     {
@@ -27302,8 +27302,8 @@
           "id": "lesson-51-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is مفيد in (as the adjective of لفظ)?",
-            "ar": "ما الحالة الإعرابية لكلمة «مفيد» (بوصفه نعتا لـ«لفظ»)؟"
+            "en": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nWhat state is مفيد in (as the adjective of لفظ)?",
+            "ar": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nما الحالة الإعرابية لكلمة «مفيد» (بوصفه نعتا لـ«لفظ»)؟"
           },
           "options": [
             {
@@ -27348,8 +27348,8 @@
           "id": "lesson-51-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, what three word-kinds together make up الكلم؟",
-            "ar": "بحسب هذا البيت، ما الأقسام الثلاثة التي يتألف منها الكلم؟"
+            "en": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nAccording to this verse, what three word-kinds together make up الكلم؟",
+            "ar": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nبحسب هذا البيت، ما الأقسام الثلاثة التي يتألف منها الكلم؟"
           },
           "options": [
             {
@@ -27488,8 +27488,8 @@
           "id": "lesson-51-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is كلامنا in?",
-            "ar": "ما الحالة الإعرابية لكلمة «كلامنا»؟"
+            "en": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nWhat state is كلامنا in?",
+            "ar": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nما الحالة الإعرابية لكلمة «كلامنا»؟"
           },
           "options": [
             {
@@ -27534,8 +27534,8 @@
           "id": "lesson-51-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "Which word in the verse serves as Ibn Malik's own example of a meaningful (mufid) utterance?",
-            "ar": "ما الكلمة التي مثل بها ابن مالك للكلام؟"
+            "en": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nWhich word in the verse serves as Ibn Malik's own example of a meaningful (mufid) utterance?",
+            "ar": "«كلامنا لفظ مفيد كاستقم — واسم وفعل ثم حرف الكلم»\nما الكلمة التي مثل بها ابن مالك للكلام؟"
           },
           "options": [
             {
@@ -27661,10 +27661,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3a91b678764a55c0d85f467ad2e9c1c7987dfe993098c7b1e84e578d337539c2."
       }
     },
     {
@@ -27824,8 +27824,8 @@
           "id": "lesson-52-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, which of these is one of the signs that identify a noun?",
-            "ar": "في ضوء قول ابن مالك: (بالجر والتنوين والندا وأل) عين علامة الاسم مما يلي؟"
+            "en": "In Ibn Malik's «بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل», which of these is a sign identifying a noun?",
+            "ar": "في قول ابن مالك «بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»، عين علامة الاسم مما يلي؟"
           },
           "options": [
             {
@@ -27870,8 +27870,8 @@
           "id": "lesson-52-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state are الجر, التنوين, الندا, ال, and مسند all in within this verse?",
-            "ar": "ما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«أل» و«مسند» جميعا في هذا البيت؟"
+            "en": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nWhat state are الجر, التنوين, الندا, ال, and مسند all in within this verse?",
+            "ar": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nما الحالة الإعرابية لـ«الجر» و«التنوين» و«الندا» و«أل» و«مسند» جميعا في هذا البيت؟"
           },
           "options": [
             {
@@ -27916,8 +27916,8 @@
           "id": "lesson-52-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which word in the verse is joined (ma'tuf) to الجر by و?",
-            "ar": "أي كلمة في البيت معطوفة على كلمة «الجر» بالواو؟"
+            "en": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nWhich word in the verse is joined (ma'tuf) to الجر by و?",
+            "ar": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nأي كلمة في البيت معطوفة على كلمة «الجر» بالواو؟"
           },
           "options": [
             {
@@ -28010,8 +28010,8 @@
           "id": "lesson-52-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, which of these is one of the signs that identify a noun?",
-            "ar": "بحسب البيت المذكور، عين علامة الاسم مما يلي؟"
+            "en": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nAccording to this verse, which of these is one of the signs that identify a noun?",
+            "ar": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nبحسب البيت المذكور، عين علامة الاسم مما يلي؟"
           },
           "options": [
             {
@@ -28056,8 +28056,8 @@
           "id": "lesson-52-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is التنوين in within this verse?",
-            "ar": "ما الحالة الإعرابية لكلمة «التنوين» في بيت ابن مالك؟"
+            "en": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nWhat state is التنوين in within this verse?",
+            "ar": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nما الحالة الإعرابية لكلمة «التنوين» في بيت ابن مالك؟"
           },
           "options": [
             {
@@ -28102,8 +28102,8 @@
           "id": "lesson-52-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "Which word in the verse is joined (ma'tuf) to الندا by و?",
-            "ar": "ما الكلمة المعطوفة على كلمة «الندا» في بيت ابن مالك؟"
+            "en": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nWhich word in the verse is joined (ma'tuf) to الندا by و?",
+            "ar": "«بالجر والتنوين والندا وأل — ومسند للاسم تمييز حصل»\nما الكلمة المعطوفة على كلمة «الندا» في بيت ابن مالك؟"
           },
           "options": [
             {
@@ -28229,10 +28229,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 0b1b4da1167d9d5482df2f24777914274e4177ae061ce4996eb7d2cc2492a0bc."
       }
     },
     {
@@ -28411,8 +28411,8 @@
           "id": "lesson-53-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, which of these confirms that a word is a verb?",
-            "ar": "بحسب البيت المذكور، ما علامة الفعل مما يلي؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nAccording to this verse, which of these confirms that a word is a verb?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nبحسب البيت المذكور، ما علامة الفعل مما يلي؟"
           },
           "options": [
             {
@@ -28457,8 +28457,8 @@
           "id": "lesson-53-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In this verse, which word is the topic (mubtada) that the four signs collectively identify?",
-            "ar": "ما المبتدأ في البيت السابق؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nIn this verse, which word is the topic (mubtada) that the four signs collectively identify?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما المبتدأ في هذا البيت؟"
           },
           "options": [
             {
@@ -28503,8 +28503,8 @@
           "id": "lesson-53-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فعل in, in this verse?",
-            "ar": "ما الحالة الإعرابية لكلمة «فعل» في هذا البيت؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nWhat state is فعل in, in this verse?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما الحالة الإعرابية لكلمة «فعل» في هذا البيت؟"
           },
           "options": [
             {
@@ -28597,8 +28597,8 @@
           "id": "lesson-53-repeat-recognize-01",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, which of these confirms that a word is a verb?",
-            "ar": "بحسب البيت السابق، ما علامة الفعل مما يلي؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nAccording to this verse, which of these confirms that a word is a verb?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nبحسب هذا البيت، ما علامة الفعل مما يلي؟"
           },
           "options": [
             {
@@ -28643,8 +28643,8 @@
           "id": "lesson-53-repeat-role-02",
           "type": "identifyRole",
           "prompt": {
-            "en": "In this verse, which word is the predicate clause telling us what فعل does?",
-            "ar": "ما الخبر في البيت السابق لكلمة «فعل»؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nIn this verse, which word is the predicate clause telling us what فعل does?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما الخبر في هذا البيت لكلمة «فعل»؟"
           },
           "options": [
             {
@@ -28689,8 +28689,8 @@
           "id": "lesson-53-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تا in, in this verse (as one of the four signs)?",
-            "ar": "ما الحالة الإعرابية لـ«تا» في هذا البيت (بوصفها إحدى العلامات الأربع)؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nWhat state is تا in, in this verse (as one of the four signs)?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما الحالة الإعرابية لـ«تا» في هذا البيت (بوصفها إحدى العلامات الأربع)؟"
           },
           "options": [
             {
@@ -28816,10 +28816,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): a5c07c635a17780737e01581c1f00822e88a4408d1f6a83d166f4063ed20bbc1."
       }
     },
     {
@@ -29033,8 +29033,8 @@
           "id": "lesson-54-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is حرف in, in this verse (matching اسم and فعل)؟",
-            "ar": "ما حالة «حرف» في هذا البيت (مطابقة لـ«اسم» و«فعل»)؟"
+            "en": "«واسم وفعل ثم حرف الكلم»\nWhat state is حرف in, in this verse (matching اسم and فعل)؟",
+            "ar": "«واسم وفعل ثم حرف الكلم»\nما حالة «حرف» في هذا البيت (مطابقة لـ«اسم» و«فعل»)؟"
           },
           "options": [
             {
@@ -29079,8 +29079,8 @@
           "id": "lesson-54-read-04",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read واسم وفعل ثم حرف الكلم. Which word accepts neither the signs of nouns nor the signs of verbs?",
-            "ar": "اقرأ «واسم وفعل ثم حرف الكلم». ما الكلمة التي لا تقبل علامات الأسماء ولا الأفعال؟"
+            "en": "In Ibn Malik's واسم وفعل ثم حرف الكلم, which category has words that accept neither noun nor verb signs?",
+            "ar": "في قول ابن مالك «واسم وفعل ثم حرف الكلم»، ما القسم الذي لا تقبل كلماته علامات الأسماء ولا الأفعال؟"
           },
           "options": [
             {
@@ -29134,8 +29134,8 @@
             {
               "id": "correct",
               "label": {
-                "en": "Checking both noun signs and verb signs",
-                "ar": "علامات الاسم وعلامات الفعل"
+                "en": "It accepts neither noun signs nor verb signs",
+                "ar": "عدم قبول علامات الاسم وعلامات الفعل"
               },
               "isCorrect": true,
               "feedback": {
@@ -29219,8 +29219,8 @@
           "id": "lesson-54-repeat-state-03",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is فعل in, in this verse (matching اسم and حرف)؟",
-            "ar": "ما حالة «فعل» في هذا البيت (مطابقة لـ«اسم» و«حرف»)؟"
+            "en": "«واسم وفعل ثم حرف الكلم»\nWhat state is فعل in, in this verse (matching اسم and حرف)؟",
+            "ar": "«واسم وفعل ثم حرف الكلم»\nما حالة «فعل» في هذا البيت (مطابقة لـ«اسم» و«حرف»)؟"
           },
           "options": [
             {
@@ -29346,10 +29346,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): d2a17c9497011fe62ac68ad788f5895f60fbe5bb60a0b87ccd1e4594188bdf19."
       }
     },
     {
@@ -29471,8 +29471,8 @@
           "id": "lesson-55-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "In this verse, which word is the topic (mubtada) being defined?",
-            "ar": "في هذا البيت، أي كلمة هي المبتدأ الذي يُعرَّف؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nIn this verse, which word is the topic (mubtada) being defined?",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nفي هذا البيت، أي كلمة هي المبتدأ الذي يُعرَّف؟"
           },
           "options": [
             {
@@ -29517,8 +29517,8 @@
           "id": "lesson-55-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is واقع in, in this verse?",
-            "ar": "ما الحالة الإعرابية لـ«واقع» في هذا البيت؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nWhat state is واقع in, in this verse?",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nما الحالة الإعرابية لـ«واقع» في هذا البيت؟"
           },
           "options": [
             {
@@ -29563,8 +29563,8 @@
           "id": "lesson-55-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "According to this verse, what are the two alternative tests for a noun being indefinite (nakira)?",
-            "ar": "بحسب البيت السابق، ما الاختباران البديلان لتمييز الاسم نكرة؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nAccording to this verse, what are the two alternative tests for a noun being indefinite (nakira)?",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nبحسب هذا البيت، ما الاختباران البديلان لتمييز الاسم نكرة؟"
           },
           "options": [
             {
@@ -29657,8 +29657,8 @@
           "id": "lesson-55-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "In this verse, which word is the first predicate (khabar) of نكرة؟",
-            "ar": "ما خبر «نكرة» في بيت ابن مالك المذكور؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nIn this verse, which word is the first predicate (khabar) of نكرة؟",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nما خبر «نكرة» في بيت ابن مالك المذكور؟"
           },
           "options": [
             {
@@ -29703,8 +29703,8 @@
           "id": "lesson-55-repeat-state-02",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is قابل in, in this verse?",
-            "ar": "ما الحالة الإعرابية لكلمة «قابل» في هذا البيت؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nWhat state is قابل in, in this verse?",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nما الحالة الإعرابية لكلمة «قابل» في هذا البيت؟"
           },
           "options": [
             {
@@ -29749,8 +29749,8 @@
           "id": "lesson-55-repeat-rule-03",
           "type": "matchRule",
           "prompt": {
-            "en": "Which particle joins the two alternative tests for nakira in this verse?",
-            "ar": "ما حرف العطف في هذا البيت؟"
+            "en": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nWhich particle joins the two alternative tests for nakira in this verse?",
+            "ar": "«نكرة قابل أل مؤثرا — أو واقع موقع ما قد ذكرا»\nما حرف العطف في هذا البيت؟"
           },
           "options": [
             {
@@ -29876,10 +29876,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 4a162b7755b537a1e8f3e3d5c7f91de58b404701fb0f99d2ed830153a77aee07."
       }
     },
     {
@@ -30039,7 +30039,7 @@
           "id": "lesson-56-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "In the example sentence زيد عاذر من اعتذر, what is the second زيد's role?",
+            "en": "In the example sentence زيد عاذر من اعتذر, what is زيد's role?",
             "ar": "في جملة: «زيد عاذر من اعتذر»، ما وظيفة «زيد»"
           },
           "options": [
@@ -30225,8 +30225,8 @@
           "id": "lesson-56-repeat-role-01",
           "type": "identifyRole",
           "prompt": {
-            "en": "In the first hemistich, what is زيدٌ's own role (the delayed topic named by مبتدأٌ)?",
-            "ar": "في الشطر الأول، ما إعراب «زيدٌ» (المبتدأ المؤخر الذي تسمّيه «مبتدأٌ»)؟"
+            "en": "«مبتدأ زيد وعاذر خبر»\nIn the first hemistich, what is زيدٌ's own role (the delayed topic named by مبتدأٌ)?",
+            "ar": "«مبتدأ زيد وعاذر خبر»\nفي الشطر الأول، ما إعراب «زيدٌ» (المبتدأ المؤخر الذي تسمّيه «مبتدأٌ»)؟"
           },
           "options": [
             {
@@ -30317,8 +30317,8 @@
           "id": "lesson-56-repeat-role-03",
           "type": "identifyRole",
           "prompt": {
-            "en": "In the first hemistich, what is خبرْ's own grammatical role in this line (not what it names)?",
-            "ar": "في الشطر الأول، ما إعراب كلمة «خبرْ»؟"
+            "en": "«مبتدأ زيد وعاذر خبر»\nIn the first hemistich, what is خبرْ's own grammatical role in this line (not what it names)?",
+            "ar": "«مبتدأ زيد وعاذر خبر»\nفي الشطر الأول، ما إعراب كلمة «خبرْ»؟"
           },
           "options": [
             {
@@ -30444,10 +30444,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): e4dc85ce52bbadb58377f54cbbbbb6c76056a5841c57c7cdf50cf6dda2a225b4."
       }
     },
     {
@@ -30752,8 +30752,8 @@
           "id": "lesson-57-state-04",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is نون in, in this verse (as one of the four verb signs)?",
-            "ar": "ما الحالة الإعرابية لكلمة «نون» في هذا البيت (بوصفها إحدى علامات الفعل الأربع)؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nWhat state is نون in, in this verse (as one of the four verb signs)?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما الحالة الإعرابية لكلمة «نون» في هذا البيت (بوصفها إحدى علامات الفعل الأربع)؟"
           },
           "options": [
             {
@@ -30938,8 +30938,8 @@
           "id": "lesson-57-repeat-state-04",
           "type": "identifyState",
           "prompt": {
-            "en": "What state is تا in, in the verb-signs verse (as one of the four signs)?",
-            "ar": "ما الحالة الإعرابية لـ«تا» في بيت ابن مالك الذي يذكر فيه علامات الفعل (بوصفها إحدى العلامات الأربع)؟"
+            "en": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nWhat state is تا in, in the verb-signs verse (as one of the four signs)?",
+            "ar": "«بتا فعلت وأتت ويا افعلي — ونون أقبلن فعل ينجلي»\nما الحالة الإعرابية لـ«تا» في بيت ابن مالك الذي يذكر فيه علامات الفعل (بوصفها إحدى العلامات الأربع)؟"
           },
           "options": [
             {
@@ -31019,10 +31019,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): a8db68b9e7855ee2ecdca105732dd17981838cd1406be306f34ca3c06deb4444."
       }
     },
     {
@@ -31339,20 +31339,20 @@
           "id": "lesson-58-rule-04",
           "type": "matchRule",
           "prompt": {
-            "en": "Which claim about this combined excerpt is most defensible?",
-            "ar": "ما الاختيار الصحيح مما يلي بناء على ما درسته؟"
+            "en": "For كلامنا لفظ مفيد and زيد عاذر من اعتذر, which statement is correct?",
+            "ar": "في قول ابن مالك «كلامنا لفظ مفيد»، وجملة «زيد عاذر من اعتذر»، ما الاختيار الصحيح؟"
           },
           "options": [
             {
               "id": "correct",
               "label": {
-                "en": "The nominal sentences in this passage have a topic and a predicate, both in raf",
-                "ar": "كل جملة اسمية تتكوّن من مبتدأ وخبر، وكلاهما مرفوع"
+                "en": "In these examples, the topic and predicate are both in raf",
+                "ar": "في هذين المثالين المبتدأ والخبر مرفوعان"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. The definitions and examples here follow the topic-and-predicate pattern, both in raf.",
-                "ar": "صحيح. هذه هي أركان الجملة الاسمية (مبتدأ وخبر) وكلاهما مرفوع."
+                "en": "Correct. The topic and predicate are in raf in these examples.",
+                "ar": "صحيح. المبتدأ والخبر مرفوعان في هذين المثالين."
               }
             },
             {
@@ -31376,7 +31376,7 @@
               "isCorrect": false,
               "feedback": {
                 "en": "No. Two verbs do not form the topic and predicate of this construction.",
-                "ar": "لا؛ لأن هذا التركيب لا يصح في كلام العرب؛ إذ لا تتكوّن الجملة من فعلين بلا اسم."
+                "ar": "لا؛ لأن هذا الخيار لا يصف تركيب المثالين، وهما جملتان اسميتان."
               }
             }
           ]
@@ -31606,10 +31606,10 @@
       ],
       "review": {
         "status": "approved",
-        "contentVersion": "1.0.0",
+        "contentVersion": "1.0.1",
         "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "reviewedAt": "2026-11-19T19:15:26Z",
+        "notes": "The project owner confirmed teacher approval of the revised questions on 2026-11-19. reviewedAt records this confirmation, not an independently verified review date. The aligned English wording is included; no separate English-language academic review or institutional endorsement is claimed. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): bc48abf85903dbf2c76820a6c66b30093e35eb6a2382c7f6e9b038a997410add."
       }
     }
   ]

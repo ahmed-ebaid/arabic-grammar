@@ -32,6 +32,96 @@ void main() {
     );
   });
 
+  test(
+    'revised questions include their own sentence or verse in both locales',
+    () {
+      const contexts = {
+        'lesson-01-state-02': 'الطالب مجتهد',
+        'lesson-03-repeat-ending-04': 'الجو بارد',
+        'lesson-07-object-03': 'أكل الولد التفاحة',
+        'lesson-13-state-03': 'هذا الكتاب جديد',
+        'lesson-15-state-02': 'هذه مدرسة كبيرة',
+        'lesson-15-repeat-state-02': 'هذا بيت جميل',
+        'lesson-30-role-03': 'دخل الطالب ضاحكا',
+        'lesson-30-repeat-role-03': 'خرج الرجل مسرعا',
+        'lesson-37-state-02': 'قرأت عنوان مقالة الجريدة',
+        'lesson-37-repeat-state-02': 'سمعت خبر نجاح الفريق',
+        'lesson-40-rule-03': 'أعلنت الجامعة أنّ الطلاب الذين نجحوا سيكافأون',
+        'lesson-40-repeat-rule-03':
+            'قالت الوزارة إنّ العمال الذين اجتهدوا سيكرمون',
+        'lesson-43-repeat-state-02': 'من الذي في مكتبه؟',
+        'lesson-45-repeat-state-03': 'ما فاز إلا الصابر',
+        'lesson-51-state-02': 'كلامنا لفظ مفيد كاستقم',
+        'lesson-51-rule-03': 'كلامنا لفظ مفيد كاستقم',
+        'lesson-51-repeat-state-02': 'كلامنا لفظ مفيد كاستقم',
+        'lesson-51-repeat-rule-03': 'كلامنا لفظ مفيد كاستقم',
+        'lesson-52-recognize-01': 'بالجر والتنوين والندا وأل',
+        'lesson-52-state-02': 'بالجر والتنوين والندا وأل',
+        'lesson-52-role-03': 'بالجر والتنوين والندا وأل',
+        'lesson-52-repeat-recognize-01': 'بالجر والتنوين والندا وأل',
+        'lesson-52-repeat-state-02': 'بالجر والتنوين والندا وأل',
+        'lesson-52-repeat-role-03': 'بالجر والتنوين والندا وأل',
+        'lesson-53-recognize-01': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-53-role-02': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-53-state-03': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-53-repeat-recognize-01': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-53-repeat-role-02': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-53-repeat-state-03': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-54-state-03': 'واسم وفعل ثم حرف الكلم',
+        'lesson-54-repeat-state-03': 'واسم وفعل ثم حرف الكلم',
+        'lesson-55-role-01': 'نكرة قابل أل مؤثرا',
+        'lesson-55-state-02': 'نكرة قابل أل مؤثرا',
+        'lesson-55-rule-03': 'نكرة قابل أل مؤثرا',
+        'lesson-55-repeat-role-01': 'نكرة قابل أل مؤثرا',
+        'lesson-55-repeat-state-02': 'نكرة قابل أل مؤثرا',
+        'lesson-55-repeat-rule-03': 'نكرة قابل أل مؤثرا',
+        'lesson-56-repeat-role-01': 'مبتدأ زيد وعاذر خبر',
+        'lesson-56-repeat-role-03': 'مبتدأ زيد وعاذر خبر',
+        'lesson-57-state-04': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-57-repeat-state-04': 'بتا فعلت وأتت ويا افعلي',
+        'lesson-58-rule-04': 'كلامنا لفظ مفيد',
+      };
+      final exercises = {
+        for (final item in catalog.lessons)
+          for (final exercise in [...item.exercises, ...item.repeatExercises])
+            exercise.id: exercise,
+      };
+      for (final entry in contexts.entries) {
+        final prompt = exercises[entry.key]!.prompt;
+        expect(prompt.ar, contains(entry.value), reason: entry.key);
+        expect(prompt.en, contains(entry.value), reason: entry.key);
+      }
+    },
+  );
+
+  test('clarifies passive readings and corrects misleading answer wording', () {
+    Exercise exercise(String id) => catalog.lessons
+        .expand((lesson) => [...lesson.exercises, ...lesson.repeatExercises])
+        .singleWhere((exercise) => exercise.id == id);
+    for (final (id, verb) in [
+      ('lesson-35-role-02', 'كُتِبَ'),
+      ('lesson-35-state-03', 'كُتِبَ'),
+      ('lesson-35-read-04', 'نُشِرَ'),
+      ('lesson-35-repeat-role-02', 'فُتِحَ'),
+      ('lesson-35-repeat-state-03', 'فُتِحَ'),
+      ('lesson-35-repeat-read-04', 'بُنِيَ'),
+    ]) {
+      expect(exercise(id).prompt.ar, contains(verb));
+      expect(exercise(id).prompt.en, contains(verb));
+    }
+    final particle = exercise('lesson-54-repeat-recognize-01');
+    final answer = particle.options.singleWhere((option) => option.isCorrect);
+    expect(answer.label.ar, contains('عدم قبول'));
+    expect(answer.label.en, contains('neither'));
+    expect(exercise('lesson-54-read-04').prompt.ar, contains('القسم'));
+    expect(exercise('lesson-56-role-01').prompt.en, isNot(contains('second')));
+    final nominal = exercise('lesson-58-rule-04');
+    expect(
+      nominal.options.singleWhere((option) => option.isCorrect).label.ar,
+      contains('في هذين المثالين'),
+    );
+  });
+
   test('Alfiyya readings cover each level-ending lesson', () {
     expect(
       alfiyyaReadings.keys.toSet(),
@@ -225,22 +315,34 @@ void main() {
 
   test('case and ending prompts do not reveal answers with vowel marks', () {
     final marks = RegExp(r'[\u064B-\u065F\u0670]');
+    const allowedContext = {
+      'lesson-35-state-03': ['كُتِبَ'],
+      'lesson-35-repeat-state-03': ['فُتِحَ'],
+      'lesson-40-state-01': ['أنّ'],
+      'lesson-40-repeat-state-01': ['إنّ'],
+      'lesson-41-state-02': ['أنّ'],
+      'lesson-41-repeat-state-02': ['إنّ'],
+    };
     for (final item in catalog.lessons) {
       for (final exercise in [...item.exercises, ...item.repeatExercises]) {
         if (exercise.type != ExerciseType.identifyState &&
             exercise.type != ExerciseType.chooseEnding) {
           continue;
         }
-        expect(
-          exercise.prompt.ar,
-          isNot(matches(marks)),
-          reason: '${item.id}/${exercise.id} Arabic prompt',
-        );
-        expect(
-          exercise.prompt.en,
-          isNot(matches(marks)),
-          reason: '${item.id}/${exercise.id} English prompt',
-        );
+        for (final (language, text) in [
+          ('Arabic', exercise.prompt.ar),
+          ('English', exercise.prompt.en),
+        ]) {
+          var question = text;
+          for (final context in allowedContext[exercise.id] ?? <String>[]) {
+            question = question.replaceAll(context, '');
+          }
+          expect(
+            question,
+            isNot(matches(marks)),
+            reason: '${item.id}/${exercise.id} $language prompt',
+          );
+        }
       }
     }
 

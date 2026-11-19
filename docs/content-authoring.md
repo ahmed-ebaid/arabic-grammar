@@ -62,6 +62,10 @@ the definite-article test, and the example with «رُبَّ أَخٍ». The own
 confirmed teacher approval by Dr. Sherif Mohamed El-Sadek on 2026-11-16;
 version `1.0.1` is included in the 0.9.1 release catalog.
 
+Catalog version `1.0.1` revises question context and wording in 20 lessons.
+The owner confirmed teacher approval on 2026-11-19, and those revisions are
+included in the release catalog. See the academic review protocol for scope.
+
 For explicitly requested internal testing only, build with
 `--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the pending draft
 and enables the optional Alfiyya readings; it does not mark them approved.
