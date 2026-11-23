@@ -513,6 +513,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get glossaryTitle => 'Grammar glossary';
 
   @override
+  String get glossaryExampleLabel => 'Example';
+
+  @override
   String get glossarySearchHint => 'Search Arabic, English, or transliteration';
 
   @override

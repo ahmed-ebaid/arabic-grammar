@@ -743,9 +743,7 @@ void main() {
     expect(find.textContaining('ابن آجروم'), findsOneWidget);
   });
 
-  testWidgets('searches and bookmarks bilingual glossary terms', (
-    tester,
-  ) async {
+  testWidgets('shows glossary examples and supports bookmarks', (tester) async {
     rootBundle.evict('assets/content/glossary.json');
     await tester.pumpWidget(
       ArabicGrammarApp(
@@ -762,9 +760,14 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('معجم النحو'), findsOneWidget);
-    await tester.enterText(find.byType(SearchBar), 'mubtada');
+    await tester.enterText(find.byType(SearchBar), 'mabni');
     await tester.pumpAndSettle();
-    expect(find.text('المبتدأ'), findsOneWidget);
+    expect(find.text('المبني'), findsOneWidget);
+
+    await tester.tap(find.text('المبني'));
+    await tester.pumpAndSettle();
+    expect(find.text('مثال'), findsOneWidget);
+    expect(find.textContaining('سلّمتُ على هذا'), findsOneWidget);
 
     await tester.tap(find.byTooltip('حفظ').first);
     await tester.pumpAndSettle();

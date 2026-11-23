@@ -132,6 +132,11 @@ class _TermCard extends StatelessWidget {
             children: [
               ArabicDiacriticsText(term.definition.forLanguage(languageCode)),
               const SizedBox(height: 12),
+              Text(
+                l10n.glossaryExampleLabel,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: 4),
               ArabicDiacriticsText(
                 term.example.forLanguage(languageCode),
                 style: const TextStyle(fontFamily: 'AmiriQuran', fontSize: 20),

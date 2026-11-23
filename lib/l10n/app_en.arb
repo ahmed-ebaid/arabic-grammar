@@ -224,6 +224,7 @@
   "retry": "Retry"
   ,"more": "More",
   "glossaryTitle": "Grammar glossary",
+  "glossaryExampleLabel": "Example",
   "glossarySearchHint": "Search Arabic, English, or transliteration",
   "glossaryNoResults": "No matching grammar terms.",
   "glossaryLessonLinks": "Connected to {count} lessons",

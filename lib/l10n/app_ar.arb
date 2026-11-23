@@ -219,6 +219,7 @@
   "retry": "إعادة المحاولة"
   ,"more": "المزيد",
   "glossaryTitle": "معجم النحو",
+  "glossaryExampleLabel": "مثال",
   "glossarySearchHint": "ابحث بالعربية أو الإنجليزية أو النقل الصوتي",
   "glossaryNoResults": "لا توجد مصطلحات نحوية مطابقة.",
   "glossaryLessonLinks": "مرتبط بـ {count} دروس",

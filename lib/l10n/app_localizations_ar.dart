@@ -504,6 +504,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get glossaryTitle => 'معجم النحو';
 
   @override
+  String get glossaryExampleLabel => 'مثال';
+
+  @override
   String get glossarySearchHint =>
       'ابحث بالعربية أو الإنجليزية أو النقل الصوتي';
 

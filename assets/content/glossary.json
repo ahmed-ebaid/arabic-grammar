@@ -35,8 +35,8 @@
         "ar": "كلمة يبقى آخرها ثابتًا مهما تغيّر موقعها في الجملة، كأكثر الحروف وبعض الضمائر."
       },
       "example": {
-        "en": "'Hadha' (this) keeps the same ending whether it is a subject or an object.",
-        "ar": "\"هذا\" يبقى على حاله سواء كان مبتدأ أو مفعولًا به."
+        "en": "In \"Ja'a hadha\" (this one came), \"Ra'aytu hadha\" (I saw this one), and \"sallamtu 'ala hadha\" (I greeted this one), \"hadha\" keeps the same form even though its grammatical role changes.",
+        "ar": "في «جاءَ هذا»، و«رأيتُ هذا»، و«سلّمتُ على هذا»، بقيت «هذا» على صورة واحدة رغم اختلاف موقعها الإعرابي."
       },
       "lessonIds": [
         "lesson_01",

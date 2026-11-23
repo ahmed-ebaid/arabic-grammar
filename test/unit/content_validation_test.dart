@@ -322,10 +322,16 @@ void main() {
             term.term.en.isNotEmpty &&
             term.term.ar.isNotEmpty &&
             term.definition.en.isNotEmpty &&
-            term.definition.ar.isNotEmpty,
+            term.definition.ar.isNotEmpty &&
+            term.example.en.isNotEmpty &&
+            term.example.ar.isNotEmpty,
       ),
       isTrue,
     );
+    final mabni = glossary.terms.singleWhere((term) => term.id == 'mabni');
+    expect(mabni.example.ar, contains('جاءَ هذا'));
+    expect(mabni.example.ar, contains('رأيتُ هذا'));
+    expect(mabni.example.ar, contains('سلّمتُ على هذا'));
     expect(
       glossary.terms.expand((term) => term.lessonIds).every(lessonIds.contains),
       isTrue,

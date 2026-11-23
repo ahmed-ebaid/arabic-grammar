@@ -998,6 +998,12 @@ abstract class AppLocalizations {
   /// **'Grammar glossary'**
   String get glossaryTitle;
 
+  /// No description provided for @glossaryExampleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Example'**
+  String get glossaryExampleLabel;
+
   /// No description provided for @glossarySearchHint.
   ///
   /// In en, this message translates to:
