@@ -602,6 +602,36 @@ abstract class AppLocalizations {
   /// **'Practice again'**
   String get practiceAgain;
 
+  /// No description provided for @practiceExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to practice'**
+  String get practiceExit;
+
+  /// No description provided for @practiceExitConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit this practice?'**
+  String get practiceExitConfirmTitle;
+
+  /// No description provided for @practiceExitConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This session won\'t count as completed. Your recorded answer reviews will be kept.'**
+  String get practiceExitConfirmBody;
+
+  /// No description provided for @practiceExitConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get practiceExitConfirm;
+
+  /// No description provided for @practiceExitCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue practice'**
+  String get practiceExitCancel;
+
   /// No description provided for @progressTitle.
   ///
   /// In en, this message translates to:

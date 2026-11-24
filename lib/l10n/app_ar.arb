@@ -137,6 +137,11 @@
     }
   },
   "practiceAgain": "تدرّب مرة أخرى",
+  "practiceExit": "العودة إلى التدريبات",
+  "practiceExitConfirmTitle": "الخروج من التدريب؟",
+  "practiceExitConfirmBody": "لن يُحتسب هذا التدريب ضمن التدريبات المكتملة، وستبقى مراجعات إجاباتك المسجّلة.",
+  "practiceExitConfirm": "الخروج",
+  "practiceExitCancel": "متابعة التدريب",
   "progressTitle": "تقدُّمك",
   "progressSubtitle": "سيبقى تقدُّمك التعليمي على هذا الجهاز.",
   "progressCurriculumSummary": "أتقنت {mastered} درسًا من أصل {total}",

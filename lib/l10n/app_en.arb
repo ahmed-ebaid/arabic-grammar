@@ -137,6 +137,11 @@
     }
   },
   "practiceAgain": "Practice again",
+  "practiceExit": "Back to practice",
+  "practiceExitConfirmTitle": "Exit this practice?",
+  "practiceExitConfirmBody": "This session won't count as completed. Your recorded answer reviews will be kept.",
+  "practiceExitConfirm": "Exit",
+  "practiceExitCancel": "Continue practice",
   "progressTitle": "Your progress",
   "progressSubtitle": "Your learning progress will stay on this device.",
   "progressCurriculumSummary": "{mastered} of {total} lessons mastered",

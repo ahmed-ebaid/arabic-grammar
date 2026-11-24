@@ -46,6 +46,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   var _answerChecked = false;
   var _firstAttemptRecorded = false;
   var _sessionComplete = false;
+  var _sessionGeneration = 0;
   String? _selectedOptionId;
 
   @override
@@ -105,6 +106,14 @@ class _PracticeScreenState extends State<PracticeScreen> {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
+        Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: TextButton.icon(
+            onPressed: _confirmExit,
+            icon: const Icon(Icons.arrow_back),
+            label: Text(l10n.practiceExit),
+          ),
+        ),
         Row(
           children: [
             Expanded(
@@ -293,6 +302,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
     }
 
     setState(() {
+      _sessionGeneration++;
       _questions = questions;
       _mode = mode;
       _questionIndex = 0;
@@ -305,6 +315,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   Future<void> _checkAnswer() async {
+    final generation = _sessionGeneration;
     final question = _questions![_questionIndex];
     final selected = question.options.firstWhere(
       (option) => option.id == _selectedOptionId,
@@ -320,8 +331,37 @@ class _PracticeScreenState extends State<PracticeScreen> {
         correct: selected.isCorrect,
       );
     }
-    if (mounted) {
+    if (mounted && generation == _sessionGeneration) {
       setState(() => _answerChecked = true);
+    }
+  }
+
+  Future<void> _confirmExit() async {
+    final l10n = AppLocalizations.of(context);
+    final exit = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.practiceExitConfirmTitle),
+        content: Text(l10n.practiceExitConfirmBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.practiceExitCancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.practiceExitConfirm),
+          ),
+        ],
+      ),
+    );
+    if (exit == true && mounted) {
+      setState(() {
+        _sessionGeneration++;
+        _questions = null;
+        _mode = null;
+        _sessionComplete = false;
+      });
     }
   }
 
@@ -343,11 +383,12 @@ class _PracticeScreenState extends State<PracticeScreen> {
       return;
     }
 
+    final generation = _sessionGeneration;
     await widget.progressController.recordPracticeSession(
       answered: _questions!.length,
       correct: _correctFirstAttempts,
     );
-    if (mounted) {
+    if (mounted && generation == _sessionGeneration) {
       setState(() => _sessionComplete = true);
     }
   }

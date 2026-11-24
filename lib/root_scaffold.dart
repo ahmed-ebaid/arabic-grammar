@@ -286,8 +286,12 @@ class _RootScaffoldState extends State<RootScaffold>
       case _AppMenuAction.glossary:
         Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (_) =>
-                GlossaryScreen(userDataController: widget.userDataController),
+            builder: (_) => GlossaryScreen(
+              contentCatalog: widget.contentCatalog,
+              progressController: widget.lessonProgressController,
+              subscriptionController: widget.subscriptionController,
+              userDataController: widget.userDataController,
+            ),
           ),
         );
         return;

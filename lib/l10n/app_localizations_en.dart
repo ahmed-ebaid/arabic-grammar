@@ -288,6 +288,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get practiceAgain => 'Practice again';
 
   @override
+  String get practiceExit => 'Back to practice';
+
+  @override
+  String get practiceExitConfirmTitle => 'Exit this practice?';
+
+  @override
+  String get practiceExitConfirmBody =>
+      'This session won\'t count as completed. Your recorded answer reviews will be kept.';
+
+  @override
+  String get practiceExitConfirm => 'Exit';
+
+  @override
+  String get practiceExitCancel => 'Continue practice';
+
+  @override
   String get progressTitle => 'Your progress';
 
   @override

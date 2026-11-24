@@ -772,7 +772,127 @@ void main() {
     await tester.tap(find.byTooltip('حفظ').first);
     await tester.pumpAndSettle();
     expect(find.byTooltip('إزالة من المحفوظات'), findsOneWidget);
+
+    final catalog = _draftCatalog();
+    final firstLesson = catalog.lessons.firstWhere(
+      (lesson) => lesson.id == 'lesson_01',
+    );
+    final lockedLesson = catalog.lessons.firstWhere(
+      (lesson) => lesson.id == 'lesson_54',
+    );
+    final lockedTile = find.ancestor(
+      of: find.text(lockedLesson.title.ar),
+      matching: find.byType(ListTile),
+    );
+    expect(tester.widget<ListTile>(lockedTile).onTap, isNull);
+    expect(find.text('مغلق حتى إتقان الدرس السابق'), findsWidgets);
+
+    await tester.ensureVisible(find.text(firstLesson.title.ar));
+    await tester.tap(find.text(firstLesson.title.ar));
+    await tester.pumpAndSettle();
+    expect(find.byType(LessonDetailScreen), findsOneWidget);
+    Navigator.of(tester.element(find.byType(LessonDetailScreen))).pop();
+    await tester.pumpAndSettle();
+    expect(find.text('المبني'), findsOneWidget);
   });
+
+  testWidgets('glossary lesson links respect Plus access', (tester) async {
+    rootBundle.evict('assets/content/glossary.json');
+    final progress = LessonProgressController.inMemory();
+    await progress.complete('lesson_53', 0, mastery: 70);
+    final lesson = _draftCatalog().lessons.firstWhere(
+      (lesson) => lesson.id == 'lesson_54',
+    );
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: progress,
+        contentCatalog: _draftCatalog(),
+      ),
+    );
+    await tester.tap(find.byTooltip('المزيد'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('معجم النحو'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(SearchBar), 'mabni');
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('المبني'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text(lesson.title.ar));
+    await tester.tap(find.text(lesson.title.ar));
+    await tester.pumpAndSettle();
+    expect(find.text('إعراب بلس'), findsWidgets);
+    expect(find.byType(LessonDetailScreen), findsNothing);
+  });
+
+  for (final mode in ['مراجعة متنوعة', 'تقوية مواطن الضعف']) {
+    testWidgets('can exit $mode without completing the session', (
+      tester,
+    ) async {
+      final progress = LessonProgressController.inMemory();
+      final userData = UserDataController.inMemory();
+      final catalog = _draftCatalog();
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: LocaleController.inMemory(),
+          lessonProgressController: progress,
+          userDataController: userData,
+          contentCatalog: catalog,
+        ),
+      );
+      await tester.tap(find.text('التدريب'));
+      await tester.pumpAndSettle();
+      if (mode == 'تقوية مواطن الضعف') {
+        await tester.scrollUntilVisible(
+          find.text(mode),
+          250,
+          scrollable: find.byType(Scrollable).last,
+        );
+      }
+      await tester.tap(find.text(mode));
+      await tester.pumpAndSettle();
+      expect(find.text('١/١٠'), findsOneWidget);
+      await tester.tap(find.text('العودة إلى التدريبات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('متابعة التدريب'));
+      await tester.pumpAndSettle();
+      expect(find.text('١/١٠'), findsOneWidget);
+      await tester.ensureVisible(find.byType(OutlinedButton).first);
+      await tester.tap(find.byType(OutlinedButton).first);
+      await tester.scrollUntilVisible(
+        find.text('تحقَّق من الإجابة'),
+        250,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.tap(find.text('تحقَّق من الإجابة'));
+      await tester.pumpAndSettle();
+      final recorded = [
+        for (final lesson in catalog.lessons)
+          for (final exercise in [
+            ...lesson.exercises,
+            ...lesson.repeatExercises,
+          ])
+            if (userData.reviewStage(lesson.id, exercise.id) >= 0)
+              (lesson.id, exercise.id),
+      ];
+      expect(recorded, hasLength(1));
+      await tester.scrollUntilVisible(
+        find.text('العودة إلى التدريبات'),
+        -250,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.tap(find.text('العودة إلى التدريبات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('الخروج'));
+      await tester.pumpAndSettle();
+      expect(find.text('مراجعة متنوعة'), findsOneWidget);
+      expect(progress.practiceSessionsCompleted, 0);
+      expect(progress.practiceTotalAnswered, 0);
+      expect(userData.reviewStage(recorded.single.$1, recorded.single.$2), 0);
+    });
+  }
 
   testWidgets('starts a ten-question mixed practice session', (tester) async {
     await tester.pumpWidget(

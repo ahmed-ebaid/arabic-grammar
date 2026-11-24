@@ -288,6 +288,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get practiceAgain => 'تدرّب مرة أخرى';
 
   @override
+  String get practiceExit => 'العودة إلى التدريبات';
+
+  @override
+  String get practiceExitConfirmTitle => 'الخروج من التدريب؟';
+
+  @override
+  String get practiceExitConfirmBody =>
+      'لن يُحتسب هذا التدريب ضمن التدريبات المكتملة، وستبقى مراجعات إجاباتك المسجّلة.';
+
+  @override
+  String get practiceExitConfirm => 'الخروج';
+
+  @override
+  String get practiceExitCancel => 'متابعة التدريب';
+
+  @override
   String get progressTitle => 'تقدُّمك';
 
   @override
