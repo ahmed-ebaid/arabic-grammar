@@ -1,7 +1,7 @@
 name: arabic_grammar
 description: A bilingual Arabic grammar learning app.
 publish_to: none
-version: 0.9.3+80
+version: 0.9.4+81
 
 environment:
   sdk: ^3.12.2
