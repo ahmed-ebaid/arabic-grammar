@@ -16,6 +16,7 @@ import '../../shared/widgets/course_completion_celebration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import '../../shared/widgets/young_learner_mascot.dart';
 import 'alfiyya_readings.dart';
+import 'lesson_mind_map.dart';
 
 class LessonDetailScreen extends StatefulWidget {
   const LessonDetailScreen({
@@ -204,6 +205,29 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         languageCode: _languageCode,
         learningMode: learningMode,
         onContinue: _advance,
+      ),
+      _StepKind.mindMap => _StepLayout(
+        icon: Icons.account_tree_outlined,
+        title: AppLocalizations.of(context).mindMapTitle,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ArabicDiacriticsText(
+              AppLocalizations.of(context).mindMapIntro,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 20),
+            LessonMindMapView(
+              mindMap: widget.lesson.mindMap!,
+              languageCode: _languageCode,
+            ),
+          ],
+        ),
+        action: FilledButton(
+          onPressed: _advance,
+          child: Text(AppLocalizations.of(context).continueLabel),
+        ),
       ),
       _StepKind.exercise => _ExerciseStep(
         exercise: step.exercise!,
@@ -470,13 +494,14 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         _LessonStep.teaching(section),
         for (final example in section.examples) _LessonStep.analysis(example),
       ],
+      if (lesson.mindMap != null) const _LessonStep.mindMap(),
       for (final exercise in exercises) _LessonStep.exercise(exercise),
       const _LessonStep.completion(),
     ];
   }
 }
 
-enum _StepKind { objectives, teaching, exercise, analysis, completion }
+enum _StepKind { objectives, teaching, mindMap, exercise, analysis, completion }
 
 class _LessonStep {
   const _LessonStep.objectives()
@@ -499,6 +524,12 @@ class _LessonStep {
     : kind = _StepKind.analysis,
       section = null,
       exercise = null;
+
+  const _LessonStep.mindMap()
+    : kind = _StepKind.mindMap,
+      section = null,
+      exercise = null,
+      example = null;
 
   const _LessonStep.completion()
     : kind = _StepKind.completion,

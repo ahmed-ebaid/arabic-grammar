@@ -120,6 +120,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get objectivesTitle => 'ماذا ستتعلَّم؟';
 
   @override
+  String get mindMapTitle => 'خريطة ذهنية';
+
+  @override
+  String get mindMapIntro =>
+      'راجِعْ كيف تترابط أفكار الدرس قبل أن تبدأ التمارين.';
+
+  @override
   String get vocalizedLabel => 'بالحركات';
 
   @override

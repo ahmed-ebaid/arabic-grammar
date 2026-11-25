@@ -296,6 +296,18 @@ abstract class AppLocalizations {
   /// **'What you will learn'**
   String get objectivesTitle;
 
+  /// No description provided for @mindMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mind map'**
+  String get mindMapTitle;
+
+  /// No description provided for @mindMapIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Review how the lesson’s ideas connect before you practice.'**
+  String get mindMapIntro;
+
   /// No description provided for @vocalizedLabel.
   ///
   /// In en, this message translates to:

@@ -316,6 +316,33 @@ abstract final class ContentValidator {
       );
     }
 
+    final mindMap = lesson.mindMap;
+    if (mindMap != null) {
+      if (mindMap.branches.length < 2) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.mindMap.branches',
+            message: 'must contain at least two branches',
+          ),
+        );
+      }
+      for (final (branchIndex, branch) in mindMap.branches.indexed) {
+        for (final (childIndex, child) in branch.children.indexed) {
+          if (child.children.isNotEmpty) {
+            issues.add(
+              ContentValidationIssue(
+                path:
+                    '$path.mindMap.branches[$branchIndex]'
+                    '.children[$childIndex].children',
+                message:
+                    'mind maps support at most two levels below the center',
+              ),
+            );
+          }
+        }
+      }
+    }
+
     final review = lesson.review;
     if (review.status == ReviewStatus.approved) {
       if (review.reviewer == null) {

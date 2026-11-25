@@ -5072,12 +5072,16 @@
         {
           "en": "Read a noun in dual or sound plural form in its correct state.",
           "ar": "أن تقرأ اسمًا مثنى أو جمعًا سالمًا بطريقة صحيحة حسب حالته الإعرابية."
+        },
+        {
+          "en": "Recognize the broken plural and read it with the short vowels, like the singular.",
+          "ar": "أن تتعرَّفَ على جمع التكسير، وتعربه بالحركات كما تعرب المفرد."
         }
       ],
       "prerequisites": [
         "lesson_09"
       ],
-      "estimatedMinutes": 10,
+      "estimatedMinutes": 15,
       "sections": [
         {
           "id": "number-categories",
@@ -5150,189 +5154,556 @@
               ]
             }
           ]
+        },
+        {
+          "id": "sound-plural-states",
+          "type": "ruleSummary",
+          "title": {
+            "en": "Sound plurals in every state",
+            "ar": "الجمع السالم في كل حالاته"
+          },
+          "body": {
+            "en": "Sound masculine plural: جاءَ المعلِّمونَ (raf, waw), رأيتُ المعلِّمِينَ (nasb, ya), سلَّمتُ على المعلِّمِينَ (jarr, ya). Sound feminine plural: جاءَتِ المعلِّماتُ (raf, damma), رأيتُ المعلِّماتِ (nasb, kasra in place of fatha), مررتُ بالمعلِّماتِ (jarr, kasra). The sound feminine plural is never put in nasb with fatha. Note that without vowel marks the dual and sound masculine plural look identical in nasb and jarr: المعلمين may be المعلمَيْنِ or المعلمِينَ.",
+            "ar": "جمع المذكر السالم: «جاءَ المعلِّمونَ» مرفوع بالواو، و«رأيتُ المعلِّمِينَ» منصوب بالياء، و«سلَّمتُ على المعلِّمِينَ» مجرور بالياء. وجمع المؤنث السالم: «جاءَتِ المعلِّماتُ» مرفوع بالضمة، و«رأيتُ المعلِّماتِ» منصوب بالكسرة نيابةً عن الفتحة، و«مررتُ بالمعلِّماتِ» مجرور بالكسرة. فجمع المؤنث السالم لا يُنصب بالفتحة. وانتبه إلى أن المثنى وجمع المذكر السالم يُكتبان بالصورة نفسها في النصب والجر بغير شكل: «المعلمين» قد تكون «المعلمَيْنِ» أو «المعلمِينَ»."
+          },
+          "examples": []
+        },
+        {
+          "id": "broken-plural",
+          "type": "workedExample",
+          "title": {
+            "en": "The broken plural",
+            "ar": "جمع التكسير"
+          },
+          "body": {
+            "en": "Some plurals change the shape of the singular instead of adding an ending: كِتاب → كُتُب، طالِب → طُلّاب، رَجُل → رِجال. This is the broken plural. It takes the short vowels like the singular: damma in raf, fatha in nasb, and kasra in jarr. Watch out: أبيات and أصوات end in alif-ta, but the ta belongs to the root (بيت، صوت), so they are broken plurals and take fatha in nasb: حفظتُ الأبياتَ.",
+            "ar": "من الجموع ما تتغير فيه صورة المفرد، ولا تُزاد عليه واو ونون أو ألف وتاء: «كِتاب ← كُتُب»، و«طالِب ← طُلّاب»، و«رَجُل ← رِجال». هذا جمع التكسير، ويُعرب بالحركات كالمفرد: يُرفع بالضمة، ويُنصب بالفتحة، ويُجر بالكسرة. وانتبه: «أبيات» و«أصوات» تنتهيان بألف وتاء، لكن التاء فيهما أصلية من «بيت» و«صوت»، فهما جمعا تكسير يُنصبان بالفتحة: «حفظتُ الأبياتَ»."
+          },
+          "examples": [
+            {
+              "id": "broken-plural-example",
+              "vocalized": "قَرَأَ الطُّلَّابُ الكُتُبَ",
+              "unvocalized": "قرأ الطلاب الكتب",
+              "tokens": [
+                {
+                  "text": "قرأ",
+                  "start": 0,
+                  "end": 3,
+                  "role": {
+                    "en": "Past verb",
+                    "ar": "فعل ماضٍ"
+                  },
+                  "grammarState": "indeclinable",
+                  "grammaticalSign": {
+                    "en": "Fatha (fixed)",
+                    "ar": "الفتح"
+                  },
+                  "ending": "َ",
+                  "reason": {
+                    "en": "قرأ is a past verb, fixed on fatha.",
+                    "ar": "«قرأ» فعل ماضٍ مبني على الفتح."
+                  }
+                },
+                {
+                  "text": "الطلاب",
+                  "start": 4,
+                  "end": 10,
+                  "role": {
+                    "en": "Subject (broken plural)",
+                    "ar": "فاعل (جمع تكسير)"
+                  },
+                  "grammarState": "raf",
+                  "grammaticalSign": {
+                    "en": "Damma",
+                    "ar": "الضمة"
+                  },
+                  "ending": "ُ",
+                  "reason": {
+                    "en": "الطلاب is a broken-plural subject in raf, marked by damma, like a singular.",
+                    "ar": "«الطلاب» فاعل مرفوع، وعلامة رفعه الضمة؛ لأنه جمع تكسير يُعرب كالمفرد."
+                  }
+                },
+                {
+                  "text": "الكتب",
+                  "start": 11,
+                  "end": 16,
+                  "role": {
+                    "en": "Object (broken plural)",
+                    "ar": "مفعول به (جمع تكسير)"
+                  },
+                  "grammarState": "nasb",
+                  "grammaticalSign": {
+                    "en": "Fatha",
+                    "ar": "الفتحة"
+                  },
+                  "ending": "َ",
+                  "reason": {
+                    "en": "الكتب is a broken-plural object in nasb, marked by fatha.",
+                    "ar": "«الكتب» مفعول به منصوب، وعلامة نصبه الفتحة؛ لأنه جمع تكسير."
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "exercises": [
         {
-          "id": "lesson-10-recognize-01",
-          "type": "matchRule",
+          "id": "lesson-10-read-01",
+          "type": "addTashkeel",
           "prompt": {
-            "en": "Which of these words is dual (مثنى), not a sound plural?",
-            "ar": "أي هذه الكلمات مثنى، لا جمع سالم؟"
-          },
-          "options": [
-            {
-              "id": "dual",
-              "label": {
-                "en": "المعلمانِ",
-                "ar": "المعلمانِ"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. انِ marks a dual noun in raf.",
-                "ar": "صحيح. تنتهي «المعلمانِ» بالألف والنون «انِ»، فهي مثنى مرفوع، ونون المثنى مكسورة."
-              }
-            },
-            {
-              "id": "masc-plural",
-              "label": {
-                "en": "المعلمونَ",
-                "ar": "المعلمونَ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "ونَ marks a sound masculine plural (three or more), not a dual.",
-                "ar": "لا؛ لأن «المعلمون» تنتهي بالواو والنون، فهي جمع مذكر سالم في حالة الرفع."
-              }
-            },
-            {
-              "id": "fem-plural",
-              "label": {
-                "en": "المعلماتُ",
-                "ar": "المعلماتُ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "اتٌ marks a sound feminine plural, not a dual.",
-                "ar": "لا؛ لأن «المعلمات» جمع مؤنث سالم زيدت فيه الألف والتاء."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-10-state-02",
-          "type": "identifyState",
-          "prompt": {
-            "en": "What is the case of a dual noun when used as a subject or predicate?",
-            "ar": "ما الحالة الإعرابية للمثنى إذا وقع في موقع المبتدأ أو الخبر؟"
-          },
-          "options": [
-            {
-              "id": "raf",
-              "label": {
-                "en": "Raf (رفع)",
-                "ar": "الرفع"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. They are a dual topic and predicate, both in raf, marked by alif.",
-                "ar": "صحيح. «الطالبان» مبتدأ والاسم الآخر خبر، فكلاهما مرفوع بالألف لأنه مثنى."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "Nasb (نصب)",
-                "ar": "النصب"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "Nasb would need a governor such as إنّ or a verb making one of them an object.",
-                "ar": "لا؛ لأن النصب يحتاج إلى ناصب مثل «إنَّّ» أو أن يُسبق الاسم بفعل."
-              }
-            },
-            {
-              "id": "jarr",
-              "label": {
-                "en": "Jarr (جر)",
-                "ar": "الجر"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "No preposition or idafa governs either word here.",
-                "ar": "لا؛ لعدم تقدّم حرف جر، وليس التركيب تركيب إضافة."
-              }
-            }
-          ]
-        },
-        {
-          "id": "lesson-10-ending-03",
-          "type": "chooseEnding",
-          "prompt": {
-            "en": "Choose the dual form of المهندس as the object in رأيت ... .",
-            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندس» بوصفها مفعولا به في عبارة «رأيت ...»."
+            "en": "Read شكر المدير المهندسين. The manager thanked exactly two engineers. How do you read المهندسين?",
+            "ar": "اقرأ: «شكر المدير المهندسين». إذا كان المدير قد شكر مهندسَيْنِ اثنين فقط، فكيف تقرأ «المهندسين»؟"
           },
           "options": [
             {
               "id": "dual-nasb",
               "label": {
-                "en": "المُهَنْدِسَيْنِ",
-                "ar": "المُهَنْدِسَيْنِ"
+                "en": "المهندسَيْنِ",
+                "ar": "المهندسَيْنِ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. The dual object is in nasb, marked by ya.",
-                "ar": "صحيح؛ لأن المثنى ينصب بالياء (ين)."
+                "en": "Correct. It is a dual object in nasb: fatha before the ya and kasra on the nun.",
+                "ar": "صحيح؛ لأنه مفعول به مثنى منصوب بالياء، وما قبل الياء مفتوح والنون مكسورة."
+              }
+            },
+            {
+              "id": "plural-nasb",
+              "label": {
+                "en": "المهندسِينَ",
+                "ar": "المهندسِينَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Kasra before the ya and fatha on the nun make it a plural (more than two).",
+                "ar": "لا؛ لأن كسر ما قبل الياء وفتح النون علامة جمع المذكر السالم، أي أكثر من اثنين."
               }
             },
             {
               "id": "dual-raf",
               "label": {
-                "en": "المُهَنْدِسَانِ",
-                "ar": "المُهَنْدِسَانِ"
+                "en": "المهندسانِ",
+                "ar": "المهندسانِ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "انِ marks raf, used for a subject or topic, not an object.",
-                "ar": "لا؛ لأن الألف علامة رفع المثنى، والمطلوب هنا النصب."
-              }
-            },
-            {
-              "id": "masc-plural-raf",
-              "label": {
-                "en": "المُهَنْدِسُونَ",
-                "ar": "المُهَنْدِسُونَ"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "ونَ marks a sound masculine plural in raf, which is the wrong number and state here.",
-                "ar": "لا؛ لأن «المهندسون» جمع مذكر سالم مرفوع بالواو، والمطلوب مثنى منصوب بالياء."
+                "en": "The alif marks raf, but the object is in nasb.",
+                "ar": "لا؛ لأن الألف علامة رفع المثنى، والمفعول به منصوب."
               }
             }
           ]
         },
         {
-          "id": "lesson-10-read-04",
+          "id": "lesson-10-vocalize-02",
           "type": "addTashkeel",
           "prompt": {
-            "en": "Read المعلمون مجتهدون. Choose the correct reading of the topic and explain why.",
-            "ar": "اقرأ «المعلمون مجتهدون». اختر القراءة الصحيحة للمبتدأ، وعلّل سببها."
+            "en": "Choose the correct full reading of شكر المسلمون المعلمات.",
+            "ar": "اختر القراءة الصحيحة كاملةً لجملة «شكر المسلمون المعلمات»."
           },
           "options": [
             {
-              "id": "masc-plural-raf",
+              "id": "correct",
               "label": {
-                "en": "المُعَلِّمُونَ",
-                "ar": "المُعَلِّمُونَ"
+                "en": "شَكَرَ المسلمونَ المعلِّماتِ",
+                "ar": "شَكَرَ المسلمونَ المعلِّماتِ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. المعلمون is a sound masculine plural topic in raf, marked by waw.",
-                "ar": "صحيح. «المعلمون» مبتدأ مرفوع بالواو لأنه جمع مذكر سالم."
+                "en": "Correct. The subject is a sound masculine plural in raf (waw), and the object is a sound feminine plural in nasb (kasra in place of fatha).",
+                "ar": "صحيح؛ فالمسلمون فاعل مرفوع بالواو لأنه جمع مذكر سالم، والمعلمات مفعول به منصوب بالكسرة نيابةً عن الفتحة."
               }
             },
             {
-              "id": "dual",
+              "id": "subject-ya",
               "label": {
-                "en": "المُعَلِّمَيْنِ",
-                "ar": "المُعَلِّمَيْنِ"
+                "en": "شَكَرَ المسلمِينَ المعلِّماتِ",
+                "ar": "شَكَرَ المسلمِينَ المعلِّماتِ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a dual noun in nasb/jarr, the wrong number and state for this sentence.",
-                "ar": "لا؛ لأن «المُعَلِّمَيْنِ» مثنى منصوب أو مجرور، والكلام هنا على الجمع المرفوع."
+                "en": "The subject must be in raf, marked by waw, not ya.",
+                "ar": "لا؛ لأن الفاعل مرفوع، وعلامة رفع جمع المذكر السالم الواو لا الياء."
+              }
+            },
+            {
+              "id": "object-fatha",
+              "label": {
+                "en": "شَكَرَ المسلمونَ المعلِّماتَ",
+                "ar": "شَكَرَ المسلمونَ المعلِّماتَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The sound feminine plural never takes fatha in nasb.",
+                "ar": "لا؛ لأن جمع المؤنث السالم لا يُنصب بالفتحة، بل بالكسرة."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-error-03",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which sentence contains a mistake?",
+            "ar": "أيُّ هذه الجمل فيها خطأ؟"
+          },
+          "options": [
+            {
+              "id": "fem-fatha",
+              "label": {
+                "en": "كافأَ المديرُ العاملاتَ",
+                "ar": "كافأَ المديرُ العاملاتَ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct, this is the mistake. العاملات is an object, so it should be العاملاتِ with kasra in place of fatha.",
+                "ar": "صحيح، هذه هي الجملة الخاطئة؛ لأن «العاملات» مفعول به، وصوابها «العاملاتِ» بالكسرة نيابةً عن الفتحة."
+              }
+            },
+            {
+              "id": "dual-jarr",
+              "label": {
+                "en": "سلَّمتُ على المهندسَيْنِ",
+                "ar": "سلَّمتُ على المهندسَيْنِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This is correct: a dual after a preposition is in jarr, marked by ya.",
+                "ar": "هذه الجملة صحيحة؛ لأن المثنى بعد حرف الجر مجرور بالياء."
+              }
+            },
+            {
+              "id": "plural-raf",
+              "label": {
+                "en": "جاءَ المعلِّمونَ",
+                "ar": "جاءَ المعلِّمونَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This is correct: the subject is a sound masculine plural in raf, marked by waw.",
+                "ar": "هذه الجملة صحيحة؛ لأن الفاعل جمع مذكر سالم مرفوع بالواو."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-ambiguous-04",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Without vowel marks, شكرت المعلمين could mean how many teachers?",
+            "ar": "في جملة «شكرت المعلمين» غير المضبوطة بالشكل، كم معلّمًا يمكن أن تدل عليه «المعلمين»؟"
+          },
+          "options": [
+            {
+              "id": "both",
+              "label": {
+                "en": "Two, or more than two: only the vowels decide",
+                "ar": "اثنين أو أكثر؛ والشكل وحده يحدد ذلك"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. المعلمَيْنِ (dual) and المعلمِينَ (plural) look the same without vowel marks, since both are in nasb with ya.",
+                "ar": "صحيح؛ لأن «المعلمَيْنِ» مثنى و«المعلمِينَ» جمع، وكلاهما منصوب بالياء، فلا يُفرَّق بينهما إلا بالشكل أو السياق."
+              }
+            },
+            {
+              "id": "plural-only",
+              "label": {
+                "en": "More than two only",
+                "ar": "أكثر من اثنين فقط"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The dual in nasb is written the same way: المعلمَيْنِ.",
+                "ar": "لا؛ لأن المثنى المنصوب يُكتب بالصورة نفسها: «المعلمَيْنِ»."
+              }
+            },
+            {
+              "id": "dual-only",
+              "label": {
+                "en": "Exactly two only",
+                "ar": "اثنين فقط"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The sound masculine plural in nasb is written the same way: المعلمِينَ.",
+                "ar": "لا؛ لأن جمع المذكر السالم المنصوب يُكتب بالصورة نفسها: «المعلمِينَ»."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-trap-05",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Complete حفظت ... with the correct ending of الأبيات (singular: بيت).",
+            "ar": "أكمل: «حفظت ...» بالضبط الصحيح لكلمة «الأبيات» (مفردها: بيت)."
+          },
+          "options": [
+            {
+              "id": "broken-fatha",
+              "label": {
+                "en": "الأبياتَ",
+                "ar": "الأبياتَ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. The ta of أبيات belongs to the root (بيت), so it is a broken plural, put in nasb with fatha.",
+                "ar": "صحيح؛ لأن التاء في «أبيات» أصلية من «بيت»، فهي جمع تكسير يُنصب بالفتحة."
+              }
+            },
+            {
+              "id": "fem-kasra",
+              "label": {
+                "en": "الأبياتِ",
+                "ar": "الأبياتِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Kasra in nasb is only for sound feminine plurals, whose alif and ta are both added. Here the ta is part of the root.",
+                "ar": "لا؛ لأن النصب بالكسرة خاص بجمع المؤنث السالم الذي زيدت فيه الألف والتاء معًا، والتاء هنا أصلية."
+              }
+            },
+            {
+              "id": "raf",
+              "label": {
+                "en": "الأبياتُ",
+                "ar": "الأبياتُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Damma marks raf, but this word is the object.",
+                "ar": "لا؛ لأن الضمة علامة الرفع، والكلمة هنا مفعول به منصوب."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-compare-06",
+          "type": "identifyState",
+          "prompt": {
+            "en": "In الطلاب في المكتبة، والمعلمون في الصف, which statement is correct?",
+            "ar": "في جملة «الطلاب في المكتبة، والمعلمون في الصف»، أي العبارات صحيحة؟"
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "الطلاب is in raf with damma; المعلمون is in raf with waw",
+                "ar": "«الطلاب» مرفوع بالضمة، و«المعلمون» مرفوع بالواو"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Both are in raf, but الطلاب is a broken plural (damma) while المعلمون is a sound masculine plural (waw).",
+                "ar": "صحيح؛ فكلاهما مرفوع، لكن «الطلاب» جمع تكسير يُرفع بالضمة، و«المعلمون» جمع مذكر سالم يُرفع بالواو."
+              }
+            },
+            {
+              "id": "both-waw",
+              "label": {
+                "en": "Both are in raf with waw because both are plural",
+                "ar": "كلاهما مرفوع بالواو لأنهما جمعان"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Only the sound masculine plural takes waw; a broken plural takes damma.",
+                "ar": "لا؛ لأن الرفع بالواو خاص بجمع المذكر السالم، أما جمع التكسير فيُرفع بالضمة."
+              }
+            },
+            {
+              "id": "students-waw",
+              "label": {
+                "en": "الطلاب is in raf with waw because it is plural",
+                "ar": "«الطلاب» مرفوع بالواو لأنه جمع"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "الطلاب has no added waw and nun; it is a broken plural marked with damma.",
+                "ar": "لا؛ لأن «الطلاب» لم تُزد فيه واو ونون، فهو جمع تكسير يُرفع بالضمة."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-context-07",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Complete فازت ... في المسابقة، فكافأهما المدير. The pronoun هما shows there were two.",
+            "ar": "أكمل: «فازت ... في المسابقة، فكافأهما المدير». الضمير «هما» يدل على أنهما اثنتان."
+          },
+          "options": [
+            {
+              "id": "dual-raf",
+              "label": {
+                "en": "الطالبتانِ",
+                "ar": "الطالبتانِ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. It is a dual subject in raf, marked by alif.",
+                "ar": "صحيح؛ لأنها فاعل مثنى مرفوع، وعلامة رفعه الألف."
+              }
+            },
+            {
+              "id": "dual-nasb",
+              "label": {
+                "en": "الطالبتَيْنِ",
+                "ar": "الطالبتَيْنِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Ya marks nasb or jarr, but this word is the subject.",
+                "ar": "لا؛ لأن الياء علامة نصب المثنى وجره، والكلمة هنا فاعل مرفوع."
               }
             },
             {
               "id": "fem-plural",
               "label": {
-                "en": "المُعَلِّمَاتُ",
-                "ar": "المُعَلِّمَاتُ"
+                "en": "الطالباتُ",
+                "ar": "الطالباتُ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a sound feminine plural, the wrong gender for المعلمون here.",
-                "ar": "لا؛ لأن هذه صيغة جمع المؤنث السالم، والجملة عن جمع المذكر."
+                "en": "هما refers to two, so a dual is required, not a plural.",
+                "ar": "لا؛ لأن الضمير «هما» يدل على اثنتين، فالمطلوب مثنى لا جمع."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-states-08",
+          "type": "identifyState",
+          "prompt": {
+            "en": "In رأيت الطالبات في المكتبة, which statement is correct?",
+            "ar": "في جملة «رأيت الطالبات في المكتبة»، أي العبارات صحيحة؟"
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "الطالبات is in nasb with kasra; المكتبة is in jarr with kasra",
+                "ar": "«الطالبات» منصوبة بالكسرة، و«المكتبة» مجرورة بالكسرة"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Both end in kasra, but for different reasons: الطالبات is an object (kasra in place of fatha) and المكتبة follows a preposition.",
+                "ar": "صحيح؛ فكلتاهما آخرها كسرة لسببين مختلفين: «الطالبات» مفعول به منصوب بالكسرة نيابةً عن الفتحة، و«المكتبة» مجرورة بحرف الجر."
+              }
+            },
+            {
+              "id": "both-jarr",
+              "label": {
+                "en": "Both are in jarr because both end in kasra",
+                "ar": "كلتاهما مجرورة لأن آخرهما مكسور"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "A kasra does not always mean jarr. الطالبات is an object, so it is in nasb.",
+                "ar": "لا؛ لأن الكسرة ليست دائمًا علامة جر؛ فـ«الطالبات» مفعول به منصوب."
+              }
+            },
+            {
+              "id": "ya",
+              "label": {
+                "en": "الطالبات is in nasb with ya",
+                "ar": "«الطالبات» منصوبة بالياء"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Ya marks nasb for the dual and sound masculine plural, not the sound feminine plural.",
+                "ar": "لا؛ لأن الياء علامة نصب المثنى وجمع المذكر السالم، لا جمع المؤنث السالم."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-sort-09",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which group contains only broken plurals?",
+            "ar": "أيُّ هذه المجموعات كل كلماتها جموع تكسير؟"
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "كُتُب، أقلام، أبيات",
+                "ar": "كُتُب، أقلام، أبيات"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Each changes the shape of its singular: كتاب، قلم، بيت.",
+                "ar": "صحيح؛ لأن كل كلمة تغيّرت فيها صورة مفردها: كتاب، قلم، بيت."
+              }
+            },
+            {
+              "id": "has-fem",
+              "label": {
+                "en": "رِجال، معلِّمات، طُلّاب",
+                "ar": "رِجال، معلِّمات، طُلّاب"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "معلمات is a sound feminine plural: the singular stays and alif-ta is added.",
+                "ar": "لا؛ لأن «معلمات» جمع مؤنث سالم، سلم فيه المفرد وزيدت الألف والتاء."
+              }
+            },
+            {
+              "id": "has-masc",
+              "label": {
+                "en": "أصوات، مسلمون، بيوت",
+                "ar": "أصوات، مسلمون، بيوت"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "مسلمون is a sound masculine plural. أصوات, however, is a broken plural.",
+                "ar": "لا؛ لأن «مسلمون» جمع مذكر سالم، أما «أصوات» فجمع تكسير."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-transform-10",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Make both nouns in شكر المهندس المعلم sound masculine plurals.",
+            "ar": "اكتب جملة «شكر المهندس المعلم» بعد جمع الاسمين جمع مذكر سالما."
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "شكرَ المهندسونَ المعلِّمِينَ",
+                "ar": "شكرَ المهندسونَ المعلِّمِينَ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. The subject takes waw in raf; the object takes ya in nasb. The verb stays singular before its subject.",
+                "ar": "صحيح؛ فالفاعل مرفوع بالواو، والمفعول به منصوب بالياء، ويبقى الفعل مفردًا لأن فاعله اسم ظاهر بعده."
+              }
+            },
+            {
+              "id": "swapped",
+              "label": {
+                "en": "شكرَ المهندسِينَ المعلِّمونَ",
+                "ar": "شكرَ المهندسِينَ المعلِّمونَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The endings are swapped: the subject needs waw and the object needs ya.",
+                "ar": "لا؛ لأن العلامتين معكوستان: الفاعل يُرفع بالواو، والمفعول به يُنصب بالياء."
+              }
+            },
+            {
+              "id": "both-waw",
+              "label": {
+                "en": "شكرَ المهندسونَ المعلِّمونَ",
+                "ar": "شكرَ المهندسونَ المعلِّمونَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The object is in nasb, so it takes ya, not waw.",
+                "ar": "لا؛ لأن المفعول به منصوب، فعلامته الياء لا الواو."
               }
             }
           ]
@@ -5340,185 +5711,461 @@
       ],
       "repeatExercises": [
         {
-          "id": "lesson-10-repeat-recognize-01",
-          "type": "matchRule",
+          "id": "lesson-10-repeat-read-01",
+          "type": "addTashkeel",
           "prompt": {
-            "en": "Which of these words is a sound feminine plural (جمع مؤنث سالم)?",
-            "ar": "أي هذه الكلمات جمع مؤنث سالم؟"
+            "en": "Read سلمت على اللاعبين. You greeted a whole team, more than two players. How do you read اللاعبين?",
+            "ar": "اقرأ: «سلمت على اللاعبين». إذا سلّمتَ على فريق كامل، أي على أكثر من لاعبَيْنِ، فكيف تقرأ «اللاعبين»؟"
           },
           "options": [
             {
-              "id": "fem-plural",
+              "id": "plural-jarr",
               "label": {
-                "en": "المعلماتُ",
-                "ar": "المعلماتُ"
+                "en": "اللاعبِينَ",
+                "ar": "اللاعبِينَ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. اتٌ marks a sound feminine plural.",
-                "ar": "صحيح. «المعلمات» جمع مؤنث سالم، زيدت فيه الألف والتاء."
+                "en": "Correct. A sound masculine plural after a preposition is in jarr: kasra before the ya and fatha on the nun.",
+                "ar": "صحيح؛ لأنه جمع مذكر سالم مجرور بالياء، وما قبل الياء مكسور والنون مفتوحة."
               }
             },
             {
-              "id": "dual",
+              "id": "dual-jarr",
               "label": {
-                "en": "المعلمانِ",
-                "ar": "المعلمانِ"
+                "en": "اللاعبَيْنِ",
+                "ar": "اللاعبَيْنِ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "انِ marks a dual noun, not a sound feminine plural.",
-                "ar": "لا؛ لأن «المعلمان» انتهت بالألف والنون، فهي مثنى."
+                "en": "Fatha before the ya and kasra on the nun make it a dual (exactly two).",
+                "ar": "لا؛ لأن فتح ما قبل الياء وكسر النون علامة المثنى، أي اثنين فقط."
               }
             },
             {
-              "id": "masc-plural",
+              "id": "plural-raf",
               "label": {
-                "en": "المعلمونَ",
-                "ar": "المعلمونَ"
+                "en": "اللاعبونَ",
+                "ar": "اللاعبونَ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "ونَ marks a sound masculine plural, not a feminine one.",
-                "ar": "لا؛ لأن «المعلمون» انتهت بالواو والنون، فهي جمع مذكر سالم."
+                "en": "Waw marks raf, but a noun after a preposition is in jarr.",
+                "ar": "لا؛ لأن الواو علامة الرفع، والاسم بعد حرف الجر مجرور."
               }
             }
           ]
         },
         {
-          "id": "lesson-10-repeat-state-02",
-          "type": "identifyState",
+          "id": "lesson-10-repeat-vocalize-02",
+          "type": "addTashkeel",
           "prompt": {
-            "en": "What is the case of a dual noun when used as a subject or predicate?",
-            "ar": "ما الحالة الإعرابية للمثنى إذا وقع في موقع المبتدأ أو الخبر؟"
+            "en": "Choose the correct full reading of كافأت المعلمات المهندسين (more than two engineers).",
+            "ar": "اختر القراءة الصحيحة كاملةً لجملة «كافأت المعلمات المهندسين» (والمهندسون أكثر من اثنين)."
           },
           "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "كافأَتِ المعلِّماتُ المهندسِينَ",
+                "ar": "كافأَتِ المعلِّماتُ المهندسِينَ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. The subject is a sound feminine plural in raf (damma), and the object is a sound masculine plural in nasb (ya).",
+                "ar": "صحيح؛ فالمعلمات فاعل مرفوع بالضمة، والمهندسين مفعول به منصوب بالياء لأنه جمع مذكر سالم."
+              }
+            },
+            {
+              "id": "subject-kasra",
+              "label": {
+                "en": "كافأَتِ المعلِّماتِ المهندسِينَ",
+                "ar": "كافأَتِ المعلِّماتِ المهندسِينَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The subject is in raf, so the sound feminine plural takes damma.",
+                "ar": "لا؛ لأن الفاعل مرفوع، وجمع المؤنث السالم يُرفع بالضمة."
+              }
+            },
+            {
+              "id": "object-waw",
+              "label": {
+                "en": "كافأَتِ المعلِّماتُ المهندسونَ",
+                "ar": "كافأَتِ المعلِّماتُ المهندسونَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The object is in nasb, so it takes ya, not waw.",
+                "ar": "لا؛ لأن المفعول به منصوب، فعلامته الياء لا الواو."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-error-03",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which sentence contains a mistake?",
+            "ar": "أيُّ هذه الجمل فيها خطأ؟"
+          },
+          "options": [
+            {
+              "id": "dual-alif",
+              "label": {
+                "en": "رأيتُ الطالبانِ",
+                "ar": "رأيتُ الطالبانِ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct, this is the mistake. الطالبان is an object, so it should be الطالبَيْنِ with ya.",
+                "ar": "صحيح، هذه هي الجملة الخاطئة؛ لأن «الطالبان» مفعول به، وصوابها «الطالبَيْنِ» بالياء."
+              }
+            },
+            {
+              "id": "fem-jarr",
+              "label": {
+                "en": "مررتُ بالمعلِّماتِ",
+                "ar": "مررتُ بالمعلِّماتِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This is correct: a sound feminine plural after a preposition is in jarr with kasra.",
+                "ar": "هذه الجملة صحيحة؛ لأن جمع المؤنث السالم بعد حرف الجر مجرور بالكسرة."
+              }
+            },
+            {
+              "id": "plural-raf",
+              "label": {
+                "en": "حضرَ المهندسونَ",
+                "ar": "حضرَ المهندسونَ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "This is correct: the subject is a sound masculine plural in raf, marked by waw.",
+                "ar": "هذه الجملة صحيحة؛ لأن الفاعل جمع مذكر سالم مرفوع بالواو."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-ambiguous-04",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Without vowel marks, مررت بالمسافرين could mean how many travelers?",
+            "ar": "في جملة «مررت بالمسافرين» غير المضبوطة بالشكل، كم مسافرًا يمكن أن تدل عليه «المسافرين»؟"
+          },
+          "options": [
+            {
+              "id": "both",
+              "label": {
+                "en": "Two, or more than two: only the vowels decide",
+                "ar": "اثنين أو أكثر؛ والشكل وحده يحدد ذلك"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. المسافرَيْنِ (dual) and المسافرِينَ (plural) look the same without vowel marks, since both are in jarr with ya.",
+                "ar": "صحيح؛ لأن «المسافرَيْنِ» مثنى و«المسافرِينَ» جمع، وكلاهما مجرور بالياء، فلا يُفرَّق بينهما إلا بالشكل أو السياق."
+              }
+            },
+            {
+              "id": "plural-only",
+              "label": {
+                "en": "More than two only",
+                "ar": "أكثر من اثنين فقط"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The dual in jarr is written the same way: المسافرَيْنِ.",
+                "ar": "لا؛ لأن المثنى المجرور يُكتب بالصورة نفسها: «المسافرَيْنِ»."
+              }
+            },
+            {
+              "id": "dual-only",
+              "label": {
+                "en": "Exactly two only",
+                "ar": "اثنين فقط"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The sound masculine plural in jarr is written the same way: المسافرِينَ.",
+                "ar": "لا؛ لأن جمع المذكر السالم المجرور يُكتب بالصورة نفسها: «المسافرِينَ»."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-trap-05",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Complete سمعت ... with the correct ending of الأصوات (singular: صوت).",
+            "ar": "أكمل: «سمعت ...» بالضبط الصحيح لكلمة «الأصوات» (مفردها: صوت)."
+          },
+          "options": [
+            {
+              "id": "broken-fatha",
+              "label": {
+                "en": "الأصواتَ",
+                "ar": "الأصواتَ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. The ta of أصوات belongs to the root (صوت), so it is a broken plural, put in nasb with fatha.",
+                "ar": "صحيح؛ لأن التاء في «أصوات» أصلية من «صوت»، فهي جمع تكسير يُنصب بالفتحة."
+              }
+            },
+            {
+              "id": "fem-kasra",
+              "label": {
+                "en": "الأصواتِ",
+                "ar": "الأصواتِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Kasra in nasb is only for sound feminine plurals, whose alif and ta are both added. Here the ta is part of the root.",
+                "ar": "لا؛ لأن النصب بالكسرة خاص بجمع المؤنث السالم الذي زيدت فيه الألف والتاء معًا، والتاء هنا أصلية."
+              }
+            },
             {
               "id": "raf",
               "label": {
-                "en": "Raf (رفع)",
-                "ar": "الرفع"
-              },
-              "isCorrect": true,
-              "feedback": {
-                "en": "Correct. They are a dual topic and predicate, both in raf, marked by alif.",
-                "ar": "صحيح. «البنتان» مبتدأ والاسم الآخر خبر، فكلاهما مرفوع بالألف لأنه مثنى."
-              }
-            },
-            {
-              "id": "nasb",
-              "label": {
-                "en": "Nasb (نصب)",
-                "ar": "النصب"
+                "en": "الأصواتُ",
+                "ar": "الأصواتُ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "Nothing here turns either word into an object or اسم إنّ.",
-                "ar": "لا؛ لأن الكلمتين لم تقعا موقع النصب (مفعول به، أو اسم إنّ، أو خبر كان)."
-              }
-            },
-            {
-              "id": "jarr",
-              "label": {
-                "en": "Jarr (جر)",
-                "ar": "الجر"
-              },
-              "isCorrect": false,
-              "feedback": {
-                "en": "No preposition or idafa governs either word here.",
-                "ar": "لا؛ لأن الكلمتين لم تقعا موقع الجر (اسم مجرور، أو مضاف إليه)."
+                "en": "Damma marks raf, but this word is the object.",
+                "ar": "لا؛ لأن الضمة علامة الرفع، والكلمة هنا مفعول به منصوب."
               }
             }
           ]
         },
         {
-          "id": "lesson-10-repeat-ending-03",
+          "id": "lesson-10-repeat-compare-06",
+          "type": "identifyState",
+          "prompt": {
+            "en": "In رأيت الرجال والمهندسين, which statement is correct?",
+            "ar": "في جملة «رأيت الرجال والمهندسين»، أي العبارات صحيحة؟"
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "الرجال is in nasb with fatha; المهندسين is in nasb with ya",
+                "ar": "«الرجال» منصوب بالفتحة، و«المهندسين» منصوب بالياء"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Both are in nasb, but الرجال is a broken plural (fatha) while المهندسين is a sound masculine plural (ya).",
+                "ar": "صحيح؛ فكلاهما منصوب، لكن «الرجال» جمع تكسير يُنصب بالفتحة، و«المهندسين» جمع مذكر سالم يُنصب بالياء."
+              }
+            },
+            {
+              "id": "both-ya",
+              "label": {
+                "en": "Both are in nasb with ya because both are plural",
+                "ar": "كلاهما منصوب بالياء لأنهما جمعان"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Only the sound masculine plural takes ya; a broken plural takes fatha.",
+                "ar": "لا؛ لأن النصب بالياء خاص بالمثنى وجمع المذكر السالم، أما جمع التكسير فيُنصب بالفتحة."
+              }
+            },
+            {
+              "id": "men-kasra",
+              "label": {
+                "en": "الرجال is in nasb with kasra because it is plural",
+                "ar": "«الرجال» منصوب بالكسرة لأنه جمع"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "Kasra in place of fatha is only for the sound feminine plural.",
+                "ar": "لا؛ لأن النصب بالكسرة خاص بجمع المؤنث السالم."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-context-07",
           "type": "chooseEnding",
           "prompt": {
-            "en": "Choose the dual form of المهندسة as the object in رأيت ... .",
-            "ar": "اختر صيغة المثنى المناسبة لكلمة «المهندسة» بوصفها مفعولا به في عبارة «رأيت ...»."
+            "en": "Complete كافأ المدير ... لأنهما نجحا. The pronoun هما shows there were two.",
+            "ar": "أكمل: «كافأ المدير ... لأنهما نجحا». الضمير «هما» يدل على أنهما اثنان."
           },
           "options": [
             {
               "id": "dual-nasb",
               "label": {
-                "en": "المُهَنْدِسَتَيْنِ",
-                "ar": "المُهَنْدِسَتَيْنِ"
+                "en": "الطالبَيْنِ",
+                "ar": "الطالبَيْنِ"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. The dual object is in nasb, marked by ya.",
-                "ar": "صحيح. المثنى ينصب بالياء؛ لأنه وقع مفعولًا به."
+                "en": "Correct. It is a dual object in nasb, marked by ya.",
+                "ar": "صحيح؛ لأنه مفعول به مثنى منصوب، وعلامة نصبه الياء."
               }
             },
             {
               "id": "dual-raf",
               "label": {
-                "en": "المُهَنْدِسَتَانِ",
-                "ar": "المُهَنْدِسَتَانِ"
+                "en": "الطالبانِ",
+                "ar": "الطالبانِ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "انِ marks raf, used for a subject or topic, not an object.",
-                "ar": "لا؛ لأن الألف علامة رفع المثنى، والمطلوب هنا النصب."
+                "en": "Alif marks raf, but this word is the object.",
+                "ar": "لا؛ لأن الألف علامة رفع المثنى، والكلمة هنا مفعول به منصوب."
               }
             },
             {
-              "id": "fem-plural-jarr",
+              "id": "plural-nasb",
               "label": {
-                "en": "المُهَنْدِسَاتِ",
-                "ar": "المُهَنْدِسَاتِ"
+                "en": "الطالبِينَ",
+                "ar": "الطالبِينَ"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "اتٍ marks a sound feminine plural, the wrong number for a dual.",
-                "ar": "لا؛ لأن «المهندسات» جمع مؤنث سالم زيدت فيه الألف والتاء، والمطلوب مثنى."
+                "en": "هما refers to two, so a dual is required, not a plural.",
+                "ar": "لا؛ لأن الضمير «هما» يدل على اثنين، فالمطلوب مثنى لا جمع."
               }
             }
           ]
         },
         {
-          "id": "lesson-10-repeat-read-04",
-          "type": "addTashkeel",
+          "id": "lesson-10-repeat-states-08",
+          "type": "identifyState",
           "prompt": {
-            "en": "Correct العامل مجتهدات by choosing the appropriate topic:",
-            "ar": "صحّح عبارة «العامل مجتهدات» باختيار المبتدأ المناسب مما يلي:"
+            "en": "In مررت بالمعلمات، وشكرت المعلمات, which statement is correct?",
+            "ar": "في جملة «مررت بالمعلمات، وشكرت المعلمات»، أي العبارات صحيحة؟"
           },
           "options": [
             {
-              "id": "fem-plural-raf",
+              "id": "correct",
               "label": {
-                "en": "العَامِلَاتُ",
-                "ar": "العَامِلَاتُ"
+                "en": "The first is in jarr and the second in nasb; both are marked by kasra",
+                "ar": "الأولى مجرورة والثانية منصوبة، وعلامتهما الكسرة"
               },
               "isCorrect": true,
               "feedback": {
-                "en": "Correct. العاملات is a sound feminine plural topic in raf, marked by damma. Alif and ta form the plural; they are not the case sign.",
-                "ar": "صحيح. «العاملات» مبتدأ جمع مؤنث سالم مرفوع بالضمة. والألف والتاء علامة صيغة الجمع، لا علامة الرفع."
+                "en": "Correct. The first follows a preposition (jarr); the second is an object (nasb, kasra in place of fatha).",
+                "ar": "صحيح؛ فالأولى مجرورة بحرف الجر، والثانية مفعول به منصوب بالكسرة نيابةً عن الفتحة."
               }
             },
             {
-              "id": "masc-plural",
+              "id": "both-jarr",
               "label": {
-                "en": "العَامِلُونَ",
-                "ar": "العَامِلُونَ"
+                "en": "Both are in jarr because both end in kasra",
+                "ar": "كلتاهما مجرورة لأن آخرهما مكسور"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a sound masculine plural, the wrong gender here.",
-                "ar": "لا؛ لأن هذه صيغة جمع المذكر السالم، والخبر جمع مؤنث."
+                "en": "A kasra does not always mean jarr. The second one is an object, so it is in nasb.",
+                "ar": "لا؛ لأن الكسرة ليست دائمًا علامة جر؛ فالثانية مفعول به منصوب."
               }
             },
             {
-              "id": "dual",
+              "id": "swapped",
               "label": {
-                "en": "العَامِلَتَانِ",
-                "ar": "العَامِلَتَانِ"
+                "en": "The first is in nasb and the second in jarr",
+                "ar": "الأولى منصوبة والثانية مجرورة"
               },
               "isCorrect": false,
               "feedback": {
-                "en": "This is a dual noun, the wrong number for this sentence about several workers.",
-                "ar": "لا؛ لأن هذه صيغة المثنى، والخبر جمع مؤنث."
+                "en": "The first follows the preposition ب, so it is in jarr.",
+                "ar": "لا؛ لأن الأولى سبقها حرف الجر «الباء»، فهي مجرورة."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-sort-09",
+          "type": "matchRule",
+          "prompt": {
+            "en": "Which group contains only broken plurals?",
+            "ar": "أيُّ هذه المجموعات كل كلماتها جموع تكسير؟"
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "رِجال، بيوت، أوقات",
+                "ar": "رِجال، بيوت، أوقات"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. Each changes the shape of its singular: رجل، بيت، وقت.",
+                "ar": "صحيح؛ لأن كل كلمة تغيّرت فيها صورة مفردها: رجل، بيت، وقت."
+              }
+            },
+            {
+              "id": "has-fem",
+              "label": {
+                "en": "أقلام، مهندسات، كُتُب",
+                "ar": "أقلام، مهندسات، كُتُب"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "مهندسات is a sound feminine plural: the singular stays and alif-ta is added.",
+                "ar": "لا؛ لأن «مهندسات» جمع مؤنث سالم، سلم فيه المفرد وزيدت الألف والتاء."
+              }
+            },
+            {
+              "id": "has-masc",
+              "label": {
+                "en": "أبيات، معلِّمون، دروس",
+                "ar": "أبيات، معلِّمون، دروس"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "معلمون is a sound masculine plural. أبيات, however, is a broken plural.",
+                "ar": "لا؛ لأن «معلمون» جمع مذكر سالم، أما «أبيات» فجمع تكسير."
+              }
+            }
+          ]
+        },
+        {
+          "id": "lesson-10-repeat-transform-10",
+          "type": "chooseEnding",
+          "prompt": {
+            "en": "Make both nouns in سلمت المعلمة على الطالبة sound feminine plurals.",
+            "ar": "اكتب جملة «سلمت المعلمة على الطالبة» بعد جمع الاسمين جمع مؤنث سالما."
+          },
+          "options": [
+            {
+              "id": "correct",
+              "label": {
+                "en": "سلَّمتِ المعلِّماتُ على الطالباتِ",
+                "ar": "سلَّمتِ المعلِّماتُ على الطالباتِ"
+              },
+              "isCorrect": true,
+              "feedback": {
+                "en": "Correct. The subject takes damma in raf; after على the noun takes kasra in jarr.",
+                "ar": "صحيح؛ فالفاعل مرفوع بالضمة، والاسم بعد «على» مجرور بالكسرة."
+              }
+            },
+            {
+              "id": "subject-fatha",
+              "label": {
+                "en": "سلَّمتِ المعلِّماتَ على الطالباتِ",
+                "ar": "سلَّمتِ المعلِّماتَ على الطالباتِ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The subject is in raf, and a sound feminine plural never takes fatha.",
+                "ar": "لا؛ لأن الفاعل مرفوع بالضمة، وجمع المؤنث السالم لا يُختم بالفتحة أصلًا."
+              }
+            },
+            {
+              "id": "swapped",
+              "label": {
+                "en": "سلَّمتِ المعلِّماتِ على الطالباتُ",
+                "ar": "سلَّمتِ المعلِّماتِ على الطالباتُ"
+              },
+              "isCorrect": false,
+              "feedback": {
+                "en": "The endings are swapped: the subject needs damma and the noun after على needs kasra.",
+                "ar": "لا؛ لأن العلامتين معكوستان: الفاعل مرفوع بالضمة، والمجرور بـ«على» علامته الكسرة."
               }
             }
           ]
@@ -5544,11 +6191,245 @@
         }
       ],
       "review": {
-        "status": "approved",
-        "contentVersion": "1.0.0",
-        "reviewer": "د. شريف محمد الصادق",
-        "reviewedAt": "2026-10-31T00:00:00Z",
-        "notes": "Reviewed and approved by Dr. Sherif Mohamed El-Sadek, Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University."
+        "status": "pendingReview",
+        "contentVersion": "1.0.2",
+        "reviewer": null,
+        "reviewedAt": null,
+        "notes": "Pilot: mind map, sound plural states, broken plural section, and ten rewritten higher-order exercises awaiting teacher review."
+      },
+      "mindMap": {
+        "center": {
+          "en": "Singular, dual, and plural",
+          "ar": "المفرد والمثنى والجمع"
+        },
+        "branches": [
+          {
+            "label": {
+              "en": "Singular",
+              "ar": "المفرد"
+            },
+            "detail": {
+              "en": "Denotes one; it takes the short vowels: damma in raf, fatha in nasb, kasra in jarr.",
+              "ar": "يدل على واحد أو واحدة، ويُعرب بالحركات: الضمة رفعًا، والفتحة نصبًا، والكسرة جرًّا."
+            },
+            "examples": [
+              "طالِبٌ",
+              "طالِبةٌ",
+              "كِتابٌ"
+            ]
+          },
+          {
+            "label": {
+              "en": "Dual",
+              "ar": "المثنى"
+            },
+            "detail": {
+              "en": "Denotes two by adding alif-nun or ya-nun to the singular; its nun has kasra.",
+              "ar": "يدل على اثنين أو اثنتين بزيادة ألف ونون أو ياء ونون على المفرد، ونونه مكسورة."
+            },
+            "children": [
+              {
+                "label": {
+                  "en": "Raf: alif",
+                  "ar": "الرفع بالألف"
+                },
+                "examples": [
+                  "جاءَ الطالِبانِ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Nasb: ya",
+                  "ar": "النصب بالياء"
+                },
+                "examples": [
+                  "رأيتُ الطالِبَيْنِ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Jarr: ya",
+                  "ar": "الجر بالياء"
+                },
+                "examples": [
+                  "مررتُ بالطالِبَيْنِ"
+                ]
+              }
+            ]
+          },
+          {
+            "label": {
+              "en": "Sound masculine plural",
+              "ar": "جمع المذكر السالم"
+            },
+            "detail": {
+              "en": "Denotes more than two; the singular stays intact and takes waw-nun or ya-nun; its nun has fatha.",
+              "ar": "يدل على أكثر من اثنين، ويسلم فيه بناء المفرد وتزاد واو ونون أو ياء ونون، ونونه مفتوحة."
+            },
+            "children": [
+              {
+                "label": {
+                  "en": "Raf: waw",
+                  "ar": "الرفع بالواو"
+                },
+                "examples": [
+                  "جاءَ المعلِّمونَ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Nasb: ya",
+                  "ar": "النصب بالياء"
+                },
+                "examples": [
+                  "رأيتُ المعلِّمِينَ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Jarr: ya",
+                  "ar": "الجر بالياء"
+                },
+                "examples": [
+                  "سلَّمتُ على المعلِّمِينَ"
+                ]
+              }
+            ]
+          },
+          {
+            "label": {
+              "en": "Sound feminine plural",
+              "ar": "جمع المؤنث السالم"
+            },
+            "detail": {
+              "en": "Denotes more than two by adding alif-ta to the singular.",
+              "ar": "يدل على أكثر من اثنتين بزيادة ألف وتاء على المفرد."
+            },
+            "children": [
+              {
+                "label": {
+                  "en": "Raf: damma",
+                  "ar": "الرفع بالضمة"
+                },
+                "examples": [
+                  "جاءَتِ المعلِّماتُ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Nasb: kasra in place of fatha",
+                  "ar": "النصب بالكسرة نيابةً عن الفتحة"
+                },
+                "examples": [
+                  "رأيتُ المعلِّماتِ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Jarr: kasra",
+                  "ar": "الجر بالكسرة"
+                },
+                "examples": [
+                  "مررتُ بالمعلِّماتِ"
+                ]
+              }
+            ]
+          },
+          {
+            "label": {
+              "en": "Broken plural",
+              "ar": "جمع التكسير"
+            },
+            "detail": {
+              "en": "Denotes more than two; the singular’s shape changes, and it takes the short vowels like the singular.",
+              "ar": "يدل على أكثر من اثنين، وتتغير فيه صورة المفرد، ويُعرب بالحركات كالمفرد."
+            },
+            "examples": [
+              "كِتابٌ ← كُتُبٌ",
+              "رَجُلٌ ← رِجالٌ",
+              "قَلَمٌ ← أَقْلامٌ"
+            ],
+            "children": [
+              {
+                "label": {
+                  "en": "Raf: damma",
+                  "ar": "الرفع بالضمة"
+                },
+                "examples": [
+                  "جاءَ الرِّجالُ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Nasb: fatha",
+                  "ar": "النصب بالفتحة"
+                },
+                "examples": [
+                  "رأيتُ الرِّجالَ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Jarr: kasra",
+                  "ar": "الجر بالكسرة"
+                },
+                "examples": [
+                  "مررتُ بالرِّجالِ"
+                ]
+              },
+              {
+                "label": {
+                  "en": "Watch out: the root ta",
+                  "ar": "انتبه: التاء الأصلية"
+                },
+                "detail": {
+                  "en": "If the ta belongs to the root, the word is a broken plural and takes fatha in nasb.",
+                  "ar": "إذا كانت التاء أصلية فالكلمة جمع تكسير تُنصب بالفتحة."
+                },
+                "examples": [
+                  "بيت ← أبيات",
+                  "حفظتُ الأبياتَ"
+                ]
+              }
+            ]
+          },
+          {
+            "label": {
+              "en": "How do you tell dual from plural?",
+              "ar": "كيف تفرِّق بين المثنى والجمع؟"
+            },
+            "children": [
+              {
+                "label": {
+                  "en": "Before the ya",
+                  "ar": "ما قبل الياء"
+                },
+                "detail": {
+                  "en": "In the dual it has fatha (ـَيْنِ); in the sound masculine plural, kasra (ـِينَ).",
+                  "ar": "في المثنى مفتوح «ـَيْنِ»، وفي جمع المذكر السالم مكسور «ـِينَ»."
+                },
+                "examples": [
+                  "المعلِّمَيْنِ = اثنان",
+                  "المعلِّمِينَ = جمع"
+                ]
+              },
+              {
+                "label": {
+                  "en": "The nun’s vowel",
+                  "ar": "حركة النون"
+                },
+                "detail": {
+                  "en": "The dual’s nun has kasra; the sound masculine plural’s nun has fatha.",
+                  "ar": "نون المثنى مكسورة، ونون جمع المذكر السالم مفتوحة."
+                },
+                "examples": [
+                  "الطالبانِ",
+                  "الطالبونَ"
+                ]
+              }
+            ]
+          }
+        ]
       }
     },
     {

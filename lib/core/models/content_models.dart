@@ -133,6 +133,7 @@ class Lesson {
     required this.repeatExercises,
     required this.sources,
     required this.review,
+    this.mindMap,
   });
 
   factory Lesson.fromJson(Map<String, Object?> json, String path) {
@@ -148,6 +149,7 @@ class Lesson {
       'repeatExercises',
       'sources',
       'review',
+      'mindMap',
     }, path);
     return Lesson(
       id: JsonValue.requiredString(json, 'id', path),
@@ -195,6 +197,9 @@ class Lesson {
         JsonValue.object(json['review'], '$path.review'),
         '$path.review',
       ),
+      mindMap: json['mindMap'] == null
+          ? null
+          : LessonMindMap.fromJson(json['mindMap'], '$path.mindMap'),
     );
   }
 
@@ -209,6 +214,70 @@ class Lesson {
   final List<Exercise> repeatExercises;
   final List<ContentSource> sources;
   final ContentReview review;
+  final LessonMindMap? mindMap;
+}
+
+class LessonMindMap {
+  const LessonMindMap({required this.center, required this.branches});
+
+  factory LessonMindMap.fromJson(Object? value, String path) {
+    final json = JsonValue.object(value, path);
+    JsonValue.expectKeys(json, const {'center', 'branches'}, path);
+    return LessonMindMap(
+      center: LocalizedText.fromJson(json['center'], '$path.center'),
+      branches: JsonValue.objectList(json, 'branches', path).indexed
+          .map(
+            (entry) =>
+                MindMapNode.fromJson(entry.$2, '$path.branches[${entry.$1}]'),
+          )
+          .toList(growable: false),
+    );
+  }
+
+  final LocalizedText center;
+  final List<MindMapNode> branches;
+}
+
+class MindMapNode {
+  const MindMapNode({
+    required this.label,
+    this.detail,
+    this.examples = const [],
+    this.children = const [],
+  });
+
+  factory MindMapNode.fromJson(Map<String, Object?> json, String path) {
+    JsonValue.expectKeys(json, const {
+      'label',
+      'detail',
+      'examples',
+      'children',
+    }, path);
+    return MindMapNode(
+      label: LocalizedText.fromJson(json['label'], '$path.label'),
+      detail: json['detail'] == null
+          ? null
+          : LocalizedText.fromJson(json['detail'], '$path.detail'),
+      examples: json.containsKey('examples')
+          ? JsonValue.stringList(json, 'examples', path)
+          : const [],
+      children: json.containsKey('children')
+          ? JsonValue.objectList(json, 'children', path).indexed
+                .map(
+                  (entry) => MindMapNode.fromJson(
+                    entry.$2,
+                    '$path.children[${entry.$1}]',
+                  ),
+                )
+                .toList(growable: false)
+          : const [],
+    );
+  }
+
+  final LocalizedText label;
+  final LocalizedText? detail;
+  final List<String> examples;
+  final List<MindMapNode> children;
 }
 
 class LessonSection {

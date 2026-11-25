@@ -59,6 +59,8 @@
     }
   },
   "objectivesTitle": "ماذا ستتعلَّم؟",
+  "mindMapTitle": "خريطة ذهنية",
+  "mindMapIntro": "راجِعْ كيف تترابط أفكار الدرس قبل أن تبدأ التمارين.",
   "vocalizedLabel": "بالحركات",
   "unvocalizedLabel": "دون حركات",
   "wordAnalysisTitle": "تحليل الكلمات",

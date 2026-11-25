@@ -120,6 +120,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get objectivesTitle => 'What you will learn';
 
   @override
+  String get mindMapTitle => 'Mind map';
+
+  @override
+  String get mindMapIntro =>
+      'Review how the lesson’s ideas connect before you practice.';
+
+  @override
   String get vocalizedLabel => 'With vowel marks';
 
   @override

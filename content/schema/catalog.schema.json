@@ -99,7 +99,38 @@
           "minItems": 1,
           "items": {"$ref": "#/$defs/source"}
         },
-        "review": {"$ref": "#/$defs/review"}
+        "review": {"$ref": "#/$defs/review"},
+        "mindMap": {"$ref": "#/$defs/mindMap"}
+      }
+    },
+    "mindMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["center", "branches"],
+      "properties": {
+        "center": {"$ref": "#/$defs/localizedText"},
+        "branches": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/mindMapNode"}
+        }
+      }
+    },
+    "mindMapNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "label": {"$ref": "#/$defs/localizedText"},
+        "detail": {"$ref": "#/$defs/localizedText"},
+        "examples": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "children": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/mindMapNode"}
+        }
       }
     },
     "section": {

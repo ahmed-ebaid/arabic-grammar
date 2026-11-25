@@ -59,6 +59,8 @@
     }
   },
   "objectivesTitle": "What you will learn",
+  "mindMapTitle": "Mind map",
+  "mindMapIntro": "Review how the lesson’s ideas connect before you practice.",
   "vocalizedLabel": "With vowel marks",
   "unvocalizedLabel": "Without vowel marks",
   "wordAnalysisTitle": "Word analysis",

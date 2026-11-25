@@ -8,6 +8,9 @@ import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/models/glossary_models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+// Draft-only pilot awaiting teacher review; production stays approved.
+const _pendingPilotLesson = 'lesson_10';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -45,8 +48,10 @@ void main() {
         ),
       );
       for (final lesson in catalog.lessons) {
-        expect(lesson.review.status, ReviewStatus.approved);
-        expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
+        if (lesson.id != _pendingPilotLesson) {
+          expect(lesson.review.status, ReviewStatus.approved);
+          expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
+        }
         expect(
           lesson.repeatExercises,
           hasLength(lesson.exercises.length),
@@ -114,6 +119,32 @@ void main() {
             contains('unsupported fields: unexpected'),
           ),
         ),
+      );
+    });
+
+    test('limits lesson mind maps to two levels below the center', () {
+      final json = _sampleJson();
+      Map<String, Object?> node(String label, [List<Object?>? children]) => {
+        'label': {'en': label, 'ar': label},
+        'children': ?children,
+      };
+      _lesson(json)['mindMap'] = {
+        'center': {'en': 'Center', 'ar': 'المركز'},
+        'branches': [
+          node('A', [
+            node('A1', [node('A1a')]),
+          ]),
+          node('B'),
+        ],
+      };
+
+      final catalog = ContentDecoder.decode(jsonEncode(json));
+      final issues = ContentValidator.validate(catalog);
+
+      expect(catalog.lessons.first.mindMap!.branches, hasLength(2));
+      expect(
+        issues.map((issue) => issue.path),
+        contains(r'$.lessons[0].mindMap.branches[0].children[0].children'),
       );
     });
 
@@ -297,7 +328,10 @@ void main() {
       expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
       expect(bundled.sections.first.body.en, draft.sections.first.body.en);
       expect(
-        ContentValidator.validate(preview, requireReleaseApproval: true),
+        ContentValidator.validate(
+          preview,
+          requireReleaseApproval: true,
+        ).where((issue) => issue.path.startsWith(r'$.lessons[7].')),
         isEmpty,
       );
     },

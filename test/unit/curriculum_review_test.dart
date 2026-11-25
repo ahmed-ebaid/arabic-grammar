@@ -481,24 +481,34 @@ void main() {
     expect(tokens.map((t) => t.grammaticalSign.en), everyElement('Alif'));
     expect(tokens.map((t) => t.displayText), ['الطالبَانِ', 'مجتهدَانِ']);
     expect(lesson(10).sections.first.body.ar, contains('ينصب ويجر بالياء'));
-    for (final exercise in [
-      lesson(10).exercises[2],
-      lesson(10).repeatExercises[2],
-    ]) {
-      final answer = exercise.options.singleWhere((o) => o.isCorrect);
-      expect(answer.label.ar, startsWith('المُهَنْدِس'));
-      expect(answer.label.en, answer.label.ar);
-      expect(answer.feedback.ar, contains('ينصب بالياء'));
-      expect(exercise.options.map((o) => o.label.ar).toSet(), hasLength(3));
-    }
+    final dualReading = lesson(
+      10,
+    ).exercises.singleWhere((exercise) => exercise.id == 'lesson-10-read-01');
+    final answer = dualReading.options.singleWhere((o) => o.isCorrect);
+    expect(answer.label.ar, 'المهندسَيْنِ');
+    expect(answer.feedback.ar, contains('منصوب بالياء'));
+    expect(dualReading.options.map((o) => o.label.ar).toSet(), hasLength(3));
+  });
+
+  test('number lesson maps every plural type and tests the broken plural', () {
+    final number = lesson(10);
+    final branches = number.mindMap!.branches.map((b) => b.label.ar).toList();
     expect(
-      lesson(10).repeatExercises.last.prompt.ar,
-      contains('العامل مجتهدات'),
+      branches,
+      containsAll([
+        'المثنى',
+        'جمع المذكر السالم',
+        'جمع المؤنث السالم',
+        'جمع التكسير',
+      ]),
     );
-    expect(
-      lesson(10).repeatExercises.last.options.first.feedback.ar,
-      contains('مرفوع بالضمة'),
+    expect(number.sections.map((s) => s.id), contains('broken-plural'));
+    expect(number.exercises, hasLength(10));
+    expect(number.repeatExercises, hasLength(10));
+    final trap = number.exercises.singleWhere(
+      (exercise) => exercise.id == 'lesson-10-trap-05',
     );
+    expect(trap.options.singleWhere((o) => o.isCorrect).label.ar, 'الأبياتَ');
   });
 
   test('semantic idafa is qualified rather than overgeneralized', () {
