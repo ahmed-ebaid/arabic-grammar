@@ -1322,7 +1322,11 @@ void main() {
     );
     await tester.tap(find.text('الدروس'));
     await tester.pumpAndSettle();
-    expect(find.byKey(ValueKey('lessonUpdated-${first.id}')), findsOneWidget);
+    final badge = find.byKey(ValueKey('lessonUpdated-${first.id}'));
+    expect(badge, findsOneWidget);
+    final chip = tester.widget<Chip>(badge);
+    expect(chip.backgroundColor, const Color(0xFFB91C1C));
+    expect(chip.labelStyle?.color, Colors.white);
     await tester.tap(find.text(first.title.ar));
     await tester.pumpAndSettle();
     expect(
