@@ -1325,8 +1325,9 @@ void main() {
     final badge = find.byKey(ValueKey('lessonUpdated-${first.id}'));
     expect(badge, findsOneWidget);
     final chip = tester.widget<Chip>(badge);
-    expect(chip.backgroundColor, const Color(0xFFB91C1C));
-    expect(chip.labelStyle?.color, Colors.white);
+    final scheme = Theme.of(tester.element(badge)).colorScheme;
+    expect(chip.backgroundColor, scheme.primaryContainer);
+    expect(chip.labelStyle?.color, scheme.onPrimaryContainer);
     await tester.tap(find.text(first.title.ar));
     await tester.pumpAndSettle();
     expect(

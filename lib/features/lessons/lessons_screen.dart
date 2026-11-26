@@ -293,10 +293,12 @@ class _PathNode extends StatelessWidget {
               if (updated)
                 Chip(
                   key: ValueKey('lessonUpdated-${lesson.id}'),
-                  backgroundColor: const Color(0xFFB91C1C),
+                  backgroundColor: Theme.of(
+                    context,
+                  ).colorScheme.primaryContainer,
                   side: BorderSide.none,
-                  labelStyle: const TextStyle(
-                    color: Colors.white,
+                  labelStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                     fontWeight: FontWeight.bold,
                   ),
                   label: Text(AppLocalizations.of(context).lessonUpdated),
