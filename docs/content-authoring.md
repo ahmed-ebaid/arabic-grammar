@@ -71,8 +71,8 @@ requires a new content version and a new teacher review.
 The app fingerprints each lesson's content separately from review metadata.
 Learners who have started a lesson see an update badge when its content changes;
 opening it clears the badge without changing their completion or score. On the
-first rollout, previously studied pending-review preview lessons are marked
-updated because older installs did not record content fingerprints.
+first rollout, previously studied lessons are marked updated because older
+installs did not record content fingerprints and all 58 lessons have changed.
 
 Lesson 08 version `1.0.1` expands the bilingual explanation of definiteness,
 the definite-article test, and the example with «رُبَّ أَخٍ». The owner
@@ -85,8 +85,8 @@ included in the release catalog. See the academic review protocol for scope.
 
 For explicitly requested internal testing only, build with
 `--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the draft
-and enables the optional Alfiyya readings; it does not change approval metadata.
-The TestFlight workflow currently uses this flag. Such builds must not be
+catalogs; it does not change approval metadata. The TestFlight workflow uses
+this flag by default. Such builds must not be
 promoted to a production store release until teacher review is complete.
 The preview also loads `content/drafts/glossary/catalog.json`. Without the
 flag, the app loads the approved lesson catalog and
@@ -100,14 +100,17 @@ snapshots were, respectively:
 - `content/drafts/glossary/catalog.json`: `20b95f3262ce91d48b3797e6a138975b310e066b6dc5df42ae981cd2666dfa2b`
 - `lib/features/lessons/alfiyya_readings.dart`: `213b513b0c2b0f5b38d2b7634c599a70e804c8c674b263127669c641eaf0d2fc`
 
-This records the owner's confirmation, not an independently verified review
-date or reviewer attribution. The draft review metadata has not been promoted
-to production. The separate Alfiyya glossary was created after this confirmation;
-its new explanations remain pending review and are available only in the preview.
+On 2026-11-26 the owner subsequently confirmed that Sherif reviewed and approved
+the full draft curriculum, grammar glossary, Alfiyya readings, and the separate
+Alfiyya glossary in Arabic and English on that date. The Alfiyya glossary snapshot
+was `69a4b5d011301a19387f868165ee480c76c1268e304cd152efe57e71e515b714`.
+The 58 lessons and grammar glossary are promoted to production as catalog
+version `1.1.0`; lesson review records include per-lesson hashes excluding
+review metadata. No institutional endorsement is claimed.
 
 ### Optional Alfiyya readings
 
-`lib/features/lessons/alfiyya_readings.dart` contains the preview
+`lib/features/lessons/alfiyya_readings.dart` contains the reviewed
 selections shown after each level's final review. The reading route does not
 add lesson steps, record answers, award XP, or change completion/unlocks.
 Each selection has a stable related lesson ID, bilingual topic and explanation,
@@ -117,8 +120,7 @@ The expanded selections follow the topic suggestions in the supplied
 `ibnmalek.docx`, not its older lesson numbering. In levels five and six,
 the app's lesson numbers are one lower after removal of the headlines lesson.
 The source document is a selection aid, not evidence of teacher approval.
-Verse references are Ibn Malik's public-domain *Alfiyya*; original modern
-explanations and examples remain pending review. Consult the corresponding
+Verse references are Ibn Malik's public-domain *Alfiyya*. Consult the corresponding
 chapters, not isolated lines:
 
 - [Alfiyya text](https://ar.wikisource.org/wiki/ألفية_ابن_مالك)

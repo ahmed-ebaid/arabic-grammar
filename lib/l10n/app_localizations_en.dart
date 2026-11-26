@@ -19,7 +19,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get alfiyyaGlossaryDescription =>
-      'Words and expressions from the selected verses. These new explanations await teacher review.';
+      'Words and expressions from the selected verses.';
 
   @override
   String get alfiyyaOpen => 'Read verses from the Alfiyya';
@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get alfiyyaOptional =>
       'Optional, ungraded reading; it does not affect your score or unlocks.';
+
+  @override
+  String get alfiyyaVerseLabel => 'From the Alfiyya';
 
   @override
   String get alfiyyaExample => 'An example connected to the lesson';

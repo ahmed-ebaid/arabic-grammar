@@ -248,41 +248,70 @@ class _PathNode extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(
             children: [
-              Container(
-                width: 92,
-                height: 92,
-                decoration: BoxDecoration(
-                  color: nodeColor,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: accessible
-                        ? colors.sunshineContainer
-                        : Theme.of(context).colorScheme.outlineVariant,
-                    width: 7,
+              Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    width: 92,
+                    height: 92,
+                    decoration: BoxDecoration(
+                      color: nodeColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: accessible
+                            ? colors.sunshineContainer
+                            : Theme.of(context).colorScheme.outlineVariant,
+                        width: 7,
+                      ),
+                      boxShadow: accessible
+                          ? [
+                              BoxShadow(
+                                color: nodeColor.withValues(alpha: 0.25),
+                                blurRadius: 12,
+                                offset: const Offset(0, 5),
+                              ),
+                            ]
+                          : null,
+                    ),
+                    child: Icon(
+                      !accessible
+                          ? Icons.lock_rounded
+                          : mastered
+                          ? Icons.star_rounded
+                          : Icons.play_arrow_rounded,
+                      color: accessible
+                          ? Colors.white
+                          : Theme.of(context).colorScheme.onSurfaceVariant,
+                      size: 44,
+                    ),
                   ),
-                  boxShadow: accessible
-                      ? [
-                          BoxShadow(
-                            color: nodeColor.withValues(alpha: 0.25),
-                            blurRadius: 12,
-                            offset: const Offset(0, 5),
+                  if (updated)
+                    Positioned(
+                      bottom: -5,
+                      child: Container(
+                        key: ValueKey('lessonUpdated-${lesson.id}'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 3,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFB3261E),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          AppLocalizations.of(context).lessonUpdated,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ]
-                      : null,
-                ),
-                child: Icon(
-                  !accessible
-                      ? Icons.lock_rounded
-                      : mastered
-                      ? Icons.star_rounded
-                      : Icons.play_arrow_rounded,
-                  color: accessible
-                      ? Colors.white
-                      : Theme.of(context).colorScheme.onSurfaceVariant,
-                  size: 44,
-                ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: updated ? 22 : 10),
               ArabicDiacriticsText(
                 lesson.title.forLanguage(languageCode),
                 textAlign: TextAlign.center,
@@ -290,20 +319,6 @@ class _PathNode extends StatelessWidget {
                   context,
                 ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
-              if (updated)
-                Chip(
-                  key: ValueKey('lessonUpdated-${lesson.id}'),
-                  backgroundColor: Theme.of(
-                    context,
-                  ).colorScheme.primaryContainer,
-                  side: BorderSide.none,
-                  labelStyle: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  label: Text(AppLocalizations.of(context).lessonUpdated),
-                  visualDensity: VisualDensity.compact,
-                ),
               const SizedBox(height: 3),
               Text(
                 !unlocked

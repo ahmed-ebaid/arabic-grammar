@@ -187,7 +187,6 @@ void main() {
             lesson: lesson,
             progressController: progress,
             userDataController: UserDataController.inMemory(),
-            previewUnreviewed: true,
           ),
         ),
       );
@@ -223,6 +222,22 @@ void main() {
         find.text(language == 'ar' ? 'أقسام الكلمة' : 'Word classes'),
         findsOneWidget,
       );
+      final verseBox = find.byKey(const ValueKey('alfiyya-verse-0'));
+      expect(verseBox, findsOneWidget);
+      expect(
+        find.descendant(
+          of: verseBox,
+          matching: find.text(l10n.alfiyyaVerseLabel),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(
+          of: verseBox,
+          matching: find.textContaining('كلامنا لفظ مفيد'),
+        ),
+        findsOneWidget,
+      );
       expect(find.text(l10n.alfiyyaExample), findsOneWidget);
       final workedExample = find.text(
         language == 'ar'
@@ -255,6 +270,8 @@ void main() {
         200,
         scrollable: find.byType(Scrollable).last,
       );
+      await tester.ensureVisible(prepositions);
+      await tester.pumpAndSettle();
       await tester.tap(prepositions);
       await tester.pumpAndSettle();
       final advancedText = find.textContaining(
@@ -278,7 +295,7 @@ void main() {
     });
   }
 
-  testWidgets('approved-only lessons do not expose pending Alfiyya readings', (
+  testWidgets('approved lessons expose reviewed Alfiyya readings', (
     tester,
   ) async {
     final lesson = _draftCatalog().lessons.singleWhere(
@@ -296,6 +313,7 @@ void main() {
           0,
           (count, section) => count + section.examples.length,
         ) +
+        (lesson.mindMap == null ? 0 : 1) +
         lesson.exercises.length;
     await progress.complete(lesson.id, finalStep, mastery: 80);
     await tester.pumpWidget(
@@ -308,12 +326,11 @@ void main() {
           lesson: lesson,
           progressController: progress,
           userDataController: UserDataController.inMemory(),
-          previewUnreviewed: false,
         ),
       ),
     );
     await tester.pumpAndSettle();
-    expect(find.byKey(const ValueKey('openAlfiyyaReading')), findsNothing);
+    expect(find.byKey(const ValueKey('openAlfiyyaReading')), findsOneWidget);
     expect(progress.isCompleted(lesson.id), isTrue);
   });
 
@@ -613,6 +630,8 @@ void main() {
     await tester.tap(find.byTooltip('More'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Grammar glossary'));
+    await tester.pump();
+    await _waitForGlossary(tester);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(SearchBar), 'mubtada');
     await tester.pumpAndSettle();
@@ -789,6 +808,8 @@ void main() {
     await tester.tap(find.byTooltip('المزيد'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('معجم النحو'));
+    await tester.pump();
+    await _waitForGlossary(tester);
     await tester.pumpAndSettle();
 
     expect(find.text('معجم النحو'), findsOneWidget);
@@ -846,6 +867,8 @@ void main() {
     await tester.tap(find.byTooltip('المزيد'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('معجم النحو'));
+    await tester.pump();
+    await _waitForGlossary(tester);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(SearchBar), 'mabni');
     await tester.pumpAndSettle();
@@ -1324,10 +1347,23 @@ void main() {
     await tester.pumpAndSettle();
     final badge = find.byKey(ValueKey('lessonUpdated-${first.id}'));
     expect(badge, findsOneWidget);
-    final chip = tester.widget<Chip>(badge);
-    final scheme = Theme.of(tester.element(badge)).colorScheme;
-    expect(chip.backgroundColor, scheme.primaryContainer);
-    expect(chip.labelStyle?.color, scheme.onPrimaryContainer);
+    final box = tester.widget<Container>(badge);
+    expect((box.decoration! as BoxDecoration).color, const Color(0xFFB3261E));
+    final label = tester.widget<Text>(
+      find.descendant(of: badge, matching: find.text('محدَّث')),
+    );
+    expect(label.style?.color, Colors.white);
+    expect(
+      find.descendant(of: badge, matching: find.text('محدَّث')),
+      findsOneWidget,
+    );
+    final circle = find
+        .ancestor(
+          of: find.byIcon(Icons.star_rounded).first,
+          matching: find.byType(Container),
+        )
+        .first;
+    expect(tester.getRect(badge).overlaps(tester.getRect(circle)), isTrue);
     await tester.tap(find.text(first.title.ar));
     await tester.pumpAndSettle();
     expect(
@@ -1338,6 +1374,41 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byKey(ValueKey('lessonUpdated-${first.id}')), findsNothing);
   });
+
+  for (final language in ['ar', 'en']) {
+    testWidgets('updated badge fits large text in $language', (tester) async {
+      final catalog = _draftCatalog();
+      final lesson = catalog.lessons.first;
+      final progress = LessonProgressController.inMemory();
+      await progress.complete(lesson.id, 0, mastery: 80);
+      await progress.initializeLessonUpdates(catalog.lessons);
+      final userData = UserDataController.inMemory();
+      await userData.setTextScale(1.4);
+      await tester.pumpWidget(
+        ArabicGrammarApp(
+          environment: const AppEnvironment(AppFlavor.production),
+          localeController: LocaleController.inMemory(Locale(language)),
+          lessonProgressController: progress,
+          userDataController: userData,
+          contentCatalog: catalog,
+        ),
+      );
+      await tester.tap(find.text(language == 'ar' ? 'الدروس' : 'Lessons'));
+      await tester.pumpAndSettle();
+
+      final badge = find.byKey(ValueKey('lessonUpdated-${lesson.id}'));
+      await tester.scrollUntilVisible(
+        badge,
+        150,
+        scrollable: find.byType(Scrollable).last,
+      );
+      final title = find.text(lesson.title.forLanguage(language));
+      expect(badge, findsOneWidget);
+      expect(title, findsOneWidget);
+      expect(tester.getRect(badge).bottom, lessThan(tester.getRect(title).top));
+      expect(tester.takeException(), isNull);
+    });
+  }
 
   testWidgets(
     'young learner profile is marked coming soon and cannot be selected',
@@ -1411,6 +1482,17 @@ void main() {
 ContentCatalog _draftCatalog() {
   final source = File('content/drafts/lesson_01.json').readAsStringSync();
   return ContentCatalog.fromJson(jsonDecode(source));
+}
+
+Future<void> _waitForGlossary(WidgetTester tester) async {
+  for (var attempt = 0; attempt < 100; attempt++) {
+    if (find.byType(SearchBar).evaluate().isNotEmpty) return;
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 20)),
+    );
+    await tester.pump();
+  }
+  fail('Glossary did not finish loading');
 }
 
 bool _navEnabled(WidgetTester tester, String key) {

@@ -39,14 +39,15 @@ void main() {
     expect(entry.matches("I'RAB", 'ar'), isTrue);
   });
 
-  test('loads draft glossary only in preview mode', () async {
+  test('loads the reviewed glossary in production and preview', () async {
     final release = await const GlossaryRepository(
       previewUnreviewed: false,
     ).load();
     final preview = await const GlossaryRepository(
       previewUnreviewed: true,
     ).load();
-    expect(release.terms.any((term) => term.id == 'jam-taksir'), isFalse);
+    expect(release.terms.any((term) => term.id == 'jam-taksir'), isTrue);
     expect(preview.terms.any((term) => term.id == 'jam-taksir'), isTrue);
+    expect(release.terms.length, preview.terms.length);
   });
 }

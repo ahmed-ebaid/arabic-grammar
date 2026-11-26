@@ -255,9 +255,9 @@ void main() {
         expect(body.en, contains(position));
       }
     }
-    expect(demonstratives.review.status, ReviewStatus.pendingReview);
-    expect(demonstratives.review.reviewer, isNull);
-    expect(demonstratives.review.reviewedAt, isNull);
+    expect(demonstratives.review.status, ReviewStatus.approved);
+    expect(demonstratives.review.reviewer, 'Sherif');
+    expect(demonstratives.review.reviewedAt, isNotNull);
     expect(demonstratives.sections.length, greaterThanOrEqualTo(2));
     expect(first.sections, hasLength(3));
   });
@@ -545,10 +545,10 @@ void main() {
     }
   });
 
-  test('all lessons have mind maps and complete draft exercise banks', () {
+  test('all lessons have mind maps and complete reviewed exercise banks', () {
     for (var order = 1; order <= 58; order++) {
       final item = lesson(order);
-      expect(item.review.status, ReviewStatus.pendingReview, reason: item.id);
+      expect(item.review.status, ReviewStatus.approved, reason: item.id);
       expect(item.mindMap, isNotNull, reason: item.id);
       expect(
         item.mindMap!.branches.length,
@@ -591,10 +591,10 @@ void main() {
     expect(trap.options.singleWhere((o) => o.isCorrect).label.ar, 'الأبياتَ');
   });
 
-  test('level 2 draft lessons have interactive practice and await review', () {
+  test('level 2 reviewed lessons have interactive practice', () {
     for (final order in [8, 9, 10]) {
       final item = lesson(order);
-      expect(item.review.status, ReviewStatus.pendingReview);
+      expect(item.review.status, ReviewStatus.approved);
       expect(item.mindMap!.branches.length, greaterThanOrEqualTo(3));
       for (final bank in [item.exercises, item.repeatExercises]) {
         expect(bank, hasLength(10));

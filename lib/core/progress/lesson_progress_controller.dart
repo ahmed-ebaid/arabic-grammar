@@ -169,9 +169,7 @@ class LessonProgressController extends ChangeNotifier {
       StorageKeys.lessonUpdatesInitialized: true,
     };
     for (final lesson in lessons) {
-      final revision =
-          lesson.review.status == ReviewStatus.pendingReview &&
-              _hasLessonExperience(lesson.id)
+      final revision = _hasLessonExperience(lesson.id)
           ? 'legacy'
           : _revisionFor(lesson);
       _contentRevisions[lesson.id] = revision;

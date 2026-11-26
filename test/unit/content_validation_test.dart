@@ -39,7 +39,7 @@ void main() {
       final issues = ContentValidator.validate(catalog);
 
       expect(issues, isEmpty);
-      expect(catalog.contentVersion, '1.0.1');
+      expect(catalog.contentVersion, '1.1.0');
       expect(catalog.levels, hasLength(7));
       expect(catalog.lessons, hasLength(58));
       expect(catalog.lessons.first.title.en, 'Why endings change');
@@ -67,8 +67,8 @@ void main() {
         ),
       );
       for (final lesson in catalog.lessons) {
-        expect(lesson.review.status, ReviewStatus.pendingReview);
-        expect(lesson.review.reviewer, isNull);
+        expect(lesson.review.status, ReviewStatus.approved);
+        expect(lesson.review.reviewer, 'Sherif');
         expect(
           lesson.repeatExercises,
           hasLength(lesson.exercises.length),
@@ -261,12 +261,12 @@ void main() {
     ).load();
 
     expect(catalog.schemaVersion, 1);
-    expect(catalog.contentVersion, '1.0.1');
+    expect(catalog.contentVersion, '1.1.0');
     expect(catalog.levels, hasLength(7));
     expect(catalog.lessons, hasLength(58));
   });
 
-  test('draft question revisions do not replace approved release lessons', () {
+  test('reviewed lessons are promoted to the release catalog', () {
     final draft = _sampleJson();
     final release =
         jsonDecode(File('assets/content/catalog.json').readAsStringSync())
@@ -275,43 +275,14 @@ void main() {
       for (final item in release['lessons'] as List<Object?>)
         (item as Map<String, Object?>)['id'] as String: item,
     };
-    const revisedIds = {
-      'lesson_01',
-      'lesson_03',
-      'lesson_07',
-      'lesson_13',
-      'lesson_15',
-      'lesson_30',
-      'lesson_35',
-      'lesson_37',
-      'lesson_40',
-      'lesson_41',
-      'lesson_43',
-      'lesson_45',
-      'lesson_51',
-      'lesson_52',
-      'lesson_53',
-      'lesson_54',
-      'lesson_55',
-      'lesson_56',
-      'lesson_57',
-      'lesson_58',
-    };
+    expect(releaseLessons, hasLength(58));
     for (final item in draft['lessons'] as List<Object?>) {
       final lesson = item as Map<String, Object?>;
-      if (!revisedIds.contains(lesson['id'])) continue;
       final bundled = releaseLessons[lesson['id']]!;
       final review = lesson['review'] as Map<String, Object?>;
-      final bundledReview = bundled['review'] as Map<String, Object?>;
-      expect(review['status'], 'pendingReview', reason: '${lesson['id']}');
-      expect(bundledReview['status'], 'approved', reason: '${lesson['id']}');
-      expect(
-        jsonEncode(bundled),
-        isNot(jsonEncode(lesson)),
-        reason: '${lesson['id']}',
-      );
+      expect(review['status'], 'approved', reason: '${lesson['id']}');
+      expect(bundled, equals(lesson), reason: '${lesson['id']}');
     }
-    expect(revisedIds.every(releaseLessons.containsKey), isTrue);
   });
 
   test(
@@ -329,7 +300,7 @@ void main() {
           (lesson) => lesson.id == id,
         );
         expect(bundled.review.status, ReviewStatus.approved);
-        expect(bundled.review.contentVersion, '1.0.2');
+        expect(bundled.review.contentVersion, '1.1.0');
         expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
         expect(bundled.sections.first.body.en, draft.sections.first.body.en);
         expect(bundled.sections.first.body.ar, contains('جاءَ هذا'));
@@ -356,11 +327,11 @@ void main() {
         (l) => l.id == 'lesson_08',
       );
 
-      expect(draft.review.contentVersion, '1.0.2');
-      expect(draft.review.status, ReviewStatus.pendingReview);
+      expect(draft.review.contentVersion, '1.1.0');
+      expect(draft.review.status, ReviewStatus.approved);
       expect(bundled.review.status, ReviewStatus.approved);
-      expect(bundled.review.contentVersion, '1.0.1');
-      expect(bundled.review.reviewer, 'د. شريف محمد الصادق');
+      expect(bundled.review.contentVersion, '1.1.0');
+      expect(bundled.review.reviewer, 'Sherif');
       expect(draft.sections.first.body.ar, contains('رُبَّ أَخٍ'));
       expect(draft.sections.first.body.en, contains('رُبَّ أَخٍ'));
       expect(bundled.sections.first.body.ar, draft.sections.first.body.ar);
@@ -370,7 +341,7 @@ void main() {
           preview,
           requireReleaseApproval: true,
         ).where((issue) => issue.path.startsWith(r'$.lessons[7].')),
-        isNotEmpty,
+        isEmpty,
       );
     },
   );
@@ -383,7 +354,7 @@ void main() {
     ).lessons.map((lesson) => lesson.id).toSet();
 
     expect(glossary.schemaVersion, 1);
-    expect(glossary.terms, hasLength(57));
+    expect(glossary.terms, hasLength(99));
     expect(
       glossary.terms.map((term) => term.id).toSet(),
       hasLength(glossary.terms.length),

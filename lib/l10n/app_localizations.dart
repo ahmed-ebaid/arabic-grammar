@@ -119,7 +119,7 @@ abstract class AppLocalizations {
   /// No description provided for @alfiyyaGlossaryDescription.
   ///
   /// In en, this message translates to:
-  /// **'Words and expressions from the selected verses. These new explanations await teacher review.'**
+  /// **'Words and expressions from the selected verses.'**
   String get alfiyyaGlossaryDescription;
 
   /// No description provided for @alfiyyaOpen.
@@ -133,6 +133,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional, ungraded reading; it does not affect your score or unlocks.'**
   String get alfiyyaOptional;
+
+  /// No description provided for @alfiyyaVerseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'From the Alfiyya'**
+  String get alfiyyaVerseLabel;
 
   /// No description provided for @alfiyyaExample.
   ///

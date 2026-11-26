@@ -19,7 +19,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get alfiyyaGlossaryDescription =>
-      'ألفاظ وتعبيرات من الأبيات المختارة. هذه الشروح الجديدة بانتظار مراجعة المعلّم.';
+      'ألفاظ وتعبيرات من الأبيات المختارة.';
 
   @override
   String get alfiyyaOpen => 'اقرأ أبياتًا من الألفية';
@@ -27,6 +27,9 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get alfiyyaOptional =>
       'قراءة اختيارية غير مُقيَّمة؛ لا تؤثر في درجتك أو فتح الدرس التالي.';
+
+  @override
+  String get alfiyyaVerseLabel => 'من الألفية';
 
   @override
   String get alfiyyaExample => 'مثال يربط البيت بالدرس';

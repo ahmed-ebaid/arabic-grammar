@@ -131,28 +131,25 @@ void main() {
     },
   );
 
-  test(
-    'marks previously studied preview lessons for the first rollout',
-    () async {
-      final progress = LessonProgressController.inMemory();
-      final old = lesson(
-        id: 'old',
-        contentRevision: 'v1',
-        reviewStatus: ReviewStatus.pendingReview,
-      );
-      final untouched = lesson(
-        id: 'new',
-        contentRevision: 'v1',
-        reviewStatus: ReviewStatus.pendingReview,
-      );
-      await progress.complete('old', 2, mastery: 80);
-      await progress.initializeLessonUpdates([old, untouched]);
-      expect(progress.hasLessonUpdate(old), isTrue);
-      expect(progress.hasLessonUpdate(untouched), isFalse);
-      await progress.markLessonUpdateSeen(old);
-      expect(progress.hasLessonUpdate(old), isFalse);
-    },
-  );
+  test('marks previously studied lessons for the first rollout', () async {
+    final progress = LessonProgressController.inMemory();
+    final old = lesson(
+      id: 'old',
+      contentRevision: 'v1',
+      reviewStatus: ReviewStatus.approved,
+    );
+    final untouched = lesson(
+      id: 'new',
+      contentRevision: 'v1',
+      reviewStatus: ReviewStatus.pendingReview,
+    );
+    await progress.complete('old', 2, mastery: 80);
+    await progress.initializeLessonUpdates([old, untouched]);
+    expect(progress.hasLessonUpdate(old), isTrue);
+    expect(progress.hasLessonUpdate(untouched), isFalse);
+    await progress.markLessonUpdateSeen(old);
+    expect(progress.hasLessonUpdate(old), isFalse);
+  });
 
   testWidgets('updated lesson offers an optional retry', (tester) async {
     final value = lesson(

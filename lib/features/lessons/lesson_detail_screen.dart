@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../core/content/content_repository.dart';
 import '../../core/localization/number_format.dart';
 import '../../core/localization/arabic_diacritics.dart';
 import '../../core/models/content_models.dart';
@@ -26,7 +25,6 @@ class LessonDetailScreen extends StatefulWidget {
     required this.progressController,
     required this.userDataController,
     this.courseLessons = const [],
-    this.previewUnreviewed = previewUnreviewedContent,
     super.key,
   });
 
@@ -34,7 +32,6 @@ class LessonDetailScreen extends StatefulWidget {
   final LessonProgressController progressController;
   final UserDataController userDataController;
   final List<Lesson> courseLessons;
-  final bool previewUnreviewed;
 
   @override
   State<LessonDetailScreen> createState() => _LessonDetailScreenState();
@@ -290,9 +287,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
         progressController: widget.progressController,
         onRestart: _restart,
         onClose: () => Navigator.of(context).pop(),
-        onReadAlfiyya:
-            widget.previewUnreviewed &&
-                alfiyyaReadings.containsKey(widget.lesson.id)
+        onReadAlfiyya: alfiyyaReadings.containsKey(widget.lesson.id)
             ? () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (_) => _AlfiyyaReadingScreen(
@@ -1429,6 +1424,8 @@ class _AlfiyyaReadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final isArabic = Localizations.localeOf(context).languageCode == 'ar';
+    final theme = Theme.of(context);
+    final colors = theme.extension<LearningColors>()!;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.alfiyyaTitle)),
       body: ListView(
@@ -1457,12 +1454,55 @@ class _AlfiyyaReadingScreen extends StatelessWidget {
                 childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                 expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: ArabicDiacriticsText(
-                      reading.verse,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleLarge,
+                  Container(
+                    key: ValueKey('alfiyya-verse-$index'),
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: colors.sunshineContainer,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: theme.colorScheme.tertiary.withValues(
+                          alpha: 0.5,
+                        ),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.auto_stories_outlined,
+                              size: 17,
+                              color: colors.onSunshineContainer,
+                            ),
+                            const SizedBox(width: 6),
+                            Flexible(
+                              child: Text(
+                                l10n.alfiyyaVerseLabel,
+                                textAlign: TextAlign.center,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: colors.onSunshineContainer,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: ArabicDiacriticsText(
+                            reading.verse,
+                            textAlign: TextAlign.center,
+                            style: theme.textTheme.titleLarge?.copyWith(
+                              color: colors.onSunshineContainer,
+                              fontFamily: 'AmiriQuran',
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 12),

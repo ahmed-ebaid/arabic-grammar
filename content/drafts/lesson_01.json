@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "1.0.1",
+  "contentVersion": "1.1.0",
   "levels": [
     {
       "id": "level_01",
@@ -1234,11 +1234,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 18a38b9d20dffec59512fe981cabe1b527d24a86eb2e87613e71fc1aed0a7510."
       },
       "mindMap": {
         "center": {
@@ -2092,11 +2092,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 7f8d942c1116e2afb472455054a138de08b8b115a73bbd519e97779958f63cc5."
       },
       "repeatExercises": [
         {
@@ -3380,11 +3380,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 05b2b16e73132e68edfc33a66a9f07008e223683eff940edfc880d0afaf1311f."
       },
       "repeatExercises": [
         {
@@ -4678,11 +4678,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 83b2da96eb235661cb18b906286c73980b7c65cd951231d02a3d2605cf581fac."
       },
       "repeatExercises": [
         {
@@ -5969,11 +5969,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 4cd88871c72e91e6262ee54e6d72fc39269c760fb11ccca695b9afd7b59027bf."
       },
       "repeatExercises": [
         {
@@ -7315,11 +7315,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): ad64673c1a653f3dd8cb0b5995f2089d9ab18c717f82b7f02be7116e5686034d."
       },
       "repeatExercises": [
         {
@@ -9203,11 +9203,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 1 rollout: mind map and higher-order exercises (10 + 10 alternates) awaiting teacher review; previously approved questions retained."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): eb821f8ff2dd87805cfc9b7e3bb6873e25cbc524fadd885cdfbce4bd1d618feb."
       },
       "mindMap": {
         "center": {
@@ -10436,11 +10436,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 2 draft: added a mind map and six exercises with six alternates, including interactive questions; awaiting teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3fcac789358986d546d9782b665cd085cbe441e9f2ba5f6bed2cadbd90b98ae5."
       },
       "mindMap": {
         "center": {
@@ -11548,11 +11548,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Level 2 draft: clarified gender clues, added a mind map and six exercises with six alternates, including interactive questions; awaiting teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): a0ddbb9894a2971af5add0eeea9a9feab945bc0ccafa1fbfadc8bff79254e61a."
       },
       "mindMap": {
         "center": {
@@ -12755,11 +12755,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Pilot: mind map, sound plural states, broken plural section, and ten higher-order exercises with alternates including word selection and vowel placement; awaiting teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 2cdca453b740f59b110b8f87d20e8e252fbbbef0c4dae43db002ae02892a3ee1."
       },
       "mindMap": {
         "center": {
@@ -14128,11 +14128,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded mind map, explanations and two exercise sets; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 45adbb5421c68b116a384cae4156d66f872e178a6f9f787dc94b90f1299b119a."
       },
       "mindMap": {
         "center": {
@@ -15284,11 +15284,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded mind map, explanations and two exercise sets; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): ef83b2d9e4899707deaf43cb0b483b473f932599003d447efeb1fec44307b571."
       },
       "mindMap": {
         "center": {
@@ -16453,11 +16453,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded mind map, explanations and two exercise sets; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 9f2af98fc7e37a6dd41b0a36418a8af104f19ba106175bf2fd0514bd0e944593."
       },
       "mindMap": {
         "center": {
@@ -17582,11 +17582,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded mind map, explanations and two exercise sets; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 89b8d56ea3f67ba54e5e097e75860513b8bd3e5f7c782fe0b93f41e32d72b9be."
       },
       "mindMap": {
         "center": {
@@ -18760,11 +18760,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded mind map, explanations and two exercise sets; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): f4a82a583d06b431087208a47ea2204f195ecd1c845687c4a4db038a46316de8."
       },
       "mindMap": {
         "center": {
@@ -19962,11 +19962,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 30e5c6b6ddb286efc7ddb6c525c71ca670fd1ef9e0610537fb78bce55e047c91."
       },
       "mindMap": {
         "center": {
@@ -21127,11 +21127,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): e4c9d6d44de33a0792cbc3d7310b225f2ccaf520f0614d884cb39c0e060e880a."
       },
       "mindMap": {
         "center": {
@@ -22306,11 +22306,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 37124e645353748aa2a3886a0978e9cc295c4c4c282d49fdeccbd78da592238d."
       },
       "mindMap": {
         "center": {
@@ -23495,11 +23495,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): d87a521c9ffa83e76dfac2b0cfb4c5e57a6316f59c3ae9047effedc4c7187ea2."
       },
       "mindMap": {
         "center": {
@@ -24754,11 +24754,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 494e39817a173ddccde4d448ce28f31e84ff1ff69be1837b6607459cd6b0195d."
       },
       "mindMap": {
         "center": {
@@ -25983,11 +25983,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 4d42b49500112a40b57ab5abb6d57162dcfcc851441e1dbf9a6d2e410231ac78."
       },
       "mindMap": {
         "center": {
@@ -27192,11 +27192,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 9cbffcb7b18baf9826cdb8ba729b29d607cca4fed5c5f8d7e5a55e21108c0bc1."
       },
       "mindMap": {
         "center": {
@@ -28347,11 +28347,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): bee0fc66b00b80d6059e6cbd89bcc03364163efb2f8ce4ea2ba225a14e446f26."
       },
       "mindMap": {
         "center": {
@@ -29575,11 +29575,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual lesson with a whole-lesson mind map, clarified grammar guidance, and ten main plus ten alternate exercises; awaiting qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): bae7680fc8bd17142c9189e1ba11af9c212dcee7df78e08648acae339eada78d."
       },
       "mindMap": {
         "center": {
@@ -30713,11 +30713,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): e4b643c70ddc88321e5e7720d84cecfdae1c1f47a41a5287b93e0937bea4904d."
       },
       "mindMap": {
         "center": {
@@ -31854,11 +31854,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 52ef64cd39b7174ed6debe0eea9e2f8f04e161dab9dfd2d44ed82976a118729b."
       },
       "mindMap": {
         "center": {
@@ -33017,11 +33017,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 00bacde0028009d029d2106b46fc5e0d1e27bf3c6f0eb5f578c10ab5065c0456."
       },
       "mindMap": {
         "center": {
@@ -34140,11 +34140,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 228436e4426b60fc41b1102e633e708c5c6aa7d805d6775cfdc5cdfb216c1966."
       },
       "mindMap": {
         "center": {
@@ -35294,11 +35294,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 8cdbb97cc581874bfe2bd20f08cea4d8d4e4a6ee396d0ba11fde27930070abf0."
       },
       "mindMap": {
         "center": {
@@ -36414,11 +36414,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): f592e45af879f6b51596680b2723a996026fd93c71900146920e3e4eff19ed5f."
       },
       "mindMap": {
         "center": {
@@ -37558,11 +37558,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): eec7ea2ad7fcb69d5c507c67ed1dd65dde8c0a7256f5c9274f6bdc657fb50c83."
       },
       "mindMap": {
         "center": {
@@ -38701,11 +38701,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 58be0717a30b6bbe57d6a4d8a6cce974ffbf541fedb6b24788bec1c013f13c86."
       },
       "mindMap": {
         "center": {
@@ -39925,11 +39925,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Added an expanded bilingual mind map, a deeper rule summary, and contextual questions with alternates; pending teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3f0c2b5d4cf7209e990399dfa8188b9e3e5f6c1618c70b95487384ca30dc556b."
       },
       "mindMap": {
         "center": {
@@ -41164,11 +41164,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): dfaca5b386b5fc5684b7925f500d5d928287d3e134259d8aa058fa94b78377c5."
       },
       "mindMap": {
         "center": {
@@ -42355,11 +42355,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): ce8dcdfe00225eb60eae1343e4916af0d31747b9c944e69c644497fc7bec791c."
       },
       "mindMap": {
         "center": {
@@ -43540,11 +43540,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 5e7cad29e91fd9757ecb17f67e481767576d9ec50130b3943bc15f2fb42fdd7b."
       },
       "mindMap": {
         "center": {
@@ -44802,11 +44802,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3eb81a12d079c7af723fe6dbecba4360235a688182390b710cd925c81fc16b96."
       },
       "mindMap": {
         "center": {
@@ -46112,11 +46112,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): f064d503460d7f90ed19a34c73e4110bab4adeade17860142cf01c6a2e722b4c."
       },
       "mindMap": {
         "center": {
@@ -47259,11 +47259,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 47eeacffa0d71d9095db3efb79e274cb625b43387bc90f46ddaa4ca7d1b4c1da."
       },
       "mindMap": {
         "center": {
@@ -48753,11 +48753,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 092c7721bbfc6687d4f1e192ce23cb789fabe01e6bd2ea244a813a828cf2678e."
       },
       "mindMap": {
         "center": {
@@ -50266,11 +50266,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded explanations, bilingual mind map, and exercises require qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): a494e5e6993118d418dfdb2f2fdd291727c2595c6c6c37f393153e9be3252cdc."
       },
       "mindMap": {
         "center": {
@@ -51443,11 +51443,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 34e79c7f442d5d1e8d3f38269873287493aff2030bf2142bcb114060dbd19c13."
       },
       "mindMap": {
         "center": {
@@ -52563,11 +52563,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 84741bea64b9906453bb42956d6a9cbe3aa10638b3012c5edbed739c924c1b6b."
       },
       "mindMap": {
         "center": {
@@ -53733,11 +53733,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): d9e181209f5cfcb37d5084c7fcf8190c288c3368463419ba9f8cbaa8adf24ac8."
       },
       "mindMap": {
         "center": {
@@ -54927,11 +54927,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3a9c3d2e1df23f1a10b7528ee150d295faa594e9ba2415d43e1d7fa3c3bda320."
       },
       "mindMap": {
         "center": {
@@ -56154,11 +56154,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3f84ffe35d8992969f05cac2e6597ad2d132db1040b0e60e2a19378f9eca36d2."
       },
       "mindMap": {
         "center": {
@@ -57369,11 +57369,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 3c8cb190eb563ccfff5b47f6d995b03415d544b952d46b3dab71ef81387de595."
       },
       "mindMap": {
         "center": {
@@ -58488,11 +58488,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 14916b9f7b057617eb2a624e87bbd005c3f6fcc5975243e4909713788b92aadc."
       },
       "mindMap": {
         "center": {
@@ -59735,11 +59735,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): bfb17b8968919e6f19a51122a9d4758b4677a63c4585beaa2c17f64c7c222698."
       },
       "mindMap": {
         "center": {
@@ -61018,11 +61018,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Expanded bilingual instruction, mind map, and exercises await qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 6e659dd240c255527ccd8aebfc3f8ed5f8fa164d4215a82e2bce3aa89169b165."
       },
       "mindMap": {
         "center": {
@@ -62399,11 +62399,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 7a5e88e117c4958588067b641c6f3debecafd4b6ac6472b23d507da10e48a07c."
       },
       "mindMap": {
         "center": {
@@ -63667,11 +63667,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 843b1995b4d870f3a2b9f1f5556b36b7f59bf7d899f52641af80e8dd350d10d8."
       },
       "mindMap": {
         "center": {
@@ -64907,11 +64907,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): de3793e0f67f8604bd79b65e2590aadf8d7501ed3712546cc5cb8b83df27b6ed."
       },
       "mindMap": {
         "center": {
@@ -66146,11 +66146,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): bc477fdaeff0a7b1e9c3b631c8c17f05ef81f5e9258fc27b56c8260229abe465."
       },
       "mindMap": {
         "center": {
@@ -67378,11 +67378,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 63083710a4b2560d38f439cb7e2ef57f66925745ee83fc719fc259c8a89d459a."
       },
       "mindMap": {
         "center": {
@@ -68618,11 +68618,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 4b2e16b064ca7dd88c63eb4dc045b4ff154a544fd30bb56baa147c96a6ef9817."
       },
       "mindMap": {
         "center": {
@@ -70135,11 +70135,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): 24cd213d7d5a934f0d442834a83d74f132375d26579c97478e57699cf35473c4."
       },
       "mindMap": {
         "center": {
@@ -71519,11 +71519,11 @@
         }
       ],
       "review": {
-        "status": "pendingReview",
-        "contentVersion": "1.0.2",
-        "reviewer": null,
-        "reviewedAt": null,
-        "notes": "Mind map and six contextual exercises plus six alternates added; existing Alfiyya quotations and stable exercise IDs are preserved. All new examples and explanations are original. Pending qualified teacher review."
+        "status": "approved",
+        "contentVersion": "1.1.0",
+        "reviewer": "Sherif",
+        "reviewedAt": "2026-11-26",
+        "notes": "The owner confirmed that Sherif reviewed and approved this lesson in Arabic and English on 2026-11-26. Lesson snapshot SHA-256 (excluding review metadata; sorted compact JSON, UTF-8): ec0a6de5b9162a82eba1b8143efcd137bac1e59275cdeb2cec62cbd406245c25."
       },
       "mindMap": {
         "center": {
