@@ -15,6 +15,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get alfiyyaTitle => 'أبيات من ألفية ابن مالك';
 
   @override
+  String get alfiyyaGlossaryTitle => 'معجم الألفية';
+
+  @override
+  String get alfiyyaGlossaryDescription =>
+      'ألفاظ وتعبيرات من الأبيات المختارة. هذه الشروح الجديدة بانتظار مراجعة المعلّم.';
+
+  @override
   String get alfiyyaOpen => 'اقرأ أبياتًا من الألفية';
 
   @override
@@ -28,8 +35,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get alfiyyaMoreDetails => 'للتوسع';
 
   @override
-  String get alfiyyaSource =>
-      'المصدر: ابن مالك، ألفية ابن مالك. الشروح الإضافية بانتظار مراجعة المعلّم.';
+  String get alfiyyaSource => 'المصدر: ابن مالك، ألفية ابن مالك.';
 
   @override
   String get grammarStateRaf => 'الرفع';
@@ -403,10 +409,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'مدرس اللغويات بكلية الدراسات الإسلامية والعربية للبنين بالقاهرة جامعة الأزهر';
 
   @override
-  String get aboutReviewersPending =>
-      'ما زالت دروس النسخة التجريبية قيد المراجعة، ولم تُعتمد بعد.';
-
-  @override
   String get language => 'اللغة';
 
   @override
@@ -687,6 +689,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lessonPracticeAgain => 'تدرَّب مرة أخرى';
+
+  @override
+  String get lessonUpdated => 'محدَّث';
+
+  @override
+  String get lessonUpdatedMessage =>
+      'تجد في هذا الدرس محتوى محدَّثًا. استكشفه من جديد.';
 
   @override
   String lessonRetryBody(String percent) {

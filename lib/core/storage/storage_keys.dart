@@ -25,6 +25,10 @@ abstract final class StorageKeys {
   static String lessonAttemptFinished(String lessonId) =>
       'lesson.$lessonId.attemptFinished';
 
+  static const lessonUpdatesInitialized = 'lessonUpdates.initialized';
+  static String lessonContentRevision(String lessonId) =>
+      'lesson.$lessonId.contentRevision';
+
   static String lessonAnswer(String lessonId, String exerciseId) =>
       'lesson.$lessonId.answer.$exerciseId';
 

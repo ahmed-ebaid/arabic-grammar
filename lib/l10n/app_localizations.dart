@@ -110,6 +110,18 @@ abstract class AppLocalizations {
   /// **'Verses from Ibn Malik’s Alfiyya'**
   String get alfiyyaTitle;
 
+  /// No description provided for @alfiyyaGlossaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Alfiyya glossary'**
+  String get alfiyyaGlossaryTitle;
+
+  /// No description provided for @alfiyyaGlossaryDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Words and expressions from the selected verses. These new explanations await teacher review.'**
+  String get alfiyyaGlossaryDescription;
+
   /// No description provided for @alfiyyaOpen.
   ///
   /// In en, this message translates to:
@@ -137,7 +149,7 @@ abstract class AppLocalizations {
   /// No description provided for @alfiyyaSource.
   ///
   /// In en, this message translates to:
-  /// **'Source: Ibn Malik, Alfiyyat Ibn Malik. The new explanations await teacher review.'**
+  /// **'Source: Ibn Malik, Alfiyyat Ibn Malik.'**
   String get alfiyyaSource;
 
   /// No description provided for @grammarStateRaf.
@@ -806,12 +818,6 @@ abstract class AppLocalizations {
   /// **'Lecturer in Linguistics, Faculty of Islamic and Arabic Studies for Men in Cairo, Al-Azhar University'**
   String get aboutReviewerCredentials;
 
-  /// No description provided for @aboutReviewersPending.
-  ///
-  /// In en, this message translates to:
-  /// **'Current beta lessons are still under review and have not yet been approved.'**
-  String get aboutReviewersPending;
-
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
@@ -1321,6 +1327,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Practice again'**
   String get lessonPracticeAgain;
+
+  /// No description provided for @lessonUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated'**
+  String get lessonUpdated;
+
+  /// No description provided for @lessonUpdatedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This lesson has updated content. Explore it again.'**
+  String get lessonUpdatedMessage;
 
   /// No description provided for @lessonRetryBody.
   ///

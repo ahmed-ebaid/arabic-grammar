@@ -28,6 +28,8 @@ class LessonProgressController extends ChangeNotifier {
   final Map<String, String> _structures = {};
   final Map<String, String> _exerciseBanks = {};
   final Map<String, bool> _attemptFinished = {};
+  final Map<String, String> _contentRevisions = {};
+  bool _contentUpdatesInitialized = false;
   final Map<String, int> _practiceStats = {};
   String? _practiceDate;
   String? _lastActiveLessonId;
@@ -135,6 +137,56 @@ class LessonProgressController extends ChangeNotifier {
           false);
 
   bool isMastered(String lessonId) => masteryFor(lessonId) >= 70;
+
+  String _revisionFor(Lesson lesson) => lesson.contentRevision.isNotEmpty
+      ? lesson.contentRevision
+      : lesson.review.contentVersion;
+
+  bool _hasLessonExperience(String lessonId) =>
+      isCompleted(lessonId) ||
+      attemptsFor(lessonId) > 0 ||
+      stepFor(lessonId) > 0 ||
+      (_structures[lessonId] ??
+              _box?.get(StorageKeys.lessonStructure(lessonId)) as String?) !=
+          null ||
+      lastActiveLessonId == lessonId;
+
+  bool hasLessonUpdate(Lesson lesson) {
+    final seen =
+        _contentRevisions[lesson.id] ??
+        _box?.get(StorageKeys.lessonContentRevision(lesson.id)) as String?;
+    return seen != null &&
+        seen != _revisionFor(lesson) &&
+        _hasLessonExperience(lesson.id);
+  }
+
+  Future<void> initializeLessonUpdates(List<Lesson> lessons) async {
+    if (_contentUpdatesInitialized ||
+        (_box?.get(StorageKeys.lessonUpdatesInitialized) as bool? ?? false)) {
+      return;
+    }
+    final updates = <String, Object>{
+      StorageKeys.lessonUpdatesInitialized: true,
+    };
+    for (final lesson in lessons) {
+      final revision =
+          lesson.review.status == ReviewStatus.pendingReview &&
+              _hasLessonExperience(lesson.id)
+          ? 'legacy'
+          : _revisionFor(lesson);
+      _contentRevisions[lesson.id] = revision;
+      updates[StorageKeys.lessonContentRevision(lesson.id)] = revision;
+    }
+    await _box?.putAll(updates);
+    _contentUpdatesInitialized = true;
+  }
+
+  Future<void> markLessonUpdateSeen(Lesson lesson) async {
+    final revision = _revisionFor(lesson);
+    _contentRevisions[lesson.id] = revision;
+    await _box?.put(StorageKeys.lessonContentRevision(lesson.id), revision);
+    notifyListeners();
+  }
 
   int get practiceTotalAnswered =>
       _practiceInt(StorageKeys.practiceTotalAnswered);

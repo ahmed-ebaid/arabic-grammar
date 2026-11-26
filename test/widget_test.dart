@@ -205,6 +205,20 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text(l10n.alfiyyaTitle), findsOneWidget);
       expect(find.text(l10n.alfiyyaOptional), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey('openAlfiyyaGlossary')));
+      await tester.pumpAndSettle();
+      expect(find.text(l10n.alfiyyaGlossaryTitle), findsOneWidget);
+      await tester.enterText(
+        find.byType(SearchBar),
+        language == 'ar' ? 'هَاك' : 'hāka',
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('هاك'), findsOneWidget);
+      await tester.tap(find.text('هاك'));
+      await tester.pumpAndSettle();
+      expect(find.text('«هاك حروف الجر»'), findsOneWidget);
+      await tester.tap(find.byType(BackButton));
+      await tester.pumpAndSettle();
       expect(
         find.text(language == 'ar' ? 'أقسام الكلمة' : 'Word classes'),
         findsOneWidget,
@@ -734,7 +748,7 @@ void main() {
     );
     expect(
       find.textContaining('ما زالت دروس النسخة التجريبية قيد المراجعة'),
-      findsOneWidget,
+      findsNothing,
     );
     expect(find.text('حالة المحتوى'), findsNothing);
     expect(find.textContaining('إصدار المنهج'), findsNothing);
@@ -1290,6 +1304,34 @@ void main() {
       ),
       findsNothing,
     );
+  });
+
+  testWidgets('updated badge clears after opening the lesson', (tester) async {
+    final catalog = _draftCatalog();
+    final first = catalog.lessons.first;
+    final progress = LessonProgressController.inMemory();
+    await progress.complete(first.id, 0, mastery: 80);
+    await progress.initializeLessonUpdates(catalog.lessons);
+    await tester.pumpWidget(
+      ArabicGrammarApp(
+        environment: const AppEnvironment(AppFlavor.production),
+        localeController: LocaleController.inMemory(),
+        lessonProgressController: progress,
+        contentCatalog: catalog,
+      ),
+    );
+    await tester.tap(find.text('الدروس'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(ValueKey('lessonUpdated-${first.id}')), findsOneWidget);
+    await tester.tap(find.text(first.title.ar));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('تجد في هذا الدرس محتوى محدَّثًا. استكشفه من جديد.'),
+      findsOneWidget,
+    );
+    Navigator.of(tester.element(find.byType(LessonDetailScreen))).pop();
+    await tester.pumpAndSettle();
+    expect(find.byKey(ValueKey('lessonUpdated-${first.id}')), findsNothing);
   });
 
   testWidgets(

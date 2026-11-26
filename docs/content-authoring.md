@@ -68,6 +68,12 @@ An approved lesson must contain:
 Changing grammar content, a canonical answer, or an explanation after approval
 requires a new content version and a new teacher review.
 
+The app fingerprints each lesson's content separately from review metadata.
+Learners who have started a lesson see an update badge when its content changes;
+opening it clears the badge without changing their completion or score. On the
+first rollout, previously studied pending-review preview lessons are marked
+updated because older installs did not record content fingerprints.
+
 Lesson 08 version `1.0.1` expands the bilingual explanation of definiteness,
 the definite-article test, and the example with «رُبَّ أَخٍ». The owner
 confirmed teacher approval by Dr. Sherif Mohamed El-Sadek on 2026-11-16;
@@ -78,17 +84,30 @@ The owner confirmed teacher approval on 2026-11-19, and those revisions are
 included in the release catalog. See the academic review protocol for scope.
 
 For explicitly requested internal testing only, build with
-`--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the pending draft
-and enables the optional Alfiyya readings; it does not mark them approved.
+`--dart-define=PREVIEW_UNREVIEWED_CONTENT=true`. This loads the draft
+and enables the optional Alfiyya readings; it does not change approval metadata.
 The TestFlight workflow currently uses this flag. Such builds must not be
 promoted to a production store release until teacher review is complete.
-The preview also loads `content/drafts/glossary/catalog.json`; new or revised glossary
-entries there await teacher review. Without the flag, the app loads the
-approved lesson catalog and `assets/content/glossary.json`.
+The preview also loads `content/drafts/glossary/catalog.json`. Without the
+flag, the app loads the approved lesson catalog and
+`assets/content/glossary.json`.
+
+On 2026-11-26 the owner confirmed that the current draft lessons, draft grammar
+glossary, and Alfiyya readings had been reviewed and approved. The identified
+snapshots were, respectively:
+
+- `content/drafts/lesson_01.json`: `d7bb93e1c266f92f421d1cbe3cfe50ee4683dd9f62334c0b83a066efacfd8cc6`
+- `content/drafts/glossary/catalog.json`: `20b95f3262ce91d48b3797e6a138975b310e066b6dc5df42ae981cd2666dfa2b`
+- `lib/features/lessons/alfiyya_readings.dart`: `213b513b0c2b0f5b38d2b7634c599a70e804c8c674b263127669c641eaf0d2fc`
+
+This records the owner's confirmation, not an independently verified review
+date or reviewer attribution. The draft review metadata has not been promoted
+to production. The separate Alfiyya glossary was created after this confirmation;
+its new explanations remain pending review and are available only in the preview.
 
 ### Optional Alfiyya readings
 
-`lib/features/lessons/alfiyya_readings.dart` contains the pending-review
+`lib/features/lessons/alfiyya_readings.dart` contains the preview
 selections shown after each level's final review. The reading route does not
 add lesson steps, record answers, award XP, or change completion/unlocks.
 Each selection has a stable related lesson ID, bilingual topic and explanation,

@@ -51,6 +51,8 @@ Lesson lesson({
   List<String> primary = const ['a', 'b'],
   List<String> repeat = const ['x', 'y'],
   bool mindMap = false,
+  String contentRevision = '',
+  ReviewStatus reviewStatus = ReviewStatus.approved,
 }) => Lesson(
   id: id,
   order: 1,
@@ -62,14 +64,15 @@ Lesson lesson({
   exercises: primary.map(exercise).toList(),
   repeatExercises: repeat.map(exercise).toList(),
   sources: const [],
-  review: const ContentReview(
-    status: ReviewStatus.approved,
+  review: ContentReview(
+    status: reviewStatus,
     contentVersion: '1',
     reviewer: null,
     reviewedAt: null,
     notes: '',
   ),
   mindMap: mindMap ? const LessonMindMap(center: text, branches: []) : null,
+  contentRevision: contentRevision,
 );
 
 Widget screen(
@@ -90,6 +93,95 @@ Widget screen(
 );
 
 void main() {
+  test(
+    'tracks lesson updates without resetting progress across restarts',
+    () async {
+      final dir = await Directory.systemTemp.createTemp('lesson-updates-');
+      Hive.init(dir.path);
+      final box = await Hive.openBox<dynamic>('updates');
+      addTearDown(() async {
+        await box.close();
+        await dir.delete(recursive: true);
+      });
+      final oldLesson = lesson(id: 'old', contentRevision: 'v1');
+      final newLesson = lesson(id: 'old', contentRevision: 'v2');
+      final untouched = lesson(id: 'untouched', contentRevision: 'v1');
+      var progress = LessonProgressController(box);
+      await progress.initializeLessonUpdates([oldLesson, untouched]);
+      await progress.recordFirstAttempt('old', 'a', correct: true);
+      await progress.complete('old', 2, mastery: 80);
+
+      progress = LessonProgressController(box);
+      await progress.initializeLessonUpdates([newLesson, untouched]);
+      expect(progress.hasLessonUpdate(newLesson), isTrue);
+      expect(
+        progress.hasLessonUpdate(
+          lesson(id: 'untouched', contentRevision: 'v2'),
+        ),
+        isFalse,
+      );
+      expect(progress.isCompleted('old'), isTrue);
+      expect(progress.masteryFor('old'), 80);
+      expect(progress.totalXp, 10);
+      await progress.markLessonUpdateSeen(newLesson);
+      progress = LessonProgressController(box);
+      expect(progress.hasLessonUpdate(newLesson), isFalse);
+      expect(progress.isCompleted('old'), isTrue);
+      expect(progress.totalXp, 10);
+    },
+  );
+
+  test(
+    'marks previously studied preview lessons for the first rollout',
+    () async {
+      final progress = LessonProgressController.inMemory();
+      final old = lesson(
+        id: 'old',
+        contentRevision: 'v1',
+        reviewStatus: ReviewStatus.pendingReview,
+      );
+      final untouched = lesson(
+        id: 'new',
+        contentRevision: 'v1',
+        reviewStatus: ReviewStatus.pendingReview,
+      );
+      await progress.complete('old', 2, mastery: 80);
+      await progress.initializeLessonUpdates([old, untouched]);
+      expect(progress.hasLessonUpdate(old), isTrue);
+      expect(progress.hasLessonUpdate(untouched), isFalse);
+      await progress.markLessonUpdateSeen(old);
+      expect(progress.hasLessonUpdate(old), isFalse);
+    },
+  );
+
+  testWidgets('updated lesson offers an optional retry', (tester) async {
+    final value = lesson(
+      contentRevision: 'v1',
+      reviewStatus: ReviewStatus.pendingReview,
+    );
+    final progress = LessonProgressController.inMemory();
+    await progress.recordFirstAttempt(value.id, 'a', correct: true);
+    await progress.complete(value.id, 3, mastery: 80);
+    await progress.initializeLessonUpdates([value]);
+    await tester.pumpWidget(screen(value, progress));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('This lesson has updated content. Explore it again.'),
+      findsOneWidget,
+    );
+    expect(progress.hasLessonUpdate(value), isFalse);
+    expect(progress.masteryFor(value.id), 80);
+    await tester.tap(find.text('Practice again'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('This lesson has updated content. Explore it again.'),
+      findsNothing,
+    );
+    expect(progress.isCompleted(value.id), isTrue);
+    expect(progress.masteryFor(value.id), 80);
+    expect(progress.totalXp, 10);
+  });
+
   test(
     'legacy positions migrate without losing results, completion or XP',
     () async {

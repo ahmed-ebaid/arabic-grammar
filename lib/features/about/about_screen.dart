@@ -116,7 +116,6 @@ class _AboutScreenState extends State<AboutScreen> {
                       title: Text(l10n.aboutReviewerName),
                       subtitle: Text(l10n.aboutReviewerCredentials),
                     ),
-                    if (reviewers.isEmpty) Text(l10n.aboutReviewersPending),
                     for (final reviewer in reviewers)
                       if (reviewer != l10n.aboutReviewerName)
                         ListTile(

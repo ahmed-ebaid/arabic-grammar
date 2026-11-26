@@ -12,6 +12,28 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('content decoding and validation', () {
+    test('lesson revision changes with content, not review metadata', () {
+      final json = _sampleJson();
+      final first = _lesson(json);
+      final original = Lesson.fromJson(first, r'$.lessons[0]').contentRevision;
+      final reordered = Map<String, Object?>.fromEntries(
+        first.entries.toList().reversed,
+      );
+      expect(
+        Lesson.fromJson(reordered, r'$.lessons[0]').contentRevision,
+        original,
+      );
+      final review = first['review'] as Map<String, Object?>;
+      review['notes'] = 'Reviewed separately';
+      expect(Lesson.fromJson(first, r'$.lessons[0]').contentRevision, original);
+      final title = first['title'] as Map<String, Object?>;
+      title['en'] = 'Updated lesson title';
+      expect(
+        Lesson.fromJson(first, r'$.lessons[0]').contentRevision,
+        isNot(original),
+      );
+    });
+
     test('loads the bilingual sample lesson', () {
       final catalog = ContentDecoder.decode(_sampleSource());
       final issues = ContentValidator.validate(catalog);

@@ -1,3 +1,18 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
+
+Object? _canonicalContent(Object? value) {
+  if (value is Map<String, Object?>) {
+    final keys = value.keys.toList()..sort();
+    return {for (final key in keys) key: _canonicalContent(value[key])};
+  }
+  if (value is List) {
+    return value.map(_canonicalContent).toList();
+  }
+  return value;
+}
+
 enum LessonSectionType { introduction, workedExample, ruleSummary, checkpoint }
 
 enum GrammarState { raf, nasb, jarr, jazm, indeclinable }
@@ -136,6 +151,7 @@ class Lesson {
     required this.sources,
     required this.review,
     this.mindMap,
+    this.contentRevision = '',
   });
 
   factory Lesson.fromJson(Map<String, Object?> json, String path) {
@@ -202,6 +218,13 @@ class Lesson {
       mindMap: json['mindMap'] == null
           ? null
           : LessonMindMap.fromJson(json['mindMap'], '$path.mindMap'),
+      contentRevision: sha256
+          .convert(
+            utf8.encode(
+              jsonEncode(_canonicalContent({...json}..remove('review'))),
+            ),
+          )
+          .toString(),
     );
   }
 
@@ -217,6 +240,7 @@ class Lesson {
   final List<ContentSource> sources;
   final ContentReview review;
   final LessonMindMap? mindMap;
+  final String contentRevision;
 }
 
 class LessonMindMap {

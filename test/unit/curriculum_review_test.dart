@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:arabic_grammar/core/content/content_decoder.dart';
 import 'package:arabic_grammar/core/models/content_models.dart';
+import 'package:arabic_grammar/features/lessons/alfiyya_glossary.dart';
 import 'package:arabic_grammar/features/lessons/alfiyya_readings.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,6 +11,27 @@ void main() {
     File('content/drafts/lesson_01.json').readAsStringSync(),
   );
   Lesson lesson(int number) => catalog.lessons[number - 1];
+
+  test('Alfiyya glossary entries refer to the displayed verses', () {
+    final readings = alfiyyaReadings.values.expand((items) => items);
+    expect(
+      alfiyyaGlossary.map((entry) => entry.word).toSet(),
+      hasLength(alfiyyaGlossary.length),
+    );
+    for (final entry in alfiyyaGlossary) {
+      expect(entry.meaning.ar, isNotEmpty);
+      expect(entry.meaning.en, isNotEmpty);
+      expect(
+        readings.any(
+          (reading) =>
+              reading.lessonId == entry.lessonId &&
+              reading.verse.contains(entry.excerpt),
+        ),
+        isTrue,
+        reason: entry.word,
+      );
+    }
+  });
 
   test('English prompts follow revised Arabic examples without extra cues', () {
     Exercise exercise(String id) => catalog.lessons

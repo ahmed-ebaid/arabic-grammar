@@ -139,6 +139,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
           lesson: entry.$2,
           languageCode: languageCode,
           mastery: widget.progressController.masteryFor(entry.$2.id),
+          updated: widget.progressController.hasLessonUpdate(entry.$2),
           hasScore:
               widget.progressController.attemptsFor(entry.$2.id) > 0 ||
               widget.progressController.isCompleted(entry.$2.id),
@@ -204,6 +205,7 @@ class _PathNode extends StatelessWidget {
     required this.lesson,
     required this.languageCode,
     required this.mastery,
+    required this.updated,
     required this.hasScore,
     required this.unlocked,
     required this.premiumLocked,
@@ -213,6 +215,7 @@ class _PathNode extends StatelessWidget {
   final Lesson lesson;
   final String languageCode;
   final int mastery;
+  final bool updated;
   final bool hasScore;
   final bool unlocked;
   final bool premiumLocked;
@@ -236,7 +239,8 @@ class _PathNode extends StatelessWidget {
       enabled: canTap,
       label:
           '${lesson.title.forLanguage(languageCode)}, '
-          '${localizedPercent(context, mastery)}',
+          '${localizedPercent(context, mastery)}'
+          '${updated ? ', ${AppLocalizations.of(context).lessonUpdated}' : ''}',
       child: InkWell(
         onTap: canTap ? onTap : null,
         borderRadius: BorderRadius.circular(24),
@@ -286,6 +290,12 @@ class _PathNode extends StatelessWidget {
                   context,
                 ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
+              if (updated)
+                Chip(
+                  key: ValueKey('lessonUpdated-${lesson.id}'),
+                  label: Text(AppLocalizations.of(context).lessonUpdated),
+                  visualDensity: VisualDensity.compact,
+                ),
               const SizedBox(height: 3),
               Text(
                 !unlocked

@@ -17,6 +17,7 @@ import '../../shared/widgets/interactive_exercise_choices.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import '../../shared/widgets/young_learner_mascot.dart';
 import 'alfiyya_readings.dart';
+import 'alfiyya_glossary_screen.dart';
 import 'lesson_mind_map.dart';
 
 class LessonDetailScreen extends StatefulWidget {
@@ -45,6 +46,8 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   late List<_LessonStep> _steps;
   late int _currentStep;
   bool _ready = false;
+  bool _showUpdateNotice = false;
+  bool _canRetryUpdatedLesson = false;
   String? _selectedOptionId;
   bool _answerChecked = false;
 
@@ -55,11 +58,18 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   }
 
   Future<void> _prepareLesson() async {
+    final showUpdate = widget.progressController.hasLessonUpdate(widget.lesson);
+    final canRetry =
+        widget.progressController.isCompleted(widget.lesson.id) ||
+        widget.progressController.isAttemptFinished(widget.lesson.id);
     final attempt = await widget.progressController.prepareLesson(
       widget.lesson,
     );
+    await widget.progressController.markLessonUpdateSeen(widget.lesson);
     if (!mounted) return;
     setState(() {
+      _showUpdateNotice = showUpdate;
+      _canRetryUpdatedLesson = canRetry;
       _activeExercises = _exercisesForAttempt(repeat: attempt.repeat);
       _steps = _buildSteps(widget.lesson, _activeExercises);
       _currentStep = attempt.step;
@@ -108,6 +118,22 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            if (_showUpdateNotice)
+              MaterialBanner(
+                leading: const Icon(Icons.new_releases_outlined),
+                content: Text(l10n.lessonUpdatedMessage),
+                actions: [
+                  TextButton(
+                    onPressed: () => setState(() => _showUpdateNotice = false),
+                    child: Text(l10n.close),
+                  ),
+                  if (_canRetryUpdatedLesson)
+                    TextButton(
+                      onPressed: _restart,
+                      child: Text(l10n.lessonPracticeAgain),
+                    ),
+                ],
+              ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
               child: Column(
@@ -1409,6 +1435,17 @@ class _AlfiyyaReadingScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         children: [
           Text(l10n.alfiyyaOptional),
+          const SizedBox(height: 12),
+          OutlinedButton.icon(
+            key: const ValueKey('openAlfiyyaGlossary'),
+            onPressed: () => Navigator.of(context).push<void>(
+              MaterialPageRoute<void>(
+                builder: (_) => const AlfiyyaGlossaryScreen(),
+              ),
+            ),
+            icon: const Icon(Icons.menu_book_outlined),
+            label: Text(l10n.alfiyyaGlossaryTitle),
+          ),
           for (final (index, reading) in readings.indexed)
             Card(
               child: ExpansionTile(
