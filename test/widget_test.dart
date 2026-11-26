@@ -868,11 +868,9 @@ void main() {
           : find.byType(OutlinedButton).first;
       await tester.ensureVisible(firstChoice);
       await tester.tap(firstChoice);
-      await tester.scrollUntilVisible(
-        find.text('تحقَّق من الإجابة'),
-        250,
-        scrollable: find.byType(Scrollable).last,
-      );
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('تحقَّق من الإجابة'));
       await tester.pumpAndSettle();
       final recorded = [
@@ -890,6 +888,8 @@ void main() {
         -250,
         scrollable: find.byType(Scrollable).last,
       );
+      await tester.ensureVisible(find.text('العودة إلى التدريبات'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('العودة إلى التدريبات'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('الخروج'));
