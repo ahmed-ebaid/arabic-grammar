@@ -11,6 +11,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
+import '../../shared/widgets/interactive_exercise_choices.dart';
 import '../../shared/widgets/learning_illustration.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import 'practice_rewards.dart';
@@ -150,26 +151,37 @@ class _PracticeScreenState extends State<PracticeScreen> {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 20),
-        for (final option in question.options)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: OutlinedButton(
-              onPressed: _answerChecked
-                  ? null
-                  : () => setState(() => _selectedOptionId = option.id),
-              style: OutlinedButton.styleFrom(
-                alignment: AlignmentDirectional.centerStart,
-                backgroundColor: _selectedOptionId == option.id
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : null,
-                padding: const EdgeInsets.all(18),
-              ),
-              child: ArabicDiacriticsText(
-                option.label.forLanguage(languageCode),
-                style: const TextStyle(fontSize: 19),
+        if (question.exercise.type == ExerciseType.selectWord ||
+            question.exercise.type == ExerciseType.placeVowel)
+          InteractiveExerciseChoices(
+            exercise: question.exercise,
+            options: question.options,
+            languageCode: languageCode,
+            selectedOptionId: _selectedOptionId,
+            disabled: _answerChecked,
+            onSelect: (id) => setState(() => _selectedOptionId = id),
+          )
+        else
+          for (final option in question.options)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: OutlinedButton(
+                onPressed: _answerChecked
+                    ? null
+                    : () => setState(() => _selectedOptionId = option.id),
+                style: OutlinedButton.styleFrom(
+                  alignment: AlignmentDirectional.centerStart,
+                  backgroundColor: _selectedOptionId == option.id
+                      ? Theme.of(context).colorScheme.primaryContainer
+                      : null,
+                  padding: const EdgeInsets.all(18),
+                ),
+                child: ArabicDiacriticsText(
+                  option.label.forLanguage(languageCode),
+                  style: const TextStyle(fontSize: 19),
+                ),
               ),
             ),
-          ),
         if (_answerChecked && selected != null) ...[
           const SizedBox(height: 8),
           Card(
@@ -291,7 +303,10 @@ class _PracticeScreenState extends State<PracticeScreen> {
     final questions = <_PracticeQuestion>[];
     for (var index = 0; index < _sessionLength; index++) {
       final candidate = candidates[index % candidates.length];
-      final options = [...candidate.exercise.options]..shuffle(random);
+      final options = [...candidate.exercise.options];
+      if (candidate.exercise.type != ExerciseType.selectWord) {
+        options.shuffle(random);
+      }
       questions.add(
         _PracticeQuestion(
           lesson: candidate.lesson,

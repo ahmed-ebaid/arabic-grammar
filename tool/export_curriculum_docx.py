@@ -49,6 +49,8 @@ EXERCISE_TYPE_AR = {
     "identifyRole": "تحديد الوظيفة",
     "identifyState": "تحديد الحالة",
     "matchRule": "مطابقة القاعدة",
+    "selectWord": "اختيار كلمة من الجملة",
+    "placeVowel": "وضع الحركة",
 }
 
 SECTION_TYPE_AR = {

@@ -8,8 +8,17 @@ import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/models/glossary_models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-// Draft-only pilot awaiting teacher review; production stays approved.
-const _pendingPilotLesson = 'lesson_10';
+// Draft-only rewrites awaiting teacher review; production stays approved.
+const _pendingReviewLessons = {
+  'lesson_01',
+  'lesson_02',
+  'lesson_03',
+  'lesson_04',
+  'lesson_05',
+  'lesson_06',
+  'lesson_07',
+  'lesson_10',
+};
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -26,11 +35,11 @@ void main() {
       expect(catalog.lessons.first.title.en, 'Why endings change');
       expect(catalog.lessons.first.title.ar, 'لماذا تتغيَّر أواخر الكلمات؟');
       expect(
-        catalog.lessons.first.sections.last.examples.single.tokens,
+        catalog.lessons.first.sections[1].examples.single.tokens,
         hasLength(2),
       );
-      expect(catalog.lessons.first.exercises, hasLength(4));
-      expect(catalog.lessons.first.repeatExercises, hasLength(4));
+      expect(catalog.lessons.first.exercises, hasLength(10));
+      expect(catalog.lessons.first.repeatExercises, hasLength(10));
       expect(
         catalog.lessons,
         everyElement(
@@ -48,7 +57,7 @@ void main() {
         ),
       );
       for (final lesson in catalog.lessons) {
-        if (lesson.id != _pendingPilotLesson) {
+        if (!_pendingReviewLessons.contains(lesson.id)) {
           expect(lesson.review.status, ReviewStatus.approved);
           expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
         }
@@ -58,7 +67,7 @@ void main() {
           reason: '${lesson.id} must rotate to a complete alternate bank',
         );
       }
-      expect(catalog.lessons[6].repeatExercises, hasLength(5));
+      expect(catalog.lessons[6].repeatExercises, hasLength(10));
       expect(catalog.lessons.last.repeatExercises, hasLength(4));
       expect(catalog.levels.map((level) => level.lessonIds.last), [
         'lesson_07',
@@ -145,6 +154,25 @@ void main() {
       expect(
         issues.map((issue) => issue.path),
         contains(r'$.lessons[0].mindMap.branches[0].children[0].children'),
+      );
+    });
+
+    test('rejects invalid interactive vowel data', () {
+      final json = _sampleJson();
+      final exercises = _lesson(json)['exercises'] as List<Object?>;
+      final exercise = exercises.last as Map<String, Object?>;
+      exercise['targetWord'] = 'كلمتان هنا';
+      final options = exercise['options'] as List<Object?>;
+      (options.first as Map<String, Object?>)['id'] = 'unknown-mark';
+      final issues = ContentValidator.validate(
+        ContentDecoder.decode(jsonEncode(json)),
+      );
+      expect(
+        issues.map((issue) => issue.path),
+        containsAll([
+          r'$.lessons[0].exercises[9].targetWord',
+          r'$.lessons[0].exercises[9].options',
+        ]),
       );
     });
 
@@ -263,7 +291,10 @@ void main() {
     };
     for (final item in draft['lessons'] as List<Object?>) {
       final lesson = item as Map<String, Object?>;
-      if (!revisedIds.contains(lesson['id'])) continue;
+      if (!revisedIds.contains(lesson['id']) ||
+          _pendingReviewLessons.contains(lesson['id'])) {
+        continue;
+      }
       final bundled = releaseLessons[lesson['id']]!;
       final review = lesson['review'] as Map<String, Object?>;
       expect(review['status'], 'approved', reason: '${lesson['id']}');

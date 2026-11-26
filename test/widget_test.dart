@@ -15,6 +15,7 @@ import 'package:arabic_grammar/shared/widgets/young_learner_mascot.dart';
 import 'package:arabic_grammar/shared/widgets/course_completion_celebration.dart';
 import 'package:arabic_grammar/features/home/home_screen.dart';
 import 'package:arabic_grammar/features/lessons/lesson_detail_screen.dart';
+import 'package:arabic_grammar/features/practice/practice_screen.dart';
 import 'package:arabic_grammar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -45,6 +46,7 @@ void main() {
             1 +
             lesson.sections.length +
             lesson.sections.fold<int>(0, (sum, s) => sum + s.examples.length) +
+            (lesson.mindMap == null ? 0 : 1) +
             lesson.exercises.length;
         await progress.saveStep(lesson.id, finalStep - 1);
         Widget screen() => MaterialApp(
@@ -161,6 +163,7 @@ void main() {
             0,
             (count, section) => count + section.examples.length,
           ) +
+          (lesson.mindMap == null ? 0 : 1) +
           lesson.exercises.length;
       await progress.complete(lesson.id, finalStep, mastery: 80);
 
@@ -643,7 +646,7 @@ void main() {
     await tester.tap(find.text('تابع الدرس'));
     await tester.pumpAndSettle();
 
-    expect(find.text('الخطوة ٢ من ٩'), findsOneWidget);
+    expect(find.text('الخطوة ٢ من ١٧'), findsOneWidget);
     expect(find.text('تابع'), findsOneWidget);
   });
 
@@ -859,8 +862,12 @@ void main() {
       await tester.tap(find.text('متابعة التدريب'));
       await tester.pumpAndSettle();
       expect(find.text('١/١٠'), findsOneWidget);
-      await tester.ensureVisible(find.byType(OutlinedButton).first);
-      await tester.tap(find.byType(OutlinedButton).first);
+      final choices = find.byType(ChoiceChip);
+      final firstChoice = choices.evaluate().isNotEmpty
+          ? choices.first
+          : find.byType(OutlinedButton).first;
+      await tester.ensureVisible(firstChoice);
+      await tester.tap(firstChoice);
       await tester.scrollUntilVisible(
         find.text('تحقَّق من الإجابة'),
         250,
@@ -992,6 +999,11 @@ void main() {
     await tester.ensureVisible(find.text('تابع'));
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await tester.ensureVisible(find.text('تابع'));
+      await tester.tap(find.text('تابع'));
+      await tester.pumpAndSettle();
+    }
 
     await tester.ensureVisible(find.textContaining('الفتحة'));
     await tester.tap(find.textContaining('الفتحة'));
@@ -1019,6 +1031,116 @@ void main() {
     expect(find.text('تابع'), findsOneWidget);
   });
 
+  testWidgets('interactive questions record answers and support retry', (
+    tester,
+  ) async {
+    final lesson = _draftCatalog().lessons.first;
+    final progress = LessonProgressController.inMemory();
+    final firstExerciseStep =
+        1 +
+        lesson.sections.length +
+        lesson.sections.fold<int>(
+          0,
+          (sum, section) => sum + section.examples.length,
+        ) +
+        1;
+    await progress.saveStep(lesson.id, firstExerciseStep + 8);
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ar'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: LessonDetailScreen(
+          lesson: lesson,
+          progressController: progress,
+          userDataController: UserDataController.inMemory(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(ChoiceChip), findsNWidgets(2));
+    await tester.tap(find.byKey(const ValueKey('interactiveChoice-word-2')));
+    await tester.pump();
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
+    await tester.pumpAndSettle();
+    expect(find.text('ليس بعد'), findsOneWidget);
+    await tester.ensureVisible(find.text('حاول مرة أخرى'));
+    await tester.tap(find.text('حاول مرة أخرى'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('interactiveChoice-word-1')));
+    await tester.pump();
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
+    await tester.pumpAndSettle();
+    expect(find.text('أحسنت!'), findsOneWidget);
+    await tester.ensureVisible(find.text('تابع'));
+    await tester.tap(find.text('تابع'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('interactiveChoice-damma')));
+    await tester.pump();
+    final target = tester.widget<Text>(
+      find.byKey(const ValueKey('vowelTarget')),
+    );
+    expect(target.data, 'الجوُ');
+    await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+    await tester.tap(find.text('تحقَّق من الإجابة'));
+    await tester.pumpAndSettle();
+    expect(find.text('أحسنت!'), findsOneWidget);
+    expect(
+      progress.firstAttemptResult(lesson.id, lesson.exercises[8].id),
+      isFalse,
+    );
+    expect(
+      progress.firstAttemptResult(lesson.id, lesson.exercises[9].id),
+      isTrue,
+    );
+  });
+
+  for (final type in [ExerciseType.selectWord, ExerciseType.placeVowel]) {
+    testWidgets('interactive $type works in practice', (tester) async {
+      final source =
+          jsonDecode(File('content/drafts/lesson_01.json').readAsStringSync())
+              as Map<String, dynamic>;
+      final lessons = source['lessons'] as List<dynamic>;
+      final lesson = lessons.first as Map<String, dynamic>;
+      final exercise = (lesson['exercises'] as List<dynamic>).firstWhere(
+        (item) => item['type'] == type.name,
+      );
+      lesson['exercises'] = [exercise];
+      lesson['repeatExercises'] = [exercise];
+      source['lessons'] = [lesson];
+      final catalog = ContentCatalog.fromJson(source);
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('ar'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: AppTheme.lightFor(youngLearner: false),
+          home: Scaffold(
+            body: PracticeScreen(
+              contentCatalog: catalog,
+              progressController: LessonProgressController.inMemory(),
+              userDataController: UserDataController.inMemory(),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('مراجعة متنوعة'));
+      await tester.pumpAndSettle();
+      final option = catalog.lessons.first.exercises.single.options.firstWhere(
+        (option) => option.isCorrect,
+      );
+      await tester.tap(find.byKey(ValueKey('interactiveChoice-${option.id}')));
+      await tester.pump();
+      await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
+      await tester.tap(find.text('تحقَّق من الإجابة'));
+      await tester.pumpAndSettle();
+      expect(find.text('أحسنت!'), findsOneWidget);
+    });
+  }
+
   testWidgets('navigates lesson steps and gates next on a solved question', (
     tester,
   ) async {
@@ -1041,11 +1163,11 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('lessonNextStep')));
     await tester.pumpAndSettle();
-    expect(find.text('الخطوة ٢ من ٩'), findsOneWidget);
+    expect(find.text('الخطوة ٢ من ١٧'), findsOneWidget);
 
     await tester.tap(find.byKey(const ValueKey('lessonPreviousStep')));
     await tester.pumpAndSettle();
-    expect(find.text('الخطوة ١ من ٩'), findsOneWidget);
+    expect(find.text('الخطوة ١ من ١٧'), findsOneWidget);
     expect(find.text('ماذا ستتعلَّم؟'), findsOneWidget);
 
     for (var i = 0; i < 3; i++) {
@@ -1058,6 +1180,11 @@ void main() {
     await tester.ensureVisible(find.text('تابع'));
     await tester.tap(find.text('تابع'));
     await tester.pumpAndSettle();
+    for (var i = 0; i < 2; i++) {
+      await tester.ensureVisible(find.text('تابع'));
+      await tester.tap(find.text('تابع'));
+      await tester.pumpAndSettle();
+    }
 
     expect(find.text('طبِّق القاعدة'), findsOneWidget);
     expect(_navEnabled(tester, 'lessonNextStep'), isFalse);

@@ -23,6 +23,14 @@ Release-ready lessons are copied into the generated
 9. Keep review status at `draft` or `pendingReview` until a qualified teacher
    completes the review checklist.
 
+Interactive exercises use the same answer and feedback structure as other
+exercises. For `selectWord`, list the words of the sentence as options in
+reading order, including incorrect words, and identify one correct option.
+For `placeVowel`, provide an unvocalized single `targetWord`; use the option IDs
+`damma`, `fatha`, `kasra` or `sukun` for the available marks. The prompt must
+give the sentence and ask for the final mark. Both kinds require bilingual
+feedback for every selection.
+
 ## Validation
 
 Validate draft structure during authoring:

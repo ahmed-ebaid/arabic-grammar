@@ -221,12 +221,11 @@ void main() {
         expect(body.en, contains(position));
       }
     }
-    for (final item in [first, demonstratives]) {
-      expect(item.review.status, ReviewStatus.approved);
-      expect(item.review.reviewer, 'د. شريف محمد الصادق');
-      expect(item.review.reviewedAt, isNotNull);
-      expect(item.sections, hasLength(2));
-    }
+    expect(demonstratives.review.status, ReviewStatus.approved);
+    expect(demonstratives.review.reviewer, 'د. شريف محمد الصادق');
+    expect(demonstratives.review.reviewedAt, isNotNull);
+    expect(demonstratives.sections, hasLength(2));
+    expect(first.sections, hasLength(3));
   });
 
   test('mastery prompts do not reveal the case of عدد in the question', () {
@@ -488,6 +487,25 @@ void main() {
     expect(answer.label.ar, 'المهندسَيْنِ');
     expect(answer.feedback.ar, contains('منصوب بالياء'));
     expect(dualReading.options.map((o) => o.label.ar).toSet(), hasLength(3));
+  });
+
+  test('level 1 lessons have mind maps and ten-question banks', () {
+    for (var order = 1; order <= 7; order++) {
+      final item = lesson(order);
+      expect(item.mindMap?.branches.length, greaterThanOrEqualTo(3));
+      expect(item.exercises, hasLength(10), reason: item.id);
+      expect(item.repeatExercises, hasLength(10), reason: item.id);
+      for (final bank in [item.exercises, item.repeatExercises]) {
+        expect(
+          bank.map((exercise) => exercise.type),
+          contains(ExerciseType.selectWord),
+        );
+        expect(
+          bank.map((exercise) => exercise.type),
+          contains(ExerciseType.placeVowel),
+        );
+      }
+    }
   });
 
   test('number lesson maps every plural type and tests the broken plural', () {

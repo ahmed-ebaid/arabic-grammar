@@ -8,6 +8,8 @@ enum ExerciseType {
   identifyState,
   matchRule,
   addTashkeel,
+  selectWord,
+  placeVowel,
 }
 
 enum SourceLicenseStatus {
@@ -442,14 +444,22 @@ class Exercise {
     required this.type,
     required this.prompt,
     required this.options,
+    this.targetWord,
   });
 
   factory Exercise.fromJson(Map<String, Object?> json, String path) {
-    JsonValue.expectKeys(json, const {'id', 'type', 'prompt', 'options'}, path);
+    JsonValue.expectKeys(json, const {
+      'id',
+      'type',
+      'prompt',
+      'options',
+      'targetWord',
+    }, path);
     return Exercise(
       id: JsonValue.requiredString(json, 'id', path),
       type: JsonValue.enumValue(json, 'type', path, ExerciseType.values),
       prompt: LocalizedText.fromJson(json['prompt'], '$path.prompt'),
+      targetWord: JsonValue.optionalString(json, 'targetWord', path),
       options: JsonValue.objectList(json, 'options', path).indexed
           .map(
             (entry) =>
@@ -463,6 +473,7 @@ class Exercise {
   final ExerciseType type;
   final LocalizedText prompt;
   final List<ExerciseOption> options;
+  final String? targetWord;
 }
 
 class ExerciseOption {

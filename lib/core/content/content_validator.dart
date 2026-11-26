@@ -457,6 +457,48 @@ abstract final class ContentValidator {
         ),
       );
     }
+    if (exercise.type == ExerciseType.placeVowel) {
+      if (exercise.targetWord == null ||
+          exercise.targetWord!.trim().isEmpty ||
+          RegExp(r'\s|[\u064B-\u065F\u0670]').hasMatch(exercise.targetWord!)) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.targetWord',
+            message: 'must be one unvocalized word for a vowel exercise',
+          ),
+        );
+      }
+      const marks = {'damma', 'fatha', 'kasra', 'sukun'};
+      if (exercise.options.any((option) => !marks.contains(option.id))) {
+        issues.add(
+          ContentValidationIssue(
+            path: '$path.options',
+            message: 'vowel option ids must identify supported vowel marks',
+          ),
+        );
+      }
+    } else if (exercise.targetWord != null) {
+      issues.add(
+        ContentValidationIssue(
+          path: '$path.targetWord',
+          message: 'is only supported for vowel exercises',
+        ),
+      );
+    }
+    if (exercise.type == ExerciseType.selectWord &&
+        exercise.options.any(
+          (option) =>
+              option.label.en != option.label.ar ||
+              RegExp(r'\s').hasMatch(option.label.ar),
+        )) {
+      issues.add(
+        ContentValidationIssue(
+          path: '$path.options',
+          message:
+              'word choices must be single identical words in both locales',
+        ),
+      );
+    }
   }
 
   static void _validateUniqueIds(

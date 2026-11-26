@@ -13,6 +13,7 @@ import '../../core/user/user_data_controller.dart';
 import '../../l10n/app_localizations.dart';
 import '../../shared/widgets/correct_answer_celebration.dart';
 import '../../shared/widgets/course_completion_celebration.dart';
+import '../../shared/widgets/interactive_exercise_choices.dart';
 import '../../shared/widgets/milestone_celebration_banner.dart';
 import '../../shared/widgets/young_learner_mascot.dart';
 import 'alfiyya_readings.dart';
@@ -463,7 +464,10 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
           id: exercise.id,
           type: exercise.type,
           prompt: exercise.prompt,
-          options: _randomizeExerciseOptions(exercise.options, random),
+          targetWord: exercise.targetWord,
+          options: exercise.type == ExerciseType.selectWord
+              ? exercise.options
+              : _randomizeExerciseOptions(exercise.options, random),
         ),
     ];
   }
@@ -749,6 +753,8 @@ class _ExerciseStep extends StatelessWidget {
           );
     return _QuestionLayout(
       prompt: exercise.prompt.forLanguage(languageCode),
+      exercise: exercise,
+      languageCode: languageCode,
       learningMode: learningMode,
       options: [
         for (final option in exercise.options)
@@ -772,6 +778,8 @@ class _ExerciseStep extends StatelessWidget {
 class _QuestionLayout extends StatelessWidget {
   const _QuestionLayout({
     required this.prompt,
+    required this.exercise,
+    required this.languageCode,
     required this.learningMode,
     required this.options,
     required this.selectedOptionId,
@@ -785,6 +793,8 @@ class _QuestionLayout extends StatelessWidget {
   });
 
   final String prompt;
+  final Exercise exercise;
+  final String languageCode;
   final LearningMode learningMode;
   final List<_AnswerOption> options;
   final String? selectedOptionId;
@@ -833,16 +843,27 @@ class _QuestionLayout extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(height: 20),
-          for (final option in options)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: _OptionButton(
-                option: option,
-                selected: selectedOptionId == option.id,
-                disabled: answerChecked,
-                onPressed: () => onSelect(option.id),
+          if (exercise.type == ExerciseType.selectWord ||
+              exercise.type == ExerciseType.placeVowel)
+            InteractiveExerciseChoices(
+              exercise: exercise,
+              options: exercise.options,
+              languageCode: languageCode,
+              selectedOptionId: selectedOptionId,
+              disabled: answerChecked,
+              onSelect: onSelect,
+            )
+          else
+            for (final option in options)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: _OptionButton(
+                  option: option,
+                  selected: selectedOptionId == option.id,
+                  disabled: answerChecked,
+                  onPressed: () => onSelect(option.id),
+                ),
               ),
-            ),
           if (answerChecked && feedback != null)
             _FeedbackCard(isCorrect: isCorrect, feedback: feedback!),
         ],
