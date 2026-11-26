@@ -8,18 +8,6 @@ import 'package:arabic_grammar/core/models/content_models.dart';
 import 'package:arabic_grammar/core/models/glossary_models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-// Draft-only rewrites awaiting teacher review; production stays approved.
-const _pendingReviewLessons = {
-  'lesson_01',
-  'lesson_02',
-  'lesson_03',
-  'lesson_04',
-  'lesson_05',
-  'lesson_06',
-  'lesson_07',
-  'lesson_10',
-};
-
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -57,10 +45,8 @@ void main() {
         ),
       );
       for (final lesson in catalog.lessons) {
-        if (!_pendingReviewLessons.contains(lesson.id)) {
-          expect(lesson.review.status, ReviewStatus.approved);
-          expect(lesson.review.reviewer, 'د. شريف محمد الصادق');
-        }
+        expect(lesson.review.status, ReviewStatus.pendingReview);
+        expect(lesson.review.reviewer, isNull);
         expect(
           lesson.repeatExercises,
           hasLength(lesson.exercises.length),
@@ -68,7 +54,7 @@ void main() {
         );
       }
       expect(catalog.lessons[6].repeatExercises, hasLength(10));
-      expect(catalog.lessons.last.repeatExercises, hasLength(4));
+      expect(catalog.lessons.last.repeatExercises, hasLength(10));
       expect(catalog.levels.map((level) => level.lessonIds.last), [
         'lesson_07',
         'lesson_15',
@@ -258,7 +244,7 @@ void main() {
     expect(catalog.lessons, hasLength(58));
   });
 
-  test('approved question revisions are included in the release', () {
+  test('draft question revisions do not replace approved release lessons', () {
     final draft = _sampleJson();
     final release =
         jsonDecode(File('assets/content/catalog.json').readAsStringSync())
@@ -291,16 +277,15 @@ void main() {
     };
     for (final item in draft['lessons'] as List<Object?>) {
       final lesson = item as Map<String, Object?>;
-      if (!revisedIds.contains(lesson['id']) ||
-          _pendingReviewLessons.contains(lesson['id'])) {
-        continue;
-      }
+      if (!revisedIds.contains(lesson['id'])) continue;
       final bundled = releaseLessons[lesson['id']]!;
       final review = lesson['review'] as Map<String, Object?>;
-      expect(review['status'], 'approved', reason: '${lesson['id']}');
+      final bundledReview = bundled['review'] as Map<String, Object?>;
+      expect(review['status'], 'pendingReview', reason: '${lesson['id']}');
+      expect(bundledReview['status'], 'approved', reason: '${lesson['id']}');
       expect(
         jsonEncode(bundled),
-        jsonEncode(lesson),
+        isNot(jsonEncode(lesson)),
         reason: '${lesson['id']}',
       );
     }
@@ -349,8 +334,8 @@ void main() {
         (l) => l.id == 'lesson_08',
       );
 
-      expect(draft.review.contentVersion, '1.0.1');
-      expect(draft.review.status, ReviewStatus.approved);
+      expect(draft.review.contentVersion, '1.0.2');
+      expect(draft.review.status, ReviewStatus.pendingReview);
       expect(bundled.review.status, ReviewStatus.approved);
       expect(bundled.review.contentVersion, '1.0.1');
       expect(bundled.review.reviewer, 'د. شريف محمد الصادق');
@@ -363,7 +348,7 @@ void main() {
           preview,
           requireReleaseApproval: true,
         ).where((issue) => issue.path.startsWith(r'$.lessons[7].')),
-        isEmpty,
+        isNotEmpty,
       );
     },
   );
@@ -401,6 +386,44 @@ void main() {
       glossary.terms.expand((term) => term.lessonIds).every(lessonIds.contains),
       isTrue,
     );
+  });
+
+  test('draft glossary covers all lessons and distinct plural forms', () {
+    final glossary = GlossaryCatalog.fromJson(
+      jsonDecode(
+        File('content/drafts/glossary/catalog.json').readAsStringSync(),
+      ),
+    );
+    final lessons = ContentDecoder.decode(_sampleSource()).lessons;
+    final ids = glossary.terms.map((term) => term.id).toSet();
+    expect(ids, hasLength(glossary.terms.length));
+    expect(
+      glossary.terms.every(
+        (term) =>
+            term.term.en.isNotEmpty &&
+            term.term.ar.isNotEmpty &&
+            term.definition.en.isNotEmpty &&
+            term.definition.ar.isNotEmpty &&
+            term.example.en.isNotEmpty &&
+            term.example.ar.isNotEmpty &&
+            term.lessonIds.isNotEmpty,
+      ),
+      isTrue,
+    );
+    for (final id in [
+      'jam-mudhakkar-salim',
+      'jam-muannath-salim',
+      'jam-taksir',
+    ]) {
+      final plural = glossary.terms.singleWhere((term) => term.id == id);
+      expect(plural.lessonIds, contains('lesson_10'));
+      expect(plural.definition.ar, isNotEmpty);
+      expect(plural.definition.en, isNotEmpty);
+      expect(plural.example.ar, isNotEmpty);
+      expect(plural.example.en, isNotEmpty);
+    }
+    final referenced = glossary.terms.expand((term) => term.lessonIds).toSet();
+    expect(referenced, lessons.map((lesson) => lesson.id).toSet());
   });
 }
 

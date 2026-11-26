@@ -44,28 +44,38 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
   late List<Exercise> _activeExercises;
   late List<_LessonStep> _steps;
   late int _currentStep;
+  bool _ready = false;
   String? _selectedOptionId;
   bool _answerChecked = false;
 
   @override
   void initState() {
     super.initState();
-    _activeExercises = _exercisesForAttempt();
-    _steps = _buildSteps(widget.lesson, _activeExercises);
-    _currentStep = widget.progressController
-        .stepFor(widget.lesson.id)
-        .clamp(0, _steps.length - 1);
-    _restoreSolvedExercises();
-    _syncAnswerState(_currentStep);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
-        widget.progressController.markLessonActive(widget.lesson.id);
-      }
+    _prepareLesson();
+  }
+
+  Future<void> _prepareLesson() async {
+    final attempt = await widget.progressController.prepareLesson(
+      widget.lesson,
+    );
+    if (!mounted) return;
+    setState(() {
+      _activeExercises = _exercisesForAttempt(repeat: attempt.repeat);
+      _steps = _buildSteps(widget.lesson, _activeExercises);
+      _currentStep = attempt.step;
+      _solvedExerciseIds.clear();
+      _restoreSolvedExercises();
+      _syncAnswerState(_currentStep);
+      _ready = true;
     });
+    await widget.progressController.markLessonActive(widget.lesson.id);
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!_ready) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
     final l10n = AppLocalizations.of(context);
     final step = _steps[_currentStep];
     final progress = (_currentStep + 1) / _steps.length;
@@ -315,7 +325,8 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
       return;
     }
     final nextStep = _currentStep + 1;
-    if (nextStep == _steps.length - 1) {
+    if (nextStep == _steps.length - 1 &&
+        !widget.progressController.isAttemptFinished(widget.lesson.id)) {
       final correctAnswers = _activeExercises.where((exercise) {
         return widget.progressController.firstAttemptResult(
               widget.lesson.id,
@@ -323,11 +334,13 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
             ) ==
             true;
       }).length;
-      final mastery = (correctAnswers * 100 / _activeExercises.length).round();
+      final mastery = _activeExercises.isEmpty
+          ? 0
+          : (correctAnswers * 100 / _activeExercises.length).round();
       final courseWasComplete =
           widget.courseLessons.isNotEmpty &&
           widget.courseLessons.every(
-            (lesson) => widget.progressController.isMastered(lesson.id),
+            (lesson) => widget.progressController.isCompleted(lesson.id),
           );
       await widget.progressController.complete(
         widget.lesson.id,
@@ -338,7 +351,7 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
           !courseWasComplete &&
           widget.courseLessons.isNotEmpty &&
           widget.courseLessons.every(
-            (lesson) => widget.progressController.isMastered(lesson.id),
+            (lesson) => widget.progressController.isCompleted(lesson.id),
           )) {
         final averageMastery =
             (widget.courseLessons.fold<int>(
@@ -437,24 +450,14 @@ class _LessonDetailScreenState extends State<LessonDetailScreen> {
     if (!mounted) {
       return;
     }
-    setState(() {
-      _activeExercises = _exercisesForAttempt();
-      _steps = _buildSteps(widget.lesson, _activeExercises);
-      _currentStep = 0;
-      _solvedExerciseIds.clear();
-      _selectedOptionId = null;
-      _answerChecked = false;
-    });
+    setState(() => _ready = false);
+    await _prepareLesson();
   }
 
-  List<Exercise> _exercisesForAttempt() {
-    final repeatExercises = widget.lesson.repeatExercises;
-    final attempt = widget.progressController.attemptsFor(widget.lesson.id);
-    if (repeatExercises.isNotEmpty && attempt.isOdd) {
-      return _randomizeOptions(repeatExercises);
-    }
-    return _randomizeOptions(widget.lesson.exercises);
-  }
+  List<Exercise> _exercisesForAttempt({required bool repeat}) =>
+      _randomizeOptions(
+        repeat ? widget.lesson.repeatExercises : widget.lesson.exercises,
+      );
 
   List<Exercise> _randomizeOptions(List<Exercise> exercises) {
     final random = Random();

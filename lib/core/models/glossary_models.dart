@@ -1,5 +1,11 @@
 import 'content_models.dart';
 
+String _normalizeGlossaryText(String value) => value
+    .trim()
+    .toLowerCase()
+    .replaceAll(RegExp(r'[\u064B-\u065F\u0670\u0640]'), '')
+    .replaceAll(RegExp('[أإآٱ]'), 'ا');
+
 class GlossaryCatalog {
   const GlossaryCatalog({required this.schemaVersion, required this.terms});
 
@@ -65,12 +71,26 @@ class GlossaryTerm {
   final List<String> lessonIds;
 
   bool matches(String query, String languageCode) {
-    final normalized = query.trim().toLowerCase();
+    final normalized = _normalizeGlossaryText(query);
     if (normalized.isEmpty) return true;
-    return term.forLanguage(languageCode).toLowerCase().contains(normalized) ||
-        term.en.toLowerCase().contains(normalized) ||
-        term.ar.contains(query.trim()) ||
-        transliteration.toLowerCase().contains(normalized) ||
-        definition.forLanguage(languageCode).toLowerCase().contains(normalized);
+    return [
+      term.forLanguage(languageCode),
+      term.en,
+      term.ar,
+      transliteration,
+      definition.forLanguage(languageCode),
+    ].any((value) => _normalizeGlossaryText(value).contains(normalized));
+  }
+
+  static int compare(GlossaryTerm a, GlossaryTerm b, String languageCode) {
+    String key(GlossaryTerm term) {
+      final value = _normalizeGlossaryText(term.term.forLanguage(languageCode));
+      return languageCode == 'ar' && value.startsWith('ال')
+          ? value.substring(2)
+          : value;
+    }
+
+    final comparison = key(a).compareTo(key(b));
+    return comparison != 0 ? comparison : a.id.compareTo(b.id);
   }
 }

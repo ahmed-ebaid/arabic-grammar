@@ -72,11 +72,14 @@ class _GlossaryScreenState extends State<GlossaryScreen> {
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
-          final terms = snapshot.data!.$1.terms
-              .where(
-                (term) => term.matches(_searchController.text, languageCode),
-              )
-              .toList();
+          final terms =
+              snapshot.data!.$1.terms
+                  .where(
+                    (term) =>
+                        term.matches(_searchController.text, languageCode),
+                  )
+                  .toList()
+                ..sort((a, b) => GlossaryTerm.compare(a, b, languageCode));
           return Column(
             children: [
               Padding(
@@ -208,7 +211,7 @@ class _TermCard extends StatelessWidget {
 
   Widget _lessonLink(BuildContext context, Lesson lesson) {
     final l10n = AppLocalizations.of(context);
-    final unlocked = lesson.prerequisites.every(progressController.isMastered);
+    final unlocked = lesson.prerequisites.every(progressController.isCompleted);
     final level = catalog.levels.firstWhere(
       (level) => level.lessonIds.contains(lesson.id),
     );

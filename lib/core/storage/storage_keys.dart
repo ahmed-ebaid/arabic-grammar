@@ -16,6 +16,15 @@ abstract final class StorageKeys {
 
   static String lessonAttempts(String lessonId) => 'lesson.$lessonId.attempts';
 
+  static String lessonStructure(String lessonId) =>
+      'lesson.$lessonId.structure';
+
+  static String lessonExerciseBank(String lessonId) =>
+      'lesson.$lessonId.exerciseBank';
+
+  static String lessonAttemptFinished(String lessonId) =>
+      'lesson.$lessonId.attemptFinished';
+
   static String lessonAnswer(String lessonId, String exerciseId) =>
       'lesson.$lessonId.answer.$exerciseId';
 

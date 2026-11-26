@@ -245,16 +245,17 @@ class _PracticeScreenState extends State<PracticeScreen> {
     for (final lesson in catalog.lessons) {
       final attempted =
           widget.progressController.attemptsFor(lesson.id) > 0 ||
-          widget.progressController.stepFor(lesson.id) > 0;
+          widget.progressController.stepFor(lesson.id) > 0 ||
+          widget.progressController.isCompleted(lesson.id);
       final unlocked = lesson.prerequisites.every(
-        widget.progressController.isMastered,
+        widget.progressController.isCompleted,
       );
       if (!attempted && !unlocked) {
         continue;
       }
 
       final weakLesson =
-          attempted && widget.progressController.masteryFor(lesson.id) < 70;
+          attempted && !widget.progressController.isMastered(lesson.id);
       for (final exercise in [...lesson.exercises, ...lesson.repeatExercises]) {
         candidates.add(
           _PracticeCandidate(

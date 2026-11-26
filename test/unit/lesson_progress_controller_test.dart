@@ -32,15 +32,20 @@ void main() {
     },
   );
 
-  test('keeps the best mastery score across attempts', () async {
+  test('shows latest mastery while retaining the earned unlock', () async {
     final controller = LessonProgressController.inMemory();
 
     await controller.complete('lesson_01', 6, mastery: 100);
     await controller.complete('lesson_01', 6, mastery: 50);
 
-    expect(controller.masteryFor('lesson_01'), 100);
+    expect(controller.masteryFor('lesson_01'), 50);
     expect(controller.attemptsFor('lesson_01'), 2);
-    expect(controller.isMastered('lesson_01'), isTrue);
+    expect(controller.isMastered('lesson_01'), isFalse);
+    expect(controller.isCompleted('lesson_01'), isTrue);
+    await controller.complete('lesson_01', 6, mastery: 0);
+    expect(controller.masteryFor('lesson_01'), 0);
+    expect(controller.isCompleted('lesson_01'), isTrue);
+    expect(controller.attemptsFor('lesson_01'), 3);
   });
 
   test('records only the first answer in an attempt', () async {

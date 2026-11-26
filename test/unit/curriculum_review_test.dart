@@ -26,9 +26,21 @@ void main() {
     expect(restrictionQuestion.ar, contains('إنما العدل أساس الملك'));
     expect(exercise('lesson-21-recognize-01').prompt.en, isNot(contains('أن')));
     expect(exercise('lesson-24-read-03').prompt.en, isNot(contains('تتأخروا')));
+    final prohibition = exercise('lesson-24-repeat-read-03-pedreview1').prompt;
+    expect(prohibition.en, contains('لا ... بالنار'));
+    expect(prohibition.ar, contains('لا ... بالنار'));
+  });
+
+  test('dual reading asks for the ending without displaying it', () {
+    final exercise = lesson(
+      10,
+    ).exercises.singleWhere((exercise) => exercise.id == 'lesson-10-read-01');
+    expect(exercise.prompt.ar, contains('المهندس...'));
+    expect(exercise.prompt.ar, isNot(contains('مهندسَيْنِ')));
+    expect(exercise.prompt.en, contains('exactly two'));
     expect(
-      exercise('lesson-24-repeat-read-03').prompt.en,
-      isNot(contains('تلعبوا')),
+      exercise.options.singleWhere((option) => option.isCorrect).id,
+      'dual-nasb',
     );
   });
 
@@ -76,7 +88,7 @@ void main() {
         'lesson-55-repeat-state-02': 'نكرة قابل أل مؤثرا',
         'lesson-55-repeat-rule-03': 'نكرة قابل أل مؤثرا',
         'lesson-56-repeat-role-01': 'مبتدأ زيد وعاذر خبر',
-        'lesson-56-repeat-role-03': 'مبتدأ زيد وعاذر خبر',
+        'lesson-56-repeat-role-03-v2': 'مبتدأ زيد وعاذر خبر',
         'lesson-57-state-04': 'بتا فعلت وأتت ويا افعلي',
         'lesson-57-repeat-state-04': 'بتا فعلت وأتت ويا افعلي',
         'lesson-58-rule-04': 'كلامنا لفظ مفيد',
@@ -221,10 +233,10 @@ void main() {
         expect(body.en, contains(position));
       }
     }
-    expect(demonstratives.review.status, ReviewStatus.approved);
-    expect(demonstratives.review.reviewer, 'د. شريف محمد الصادق');
-    expect(demonstratives.review.reviewedAt, isNotNull);
-    expect(demonstratives.sections, hasLength(2));
+    expect(demonstratives.review.status, ReviewStatus.pendingReview);
+    expect(demonstratives.review.reviewer, isNull);
+    expect(demonstratives.review.reviewedAt, isNull);
+    expect(demonstratives.sections.length, greaterThanOrEqualTo(2));
     expect(first.sections, hasLength(3));
   });
 
@@ -321,6 +333,9 @@ void main() {
       'lesson-40-repeat-state-01': ['إنّ'],
       'lesson-41-state-02': ['أنّ'],
       'lesson-41-repeat-state-02': ['إنّ'],
+      'lesson-23-state-03-pedreview1': ['عَلَّمَ'],
+      'lesson-23-object-08-pedreview1': ['عَلَّمَ'],
+      'lesson-26-repeat-state-02-pedreview1': ['لكنَّ'],
     };
     for (final item in catalog.lessons) {
       for (final exercise in [...item.exercises, ...item.repeatExercises]) {
@@ -508,6 +523,31 @@ void main() {
     }
   });
 
+  test('all lessons have mind maps and complete draft exercise banks', () {
+    for (var order = 1; order <= 58; order++) {
+      final item = lesson(order);
+      expect(item.review.status, ReviewStatus.pendingReview, reason: item.id);
+      expect(item.mindMap, isNotNull, reason: item.id);
+      expect(
+        item.mindMap!.branches.length,
+        greaterThanOrEqualTo(2),
+        reason: item.id,
+      );
+      for (final bank in [item.exercises, item.repeatExercises]) {
+        expect(bank, hasLength(10), reason: item.id);
+        expect(
+          bank.any(
+            (e) =>
+                e.type == ExerciseType.selectWord ||
+                e.type == ExerciseType.placeVowel,
+          ),
+          isTrue,
+          reason: '${item.id} needs interactive practice',
+        );
+      }
+    }
+  });
+
   test('number lesson maps every plural type and tests the broken plural', () {
     final number = lesson(10);
     final branches = number.mindMap!.branches.map((b) => b.label.ar).toList();
@@ -527,6 +567,32 @@ void main() {
       (exercise) => exercise.id == 'lesson-10-trap-05',
     );
     expect(trap.options.singleWhere((o) => o.isCorrect).label.ar, 'الأبياتَ');
+  });
+
+  test('level 2 draft lessons have interactive practice and await review', () {
+    for (final order in [8, 9, 10]) {
+      final item = lesson(order);
+      expect(item.review.status, ReviewStatus.pendingReview);
+      expect(item.mindMap!.branches.length, greaterThanOrEqualTo(3));
+      for (final bank in [item.exercises, item.repeatExercises]) {
+        expect(bank, hasLength(10));
+        expect(
+          bank.map((exercise) => exercise.type),
+          contains(ExerciseType.selectWord),
+        );
+        expect(
+          bank.map((exercise) => exercise.type),
+          contains(ExerciseType.placeVowel),
+        );
+      }
+    }
+    final name = lesson(
+      8,
+    ).exercises.singleWhere((exercise) => exercise.id == 'lesson-08-name-06');
+    expect(
+      name.options.singleWhere((option) => option.isCorrect).label.ar,
+      contains('معرفة'),
+    );
   });
 
   test('semantic idafa is qualified rather than overgeneralized', () {
@@ -549,7 +615,7 @@ void main() {
       demonstratives.exercises,
       demonstratives.repeatExercises,
     ]) {
-      for (final exercise in bank.skip(2)) {
+      for (final exercise in bank.skip(2).take(2)) {
         final answer = exercise.options.singleWhere((o) => o.isCorrect);
         expect(answer.feedback.ar, contains('بدل مرفوع'));
         expect(answer.feedback.en, contains('substitute in raf'));
@@ -578,7 +644,7 @@ void main() {
     expect(token.role.ar, contains('مبتدأ مؤخر'));
     expect(token.reason.ar, contains('في الصف'));
     for (final bank in [numbers.exercises, numbers.repeatExercises]) {
-      final exercise = bank.last;
+      final exercise = bank[3];
       expect(exercise.options.map((o) => o.label.ar).toSet(), hasLength(3));
       expect(exercise.options[1].label.ar, endsWith('ٌ'));
       expect(exercise.options[1].feedback.ar, contains('لا مرفوع'));

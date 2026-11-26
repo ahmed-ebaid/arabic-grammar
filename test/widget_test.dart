@@ -32,6 +32,7 @@ void main() {
         final lessons = _draftCatalog().lessons.take(2).toList();
         final lesson = lessons.last;
         final progress = LessonProgressController.inMemory();
+        await progress.prepareLesson(lesson);
         if (otherLessonComplete) {
           await progress.complete(lessons.first.id, 0, mastery: 75);
         }
@@ -128,6 +129,7 @@ void main() {
       (lesson) => lesson.id == 'lesson_35',
     );
     final progress = LessonProgressController.inMemory();
+    await progress.prepareLesson(lesson);
     await progress.saveStep(lesson.id, 3);
     await tester.pumpWidget(
       MaterialApp(
@@ -156,6 +158,14 @@ void main() {
         (item) => item.id == 'lesson_07',
       );
       final progress = LessonProgressController.inMemory();
+      await progress.prepareLesson(lesson);
+      for (final exercise in lesson.exercises) {
+        await progress.recordFirstAttempt(
+          lesson.id,
+          exercise.id,
+          correct: true,
+        );
+      }
       final finalStep =
           1 +
           lesson.sections.length +
@@ -261,6 +271,10 @@ void main() {
       (lesson) => lesson.id == 'lesson_07',
     );
     final progress = LessonProgressController.inMemory();
+    await progress.prepareLesson(lesson);
+    for (final exercise in lesson.exercises) {
+      await progress.recordFirstAttempt(lesson.id, exercise.id, correct: true);
+    }
     final finalStep =
         1 +
         lesson.sections.length +
@@ -630,6 +644,7 @@ void main() {
     tester,
   ) async {
     final progress = LessonProgressController.inMemory();
+    await progress.prepareLesson(_draftCatalog().lessons.first);
     await progress.saveStep('lesson_01', 1);
 
     await tester.pumpWidget(
@@ -719,7 +734,7 @@ void main() {
     );
     expect(
       find.textContaining('ما زالت دروس النسخة التجريبية قيد المراجعة'),
-      findsNothing,
+      findsOneWidget,
     );
     expect(find.text('حالة المحتوى'), findsNothing);
     expect(find.textContaining('إصدار المنهج'), findsNothing);
@@ -1036,6 +1051,10 @@ void main() {
   ) async {
     final lesson = _draftCatalog().lessons.first;
     final progress = LessonProgressController.inMemory();
+    await progress.prepareLesson(lesson);
+    for (final exercise in lesson.exercises.take(8)) {
+      await progress.recordFirstAttempt(lesson.id, exercise.id, correct: true);
+    }
     final firstExerciseStep =
         1 +
         lesson.sections.length +
@@ -1082,7 +1101,7 @@ void main() {
     final target = tester.widget<Text>(
       find.byKey(const ValueKey('vowelTarget')),
     );
-    expect(target.data, 'الجوُ');
+    expect(target.data, 'القلمُ');
     await tester.ensureVisible(find.text('تحقَّق من الإجابة'));
     await tester.tap(find.text('تحقَّق من الإجابة'));
     await tester.pumpAndSettle();
@@ -1256,6 +1275,21 @@ void main() {
       scrollable: find.byType(Scrollable).last,
     );
     expect(find.text('الإتقان: ٧٥%'), findsOneWidget);
+    await progress.complete('lesson_01', 0, mastery: 0);
+    await tester.pumpAndSettle();
+    expect(find.text('الإتقان: ٠%'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      secondLesson,
+      100,
+      scrollable: find.byType(Scrollable).last,
+    );
+    expect(
+      find.descendant(
+        of: secondNode,
+        matching: find.text('مغلق حتى إتقان الدرس السابق'),
+      ),
+      findsNothing,
+    );
   });
 
   testWidgets(

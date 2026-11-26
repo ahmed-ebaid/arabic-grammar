@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../models/content_models.dart';
 import '../services/review_prompt_service.dart';
 import '../storage/storage_keys.dart';
 
@@ -22,6 +25,9 @@ class LessonProgressController extends ChangeNotifier {
   final Map<String, int> _mastery = {};
   final Map<String, int> _attempts = {};
   final Map<String, bool> _answers = {};
+  final Map<String, String> _structures = {};
+  final Map<String, String> _exerciseBanks = {};
+  final Map<String, bool> _attemptFinished = {};
   final Map<String, int> _practiceStats = {};
   String? _practiceDate;
   String? _lastActiveLessonId;
@@ -44,6 +50,65 @@ class LessonProgressController extends ChangeNotifier {
         (_box?.get(StorageKeys.lessonStep(lessonId)) as int? ?? 0);
   }
 
+  /// Binds the saved position to the ordered steps and active exercise bank.
+  /// Legacy positions have no reliable structure and are restarted safely.
+  Future<({int step, bool repeat})> prepareLesson(Lesson lesson) async {
+    final id = lesson.id;
+    final storedBank =
+        _exerciseBanks[id] ??
+        _box?.get(StorageKeys.lessonExerciseBank(id)) as String?;
+    final repeat = storedBank == null
+        ? lesson.repeatExercises.isNotEmpty && attemptsFor(id).isOdd
+        : storedBank == 'repeat' && lesson.repeatExercises.isNotEmpty;
+    final bank = repeat ? 'repeat' : 'primary';
+    final exercises = repeat ? lesson.repeatExercises : lesson.exercises;
+    final structure = jsonEncode([
+      'v1',
+      bank,
+      'objectives',
+      for (final section in lesson.sections) ...[
+        ['teaching', section.id],
+        for (final example in section.examples) ['analysis', example.id],
+      ],
+      if (lesson.mindMap != null) 'mindMap',
+      for (final exercise in exercises) ['exercise', exercise.id],
+      'completion',
+    ]);
+    final previous =
+        _structures[id] ??
+        _box?.get(StorageKeys.lessonStructure(id)) as String?;
+    final stepCount =
+        2 +
+        lesson.sections.length +
+        lesson.sections.fold<int>(0, (sum, s) => sum + s.examples.length) +
+        (lesson.mindMap == null ? 0 : 1) +
+        exercises.length;
+    var step = previous == structure ? stepFor(id) : 0;
+    if (step < 0 || step >= stepCount) step = 0;
+
+    // A damaged or partially saved position must never skip an unanswered item.
+    final firstExercise = stepCount - exercises.length - 1;
+    for (var i = 0; i < exercises.length && firstExercise + i < step; i++) {
+      if (firstAttemptResult(id, exercises[i].id) == null) {
+        step = firstExercise + i;
+        break;
+      }
+    }
+
+    _steps[id] = step;
+    _structures[id] = structure;
+    _exerciseBanks[id] = bank;
+    final finished = previous == structure && isAttemptFinished(id);
+    _attemptFinished[id] = finished;
+    await _box?.putAll({
+      StorageKeys.lessonStep(id): step,
+      StorageKeys.lessonStructure(id): structure,
+      StorageKeys.lessonExerciseBank(id): bank,
+      StorageKeys.lessonAttemptFinished(id): finished,
+    });
+    return (step: step, repeat: repeat);
+  }
+
   bool isCompleted(String lessonId) {
     return _completedLessons.contains(lessonId) ||
         (_box?.get(StorageKeys.lessonCompleted(lessonId)) as bool? ?? false);
@@ -63,6 +128,11 @@ class LessonProgressController extends ChangeNotifier {
     return _attempts[lessonId] ??
         (_box?.get(StorageKeys.lessonAttempts(lessonId)) as int? ?? 0);
   }
+
+  bool isAttemptFinished(String lessonId) =>
+      _attemptFinished[lessonId] ??
+      (_box?.get(StorageKeys.lessonAttemptFinished(lessonId)) as bool? ??
+          false);
 
   bool isMastered(String lessonId) => masteryFor(lessonId) >= 70;
 
@@ -110,9 +180,14 @@ class LessonProgressController extends ChangeNotifier {
       return;
     }
     _answers[key] = correct;
-    await _box?.put(key, correct);
     if (correct) {
-      await _awardXp(xpPerCorrectAnswer);
+      _practiceStats[StorageKeys.totalXp] = totalXp + xpPerCorrectAnswer;
+    }
+    await _box?.putAll({
+      key: correct,
+      if (correct) StorageKeys.totalXp: totalXp,
+    });
+    if (correct) {
       notifyListeners();
     }
   }
@@ -132,21 +207,21 @@ class LessonProgressController extends ChangeNotifier {
     int finalStep, {
     required int mastery,
   }) async {
-    final bestMastery = mastery > masteryFor(lessonId)
-        ? mastery
-        : masteryFor(lessonId);
+    final completed = isCompleted(lessonId) || mastery >= 70;
     _steps[lessonId] = finalStep;
-    _mastery[lessonId] = bestMastery;
+    _mastery[lessonId] = mastery;
     _attempts[lessonId] = attemptsFor(lessonId) + 1;
+    _attemptFinished[lessonId] = true;
     _lastActiveLessonId = lessonId;
-    if (bestMastery >= 70) {
+    if (completed) {
       _completedLessons.add(lessonId);
     }
     await _box?.putAll({
       StorageKeys.lessonStep(lessonId): finalStep,
-      StorageKeys.lessonMastery(lessonId): bestMastery,
+      StorageKeys.lessonMastery(lessonId): mastery,
       StorageKeys.lessonAttempts(lessonId): _attempts[lessonId],
-      StorageKeys.lessonCompleted(lessonId): bestMastery >= 70,
+      StorageKeys.lessonAttemptFinished(lessonId): true,
+      StorageKeys.lessonCompleted(lessonId): completed,
       StorageKeys.lastActiveLessonId: lessonId,
     });
     await _bumpStreakForToday();
@@ -158,14 +233,24 @@ class LessonProgressController extends ChangeNotifier {
     _steps[lessonId] = 0;
     _lastActiveLessonId = lessonId;
     final answerPrefix = 'lesson.$lessonId.answer.';
+    final keys = {
+      ..._answers.keys.where((key) => key.startsWith(answerPrefix)),
+      ...?_box?.keys.whereType<String>().where(
+        (key) => key.startsWith(answerPrefix),
+      ),
+    };
     _answers.removeWhere((key, _) => key.startsWith(answerPrefix));
-    final storedAnswerKeys = _box?.keys
-        .whereType<String>()
-        .where((key) => key.startsWith(answerPrefix))
-        .toList();
-    await _box?.deleteAll(storedAnswerKeys ?? const <String>[]);
+    await _box?.deleteAll(keys);
+    _structures.remove(lessonId);
+    _exerciseBanks.remove(lessonId);
+    _attemptFinished[lessonId] = false;
+    await _box?.deleteAll([
+      StorageKeys.lessonStructure(lessonId),
+      StorageKeys.lessonExerciseBank(lessonId),
+    ]);
     await _box?.putAll({
       StorageKeys.lessonStep(lessonId): 0,
+      StorageKeys.lessonAttemptFinished(lessonId): false,
       StorageKeys.lastActiveLessonId: lessonId,
     });
     notifyListeners();

@@ -1,7 +1,7 @@
 # Content Authoring Guide
 
-Lesson source files live in `content/drafts/`. They are not bundled into the
-mobile application until a qualified Arabic grammar teacher approves them.
+Lesson source files live in `content/drafts/`. They are not loaded in normal
+release builds until a qualified Arabic grammar teacher approves them.
 Release-ready lessons are copied into the generated
 `assets/content/catalog.json` only after their review metadata is complete.
 
@@ -22,6 +22,9 @@ Release-ready lessons are copied into the generated
    wrong.
 9. Keep review status at `draft` or `pendingReview` until a qualified teacher
    completes the review checklist.
+10. Do not reveal the requested answer in the question, including through a
+    vocalized equivalent word or an inflection already written in the context.
+    Preserve the grammatical clues needed to choose the answer.
 
 Interactive exercises use the same answer and feedback structure as other
 exercises. For `selectWord`, list the words of the sentence as options in
@@ -79,7 +82,9 @@ For explicitly requested internal testing only, build with
 and enables the optional Alfiyya readings; it does not mark them approved.
 The TestFlight workflow currently uses this flag. Such builds must not be
 promoted to a production store release until teacher review is complete.
-Without the flag, the app loads and validates the approved bundled catalog.
+The preview also loads `content/drafts/glossary/catalog.json`; new or revised glossary
+entries there await teacher review. Without the flag, the app loads the
+approved lesson catalog and `assets/content/glossary.json`.
 
 ### Optional Alfiyya readings
 

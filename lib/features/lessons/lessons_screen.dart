@@ -139,8 +139,11 @@ class _LessonsScreenState extends State<LessonsScreen> {
           lesson: entry.$2,
           languageCode: languageCode,
           mastery: widget.progressController.masteryFor(entry.$2.id),
+          hasScore:
+              widget.progressController.attemptsFor(entry.$2.id) > 0 ||
+              widget.progressController.isCompleted(entry.$2.id),
           unlocked: entry.$2.prerequisites.every(
-            widget.progressController.isMastered,
+            widget.progressController.isCompleted,
           ),
           premiumLocked: isPlusLevel && !hasPlus,
           onTap: () => isPlusLevel && !hasPlus
@@ -201,6 +204,7 @@ class _PathNode extends StatelessWidget {
     required this.lesson,
     required this.languageCode,
     required this.mastery,
+    required this.hasScore,
     required this.unlocked,
     required this.premiumLocked,
     required this.onTap,
@@ -209,6 +213,7 @@ class _PathNode extends StatelessWidget {
   final Lesson lesson;
   final String languageCode;
   final int mastery;
+  final bool hasScore;
   final bool unlocked;
   final bool premiumLocked;
   final VoidCallback onTap;
@@ -287,7 +292,7 @@ class _PathNode extends StatelessWidget {
                     ? AppLocalizations.of(context).lessonLockedPrevious
                     : premiumLocked
                     ? AppLocalizations.of(context).plusRequired
-                    : mastery > 0
+                    : hasScore
                     ? AppLocalizations.of(
                         context,
                       ).lessonMastery(localizedPercent(context, mastery))

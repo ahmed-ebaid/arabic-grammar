@@ -44,6 +44,7 @@ flutter:
     - assets/content/glossary.json
     - assets/fonts/OFL-Amiri.txt
     - content/drafts/lesson_01.json
+    - content/drafts/glossary/catalog.json
   fonts:
     - family: AmiriQuran
       fonts:
